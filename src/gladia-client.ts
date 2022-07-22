@@ -34,6 +34,7 @@ import { WithImage, WithModel, WithText } from './types';
 
 export interface GladiaClientParams {
   apiKey: string;
+  baseUrl?: string;
   customHttpClient?: HttpClientFactory;
 }
 

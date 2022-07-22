@@ -26,7 +26,7 @@ export function getHttpClient(params: GladiaClientParams) {
     'x-gladia-key': params.apiKey,
     'Content-Type': 'application/json',
   };
-  return factory({ baseHeaders, baseUrl: 'https://v2-api.gladia.io' });
+  return factory({ baseHeaders, baseUrl: params.baseUrl ?? 'https://v2-api.gladia.io' });
 }
 
 const AxiosHttpClient: HttpClientFactory = ({ baseHeaders, baseUrl }) => {
