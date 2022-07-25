@@ -45,11 +45,11 @@ export class GladiaClient
     Omit<FromTextToText, 'httpClient'>
 {
   private fromImageInst: FromImage;
-  private FromTextInst: FromText;
+  private fromTextInst: FromText;
 
   constructor(private params: GladiaClientParams) {
     this.fromImageInst = new FromImage(this.params);
-    this.FromTextInst = new FromText(this.params);
+    this.fromTextInst = new FromText(this.params);
   }
 
   fromImage() {
@@ -57,7 +57,7 @@ export class GladiaClient
   }
 
   fromText() {
-    return this.FromTextInst;
+    return this.fromTextInst;
   }
 
   // shortcuts
