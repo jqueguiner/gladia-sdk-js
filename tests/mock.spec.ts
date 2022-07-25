@@ -6,4 +6,6 @@ export function mockHttpClient(): HttpClientFactory {
   });
 }
 
-it('mock', () => {});
+it('mock', () => {
+  expect(true).toBeTruthy();
+});
