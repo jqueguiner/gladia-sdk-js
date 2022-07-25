@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { URLSearchParams } from 'url';
 import { GladiaClientParams } from './gladia-client';
 
 interface PostParams {
@@ -33,13 +34,13 @@ const AxiosHttpClient: HttpClientFactory = ({ baseHeaders, baseUrl }) => {
   return {
     post(params) {
       const headers = { ...baseHeaders, ...params.headers };
-      const queryPart = Object.entries(params.query ?? {})
-        .map(([key, value]) => `${key}=${value}`)
-        .join('&');
-      const url = baseUrl + params.url + (queryPart.length > 0 ? `?${queryPart}` : '');
+      const url = new URL(params.url, baseUrl);
+      for (const [key, value] of Object.entries(params.query ?? {})) {
+        url.searchParams.set(key, String(value));
+      }
       const responseType = params.responseType ?? 'json';
       return axios
-        .post(url, params.body, { headers, responseType })
+        .post(url.toString(), params.body, { headers, responseType })
         .then((response) => response.data);
     },
   };
