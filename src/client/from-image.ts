@@ -1,14 +1,16 @@
+/* Generated file with "scripts/generate-sdk.ts" */
+
 import { FromImageToImage } from './from-image-to-image';
 import { FromImageToText } from './from-image-to-text';
-import { GladiaClientParams } from './gladia-client';
+import { GladiaClientParams } from './gladia-client-params';
 
 export class FromImage {
   private fromImageToImageInst: FromImageToImage;
   private fromImageToTextInst: FromImageToText;
 
-  constructor(private params: GladiaClientParams) {
-    this.fromImageToImageInst = new FromImageToImage(this.params);
-    this.fromImageToTextInst = new FromImageToText(this.params);
+  constructor(params: GladiaClientParams) {
+    this.fromImageToImageInst = new FromImageToImage(params);
+    this.fromImageToTextInst = new FromImageToText(params);
   }
 
   toImage() {
@@ -18,4 +20,5 @@ export class FromImage {
   toText() {
     return this.fromImageToTextInst;
   }
+
 }

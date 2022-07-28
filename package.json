@@ -12,7 +12,8 @@
     "build": "webpack --mode production",
     "test": "jest",
     "test:watch": "jest --watch",
-    "generate-model-types": "node scripts/generate-model-types.js"
+    "pregenerate-sdk": "ts-node scripts/generate-metasdk.ts",
+    "generate-sdk": "ts-node scripts/generate-sdk.ts"
   },
   "dependencies": {
     "axios": "^0.27.2",

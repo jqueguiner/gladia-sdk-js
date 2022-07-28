@@ -1,6 +1,6 @@
 import axios from 'axios';
-import { URLSearchParams } from 'url';
-import { GladiaClientParams } from './gladia-client';
+import { SDK_VERSION } from '../meta/sdk-version';
+import { GladiaClientParams } from '../client/gladia-client-params';
 
 interface PostParams {
   url: string;
@@ -25,6 +25,7 @@ export function getHttpClient(params: GladiaClientParams) {
   const factory = params.customHttpClient ?? AxiosHttpClient;
   const baseHeaders = {
     'x-gladia-key': params.apiKey,
+    'x-gladia-sdk': SDK_VERSION,
     'Content-Type': 'application/json',
   };
   return factory({ baseHeaders, baseUrl: params.baseUrl ?? 'https://v2-api.gladia.io' });
