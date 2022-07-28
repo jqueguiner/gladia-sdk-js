@@ -74,3 +74,10 @@ const imageOutput = await gladiaClient.fromImage().toImage().backgroundRemoval({
 const imageUrl = URL.createObjectURL(new Blob([ imageOutput ]));
 // => imageUrl can be used to display the image by setting it as src
 ```
+
+## Regenerate SDK
+
+```
+npm i
+npm run generate-sdk
+```
