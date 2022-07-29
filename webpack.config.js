@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-  entry: './index.ts',
+  entry: './src/index.ts',
   module: {
     rules: [
       {
@@ -11,12 +11,16 @@ module.exports = {
       },
     ],
   },
+  devtool: 'inline-source-map',
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
   },
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'lib'),
     filename: 'gladiaio-sdk.js',
-    library: "gladiaio_sdk",
+    library: {
+      name: 'gladiaio_sdk',
+      type: 'umd',
+    },
   },
 };

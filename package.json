@@ -6,8 +6,8 @@
     "url": "https://github.com/gladiaio/gladia-sdk-js.git"
   },
   "license": "MIT",
-  "main": "./index.ts",
-  "types": "./dist/index.d.ts",
+  "main": "./lib/gladiaio-sdk.js",
+  "types": "./lib/index.d.ts",
   "scripts": {
     "build": "webpack --mode production",
     "test": "jest",
