@@ -1,26 +1,44 @@
 const path = require('path');
 
-module.exports = {
-  entry: './src/index.ts',
-  module: {
-    rules: [
-      {
-        test: /\.tsx?$/,
-        use: 'ts-loader',
-        exclude: /node_modules/,
-      },
-    ],
-  },
-  devtool: 'inline-source-map',
-  resolve: {
-    extensions: ['.tsx', '.ts', '.js'],
-  },
-  output: {
-    path: path.resolve(__dirname, 'lib'),
-    filename: 'gladiaio-sdk.js',
-    library: {
-      name: 'gladiaio_sdk',
-      type: 'umd',
+function baseConfig({ devtool, filename }) {
+  return {
+    entry: './src/index.ts',
+    target: 'web',
+    module: {
+      rules: [
+        {
+          test: /\.tsx?$/,
+          exclude: /node_modules/,
+          use: [
+            {
+              loader: 'ts-loader',
+              options: {
+                configFile: 'tsconfig.es5.json',
+              },
+            },
+          ],
+        },
+      ],
     },
-  },
-};
+    devtool,
+    resolve: {
+      extensions: ['.tsx', '.ts', '.js'],
+    },
+    output: {
+      path: path.resolve(__dirname, 'lib'),
+      filename,
+      globalObject: 'this',
+      library: {
+        name: 'gladiaio_sdk',
+        type: 'umd',
+        umdNamedDefine: true,
+      },
+      libraryExport: 'default',
+    },
+  };
+}
+
+module.exports = [
+  baseConfig({ devtool: 'inline-source-map', filename: 'gladiaio-sdk.js' }),
+  baseConfig({ devtool: 'source-map', filename: 'gladiaio-sdk.min.js' }),
+];

@@ -23,6 +23,7 @@ export class FromAudioToText {
     const formData = new FormData();
     formData.append('audio', args.audio);
     formData.append('audio_url', args.audio_url);
+    formData.append('language', args.language);
     return this.httpClient.post({
       url: '/audio/text/speech_to_text/',
       query: { model: args.model ?? AUDIO_TEXT_SPEECH_TO_TEXT_DEFAULT_MODEL },

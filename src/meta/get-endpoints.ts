@@ -56,6 +56,9 @@ function getPostParams(def: PathDef, openApiJson: OpenApiJson) {
   if (def.post.requestBody) {
     Object.values(def.post.requestBody.content).forEach((schema) => {
       const componentRef = schema.schema.$ref;
+      if (!componentRef) {
+        return;
+      }
       const component =
         openApiJson.components.schemas[componentRef.substring('#/components/schemas/'.length)];
       params.push(

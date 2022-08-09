@@ -2,17 +2,86 @@
 
 ## Setup
 
+### Install the SDK
+
 ```bash
 npm i @gladiaio/sdk
 ```
 
-```JavaScript
+or to get the latest version from git, add this to your `package.json`:
+```json
+{
+    "dependencies": {
+        "@gladiaio/sdk": "https://github.com/gladiaio/gladia-sdk-js.git",
+        // or
+        "@gladiaio/sdk": "git+ssh://git@github.com:gladiaio/gladia-sdk-js.git",
+    }
+}
+```
+
+### Use it with TypeScript
+
+```TypeScript
 import gladia from '@gladiaio/sdk';
 
 const gladiaClient = gladia({ apiKey: 'XXXXXXXX' });
-const analysis = await gladiaClient.sentimentAnalysis({ text: 'I hate you' });
-// analysis = "{\"label\": \"NEGATIVE\", \"score\": 0.9991129040718079}"
+const result = await gladiaClient.plural({ word: 'cat' });
+// result = { prediction: 'cats' }
 ```
+### Use it with JavaScript with ES module
+
+```JavaScript
+import { gladia } from '@gladiaio/sdk';
+
+const gladiaClient = gladia({ apiKey: 'XXXXXXXX' });
+const result = await gladiaClient.plural({ word: 'cat' });
+// result = { prediction: 'cats' }
+```
+
+### Use it with JavaScript (without module)
+
+```JavaScript
+const { gladia } = require('@gladiaio/sdk');
+
+const gladiaClient = gladia({ apiKey: 'XXXXXXXX' });
+const result = await gladiaClient.plural({ word: 'cat' });
+// result = { prediction: 'cats' }
+```
+### Use it with JavaScript (without module, in ES5 context)
+
+Notes: ES5 version is built for IE targets when you have no bundler, prefer other methods
+
+```JavaScript
+const { gladia } = require('@gladiaio/sdk/lib/es5');
+
+const gladiaClient = gladia({ apiKey: 'XXXXXXXX' });
+const result = await gladiaClient.plural({ word: 'cat' });
+// result = { prediction: 'cats' }
+```
+### Use it with JavaScript in the browser with script import
+
+```html
+<!DOCTYPE html>
+<html>
+<body>
+    <script src="./gladiaio-sdk.js"></script>
+    <script>
+        const gladiaClient = gladiaio_sdk({ apiKey: 'XXXXXXXX' });
+        (async () => {
+            const result = await gladiaClient.plural({ word: 'cat' });
+            // result = { prediction: 'cats' }
+        })();
+    </script>
+</body>
+</html>
+```
+
+There is multiple bundle choices:
+- `gladiaio-sdk.js`: contain bundled ES5 JS + source map
+- `gladiaio-sdk.min.js`: contain bundled ES5 JS but not source map
+- `gladiaio-sdk.min.js.map`: contain only source map for `gladiaio-sdk.min.js`
+
+For production, we recommand `gladiaio-sdk.min.js`;
 
 ## Function logic
 

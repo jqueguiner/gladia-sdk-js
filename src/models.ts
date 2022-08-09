@@ -198,7 +198,7 @@ export const TEXT_TEXT_LANGUAGE_DETECTION_MODELS = [
    'toftrup-etal-2021',
    'xlm-roberta-base-language-detection',
 ] as const;
-export const TEXT_TEXT_LANGUAGE_DETECTION_DEFAULT_MODEL = "toftrup-etal-2021" as const;
+export const TEXT_TEXT_LANGUAGE_DETECTION_DEFAULT_MODEL = "xlm-roberta-base-language-detection" as const;
 export type TextTextLanguageDetectionModel = typeof TEXT_TEXT_LANGUAGE_DETECTION_MODELS[number];
 
 export const TEXT_TEXT_LANGUAGE_GENERATION_MODELS = [
@@ -262,7 +262,7 @@ export const TEXT_TEXT_SENTIMENT_ANALYSIS_MODELS = [
    'nlptown-bert-base-multilingual-uncased-sentiment',
    'zero-shot-classification-facebook-bart-large-mnli',
 ] as const;
-export const TEXT_TEXT_SENTIMENT_ANALYSIS_DEFAULT_MODEL = "distilbert-base-uncased-finetuned-sst-2-english" as const;
+export const TEXT_TEXT_SENTIMENT_ANALYSIS_DEFAULT_MODEL = "nlptown-bert-base-multilingual-uncased-sentiment" as const;
 export type TextTextSentimentAnalysisModel = typeof TEXT_TEXT_SENTIMENT_ANALYSIS_MODELS[number];
 
 export const TEXT_TEXT_SIMILARITY_MODELS = [
