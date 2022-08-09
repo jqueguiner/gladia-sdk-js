@@ -1,37 +1,8 @@
 {
+  "extends": "./tsconfig.base.json",
   "compilerOptions": {
-    "allowJs": true,
-    "rootDir": "./src",
-    "baseUrl": "./",
-    "esModuleInterop": true,
-    "experimentalDecorators": true,
-    "noEmitOnError": true,
-    "resolveJsonModule": true,
-    "outDir": "lib",
-    "declaration": true,
-    "declarationDir": "./lib",
-    "sourceMap": true,
-    "target": "es5",
-    "module": "commonjs",
-    "composite": true,
-    "declarationMap": true,
-    "moduleResolution": "node",
-    "lib": [
-      "es2015",
-      "dom"
-    ]
-  },
-  "exclude": [
-    "node_modules",
-    "lib",
-    "lib-amd",
-    "scripts",
-    "tests",
-  ],
-  "include": [
-    "src/"
-  ],
-  "ts-node": { 
-    "files": true 
+    "target": "es2018",
+    "outDir": "lib/esm",
+    "module": "esnext",
   }
 }

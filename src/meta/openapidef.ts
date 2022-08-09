@@ -37,16 +37,6 @@ export const openApiJson: OpenApiJson = {
           {
             "required": false,
             "schema": {
-              "title": "Language",
-              "type": "string",
-              "default": "en"
-            },
-            "name": "language",
-            "in": "query"
-          },
-          {
-            "required": false,
-            "schema": {
               "title": "Model",
               "enum": [
                 "coqui_english_huge_vocab"
@@ -119,8 +109,8 @@ export const openApiJson: OpenApiJson = {
             "schema": {
               "title": "Model",
               "enum": [
-                "mobilenet",
-                "xception"
+                "xception",
+                "mobilenet"
               ],
               "type": "string",
               "default": "xception"
@@ -481,136 +471,126 @@ export const openApiJson: OpenApiJson = {
           {
             "required": false,
             "schema": {
-              "title": "Top K",
-              "type": "integer",
-              "default": 1
-            },
-            "name": "top_k",
-            "in": "query"
-          },
-          {
-            "required": false,
-            "schema": {
               "title": "Model",
               "enum": [
-                "efficientnet_v2_l",
-                "regnet_x_16gf_v1",
-                "mnasnet0_75",
-                "regnet_y_16gf_swag_e2e_v1",
-                "efficientnet_b4",
-                "resnet50_quantized_fbgemm_v1",
-                "resnext50_32x4d_v1",
-                "regnet_y_32gf_v1",
-                "shufflenet_v2_x0_5_quantized_fbgemm_v1",
-                "regnet_x_3_2gf_v1",
-                "vgg19_bn",
-                "vit_b_16_swag_e2e_v1",
-                "shufflenet_v2_x1_5",
-                "vit_l_16_v1",
-                "mnasnet1_3",
-                "regnet_y_32gf_swag_linear_v1",
-                "shufflenet_v2_x1_0",
-                "convnext_tiny",
-                "resnext101_32x8d_quantized_fbgemm_v1",
-                "regnet_x_8gf_v2",
-                "regnet_x_800mf_v2",
-                "regnet_x_32gf_v1",
-                "efficientnet_v2_m",
-                "inception_v3",
-                "regnet_y_1_6gf_v2",
-                "resnext101_32x8d_quantized_fbgemm_v2",
-                "efficientnet_b5",
-                "swin_s",
-                "resnet152_v2",
                 "swin_t",
-                "densenet161",
-                "regnet_y_3_2gf_v2",
-                "regnet_y_400mf_v1",
-                "regnet_y_128gf_swag_e2e_v1",
-                "wide_resnet101_2_v1",
-                "resnext101_64x4d_v1",
-                "efficientnet_b7",
-                "resnext101_32x8d_v1",
-                "resnext101_64x4d_quantized_fbgemm_v1",
-                "regnet_y_16gf_v2",
-                "vit_l_32",
+                "mnasnet1_3",
+                "efficientnet_b6",
+                "vgg13_bn",
+                "vgg13",
+                "vgg11_bn",
+                "shufflenet_v2_x2_0_quantized_fbgemm_v1",
+                "efficientnet_v2_m",
+                "vit_b_16_v1",
                 "resnet50_quantized_fbgemm_v2",
-                "regnet_y_128gf_swag_linear_v1",
-                "regnet_x_400mf_v1",
-                "regnet_y_32gf_v2",
-                "mnasnet1_0",
+                "vit_h_14_swag_linear_v1",
+                "regnet_y_1_6gf_v1",
+                "vit_b_16_swag_linear_v1",
+                "inception_v3",
+                "densenet201",
+                "vgg16_bn",
+                "vit_l_16_swag_e2e_v1",
+                "squeezenet1_1",
                 "regnet_y_8gf_v1",
+                "resnext101_32x8d_v1",
+                "mobilenet_v3_large_v2",
+                "vit_l_32",
+                "shufflenet_v2_x0_5_quantized_fbgemm_v1",
+                "regnet_y_1_6gf_v2",
+                "regnet_x_16gf_v2",
+                "regnet_x_400mf_v2",
+                "efficientnet_b1_v2",
                 "regnet_x_1_6gf_v2",
-                "regnet_x_8gf_v1",
+                "vit_l_16_v1",
                 "efficientnet_b1_v1",
-                "swin_b",
-                "vgg19",
-                "resnext101_32x8d_v2",
-                "convnext_base",
-                "mnasnet0_5",
+                "regnet_y_400mf_v1",
+                "resnext101_64x4d_quantized_fbgemm_v1",
+                "resnet152_v1",
+                "inception_v3_fbgemm_v1",
+                "regnet_y_3_2gf_v2",
+                "efficientnet_b5",
+                "regnet_y_16gf_v1",
+                "mobilenet_v3_large_quantized_qnnpack_v1",
+                "regnet_x_3_2gf_v1",
+                "efficientnet_b7",
+                "resnext101_32x8d_quantized_fbgemm_v2",
+                "resnet18",
+                "shufflenet_v2_x0_5",
+                "googlenet",
+                "shufflenet_v2_x1_0_quantized_fbgemm_v1",
+                "regnet_x_1_6gf_v1",
+                "densenet121",
+                "regnet_y_32gf_v1",
+                "regnet_y_32gf_swag_linear_v1",
+                "resnet50_v1",
+                "shufflenet_v2_x2_0",
+                "efficientnet_v2_s",
+                "vit_b_16_swag_e2e_v1",
+                "convnext_large",
+                "regnet_y_128gf_swag_e2e_v1",
+                "mnasnet0_75",
+                "resnet50_quantized_fbgemm_v1",
+                "regnet_x_3_2gf_v2",
+                "swin_s",
+                "googlenet_quantized_fbgemm_v1",
+                "regnet_x_8gf_v2",
+                "mobilenet_v2_v2",
+                "mnasnet1_0",
                 "densenet169",
                 "resnext50_32x4d_v2",
-                "wide_resnet101_2_v2",
-                "regnet_y_16gf_v1",
-                "vgg11_bn",
-                "shufflenet_v2_x2_0",
-                "regnet_y_1_6gf_v1",
-                "mobilenet_v2_v2",
-                "regnet_y_3_2gf_v1",
-                "mobilenet_v3_large_quantized_qnnpack_v1",
-                "resnet18",
-                "efficientnet_b2",
-                "densenet201",
-                "regnet_y_8gf_v2",
-                "regnet_y_32gf_swag_e2e_v1",
-                "resnet50_v1",
-                "resnet152_v1",
-                "densenet121",
-                "vgg16_v1",
-                "regnet_x_400mf_v2",
-                "squeezenet1_1",
-                "mobilenet_v3_large_v1",
-                "efficientnet_b3",
-                "resnet50_v2",
-                "mobilenet_v3_small",
-                "alexnet",
-                "vgg11",
-                "efficientnet_b6",
-                "googlenet",
-                "shufflenet_v2_x1_5_quantized_fbgemm_v1",
-                "regnet_x_3_2gf_v2",
-                "vit_b_16_swag_linear_v1",
-                "resnet18_quantized_fbgemm_v1",
-                "shufflenet_v2_x0_5",
-                "regnet_x_1_6gf_v1",
-                "shufflenet_v2_x1_0_quantized_fbgemm_v1",
-                "efficientnet_v2_s",
-                "squeezenet1_0",
-                "shufflenet_v2_x2_0_quantized_fbgemm_v1",
-                "mobilenet_v2_v1",
-                "regnet_x_16gf_v2",
+                "densenet161",
                 "regnet_x_32gf_v2",
-                "googlenet_quantized_fbgemm_v1",
-                "vgg16_bn",
-                "vit_h_14_swag_e2e_v1",
-                "vit_l_16_swag_linear_v1",
-                "regnet_x_800mf_v1",
-                "vgg13",
-                "convnext_small",
-                "mobilenet_v3_large_v2",
-                "resnet34",
-                "efficientnet_b0",
-                "convnext_large",
-                "vit_h_14_swag_linear_v1",
-                "vit_b_32",
-                "efficientnet_b1_v2",
-                "vit_b_16_v1",
-                "mobilenet_v2_quantized_qnnpack_v1",
+                "efficientnet_v2_l",
                 "regnet_y_400mf_v2",
-                "vit_l_16_swag_e2e_v1",
+                "shufflenet_v2_x1_5_quantized_fbgemm_v1",
+                "regnet_y_32gf_v2",
+                "resnet18_quantized_fbgemm_v1",
+                "regnet_x_800mf_v2",
+                "swin_b",
+                "efficientnet_b0",
+                "mobilenet_v3_large_v1",
+                "regnet_y_16gf_swag_e2e_v1",
+                "regnet_x_8gf_v1",
+                "regnet_x_32gf_v1",
+                "mobilenet_v2_v1",
+                "vgg16_v1",
+                "regnet_x_800mf_v1",
+                "vit_h_14_swag_e2e_v1",
+                "resnet152_v2",
+                "efficientnet_b4",
+                "resnext101_32x8d_quantized_fbgemm_v1",
+                "regnet_y_3_2gf_v1",
+                "wide_resnet101_2_v2",
+                "regnet_x_16gf_v1",
+                "vgg11",
+                "shufflenet_v2_x1_5",
+                "vgg19_bn",
+                "alexnet",
+                "resnext101_32x8d_v2",
+                "regnet_y_16gf_v2",
+                "efficientnet_b2",
+                "vgg19",
+                "convnext_base",
+                "convnext_small",
+                "regnet_x_400mf_v1",
+                "wide_resnet101_2_v1",
+                "shufflenet_v2_x1_0",
+                "resnext101_64x4d_v1",
+                "regnet_y_8gf_v2",
+                "squeezenet1_0",
+                "resnext50_32x4d_v1",
+                "resnet34",
                 "regnet_y_16gf_swag_linear_v1",
-                "inception_v3_fbgemm_v1",
-                "vgg13_bn"
+                "mobilenet_v3_small",
+                "resnet50_v2",
+                "vit_l_16_swag_linear_v1",
+                "regnet_y_32gf_swag_e2e_v1",
+                "mobilenet_v2_quantized_qnnpack_v1",
+                "vit_b_32",
+                "convnext_tiny",
+                "mnasnet0_5",
+                "efficientnet_b3",
+                "regnet_y_128gf_swag_linear_v1"
               ],
               "type": "string",
               "default": "alexnet"
@@ -678,21 +658,11 @@ export const openApiJson: OpenApiJson = {
           {
             "required": false,
             "schema": {
-              "title": "Source Language",
-              "type": "string",
-              "default": "en"
-            },
-            "name": "source_language",
-            "in": "query"
-          },
-          {
-            "required": false,
-            "schema": {
               "title": "Model",
               "enum": [
+                "easy-ocr",
                 "tesseract-denoising",
-                "tesseract-default",
-                "easy-ocr"
+                "tesseract-default"
               ],
               "type": "string",
               "default": "easy-ocr"
@@ -760,16 +730,6 @@ export const openApiJson: OpenApiJson = {
           {
             "required": false,
             "schema": {
-              "title": "Sentence",
-              "type": "string",
-              "default": "Text to corrcte"
-            },
-            "name": "sentence",
-            "in": "query"
-          },
-          {
-            "required": false,
-            "schema": {
               "title": "Model",
               "enum": [
                 "flexudy-t5-base-multi-sentence-doctor"
@@ -781,6 +741,17 @@ export const openApiJson: OpenApiJson = {
             "in": "query"
           }
         ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "title": "Sentence",
+                "type": "string",
+                "default": "Text to corrcte"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "Successful Response",
@@ -831,16 +802,6 @@ export const openApiJson: OpenApiJson = {
           {
             "required": false,
             "schema": {
-              "title": "Text",
-              "type": "string",
-              "default": "I like you. I love you"
-            },
-            "name": "text",
-            "in": "query"
-          },
-          {
-            "required": false,
-            "schema": {
               "title": "Model",
               "enum": [
                 "mrm8488-t5-base-finetuned-emotion"
@@ -852,6 +813,17 @@ export const openApiJson: OpenApiJson = {
             "in": "query"
           }
         ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "title": "Text",
+                "type": "string",
+                "default": "I like you. I love you"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "Successful Response",
@@ -902,16 +874,6 @@ export const openApiJson: OpenApiJson = {
           {
             "required": false,
             "schema": {
-              "title": "Text",
-              "type": "string",
-              "default": "I hate you piece of shit"
-            },
-            "name": "text",
-            "in": "query"
-          },
-          {
-            "required": false,
-            "schema": {
               "title": "Model",
               "enum": [
                 "Hate-speech-CNERG-dehatebert-mono-english"
@@ -923,6 +885,17 @@ export const openApiJson: OpenApiJson = {
             "in": "query"
           }
         ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "title": "Text",
+                "type": "string",
+                "default": "I hate you piece of shit"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "Successful Response",
@@ -973,20 +946,10 @@ export const openApiJson: OpenApiJson = {
           {
             "required": false,
             "schema": {
-              "title": "Text",
-              "type": "string",
-              "default": "The Crown is a historical drama streaming television series about the reign of Queen Elizabeth II, created and principally written by Peter Morgan, and produced by Left Bank Pictures and Sony Pictures Television for Netflix. Morgan developed it from his drama film The Queen (2006) and especially his stage play The Audience (2013). The first season covers the period from Elizabeth's marriage to Philip, Duke of Edinburgh in 1947 to the disintegration of her sister Princess Margaret's engagement to Group Captain Peter Townsend in 1955. The second season covers the period from the Suez Crisis in 1956 to the retirement of Prime Minister Harold Macmillan in 1963 and the birth of Prince Edward in 1964. The third season spans 1964 to 1977, includes Harold Wilson's two periods as prime minister, and introduces Camilla Shand. The fourth season spans 1979 to the early 1990s and includes Margaret Thatcher's tenure as prime minister and Prince Charles's marriage to Lady Diana Spencer. The fifth and sixth seasons, which will close the series, will cover the Queen's reign into the 21st century. For each of the two-season increments, new actors fill the roles to account for the ageing process in the periods of time portrayed. Claire Foy portrays the Queen in the first two seasons, alongside Matt Smith as Prince Philip and Vanessa Kirby as Princess Margaret. For the third and fourth seasons, Olivia Colman takes over as the Queen, Tobias Menzies as Prince Philip, and Helena Bonham Carter as Princess Margaret. Also added to the cast in season 3 is Josh O'Connor as Prince Charles. In the fourth season, new cast members include Emma Corrin as Lady Diana Spencer and Gillian Anderson as Margaret Thatcher. Imelda Staunton, Jonathan Pryce, and Lesley Manville will succeed Colman, Menzies, and Bonham Carter, respectively, for the final two seasons, while Elizabeth Debicki and Dominic West are expected to assume the role of Princess Diana and Prince Charles, respectively. Filming takes place at Elstree Studios in Borehamwood, Hertfordshire, with location shooting throughout the United Kingdom and internationally. The first season was released by Netflix on 4 November 2016, the second on 8 December 2017, the third on 17 November 2019, and the fourth on 15 November 2020. The fifth season is anticipated in 2022. As of 2020, the estimated production budget of The Crown has been reported to be $260 million, making it one of the most expensive television series in history.[4] The Crown was praised by critics for its acting, directing, writing, cinematography, and production values, although its historical inaccuracies have received some criticism, particularly within the fourth season. Nonetheless, it received accolades at the 23rd Screen Actors Guild Awards, Foy won Best Actress in the lead role and Best Actor for John Lithgow as Winston Churchill, and has secured a total of sixty three nominations for its first four seasons at the Primetime Emmy Awards, including four for Outstanding Drama Series.[5] The series has also twice won the Golden Globe Award for Best Television Series - Drama, at the 74th and 78th ceremonies, with additional acting wins for Foy, Colman, Corrin, O'Connor and Anderson.[6] "
-            },
-            "name": "text",
-            "in": "query"
-          },
-          {
-            "required": false,
-            "schema": {
               "title": "Model",
               "enum": [
-                "keybert-paraphrase-MiniLM-L6-v2",
-                "keybert-paraphrase-multilingual-MiniLM-L12-v2"
+                "keybert-paraphrase-multilingual-MiniLM-L12-v2",
+                "keybert-paraphrase-MiniLM-L6-v2"
               ],
               "type": "string",
               "default": "keybert-paraphrase-MiniLM-L6-v2"
@@ -995,6 +958,17 @@ export const openApiJson: OpenApiJson = {
             "in": "query"
           }
         ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "title": "Text",
+                "type": "string",
+                "default": "The Crown is a historical drama streaming television series about the reign of Queen Elizabeth II, created and principally written by Peter Morgan, and produced by Left Bank Pictures and Sony Pictures Television for Netflix. Morgan developed it from his drama film The Queen (2006) and especially his stage play The Audience (2013). The first season covers the period from Elizabeth's marriage to Philip, Duke of Edinburgh in 1947 to the disintegration of her sister Princess Margaret's engagement to Group Captain Peter Townsend in 1955. The second season covers the period from the Suez Crisis in 1956 to the retirement of Prime Minister Harold Macmillan in 1963 and the birth of Prince Edward in 1964. The third season spans 1964 to 1977, includes Harold Wilson's two periods as prime minister, and introduces Camilla Shand. The fourth season spans 1979 to the early 1990s and includes Margaret Thatcher's tenure as prime minister and Prince Charles's marriage to Lady Diana Spencer. The fifth and sixth seasons, which will close the series, will cover the Queen's reign into the 21st century. For each of the two-season increments, new actors fill the roles to account for the ageing process in the periods of time portrayed. Claire Foy portrays the Queen in the first two seasons, alongside Matt Smith as Prince Philip and Vanessa Kirby as Princess Margaret. For the third and fourth seasons, Olivia Colman takes over as the Queen, Tobias Menzies as Prince Philip, and Helena Bonham Carter as Princess Margaret. Also added to the cast in season 3 is Josh O'Connor as Prince Charles. In the fourth season, new cast members include Emma Corrin as Lady Diana Spencer and Gillian Anderson as Margaret Thatcher. Imelda Staunton, Jonathan Pryce, and Lesley Manville will succeed Colman, Menzies, and Bonham Carter, respectively, for the final two seasons, while Elizabeth Debicki and Dominic West are expected to assume the role of Princess Diana and Prince Charles, respectively. Filming takes place at Elstree Studios in Borehamwood, Hertfordshire, with location shooting throughout the United Kingdom and internationally. The first season was released by Netflix on 4 November 2016, the second on 8 December 2017, the third on 17 November 2019, and the fourth on 15 November 2020. The fifth season is anticipated in 2022. As of 2020, the estimated production budget of The Crown has been reported to be $260 million, making it one of the most expensive television series in history.[4] The Crown was praised by critics for its acting, directing, writing, cinematography, and production values, although its historical inaccuracies have received some criticism, particularly within the fourth season. Nonetheless, it received accolades at the 23rd Screen Actors Guild Awards, Foy won Best Actress in the lead role and Best Actor for John Lithgow as Winston Churchill, and has secured a total of sixty three nominations for its first four seasons at the Primetime Emmy Awards, including four for Outstanding Drama Series.[5] The series has also twice won the Golden Globe Award for Best Television Series - Drama, at the 74th and 78th ceremonies, with additional acting wins for Foy, Colman, Corrin, O'Connor and Anderson.[6] "
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "Successful Response",
@@ -1045,28 +1019,29 @@ export const openApiJson: OpenApiJson = {
           {
             "required": false,
             "schema": {
-              "title": "Text",
-              "type": "string",
-              "default": "Input text to perform language detection on"
-            },
-            "name": "text",
-            "in": "query"
-          },
-          {
-            "required": false,
-            "schema": {
               "title": "Model",
               "enum": [
-                "xlm-roberta-base-language-detection",
-                "toftrup-etal-2021"
+                "toftrup-etal-2021",
+                "xlm-roberta-base-language-detection"
               ],
               "type": "string",
-              "default": "toftrup-etal-2021"
+              "default": "xlm-roberta-base-language-detection"
             },
             "name": "model",
             "in": "query"
           }
         ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "title": "Text",
+                "type": "string",
+                "default": "Input text to perform language detection on"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "Successful Response",
@@ -1117,16 +1092,6 @@ export const openApiJson: OpenApiJson = {
           {
             "required": false,
             "schema": {
-              "title": "Text",
-              "type": "string",
-              "default": "Input text to start generation from"
-            },
-            "name": "text",
-            "in": "query"
-          },
-          {
-            "required": false,
-            "schema": {
               "title": "Model",
               "enum": [
                 "EleutherAI-gpt-neo-2_7B"
@@ -1138,6 +1103,17 @@ export const openApiJson: OpenApiJson = {
             "in": "query"
           }
         ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "title": "Text",
+                "type": "string",
+                "default": "Input text to start generation from"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "Successful Response",
@@ -1188,16 +1164,6 @@ export const openApiJson: OpenApiJson = {
           {
             "required": false,
             "schema": {
-              "title": "Text",
-              "type": "string",
-              "default": "Hugging Face Inc. is a company based in New York City. Its headquarters are in DUMBO, therefore very close to the Manhattan Bridge."
-            },
-            "name": "text",
-            "in": "query"
-          },
-          {
-            "required": false,
-            "schema": {
               "title": "Model",
               "enum": [
                 "dbmdz-bert-large-cased-finetuned-conll03-english"
@@ -1209,6 +1175,17 @@ export const openApiJson: OpenApiJson = {
             "in": "query"
           }
         ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "title": "Text",
+                "type": "string",
+                "default": "Hugging Face Inc. is a company based in New York City. Its headquarters are in DUMBO, therefore very close to the Manhattan Bridge."
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "Successful Response",
@@ -1259,26 +1236,6 @@ export const openApiJson: OpenApiJson = {
           {
             "required": false,
             "schema": {
-              "title": "Sentence 1",
-              "type": "string",
-              "default": "I like you."
-            },
-            "name": "sentence_1",
-            "in": "query"
-          },
-          {
-            "required": false,
-            "schema": {
-              "title": "Sentence 2",
-              "type": "string",
-              "default": "But it's not about you."
-            },
-            "name": "sentence_2",
-            "in": "query"
-          },
-          {
-            "required": false,
-            "schema": {
               "title": "Model",
               "enum": [
                 "bert-base-uncased"
@@ -1290,6 +1247,15 @@ export const openApiJson: OpenApiJson = {
             "in": "query"
           }
         ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_apply_text_text_next_sentence_prediction__post"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "Successful Response",
@@ -1340,22 +1306,12 @@ export const openApiJson: OpenApiJson = {
           {
             "required": false,
             "schema": {
-              "title": "Sentence",
-              "type": "string",
-              "default": "I think therefore I"
-            },
-            "name": "sentence",
-            "in": "query"
-          },
-          {
-            "required": false,
-            "schema": {
               "title": "Model",
               "enum": [
+                "distilbert-base-uncased",
                 "bert-base-uncased",
                 "roberta-base",
-                "albert-base-v2",
-                "distilbert-base-uncased"
+                "albert-base-v2"
               ],
               "type": "string",
               "default": "distilbert-base-uncased"
@@ -1364,6 +1320,17 @@ export const openApiJson: OpenApiJson = {
             "in": "query"
           }
         ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "title": "Sentence",
+                "type": "string",
+                "default": "I think therefore I"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "Successful Response",
@@ -1414,26 +1381,6 @@ export const openApiJson: OpenApiJson = {
           {
             "required": false,
             "schema": {
-              "title": "Word",
-              "type": "string",
-              "default": "cat"
-            },
-            "name": "word",
-            "in": "query"
-          },
-          {
-            "required": false,
-            "schema": {
-              "title": "Count",
-              "type": "integer",
-              "default": 2
-            },
-            "name": "count",
-            "in": "query"
-          },
-          {
-            "required": false,
-            "schema": {
               "title": "Model",
               "enum": [
                 "inflect"
@@ -1445,6 +1392,15 @@ export const openApiJson: OpenApiJson = {
             "in": "query"
           }
         ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_apply_text_text_plural__post"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "Successful Response",
@@ -1495,16 +1451,6 @@ export const openApiJson: OpenApiJson = {
           {
             "required": false,
             "schema": {
-              "title": "Code Snippet",
-              "type": "string",
-              "default": "def is_palendrome(s):"
-            },
-            "name": "code_snippet",
-            "in": "query"
-          },
-          {
-            "required": false,
-            "schema": {
               "title": "Model",
               "enum": [
                 "sentdex-GPyT"
@@ -1516,6 +1462,17 @@ export const openApiJson: OpenApiJson = {
             "in": "query"
           }
         ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "title": "Code Snippet",
+                "type": "string",
+                "default": "def is_palendrome(s):"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "Successful Response",
@@ -1566,32 +1523,12 @@ export const openApiJson: OpenApiJson = {
           {
             "required": false,
             "schema": {
-              "title": "Context",
-              "type": "string",
-              "default": "My name is Clara and I live in Berkeley."
-            },
-            "name": "context",
-            "in": "query"
-          },
-          {
-            "required": false,
-            "schema": {
-              "title": "Question",
-              "type": "string",
-              "default": "What's my name?"
-            },
-            "name": "question",
-            "in": "query"
-          },
-          {
-            "required": false,
-            "schema": {
               "title": "Model",
               "enum": [
-                "distilbert-base-cased-distilled-squad",
-                "mrm8488-bert-tiny-5-finetuned-squadv2",
-                "deepset_bert-base-cased-squad2",
                 "deepset-roberta-base-squad2",
+                "deepset_bert-base-cased-squad2",
+                "mrm8488-bert-tiny-5-finetuned-squadv2",
+                "distilbert-base-cased-distilled-squad",
                 "mfeb-albert-xxlarge-v2-squad2"
               ],
               "type": "string",
@@ -1601,6 +1538,15 @@ export const openApiJson: OpenApiJson = {
             "in": "query"
           }
         ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_apply_text_text_question_answering__post"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "Successful Response",
@@ -1651,16 +1597,6 @@ export const openApiJson: OpenApiJson = {
           {
             "required": false,
             "schema": {
-              "title": "Context",
-              "type": "string",
-              "default": "Once, a group of frogs was roaming around the forest in search of water."
-            },
-            "name": "context",
-            "in": "query"
-          },
-          {
-            "required": false,
-            "schema": {
               "title": "Model",
               "enum": [
                 "ramsrigouthamg-t5-large-paraphraser-diverse-high-quality"
@@ -1672,6 +1608,17 @@ export const openApiJson: OpenApiJson = {
             "in": "query"
           }
         ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "title": "Context",
+                "type": "string",
+                "default": "Once, a group of frogs was roaming around the forest in search of water."
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "Successful Response",
@@ -1722,30 +1669,31 @@ export const openApiJson: OpenApiJson = {
           {
             "required": false,
             "schema": {
-              "title": "Text",
-              "type": "string",
-              "default": "I like you. I love you"
-            },
-            "name": "text",
-            "in": "query"
-          },
-          {
-            "required": false,
-            "schema": {
               "title": "Model",
               "enum": [
-                "zero-shot-classification-facebook-bart-large-mnli",
-                "distilbert-base-uncased-finetuned-sst-2-english",
                 "distilbert-base-uncased",
-                "nlptown-bert-base-multilingual-uncased-sentiment"
+                "distilbert-base-uncased-finetuned-sst-2-english",
+                "nlptown-bert-base-multilingual-uncased-sentiment",
+                "zero-shot-classification-facebook-bart-large-mnli"
               ],
               "type": "string",
-              "default": "distilbert-base-uncased-finetuned-sst-2-english"
+              "default": "nlptown-bert-base-multilingual-uncased-sentiment"
             },
             "name": "model",
             "in": "query"
           }
         ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "title": "Text",
+                "type": "string",
+                "default": "I like you. I love you"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "Successful Response",
@@ -1796,26 +1744,6 @@ export const openApiJson: OpenApiJson = {
           {
             "required": false,
             "schema": {
-              "title": "Sentence 1",
-              "type": "string",
-              "default": ""
-            },
-            "name": "sentence_1",
-            "in": "query"
-          },
-          {
-            "required": false,
-            "schema": {
-              "title": "Sentence 2",
-              "type": "string",
-              "default": ""
-            },
-            "name": "sentence_2",
-            "in": "query"
-          },
-          {
-            "required": false,
-            "schema": {
               "title": "Model",
               "enum": [
                 "all-MiniLM-L6-v2"
@@ -1827,6 +1755,15 @@ export const openApiJson: OpenApiJson = {
             "in": "query"
           }
         ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_apply_text_text_similarity__post"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "Successful Response",
@@ -1877,26 +1814,6 @@ export const openApiJson: OpenApiJson = {
           {
             "required": false,
             "schema": {
-              "title": "Input String Language 1",
-              "type": "string",
-              "default": "Sentence from first language"
-            },
-            "name": "input_string_language_1",
-            "in": "query"
-          },
-          {
-            "required": false,
-            "schema": {
-              "title": "Input String Language 2",
-              "type": "string",
-              "default": "来自 第一 语言的 句子"
-            },
-            "name": "input_string_language_2",
-            "in": "query"
-          },
-          {
-            "required": false,
-            "schema": {
               "title": "Model",
               "enum": [
                 "bert-base-multilingual-cased"
@@ -1908,6 +1825,15 @@ export const openApiJson: OpenApiJson = {
             "in": "query"
           }
         ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_apply_text_text_word_alignment__post"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "Successful Response",
@@ -1947,6 +1873,11 @@ export const openApiJson: OpenApiJson = {
             "type": "string",
             "description": "File URL if no file upload",
             "default": "https://anshe.org/audio/3Weeks-080715.mp3"
+          },
+          "language": {
+            "title": "Language",
+            "type": "string",
+            "default": "en"
           }
         }
       },
@@ -1963,7 +1894,7 @@ export const openApiJson: OpenApiJson = {
             "title": "Image Url",
             "type": "string",
             "description": "File URL if no file upload",
-            "default": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/1200px-Image_created_with_a_mobile_phone.png"
+            "default": "http://files.gladia.io/test/test.png"
           }
         }
       },
@@ -1980,7 +1911,7 @@ export const openApiJson: OpenApiJson = {
             "title": "Image Url",
             "type": "string",
             "description": "File URL if no file upload",
-            "default": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/1200px-Image_created_with_a_mobile_phone.png"
+            "default": "http://files.gladia.io/test/test.png"
           }
         }
       },
@@ -1997,7 +1928,7 @@ export const openApiJson: OpenApiJson = {
             "title": "Image Url",
             "type": "string",
             "description": "File URL if no file upload",
-            "default": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/1200px-Image_created_with_a_mobile_phone.png"
+            "default": "http://files.gladia.io/test/test.png"
           }
         }
       },
@@ -2014,7 +1945,7 @@ export const openApiJson: OpenApiJson = {
             "title": "Image Url",
             "type": "string",
             "description": "File URL if no file upload",
-            "default": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/1200px-Image_created_with_a_mobile_phone.png"
+            "default": "http://files.gladia.io/test/test.png"
           }
         }
       },
@@ -2031,7 +1962,7 @@ export const openApiJson: OpenApiJson = {
             "title": "Image Url",
             "type": "string",
             "description": "File URL if no file upload",
-            "default": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/1200px-Image_created_with_a_mobile_phone.png"
+            "default": "http://files.gladia.io/test/test.png"
           }
         }
       },
@@ -2048,7 +1979,12 @@ export const openApiJson: OpenApiJson = {
             "title": "Image Url",
             "type": "string",
             "description": "File URL if no file upload",
-            "default": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/1200px-Image_created_with_a_mobile_phone.png"
+            "default": "http://files.gladia.io/test/test.png"
+          },
+          "top_k": {
+            "title": "Top K",
+            "type": "integer",
+            "default": 1
           }
         }
       },
@@ -2065,7 +2001,92 @@ export const openApiJson: OpenApiJson = {
             "title": "Image Url",
             "type": "string",
             "description": "File URL if no file upload",
-            "default": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/1200px-Image_created_with_a_mobile_phone.png"
+            "default": "http://files.gladia.io/test/test.png"
+          },
+          "source_language": {
+            "title": "Source Language",
+            "type": "string",
+            "default": "en"
+          }
+        }
+      },
+      "Body_apply_text_text_next_sentence_prediction__post": {
+        "title": "Body_apply_text_text_next_sentence_prediction__post",
+        "type": "object",
+        "properties": {
+          "sentence_1": {
+            "title": "Sentence 1",
+            "type": "string",
+            "default": "I like you."
+          },
+          "sentence_2": {
+            "title": "Sentence 2",
+            "type": "string",
+            "default": "But it's not about you."
+          }
+        }
+      },
+      "Body_apply_text_text_plural__post": {
+        "title": "Body_apply_text_text_plural__post",
+        "type": "object",
+        "properties": {
+          "word": {
+            "title": "Word",
+            "type": "string",
+            "default": "cat"
+          },
+          "count": {
+            "title": "Count",
+            "type": "integer",
+            "default": 2
+          }
+        }
+      },
+      "Body_apply_text_text_question_answering__post": {
+        "title": "Body_apply_text_text_question_answering__post",
+        "type": "object",
+        "properties": {
+          "context": {
+            "title": "Context",
+            "type": "string",
+            "default": "My name is Clara and I live in Berkeley."
+          },
+          "question": {
+            "title": "Question",
+            "type": "string",
+            "default": "What's my name?"
+          }
+        }
+      },
+      "Body_apply_text_text_similarity__post": {
+        "title": "Body_apply_text_text_similarity__post",
+        "type": "object",
+        "properties": {
+          "sentence_1": {
+            "title": "Sentence 1",
+            "type": "string",
+            "default": ""
+          },
+          "sentence_2": {
+            "title": "Sentence 2",
+            "type": "string",
+            "default": ""
+          }
+        }
+      },
+      "Body_apply_text_text_word_alignment__post": {
+        "title": "Body_apply_text_text_word_alignment__post",
+        "type": "object",
+        "properties": {
+          "input_string_language_1": {
+            "title": "Input String Language 1",
+            "type": "string",
+            "default": "Sentence from first language"
+          },
+          "input_string_language_2": {
+            "title": "Input String Language 2",
+            "type": "string",
+            "default": "来自 第一 语言的 句子"
           }
         }
       },

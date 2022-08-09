@@ -46,7 +46,14 @@ interface PathRequestParamDef {
 
 interface RequestBodyDef {
   required?: boolean;
-  content: Record<RequestBodyContentType, { schema: { $ref: string } }>;
+  content: Record<RequestBodyContentType, { schema: RequestBodySchema }>;
+}
+
+interface RequestBodySchema {
+  $ref?: string;
+  title?: string;
+  type?: string;
+  default?: string;
 }
 
 type RequestBodyContentType = string;
@@ -64,7 +71,7 @@ interface OpenApiJsonComponent {
           title: string;
           type: string;
           description?: string;
-          default?: string;
+          default?: string | number;
           format?: 'binary';
           items?: Record<string, string>;
         }

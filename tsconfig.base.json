@@ -1,0 +1,36 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "rootDir": "./src",
+    "baseUrl": "./",
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "noEmitOnError": true,
+    "resolveJsonModule": true,
+    "declaration": true,
+    "declarationMap": false,
+    "declarationDir": "./lib/types",
+    "sourceMap": false,
+    "module": "esnext",
+    "composite": true,
+    "moduleResolution": "node",
+    "skipLibCheck": true,
+    "lib": [
+      "es2015",
+      "dom"
+    ]
+  },
+  "exclude": [
+    "node_modules",
+    "lib",
+    "lib-amd",
+    "scripts",
+    "tests",
+  ],
+  "include": [
+    "src/"
+  ],
+  "ts-node": { 
+    "files": true 
+  }
+}

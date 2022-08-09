@@ -41,6 +41,7 @@ export class FromImageToText {
     const formData = new FormData();
     formData.append('image', args.image);
     formData.append('image_url', args.image_url);
+    formData.append('top_k', args.top_k);
     return this.httpClient.post({
       url: '/image/text/classification/',
       query: { model: args.model ?? IMAGE_TEXT_CLASSIFICATION_DEFAULT_MODEL },
@@ -53,6 +54,7 @@ export class FromImageToText {
     const formData = new FormData();
     formData.append('image', args.image);
     formData.append('image_url', args.image_url);
+    formData.append('source_language', args.source_language);
     return this.httpClient.post({
       url: '/image/text/ocr/',
       query: { model: args.model ?? IMAGE_TEXT_OCR_DEFAULT_MODEL },
