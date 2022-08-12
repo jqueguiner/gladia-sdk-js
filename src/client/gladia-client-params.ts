@@ -4,4 +4,5 @@ export interface GladiaClientParams {
   apiKey: string;
   baseUrl?: string;
   customHttpClient?: HttpClientFactory;
+  useFetch?: boolean;
 }
