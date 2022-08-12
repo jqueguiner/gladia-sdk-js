@@ -1,1 +1,0 @@
-{"version":3,"file":"gladia-client-params.d.ts","sourceRoot":"","sources":["../../../src/client/gladia-client-params.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,iBAAiB,EAAE,MAAM,yBAAyB,CAAC;AAE5D,MAAM,WAAW,kBAAkB;IACjC,MAAM,EAAE,MAAM,CAAC;IACf,OAAO,CAAC,EAAE,MAAM,CAAC;IACjB,gBAAgB,CAAC,EAAE,iBAAiB,CAAC;CACtC"}

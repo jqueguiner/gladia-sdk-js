@@ -12,6 +12,7 @@ export interface HttpClient {
 export interface HttpClientFactoryParams {
     baseHeaders: Record<string, string | number | boolean>;
     baseUrl: string;
+    useFetch: boolean;
 }
 export declare type HttpClientFactory = (params: HttpClientFactoryParams) => HttpClient;
 export declare function getHttpClient(params: GladiaClientParams): HttpClient;

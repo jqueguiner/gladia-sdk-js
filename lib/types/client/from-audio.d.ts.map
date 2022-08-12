@@ -1,1 +1,0 @@
-{"version":3,"file":"from-audio.d.ts","sourceRoot":"","sources":["../../../src/client/from-audio.ts"],"names":[],"mappings":"AAEA,OAAO,EAAE,eAAe,EAAE,MAAM,sBAAsB,CAAC;AACvD,OAAO,EAAE,kBAAkB,EAAE,MAAM,wBAAwB,CAAC;AAE5D,qBAAa,SAAS;IACpB,OAAO,CAAC,mBAAmB,CAAkB;gBAEjC,MAAM,EAAE,kBAAkB;IAItC,MAAM;CAIP"}

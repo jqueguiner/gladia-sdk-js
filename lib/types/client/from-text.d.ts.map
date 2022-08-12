@@ -1,1 +1,0 @@
-{"version":3,"file":"from-text.d.ts","sourceRoot":"","sources":["../../../src/client/from-text.ts"],"names":[],"mappings":"AAEA,OAAO,EAAE,cAAc,EAAE,MAAM,qBAAqB,CAAC;AACrD,OAAO,EAAE,kBAAkB,EAAE,MAAM,wBAAwB,CAAC;AAE5D,qBAAa,QAAQ;IACnB,OAAO,CAAC,kBAAkB,CAAiB;gBAE/B,MAAM,EAAE,kBAAkB;IAItC,MAAM;CAIP"}
