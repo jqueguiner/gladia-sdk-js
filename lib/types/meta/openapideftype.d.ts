@@ -5,10 +5,8 @@ export interface OpenApiJson {
         version: string;
     };
     paths: Record<PathUrl, PathDef>;
-    security: Record<SecurityHeaderName, unknown>[];
     components: OpenApiJsonComponent;
 }
-declare type SecurityHeaderName = string;
 declare type PathUrl = string;
 export interface PathDef {
     get: PathRequestDef;
@@ -61,13 +59,10 @@ interface OpenApiJsonComponent {
             description?: string;
             default?: string | number;
             format?: 'binary';
-            items?: Record<string, string>;
+            items?: Record<string, unknown>;
+            _examples?: (string | number)[];
+            data_type?: 'text' | 'url' | 'int' | 'image' | 'audio';
         }>;
-    }>;
-    securitySchemes: Record<string, {
-        type: string;
-        in: string;
-        name: string;
     }>;
 }
 export {};

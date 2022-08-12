@@ -64,7 +64,22 @@ function getPostParams(def: PathDef, openApiJson: OpenApiJson) {
       params.push(
         ...Object.entries(component.properties).map(([propName, propSchema]): EndpointDefParam => {
           const isRequired = component.required?.includes(propName) ?? false;
-          return { in: 'formData', type: propSchema.format, name: propName, required: isRequired };
+          const type: EndpointDefParam['type'] = (() => {
+            switch (propSchema.data_type) {
+              case 'int':
+                return 'integer';
+              case 'url':
+                return 'url';
+              case 'audio':
+                return 'audio';
+              case 'image':
+                return 'image';
+              case 'text':
+              default:
+                return 'string';
+            }
+          })();
+          return { in: 'formData', type, name: propName, required: isRequired };
         }),
       );
     });
@@ -84,7 +99,7 @@ export interface EndpointDef {
 
 export interface EndpointDefParam {
   in: 'query' | 'formData';
-  type: 'binary' | 'string' | 'integer';
+  type: 'audio' | 'image' | 'string' | 'integer' | 'url';
   name: string;
   required: boolean;
 }

@@ -148,5 +148,13 @@ const imageUrl = URL.createObjectURL(new Blob([ imageOutput ]));
 
 ```
 npm i
+npm run generate-metadata
 npm run generate-sdk
 ```
+
+Notes:
+- `generate-metadata` script will mostly download latest `openapi.json` file from production api
+- `generate-sdk` will generate most parts of the SDK using the `openapi.json` definition
+- you can call `generate-sdk` without calling `generate-metadata` in two cases:
+    - you know the file `src/meta/openapidef.ts` is up to date with the production `openapi.json`
+    - you want to generate a sdk against another definition and you have already update manually the file `src/meta/openapidef.ts`

@@ -18,7 +18,7 @@
     "build": "npm run build:clean && npm run build:esm && npm run build:cjs && npm run build:es5 && npm run bundle",
     "test": "jest",
     "test:watch": "jest --watch",
-    "pregenerate-sdk": "ts-node scripts/generate-metasdk.ts",
+    "generate-metadata": "ts-node scripts/generate-metadata.ts",
     "generate-sdk": "ts-node scripts/generate-sdk.ts"
   },
   "dependencies": {

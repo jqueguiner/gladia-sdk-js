@@ -2,5 +2,11 @@
 module.exports = {
   preset: 'ts-jest',
   testEnvironment: 'node',
-  setupFilesAfterEnv: ['./tests/mandatoryAssertions.ts'],
+  setupFilesAfterEnv: ['./tests/mandatoryAssertions.js'],
+  transformIgnorePatterns: ['/node_modules/(?!(@vespaiach)/)', '\\.pnp\\.[^\\/]+$'],
+  globals: {
+    'ts-jest': {
+      tsconfig: 'tsconfig.jest.json',
+    },
+  },
 };

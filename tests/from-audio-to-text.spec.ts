@@ -1,12 +1,12 @@
 /* Generated file with "scripts/generate-sdk.ts" */
 
 import { GladiaClient } from '../src/gladia-client';
-import gladia from '../index';
+import gladia from '../src/index';
 import { HttpClient } from '../src/internal/http-client';
-import { mockHttpClient } from './helpers/mocks';
+import { getRandomInt, getRandomText, getPostMock, mockHttpClient } from './helpers/mocks';
 
 describe('FromAudioToText', () => {
-  describe('speech_to_text', () => {
+  describe('audioTranscription', () => {
     let gladiaClient: GladiaClient;
     let httpClientMock: HttpClient;
 
@@ -17,60 +17,88 @@ describe('FromAudioToText', () => {
 
     describe('full path', () => {
       it('should call the api with the text and the default model by default', async () => {
-        const blob = new Blob(['fake audio 🤫']);
-        const result = await gladiaClient.fromAudio().toText().speech_to_text({ audio: blob });
-        expect(result).toBeDefined();
-        expect(httpClientMock.post).toHaveBeenCalledTimes(1);
-        const postMock = httpClientMock.post as jest.Mock;
-        const arg = postMock.mock.calls[0][0];
-        expect(arg.url).toEqual('/audio/text/speech_to_text/');
-        expect(arg.query).toEqual({ model: 'coqui_english_huge_vocab' });
-        expect(arg.headers).toEqual({ 'Content-Type': 'multipart/form-data' });
-        expect(arg.body.get('audio')).toBeDefined();
+        const audio_data = new Blob([getRandomText(), String(getRandomInt())]);
+        const audio_url_data = getRandomText();
+        const language_data = getRandomText();
+        const result = await gladiaClient.fromAudio().toText().audioTranscription({
+          audio: audio_data,
+          audio_url: audio_url_data,
+          language: language_data,
+        });
+        const { postMock, firstCallArgs } = getPostMock(httpClientMock);
+        expect(postMock).toHaveBeenCalledTimes(1);
+        expect(firstCallArgs.url).toEqual('/audio/text/audio-transcription/');
+        expect(firstCallArgs.headers).toBeUndefined();
+        expect(firstCallArgs.query).toEqual({
+          model: 'coqui_english_huge_vocab',
+        });
+        expect(firstCallArgs.body.get('audio')).toBeDefined();
+        expect(firstCallArgs.body.get('audio_url')).toEqual(audio_url_data);
+        expect(firstCallArgs.body.get('language')).toEqual(language_data);
       });
       it('should call the api with the text and the specified model', async () => {
-        const blob = new Blob(['fake audio 🤫']);
-        const result = await gladiaClient.fromAudio().toText().speech_to_text({
-          audio: blob,
+        const audio_data = new Blob([getRandomText(), String(getRandomInt())]);
+        const audio_url_data = getRandomText();
+        const language_data = getRandomText();
+        const result = await gladiaClient.fromAudio().toText().audioTranscription({
+          audio: audio_data,
+          audio_url: audio_url_data,
+          language: language_data,
           model: 'fake-model-name' as any,
         });
-        expect(result).toBeDefined();
-        expect(httpClientMock.post).toHaveBeenCalledTimes(1);
-        const postMock = httpClientMock.post as jest.Mock;
-        const arg = postMock.mock.calls[0][0];
-        expect(arg.url).toEqual('/audio/text/speech_to_text/');
-        expect(arg.query).toEqual({ model: 'fake-model-name' });
-        expect(arg.headers).toEqual({ 'Content-Type': 'multipart/form-data' });
-        expect(arg.body.get('audio')).toBeDefined();
+        const { postMock, firstCallArgs } = getPostMock(httpClientMock);
+        expect(postMock).toHaveBeenCalledTimes(1);
+        expect(firstCallArgs.url).toEqual('/audio/text/audio-transcription/');
+        expect(firstCallArgs.headers).toBeUndefined();
+        expect(firstCallArgs.query).toEqual({
+          model: 'fake-model-name',
+        });
+        expect(firstCallArgs.body.get('audio')).toBeDefined();
+        expect(firstCallArgs.body.get('audio_url')).toEqual(audio_url_data);
+        expect(firstCallArgs.body.get('language')).toEqual(language_data);
       });
     });
     describe('shortcuts', () => {
       it('should call the api with the text and the default model by default', async () => {
-        const blob = new Blob(['fake audio 🤫']);
-        const result = await gladiaClient.speech_to_text({ audio: blob });
-        expect(result).toBeDefined();
-        expect(httpClientMock.post).toHaveBeenCalledTimes(1);
-        const postMock = httpClientMock.post as jest.Mock;
-        const arg = postMock.mock.calls[0][0];
-        expect(arg.url).toEqual('/audio/text/speech_to_text/');
-        expect(arg.query).toEqual({ model: 'coqui_english_huge_vocab' });
-        expect(arg.headers).toEqual({ 'Content-Type': 'multipart/form-data' });
-        expect(arg.body.get('audio')).toBeDefined();
+        const audio_data = new Blob([getRandomText(), String(getRandomInt())]);
+        const audio_url_data = getRandomText();
+        const language_data = getRandomText();
+        const result = await gladiaClient.audioTranscription({
+          audio: audio_data,
+          audio_url: audio_url_data,
+          language: language_data,
+        });
+        const { postMock, firstCallArgs } = getPostMock(httpClientMock);
+        expect(postMock).toHaveBeenCalledTimes(1);
+        expect(firstCallArgs.url).toEqual('/audio/text/audio-transcription/');
+        expect(firstCallArgs.headers).toBeUndefined();
+        expect(firstCallArgs.query).toEqual({
+          model: 'coqui_english_huge_vocab',
+        });
+        expect(firstCallArgs.body.get('audio')).toBeDefined();
+        expect(firstCallArgs.body.get('audio_url')).toEqual(audio_url_data);
+        expect(firstCallArgs.body.get('language')).toEqual(language_data);
       });
       it('should call the api with the text and the specified model', async () => {
-        const blob = new Blob(['fake audio 🤫']);
-        const result = await gladiaClient.speech_to_text({
-          audio: blob,
+        const audio_data = new Blob([getRandomText(), String(getRandomInt())]);
+        const audio_url_data = getRandomText();
+        const language_data = getRandomText();
+        const result = await gladiaClient.audioTranscription({
+          audio: audio_data,
+          audio_url: audio_url_data,
+          language: language_data,
           model: 'fake-model-name' as any,
         });
-        expect(result).toBeDefined();
-        expect(httpClientMock.post).toHaveBeenCalledTimes(1);
-        const postMock = httpClientMock.post as jest.Mock;
-        const arg = postMock.mock.calls[0][0];
-        expect(arg.url).toEqual('/audio/text/speech_to_text/');
-        expect(arg.query).toEqual({ model: 'fake-model-name' });
-        expect(arg.headers).toEqual({ 'Content-Type': 'multipart/form-data' });
-        expect(arg.body.get('audio')).toBeDefined();
+        const { postMock, firstCallArgs } = getPostMock(httpClientMock);
+        expect(postMock).toHaveBeenCalledTimes(1);
+        expect(firstCallArgs.url).toEqual('/audio/text/audio-transcription/');
+        expect(firstCallArgs.headers).toBeUndefined();
+        expect(firstCallArgs.query).toEqual({
+          model: 'fake-model-name',
+        });
+        expect(firstCallArgs.body.get('audio')).toBeDefined();
+        expect(firstCallArgs.body.get('audio_url')).toEqual(audio_url_data);
+        expect(firstCallArgs.body.get('language')).toEqual(language_data);
       });
     });
   });

@@ -8,7 +8,7 @@ import { FromImageToText } from './from-image-to-text'
 import { FromText } from './from-text'
 import { FromTextToText } from './from-text-to-text'
 import {
-  AudioTextSpeech_to_textInputs,
+  AudioTextAudioTranscriptionInputs,
   ImageImageBackgroundRemovalInputs,
   ImageImageColorizationInputs,
   ImageImageFaceBluringInputs,
@@ -45,8 +45,8 @@ export abstract class Shortcuts implements
 
   // AUDIO => TEXT
 
-  speech_to_text(args: AudioTextSpeech_to_textInputs) {
-    return this.fromAudio().toText().speech_to_text(args);
+  audioTranscription(args: AudioTextAudioTranscriptionInputs) {
+    return this.fromAudio().toText().audioTranscription(args);
   }
 
   abstract fromImage(): FromImage;

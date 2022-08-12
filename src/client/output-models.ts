@@ -1,6 +1,6 @@
 /* Generated file with "scripts/generate-sdk.ts" */
 
-export type AudioTextSpeech_to_textOutputs = Record<string, string | number | boolean>;
+export type AudioTextAudioTranscriptionOutputs = Record<string, string | number | boolean>;
 export type ImageImageBackgroundRemovalOutputs = ArrayBuffer;
 export type ImageImageColorizationOutputs = ArrayBuffer;
 export type ImageImageFaceBluringOutputs = ArrayBuffer;

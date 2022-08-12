@@ -1,10 +1,10 @@
 /* Generated file with "scripts/generate-sdk.ts" */
 
-export const AUDIO_TEXT_SPEECH_TO_TEXT_MODELS = [
+export const AUDIO_TEXT_AUDIO_TRANSCRIPTION_MODELS = [
    'coqui_english_huge_vocab',
 ] as const;
-export const AUDIO_TEXT_SPEECH_TO_TEXT_DEFAULT_MODEL = "coqui_english_huge_vocab" as const;
-export type AudioTextSpeech_to_textModel = typeof AUDIO_TEXT_SPEECH_TO_TEXT_MODELS[number];
+export const AUDIO_TEXT_AUDIO_TRANSCRIPTION_DEFAULT_MODEL = "coqui_english_huge_vocab" as const;
+export type AudioTextAudioTranscriptionModel = typeof AUDIO_TEXT_AUDIO_TRANSCRIPTION_MODELS[number];
 
 export const IMAGE_IMAGE_BACKGROUND_REMOVAL_MODELS = [
    'mobilenet',
