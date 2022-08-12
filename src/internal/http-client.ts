@@ -41,14 +41,16 @@ const AxiosHttpClient: HttpClientFactory = ({ baseHeaders, baseUrl, useFetch }) 
   return {
     async post(params) {
       const headers = { ...baseHeaders, ...params.headers };
-      const url = new URL(params.url, baseUrl);
+      const queryParams: string[] = [];
       for (const [key, value] of Object.entries(params.query ?? {})) {
-        url.searchParams.set(key, String(value));
+        queryParams.push(`${key}=${String(value)}`);
       }
+      const urlQueryParams = queryParams.length === 0 ? '' : `?${queryParams.join('&')}`;
+      const url = `${baseUrl}${params.url}${urlQueryParams}`;
       const responseType = params.responseType ?? 'json';
       const adapter = useFetch ? { adapter: await axiosFetchAdapter() } : {};
       return axios
-        .post(url.toString(), params.body, { headers, responseType, ...adapter })
+        .post(url, params.body, { headers, responseType, ...adapter })
         .then((response) => response.data);
     },
   };
