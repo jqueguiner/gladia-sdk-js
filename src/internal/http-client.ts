@@ -1,5 +1,5 @@
 import axios from 'axios';
-import axiosFetchAdapter from '@vespaiach/axios-fetch-adapter';
+import { axiosFetchAdapter } from './axios-fetch-adapter';
 import { SDK_VERSION } from '../meta/sdk-version';
 import { GladiaClientParams } from '../client/gladia-client-params';
 
@@ -28,7 +28,7 @@ export function getHttpClient(params: GladiaClientParams) {
   const baseHeaders = {
     'x-gladia-key': params.apiKey,
     'x-gladia-sdk': SDK_VERSION,
-    'Content-Type': 'application/json',
+    'Content-Type': 'multipart/form-data',
   };
   return factory({
     baseHeaders,
@@ -39,19 +39,14 @@ export function getHttpClient(params: GladiaClientParams) {
 
 const AxiosHttpClient: HttpClientFactory = ({ baseHeaders, baseUrl, useFetch }) => {
   return {
-    post(params) {
+    async post(params) {
       const headers = { ...baseHeaders, ...params.headers };
       const url = new URL(params.url, baseUrl);
       for (const [key, value] of Object.entries(params.query ?? {})) {
         url.searchParams.set(key, String(value));
       }
       const responseType = params.responseType ?? 'json';
-      const adapter = (() => {
-        if (useFetch) {
-          return { adapter: axiosFetchAdapter };
-        }
-        return {};
-      })();
+      const adapter = useFetch ? { adapter: await axiosFetchAdapter() } : {};
       return axios
         .post(url.toString(), params.body, { headers, responseType, ...adapter })
         .then((response) => response.data);

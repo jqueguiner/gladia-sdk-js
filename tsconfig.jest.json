@@ -1,0 +1,39 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "rootDir": ".",
+    "baseUrl": "./",
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "noEmitOnError": true,
+    "resolveJsonModule": true,
+    "declaration": true,
+    "declarationMap": false,
+    "declarationDir": "./lib/types",
+    "sourceMap": false,
+    "composite": true,
+    "moduleResolution": "node",
+    "skipLibCheck": true,
+    "lib": [
+      "es2015",
+      "dom"
+    ],
+    "target": "es2018",
+    "outDir": "",
+    "module": "commonjs",
+  },
+  "exclude": [
+    "node_modules",
+    "lib",
+    "lib-amd",
+    "scripts",
+  ],
+  "include": [
+    "src/",
+    "tests",
+    "node_modules/@vespaiach/axios-fetch-adapter/"
+  ],
+  "ts-node": { 
+    "files": true 
+  }
+}

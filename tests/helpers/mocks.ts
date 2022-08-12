@@ -1,4 +1,4 @@
-import { HttpClientFactory } from '../../src/internal/http-client';
+import { HttpClient, HttpClientFactory } from '../../src/internal/http-client';
 
 export function mockHttpClient(): HttpClientFactory {
   return ({}) => ({
@@ -19,4 +19,10 @@ export function getRandomInt(): number {
 
 export function getRandomText(): string {
   return 'fake text ' + Math.random().toString().substring(2);
+}
+
+export function getPostMock(httpClientMock: HttpClient) {
+  const postMock = httpClientMock.post as jest.Mock;
+  const firstCallArgs = postMock.mock.calls[0][0];
+  return { postMock, firstCallArgs } as const;
 }

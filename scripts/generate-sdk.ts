@@ -52,7 +52,8 @@ function generateInputModelsTs() {
         switch (param.type) {
           case 'string':
             return 'string';
-          case 'binary':
+          case 'audio':
+          case 'image':
             return 'Blob';
           case 'integer':
             return 'number';
@@ -131,26 +132,24 @@ function generateFromInputToOutputClasses() {
         fileContent.push(`  ${methodName}(args: ${inputModelType}): Promise<${outputModelType}> {`);
         switch (inputType) {
           case 'text':
-            fileContent.push(`    return this.httpClient.post({`);
-            fileContent.push(`      url: '${endpoint.url}',`);
-            fileContent.push(`      query: {`);
-            fileContent.push(`        model: ${defaultModelName},`);
-            fileContent.push(`        ...args,`);
-            fileContent.push(`      },`);
-            fileContent.push(`    });`);
-            break;
           case 'audio':
           case 'image':
             fileContent.push(`    const formData = new FormData();`);
-            for (const param of endpoint.params) {
-              if (param.in === 'formData') {
-                fileContent.push(`    formData.append('${param.name}', args.${param.name});`);
-              }
+            for (const param of endpoint.params.filter((p) => p.in === 'formData')) {
+              const argValue =
+                param.type === 'integer' ? `String(args.${param.name})` : `args.${param.name}`;
+              fileContent.push(`    formData.append('${param.name}', ${argValue});`);
             }
             fileContent.push(`    return this.httpClient.post({`);
             fileContent.push(`      url: '${endpoint.url}',`);
-            fileContent.push(`      query: { model: args.model ?? ${defaultModelName} },`);
-            fileContent.push(`      headers: { 'Content-Type': 'multipart/form-data' },`);
+            fileContent.push(`      query: {`);
+            fileContent.push(`        model: args.model ?? ${defaultModelName},`);
+            for (const param of endpoint.params.filter((p) => p.in === 'query')) {
+              const argValue =
+                param.type === 'integer' ? `String(args.${param.name})` : `args.${param.name}`;
+              fileContent.push(`        ${param.name}: ${argValue},`);
+            }
+            fileContent.push(`      },`);
             fileContent.push(`      body: formData,`);
             fileContent.push(`    });`);
             break;
@@ -240,7 +239,7 @@ function generateShortcuts() {
   }
   const lastImplemented = implemented.pop();
   implemented.forEach((i) => fileContent.push(`${i},`));
-  fileContent.push(lastImplemented);
+  fileContent.push(lastImplemented!);
   fileContent.push(`{`);
   fileContent.push('');
   for (const [inputType, outputs] of Object.entries(endpointsByInputOutput)) {
@@ -318,12 +317,14 @@ function generateUnitTests() {
       const inputOutputClassName = getClientInputOutputClassName(inputType, outputType);
       const inputOutputFileName = getClientInputOutput(inputType, outputType);
       fileContent.push(`import { GladiaClient } from '../src/gladia-client';`);
-      fileContent.push(`import gladia from '../index';`);
+      fileContent.push(`import gladia from '../src/index';`);
       fileContent.push(`import { HttpClient } from '../src/internal/http-client';`);
-      const extraMockImports = inputType === 'text' ? 'getRandomInt, getRandomText, ' : '';
-      fileContent.push(`import { ${extraMockImports}mockHttpClient } from './helpers/mocks';`);
+      fileContent.push(
+        `import { getRandomInt, getRandomText, getPostMock, mockHttpClient } from './helpers/mocks';`,
+      );
       fileContent.push('');
       fileContent.push(`describe('${inputOutputClassName}', () => {`);
+
       for (const endpoint of outputTypeEndpoints) {
         const methodName = meta.getMethodName(endpoint);
         fileContent.push(`  describe('${methodName}', () => {`);
@@ -341,127 +342,20 @@ function generateUnitTests() {
         fileContent.push('');
         for (const mode of ['full path', 'shortcuts'] as const) {
           fileContent.push(`    describe('${mode}', () => {`);
+          const callPath = getCallPath({ mode, fromMethod, toMethod, methodName });
           fileContent.push(
             `      it('should call the api with the text and the default model by default', async () => {`,
           );
-          const callPath = (() => {
-            switch (mode) {
-              case 'full path':
-                return `${fromMethod}().${toMethod}().${methodName}`;
-              case 'shortcuts':
-                return methodName;
-            }
-          })();
-          switch (inputType) {
-            case 'text':
-              for (const param of endpoint.params) {
-                fileContent.push(
-                  `        const ${param.name}_data = ${
-                    param.type === 'integer' ? `getRandomInt()` : `getRandomText()`
-                  };`,
-                );
-              }
-              fileContent.push(`        const result = await gladiaClient.${callPath}({`);
-              for (const param of endpoint.params) {
-                fileContent.push(`          ${param.name}: ${param.name}_data,`);
-              }
-              fileContent.push(`        });`);
-              break;
-            case 'image':
-            case 'audio':
-              fileContent.push(`        const blob = new Blob(['fake ${inputType} 🤫']);`);
-              const binaryParamName = endpoint.params.filter((p) => p.type === 'binary')[0].name;
-              fileContent.push(
-                `        const result = await gladiaClient.${callPath}({ ${binaryParamName}: blob });`,
-              );
-          }
-          fileContent.push(`        expect(result).toBeDefined();`);
-          fileContent.push(`        expect(httpClientMock.post).toHaveBeenCalledTimes(1);`);
-          switch (inputType) {
-            case 'text':
-              fileContent.push(`        expect(httpClientMock.post).toHaveBeenCalledWith({`);
-              fileContent.push(`          url: '${endpoint.url}',`);
-              fileContent.push(`          query: {`);
-              fileContent.push(`            model: '${endpoint.defaultModel}',`);
-              for (const param of endpoint.params) {
-                fileContent.push(`            ${param.name}: ${param.name}_data,`);
-              }
-              fileContent.push(`          },`);
-              fileContent.push(`        });`);
-              break;
-            case 'image':
-            case 'audio':
-              fileContent.push(`        const postMock = httpClientMock.post as jest.Mock;`);
-              fileContent.push(`        const arg = postMock.mock.calls[0][0];`);
-              fileContent.push(`        expect(arg.url).toEqual('${endpoint.url}');`);
-              fileContent.push(
-                `        expect(arg.query).toEqual({ model: '${endpoint.defaultModel}' });`,
-              );
-              fileContent.push(
-                `        expect(arg.headers).toEqual({ 'Content-Type': 'multipart/form-data' });`,
-              );
-              const binaryParamName = endpoint.params.filter((p) => p.type === 'binary')[0].name;
-              fileContent.push(`        expect(arg.body.get('${binaryParamName}')).toBeDefined();`);
-          }
-
+          fileContent.push(...generateTestInputs(callPath, endpoint));
+          fileContent.push(...generateTestAssertions(endpoint));
           fileContent.push(`      });`);
           fileContent.push(
             `      it('should call the api with the text and the specified model', async () => {`,
           );
           const specifiedModel = getAnyModelExceptDefault(endpoint);
-          switch (inputType) {
-            case 'text':
-              for (const param of endpoint.params) {
-                fileContent.push(
-                  `        const ${param.name}_data = ${
-                    param.type === 'integer' ? `getRandomInt()` : `getRandomText()`
-                  };`,
-                );
-              }
-              fileContent.push(`        const result = await gladiaClient.${callPath}({`);
-              for (const param of endpoint.params) {
-                fileContent.push(`          ${param.name}: ${param.name}_data,`);
-              }
-              fileContent.push(`          model: '${specifiedModel}' as any,`);
-              fileContent.push(`        });`);
-              break;
-            case 'image':
-            case 'audio':
-              fileContent.push(`        const blob = new Blob(['fake ${inputType} 🤫']);`);
-              const binaryParamName = endpoint.params.filter((p) => p.type === 'binary')[0].name;
-              fileContent.push(`        const result = await gladiaClient.${callPath}({`);
-              fileContent.push(`          ${binaryParamName}: blob,`);
-              fileContent.push(`          model: '${specifiedModel}' as any,`);
-              fileContent.push(`        });`);
-          }
-          fileContent.push(`        expect(result).toBeDefined();`);
-          fileContent.push(`        expect(httpClientMock.post).toHaveBeenCalledTimes(1);`);
-          switch (inputType) {
-            case 'text':
-              fileContent.push(`        expect(httpClientMock.post).toHaveBeenCalledWith({`);
-              fileContent.push(`          url: '${endpoint.url}',`);
-              fileContent.push(`          query: {`);
-              fileContent.push(`            model: '${specifiedModel}' as any,`);
-              for (const param of endpoint.params) {
-                fileContent.push(`            ${param.name}: ${param.name}_data,`);
-              }
-              fileContent.push(`          },`);
-              fileContent.push(`        });`);
-              break;
-            case 'image':
-            case 'audio':
-              fileContent.push(`        const postMock = httpClientMock.post as jest.Mock;`);
-              fileContent.push(`        const arg = postMock.mock.calls[0][0];`);
-              fileContent.push(`        expect(arg.url).toEqual('${endpoint.url}');`);
-              fileContent.push(
-                `        expect(arg.query).toEqual({ model: '${specifiedModel}' });`,
-              );
-              fileContent.push(
-                `        expect(arg.headers).toEqual({ 'Content-Type': 'multipart/form-data' });`,
-              );
-              const binaryParamName = endpoint.params.filter((p) => p.type === 'binary')[0].name;
-              fileContent.push(`        expect(arg.body.get('${binaryParamName}')).toBeDefined();`);
-          }
+          fileContent.push(...generateTestInputs(callPath, endpoint, specifiedModel));
+
+          fileContent.push(...generateTestAssertions(endpoint, specifiedModel));
           fileContent.push(`      });`);
           fileContent.push(`    });`);
         }
@@ -511,6 +405,90 @@ function getAnyModelExceptDefault(endpoint: meta.EndpointDef): string {
   } else {
     return endpoint.models.filter((m) => m !== endpoint.defaultModel)[0];
   }
+}
+
+interface GetCallPath {
+  mode: 'full path' | 'shortcuts';
+  fromMethod: string;
+  toMethod: string;
+  methodName: string;
+}
+
+function getCallPath({ mode, fromMethod, toMethod, methodName }: GetCallPath) {
+  switch (mode) {
+    case 'full path':
+      return `${fromMethod}().${toMethod}().${methodName}`;
+    case 'shortcuts':
+      return methodName;
+  }
+}
+
+function generateTestInputs(
+  callPath: string,
+  endpoint: meta.EndpointDef,
+  specifyModel?: string,
+): string[] {
+  const fileContent: string[] = [];
+  for (const param of endpoint.params) {
+    switch (param.type) {
+      case 'integer':
+        fileContent.push(`        const ${param.name}_data = getRandomInt();`);
+        break;
+      case 'string':
+      case 'url':
+        fileContent.push(`        const ${param.name}_data = getRandomText();`);
+        break;
+      case 'audio':
+      case 'image':
+        fileContent.push(
+          `        const ${param.name}_data = new Blob([getRandomText(), String(getRandomInt())]);`,
+        );
+        break;
+    }
+  }
+  fileContent.push(`        const result = await gladiaClient.${callPath}({`);
+  for (const param of endpoint.params) {
+    fileContent.push(`          ${param.name}: ${param.name}_data,`);
+  }
+  if (specifyModel) {
+    fileContent.push(`          model: '${specifyModel}' as any,`);
+  }
+  fileContent.push(`        });`);
+  return fileContent;
+}
+
+function generateTestAssertions(endpoint: meta.EndpointDef, specifyModel?: string) {
+  const fileContent: string[] = [];
+  fileContent.push(`        const { postMock, firstCallArgs } = getPostMock(httpClientMock);`);
+  fileContent.push(`        expect(postMock).toHaveBeenCalledTimes(1);`);
+  fileContent.push(`        expect(firstCallArgs.url).toEqual('${endpoint.url}');`);
+  fileContent.push(`        expect(firstCallArgs.headers).toBeUndefined();`);
+  fileContent.push(`        expect(firstCallArgs.query).toEqual({`);
+  fileContent.push(`          model: '${specifyModel ?? endpoint.defaultModel}',`);
+  for (const param of endpoint.params.filter((p) => p.in === 'query')) {
+    fileContent.push(`          ${param.name}: ${param.name}_data,`);
+  }
+  fileContent.push(`        });`);
+  for (const param of endpoint.params.filter((p) => p.in === 'formData')) {
+    switch (param.type) {
+      case 'audio':
+      case 'image':
+        fileContent.push(`        expect(firstCallArgs.body.get('${param.name}')).toBeDefined();`);
+        break;
+      case 'integer':
+        fileContent.push(
+          `        expect(firstCallArgs.body.get('${param.name}')).toEqual(String(${param.name}_data));`,
+        );
+        break;
+      case 'string':
+      case 'url':
+        fileContent.push(
+          `        expect(firstCallArgs.body.get('${param.name}')).toEqual(${param.name}_data);`,
+        );
+        break;
+    }
+  }
+  return fileContent;
 }
 
 main();

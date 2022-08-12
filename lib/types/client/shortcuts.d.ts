@@ -5,10 +5,10 @@ import { FromImageToImage } from './from-image-to-image';
 import { FromImageToText } from './from-image-to-text';
 import { FromText } from './from-text';
 import { FromTextToText } from './from-text-to-text';
-import { AudioTextSpeech_to_textInputs, ImageImageBackgroundRemovalInputs, ImageImageColorizationInputs, ImageImageFaceBluringInputs, ImageImageUncolorizationInputs, ImageTextAsciifyInputs, ImageTextClassificationInputs, ImageTextOcrInputs, TextTextAutocorrectInputs, TextTextEmotionRecognitionInputs, TextTextHateSpeechDetectionInputs, TextTextKeywordExtractionInputs, TextTextLanguageDetectionInputs, TextTextLanguageGenerationInputs, TextTextNamedEntityRecognitionInputs, TextTextNextSentencePredictionInputs, TextTextNextWordPredictionInputs, TextTextPluralInputs, TextTextProgrammingLanguageGenerationInputs, TextTextQuestionAnsweringInputs, TextTextSentenceParaphraserInputs, TextTextSentimentAnalysisInputs, TextTextSimilarityInputs, TextTextWordAlignmentInputs } from './input-models';
+import { AudioTextAudioTranscriptionInputs, ImageImageBackgroundRemovalInputs, ImageImageColorizationInputs, ImageImageFaceBluringInputs, ImageImageUncolorizationInputs, ImageTextAsciifyInputs, ImageTextClassificationInputs, ImageTextOcrInputs, TextTextAutocorrectInputs, TextTextEmotionRecognitionInputs, TextTextHateSpeechDetectionInputs, TextTextKeywordExtractionInputs, TextTextLanguageDetectionInputs, TextTextLanguageGenerationInputs, TextTextNamedEntityRecognitionInputs, TextTextNextSentencePredictionInputs, TextTextNextWordPredictionInputs, TextTextPluralInputs, TextTextProgrammingLanguageGenerationInputs, TextTextQuestionAnsweringInputs, TextTextSentenceParaphraserInputs, TextTextSentimentAnalysisInputs, TextTextSimilarityInputs, TextTextWordAlignmentInputs } from './input-models';
 export declare abstract class Shortcuts implements Omit<FromAudioToText, 'httpClient'>, Omit<FromImageToImage, 'httpClient'>, Omit<FromImageToText, 'httpClient'>, Omit<FromTextToText, 'httpClient'> {
     abstract fromAudio(): FromAudio;
-    speech_to_text(args: AudioTextSpeech_to_textInputs): Promise<import("./output-models").AudioTextSpeech_to_textOutputs>;
+    audioTranscription(args: AudioTextAudioTranscriptionInputs): Promise<import("./output-models").AudioTextAudioTranscriptionOutputs>;
     abstract fromImage(): FromImage;
     backgroundRemoval(args: ImageImageBackgroundRemovalInputs): Promise<ArrayBuffer>;
     colorization(args: ImageImageColorizationInputs): Promise<ArrayBuffer>;

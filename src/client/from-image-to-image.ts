@@ -34,8 +34,9 @@ export class FromImageToImage {
     formData.append('image_url', args.image_url);
     return this.httpClient.post({
       url: '/image/image/background-removal/',
-      query: { model: args.model ?? IMAGE_IMAGE_BACKGROUND_REMOVAL_DEFAULT_MODEL },
-      headers: { 'Content-Type': 'multipart/form-data' },
+      query: {
+        model: args.model ?? IMAGE_IMAGE_BACKGROUND_REMOVAL_DEFAULT_MODEL,
+      },
       body: formData,
     });
   }
@@ -46,8 +47,9 @@ export class FromImageToImage {
     formData.append('image_url', args.image_url);
     return this.httpClient.post({
       url: '/image/image/colorization/',
-      query: { model: args.model ?? IMAGE_IMAGE_COLORIZATION_DEFAULT_MODEL },
-      headers: { 'Content-Type': 'multipart/form-data' },
+      query: {
+        model: args.model ?? IMAGE_IMAGE_COLORIZATION_DEFAULT_MODEL,
+      },
       body: formData,
     });
   }
@@ -58,8 +60,9 @@ export class FromImageToImage {
     formData.append('image_url', args.image_url);
     return this.httpClient.post({
       url: '/image/image/face-bluring/',
-      query: { model: args.model ?? IMAGE_IMAGE_FACE_BLURING_DEFAULT_MODEL },
-      headers: { 'Content-Type': 'multipart/form-data' },
+      query: {
+        model: args.model ?? IMAGE_IMAGE_FACE_BLURING_DEFAULT_MODEL,
+      },
       body: formData,
     });
   }
@@ -70,8 +73,9 @@ export class FromImageToImage {
     formData.append('image_url', args.image_url);
     return this.httpClient.post({
       url: '/image/image/uncolorization/',
-      query: { model: args.model ?? IMAGE_IMAGE_UNCOLORIZATION_DEFAULT_MODEL },
-      headers: { 'Content-Type': 'multipart/form-data' },
+      query: {
+        model: args.model ?? IMAGE_IMAGE_UNCOLORIZATION_DEFAULT_MODEL,
+      },
       body: formData,
     });
   }

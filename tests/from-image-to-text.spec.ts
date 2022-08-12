@@ -1,9 +1,9 @@
 /* Generated file with "scripts/generate-sdk.ts" */
 
 import { GladiaClient } from '../src/gladia-client';
-import gladia from '../index';
+import gladia from '../src/index';
 import { HttpClient } from '../src/internal/http-client';
-import { mockHttpClient } from './helpers/mocks';
+import { getRandomInt, getRandomText, getPostMock, mockHttpClient } from './helpers/mocks';
 
 describe('FromImageToText', () => {
   describe('asciify', () => {
@@ -17,60 +17,76 @@ describe('FromImageToText', () => {
 
     describe('full path', () => {
       it('should call the api with the text and the default model by default', async () => {
-        const blob = new Blob(['fake image 🤫']);
-        const result = await gladiaClient.fromImage().toText().asciify({ image: blob });
-        expect(result).toBeDefined();
-        expect(httpClientMock.post).toHaveBeenCalledTimes(1);
-        const postMock = httpClientMock.post as jest.Mock;
-        const arg = postMock.mock.calls[0][0];
-        expect(arg.url).toEqual('/image/text/asciify/');
-        expect(arg.query).toEqual({ model: 'ramesh-aditya' });
-        expect(arg.headers).toEqual({ 'Content-Type': 'multipart/form-data' });
-        expect(arg.body.get('image')).toBeDefined();
+        const image_data = new Blob([getRandomText(), String(getRandomInt())]);
+        const image_url_data = getRandomText();
+        const result = await gladiaClient.fromImage().toText().asciify({
+          image: image_data,
+          image_url: image_url_data,
+        });
+        const { postMock, firstCallArgs } = getPostMock(httpClientMock);
+        expect(postMock).toHaveBeenCalledTimes(1);
+        expect(firstCallArgs.url).toEqual('/image/text/asciify/');
+        expect(firstCallArgs.headers).toBeUndefined();
+        expect(firstCallArgs.query).toEqual({
+          model: 'ramesh-aditya',
+        });
+        expect(firstCallArgs.body.get('image')).toBeDefined();
+        expect(firstCallArgs.body.get('image_url')).toEqual(image_url_data);
       });
       it('should call the api with the text and the specified model', async () => {
-        const blob = new Blob(['fake image 🤫']);
+        const image_data = new Blob([getRandomText(), String(getRandomInt())]);
+        const image_url_data = getRandomText();
         const result = await gladiaClient.fromImage().toText().asciify({
-          image: blob,
+          image: image_data,
+          image_url: image_url_data,
           model: 'fake-model-name' as any,
         });
-        expect(result).toBeDefined();
-        expect(httpClientMock.post).toHaveBeenCalledTimes(1);
-        const postMock = httpClientMock.post as jest.Mock;
-        const arg = postMock.mock.calls[0][0];
-        expect(arg.url).toEqual('/image/text/asciify/');
-        expect(arg.query).toEqual({ model: 'fake-model-name' });
-        expect(arg.headers).toEqual({ 'Content-Type': 'multipart/form-data' });
-        expect(arg.body.get('image')).toBeDefined();
+        const { postMock, firstCallArgs } = getPostMock(httpClientMock);
+        expect(postMock).toHaveBeenCalledTimes(1);
+        expect(firstCallArgs.url).toEqual('/image/text/asciify/');
+        expect(firstCallArgs.headers).toBeUndefined();
+        expect(firstCallArgs.query).toEqual({
+          model: 'fake-model-name',
+        });
+        expect(firstCallArgs.body.get('image')).toBeDefined();
+        expect(firstCallArgs.body.get('image_url')).toEqual(image_url_data);
       });
     });
     describe('shortcuts', () => {
       it('should call the api with the text and the default model by default', async () => {
-        const blob = new Blob(['fake image 🤫']);
-        const result = await gladiaClient.asciify({ image: blob });
-        expect(result).toBeDefined();
-        expect(httpClientMock.post).toHaveBeenCalledTimes(1);
-        const postMock = httpClientMock.post as jest.Mock;
-        const arg = postMock.mock.calls[0][0];
-        expect(arg.url).toEqual('/image/text/asciify/');
-        expect(arg.query).toEqual({ model: 'ramesh-aditya' });
-        expect(arg.headers).toEqual({ 'Content-Type': 'multipart/form-data' });
-        expect(arg.body.get('image')).toBeDefined();
+        const image_data = new Blob([getRandomText(), String(getRandomInt())]);
+        const image_url_data = getRandomText();
+        const result = await gladiaClient.asciify({
+          image: image_data,
+          image_url: image_url_data,
+        });
+        const { postMock, firstCallArgs } = getPostMock(httpClientMock);
+        expect(postMock).toHaveBeenCalledTimes(1);
+        expect(firstCallArgs.url).toEqual('/image/text/asciify/');
+        expect(firstCallArgs.headers).toBeUndefined();
+        expect(firstCallArgs.query).toEqual({
+          model: 'ramesh-aditya',
+        });
+        expect(firstCallArgs.body.get('image')).toBeDefined();
+        expect(firstCallArgs.body.get('image_url')).toEqual(image_url_data);
       });
       it('should call the api with the text and the specified model', async () => {
-        const blob = new Blob(['fake image 🤫']);
+        const image_data = new Blob([getRandomText(), String(getRandomInt())]);
+        const image_url_data = getRandomText();
         const result = await gladiaClient.asciify({
-          image: blob,
+          image: image_data,
+          image_url: image_url_data,
           model: 'fake-model-name' as any,
         });
-        expect(result).toBeDefined();
-        expect(httpClientMock.post).toHaveBeenCalledTimes(1);
-        const postMock = httpClientMock.post as jest.Mock;
-        const arg = postMock.mock.calls[0][0];
-        expect(arg.url).toEqual('/image/text/asciify/');
-        expect(arg.query).toEqual({ model: 'fake-model-name' });
-        expect(arg.headers).toEqual({ 'Content-Type': 'multipart/form-data' });
-        expect(arg.body.get('image')).toBeDefined();
+        const { postMock, firstCallArgs } = getPostMock(httpClientMock);
+        expect(postMock).toHaveBeenCalledTimes(1);
+        expect(firstCallArgs.url).toEqual('/image/text/asciify/');
+        expect(firstCallArgs.headers).toBeUndefined();
+        expect(firstCallArgs.query).toEqual({
+          model: 'fake-model-name',
+        });
+        expect(firstCallArgs.body.get('image')).toBeDefined();
+        expect(firstCallArgs.body.get('image_url')).toEqual(image_url_data);
       });
     });
   });
@@ -86,60 +102,88 @@ describe('FromImageToText', () => {
 
     describe('full path', () => {
       it('should call the api with the text and the default model by default', async () => {
-        const blob = new Blob(['fake image 🤫']);
-        const result = await gladiaClient.fromImage().toText().classification({ image: blob });
-        expect(result).toBeDefined();
-        expect(httpClientMock.post).toHaveBeenCalledTimes(1);
-        const postMock = httpClientMock.post as jest.Mock;
-        const arg = postMock.mock.calls[0][0];
-        expect(arg.url).toEqual('/image/text/classification/');
-        expect(arg.query).toEqual({ model: 'alexnet' });
-        expect(arg.headers).toEqual({ 'Content-Type': 'multipart/form-data' });
-        expect(arg.body.get('image')).toBeDefined();
+        const image_data = new Blob([getRandomText(), String(getRandomInt())]);
+        const image_url_data = getRandomText();
+        const top_k_data = getRandomInt();
+        const result = await gladiaClient.fromImage().toText().classification({
+          image: image_data,
+          image_url: image_url_data,
+          top_k: top_k_data,
+        });
+        const { postMock, firstCallArgs } = getPostMock(httpClientMock);
+        expect(postMock).toHaveBeenCalledTimes(1);
+        expect(firstCallArgs.url).toEqual('/image/text/classification/');
+        expect(firstCallArgs.headers).toBeUndefined();
+        expect(firstCallArgs.query).toEqual({
+          model: 'alexnet',
+        });
+        expect(firstCallArgs.body.get('image')).toBeDefined();
+        expect(firstCallArgs.body.get('image_url')).toEqual(image_url_data);
+        expect(firstCallArgs.body.get('top_k')).toEqual(String(top_k_data));
       });
       it('should call the api with the text and the specified model', async () => {
-        const blob = new Blob(['fake image 🤫']);
+        const image_data = new Blob([getRandomText(), String(getRandomInt())]);
+        const image_url_data = getRandomText();
+        const top_k_data = getRandomInt();
         const result = await gladiaClient.fromImage().toText().classification({
-          image: blob,
+          image: image_data,
+          image_url: image_url_data,
+          top_k: top_k_data,
           model: 'convnext_base' as any,
         });
-        expect(result).toBeDefined();
-        expect(httpClientMock.post).toHaveBeenCalledTimes(1);
-        const postMock = httpClientMock.post as jest.Mock;
-        const arg = postMock.mock.calls[0][0];
-        expect(arg.url).toEqual('/image/text/classification/');
-        expect(arg.query).toEqual({ model: 'convnext_base' });
-        expect(arg.headers).toEqual({ 'Content-Type': 'multipart/form-data' });
-        expect(arg.body.get('image')).toBeDefined();
+        const { postMock, firstCallArgs } = getPostMock(httpClientMock);
+        expect(postMock).toHaveBeenCalledTimes(1);
+        expect(firstCallArgs.url).toEqual('/image/text/classification/');
+        expect(firstCallArgs.headers).toBeUndefined();
+        expect(firstCallArgs.query).toEqual({
+          model: 'convnext_base',
+        });
+        expect(firstCallArgs.body.get('image')).toBeDefined();
+        expect(firstCallArgs.body.get('image_url')).toEqual(image_url_data);
+        expect(firstCallArgs.body.get('top_k')).toEqual(String(top_k_data));
       });
     });
     describe('shortcuts', () => {
       it('should call the api with the text and the default model by default', async () => {
-        const blob = new Blob(['fake image 🤫']);
-        const result = await gladiaClient.classification({ image: blob });
-        expect(result).toBeDefined();
-        expect(httpClientMock.post).toHaveBeenCalledTimes(1);
-        const postMock = httpClientMock.post as jest.Mock;
-        const arg = postMock.mock.calls[0][0];
-        expect(arg.url).toEqual('/image/text/classification/');
-        expect(arg.query).toEqual({ model: 'alexnet' });
-        expect(arg.headers).toEqual({ 'Content-Type': 'multipart/form-data' });
-        expect(arg.body.get('image')).toBeDefined();
+        const image_data = new Blob([getRandomText(), String(getRandomInt())]);
+        const image_url_data = getRandomText();
+        const top_k_data = getRandomInt();
+        const result = await gladiaClient.classification({
+          image: image_data,
+          image_url: image_url_data,
+          top_k: top_k_data,
+        });
+        const { postMock, firstCallArgs } = getPostMock(httpClientMock);
+        expect(postMock).toHaveBeenCalledTimes(1);
+        expect(firstCallArgs.url).toEqual('/image/text/classification/');
+        expect(firstCallArgs.headers).toBeUndefined();
+        expect(firstCallArgs.query).toEqual({
+          model: 'alexnet',
+        });
+        expect(firstCallArgs.body.get('image')).toBeDefined();
+        expect(firstCallArgs.body.get('image_url')).toEqual(image_url_data);
+        expect(firstCallArgs.body.get('top_k')).toEqual(String(top_k_data));
       });
       it('should call the api with the text and the specified model', async () => {
-        const blob = new Blob(['fake image 🤫']);
+        const image_data = new Blob([getRandomText(), String(getRandomInt())]);
+        const image_url_data = getRandomText();
+        const top_k_data = getRandomInt();
         const result = await gladiaClient.classification({
-          image: blob,
+          image: image_data,
+          image_url: image_url_data,
+          top_k: top_k_data,
           model: 'convnext_base' as any,
         });
-        expect(result).toBeDefined();
-        expect(httpClientMock.post).toHaveBeenCalledTimes(1);
-        const postMock = httpClientMock.post as jest.Mock;
-        const arg = postMock.mock.calls[0][0];
-        expect(arg.url).toEqual('/image/text/classification/');
-        expect(arg.query).toEqual({ model: 'convnext_base' });
-        expect(arg.headers).toEqual({ 'Content-Type': 'multipart/form-data' });
-        expect(arg.body.get('image')).toBeDefined();
+        const { postMock, firstCallArgs } = getPostMock(httpClientMock);
+        expect(postMock).toHaveBeenCalledTimes(1);
+        expect(firstCallArgs.url).toEqual('/image/text/classification/');
+        expect(firstCallArgs.headers).toBeUndefined();
+        expect(firstCallArgs.query).toEqual({
+          model: 'convnext_base',
+        });
+        expect(firstCallArgs.body.get('image')).toBeDefined();
+        expect(firstCallArgs.body.get('image_url')).toEqual(image_url_data);
+        expect(firstCallArgs.body.get('top_k')).toEqual(String(top_k_data));
       });
     });
   });
@@ -155,60 +199,88 @@ describe('FromImageToText', () => {
 
     describe('full path', () => {
       it('should call the api with the text and the default model by default', async () => {
-        const blob = new Blob(['fake image 🤫']);
-        const result = await gladiaClient.fromImage().toText().ocr({ image: blob });
-        expect(result).toBeDefined();
-        expect(httpClientMock.post).toHaveBeenCalledTimes(1);
-        const postMock = httpClientMock.post as jest.Mock;
-        const arg = postMock.mock.calls[0][0];
-        expect(arg.url).toEqual('/image/text/ocr/');
-        expect(arg.query).toEqual({ model: 'easy-ocr' });
-        expect(arg.headers).toEqual({ 'Content-Type': 'multipart/form-data' });
-        expect(arg.body.get('image')).toBeDefined();
+        const image_data = new Blob([getRandomText(), String(getRandomInt())]);
+        const image_url_data = getRandomText();
+        const source_language_data = getRandomText();
+        const result = await gladiaClient.fromImage().toText().ocr({
+          image: image_data,
+          image_url: image_url_data,
+          source_language: source_language_data,
+        });
+        const { postMock, firstCallArgs } = getPostMock(httpClientMock);
+        expect(postMock).toHaveBeenCalledTimes(1);
+        expect(firstCallArgs.url).toEqual('/image/text/ocr/');
+        expect(firstCallArgs.headers).toBeUndefined();
+        expect(firstCallArgs.query).toEqual({
+          model: 'easy-ocr',
+        });
+        expect(firstCallArgs.body.get('image')).toBeDefined();
+        expect(firstCallArgs.body.get('image_url')).toEqual(image_url_data);
+        expect(firstCallArgs.body.get('source_language')).toEqual(source_language_data);
       });
       it('should call the api with the text and the specified model', async () => {
-        const blob = new Blob(['fake image 🤫']);
+        const image_data = new Blob([getRandomText(), String(getRandomInt())]);
+        const image_url_data = getRandomText();
+        const source_language_data = getRandomText();
         const result = await gladiaClient.fromImage().toText().ocr({
-          image: blob,
+          image: image_data,
+          image_url: image_url_data,
+          source_language: source_language_data,
           model: 'tesseract-default' as any,
         });
-        expect(result).toBeDefined();
-        expect(httpClientMock.post).toHaveBeenCalledTimes(1);
-        const postMock = httpClientMock.post as jest.Mock;
-        const arg = postMock.mock.calls[0][0];
-        expect(arg.url).toEqual('/image/text/ocr/');
-        expect(arg.query).toEqual({ model: 'tesseract-default' });
-        expect(arg.headers).toEqual({ 'Content-Type': 'multipart/form-data' });
-        expect(arg.body.get('image')).toBeDefined();
+        const { postMock, firstCallArgs } = getPostMock(httpClientMock);
+        expect(postMock).toHaveBeenCalledTimes(1);
+        expect(firstCallArgs.url).toEqual('/image/text/ocr/');
+        expect(firstCallArgs.headers).toBeUndefined();
+        expect(firstCallArgs.query).toEqual({
+          model: 'tesseract-default',
+        });
+        expect(firstCallArgs.body.get('image')).toBeDefined();
+        expect(firstCallArgs.body.get('image_url')).toEqual(image_url_data);
+        expect(firstCallArgs.body.get('source_language')).toEqual(source_language_data);
       });
     });
     describe('shortcuts', () => {
       it('should call the api with the text and the default model by default', async () => {
-        const blob = new Blob(['fake image 🤫']);
-        const result = await gladiaClient.ocr({ image: blob });
-        expect(result).toBeDefined();
-        expect(httpClientMock.post).toHaveBeenCalledTimes(1);
-        const postMock = httpClientMock.post as jest.Mock;
-        const arg = postMock.mock.calls[0][0];
-        expect(arg.url).toEqual('/image/text/ocr/');
-        expect(arg.query).toEqual({ model: 'easy-ocr' });
-        expect(arg.headers).toEqual({ 'Content-Type': 'multipart/form-data' });
-        expect(arg.body.get('image')).toBeDefined();
+        const image_data = new Blob([getRandomText(), String(getRandomInt())]);
+        const image_url_data = getRandomText();
+        const source_language_data = getRandomText();
+        const result = await gladiaClient.ocr({
+          image: image_data,
+          image_url: image_url_data,
+          source_language: source_language_data,
+        });
+        const { postMock, firstCallArgs } = getPostMock(httpClientMock);
+        expect(postMock).toHaveBeenCalledTimes(1);
+        expect(firstCallArgs.url).toEqual('/image/text/ocr/');
+        expect(firstCallArgs.headers).toBeUndefined();
+        expect(firstCallArgs.query).toEqual({
+          model: 'easy-ocr',
+        });
+        expect(firstCallArgs.body.get('image')).toBeDefined();
+        expect(firstCallArgs.body.get('image_url')).toEqual(image_url_data);
+        expect(firstCallArgs.body.get('source_language')).toEqual(source_language_data);
       });
       it('should call the api with the text and the specified model', async () => {
-        const blob = new Blob(['fake image 🤫']);
+        const image_data = new Blob([getRandomText(), String(getRandomInt())]);
+        const image_url_data = getRandomText();
+        const source_language_data = getRandomText();
         const result = await gladiaClient.ocr({
-          image: blob,
+          image: image_data,
+          image_url: image_url_data,
+          source_language: source_language_data,
           model: 'tesseract-default' as any,
         });
-        expect(result).toBeDefined();
-        expect(httpClientMock.post).toHaveBeenCalledTimes(1);
-        const postMock = httpClientMock.post as jest.Mock;
-        const arg = postMock.mock.calls[0][0];
-        expect(arg.url).toEqual('/image/text/ocr/');
-        expect(arg.query).toEqual({ model: 'tesseract-default' });
-        expect(arg.headers).toEqual({ 'Content-Type': 'multipart/form-data' });
-        expect(arg.body.get('image')).toBeDefined();
+        const { postMock, firstCallArgs } = getPostMock(httpClientMock);
+        expect(postMock).toHaveBeenCalledTimes(1);
+        expect(firstCallArgs.url).toEqual('/image/text/ocr/');
+        expect(firstCallArgs.headers).toBeUndefined();
+        expect(firstCallArgs.query).toEqual({
+          model: 'tesseract-default',
+        });
+        expect(firstCallArgs.body.get('image')).toBeDefined();
+        expect(firstCallArgs.body.get('image_url')).toEqual(image_url_data);
+        expect(firstCallArgs.body.get('source_language')).toEqual(source_language_data);
       });
     });
   });

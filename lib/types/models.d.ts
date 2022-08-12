@@ -1,6 +1,6 @@
-export declare const AUDIO_TEXT_SPEECH_TO_TEXT_MODELS: readonly ["coqui_english_huge_vocab"];
-export declare const AUDIO_TEXT_SPEECH_TO_TEXT_DEFAULT_MODEL: "coqui_english_huge_vocab";
-export declare type AudioTextSpeech_to_textModel = typeof AUDIO_TEXT_SPEECH_TO_TEXT_MODELS[number];
+export declare const AUDIO_TEXT_AUDIO_TRANSCRIPTION_MODELS: readonly ["coqui_english_huge_vocab"];
+export declare const AUDIO_TEXT_AUDIO_TRANSCRIPTION_DEFAULT_MODEL: "coqui_english_huge_vocab";
+export declare type AudioTextAudioTranscriptionModel = typeof AUDIO_TEXT_AUDIO_TRANSCRIPTION_MODELS[number];
 export declare const IMAGE_IMAGE_BACKGROUND_REMOVAL_MODELS: readonly ["mobilenet", "xception"];
 export declare const IMAGE_IMAGE_BACKGROUND_REMOVAL_DEFAULT_MODEL: "xception";
 export declare type ImageImageBackgroundRemovalModel = typeof IMAGE_IMAGE_BACKGROUND_REMOVAL_MODELS[number];

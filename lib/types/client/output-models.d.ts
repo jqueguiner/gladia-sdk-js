@@ -1,4 +1,4 @@
-export declare type AudioTextSpeech_to_textOutputs = Record<string, string | number | boolean>;
+export declare type AudioTextAudioTranscriptionOutputs = Record<string, string | number | boolean>;
 export declare type ImageImageBackgroundRemovalOutputs = ArrayBuffer;
 export declare type ImageImageColorizationOutputs = ArrayBuffer;
 export declare type ImageImageFaceBluringOutputs = ArrayBuffer;
