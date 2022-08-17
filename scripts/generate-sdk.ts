@@ -18,11 +18,15 @@ function generateModelsTs() {
   const endpoints = meta.getEndpoints();
   for (const endpoint of endpoints) {
     const typeName = meta.getModelTypeName(endpoint);
+    const contentTypeName = meta.getContentTypeName(endpoint);
     const defaultValueName = meta.getDefaultValueName(endpoint);
     const modelValuesName = meta.getModelValuesName(endpoint);
     fileContent.push(`export const ${modelValuesName} = [`);
     endpoint.models.map((model) => `   '${model}',`).forEach((model) => fileContent.push(model));
     fileContent.push('] as const;');
+    fileContent.push(
+      `export const ${contentTypeName} = "${endpoint.inputBodyContentType}" as const;`,
+    );
     fileContent.push(`export const ${defaultValueName} = "${endpoint.defaultModel}" as const;`);
     fileContent.push(`export type ${typeName} = typeof ${modelValuesName}[number];`);
     fileContent.push('');
@@ -110,11 +114,16 @@ function generateFromInputToOutputClasses() {
       fileContent.push(`} from './output-models'`);
       fileContent.push(`import {`);
       for (const endpoint of outputTypeEndpoints) {
-        const defaultModelName = meta.getDefaultValueName(endpoint);
-        fileContent.push(`  ${defaultModelName},`);
+        fileContent.push(`  ${meta.getContentTypeName(endpoint)},`);
+        fileContent.push(`  ${meta.getDefaultValueName(endpoint)},`);
       }
       fileContent.push(`} from '../models'`);
+      const importUrlFormData = outputTypeEndpoints.some(isEndpointNeedUrlFormData);
       fileContent.push(`import { getHttpClient, HttpClient } from '../internal/http-client';`);
+      fileContent.push(`import { isDefined } from '../utils/fp';`);
+      if (importUrlFormData) {
+        fileContent.push(`import { UrlFormData } from '../internal/url-form-data';`);
+      }
       fileContent.push(`import { GladiaClientParams } from './gladia-client-params';`);
       fileContent.push('');
       fileContent.push(`export class ${getClientInputOutputClassName(inputType, outputType)} {`);
@@ -134,14 +143,37 @@ function generateFromInputToOutputClasses() {
           case 'text':
           case 'audio':
           case 'image':
-            fileContent.push(`    const formData = new FormData();`);
+            const useUrlFormData = isEndpointNeedUrlFormData(endpoint);
+            if (useUrlFormData) {
+              fileContent.push(`    const formData = new UrlFormData();`);
+            } else {
+              fileContent.push(`    const formData = new FormData();`);
+            }
             for (const param of endpoint.params.filter((p) => p.in === 'formData')) {
+              fileContent.push(`    if (isDefined(args.${param.name})) {`);
               const argValue =
                 param.type === 'integer' ? `String(args.${param.name})` : `args.${param.name}`;
-              fileContent.push(`    formData.append('${param.name}', ${argValue});`);
+              fileContent.push(`      formData.append('${param.name}', ${argValue});`);
+              fileContent.push(`    }`);
             }
             fileContent.push(`    return this.httpClient.post({`);
             fileContent.push(`      url: '${endpoint.url}',`);
+            if (useUrlFormData) {
+              fileContent.push(
+                `      headers: { 'Content-Type': ${meta.getContentTypeName(endpoint)} },`,
+              );
+            } else {
+              // this enforce the browser to compute it self the Content-Type with correct boundary
+              // this give something like:
+              // Content-Type: multipart/form-data; boundary=---------------------------412830277717200702261256384337
+              fileContent.push(`      headers: {`);
+              fileContent.push(
+                `        'Content-Type': this.params.useFetch ? ${meta.getContentTypeName(
+                  endpoint,
+                )} : undefined,`,
+              );
+              fileContent.push(`      },`);
+            }
             fileContent.push(`      query: {`);
             fileContent.push(`        model: args.model ?? ${defaultModelName},`);
             for (const param of endpoint.params.filter((p) => p.in === 'query')) {
@@ -150,7 +182,11 @@ function generateFromInputToOutputClasses() {
               fileContent.push(`        ${param.name}: ${argValue},`);
             }
             fileContent.push(`      },`);
-            fileContent.push(`      body: formData,`);
+            if (useUrlFormData) {
+              fileContent.push(`      body: formData.toString(),`);
+            } else {
+              fileContent.push(`      body: formData,`);
+            }
             fileContent.push(`    });`);
             break;
           default:
@@ -165,6 +201,10 @@ function generateFromInputToOutputClasses() {
       fs.writeFileSync(`./src/client/${outputFileName}.ts`, fileContent.join('\n'));
     }
   }
+}
+
+function isEndpointNeedUrlFormData(endpoint: meta.EndpointDef): boolean {
+  return endpoint.inputBodyContentType === 'application/x-www-form-urlencoded';
 }
 
 function generateFromInputClasses() {
@@ -287,11 +327,15 @@ function generateGladiaClient() {
   fileContent.push('');
   fileContent.push('  constructor(params: GladiaClientParams) {');
   fileContent.push('    super();');
+  fileContent.push(`    const validatedParams: GladiaClientParams = {`);
+  fileContent.push(`      ...params,`);
+  fileContent.push(`      useFetch: params.useFetch ?? false,`);
+  fileContent.push(`    }`);
   for (const inputType of Object.keys(endpoints)) {
     fileContent.push(
       `    this.${getClientInputMemberName(inputType)} = new ${getClientInputClassName(
         inputType,
-      )}(params);`,
+      )}(validatedParams);`,
     );
   }
   fileContent.push('  }');
@@ -459,10 +503,18 @@ function generateTestInputs(
 
 function generateTestAssertions(endpoint: meta.EndpointDef, specifyModel?: string) {
   const fileContent: string[] = [];
-  fileContent.push(`        const { postMock, firstCallArgs } = getPostMock(httpClientMock);`);
+  fileContent.push(
+    `        const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);`,
+  );
   fileContent.push(`        expect(postMock).toHaveBeenCalledTimes(1);`);
   fileContent.push(`        expect(firstCallArgs.url).toEqual('${endpoint.url}');`);
-  fileContent.push(`        expect(firstCallArgs.headers).toBeUndefined();`);
+  fileContent.push(`        expect(firstCallArgs.headers).toEqual({`);
+  if (isEndpointNeedUrlFormData(endpoint)) {
+    fileContent.push(`          'Content-Type': '${endpoint.inputBodyContentType}',`);
+  } else {
+    fileContent.push(`          'Content-Type': undefined,`);
+  }
+  fileContent.push(`        });`);
   fileContent.push(`        expect(firstCallArgs.query).toEqual({`);
   fileContent.push(`          model: '${specifyModel ?? endpoint.defaultModel}',`);
   for (const param of endpoint.params.filter((p) => p.in === 'query')) {
@@ -473,17 +525,17 @@ function generateTestAssertions(endpoint: meta.EndpointDef, specifyModel?: strin
     switch (param.type) {
       case 'audio':
       case 'image':
-        fileContent.push(`        expect(firstCallArgs.body.get('${param.name}')).toBeDefined();`);
+        fileContent.push(`        expect(firstCallBody.get('${param.name}')).toBeDefined();`);
         break;
       case 'integer':
         fileContent.push(
-          `        expect(firstCallArgs.body.get('${param.name}')).toEqual(String(${param.name}_data));`,
+          `        expect(firstCallBody.get('${param.name}')).toEqual(String(${param.name}_data));`,
         );
         break;
       case 'string':
       case 'url':
         fileContent.push(
-          `        expect(firstCallArgs.body.get('${param.name}')).toEqual(${param.name}_data);`,
+          `        expect(firstCallBody.get('${param.name}')).toEqual(${param.name}_data);`,
         );
         break;
     }

@@ -6,6 +6,7 @@ export interface OpenApiJson {
   };
   paths: Record<PathUrl, PathDef>;
   components: OpenApiJsonComponent;
+  security?: unknown;
 }
 
 type SecurityHeaderName = string;
@@ -79,4 +80,5 @@ interface OpenApiJsonComponent {
       >;
     }
   >;
+  securitySchemes?: unknown;
 }

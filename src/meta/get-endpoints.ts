@@ -10,6 +10,7 @@ export function getEndpoints(): EndpointDef[] {
       outputType,
       taskName,
       ...getPostModels(def),
+      ...getInputBodyContentType(inputType),
       params: getPostParams(def, openApiJson),
     };
   });
@@ -40,6 +41,19 @@ function getPostModels(def: PathDef): Pick<EndpointDef, 'models' | 'defaultModel
   const models = modelsParam.schema.enum ?? [];
   models.sort();
   return { models, defaultModel: modelsParam.schema.default };
+}
+
+function getInputBodyContentType(inputType: string) {
+  switch (inputType) {
+    case 'text':
+      return { inputBodyContentType: 'application/x-www-form-urlencoded' };
+    case 'audio':
+    case 'image':
+    case 'video':
+      return { inputBodyContentType: 'multipart/form-data' };
+    default:
+      throw { kind: 'InvalidInputType', inputType };
+  }
 }
 
 function getPostParams(def: PathDef, openApiJson: OpenApiJson) {
@@ -95,6 +109,7 @@ export interface EndpointDef {
   models: string[];
   defaultModel: string;
   params: EndpointDefParam[];
+  inputBodyContentType: string;
 }
 
 export interface EndpointDefParam {

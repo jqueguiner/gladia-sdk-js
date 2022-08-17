@@ -2,11 +2,12 @@ import axios from 'axios';
 import { axiosFetchAdapter } from './axios-fetch-adapter';
 import { SDK_VERSION } from '../meta/sdk-version';
 import { GladiaClientParams } from '../client/gladia-client-params';
+import { searchQueryParamSerializer } from './search-query-param-serializer';
 
 interface PostParams {
   url: string;
   query?: Record<string, string | number | boolean>;
-  body?: unknown;
+  body?: any;
   headers?: Record<string, string | number | boolean>;
   responseType?: 'json' | 'arraybuffer';
 }
@@ -28,7 +29,6 @@ export function getHttpClient(params: GladiaClientParams) {
   const baseHeaders = {
     'x-gladia-key': params.apiKey,
     'x-gladia-sdk': SDK_VERSION,
-    'Content-Type': 'multipart/form-data',
   };
   return factory({
     baseHeaders,
@@ -41,12 +41,7 @@ const AxiosHttpClient: HttpClientFactory = ({ baseHeaders, baseUrl, useFetch }) 
   return {
     async post(params) {
       const headers = { ...baseHeaders, ...params.headers };
-      const queryParams: string[] = [];
-      for (const [key, value] of Object.entries(params.query ?? {})) {
-        queryParams.push(`${key}=${String(value)}`);
-      }
-      const urlQueryParams = queryParams.length === 0 ? '' : `?${queryParams.join('&')}`;
-      const url = `${baseUrl}${params.url}${urlQueryParams}`;
+      const url = `${baseUrl}${params.url}${searchQueryParamSerializer(params.query)}`;
       const responseType = params.responseType ?? 'json';
       const adapter = useFetch ? { adapter: await axiosFetchAdapter() } : {};
       return axios

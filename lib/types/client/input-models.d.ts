@@ -3,7 +3,7 @@ import { WithModel } from './types';
 export interface AudioTextAudioTranscriptionInputs extends WithModel<AudioTextAudioTranscriptionModel> {
     audio?: Blob;
     audio_url?: string;
-    language?: string;
+    language: string;
 }
 export interface ImageImageBackgroundRemovalInputs extends WithModel<ImageImageBackgroundRemovalModel> {
     image?: Blob;
@@ -28,63 +28,63 @@ export interface ImageTextAsciifyInputs extends WithModel<ImageTextAsciifyModel>
 export interface ImageTextClassificationInputs extends WithModel<ImageTextClassificationModel> {
     image?: Blob;
     image_url?: string;
-    top_k?: number;
+    top_k: number;
 }
 export interface ImageTextOcrInputs extends WithModel<ImageTextOcrModel> {
     image?: Blob;
     image_url?: string;
-    source_language?: string;
+    source_language: string;
 }
 export interface TextTextAutocorrectInputs extends WithModel<TextTextAutocorrectModel> {
-    sentence?: string;
+    sentence: string;
 }
 export interface TextTextEmotionRecognitionInputs extends WithModel<TextTextEmotionRecognitionModel> {
-    text?: string;
+    text: string;
 }
 export interface TextTextHateSpeechDetectionInputs extends WithModel<TextTextHateSpeechDetectionModel> {
-    text?: string;
+    text: string;
 }
 export interface TextTextKeywordExtractionInputs extends WithModel<TextTextKeywordExtractionModel> {
-    text?: string;
+    text: string;
 }
 export interface TextTextLanguageDetectionInputs extends WithModel<TextTextLanguageDetectionModel> {
-    text?: string;
+    text: string;
 }
 export interface TextTextLanguageGenerationInputs extends WithModel<TextTextLanguageGenerationModel> {
-    text?: string;
+    text: string;
 }
 export interface TextTextNamedEntityRecognitionInputs extends WithModel<TextTextNamedEntityRecognitionModel> {
-    text?: string;
+    text: string;
 }
 export interface TextTextNextSentencePredictionInputs extends WithModel<TextTextNextSentencePredictionModel> {
-    sentence_1?: string;
-    sentence_2?: string;
+    sentence_1: string;
+    sentence_2: string;
 }
 export interface TextTextNextWordPredictionInputs extends WithModel<TextTextNextWordPredictionModel> {
-    sentence?: string;
+    sentence: string;
 }
 export interface TextTextPluralInputs extends WithModel<TextTextPluralModel> {
-    word?: string;
-    count?: number;
+    word: string;
+    count: number;
 }
 export interface TextTextProgrammingLanguageGenerationInputs extends WithModel<TextTextProgrammingLanguageGenerationModel> {
-    code_snippet?: string;
+    code_snippet: string;
 }
 export interface TextTextQuestionAnsweringInputs extends WithModel<TextTextQuestionAnsweringModel> {
-    context?: string;
-    question?: string;
+    context: string;
+    question: string;
 }
 export interface TextTextSentenceParaphraserInputs extends WithModel<TextTextSentenceParaphraserModel> {
-    context?: string;
+    context: string;
 }
 export interface TextTextSentimentAnalysisInputs extends WithModel<TextTextSentimentAnalysisModel> {
-    text?: string;
+    text: string;
 }
 export interface TextTextSimilarityInputs extends WithModel<TextTextSimilarityModel> {
-    sentence_1?: string;
-    sentence_2?: string;
+    sentence_1: string;
+    sentence_2: string;
 }
 export interface TextTextWordAlignmentInputs extends WithModel<TextTextWordAlignmentModel> {
-    input_string_language_1?: string;
-    input_string_language_2?: string;
+    input_string_language_1: string;
+    input_string_language_2: string;
 }

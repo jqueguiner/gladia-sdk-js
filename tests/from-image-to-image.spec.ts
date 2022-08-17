@@ -23,15 +23,17 @@ describe('FromImageToImage', () => {
           image: image_data,
           image_url: image_url_data,
         });
-        const { postMock, firstCallArgs } = getPostMock(httpClientMock);
+        const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
         expect(firstCallArgs.url).toEqual('/image/image/background-removal/');
-        expect(firstCallArgs.headers).toBeUndefined();
+        expect(firstCallArgs.headers).toEqual({
+          'Content-Type': undefined,
+        });
         expect(firstCallArgs.query).toEqual({
           model: 'xception',
         });
-        expect(firstCallArgs.body.get('image')).toBeDefined();
-        expect(firstCallArgs.body.get('image_url')).toEqual(image_url_data);
+        expect(firstCallBody.get('image')).toBeDefined();
+        expect(firstCallBody.get('image_url')).toEqual(image_url_data);
       });
       it('should call the api with the text and the specified model', async () => {
         const image_data = new Blob([getRandomText(), String(getRandomInt())]);
@@ -41,15 +43,17 @@ describe('FromImageToImage', () => {
           image_url: image_url_data,
           model: 'mobilenet' as any,
         });
-        const { postMock, firstCallArgs } = getPostMock(httpClientMock);
+        const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
         expect(firstCallArgs.url).toEqual('/image/image/background-removal/');
-        expect(firstCallArgs.headers).toBeUndefined();
+        expect(firstCallArgs.headers).toEqual({
+          'Content-Type': undefined,
+        });
         expect(firstCallArgs.query).toEqual({
           model: 'mobilenet',
         });
-        expect(firstCallArgs.body.get('image')).toBeDefined();
-        expect(firstCallArgs.body.get('image_url')).toEqual(image_url_data);
+        expect(firstCallBody.get('image')).toBeDefined();
+        expect(firstCallBody.get('image_url')).toEqual(image_url_data);
       });
     });
     describe('shortcuts', () => {
@@ -60,15 +64,17 @@ describe('FromImageToImage', () => {
           image: image_data,
           image_url: image_url_data,
         });
-        const { postMock, firstCallArgs } = getPostMock(httpClientMock);
+        const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
         expect(firstCallArgs.url).toEqual('/image/image/background-removal/');
-        expect(firstCallArgs.headers).toBeUndefined();
+        expect(firstCallArgs.headers).toEqual({
+          'Content-Type': undefined,
+        });
         expect(firstCallArgs.query).toEqual({
           model: 'xception',
         });
-        expect(firstCallArgs.body.get('image')).toBeDefined();
-        expect(firstCallArgs.body.get('image_url')).toEqual(image_url_data);
+        expect(firstCallBody.get('image')).toBeDefined();
+        expect(firstCallBody.get('image_url')).toEqual(image_url_data);
       });
       it('should call the api with the text and the specified model', async () => {
         const image_data = new Blob([getRandomText(), String(getRandomInt())]);
@@ -78,15 +84,17 @@ describe('FromImageToImage', () => {
           image_url: image_url_data,
           model: 'mobilenet' as any,
         });
-        const { postMock, firstCallArgs } = getPostMock(httpClientMock);
+        const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
         expect(firstCallArgs.url).toEqual('/image/image/background-removal/');
-        expect(firstCallArgs.headers).toBeUndefined();
+        expect(firstCallArgs.headers).toEqual({
+          'Content-Type': undefined,
+        });
         expect(firstCallArgs.query).toEqual({
           model: 'mobilenet',
         });
-        expect(firstCallArgs.body.get('image')).toBeDefined();
-        expect(firstCallArgs.body.get('image_url')).toEqual(image_url_data);
+        expect(firstCallBody.get('image')).toBeDefined();
+        expect(firstCallBody.get('image_url')).toEqual(image_url_data);
       });
     });
   });
@@ -108,15 +116,17 @@ describe('FromImageToImage', () => {
           image: image_data,
           image_url: image_url_data,
         });
-        const { postMock, firstCallArgs } = getPostMock(httpClientMock);
+        const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
         expect(firstCallArgs.url).toEqual('/image/image/colorization/');
-        expect(firstCallArgs.headers).toBeUndefined();
+        expect(firstCallArgs.headers).toEqual({
+          'Content-Type': undefined,
+        });
         expect(firstCallArgs.query).toEqual({
           model: 'deoldify-stable',
         });
-        expect(firstCallArgs.body.get('image')).toBeDefined();
-        expect(firstCallArgs.body.get('image_url')).toEqual(image_url_data);
+        expect(firstCallBody.get('image')).toBeDefined();
+        expect(firstCallBody.get('image_url')).toEqual(image_url_data);
       });
       it('should call the api with the text and the specified model', async () => {
         const image_data = new Blob([getRandomText(), String(getRandomInt())]);
@@ -126,15 +136,17 @@ describe('FromImageToImage', () => {
           image_url: image_url_data,
           model: 'deoldify-artistic' as any,
         });
-        const { postMock, firstCallArgs } = getPostMock(httpClientMock);
+        const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
         expect(firstCallArgs.url).toEqual('/image/image/colorization/');
-        expect(firstCallArgs.headers).toBeUndefined();
+        expect(firstCallArgs.headers).toEqual({
+          'Content-Type': undefined,
+        });
         expect(firstCallArgs.query).toEqual({
           model: 'deoldify-artistic',
         });
-        expect(firstCallArgs.body.get('image')).toBeDefined();
-        expect(firstCallArgs.body.get('image_url')).toEqual(image_url_data);
+        expect(firstCallBody.get('image')).toBeDefined();
+        expect(firstCallBody.get('image_url')).toEqual(image_url_data);
       });
     });
     describe('shortcuts', () => {
@@ -145,15 +157,17 @@ describe('FromImageToImage', () => {
           image: image_data,
           image_url: image_url_data,
         });
-        const { postMock, firstCallArgs } = getPostMock(httpClientMock);
+        const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
         expect(firstCallArgs.url).toEqual('/image/image/colorization/');
-        expect(firstCallArgs.headers).toBeUndefined();
+        expect(firstCallArgs.headers).toEqual({
+          'Content-Type': undefined,
+        });
         expect(firstCallArgs.query).toEqual({
           model: 'deoldify-stable',
         });
-        expect(firstCallArgs.body.get('image')).toBeDefined();
-        expect(firstCallArgs.body.get('image_url')).toEqual(image_url_data);
+        expect(firstCallBody.get('image')).toBeDefined();
+        expect(firstCallBody.get('image_url')).toEqual(image_url_data);
       });
       it('should call the api with the text and the specified model', async () => {
         const image_data = new Blob([getRandomText(), String(getRandomInt())]);
@@ -163,15 +177,17 @@ describe('FromImageToImage', () => {
           image_url: image_url_data,
           model: 'deoldify-artistic' as any,
         });
-        const { postMock, firstCallArgs } = getPostMock(httpClientMock);
+        const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
         expect(firstCallArgs.url).toEqual('/image/image/colorization/');
-        expect(firstCallArgs.headers).toBeUndefined();
+        expect(firstCallArgs.headers).toEqual({
+          'Content-Type': undefined,
+        });
         expect(firstCallArgs.query).toEqual({
           model: 'deoldify-artistic',
         });
-        expect(firstCallArgs.body.get('image')).toBeDefined();
-        expect(firstCallArgs.body.get('image_url')).toEqual(image_url_data);
+        expect(firstCallBody.get('image')).toBeDefined();
+        expect(firstCallBody.get('image_url')).toEqual(image_url_data);
       });
     });
   });
@@ -193,15 +209,17 @@ describe('FromImageToImage', () => {
           image: image_data,
           image_url: image_url_data,
         });
-        const { postMock, firstCallArgs } = getPostMock(httpClientMock);
+        const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
         expect(firstCallArgs.url).toEqual('/image/image/face-bluring/');
-        expect(firstCallArgs.headers).toBeUndefined();
+        expect(firstCallArgs.headers).toEqual({
+          'Content-Type': undefined,
+        });
         expect(firstCallArgs.query).toEqual({
           model: 'ageitgey',
         });
-        expect(firstCallArgs.body.get('image')).toBeDefined();
-        expect(firstCallArgs.body.get('image_url')).toEqual(image_url_data);
+        expect(firstCallBody.get('image')).toBeDefined();
+        expect(firstCallBody.get('image_url')).toEqual(image_url_data);
       });
       it('should call the api with the text and the specified model', async () => {
         const image_data = new Blob([getRandomText(), String(getRandomInt())]);
@@ -211,15 +229,17 @@ describe('FromImageToImage', () => {
           image_url: image_url_data,
           model: 'fake-model-name' as any,
         });
-        const { postMock, firstCallArgs } = getPostMock(httpClientMock);
+        const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
         expect(firstCallArgs.url).toEqual('/image/image/face-bluring/');
-        expect(firstCallArgs.headers).toBeUndefined();
+        expect(firstCallArgs.headers).toEqual({
+          'Content-Type': undefined,
+        });
         expect(firstCallArgs.query).toEqual({
           model: 'fake-model-name',
         });
-        expect(firstCallArgs.body.get('image')).toBeDefined();
-        expect(firstCallArgs.body.get('image_url')).toEqual(image_url_data);
+        expect(firstCallBody.get('image')).toBeDefined();
+        expect(firstCallBody.get('image_url')).toEqual(image_url_data);
       });
     });
     describe('shortcuts', () => {
@@ -230,15 +250,17 @@ describe('FromImageToImage', () => {
           image: image_data,
           image_url: image_url_data,
         });
-        const { postMock, firstCallArgs } = getPostMock(httpClientMock);
+        const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
         expect(firstCallArgs.url).toEqual('/image/image/face-bluring/');
-        expect(firstCallArgs.headers).toBeUndefined();
+        expect(firstCallArgs.headers).toEqual({
+          'Content-Type': undefined,
+        });
         expect(firstCallArgs.query).toEqual({
           model: 'ageitgey',
         });
-        expect(firstCallArgs.body.get('image')).toBeDefined();
-        expect(firstCallArgs.body.get('image_url')).toEqual(image_url_data);
+        expect(firstCallBody.get('image')).toBeDefined();
+        expect(firstCallBody.get('image_url')).toEqual(image_url_data);
       });
       it('should call the api with the text and the specified model', async () => {
         const image_data = new Blob([getRandomText(), String(getRandomInt())]);
@@ -248,15 +270,17 @@ describe('FromImageToImage', () => {
           image_url: image_url_data,
           model: 'fake-model-name' as any,
         });
-        const { postMock, firstCallArgs } = getPostMock(httpClientMock);
+        const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
         expect(firstCallArgs.url).toEqual('/image/image/face-bluring/');
-        expect(firstCallArgs.headers).toBeUndefined();
+        expect(firstCallArgs.headers).toEqual({
+          'Content-Type': undefined,
+        });
         expect(firstCallArgs.query).toEqual({
           model: 'fake-model-name',
         });
-        expect(firstCallArgs.body.get('image')).toBeDefined();
-        expect(firstCallArgs.body.get('image_url')).toEqual(image_url_data);
+        expect(firstCallBody.get('image')).toBeDefined();
+        expect(firstCallBody.get('image_url')).toEqual(image_url_data);
       });
     });
   });
@@ -278,15 +302,17 @@ describe('FromImageToImage', () => {
           image: image_data,
           image_url: image_url_data,
         });
-        const { postMock, firstCallArgs } = getPostMock(httpClientMock);
+        const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
         expect(firstCallArgs.url).toEqual('/image/image/uncolorization/');
-        expect(firstCallArgs.headers).toBeUndefined();
+        expect(firstCallArgs.headers).toEqual({
+          'Content-Type': undefined,
+        });
         expect(firstCallArgs.query).toEqual({
           model: 'v1',
         });
-        expect(firstCallArgs.body.get('image')).toBeDefined();
-        expect(firstCallArgs.body.get('image_url')).toEqual(image_url_data);
+        expect(firstCallBody.get('image')).toBeDefined();
+        expect(firstCallBody.get('image_url')).toEqual(image_url_data);
       });
       it('should call the api with the text and the specified model', async () => {
         const image_data = new Blob([getRandomText(), String(getRandomInt())]);
@@ -296,15 +322,17 @@ describe('FromImageToImage', () => {
           image_url: image_url_data,
           model: 'fake-model-name' as any,
         });
-        const { postMock, firstCallArgs } = getPostMock(httpClientMock);
+        const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
         expect(firstCallArgs.url).toEqual('/image/image/uncolorization/');
-        expect(firstCallArgs.headers).toBeUndefined();
+        expect(firstCallArgs.headers).toEqual({
+          'Content-Type': undefined,
+        });
         expect(firstCallArgs.query).toEqual({
           model: 'fake-model-name',
         });
-        expect(firstCallArgs.body.get('image')).toBeDefined();
-        expect(firstCallArgs.body.get('image_url')).toEqual(image_url_data);
+        expect(firstCallBody.get('image')).toBeDefined();
+        expect(firstCallBody.get('image_url')).toEqual(image_url_data);
       });
     });
     describe('shortcuts', () => {
@@ -315,15 +343,17 @@ describe('FromImageToImage', () => {
           image: image_data,
           image_url: image_url_data,
         });
-        const { postMock, firstCallArgs } = getPostMock(httpClientMock);
+        const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
         expect(firstCallArgs.url).toEqual('/image/image/uncolorization/');
-        expect(firstCallArgs.headers).toBeUndefined();
+        expect(firstCallArgs.headers).toEqual({
+          'Content-Type': undefined,
+        });
         expect(firstCallArgs.query).toEqual({
           model: 'v1',
         });
-        expect(firstCallArgs.body.get('image')).toBeDefined();
-        expect(firstCallArgs.body.get('image_url')).toEqual(image_url_data);
+        expect(firstCallBody.get('image')).toBeDefined();
+        expect(firstCallBody.get('image_url')).toEqual(image_url_data);
       });
       it('should call the api with the text and the specified model', async () => {
         const image_data = new Blob([getRandomText(), String(getRandomInt())]);
@@ -333,15 +363,17 @@ describe('FromImageToImage', () => {
           image_url: image_url_data,
           model: 'fake-model-name' as any,
         });
-        const { postMock, firstCallArgs } = getPostMock(httpClientMock);
+        const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
         expect(firstCallArgs.url).toEqual('/image/image/uncolorization/');
-        expect(firstCallArgs.headers).toBeUndefined();
+        expect(firstCallArgs.headers).toEqual({
+          'Content-Type': undefined,
+        });
         expect(firstCallArgs.query).toEqual({
           model: 'fake-model-name',
         });
-        expect(firstCallArgs.body.get('image')).toBeDefined();
-        expect(firstCallArgs.body.get('image_url')).toEqual(image_url_data);
+        expect(firstCallBody.get('image')).toBeDefined();
+        expect(firstCallBody.get('image_url')).toEqual(image_url_data);
       });
     });
   });

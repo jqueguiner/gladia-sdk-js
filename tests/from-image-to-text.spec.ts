@@ -23,15 +23,17 @@ describe('FromImageToText', () => {
           image: image_data,
           image_url: image_url_data,
         });
-        const { postMock, firstCallArgs } = getPostMock(httpClientMock);
+        const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
         expect(firstCallArgs.url).toEqual('/image/text/asciify/');
-        expect(firstCallArgs.headers).toBeUndefined();
+        expect(firstCallArgs.headers).toEqual({
+          'Content-Type': undefined,
+        });
         expect(firstCallArgs.query).toEqual({
           model: 'ramesh-aditya',
         });
-        expect(firstCallArgs.body.get('image')).toBeDefined();
-        expect(firstCallArgs.body.get('image_url')).toEqual(image_url_data);
+        expect(firstCallBody.get('image')).toBeDefined();
+        expect(firstCallBody.get('image_url')).toEqual(image_url_data);
       });
       it('should call the api with the text and the specified model', async () => {
         const image_data = new Blob([getRandomText(), String(getRandomInt())]);
@@ -41,15 +43,17 @@ describe('FromImageToText', () => {
           image_url: image_url_data,
           model: 'fake-model-name' as any,
         });
-        const { postMock, firstCallArgs } = getPostMock(httpClientMock);
+        const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
         expect(firstCallArgs.url).toEqual('/image/text/asciify/');
-        expect(firstCallArgs.headers).toBeUndefined();
+        expect(firstCallArgs.headers).toEqual({
+          'Content-Type': undefined,
+        });
         expect(firstCallArgs.query).toEqual({
           model: 'fake-model-name',
         });
-        expect(firstCallArgs.body.get('image')).toBeDefined();
-        expect(firstCallArgs.body.get('image_url')).toEqual(image_url_data);
+        expect(firstCallBody.get('image')).toBeDefined();
+        expect(firstCallBody.get('image_url')).toEqual(image_url_data);
       });
     });
     describe('shortcuts', () => {
@@ -60,15 +64,17 @@ describe('FromImageToText', () => {
           image: image_data,
           image_url: image_url_data,
         });
-        const { postMock, firstCallArgs } = getPostMock(httpClientMock);
+        const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
         expect(firstCallArgs.url).toEqual('/image/text/asciify/');
-        expect(firstCallArgs.headers).toBeUndefined();
+        expect(firstCallArgs.headers).toEqual({
+          'Content-Type': undefined,
+        });
         expect(firstCallArgs.query).toEqual({
           model: 'ramesh-aditya',
         });
-        expect(firstCallArgs.body.get('image')).toBeDefined();
-        expect(firstCallArgs.body.get('image_url')).toEqual(image_url_data);
+        expect(firstCallBody.get('image')).toBeDefined();
+        expect(firstCallBody.get('image_url')).toEqual(image_url_data);
       });
       it('should call the api with the text and the specified model', async () => {
         const image_data = new Blob([getRandomText(), String(getRandomInt())]);
@@ -78,15 +84,17 @@ describe('FromImageToText', () => {
           image_url: image_url_data,
           model: 'fake-model-name' as any,
         });
-        const { postMock, firstCallArgs } = getPostMock(httpClientMock);
+        const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
         expect(firstCallArgs.url).toEqual('/image/text/asciify/');
-        expect(firstCallArgs.headers).toBeUndefined();
+        expect(firstCallArgs.headers).toEqual({
+          'Content-Type': undefined,
+        });
         expect(firstCallArgs.query).toEqual({
           model: 'fake-model-name',
         });
-        expect(firstCallArgs.body.get('image')).toBeDefined();
-        expect(firstCallArgs.body.get('image_url')).toEqual(image_url_data);
+        expect(firstCallBody.get('image')).toBeDefined();
+        expect(firstCallBody.get('image_url')).toEqual(image_url_data);
       });
     });
   });
@@ -110,16 +118,18 @@ describe('FromImageToText', () => {
           image_url: image_url_data,
           top_k: top_k_data,
         });
-        const { postMock, firstCallArgs } = getPostMock(httpClientMock);
+        const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
         expect(firstCallArgs.url).toEqual('/image/text/classification/');
-        expect(firstCallArgs.headers).toBeUndefined();
+        expect(firstCallArgs.headers).toEqual({
+          'Content-Type': undefined,
+        });
         expect(firstCallArgs.query).toEqual({
           model: 'alexnet',
         });
-        expect(firstCallArgs.body.get('image')).toBeDefined();
-        expect(firstCallArgs.body.get('image_url')).toEqual(image_url_data);
-        expect(firstCallArgs.body.get('top_k')).toEqual(String(top_k_data));
+        expect(firstCallBody.get('image')).toBeDefined();
+        expect(firstCallBody.get('image_url')).toEqual(image_url_data);
+        expect(firstCallBody.get('top_k')).toEqual(String(top_k_data));
       });
       it('should call the api with the text and the specified model', async () => {
         const image_data = new Blob([getRandomText(), String(getRandomInt())]);
@@ -131,16 +141,18 @@ describe('FromImageToText', () => {
           top_k: top_k_data,
           model: 'convnext_base' as any,
         });
-        const { postMock, firstCallArgs } = getPostMock(httpClientMock);
+        const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
         expect(firstCallArgs.url).toEqual('/image/text/classification/');
-        expect(firstCallArgs.headers).toBeUndefined();
+        expect(firstCallArgs.headers).toEqual({
+          'Content-Type': undefined,
+        });
         expect(firstCallArgs.query).toEqual({
           model: 'convnext_base',
         });
-        expect(firstCallArgs.body.get('image')).toBeDefined();
-        expect(firstCallArgs.body.get('image_url')).toEqual(image_url_data);
-        expect(firstCallArgs.body.get('top_k')).toEqual(String(top_k_data));
+        expect(firstCallBody.get('image')).toBeDefined();
+        expect(firstCallBody.get('image_url')).toEqual(image_url_data);
+        expect(firstCallBody.get('top_k')).toEqual(String(top_k_data));
       });
     });
     describe('shortcuts', () => {
@@ -153,16 +165,18 @@ describe('FromImageToText', () => {
           image_url: image_url_data,
           top_k: top_k_data,
         });
-        const { postMock, firstCallArgs } = getPostMock(httpClientMock);
+        const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
         expect(firstCallArgs.url).toEqual('/image/text/classification/');
-        expect(firstCallArgs.headers).toBeUndefined();
+        expect(firstCallArgs.headers).toEqual({
+          'Content-Type': undefined,
+        });
         expect(firstCallArgs.query).toEqual({
           model: 'alexnet',
         });
-        expect(firstCallArgs.body.get('image')).toBeDefined();
-        expect(firstCallArgs.body.get('image_url')).toEqual(image_url_data);
-        expect(firstCallArgs.body.get('top_k')).toEqual(String(top_k_data));
+        expect(firstCallBody.get('image')).toBeDefined();
+        expect(firstCallBody.get('image_url')).toEqual(image_url_data);
+        expect(firstCallBody.get('top_k')).toEqual(String(top_k_data));
       });
       it('should call the api with the text and the specified model', async () => {
         const image_data = new Blob([getRandomText(), String(getRandomInt())]);
@@ -174,16 +188,18 @@ describe('FromImageToText', () => {
           top_k: top_k_data,
           model: 'convnext_base' as any,
         });
-        const { postMock, firstCallArgs } = getPostMock(httpClientMock);
+        const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
         expect(firstCallArgs.url).toEqual('/image/text/classification/');
-        expect(firstCallArgs.headers).toBeUndefined();
+        expect(firstCallArgs.headers).toEqual({
+          'Content-Type': undefined,
+        });
         expect(firstCallArgs.query).toEqual({
           model: 'convnext_base',
         });
-        expect(firstCallArgs.body.get('image')).toBeDefined();
-        expect(firstCallArgs.body.get('image_url')).toEqual(image_url_data);
-        expect(firstCallArgs.body.get('top_k')).toEqual(String(top_k_data));
+        expect(firstCallBody.get('image')).toBeDefined();
+        expect(firstCallBody.get('image_url')).toEqual(image_url_data);
+        expect(firstCallBody.get('top_k')).toEqual(String(top_k_data));
       });
     });
   });
@@ -207,16 +223,18 @@ describe('FromImageToText', () => {
           image_url: image_url_data,
           source_language: source_language_data,
         });
-        const { postMock, firstCallArgs } = getPostMock(httpClientMock);
+        const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
         expect(firstCallArgs.url).toEqual('/image/text/ocr/');
-        expect(firstCallArgs.headers).toBeUndefined();
+        expect(firstCallArgs.headers).toEqual({
+          'Content-Type': undefined,
+        });
         expect(firstCallArgs.query).toEqual({
           model: 'easy-ocr',
         });
-        expect(firstCallArgs.body.get('image')).toBeDefined();
-        expect(firstCallArgs.body.get('image_url')).toEqual(image_url_data);
-        expect(firstCallArgs.body.get('source_language')).toEqual(source_language_data);
+        expect(firstCallBody.get('image')).toBeDefined();
+        expect(firstCallBody.get('image_url')).toEqual(image_url_data);
+        expect(firstCallBody.get('source_language')).toEqual(source_language_data);
       });
       it('should call the api with the text and the specified model', async () => {
         const image_data = new Blob([getRandomText(), String(getRandomInt())]);
@@ -228,16 +246,18 @@ describe('FromImageToText', () => {
           source_language: source_language_data,
           model: 'tesseract-default' as any,
         });
-        const { postMock, firstCallArgs } = getPostMock(httpClientMock);
+        const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
         expect(firstCallArgs.url).toEqual('/image/text/ocr/');
-        expect(firstCallArgs.headers).toBeUndefined();
+        expect(firstCallArgs.headers).toEqual({
+          'Content-Type': undefined,
+        });
         expect(firstCallArgs.query).toEqual({
           model: 'tesseract-default',
         });
-        expect(firstCallArgs.body.get('image')).toBeDefined();
-        expect(firstCallArgs.body.get('image_url')).toEqual(image_url_data);
-        expect(firstCallArgs.body.get('source_language')).toEqual(source_language_data);
+        expect(firstCallBody.get('image')).toBeDefined();
+        expect(firstCallBody.get('image_url')).toEqual(image_url_data);
+        expect(firstCallBody.get('source_language')).toEqual(source_language_data);
       });
     });
     describe('shortcuts', () => {
@@ -250,16 +270,18 @@ describe('FromImageToText', () => {
           image_url: image_url_data,
           source_language: source_language_data,
         });
-        const { postMock, firstCallArgs } = getPostMock(httpClientMock);
+        const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
         expect(firstCallArgs.url).toEqual('/image/text/ocr/');
-        expect(firstCallArgs.headers).toBeUndefined();
+        expect(firstCallArgs.headers).toEqual({
+          'Content-Type': undefined,
+        });
         expect(firstCallArgs.query).toEqual({
           model: 'easy-ocr',
         });
-        expect(firstCallArgs.body.get('image')).toBeDefined();
-        expect(firstCallArgs.body.get('image_url')).toEqual(image_url_data);
-        expect(firstCallArgs.body.get('source_language')).toEqual(source_language_data);
+        expect(firstCallBody.get('image')).toBeDefined();
+        expect(firstCallBody.get('image_url')).toEqual(image_url_data);
+        expect(firstCallBody.get('source_language')).toEqual(source_language_data);
       });
       it('should call the api with the text and the specified model', async () => {
         const image_data = new Blob([getRandomText(), String(getRandomInt())]);
@@ -271,16 +293,18 @@ describe('FromImageToText', () => {
           source_language: source_language_data,
           model: 'tesseract-default' as any,
         });
-        const { postMock, firstCallArgs } = getPostMock(httpClientMock);
+        const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
         expect(firstCallArgs.url).toEqual('/image/text/ocr/');
-        expect(firstCallArgs.headers).toBeUndefined();
+        expect(firstCallArgs.headers).toEqual({
+          'Content-Type': undefined,
+        });
         expect(firstCallArgs.query).toEqual({
           model: 'tesseract-default',
         });
-        expect(firstCallArgs.body.get('image')).toBeDefined();
-        expect(firstCallArgs.body.get('image_url')).toEqual(image_url_data);
-        expect(firstCallArgs.body.get('source_language')).toEqual(source_language_data);
+        expect(firstCallBody.get('image')).toBeDefined();
+        expect(firstCallBody.get('image_url')).toEqual(image_url_data);
+        expect(firstCallBody.get('source_language')).toEqual(source_language_data);
       });
     });
   });

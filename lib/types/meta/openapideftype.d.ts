@@ -6,6 +6,7 @@ export interface OpenApiJson {
     };
     paths: Record<PathUrl, PathDef>;
     components: OpenApiJsonComponent;
+    security?: unknown;
 }
 declare type PathUrl = string;
 export interface PathDef {
@@ -64,5 +65,6 @@ interface OpenApiJsonComponent {
             data_type?: 'text' | 'url' | 'int' | 'image' | 'audio';
         }>;
     }>;
+    securitySchemes?: unknown;
 }
 export {};

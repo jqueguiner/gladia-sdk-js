@@ -7,9 +7,11 @@ import {
   AudioTextAudioTranscriptionOutputs,
 } from './output-models'
 import {
+  AUDIO_TEXT_AUDIO_TRANSCRIPTION_CONTENT_TYPE,
   AUDIO_TEXT_AUDIO_TRANSCRIPTION_DEFAULT_MODEL,
 } from '../models'
 import { getHttpClient, HttpClient } from '../internal/http-client';
+import { isDefined } from '../utils/fp';
 import { GladiaClientParams } from './gladia-client-params';
 
 export class FromAudioToText {
@@ -21,11 +23,20 @@ export class FromAudioToText {
 
   audioTranscription(args: AudioTextAudioTranscriptionInputs): Promise<AudioTextAudioTranscriptionOutputs> {
     const formData = new FormData();
-    formData.append('audio', args.audio);
-    formData.append('audio_url', args.audio_url);
-    formData.append('language', args.language);
+    if (isDefined(args.audio)) {
+      formData.append('audio', args.audio);
+    }
+    if (isDefined(args.audio_url)) {
+      formData.append('audio_url', args.audio_url);
+    }
+    if (isDefined(args.language)) {
+      formData.append('language', args.language);
+    }
     return this.httpClient.post({
       url: '/audio/text/audio-transcription/',
+      headers: {
+        'Content-Type': this.params.useFetch ? AUDIO_TEXT_AUDIO_TRANSCRIPTION_CONTENT_TYPE : undefined,
+      },
       query: {
         model: args.model ?? AUDIO_TEXT_AUDIO_TRANSCRIPTION_DEFAULT_MODEL,
       },

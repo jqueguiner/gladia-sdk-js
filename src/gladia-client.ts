@@ -13,9 +13,13 @@ export class GladiaClient extends Shortcuts {
 
   constructor(params: GladiaClientParams) {
     super();
-    this.fromAudioInst = new FromAudio(params);
-    this.fromImageInst = new FromImage(params);
-    this.fromTextInst = new FromText(params);
+    const validatedParams: GladiaClientParams = {
+      ...params,
+      useFetch: params.useFetch ?? false,
+    }
+    this.fromAudioInst = new FromAudio(validatedParams);
+    this.fromImageInst = new FromImage(validatedParams);
+    this.fromTextInst = new FromText(validatedParams);
   }
 
   fromAudio() {

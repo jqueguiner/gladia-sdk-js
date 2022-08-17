@@ -2,7 +2,7 @@ import { GladiaClientParams } from '../client/gladia-client-params';
 interface PostParams {
     url: string;
     query?: Record<string, string | number | boolean>;
-    body?: unknown;
+    body?: any;
     headers?: Record<string, string | number | boolean>;
     responseType?: 'json' | 'arraybuffer';
 }

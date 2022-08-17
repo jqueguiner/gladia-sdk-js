@@ -10,6 +10,7 @@ export interface EndpointDef {
     models: string[];
     defaultModel: string;
     params: EndpointDefParam[];
+    inputBodyContentType: string;
 }
 export interface EndpointDefParam {
     in: 'query' | 'formData';

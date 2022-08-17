@@ -1,4 +1,5 @@
 import { HttpClient, HttpClientFactory } from '../../src/internal/http-client';
+import { UrlFormData } from '../../src/internal/url-form-data';
 
 export function mockHttpClient(): HttpClientFactory {
   return ({}) => ({
@@ -24,5 +25,11 @@ export function getRandomText(): string {
 export function getPostMock(httpClientMock: HttpClient) {
   const postMock = httpClientMock.post as jest.Mock;
   const firstCallArgs = postMock.mock.calls[0][0];
-  return { postMock, firstCallArgs } as const;
+  const firstCallBody = (() => {
+    if (typeof firstCallArgs.body === 'string') {
+      return new UrlFormData(firstCallArgs.body);
+    }
+    return firstCallArgs.body;
+  })();
+  return { postMock, firstCallArgs, firstCallBody } as const;
 }

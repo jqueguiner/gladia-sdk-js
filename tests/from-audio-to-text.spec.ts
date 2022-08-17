@@ -25,16 +25,18 @@ describe('FromAudioToText', () => {
           audio_url: audio_url_data,
           language: language_data,
         });
-        const { postMock, firstCallArgs } = getPostMock(httpClientMock);
+        const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
         expect(firstCallArgs.url).toEqual('/audio/text/audio-transcription/');
-        expect(firstCallArgs.headers).toBeUndefined();
+        expect(firstCallArgs.headers).toEqual({
+          'Content-Type': undefined,
+        });
         expect(firstCallArgs.query).toEqual({
           model: 'coqui_english_huge_vocab',
         });
-        expect(firstCallArgs.body.get('audio')).toBeDefined();
-        expect(firstCallArgs.body.get('audio_url')).toEqual(audio_url_data);
-        expect(firstCallArgs.body.get('language')).toEqual(language_data);
+        expect(firstCallBody.get('audio')).toBeDefined();
+        expect(firstCallBody.get('audio_url')).toEqual(audio_url_data);
+        expect(firstCallBody.get('language')).toEqual(language_data);
       });
       it('should call the api with the text and the specified model', async () => {
         const audio_data = new Blob([getRandomText(), String(getRandomInt())]);
@@ -46,16 +48,18 @@ describe('FromAudioToText', () => {
           language: language_data,
           model: 'fake-model-name' as any,
         });
-        const { postMock, firstCallArgs } = getPostMock(httpClientMock);
+        const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
         expect(firstCallArgs.url).toEqual('/audio/text/audio-transcription/');
-        expect(firstCallArgs.headers).toBeUndefined();
+        expect(firstCallArgs.headers).toEqual({
+          'Content-Type': undefined,
+        });
         expect(firstCallArgs.query).toEqual({
           model: 'fake-model-name',
         });
-        expect(firstCallArgs.body.get('audio')).toBeDefined();
-        expect(firstCallArgs.body.get('audio_url')).toEqual(audio_url_data);
-        expect(firstCallArgs.body.get('language')).toEqual(language_data);
+        expect(firstCallBody.get('audio')).toBeDefined();
+        expect(firstCallBody.get('audio_url')).toEqual(audio_url_data);
+        expect(firstCallBody.get('language')).toEqual(language_data);
       });
     });
     describe('shortcuts', () => {
@@ -68,16 +72,18 @@ describe('FromAudioToText', () => {
           audio_url: audio_url_data,
           language: language_data,
         });
-        const { postMock, firstCallArgs } = getPostMock(httpClientMock);
+        const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
         expect(firstCallArgs.url).toEqual('/audio/text/audio-transcription/');
-        expect(firstCallArgs.headers).toBeUndefined();
+        expect(firstCallArgs.headers).toEqual({
+          'Content-Type': undefined,
+        });
         expect(firstCallArgs.query).toEqual({
           model: 'coqui_english_huge_vocab',
         });
-        expect(firstCallArgs.body.get('audio')).toBeDefined();
-        expect(firstCallArgs.body.get('audio_url')).toEqual(audio_url_data);
-        expect(firstCallArgs.body.get('language')).toEqual(language_data);
+        expect(firstCallBody.get('audio')).toBeDefined();
+        expect(firstCallBody.get('audio_url')).toEqual(audio_url_data);
+        expect(firstCallBody.get('language')).toEqual(language_data);
       });
       it('should call the api with the text and the specified model', async () => {
         const audio_data = new Blob([getRandomText(), String(getRandomInt())]);
@@ -89,16 +95,18 @@ describe('FromAudioToText', () => {
           language: language_data,
           model: 'fake-model-name' as any,
         });
-        const { postMock, firstCallArgs } = getPostMock(httpClientMock);
+        const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
         expect(firstCallArgs.url).toEqual('/audio/text/audio-transcription/');
-        expect(firstCallArgs.headers).toBeUndefined();
+        expect(firstCallArgs.headers).toEqual({
+          'Content-Type': undefined,
+        });
         expect(firstCallArgs.query).toEqual({
           model: 'fake-model-name',
         });
-        expect(firstCallArgs.body.get('audio')).toBeDefined();
-        expect(firstCallArgs.body.get('audio_url')).toEqual(audio_url_data);
-        expect(firstCallArgs.body.get('language')).toEqual(language_data);
+        expect(firstCallBody.get('audio')).toBeDefined();
+        expect(firstCallBody.get('audio_url')).toEqual(audio_url_data);
+        expect(firstCallBody.get('language')).toEqual(language_data);
       });
     });
   });
