@@ -1,5 +1,5 @@
 import { GladiaClientParams } from '../client/gladia-client-params';
-interface PostParams {
+export interface PostParams {
     url: string;
     query?: Record<string, string | number | boolean>;
     body?: any;
@@ -16,4 +16,3 @@ export interface HttpClientFactoryParams {
 }
 export declare type HttpClientFactory = (params: HttpClientFactoryParams) => HttpClient;
 export declare function getHttpClient(params: GladiaClientParams): HttpClient;
-export {};

@@ -4,7 +4,7 @@ import { SDK_VERSION } from '../meta/sdk-version';
 import { GladiaClientParams } from '../client/gladia-client-params';
 import { searchQueryParamSerializer } from './search-query-param-serializer';
 
-interface PostParams {
+export interface PostParams {
   url: string;
   query?: Record<string, string | number | boolean>;
   body?: any;

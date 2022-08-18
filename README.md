@@ -144,6 +144,34 @@ const imageUrl = URL.createObjectURL(new Blob([ imageOutput ]));
 // => imageUrl can be used to display the image by setting it as src
 ```
 
+## Use a custom http client
+
+Under the hood, GladIA SDK use Axios to make http calls. By default Axios use `XMLHttpRequest` on browser and use `request` on node.js. If you prefer use fetch on browser, you can use the `useFetch` param when create the client:
+
+```TypeScript
+import gladia from '@gladiaio/sdk';
+
+const gladiaClient = gladia({ apiKey: 'XXXXXXXX', useFetch: true });
+```
+
+On some case you may want to use a fully custom http client. This is possible like that:
+
+```TypeScript
+import { gladia, HttpClientFactory, HttpClientFactoryParams, PostParams } from '@gladiaio/sdk';
+
+const myHttpClientFactory: HttpClientFactory = (params: HttpClientFactoryParams) => {
+    return () => ({
+        post(postParams: PostParams) {
+            // ...
+        }
+    });
+}
+
+const gladiaClient = gladia({ apiKey: 'XXXXXXXX', customHttpClient: myHttpClientFactory });
+```
+
+You can use default http client as inspiration: https://github.com/gladiaio/gladia-sdk-js/blob/main/src/internal/http-client.ts#L40
+
 ## Regenerate SDK
 
 ```
