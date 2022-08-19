@@ -160,11 +160,11 @@ On some case you may want to use a fully custom http client. This is possible li
 import { gladia, HttpClientFactory, HttpClientFactoryParams, PostParams } from '@gladiaio/sdk';
 
 const myHttpClientFactory: HttpClientFactory = (params: HttpClientFactoryParams) => {
-    return () => ({
+    return {
         post(postParams: PostParams) {
             // ...
         }
-    });
+    };
 }
 
 const gladiaClient = gladia({ apiKey: 'XXXXXXXX', customHttpClient: myHttpClientFactory });
