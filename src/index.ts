@@ -7,6 +7,9 @@ export function gladia(params: GladiaClientParams) {
 
 export default gladia;
 
+export { GladiaClient } from './gladia-client';
+export { GladiaClientParams } from './client/gladia-client-params';
+
 export * from './models';
 
 export * as meta from './meta';

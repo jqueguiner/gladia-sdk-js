@@ -49,6 +49,7 @@ export class FromImageToImage {
       query: {
         model: args.model ?? IMAGE_IMAGE_BACKGROUND_REMOVAL_DEFAULT_MODEL,
       },
+      responseType: 'arraybuffer',
       body: formData,
     });
   }
@@ -69,6 +70,7 @@ export class FromImageToImage {
       query: {
         model: args.model ?? IMAGE_IMAGE_COLORIZATION_DEFAULT_MODEL,
       },
+      responseType: 'arraybuffer',
       body: formData,
     });
   }
@@ -89,6 +91,7 @@ export class FromImageToImage {
       query: {
         model: args.model ?? IMAGE_IMAGE_FACE_BLURING_DEFAULT_MODEL,
       },
+      responseType: 'arraybuffer',
       body: formData,
     });
   }
@@ -109,6 +112,7 @@ export class FromImageToImage {
       query: {
         model: args.model ?? IMAGE_IMAGE_UNCOLORIZATION_DEFAULT_MODEL,
       },
+      responseType: 'arraybuffer',
       body: formData,
     });
   }

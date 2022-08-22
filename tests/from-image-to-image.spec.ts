@@ -29,6 +29,7 @@ describe('FromImageToImage', () => {
         expect(firstCallArgs.headers).toEqual({
           'Content-Type': undefined,
         });
+        expect(firstCallArgs.responseType).toEqual('arraybuffer');
         expect(firstCallArgs.query).toEqual({
           model: 'xception',
         });
@@ -49,6 +50,7 @@ describe('FromImageToImage', () => {
         expect(firstCallArgs.headers).toEqual({
           'Content-Type': undefined,
         });
+        expect(firstCallArgs.responseType).toEqual('arraybuffer');
         expect(firstCallArgs.query).toEqual({
           model: 'mobilenet',
         });
@@ -70,6 +72,7 @@ describe('FromImageToImage', () => {
         expect(firstCallArgs.headers).toEqual({
           'Content-Type': undefined,
         });
+        expect(firstCallArgs.responseType).toEqual('arraybuffer');
         expect(firstCallArgs.query).toEqual({
           model: 'xception',
         });
@@ -90,6 +93,7 @@ describe('FromImageToImage', () => {
         expect(firstCallArgs.headers).toEqual({
           'Content-Type': undefined,
         });
+        expect(firstCallArgs.responseType).toEqual('arraybuffer');
         expect(firstCallArgs.query).toEqual({
           model: 'mobilenet',
         });
@@ -122,6 +126,7 @@ describe('FromImageToImage', () => {
         expect(firstCallArgs.headers).toEqual({
           'Content-Type': undefined,
         });
+        expect(firstCallArgs.responseType).toEqual('arraybuffer');
         expect(firstCallArgs.query).toEqual({
           model: 'deoldify-stable',
         });
@@ -142,6 +147,7 @@ describe('FromImageToImage', () => {
         expect(firstCallArgs.headers).toEqual({
           'Content-Type': undefined,
         });
+        expect(firstCallArgs.responseType).toEqual('arraybuffer');
         expect(firstCallArgs.query).toEqual({
           model: 'deoldify-artistic',
         });
@@ -163,6 +169,7 @@ describe('FromImageToImage', () => {
         expect(firstCallArgs.headers).toEqual({
           'Content-Type': undefined,
         });
+        expect(firstCallArgs.responseType).toEqual('arraybuffer');
         expect(firstCallArgs.query).toEqual({
           model: 'deoldify-stable',
         });
@@ -183,6 +190,7 @@ describe('FromImageToImage', () => {
         expect(firstCallArgs.headers).toEqual({
           'Content-Type': undefined,
         });
+        expect(firstCallArgs.responseType).toEqual('arraybuffer');
         expect(firstCallArgs.query).toEqual({
           model: 'deoldify-artistic',
         });
@@ -215,6 +223,7 @@ describe('FromImageToImage', () => {
         expect(firstCallArgs.headers).toEqual({
           'Content-Type': undefined,
         });
+        expect(firstCallArgs.responseType).toEqual('arraybuffer');
         expect(firstCallArgs.query).toEqual({
           model: 'ageitgey',
         });
@@ -235,6 +244,7 @@ describe('FromImageToImage', () => {
         expect(firstCallArgs.headers).toEqual({
           'Content-Type': undefined,
         });
+        expect(firstCallArgs.responseType).toEqual('arraybuffer');
         expect(firstCallArgs.query).toEqual({
           model: 'fake-model-name',
         });
@@ -256,6 +266,7 @@ describe('FromImageToImage', () => {
         expect(firstCallArgs.headers).toEqual({
           'Content-Type': undefined,
         });
+        expect(firstCallArgs.responseType).toEqual('arraybuffer');
         expect(firstCallArgs.query).toEqual({
           model: 'ageitgey',
         });
@@ -276,6 +287,7 @@ describe('FromImageToImage', () => {
         expect(firstCallArgs.headers).toEqual({
           'Content-Type': undefined,
         });
+        expect(firstCallArgs.responseType).toEqual('arraybuffer');
         expect(firstCallArgs.query).toEqual({
           model: 'fake-model-name',
         });
@@ -308,6 +320,7 @@ describe('FromImageToImage', () => {
         expect(firstCallArgs.headers).toEqual({
           'Content-Type': undefined,
         });
+        expect(firstCallArgs.responseType).toEqual('arraybuffer');
         expect(firstCallArgs.query).toEqual({
           model: 'v1',
         });
@@ -328,6 +341,7 @@ describe('FromImageToImage', () => {
         expect(firstCallArgs.headers).toEqual({
           'Content-Type': undefined,
         });
+        expect(firstCallArgs.responseType).toEqual('arraybuffer');
         expect(firstCallArgs.query).toEqual({
           model: 'fake-model-name',
         });
@@ -349,6 +363,7 @@ describe('FromImageToImage', () => {
         expect(firstCallArgs.headers).toEqual({
           'Content-Type': undefined,
         });
+        expect(firstCallArgs.responseType).toEqual('arraybuffer');
         expect(firstCallArgs.query).toEqual({
           model: 'v1',
         });
@@ -369,6 +384,7 @@ describe('FromImageToImage', () => {
         expect(firstCallArgs.headers).toEqual({
           'Content-Type': undefined,
         });
+        expect(firstCallArgs.responseType).toEqual('arraybuffer');
         expect(firstCallArgs.query).toEqual({
           model: 'fake-model-name',
         });

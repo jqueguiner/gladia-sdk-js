@@ -182,6 +182,9 @@ function generateFromInputToOutputClasses() {
               fileContent.push(`        ${param.name}: ${argValue},`);
             }
             fileContent.push(`      },`);
+            if (endpoint.outputType !== 'text') {
+              fileContent.push(`      responseType: 'arraybuffer',`);
+            }
             if (useUrlFormData) {
               fileContent.push(`      body: formData.toString(),`);
             } else {
@@ -515,6 +518,9 @@ function generateTestAssertions(endpoint: meta.EndpointDef, specifyModel?: strin
     fileContent.push(`          'Content-Type': undefined,`);
   }
   fileContent.push(`        });`);
+  if (endpoint.outputType !== 'text') {
+    fileContent.push(`        expect(firstCallArgs.responseType).toEqual('arraybuffer');`);
+  }
   fileContent.push(`        expect(firstCallArgs.query).toEqual({`);
   fileContent.push(`          model: '${specifyModel ?? endpoint.defaultModel}',`);
   for (const param of endpoint.params.filter((p) => p.in === 'query')) {
