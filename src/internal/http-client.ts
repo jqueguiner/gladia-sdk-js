@@ -20,6 +20,7 @@ export interface HttpClientFactoryParams {
   baseHeaders: Record<string, string | number | boolean>;
   baseUrl: string;
   useFetch: boolean;
+  customTimeout: number;
 }
 
 export type HttpClientFactory = (params: HttpClientFactoryParams) => HttpClient;
@@ -34,18 +35,20 @@ export function getHttpClient(params: GladiaClientParams) {
     baseHeaders,
     baseUrl: params.baseUrl ?? 'https://v2-api.gladia.io',
     useFetch: params.useFetch ?? false,
+    customTimeout: params.customTimeout ?? 0,
   });
 }
 
-const AxiosHttpClient: HttpClientFactory = ({ baseHeaders, baseUrl, useFetch }) => {
+const AxiosHttpClient: HttpClientFactory = ({ baseHeaders, baseUrl, useFetch, customTimeout }) => {
   return {
     async post(params) {
       const headers = { ...baseHeaders, ...params.headers };
       const url = `${baseUrl}${params.url}${searchQueryParamSerializer(params.query)}`;
       const responseType = params.responseType ?? 'json';
+      const timeout = customTimeout ?? 300000;
       const adapter = useFetch ? { adapter: await axiosFetchAdapter() } : {};
       return axios
-        .post(url, params.body, { headers, responseType, ...adapter })
+        .post(url, params.body, { headers, responseType, ...adapter, timeout })
         .then((response) => response.data);
     },
   };
