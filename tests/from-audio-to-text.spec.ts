@@ -3,7 +3,7 @@
 import { GladiaClient } from '../src/gladia-client';
 import gladia from '../src/index';
 import { HttpClient } from '../src/internal/http-client';
-import { getRandomInt, getRandomText, getPostMock, mockHttpClient } from './helpers/mocks';
+import { getRandomText, getPostMock, mockHttpClient } from './helpers/mocks';
 
 describe('FromAudioToText', () => {
   describe('audioTranscription', () => {
@@ -17,7 +17,7 @@ describe('FromAudioToText', () => {
 
     describe('full path', () => {
       it('should call the api with the text and the default model by default', async () => {
-        const audio_data = new Blob([getRandomText(), String(getRandomInt())]);
+        const audio_data = new Blob([getRandomText()]);
         const audio_url_data = getRandomText();
         const language_data = getRandomText();
         const result = await gladiaClient.fromAudio().toText().audioTranscription({
@@ -39,7 +39,7 @@ describe('FromAudioToText', () => {
         expect(firstCallBody.get('language')).toEqual(language_data);
       });
       it('should call the api with the text and the specified model', async () => {
-        const audio_data = new Blob([getRandomText(), String(getRandomInt())]);
+        const audio_data = new Blob([getRandomText()]);
         const audio_url_data = getRandomText();
         const language_data = getRandomText();
         const result = await gladiaClient.fromAudio().toText().audioTranscription({
@@ -64,7 +64,7 @@ describe('FromAudioToText', () => {
     });
     describe('shortcuts', () => {
       it('should call the api with the text and the default model by default', async () => {
-        const audio_data = new Blob([getRandomText(), String(getRandomInt())]);
+        const audio_data = new Blob([getRandomText()]);
         const audio_url_data = getRandomText();
         const language_data = getRandomText();
         const result = await gladiaClient.audioTranscription({
@@ -86,7 +86,7 @@ describe('FromAudioToText', () => {
         expect(firstCallBody.get('language')).toEqual(language_data);
       });
       it('should call the api with the text and the specified model', async () => {
-        const audio_data = new Blob([getRandomText(), String(getRandomInt())]);
+        const audio_data = new Blob([getRandomText()]);
         const audio_url_data = getRandomText();
         const language_data = getRandomText();
         const result = await gladiaClient.audioTranscription({

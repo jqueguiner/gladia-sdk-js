@@ -55,8 +55,7 @@ export const openApiJson: OpenApiJson = {
                 "$ref": "#/components/schemas/Body_apply_audio_text_audio_transcription__post"
               }
             }
-          },
-          "required": true
+          }
         },
         "responses": {
           "200": {
@@ -184,8 +183,8 @@ export const openApiJson: OpenApiJson = {
             "schema": {
               "title": "Model",
               "enum": [
-                "deoldify-artistic",
-                "deoldify-stable"
+                "deoldify-stable",
+                "deoldify-artistic"
               ],
               "type": "string",
               "default": "deoldify-stable"
@@ -474,124 +473,124 @@ export const openApiJson: OpenApiJson = {
             "schema": {
               "title": "Model",
               "enum": [
-                "swin_t",
-                "regnet_y_16gf_swag_e2e_v1",
-                "regnet_x_8gf_v1",
-                "vgg11",
-                "googlenet_quantized_fbgemm_v1",
-                "regnet_y_8gf_v1",
-                "vit_b_16_swag_e2e_v1",
-                "swin_s",
-                "resnet50_quantized_fbgemm_v1",
-                "vit_l_16_swag_e2e_v1",
-                "squeezenet1_1",
-                "resnext101_32x8d_v1",
-                "efficientnet_b3",
-                "vit_l_32",
-                "efficientnet_b0",
-                "squeezenet1_0",
-                "regnet_x_16gf_v2",
-                "regnet_y_16gf_v2",
-                "resnext101_32x8d_quantized_fbgemm_v2",
-                "wide_resnet101_2_v2",
-                "resnet50_v2",
-                "densenet169",
-                "inception_v3",
-                "mnasnet1_0",
-                "regnet_y_3_2gf_v1",
-                "vit_h_14_swag_linear_v1",
-                "regnet_y_1_6gf_v2",
-                "wide_resnet101_2_v1",
-                "efficientnet_b6",
-                "vit_l_16_v1",
-                "resnext101_32x8d_v2",
+                "efficientnet_b5",
                 "efficientnet_b4",
-                "regnet_y_400mf_v1",
-                "mnasnet0_5",
-                "efficientnet_b7",
-                "regnet_y_128gf_swag_linear_v1",
-                "regnet_y_32gf_v2",
                 "resnet50_v1",
-                "vit_h_14_swag_e2e_v1",
-                "swin_b",
-                "vit_b_16_v1",
-                "regnet_y_32gf_v1",
-                "densenet121",
-                "vgg16_v1",
-                "regnet_x_8gf_v2",
-                "resnet18_quantized_fbgemm_v1",
-                "mobilenet_v2_v2",
-                "shufflenet_v2_x1_0_quantized_fbgemm_v1",
-                "shufflenet_v2_x0_5",
-                "regnet_y_8gf_v2",
-                "regnet_x_3_2gf_v1",
-                "shufflenet_v2_x1_5_quantized_fbgemm_v1",
-                "efficientnet_b2",
-                "mobilenet_v3_large_v2",
-                "resnet18",
-                "alexnet",
-                "efficientnet_b1_v2",
-                "regnet_y_32gf_swag_linear_v1",
-                "convnext_tiny",
-                "inception_v3_fbgemm_v1",
                 "shufflenet_v2_x0_5_quantized_fbgemm_v1",
-                "mobilenet_v2_v1",
-                "vgg19",
-                "regnet_x_800mf_v2",
+                "regnet_y_8gf_v2",
+                "resnext50_32x4d_v2",
+                "wide_resnet101_2_v1",
+                "swin_s",
+                "vit_l_16_v1",
+                "inception_v3_fbgemm_v1",
+                "regnet_y_1_6gf_v2",
                 "vgg11_bn",
+                "mnasnet0_75",
+                "shufflenet_v2_x2_0_quantized_fbgemm_v1",
+                "resnext101_32x8d_quantized_fbgemm_v1",
+                "regnet_y_32gf_v1",
+                "regnet_y_8gf_v1",
+                "efficientnet_b6",
+                "resnet18",
+                "vit_h_14_swag_e2e_v1",
+                "mobilenet_v2_v2",
+                "mnasnet1_0",
+                "mobilenet_v2_quantized_qnnpack_v1",
+                "convnext_large",
+                "resnext50_32x4d_v1",
+                "resnext101_32x8d_v1",
+                "resnet152_v2",
+                "efficientnet_b0",
+                "resnet50_v2",
+                "googlenet_quantized_fbgemm_v1",
+                "efficientnet_b7",
+                "densenet121",
+                "regnet_y_32gf_v2",
+                "vgg16_v1",
+                "shufflenet_v2_x1_5",
+                "squeezenet1_0",
+                "regnet_x_3_2gf_v1",
+                "densenet169",
+                "regnet_x_32gf_v2",
+                "mnasnet0_5",
+                "regnet_x_3_2gf_v2",
+                "regnet_x_400mf_v1",
+                "regnet_y_16gf_v2",
+                "squeezenet1_1",
+                "vgg19",
+                "regnet_y_16gf_swag_e2e_v1",
+                "regnet_y_3_2gf_v2",
+                "vgg19_bn",
+                "regnet_y_400mf_v2",
+                "swin_t",
+                "regnet_y_400mf_v1",
+                "convnext_base",
+                "regnet_x_800mf_v1",
+                "resnext101_64x4d_v1",
+                "vit_b_16_swag_e2e_v1",
+                "vgg13",
+                "resnet50_quantized_fbgemm_v2",
+                "resnet152_v1",
+                "efficientnet_b1_v1",
+                "regnet_y_32gf_swag_linear_v1",
+                "mobilenet_v3_large_quantized_qnnpack_v1",
+                "vgg16_bn",
+                "regnet_x_800mf_v2",
+                "vit_h_14_swag_linear_v1",
+                "mnasnet1_3",
+                "efficientnet_b1_v2",
+                "mobilenet_v3_large_v2",
+                "regnet_y_16gf_v1",
+                "googlenet",
+                "regnet_x_8gf_v2",
+                "efficientnet_v2_m",
+                "shufflenet_v2_x1_0_quantized_fbgemm_v1",
+                "resnext101_32x8d_quantized_fbgemm_v2",
+                "densenet161",
+                "regnet_y_32gf_swag_e2e_v1",
+                "regnet_y_16gf_swag_linear_v1",
+                "efficientnet_v2_s",
+                "convnext_tiny",
+                "vgg11",
+                "resnext101_32x8d_v2",
+                "shufflenet_v2_x1_0",
+                "alexnet",
+                "regnet_x_1_6gf_v1",
+                "resnet50_quantized_fbgemm_v1",
+                "shufflenet_v2_x1_5_quantized_fbgemm_v1",
+                "swin_b",
+                "shufflenet_v2_x0_5",
+                "vit_l_32",
+                "vit_l_16_swag_linear_v1",
                 "regnet_x_400mf_v2",
-                "mobilenet_v3_large_v1",
+                "wide_resnet101_2_v2",
+                "vit_b_16_v1",
+                "regnet_y_3_2gf_v1",
+                "efficientnet_v2_l",
+                "regnet_y_128gf_swag_e2e_v1",
+                "shufflenet_v2_x2_0",
+                "regnet_x_32gf_v1",
+                "resnet18_quantized_fbgemm_v1",
+                "densenet201",
+                "convnext_small",
+                "regnet_x_1_6gf_v2",
+                "efficientnet_b3",
                 "vit_b_16_swag_linear_v1",
                 "resnet34",
-                "convnext_large",
-                "regnet_x_32gf_v2",
-                "vit_l_16_swag_linear_v1",
-                "regnet_x_1_6gf_v1",
-                "regnet_x_16gf_v1",
-                "resnext50_32x4d_v1",
-                "regnet_y_16gf_v1",
-                "densenet201",
-                "vit_b_32",
-                "regnet_y_400mf_v2",
-                "shufflenet_v2_x2_0",
-                "mnasnet1_3",
-                "regnet_y_3_2gf_v2",
-                "efficientnet_b5",
-                "googlenet",
-                "regnet_y_16gf_swag_linear_v1",
-                "shufflenet_v2_x2_0_quantized_fbgemm_v1",
-                "shufflenet_v2_x1_5",
-                "regnet_y_128gf_swag_e2e_v1",
-                "regnet_y_1_6gf_v1",
-                "densenet161",
-                "convnext_base",
-                "resnet152_v2",
-                "vgg16_bn",
-                "mobilenet_v3_small",
-                "regnet_y_32gf_swag_e2e_v1",
-                "regnet_x_3_2gf_v2",
-                "resnext101_32x8d_quantized_fbgemm_v1",
-                "shufflenet_v2_x1_0",
-                "regnet_x_800mf_v1",
-                "mobilenet_v2_quantized_qnnpack_v1",
-                "mobilenet_v3_large_quantized_qnnpack_v1",
-                "resnext101_64x4d_quantized_fbgemm_v1",
-                "convnext_small",
-                "resnext101_64x4d_v1",
-                "efficientnet_v2_l",
-                "resnext50_32x4d_v2",
-                "efficientnet_v2_m",
-                "regnet_x_32gf_v1",
-                "efficientnet_b1_v1",
-                "mnasnet0_75",
-                "efficientnet_v2_s",
-                "vgg19_bn",
-                "regnet_x_400mf_v1",
-                "resnet50_quantized_fbgemm_v2",
                 "vgg13_bn",
-                "vgg13",
-                "regnet_x_1_6gf_v2",
-                "resnet152_v1"
+                "mobilenet_v3_large_v1",
+                "mobilenet_v3_small",
+                "regnet_y_1_6gf_v1",
+                "regnet_y_128gf_swag_linear_v1",
+                "efficientnet_b2",
+                "regnet_x_16gf_v2",
+                "regnet_x_8gf_v1",
+                "vit_b_32",
+                "inception_v3",
+                "mobilenet_v2_v1",
+                "resnext101_64x4d_quantized_fbgemm_v1",
+                "vit_l_16_swag_e2e_v1",
+                "regnet_x_16gf_v1"
               ],
               "type": "string",
               "default": "alexnet"
@@ -607,8 +606,7 @@ export const openApiJson: OpenApiJson = {
                 "$ref": "#/components/schemas/Body_apply_image_text_classification__post"
               }
             }
-          },
-          "required": true
+          }
         },
         "responses": {
           "200": {
@@ -680,8 +678,7 @@ export const openApiJson: OpenApiJson = {
                 "$ref": "#/components/schemas/Body_apply_image_text_ocr__post"
               }
             }
-          },
-          "required": true
+          }
         },
         "responses": {
           "200": {
@@ -689,6 +686,80 @@ export const openApiJson: OpenApiJson = {
             "content": {
               "application/json": {
                 "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/text/image/image-generation/": {
+      "get": {
+        "tags": [
+          "text.image.image-generation"
+        ],
+        "summary": "Get list of models available for image-generation",
+        "operationId": "get_versions_text_image_image_generation__get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "text.image.image-generation"
+        ],
+        "summary": "Apply model for the image-generation task for a given models",
+        "operationId": "apply_text_image_image_generation__post",
+        "parameters": [
+          {
+            "required": false,
+            "schema": {
+              "title": "Model",
+              "enum": [
+                "stable-diffusion"
+              ],
+              "type": "string",
+              "default": "stable-diffusion"
+            },
+            "name": "model",
+            "in": "query"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_apply_text_image_image_generation__post"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "image/*": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
               }
             }
           },
@@ -1305,10 +1376,10 @@ export const openApiJson: OpenApiJson = {
             "schema": {
               "title": "Model",
               "enum": [
-                "roberta-base",
-                "distilbert-base-uncased",
                 "albert-base-v2",
-                "bert-base-uncased"
+                "distilbert-base-uncased",
+                "bert-base-uncased",
+                "roberta-base"
               ],
               "type": "string",
               "default": "distilbert-base-uncased"
@@ -1521,11 +1592,11 @@ export const openApiJson: OpenApiJson = {
             "schema": {
               "title": "Model",
               "enum": [
-                "deepset_bert-base-cased-squad2",
-                "distilbert-base-cased-distilled-squad",
-                "deepset-roberta-base-squad2",
+                "mrm8488-bert-tiny-5-finetuned-squadv2",
                 "mfeb-albert-xxlarge-v2-squad2",
-                "mrm8488-bert-tiny-5-finetuned-squadv2"
+                "deepset-roberta-base-squad2",
+                "distilbert-base-cased-distilled-squad",
+                "deepset_bert-base-cased-squad2"
               ],
               "type": "string",
               "default": "deepset_bert-base-cased-squad2"
@@ -1667,10 +1738,10 @@ export const openApiJson: OpenApiJson = {
             "schema": {
               "title": "Model",
               "enum": [
-                "zero-shot-classification-facebook-bart-large-mnli",
+                "distilbert-base-uncased-finetuned-sst-2-english",
                 "distilbert-base-uncased",
-                "nlptown-bert-base-multilingual-uncased-sentiment",
-                "distilbert-base-uncased-finetuned-sst-2-english"
+                "zero-shot-classification-facebook-bart-large-mnli",
+                "nlptown-bert-base-multilingual-uncased-sentiment"
               ],
               "type": "string",
               "default": "nlptown-bert-base-multilingual-uncased-sentiment"
@@ -1858,19 +1929,16 @@ export const openApiJson: OpenApiJson = {
     "schemas": {
       "Body_apply_audio_text_audio_transcription__post": {
         "title": "Body_apply_audio_text_audio_transcription__post",
-        "required": [
-          "language"
-        ],
         "type": "object",
         "properties": {
           "audio": {
             "title": "audio",
             "type": "string",
             "format": "binary",
-            "data_type": "audio",
             "_examples": [
               "https://anshe.org/audio/3Weeks-080715.mp3"
-            ]
+            ],
+            "data_type": "audio"
           },
           "audio_url": {
             "title": "audio_url",
@@ -1883,6 +1951,7 @@ export const openApiJson: OpenApiJson = {
           "language": {
             "title": "language",
             "type": "string",
+            "default": "en",
             "_examples": [
               "en"
             ],
@@ -1898,10 +1967,10 @@ export const openApiJson: OpenApiJson = {
             "title": "image",
             "type": "string",
             "format": "binary",
-            "data_type": "image",
             "_examples": [
               "http://files.gladia.io/test/test.png"
-            ]
+            ],
+            "data_type": "image"
           },
           "image_url": {
             "title": "image_url",
@@ -1921,10 +1990,10 @@ export const openApiJson: OpenApiJson = {
             "title": "image",
             "type": "string",
             "format": "binary",
-            "data_type": "image",
             "_examples": [
               "http://files.gladia.io/test/test.png"
-            ]
+            ],
+            "data_type": "image"
           },
           "image_url": {
             "title": "image_url",
@@ -1944,10 +2013,10 @@ export const openApiJson: OpenApiJson = {
             "title": "image",
             "type": "string",
             "format": "binary",
-            "data_type": "image",
             "_examples": [
               "http://files.gladia.io/test/test.png"
-            ]
+            ],
+            "data_type": "image"
           },
           "image_url": {
             "title": "image_url",
@@ -1967,10 +2036,10 @@ export const openApiJson: OpenApiJson = {
             "title": "image",
             "type": "string",
             "format": "binary",
-            "data_type": "image",
             "_examples": [
               "http://files.gladia.io/test/test.png"
-            ]
+            ],
+            "data_type": "image"
           },
           "image_url": {
             "title": "image_url",
@@ -1990,10 +2059,10 @@ export const openApiJson: OpenApiJson = {
             "title": "image",
             "type": "string",
             "format": "binary",
-            "data_type": "image",
             "_examples": [
               "http://files.gladia.io/test/test.png"
-            ]
+            ],
+            "data_type": "image"
           },
           "image_url": {
             "title": "image_url",
@@ -2007,19 +2076,16 @@ export const openApiJson: OpenApiJson = {
       },
       "Body_apply_image_text_classification__post": {
         "title": "Body_apply_image_text_classification__post",
-        "required": [
-          "top_k"
-        ],
         "type": "object",
         "properties": {
           "image": {
             "title": "image",
             "type": "string",
             "format": "binary",
-            "data_type": "image",
             "_examples": [
               "http://files.gladia.io/test/test.png"
-            ]
+            ],
+            "data_type": "image"
           },
           "image_url": {
             "title": "image_url",
@@ -2032,6 +2098,7 @@ export const openApiJson: OpenApiJson = {
           "top_k": {
             "title": "top_k",
             "type": "integer",
+            "default": 1,
             "_examples": [
               1
             ],
@@ -2041,19 +2108,16 @@ export const openApiJson: OpenApiJson = {
       },
       "Body_apply_image_text_ocr__post": {
         "title": "Body_apply_image_text_ocr__post",
-        "required": [
-          "source_language"
-        ],
         "type": "object",
         "properties": {
           "image": {
             "title": "image",
             "type": "string",
             "format": "binary",
-            "data_type": "image",
             "_examples": [
               "http://files.gladia.io/test/test.png"
-            ]
+            ],
+            "data_type": "image"
           },
           "image_url": {
             "title": "image_url",
@@ -2066,10 +2130,64 @@ export const openApiJson: OpenApiJson = {
           "source_language": {
             "title": "source_language",
             "type": "string",
+            "default": "en",
             "_examples": [
               "en"
             ],
             "data_type": "text"
+          }
+        }
+      },
+      "Body_apply_text_image_image_generation__post": {
+        "title": "Body_apply_text_image_image_generation__post",
+        "required": [
+          "prompt",
+          "samples",
+          "steps",
+          "seed",
+          "scale"
+        ],
+        "type": "object",
+        "properties": {
+          "prompt": {
+            "title": "prompt",
+            "type": "string",
+            "_examples": [
+              "the Eiffel tower landing on the moon"
+            ],
+            "data_type": "text"
+          },
+          "samples": {
+            "title": "samples",
+            "type": "integer",
+            "_examples": [
+              1
+            ],
+            "data_type": "int"
+          },
+          "steps": {
+            "title": "steps",
+            "type": "integer",
+            "_examples": [
+              40
+            ],
+            "data_type": "int"
+          },
+          "seed": {
+            "title": "seed",
+            "type": "integer",
+            "_examples": [
+              396916372
+            ],
+            "data_type": "int"
+          },
+          "scale": {
+            "title": "scale",
+            "type": "number",
+            "_examples": [
+              7.5
+            ],
+            "data_type": "float"
           }
         }
       },
@@ -2238,8 +2356,7 @@ export const openApiJson: OpenApiJson = {
       "Body_apply_text_text_plural__post": {
         "title": "Body_apply_text_text_plural__post",
         "required": [
-          "word",
-          "count"
+          "word"
         ],
         "type": "object",
         "properties": {
@@ -2254,6 +2371,7 @@ export const openApiJson: OpenApiJson = {
           "count": {
             "title": "count",
             "type": "integer",
+            "default": 2,
             "_examples": [
               2
             ],

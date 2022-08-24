@@ -6,6 +6,7 @@ import { FromImage } from './from-image'
 import { FromImageToImage } from './from-image-to-image'
 import { FromImageToText } from './from-image-to-text'
 import { FromText } from './from-text'
+import { FromTextToImage } from './from-text-to-image'
 import { FromTextToText } from './from-text-to-text'
 import {
   AudioTextAudioTranscriptionInputs,
@@ -16,6 +17,7 @@ import {
   ImageTextAsciifyInputs,
   ImageTextClassificationInputs,
   ImageTextOcrInputs,
+  TextImageImageGenerationInputs,
   TextTextAutocorrectInputs,
   TextTextEmotionRecognitionInputs,
   TextTextHateSpeechDetectionInputs,
@@ -38,6 +40,7 @@ export abstract class Shortcuts implements
   Omit<FromAudioToText, 'httpClient'>,
   Omit<FromImageToImage, 'httpClient'>,
   Omit<FromImageToText, 'httpClient'>,
+  Omit<FromTextToImage, 'httpClient'>,
   Omit<FromTextToText, 'httpClient'>
 {
 
@@ -84,6 +87,12 @@ export abstract class Shortcuts implements
   }
 
   abstract fromText(): FromText;
+
+  // TEXT => IMAGE
+
+  imageGeneration(args: TextImageImageGenerationInputs) {
+    return this.fromText().toImage().imageGeneration(args);
+  }
 
   // TEXT => TEXT
 

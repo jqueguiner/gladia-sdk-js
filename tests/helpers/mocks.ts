@@ -18,6 +18,10 @@ export function getRandomInt(): number {
   return Math.round(Math.random() * 1_000);
 }
 
+export function getRandomFloat(): number {
+  return Math.round(Math.random() * 1_000 * 1_000_000) / 1_000_000;
+}
+
 export function getRandomText(): string {
   return 'fake text ' + Math.random().toString().substring(2);
 }

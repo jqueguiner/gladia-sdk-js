@@ -8,6 +8,7 @@ export type ImageImageUncolorizationOutputs = ArrayBuffer;
 export type ImageTextAsciifyOutputs = Record<string, string | number | boolean>;
 export type ImageTextClassificationOutputs = Record<string, string | number | boolean>;
 export type ImageTextOcrOutputs = Record<string, string | number | boolean>;
+export type TextImageImageGenerationOutputs = ArrayBuffer;
 export type TextTextAutocorrectOutputs = Record<string, string | number | boolean>;
 export type TextTextEmotionRecognitionOutputs = Record<string, string | number | boolean>;
 export type TextTextHateSpeechDetectionOutputs = Record<string, string | number | boolean>;

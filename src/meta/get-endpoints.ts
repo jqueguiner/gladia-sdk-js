@@ -82,6 +82,8 @@ function getPostParams(def: PathDef, openApiJson: OpenApiJson) {
             switch (propSchema.data_type) {
               case 'int':
                 return 'integer';
+              case 'float':
+                return 'float';
               case 'url':
                 return 'url';
               case 'audio':
@@ -114,7 +116,7 @@ export interface EndpointDef {
 
 export interface EndpointDefParam {
   in: 'query' | 'formData';
-  type: 'audio' | 'image' | 'string' | 'integer' | 'url';
+  type: 'audio' | 'image' | 'string' | 'integer' | 'float' | 'url';
   name: string;
   required: boolean;
 }

@@ -3,7 +3,7 @@
 import { GladiaClient } from '../src/gladia-client';
 import gladia from '../src/index';
 import { HttpClient } from '../src/internal/http-client';
-import { getRandomInt, getRandomText, getPostMock, mockHttpClient } from './helpers/mocks';
+import { getRandomText, getPostMock, mockHttpClient } from './helpers/mocks';
 
 describe('FromImageToImage', () => {
   describe('backgroundRemoval', () => {
@@ -17,7 +17,7 @@ describe('FromImageToImage', () => {
 
     describe('full path', () => {
       it('should call the api with the text and the default model by default', async () => {
-        const image_data = new Blob([getRandomText(), String(getRandomInt())]);
+        const image_data = new Blob([getRandomText()]);
         const image_url_data = getRandomText();
         const result = await gladiaClient.fromImage().toImage().backgroundRemoval({
           image: image_data,
@@ -37,7 +37,7 @@ describe('FromImageToImage', () => {
         expect(firstCallBody.get('image_url')).toEqual(image_url_data);
       });
       it('should call the api with the text and the specified model', async () => {
-        const image_data = new Blob([getRandomText(), String(getRandomInt())]);
+        const image_data = new Blob([getRandomText()]);
         const image_url_data = getRandomText();
         const result = await gladiaClient.fromImage().toImage().backgroundRemoval({
           image: image_data,
@@ -60,7 +60,7 @@ describe('FromImageToImage', () => {
     });
     describe('shortcuts', () => {
       it('should call the api with the text and the default model by default', async () => {
-        const image_data = new Blob([getRandomText(), String(getRandomInt())]);
+        const image_data = new Blob([getRandomText()]);
         const image_url_data = getRandomText();
         const result = await gladiaClient.backgroundRemoval({
           image: image_data,
@@ -80,7 +80,7 @@ describe('FromImageToImage', () => {
         expect(firstCallBody.get('image_url')).toEqual(image_url_data);
       });
       it('should call the api with the text and the specified model', async () => {
-        const image_data = new Blob([getRandomText(), String(getRandomInt())]);
+        const image_data = new Blob([getRandomText()]);
         const image_url_data = getRandomText();
         const result = await gladiaClient.backgroundRemoval({
           image: image_data,
@@ -114,7 +114,7 @@ describe('FromImageToImage', () => {
 
     describe('full path', () => {
       it('should call the api with the text and the default model by default', async () => {
-        const image_data = new Blob([getRandomText(), String(getRandomInt())]);
+        const image_data = new Blob([getRandomText()]);
         const image_url_data = getRandomText();
         const result = await gladiaClient.fromImage().toImage().colorization({
           image: image_data,
@@ -134,7 +134,7 @@ describe('FromImageToImage', () => {
         expect(firstCallBody.get('image_url')).toEqual(image_url_data);
       });
       it('should call the api with the text and the specified model', async () => {
-        const image_data = new Blob([getRandomText(), String(getRandomInt())]);
+        const image_data = new Blob([getRandomText()]);
         const image_url_data = getRandomText();
         const result = await gladiaClient.fromImage().toImage().colorization({
           image: image_data,
@@ -157,7 +157,7 @@ describe('FromImageToImage', () => {
     });
     describe('shortcuts', () => {
       it('should call the api with the text and the default model by default', async () => {
-        const image_data = new Blob([getRandomText(), String(getRandomInt())]);
+        const image_data = new Blob([getRandomText()]);
         const image_url_data = getRandomText();
         const result = await gladiaClient.colorization({
           image: image_data,
@@ -177,7 +177,7 @@ describe('FromImageToImage', () => {
         expect(firstCallBody.get('image_url')).toEqual(image_url_data);
       });
       it('should call the api with the text and the specified model', async () => {
-        const image_data = new Blob([getRandomText(), String(getRandomInt())]);
+        const image_data = new Blob([getRandomText()]);
         const image_url_data = getRandomText();
         const result = await gladiaClient.colorization({
           image: image_data,
@@ -211,7 +211,7 @@ describe('FromImageToImage', () => {
 
     describe('full path', () => {
       it('should call the api with the text and the default model by default', async () => {
-        const image_data = new Blob([getRandomText(), String(getRandomInt())]);
+        const image_data = new Blob([getRandomText()]);
         const image_url_data = getRandomText();
         const result = await gladiaClient.fromImage().toImage().faceBluring({
           image: image_data,
@@ -231,7 +231,7 @@ describe('FromImageToImage', () => {
         expect(firstCallBody.get('image_url')).toEqual(image_url_data);
       });
       it('should call the api with the text and the specified model', async () => {
-        const image_data = new Blob([getRandomText(), String(getRandomInt())]);
+        const image_data = new Blob([getRandomText()]);
         const image_url_data = getRandomText();
         const result = await gladiaClient.fromImage().toImage().faceBluring({
           image: image_data,
@@ -254,7 +254,7 @@ describe('FromImageToImage', () => {
     });
     describe('shortcuts', () => {
       it('should call the api with the text and the default model by default', async () => {
-        const image_data = new Blob([getRandomText(), String(getRandomInt())]);
+        const image_data = new Blob([getRandomText()]);
         const image_url_data = getRandomText();
         const result = await gladiaClient.faceBluring({
           image: image_data,
@@ -274,7 +274,7 @@ describe('FromImageToImage', () => {
         expect(firstCallBody.get('image_url')).toEqual(image_url_data);
       });
       it('should call the api with the text and the specified model', async () => {
-        const image_data = new Blob([getRandomText(), String(getRandomInt())]);
+        const image_data = new Blob([getRandomText()]);
         const image_url_data = getRandomText();
         const result = await gladiaClient.faceBluring({
           image: image_data,
@@ -308,7 +308,7 @@ describe('FromImageToImage', () => {
 
     describe('full path', () => {
       it('should call the api with the text and the default model by default', async () => {
-        const image_data = new Blob([getRandomText(), String(getRandomInt())]);
+        const image_data = new Blob([getRandomText()]);
         const image_url_data = getRandomText();
         const result = await gladiaClient.fromImage().toImage().uncolorization({
           image: image_data,
@@ -328,7 +328,7 @@ describe('FromImageToImage', () => {
         expect(firstCallBody.get('image_url')).toEqual(image_url_data);
       });
       it('should call the api with the text and the specified model', async () => {
-        const image_data = new Blob([getRandomText(), String(getRandomInt())]);
+        const image_data = new Blob([getRandomText()]);
         const image_url_data = getRandomText();
         const result = await gladiaClient.fromImage().toImage().uncolorization({
           image: image_data,
@@ -351,7 +351,7 @@ describe('FromImageToImage', () => {
     });
     describe('shortcuts', () => {
       it('should call the api with the text and the default model by default', async () => {
-        const image_data = new Blob([getRandomText(), String(getRandomInt())]);
+        const image_data = new Blob([getRandomText()]);
         const image_url_data = getRandomText();
         const result = await gladiaClient.uncolorization({
           image: image_data,
@@ -371,7 +371,7 @@ describe('FromImageToImage', () => {
         expect(firstCallBody.get('image_url')).toEqual(image_url_data);
       });
       it('should call the api with the text and the specified model', async () => {
-        const image_data = new Blob([getRandomText(), String(getRandomInt())]);
+        const image_data = new Blob([getRandomText()]);
         const image_url_data = getRandomText();
         const result = await gladiaClient.uncolorization({
           image: image_data,

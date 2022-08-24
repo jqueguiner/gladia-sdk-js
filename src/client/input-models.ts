@@ -9,6 +9,7 @@ import {
   ImageTextAsciifyModel,
   ImageTextClassificationModel,
   ImageTextOcrModel,
+  TextImageImageGenerationModel,
   TextTextAutocorrectModel,
   TextTextEmotionRecognitionModel,
   TextTextHateSpeechDetectionModel,
@@ -32,7 +33,7 @@ export interface AudioTextAudioTranscriptionInputs
   extends WithModel<AudioTextAudioTranscriptionModel> {
   audio?: Blob;
   audio_url?: string;
-  language: string;
+  language?: string;
 }
 export interface ImageImageBackgroundRemovalInputs 
   extends WithModel<ImageImageBackgroundRemovalModel> {
@@ -63,13 +64,21 @@ export interface ImageTextClassificationInputs
   extends WithModel<ImageTextClassificationModel> {
   image?: Blob;
   image_url?: string;
-  top_k: number;
+  top_k?: number;
 }
 export interface ImageTextOcrInputs 
   extends WithModel<ImageTextOcrModel> {
   image?: Blob;
   image_url?: string;
-  source_language: string;
+  source_language?: string;
+}
+export interface TextImageImageGenerationInputs 
+  extends WithModel<TextImageImageGenerationModel> {
+  prompt: string;
+  samples: number;
+  steps: number;
+  seed: number;
+  scale: number;
 }
 export interface TextTextAutocorrectInputs 
   extends WithModel<TextTextAutocorrectModel> {
@@ -111,7 +120,7 @@ export interface TextTextNextWordPredictionInputs
 export interface TextTextPluralInputs 
   extends WithModel<TextTextPluralModel> {
   word: string;
-  count: number;
+  count?: number;
 }
 export interface TextTextProgrammingLanguageGenerationInputs 
   extends WithModel<TextTextProgrammingLanguageGenerationModel> {

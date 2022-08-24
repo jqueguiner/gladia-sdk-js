@@ -75,7 +75,7 @@ interface OpenApiJsonComponent {
           format?: 'binary';
           items?: Record<string, unknown>;
           _examples?: (string | number)[];
-          data_type?: 'text' | 'url' | 'int' | 'image' | 'audio';
+          data_type?: 'text' | 'url' | 'int' | 'float' | 'image' | 'audio';
         }
       >;
     }

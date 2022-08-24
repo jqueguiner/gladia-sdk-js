@@ -60,6 +60,7 @@ function generateInputModelsTs() {
           case 'image':
             return 'Blob';
           case 'integer':
+          case 'float':
             return 'number';
           default:
             return 'string';
@@ -178,7 +179,9 @@ function generateFromInputToOutputClasses() {
             fileContent.push(`        model: args.model ?? ${defaultModelName},`);
             for (const param of endpoint.params.filter((p) => p.in === 'query')) {
               const argValue =
-                param.type === 'integer' ? `String(args.${param.name})` : `args.${param.name}`;
+                param.type === 'integer' || param.type === 'float'
+                  ? `String(args.${param.name})`
+                  : `args.${param.name}`;
               fileContent.push(`        ${param.name}: ${argValue},`);
             }
             fileContent.push(`      },`);
@@ -366,8 +369,11 @@ function generateUnitTests() {
       fileContent.push(`import { GladiaClient } from '../src/gladia-client';`);
       fileContent.push(`import gladia from '../src/index';`);
       fileContent.push(`import { HttpClient } from '../src/internal/http-client';`);
+      const helperMocks = getHelperMockList(outputTypeEndpoints);
       fileContent.push(
-        `import { getRandomInt, getRandomText, getPostMock, mockHttpClient } from './helpers/mocks';`,
+        `import { ${
+          helperMocks.length === 0 ? '' : helperMocks + ', '
+        }getPostMock, mockHttpClient } from './helpers/mocks';`,
       );
       fileContent.push('');
       fileContent.push(`describe('${inputOutputClassName}', () => {`);
@@ -470,6 +476,34 @@ function getCallPath({ mode, fromMethod, toMethod, methodName }: GetCallPath) {
   }
 }
 
+function getEndpointsParamTypes(endpoints: meta.EndpointDef[]): meta.EndpointDefParam['type'][] {
+  const allTypes = endpoints.flatMap((endpoint) => endpoint.params.map((param) => param.type));
+  return [...new Set(allTypes)];
+}
+
+function getHelperMockList(endpoints: meta.EndpointDef[]) {
+  return getEndpointsParamTypes(endpoints)
+    .map((type) => {
+      switch (type) {
+        case 'integer':
+          return 'getRandomInt';
+        case 'float':
+          return 'getRandomFloat';
+        default:
+          return 'getRandomText';
+      }
+    })
+    .reduce((all: string[], current: string) => {
+      if (all.includes(current)) {
+        return all;
+      } else {
+        return [...all, current];
+      }
+    }, [])
+    .sort()
+    .join(', ');
+}
+
 function generateTestInputs(
   callPath: string,
   endpoint: meta.EndpointDef,
@@ -481,15 +515,16 @@ function generateTestInputs(
       case 'integer':
         fileContent.push(`        const ${param.name}_data = getRandomInt();`);
         break;
+      case 'float':
+        fileContent.push(`        const ${param.name}_data = getRandomFloat();`);
+        break;
       case 'string':
       case 'url':
         fileContent.push(`        const ${param.name}_data = getRandomText();`);
         break;
       case 'audio':
       case 'image':
-        fileContent.push(
-          `        const ${param.name}_data = new Blob([getRandomText(), String(getRandomInt())]);`,
-        );
+        fileContent.push(`        const ${param.name}_data = new Blob([getRandomText()]);`);
         break;
     }
   }
@@ -534,6 +569,7 @@ function generateTestAssertions(endpoint: meta.EndpointDef, specifyModel?: strin
         fileContent.push(`        expect(firstCallBody.get('${param.name}')).toBeDefined();`);
         break;
       case 'integer':
+      case 'float':
         fileContent.push(
           `        expect(firstCallBody.get('${param.name}')).toEqual(String(${param.name}_data));`,
         );

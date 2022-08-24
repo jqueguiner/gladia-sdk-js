@@ -177,6 +177,13 @@ export const IMAGE_TEXT_OCR_CONTENT_TYPE = "multipart/form-data" as const;
 export const IMAGE_TEXT_OCR_DEFAULT_MODEL = "easy-ocr" as const;
 export type ImageTextOcrModel = typeof IMAGE_TEXT_OCR_MODELS[number];
 
+export const TEXT_IMAGE_IMAGE_GENERATION_MODELS = [
+   'stable-diffusion',
+] as const;
+export const TEXT_IMAGE_IMAGE_GENERATION_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
+export const TEXT_IMAGE_IMAGE_GENERATION_DEFAULT_MODEL = "stable-diffusion" as const;
+export type TextImageImageGenerationModel = typeof TEXT_IMAGE_IMAGE_GENERATION_MODELS[number];
+
 export const TEXT_TEXT_AUTOCORRECT_MODELS = [
    'flexudy-t5-base-multi-sentence-doctor',
 ] as const;
