@@ -24,21 +24,11 @@ export class FromTextToImage {
 
   imageGeneration(args: TextImageImageGenerationInputs): Promise<TextImageImageGenerationOutputs> {
     const formData = new UrlFormData();
-    if (isDefined(args.prompt)) {
-      formData.append('prompt', args.prompt);
-    }
-    if (isDefined(args.samples)) {
-      formData.append('samples', String(args.samples));
-    }
-    if (isDefined(args.steps)) {
-      formData.append('steps', String(args.steps));
-    }
-    if (isDefined(args.seed)) {
-      formData.append('seed', String(args.seed));
-    }
-    if (isDefined(args.scale)) {
-      formData.append('scale', String(args.scale));
-    }
+    formData.append('prompt', args.prompt);
+    formData.append('samples', String(args.samples));
+    formData.append('steps', String(args.steps));
+    formData.append('seed', String(args.seed));
+    formData.append('scale', String(args.scale));
     return this.httpClient.post({
       url: '/text/image/image-generation/',
       headers: { 'Content-Type': TEXT_IMAGE_IMAGE_GENERATION_CONTENT_TYPE },

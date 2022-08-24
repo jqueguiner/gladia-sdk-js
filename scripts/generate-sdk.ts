@@ -151,11 +151,17 @@ function generateFromInputToOutputClasses() {
               fileContent.push(`    const formData = new FormData();`);
             }
             for (const param of endpoint.params.filter((p) => p.in === 'formData')) {
-              fileContent.push(`    if (isDefined(args.${param.name})) {`);
               const argValue =
-                param.type === 'integer' ? `String(args.${param.name})` : `args.${param.name}`;
-              fileContent.push(`      formData.append('${param.name}', ${argValue});`);
-              fileContent.push(`    }`);
+                param.type === 'integer' || param.type === 'float'
+                  ? `String(args.${param.name})`
+                  : `args.${param.name}`;
+              if (param.required) {
+                fileContent.push(`    formData.append('${param.name}', ${argValue});`);
+              } else {
+                fileContent.push(`    if (isDefined(args.${param.name})) {`);
+                fileContent.push(`      formData.append('${param.name}', ${argValue});`);
+                fileContent.push(`    }`);
+              }
             }
             fileContent.push(`    return this.httpClient.post({`);
             fileContent.push(`      url: '${endpoint.url}',`);
