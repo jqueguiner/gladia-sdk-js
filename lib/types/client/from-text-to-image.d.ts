@@ -1,0 +1,9 @@
+import { TextImageImageGenerationInputs } from './input-models';
+import { TextImageImageGenerationOutputs } from './output-models';
+import { GladiaClientParams } from './gladia-client-params';
+export declare class FromTextToImage {
+    private params;
+    private httpClient;
+    constructor(params: GladiaClientParams);
+    imageGeneration(args: TextImageImageGenerationInputs): Promise<TextImageImageGenerationOutputs>;
+}

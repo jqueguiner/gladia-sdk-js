@@ -4,9 +4,10 @@ import { FromImage } from './from-image';
 import { FromImageToImage } from './from-image-to-image';
 import { FromImageToText } from './from-image-to-text';
 import { FromText } from './from-text';
+import { FromTextToImage } from './from-text-to-image';
 import { FromTextToText } from './from-text-to-text';
-import { AudioTextAudioTranscriptionInputs, ImageImageBackgroundRemovalInputs, ImageImageColorizationInputs, ImageImageFaceBluringInputs, ImageImageUncolorizationInputs, ImageTextAsciifyInputs, ImageTextClassificationInputs, ImageTextOcrInputs, TextTextAutocorrectInputs, TextTextEmotionRecognitionInputs, TextTextHateSpeechDetectionInputs, TextTextKeywordExtractionInputs, TextTextLanguageDetectionInputs, TextTextLanguageGenerationInputs, TextTextNamedEntityRecognitionInputs, TextTextNextSentencePredictionInputs, TextTextNextWordPredictionInputs, TextTextPluralInputs, TextTextProgrammingLanguageGenerationInputs, TextTextQuestionAnsweringInputs, TextTextSentenceParaphraserInputs, TextTextSentimentAnalysisInputs, TextTextSimilarityInputs, TextTextWordAlignmentInputs } from './input-models';
-export declare abstract class Shortcuts implements Omit<FromAudioToText, 'httpClient'>, Omit<FromImageToImage, 'httpClient'>, Omit<FromImageToText, 'httpClient'>, Omit<FromTextToText, 'httpClient'> {
+import { AudioTextAudioTranscriptionInputs, ImageImageBackgroundRemovalInputs, ImageImageColorizationInputs, ImageImageFaceBluringInputs, ImageImageUncolorizationInputs, ImageTextAsciifyInputs, ImageTextClassificationInputs, ImageTextOcrInputs, TextImageImageGenerationInputs, TextTextAutocorrectInputs, TextTextEmotionRecognitionInputs, TextTextHateSpeechDetectionInputs, TextTextKeywordExtractionInputs, TextTextLanguageDetectionInputs, TextTextLanguageGenerationInputs, TextTextNamedEntityRecognitionInputs, TextTextNextSentencePredictionInputs, TextTextNextWordPredictionInputs, TextTextPluralInputs, TextTextProgrammingLanguageGenerationInputs, TextTextQuestionAnsweringInputs, TextTextSentenceParaphraserInputs, TextTextSentimentAnalysisInputs, TextTextSimilarityInputs, TextTextWordAlignmentInputs } from './input-models';
+export declare abstract class Shortcuts implements Omit<FromAudioToText, 'httpClient'>, Omit<FromImageToImage, 'httpClient'>, Omit<FromImageToText, 'httpClient'>, Omit<FromTextToImage, 'httpClient'>, Omit<FromTextToText, 'httpClient'> {
     abstract fromAudio(): FromAudio;
     audioTranscription(args: AudioTextAudioTranscriptionInputs): Promise<import("./output-models").AudioTextAudioTranscriptionOutputs>;
     abstract fromImage(): FromImage;
@@ -18,6 +19,7 @@ export declare abstract class Shortcuts implements Omit<FromAudioToText, 'httpCl
     classification(args: ImageTextClassificationInputs): Promise<import("./output-models").ImageTextClassificationOutputs>;
     ocr(args: ImageTextOcrInputs): Promise<import("./output-models").ImageTextOcrOutputs>;
     abstract fromText(): FromText;
+    imageGeneration(args: TextImageImageGenerationInputs): Promise<ArrayBuffer>;
     autocorrect(args: TextTextAutocorrectInputs): Promise<import("./output-models").TextTextAutocorrectOutputs>;
     emotionRecognition(args: TextTextEmotionRecognitionInputs): Promise<import("./output-models").TextTextEmotionRecognitionOutputs>;
     hateSpeechDetection(args: TextTextHateSpeechDetectionInputs): Promise<import("./output-models").TextTextHateSpeechDetectionOutputs>;

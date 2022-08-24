@@ -6,6 +6,7 @@ export declare type ImageImageUncolorizationOutputs = ArrayBuffer;
 export declare type ImageTextAsciifyOutputs = Record<string, string | number | boolean>;
 export declare type ImageTextClassificationOutputs = Record<string, string | number | boolean>;
 export declare type ImageTextOcrOutputs = Record<string, string | number | boolean>;
+export declare type TextImageImageGenerationOutputs = ArrayBuffer;
 export declare type TextTextAutocorrectOutputs = Record<string, string | number | boolean>;
 export declare type TextTextEmotionRecognitionOutputs = Record<string, string | number | boolean>;
 export declare type TextTextHateSpeechDetectionOutputs = Record<string, string | number | boolean>;

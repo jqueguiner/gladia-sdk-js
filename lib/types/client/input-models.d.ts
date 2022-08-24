@@ -1,9 +1,9 @@
-import { AudioTextAudioTranscriptionModel, ImageImageBackgroundRemovalModel, ImageImageColorizationModel, ImageImageFaceBluringModel, ImageImageUncolorizationModel, ImageTextAsciifyModel, ImageTextClassificationModel, ImageTextOcrModel, TextTextAutocorrectModel, TextTextEmotionRecognitionModel, TextTextHateSpeechDetectionModel, TextTextKeywordExtractionModel, TextTextLanguageDetectionModel, TextTextLanguageGenerationModel, TextTextNamedEntityRecognitionModel, TextTextNextSentencePredictionModel, TextTextNextWordPredictionModel, TextTextPluralModel, TextTextProgrammingLanguageGenerationModel, TextTextQuestionAnsweringModel, TextTextSentenceParaphraserModel, TextTextSentimentAnalysisModel, TextTextSimilarityModel, TextTextWordAlignmentModel } from '../models';
+import { AudioTextAudioTranscriptionModel, ImageImageBackgroundRemovalModel, ImageImageColorizationModel, ImageImageFaceBluringModel, ImageImageUncolorizationModel, ImageTextAsciifyModel, ImageTextClassificationModel, ImageTextOcrModel, TextImageImageGenerationModel, TextTextAutocorrectModel, TextTextEmotionRecognitionModel, TextTextHateSpeechDetectionModel, TextTextKeywordExtractionModel, TextTextLanguageDetectionModel, TextTextLanguageGenerationModel, TextTextNamedEntityRecognitionModel, TextTextNextSentencePredictionModel, TextTextNextWordPredictionModel, TextTextPluralModel, TextTextProgrammingLanguageGenerationModel, TextTextQuestionAnsweringModel, TextTextSentenceParaphraserModel, TextTextSentimentAnalysisModel, TextTextSimilarityModel, TextTextWordAlignmentModel } from '../models';
 import { WithModel } from './types';
 export interface AudioTextAudioTranscriptionInputs extends WithModel<AudioTextAudioTranscriptionModel> {
     audio?: Blob;
     audio_url?: string;
-    language: string;
+    language?: string;
 }
 export interface ImageImageBackgroundRemovalInputs extends WithModel<ImageImageBackgroundRemovalModel> {
     image?: Blob;
@@ -28,12 +28,19 @@ export interface ImageTextAsciifyInputs extends WithModel<ImageTextAsciifyModel>
 export interface ImageTextClassificationInputs extends WithModel<ImageTextClassificationModel> {
     image?: Blob;
     image_url?: string;
-    top_k: number;
+    top_k?: number;
 }
 export interface ImageTextOcrInputs extends WithModel<ImageTextOcrModel> {
     image?: Blob;
     image_url?: string;
-    source_language: string;
+    source_language?: string;
+}
+export interface TextImageImageGenerationInputs extends WithModel<TextImageImageGenerationModel> {
+    prompt: string;
+    samples: number;
+    steps: number;
+    seed: number;
+    scale: number;
 }
 export interface TextTextAutocorrectInputs extends WithModel<TextTextAutocorrectModel> {
     sentence: string;
@@ -65,7 +72,7 @@ export interface TextTextNextWordPredictionInputs extends WithModel<TextTextNext
 }
 export interface TextTextPluralInputs extends WithModel<TextTextPluralModel> {
     word: string;
-    count: number;
+    count?: number;
 }
 export interface TextTextProgrammingLanguageGenerationInputs extends WithModel<TextTextProgrammingLanguageGenerationModel> {
     code_snippet: string;

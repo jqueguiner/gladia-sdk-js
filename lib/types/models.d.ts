@@ -30,6 +30,10 @@ export declare const IMAGE_TEXT_OCR_MODELS: readonly ["easy-ocr", "tesseract-def
 export declare const IMAGE_TEXT_OCR_CONTENT_TYPE: "multipart/form-data";
 export declare const IMAGE_TEXT_OCR_DEFAULT_MODEL: "easy-ocr";
 export declare type ImageTextOcrModel = typeof IMAGE_TEXT_OCR_MODELS[number];
+export declare const TEXT_IMAGE_IMAGE_GENERATION_MODELS: readonly ["stable-diffusion"];
+export declare const TEXT_IMAGE_IMAGE_GENERATION_CONTENT_TYPE: "application/x-www-form-urlencoded";
+export declare const TEXT_IMAGE_IMAGE_GENERATION_DEFAULT_MODEL: "stable-diffusion";
+export declare type TextImageImageGenerationModel = typeof TEXT_IMAGE_IMAGE_GENERATION_MODELS[number];
 export declare const TEXT_TEXT_AUTOCORRECT_MODELS: readonly ["flexudy-t5-base-multi-sentence-doctor"];
 export declare const TEXT_TEXT_AUTOCORRECT_CONTENT_TYPE: "application/x-www-form-urlencoded";
 export declare const TEXT_TEXT_AUTOCORRECT_DEFAULT_MODEL: "flexudy-t5-base-multi-sentence-doctor";
