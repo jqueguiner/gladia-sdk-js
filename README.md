@@ -172,6 +172,18 @@ const gladiaClient = gladia({ apiKey: 'XXXXXXXX', customHttpClient: myHttpClient
 
 You can use default http client as inspiration: https://github.com/gladiaio/gladia-sdk-js/blob/main/src/internal/http-client.ts#L40
 
+## Set http client timeout
+
+By default, timeout is set to `300000` (5 minutes). You can override this by passing the timeout property to Gladia SDK option object and set any number you want starting from `0` (no timeout).
+
+Here, we are setting a 2 seconds timeout:
+
+```TypeScript
+import gladia from '@gladiaio/sdk';
+
+const gladiaClient = gladia({ apiKey: 'XXXXXXXX', useFetch: true, httpClientTimeout: 2000 });
+```
+
 ## Regenerate SDK
 
 ```
