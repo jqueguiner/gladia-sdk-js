@@ -1896,7 +1896,7 @@ export const openApiJson: OpenApiJson = {
 				}],
 				"requestBody": {
 					"content": {
-						"application/json": {
+						"application/x-www-form-urlencoded": {
 							"schema": {
 								"$ref": "#/components/schemas/Body_apply_text_text_article_generation__post"
 							}
@@ -1947,7 +1947,7 @@ export const openApiJson: OpenApiJson = {
 				}],
 				"requestBody": {
 					"content": {
-						"application/json": {
+						"application/x-www-form-urlencoded": {
 							"schema": {
 								"$ref": "#/components/schemas/Body_apply_text_text_ad_generation__post"
 							}
@@ -1998,7 +1998,7 @@ export const openApiJson: OpenApiJson = {
 				}],
 				"requestBody": {
 					"content": {
-						"application/json": {
+						"application/x-www-form-urlencoded": {
 							"schema": {
 								"$ref": "#/components/schemas/Body_apply_text_text_summarization__post"
 							}
@@ -2049,7 +2049,7 @@ export const openApiJson: OpenApiJson = {
 				}],
 				"requestBody": {
 					"content": {
-						"application/json": {
+						"application/x-www-form-urlencoded": {
 							"schema": {
 								"$ref": "#/components/schemas/Body_apply_text_text_translation__post"
 							}
@@ -2100,7 +2100,7 @@ export const openApiJson: OpenApiJson = {
 				}],
 				"requestBody": {
 					"content": {
-						"application/json": {
+						"application/x-www-form-urlencoded": {
 							"schema": {
 								"$ref": "#/components/schemas/Body_apply_text_text_intent_classification__post"
 							}
@@ -2799,7 +2799,7 @@ export const openApiJson: OpenApiJson = {
 						"_examples": [
 							"One month after the United States began what has become a troubled rollout of a national COVID vaccination campaign, the effort is finally gathering real steam. Close to a million doses -- over 951,000, to be more exact -- made their way into the arms of Americans in the past 24 hours, the U.S. Centers for Disease Control and Prevention reported Wednesday. That s the largest number of shots given in one day since the rollout began and a big jump from the previous day, when just under 340,000 doses were given, CBS News reported. That number is likely to jump quickly after the federal government on Tuesday gave states the OK to vaccinate anyone over 65 and said it would release all the doses of vaccine it has available for distribution. Meanwhile, a number of states have now opened mass vaccination sites in an effort to get larger numbers of people inoculated, CBS News reported."
 						],
-						"data_type": "string"
+						"data_type": "text"
 					}
 				}
 			},
@@ -2813,7 +2813,7 @@ export const openApiJson: OpenApiJson = {
 						"_examples": [
 							"John Doe has been working for Microsoft in Seattle since 1999."
 						],
-						"data_type": "string"
+						"data_type": "text"
 					},
 					"source": {
 						"title": "source",
@@ -2822,7 +2822,7 @@ export const openApiJson: OpenApiJson = {
 						"_examples": [
 							"eng_Latn"
 						],
-						"data_type": "string"
+						"data_type": "text"
 					},
 					"target": {
 						"title": "target",
@@ -2831,7 +2831,7 @@ export const openApiJson: OpenApiJson = {
 						"_examples": [
 							"fr"
 						],
-						"data_type": "string"
+						"data_type": "text"
 					}
 				}
 			},
@@ -2845,7 +2845,7 @@ export const openApiJson: OpenApiJson = {
 						"_examples": [
 							"Hello\nI spent some time on your documentation but I could not figure how to add a new credit card.\nIt is a problem because my current card is going to expire soon and I am affraid that it will cause a service disruption.\nHow can I update my credit card?\nThanks in advance,\nLooking forward to hearing from you,\nJohn Doe"
 						],
-						"data_type": "string"
+						"data_type": "text"
 					}
 				}
 			}
