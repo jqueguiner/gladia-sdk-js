@@ -10,7 +10,7 @@ export interface OpenApiJson {
 }
 declare type PathUrl = string;
 export interface PathDef {
-    get: PathRequestDef;
+    get?: PathRequestDef;
     post: PathRequestDef;
 }
 interface PathRequestDef {
@@ -62,7 +62,7 @@ interface OpenApiJsonComponent {
             format?: 'binary';
             items?: Record<string, unknown>;
             _examples?: (string | number)[];
-            data_type?: 'text' | 'url' | 'int' | 'float' | 'image' | 'audio';
+            data_type?: 'text' | 'url' | 'int' | 'float' | 'image' | 'audio' | 'array';
         }>;
     }>;
     securitySchemes?: unknown;

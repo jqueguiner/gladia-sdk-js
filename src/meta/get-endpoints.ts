@@ -90,6 +90,8 @@ function getPostParams(def: PathDef, openApiJson: OpenApiJson) {
                 return 'audio';
               case 'image':
                 return 'image';
+              case 'array':
+                return 'array';
               case 'text':
               default:
                 return 'string';
@@ -116,7 +118,7 @@ export interface EndpointDef {
 
 export interface EndpointDefParam {
   in: 'query' | 'formData';
-  type: 'audio' | 'image' | 'string' | 'integer' | 'float' | 'url';
+  type: 'audio' | 'image' | 'string' | 'integer' | 'float' | 'url' | 'array';
   name: string;
   required: boolean;
 }

@@ -307,3 +307,38 @@ export const TEXT_TEXT_WORD_ALIGNMENT_MODELS = [
 export const TEXT_TEXT_WORD_ALIGNMENT_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
 export const TEXT_TEXT_WORD_ALIGNMENT_DEFAULT_MODEL = "bert-base-multilingual-cased" as const;
 export type TextTextWordAlignmentModel = typeof TEXT_TEXT_WORD_ALIGNMENT_MODELS[number];
+
+export const TEXT_TEXT_ARTICLE_GENERATION_MODELS = [
+   'fast-gpt-j',
+] as const;
+export const TEXT_TEXT_ARTICLE_GENERATION_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
+export const TEXT_TEXT_ARTICLE_GENERATION_DEFAULT_MODEL = "fast-gpt-j" as const;
+export type TextTextArticleGenerationModel = typeof TEXT_TEXT_ARTICLE_GENERATION_MODELS[number];
+
+export const TEXT_TEXT_AD_GENERATION_MODELS = [
+   'gpt-j',
+] as const;
+export const TEXT_TEXT_AD_GENERATION_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
+export const TEXT_TEXT_AD_GENERATION_DEFAULT_MODEL = "gpt-j" as const;
+export type TextTextAdGenerationModel = typeof TEXT_TEXT_AD_GENERATION_MODELS[number];
+
+export const TEXT_TEXT_SUMMARIZATION_MODELS = [
+   'bart-large-cnn',
+] as const;
+export const TEXT_TEXT_SUMMARIZATION_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
+export const TEXT_TEXT_SUMMARIZATION_DEFAULT_MODEL = "bart-large-cnn" as const;
+export type TextTextSummarizationModel = typeof TEXT_TEXT_SUMMARIZATION_MODELS[number];
+
+export const TEXT_TEXT_TRANSLATION_MODELS = [
+   'nllb-200-3-3b',
+] as const;
+export const TEXT_TEXT_TRANSLATION_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
+export const TEXT_TEXT_TRANSLATION_DEFAULT_MODEL = "nllb-200-3-3b" as const;
+export type TextTextTranslationModel = typeof TEXT_TEXT_TRANSLATION_MODELS[number];
+
+export const TEXT_TEXT_INTENT_CLASSIFICATION_MODELS = [
+   'fast-gpt-j',
+] as const;
+export const TEXT_TEXT_INTENT_CLASSIFICATION_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
+export const TEXT_TEXT_INTENT_CLASSIFICATION_DEFAULT_MODEL = "fast-gpt-j" as const;
+export type TextTextIntentClassificationModel = typeof TEXT_TEXT_INTENT_CLASSIFICATION_MODELS[number];

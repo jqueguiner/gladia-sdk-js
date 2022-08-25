@@ -1,18 +1,19 @@
 /* Generated file with "scripts/generate-sdk.ts" */
 
-import { getHttpClient, HttpClient } from '../internal/http-client';
-import { UrlFormData } from '../internal/url-form-data';
+import {
+  TextImageImageGenerationInputs,
+} from './input-models'
+import {
+  TextImageImageGenerationOutputs,
+} from './output-models'
 import {
   TEXT_IMAGE_IMAGE_GENERATION_CONTENT_TYPE,
-  TEXT_IMAGE_IMAGE_GENERATION_DEFAULT_MODEL
-} from '../models';
+  TEXT_IMAGE_IMAGE_GENERATION_DEFAULT_MODEL,
+} from '../models'
+import { getHttpClient, HttpClient } from '../internal/http-client';
+import { isDefined } from '../utils/fp';
+import { UrlFormData } from '../internal/url-form-data';
 import { GladiaClientParams } from './gladia-client-params';
-import {
-  TextImageImageGenerationInputs
-} from './input-models';
-import {
-  TextImageImageGenerationOutputs
-} from './output-models';
 
 export class FromTextToImage {
   private httpClient: HttpClient;

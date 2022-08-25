@@ -26,6 +26,10 @@ export function getRandomText(): string {
   return 'fake text ' + Math.random().toString().substring(2);
 }
 
+export function getRandomArray(): string[] {
+  return [getRandomText(), getRandomText()];
+}
+
 export function getPostMock(httpClientMock: HttpClient) {
   const postMock = httpClientMock.post as jest.Mock;
   const firstCallArgs = postMock.mock.calls[0][0];

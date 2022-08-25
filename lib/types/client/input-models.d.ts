@@ -1,4 +1,4 @@
-import { AudioTextAudioTranscriptionModel, ImageImageBackgroundRemovalModel, ImageImageColorizationModel, ImageImageFaceBluringModel, ImageImageUncolorizationModel, ImageTextAsciifyModel, ImageTextClassificationModel, ImageTextOcrModel, TextImageImageGenerationModel, TextTextAutocorrectModel, TextTextEmotionRecognitionModel, TextTextHateSpeechDetectionModel, TextTextKeywordExtractionModel, TextTextLanguageDetectionModel, TextTextLanguageGenerationModel, TextTextNamedEntityRecognitionModel, TextTextNextSentencePredictionModel, TextTextNextWordPredictionModel, TextTextPluralModel, TextTextProgrammingLanguageGenerationModel, TextTextQuestionAnsweringModel, TextTextSentenceParaphraserModel, TextTextSentimentAnalysisModel, TextTextSimilarityModel, TextTextWordAlignmentModel } from '../models';
+import { AudioTextAudioTranscriptionModel, ImageImageBackgroundRemovalModel, ImageImageColorizationModel, ImageImageFaceBluringModel, ImageImageUncolorizationModel, ImageTextAsciifyModel, ImageTextClassificationModel, ImageTextOcrModel, TextImageImageGenerationModel, TextTextAutocorrectModel, TextTextEmotionRecognitionModel, TextTextHateSpeechDetectionModel, TextTextKeywordExtractionModel, TextTextLanguageDetectionModel, TextTextLanguageGenerationModel, TextTextNamedEntityRecognitionModel, TextTextNextSentencePredictionModel, TextTextNextWordPredictionModel, TextTextPluralModel, TextTextProgrammingLanguageGenerationModel, TextTextQuestionAnsweringModel, TextTextSentenceParaphraserModel, TextTextSentimentAnalysisModel, TextTextSimilarityModel, TextTextWordAlignmentModel, TextTextArticleGenerationModel, TextTextAdGenerationModel, TextTextSummarizationModel, TextTextTranslationModel, TextTextIntentClassificationModel } from '../models';
 import { WithModel } from './types';
 export interface AudioTextAudioTranscriptionInputs extends WithModel<AudioTextAudioTranscriptionModel> {
     audio?: Blob;
@@ -94,4 +94,21 @@ export interface TextTextSimilarityInputs extends WithModel<TextTextSimilarityMo
 export interface TextTextWordAlignmentInputs extends WithModel<TextTextWordAlignmentModel> {
     input_string_language_1: string;
     input_string_language_2: string;
+}
+export interface TextTextArticleGenerationInputs extends WithModel<TextTextArticleGenerationModel> {
+    title?: string;
+}
+export interface TextTextAdGenerationInputs extends WithModel<TextTextAdGenerationModel> {
+    keywords?: string[];
+}
+export interface TextTextSummarizationInputs extends WithModel<TextTextSummarizationModel> {
+    text?: string;
+}
+export interface TextTextTranslationInputs extends WithModel<TextTextTranslationModel> {
+    text?: string;
+    source?: string;
+    target?: string;
+}
+export interface TextTextIntentClassificationInputs extends WithModel<TextTextIntentClassificationModel> {
+    text?: string;
 }

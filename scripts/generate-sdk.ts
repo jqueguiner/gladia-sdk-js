@@ -62,6 +62,8 @@ function generateInputModelsTs() {
           case 'integer':
           case 'float':
             return 'number';
+          case 'array':
+            return 'string[]';
           default:
             return 'string';
         }
@@ -121,7 +123,7 @@ function generateFromInputToOutputClasses() {
       fileContent.push(`} from '../models'`);
       const importUrlFormData = outputTypeEndpoints.some(isEndpointNeedUrlFormData);
       fileContent.push(`import { getHttpClient, HttpClient } from '../internal/http-client';`);
-      fileContent.push(`import { isDefined } from '../utils/fp';`);
+        fileContent.push(`import { isDefined } from '../utils/fp';`);
       if (importUrlFormData) {
         fileContent.push(`import { UrlFormData } from '../internal/url-form-data';`);
       }
@@ -495,6 +497,8 @@ function getHelperMockList(endpoints: meta.EndpointDef[]) {
           return 'getRandomInt';
         case 'float':
           return 'getRandomFloat';
+        case 'array':
+          return 'getRandomArray';
         default:
           return 'getRandomText';
       }
@@ -524,13 +528,17 @@ function generateTestInputs(
       case 'float':
         fileContent.push(`        const ${param.name}_data = getRandomFloat();`);
         break;
-      case 'string':
-      case 'url':
-        fileContent.push(`        const ${param.name}_data = getRandomText();`);
-        break;
       case 'audio':
       case 'image':
         fileContent.push(`        const ${param.name}_data = new Blob([getRandomText()]);`);
+        break;
+      case 'array':
+        fileContent.push(`        const ${param.name}_data = getRandomArray();`);
+        break;
+      case 'string':
+      case 'url':
+      default:
+        fileContent.push(`        const ${param.name}_data = getRandomText();`);
         break;
     }
   }
@@ -582,6 +590,8 @@ function generateTestAssertions(endpoint: meta.EndpointDef, specifyModel?: strin
         break;
       case 'string':
       case 'url':
+      case 'array':
+      default:
         fileContent.push(
           `        expect(firstCallBody.get('${param.name}')).toEqual(${param.name}_data);`,
         );

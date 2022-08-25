@@ -1,7 +1,8 @@
 import { searchParamSerializer } from './search-query-param-serializer';
 
+type UrlFormDataValueType = string | number | boolean | string[];
 export class UrlFormData {
-  private data: Record<string, string | number | boolean> = {};
+  private data: Record<string, UrlFormDataValueType> = {};
 
   constructor(fromString?: string) {
     if (fromString && fromString.length > 1) {
@@ -9,16 +10,17 @@ export class UrlFormData {
         fromString
           .split('&')
           .map((s) => s.split('='))
-          .map(([k, v]) => [k, decodeURI(v)]),
+          .map(([k, v]) => [k, decodeURI(v)])
+          .map(([k, v]) => (v.includes(',') ? [k, v.split(',')] : [k, v])),
       );
     }
   }
 
-  append(key: string, value: string | number | boolean) {
+  append(key: string, value: UrlFormDataValueType) {
     this.data[key] = value;
   }
 
-  get(key: string): string | number | boolean {
+  get(key: string): UrlFormDataValueType {
     return this.data[key];
   }
 

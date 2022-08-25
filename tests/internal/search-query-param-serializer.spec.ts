@@ -34,6 +34,10 @@ describe(searchQueryParamSerializer.name, () => {
   it('should return valid query param for multiple param with some needing serialization', () => {
     expect(searchQueryParamSerializer({ a: 'A B C', x: 'X' })).toEqual('?a=A%20B%20C&x=X');
   });
+
+  it('should not explode array param', () => {
+    expect(searchQueryParamSerializer({ a: ['A B C', 'X'] })).toEqual('?a=A%20B%20C,X');
+  });
 });
 
 describe(searchParamSerializer.name, () => {
@@ -59,5 +63,9 @@ describe(searchParamSerializer.name, () => {
 
   it('should return valid query param for multiple param with some needing serialization', () => {
     expect(searchParamSerializer({ a: 'A B C', x: 'X' })).toEqual('a=A%20B%20C&x=X');
+  });
+
+  it('should not explode array param', () => {
+    expect(searchParamSerializer({ a: ['A B C', 'X'] })).toEqual('a=A%20B%20C,X');
   });
 });

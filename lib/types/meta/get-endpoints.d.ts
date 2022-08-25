@@ -14,7 +14,7 @@ export interface EndpointDef {
 }
 export interface EndpointDefParam {
     in: 'query' | 'formData';
-    type: 'audio' | 'image' | 'string' | 'integer' | 'float' | 'url';
+    type: 'audio' | 'image' | 'string' | 'integer' | 'float' | 'url' | 'array';
     name: string;
     required: boolean;
 }
