@@ -1,0 +1,28 @@
+# inside .github/workflows/your-action.yml
+name: Add a file to a bucket
+on:
+  push:
+    branches:
+      - 'main'
+      - 'feat/gh-actions'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: get-npm-version
+        id: package-version
+        uses: martinbeentjes/npm-get-version-action@main
+
+      - uses: actions/checkout@master
+
+      - name: Upload file to bucket
+        env:
+          AWS_ACCESS_KEY_ID: AKIATFXSUVKK7MX6NLWX
+          AWS_SECRET_ACCESS_KEY: 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
+          AWS_REGION: 'us-west-2'
+          VERSION: ${{ steps.package-version.outputs.current-version}}
+          FILE: ./lib/gladiaio-sdk.js
+          S3_BUCKET: s3://yuyu-test-yuyu
+        run: aws s3 cp $FILE $S3_BUCKET/$gladiaio-sdk$VERSION.js
