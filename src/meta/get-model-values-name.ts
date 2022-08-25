@@ -1,4 +1,4 @@
-import { EndpointDef } from './get-endpoints';
+import { EndpointDef } from './endpoint-defs-type';
 import { kebabToSnakeCase } from './utils';
 
 export function getModelValuesName(endpoint: EndpointDef): string {

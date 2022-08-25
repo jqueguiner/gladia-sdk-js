@@ -1,9 +1,5 @@
-export {
-  getEndpoints,
-  getEndpointsByInputOutput,
-  EndpointDef,
-  EndpointDefParam,
-} from './get-endpoints';
+export { EndpointDef, EndpointDefParam } from './endpoint-defs-type';
+export { getEndpoints, getEndpointsByInputOutput } from './get-endpoints';
 export { getContentTypeName } from './get-content-type-name';
 export { getDefaultValueName } from './get-default-value-name';
 export { getMethodName } from './get-method-name';

@@ -1,4 +1,4 @@
-import { EndpointDef } from './get-endpoints';
+import { EndpointDef } from './endpoint-defs-type';
 import { kebabToCamelCase } from './utils';
 
 export function getMethodName(endpoint: EndpointDef): string {

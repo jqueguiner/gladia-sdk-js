@@ -1,4 +1,4 @@
-import { EndpointDef } from './get-endpoints';
+import { EndpointDef } from './endpoint-defs-type';
 import { capitalizeFirst, kebabToPascalCase } from './utils';
 
 export function getModelTypeName(endpoint: EndpointDef): string {

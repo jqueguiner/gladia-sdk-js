@@ -9,7 +9,6 @@ export interface OpenApiJson {
   security?: unknown;
 }
 
-type SecurityHeaderName = string;
 type PathUrl = string;
 
 export interface PathDef {

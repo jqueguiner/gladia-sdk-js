@@ -1,4 +1,4 @@
-import { EndpointDef } from './get-endpoints';
+import { EndpointDef } from './endpoint-defs-type';
 
 export function getDefaultValueName(endpoint: EndpointDef) {
   const inputType = endpoint.inputType.toUpperCase();
