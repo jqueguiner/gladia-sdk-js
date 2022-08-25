@@ -11,7 +11,6 @@ import {
   TEXT_IMAGE_IMAGE_GENERATION_DEFAULT_MODEL,
 } from '../models'
 import { getHttpClient, HttpClient } from '../internal/http-client';
-import { isDefined } from '../utils/fp';
 import { UrlFormData } from '../internal/url-form-data';
 import { GladiaClientParams } from './gladia-client-params';
 
