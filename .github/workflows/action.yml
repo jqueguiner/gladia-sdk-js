@@ -1,28 +1,27 @@
-# inside .github/workflows/your-action.yml
+# actions to upload sdk on s3 after main push
 name: Add a file to a bucket
 on:
   push:
     branches:
       - 'main'
-      - 'feat/gh-actions'
 
 jobs:
-  deploy:
+  upload-sdk:
     runs-on: ubuntu-latest
 
     steps:
-    - name: get-npm-version
+      - uses: actions/checkout@master
+
+      - name: get-npm-version
         id: package-version
         uses: martinbeentjes/npm-get-version-action@main
 
-      - uses: actions/checkout@master
-
       - name: Upload file to bucket
         env:
-          AWS_ACCESS_KEY_ID: AKIATFXSUVKK7MX6NLWX
-          AWS_SECRET_ACCESS_KEY: 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
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_REGION: 'us-west-2'
           VERSION: ${{ steps.package-version.outputs.current-version}}
           FILE: ./lib/gladiaio-sdk.js
-          S3_BUCKET: s3://yuyu-test-yuyu
-        run: aws s3 cp $FILE $S3_BUCKET/$gladiaio-sdk$VERSION.js
+          S3_BUCKET: ${{ secrets.S3_BUCKET }}
+        run: aws s3 cp $FILE $S3_BUCKET/gladia/sdk/$VERSION/gladiaio-sdk.js
