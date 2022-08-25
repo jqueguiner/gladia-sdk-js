@@ -80,10 +80,9 @@ export interface ImageTextOcrInputs
 export interface TextImageImageGenerationInputs 
   extends WithModel<TextImageImageGenerationModel> {
   prompt: string;
-  samples: number;
-  steps: number;
-  seed: number;
-  scale: number;
+  samples?: number;
+  steps?: number;
+  seed?: number;
 }
 export interface TextTextAutocorrectInputs 
   extends WithModel<TextTextAutocorrectModel> {

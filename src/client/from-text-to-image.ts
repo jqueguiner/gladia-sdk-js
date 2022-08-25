@@ -11,6 +11,7 @@ import {
   TEXT_IMAGE_IMAGE_GENERATION_DEFAULT_MODEL,
 } from '../models'
 import { getHttpClient, HttpClient } from '../internal/http-client';
+import { isDefined } from '../utils/fp';
 import { UrlFormData } from '../internal/url-form-data';
 import { GladiaClientParams } from './gladia-client-params';
 
@@ -24,10 +25,15 @@ export class FromTextToImage {
   imageGeneration(args: TextImageImageGenerationInputs): Promise<TextImageImageGenerationOutputs> {
     const formData = new UrlFormData();
     formData.append('prompt', args.prompt);
-    formData.append('samples', String(args.samples));
-    formData.append('steps', String(args.steps));
-    formData.append('seed', String(args.seed));
-    formData.append('scale', String(args.scale));
+    if (isDefined(args.samples)) {
+      formData.append('samples', String(args.samples));
+    }
+    if (isDefined(args.steps)) {
+      formData.append('steps', String(args.steps));
+    }
+    if (isDefined(args.seed)) {
+      formData.append('seed', String(args.seed));
+    }
     return this.httpClient.post({
       url: '/text/image/image-generation/',
       headers: { 'Content-Type': TEXT_IMAGE_IMAGE_GENERATION_CONTENT_TYPE },

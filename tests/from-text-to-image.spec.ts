@@ -3,7 +3,7 @@
 import { GladiaClient } from '../src/gladia-client';
 import gladia from '../src/index';
 import { HttpClient } from '../src/internal/http-client';
-import { getRandomFloat, getRandomInt, getRandomText, getPostMock, mockHttpClient } from './helpers/mocks';
+import { getRandomInt, getRandomText, getPostMock, mockHttpClient } from './helpers/mocks';
 
 describe('FromTextToImage', () => {
   describe('imageGeneration', () => {
@@ -21,13 +21,11 @@ describe('FromTextToImage', () => {
         const samples_data = getRandomInt();
         const steps_data = getRandomInt();
         const seed_data = getRandomInt();
-        const scale_data = getRandomFloat();
         const result = await gladiaClient.fromText().toImage().imageGeneration({
           prompt: prompt_data,
           samples: samples_data,
           steps: steps_data,
           seed: seed_data,
-          scale: scale_data,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -43,20 +41,17 @@ describe('FromTextToImage', () => {
         expect(firstCallBody.get('samples')).toEqual(String(samples_data));
         expect(firstCallBody.get('steps')).toEqual(String(steps_data));
         expect(firstCallBody.get('seed')).toEqual(String(seed_data));
-        expect(firstCallBody.get('scale')).toEqual(String(scale_data));
       });
       it('should call the api with the text and the specified model', async () => {
         const prompt_data = getRandomText();
         const samples_data = getRandomInt();
         const steps_data = getRandomInt();
         const seed_data = getRandomInt();
-        const scale_data = getRandomFloat();
         const result = await gladiaClient.fromText().toImage().imageGeneration({
           prompt: prompt_data,
           samples: samples_data,
           steps: steps_data,
           seed: seed_data,
-          scale: scale_data,
           model: 'fake-model-name' as any,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
@@ -73,7 +68,6 @@ describe('FromTextToImage', () => {
         expect(firstCallBody.get('samples')).toEqual(String(samples_data));
         expect(firstCallBody.get('steps')).toEqual(String(steps_data));
         expect(firstCallBody.get('seed')).toEqual(String(seed_data));
-        expect(firstCallBody.get('scale')).toEqual(String(scale_data));
       });
     });
     describe('shortcuts', () => {
@@ -82,13 +76,11 @@ describe('FromTextToImage', () => {
         const samples_data = getRandomInt();
         const steps_data = getRandomInt();
         const seed_data = getRandomInt();
-        const scale_data = getRandomFloat();
         const result = await gladiaClient.imageGeneration({
           prompt: prompt_data,
           samples: samples_data,
           steps: steps_data,
           seed: seed_data,
-          scale: scale_data,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -104,20 +96,17 @@ describe('FromTextToImage', () => {
         expect(firstCallBody.get('samples')).toEqual(String(samples_data));
         expect(firstCallBody.get('steps')).toEqual(String(steps_data));
         expect(firstCallBody.get('seed')).toEqual(String(seed_data));
-        expect(firstCallBody.get('scale')).toEqual(String(scale_data));
       });
       it('should call the api with the text and the specified model', async () => {
         const prompt_data = getRandomText();
         const samples_data = getRandomInt();
         const steps_data = getRandomInt();
         const seed_data = getRandomInt();
-        const scale_data = getRandomFloat();
         const result = await gladiaClient.imageGeneration({
           prompt: prompt_data,
           samples: samples_data,
           steps: steps_data,
           seed: seed_data,
-          scale: scale_data,
           model: 'fake-model-name' as any,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
@@ -134,7 +123,6 @@ describe('FromTextToImage', () => {
         expect(firstCallBody.get('samples')).toEqual(String(samples_data));
         expect(firstCallBody.get('steps')).toEqual(String(steps_data));
         expect(firstCallBody.get('seed')).toEqual(String(seed_data));
-        expect(firstCallBody.get('scale')).toEqual(String(scale_data));
       });
     });
   });
