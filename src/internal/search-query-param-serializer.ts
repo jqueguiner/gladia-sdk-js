@@ -22,12 +22,33 @@ export function searchParamSerializer(params: Record<string, ParamValueType> | n
     .join('&');
 }
 
+export function searchParamDeserializer(str: string): Record<string, ParamValueType> {
+  if (isNotDefined(str) || str.length === 0) {
+    return {};
+  }
+  return Object.fromEntries(
+    str
+      .split('&')
+      .map((s) => s.split('='))
+      .map(([k, v]) => (v.includes(',') ? [k, v.split(',')] : [k, v]))
+      .map(([k, v]) => (typeof v === 'string' ? [k, decode(v)] : [k, v.map(decode)])),
+  );
+}
+
 function serializeForUri(key: string, value: ParamValueType): string {
   if (Array.isArray(value)) {
-    return `${key}=${value.map((v) => encodeURI(v)).join(',')}`;
+    return `${key}=${value.map((v) => encode(v)).join(',')}`;
   } else if (typeof value === 'string') {
-    return `${key}=${encodeURI(value)}`;
+    return `${key}=${encode(value)}`;
   } else {
     return `${key}=${value}`;
   }
+}
+
+function encode(str: string): string {
+  return encodeURI(str).replace(/,/g, '%2C');
+}
+
+function decode(str: string): string {
+  return decodeURI(str).replace(/%2C/g, ',');
 }
