@@ -18,9 +18,12 @@ import {
   ImageTextClassificationInputs,
   ImageTextOcrInputs,
   TextImageImageGenerationInputs,
+  TextTextAdGenerationInputs,
+  TextTextArticleGenerationInputs,
   TextTextAutocorrectInputs,
   TextTextEmotionRecognitionInputs,
   TextTextHateSpeechDetectionInputs,
+  TextTextIntentClassificationInputs,
   TextTextKeywordExtractionInputs,
   TextTextLanguageDetectionInputs,
   TextTextLanguageGenerationInputs,
@@ -33,12 +36,9 @@ import {
   TextTextSentenceParaphraserInputs,
   TextTextSentimentAnalysisInputs,
   TextTextSimilarityInputs,
+  TextTextSummarizationInputs,
   TextTextTranslationInputs,
   TextTextWordAlignmentInputs,
-  TextTextArticleGenerationInputs,
-  TextTextAdGenerationInputs,
-  TextTextSummarizationInputs,
-  TextTextIntentClassificationInputs,
 } from './input-models'
 
 export abstract class Shortcuts implements
@@ -101,6 +101,14 @@ export abstract class Shortcuts implements
 
   // TEXT => TEXT
 
+  adGeneration(args: TextTextAdGenerationInputs) {
+    return this.fromText().toText().adGeneration(args);
+  }
+
+  articleGeneration(args: TextTextArticleGenerationInputs) {
+    return this.fromText().toText().articleGeneration(args);
+  }
+
   autocorrect(args: TextTextAutocorrectInputs) {
     return this.fromText().toText().autocorrect(args);
   }
@@ -111,6 +119,10 @@ export abstract class Shortcuts implements
 
   hateSpeechDetection(args: TextTextHateSpeechDetectionInputs) {
     return this.fromText().toText().hateSpeechDetection(args);
+  }
+
+  intentClassification(args: TextTextIntentClassificationInputs) {
+    return this.fromText().toText().intentClassification(args);
   }
 
   keywordExtraction(args: TextTextKeywordExtractionInputs) {
@@ -161,28 +173,16 @@ export abstract class Shortcuts implements
     return this.fromText().toText().similarity(args);
   }
 
+  summarization(args: TextTextSummarizationInputs) {
+    return this.fromText().toText().summarization(args);
+  }
+
   translation(args: TextTextTranslationInputs) {
     return this.fromText().toText().translation(args);
   }
 
   wordAlignment(args: TextTextWordAlignmentInputs) {
     return this.fromText().toText().wordAlignment(args);
-  }
-
-  articleGeneration(args: TextTextArticleGenerationInputs) {
-    return this.fromText().toText().articleGeneration(args);
-  }
-
-  adGeneration(args: TextTextAdGenerationInputs) {
-    return this.fromText().toText().adGeneration(args);
-  }
-
-  summarization(args: TextTextSummarizationInputs) {
-    return this.fromText().toText().summarization(args);
-  }
-
-  intentClassification(args: TextTextIntentClassificationInputs) {
-    return this.fromText().toText().intentClassification(args);
   }
 
 }

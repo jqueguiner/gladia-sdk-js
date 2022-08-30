@@ -19,6 +19,8 @@ export declare type ImageTextOcrOutputs = {
     prediction_raw: any;
 };
 export declare type TextImageImageGenerationOutputs = ArrayBuffer;
+export declare type TextTextAdGenerationOutputs = Record<string, string | number | boolean>;
+export declare type TextTextArticleGenerationOutputs = Record<string, string | number | boolean>;
 export declare type TextTextAutocorrectOutputs = {
     prediction: string;
     prediction_raw: any;
@@ -31,6 +33,7 @@ export declare type TextTextHateSpeechDetectionOutputs = {
     prediction: string;
     prediction_raw: any;
 };
+export declare type TextTextIntentClassificationOutputs = Record<string, string | number | boolean>;
 export declare type TextTextKeywordExtractionOutputs = {
     prediction: string;
     prediction_raw: any;
@@ -79,12 +82,9 @@ export declare type TextTextSimilarityOutputs = {
     prediction: number;
     prediction_raw: any;
 };
+export declare type TextTextSummarizationOutputs = Record<string, string | number | boolean>;
 export declare type TextTextTranslationOutputs = Record<string, string | number | boolean>;
 export declare type TextTextWordAlignmentOutputs = {
     prediction: string[];
     prediction_raw: any;
 };
-export declare type TextTextArticleGenerationOutputs = Record<string, string | number | boolean>;
-export declare type TextTextAdGenerationOutputs = Record<string, string | number | boolean>;
-export declare type TextTextSummarizationOutputs = Record<string, string | number | boolean>;
-export declare type TextTextIntentClassificationOutputs = Record<string, string | number | boolean>;

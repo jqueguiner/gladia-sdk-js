@@ -82,6 +82,7 @@ export function generateEndpointDefs() {
       params: getPostParams(def, openApiJson),
     };
   });
+  endpointDefs.sort((a, b) => a.url.localeCompare(b.url));
   const jsonLines = JSON.stringify(endpointDefs, undefined, 2).split('\n');
 
   fileContent.push(`export const ENDPOINT_DEFS: EndpointDef[] = ${jsonLines.shift()}`);

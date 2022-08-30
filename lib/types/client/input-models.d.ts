@@ -1,4 +1,4 @@
-import { AudioTextAudioTranscriptionModel, ImageImageBackgroundRemovalModel, ImageImageColorizationModel, ImageImageFaceBluringModel, ImageImageUncolorizationModel, ImageTextAsciifyModel, ImageTextClassificationModel, ImageTextOcrModel, TextImageImageGenerationModel, TextTextAutocorrectModel, TextTextEmotionRecognitionModel, TextTextHateSpeechDetectionModel, TextTextKeywordExtractionModel, TextTextLanguageDetectionModel, TextTextLanguageGenerationModel, TextTextNamedEntityRecognitionModel, TextTextNextSentencePredictionModel, TextTextNextWordPredictionModel, TextTextPluralModel, TextTextProgrammingLanguageGenerationModel, TextTextQuestionAnsweringModel, TextTextSentenceParaphraserModel, TextTextSentimentAnalysisModel, TextTextSimilarityModel, TextTextTranslationModel, TextTextWordAlignmentModel, TextTextArticleGenerationModel, TextTextAdGenerationModel, TextTextSummarizationModel, TextTextIntentClassificationModel } from '../models';
+import { AudioTextAudioTranscriptionModel, ImageImageBackgroundRemovalModel, ImageImageColorizationModel, ImageImageFaceBluringModel, ImageImageUncolorizationModel, ImageTextAsciifyModel, ImageTextClassificationModel, ImageTextOcrModel, TextImageImageGenerationModel, TextTextAdGenerationModel, TextTextArticleGenerationModel, TextTextAutocorrectModel, TextTextEmotionRecognitionModel, TextTextHateSpeechDetectionModel, TextTextIntentClassificationModel, TextTextKeywordExtractionModel, TextTextLanguageDetectionModel, TextTextLanguageGenerationModel, TextTextNamedEntityRecognitionModel, TextTextNextSentencePredictionModel, TextTextNextWordPredictionModel, TextTextPluralModel, TextTextProgrammingLanguageGenerationModel, TextTextQuestionAnsweringModel, TextTextSentenceParaphraserModel, TextTextSentimentAnalysisModel, TextTextSimilarityModel, TextTextSummarizationModel, TextTextTranslationModel, TextTextWordAlignmentModel } from '../models';
 import { WithModel } from './types';
 export interface AudioTextAudioTranscriptionInputs extends WithModel<AudioTextAudioTranscriptionModel> {
     audio?: Blob;
@@ -41,6 +41,12 @@ export interface TextImageImageGenerationInputs extends WithModel<TextImageImage
     steps?: number;
     seed?: number;
 }
+export interface TextTextAdGenerationInputs extends WithModel<TextTextAdGenerationModel> {
+    keywords?: string[];
+}
+export interface TextTextArticleGenerationInputs extends WithModel<TextTextArticleGenerationModel> {
+    title?: string;
+}
 export interface TextTextAutocorrectInputs extends WithModel<TextTextAutocorrectModel> {
     sentence: string;
 }
@@ -49,6 +55,9 @@ export interface TextTextEmotionRecognitionInputs extends WithModel<TextTextEmot
 }
 export interface TextTextHateSpeechDetectionInputs extends WithModel<TextTextHateSpeechDetectionModel> {
     text: string;
+}
+export interface TextTextIntentClassificationInputs extends WithModel<TextTextIntentClassificationModel> {
+    text?: string;
 }
 export interface TextTextKeywordExtractionInputs extends WithModel<TextTextKeywordExtractionModel> {
     text: string;
@@ -90,6 +99,9 @@ export interface TextTextSimilarityInputs extends WithModel<TextTextSimilarityMo
     sentence_1: string;
     sentence_2: string;
 }
+export interface TextTextSummarizationInputs extends WithModel<TextTextSummarizationModel> {
+    text?: string;
+}
 export interface TextTextTranslationInputs extends WithModel<TextTextTranslationModel> {
     text?: string;
     source?: string;
@@ -98,16 +110,4 @@ export interface TextTextTranslationInputs extends WithModel<TextTextTranslation
 export interface TextTextWordAlignmentInputs extends WithModel<TextTextWordAlignmentModel> {
     input_string_language_1: string;
     input_string_language_2: string;
-}
-export interface TextTextArticleGenerationInputs extends WithModel<TextTextArticleGenerationModel> {
-    title?: string;
-}
-export interface TextTextAdGenerationInputs extends WithModel<TextTextAdGenerationModel> {
-    keywords?: string[];
-}
-export interface TextTextSummarizationInputs extends WithModel<TextTextSummarizationModel> {
-    text?: string;
-}
-export interface TextTextIntentClassificationInputs extends WithModel<TextTextIntentClassificationModel> {
-    text?: string;
 }

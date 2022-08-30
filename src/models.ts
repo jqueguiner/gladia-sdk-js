@@ -185,6 +185,20 @@ export const TEXT_IMAGE_IMAGE_GENERATION_CONTENT_TYPE = "application/x-www-form-
 export const TEXT_IMAGE_IMAGE_GENERATION_DEFAULT_MODEL = "stable-diffusion" as const;
 export type TextImageImageGenerationModel = typeof TEXT_IMAGE_IMAGE_GENERATION_MODELS[number];
 
+export const TEXT_TEXT_AD_GENERATION_MODELS = [
+   'gpt-j',
+] as const;
+export const TEXT_TEXT_AD_GENERATION_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
+export const TEXT_TEXT_AD_GENERATION_DEFAULT_MODEL = "gpt-j" as const;
+export type TextTextAdGenerationModel = typeof TEXT_TEXT_AD_GENERATION_MODELS[number];
+
+export const TEXT_TEXT_ARTICLE_GENERATION_MODELS = [
+   'fast-gpt-j',
+] as const;
+export const TEXT_TEXT_ARTICLE_GENERATION_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
+export const TEXT_TEXT_ARTICLE_GENERATION_DEFAULT_MODEL = "fast-gpt-j" as const;
+export type TextTextArticleGenerationModel = typeof TEXT_TEXT_ARTICLE_GENERATION_MODELS[number];
+
 export const TEXT_TEXT_AUTOCORRECT_MODELS = [
    'flexudy-t5-base-multi-sentence-doctor',
 ] as const;
@@ -205,6 +219,13 @@ export const TEXT_TEXT_HATE_SPEECH_DETECTION_MODELS = [
 export const TEXT_TEXT_HATE_SPEECH_DETECTION_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
 export const TEXT_TEXT_HATE_SPEECH_DETECTION_DEFAULT_MODEL = "Hate-speech-CNERG-dehatebert-mono-english" as const;
 export type TextTextHateSpeechDetectionModel = typeof TEXT_TEXT_HATE_SPEECH_DETECTION_MODELS[number];
+
+export const TEXT_TEXT_INTENT_CLASSIFICATION_MODELS = [
+   'fast-gpt-j',
+] as const;
+export const TEXT_TEXT_INTENT_CLASSIFICATION_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
+export const TEXT_TEXT_INTENT_CLASSIFICATION_DEFAULT_MODEL = "fast-gpt-j" as const;
+export type TextTextIntentClassificationModel = typeof TEXT_TEXT_INTENT_CLASSIFICATION_MODELS[number];
 
 export const TEXT_TEXT_KEYWORD_EXTRACTION_MODELS = [
    'keybert-paraphrase-MiniLM-L6-v2',
@@ -302,6 +323,13 @@ export const TEXT_TEXT_SIMILARITY_CONTENT_TYPE = "application/x-www-form-urlenco
 export const TEXT_TEXT_SIMILARITY_DEFAULT_MODEL = "all-MiniLM-L6-v2" as const;
 export type TextTextSimilarityModel = typeof TEXT_TEXT_SIMILARITY_MODELS[number];
 
+export const TEXT_TEXT_SUMMARIZATION_MODELS = [
+   'bart-large-cnn',
+] as const;
+export const TEXT_TEXT_SUMMARIZATION_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
+export const TEXT_TEXT_SUMMARIZATION_DEFAULT_MODEL = "bart-large-cnn" as const;
+export type TextTextSummarizationModel = typeof TEXT_TEXT_SUMMARIZATION_MODELS[number];
+
 export const TEXT_TEXT_TRANSLATION_MODELS = [
    'nllb-200-3-3b',
 ] as const;
@@ -315,31 +343,3 @@ export const TEXT_TEXT_WORD_ALIGNMENT_MODELS = [
 export const TEXT_TEXT_WORD_ALIGNMENT_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
 export const TEXT_TEXT_WORD_ALIGNMENT_DEFAULT_MODEL = "bert-base-multilingual-cased" as const;
 export type TextTextWordAlignmentModel = typeof TEXT_TEXT_WORD_ALIGNMENT_MODELS[number];
-
-export const TEXT_TEXT_ARTICLE_GENERATION_MODELS = [
-   'fast-gpt-j',
-] as const;
-export const TEXT_TEXT_ARTICLE_GENERATION_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
-export const TEXT_TEXT_ARTICLE_GENERATION_DEFAULT_MODEL = "fast-gpt-j" as const;
-export type TextTextArticleGenerationModel = typeof TEXT_TEXT_ARTICLE_GENERATION_MODELS[number];
-
-export const TEXT_TEXT_AD_GENERATION_MODELS = [
-   'gpt-j',
-] as const;
-export const TEXT_TEXT_AD_GENERATION_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
-export const TEXT_TEXT_AD_GENERATION_DEFAULT_MODEL = "gpt-j" as const;
-export type TextTextAdGenerationModel = typeof TEXT_TEXT_AD_GENERATION_MODELS[number];
-
-export const TEXT_TEXT_SUMMARIZATION_MODELS = [
-   'bart-large-cnn',
-] as const;
-export const TEXT_TEXT_SUMMARIZATION_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
-export const TEXT_TEXT_SUMMARIZATION_DEFAULT_MODEL = "bart-large-cnn" as const;
-export type TextTextSummarizationModel = typeof TEXT_TEXT_SUMMARIZATION_MODELS[number];
-
-export const TEXT_TEXT_INTENT_CLASSIFICATION_MODELS = [
-   'fast-gpt-j',
-] as const;
-export const TEXT_TEXT_INTENT_CLASSIFICATION_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
-export const TEXT_TEXT_INTENT_CLASSIFICATION_DEFAULT_MODEL = "fast-gpt-j" as const;
-export type TextTextIntentClassificationModel = typeof TEXT_TEXT_INTENT_CLASSIFICATION_MODELS[number];

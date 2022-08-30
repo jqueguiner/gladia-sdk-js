@@ -10,9 +10,12 @@ import {
   ImageTextClassificationModel,
   ImageTextOcrModel,
   TextImageImageGenerationModel,
+  TextTextAdGenerationModel,
+  TextTextArticleGenerationModel,
   TextTextAutocorrectModel,
   TextTextEmotionRecognitionModel,
   TextTextHateSpeechDetectionModel,
+  TextTextIntentClassificationModel,
   TextTextKeywordExtractionModel,
   TextTextLanguageDetectionModel,
   TextTextLanguageGenerationModel,
@@ -25,12 +28,9 @@ import {
   TextTextSentenceParaphraserModel,
   TextTextSentimentAnalysisModel,
   TextTextSimilarityModel,
+  TextTextSummarizationModel,
   TextTextTranslationModel,
   TextTextWordAlignmentModel,
-  TextTextArticleGenerationModel,
-  TextTextAdGenerationModel,
-  TextTextSummarizationModel,
-  TextTextIntentClassificationModel,
 } from '../models';
 import { WithModel } from './types';
 
@@ -84,6 +84,14 @@ export interface TextImageImageGenerationInputs
   steps?: number;
   seed?: number;
 }
+export interface TextTextAdGenerationInputs 
+  extends WithModel<TextTextAdGenerationModel> {
+  keywords?: string[];
+}
+export interface TextTextArticleGenerationInputs 
+  extends WithModel<TextTextArticleGenerationModel> {
+  title?: string;
+}
 export interface TextTextAutocorrectInputs 
   extends WithModel<TextTextAutocorrectModel> {
   sentence: string;
@@ -95,6 +103,10 @@ export interface TextTextEmotionRecognitionInputs
 export interface TextTextHateSpeechDetectionInputs 
   extends WithModel<TextTextHateSpeechDetectionModel> {
   text: string;
+}
+export interface TextTextIntentClassificationInputs 
+  extends WithModel<TextTextIntentClassificationModel> {
+  text?: string;
 }
 export interface TextTextKeywordExtractionInputs 
   extends WithModel<TextTextKeywordExtractionModel> {
@@ -148,6 +160,10 @@ export interface TextTextSimilarityInputs
   sentence_1: string;
   sentence_2: string;
 }
+export interface TextTextSummarizationInputs 
+  extends WithModel<TextTextSummarizationModel> {
+  text?: string;
+}
 export interface TextTextTranslationInputs 
   extends WithModel<TextTextTranslationModel> {
   text?: string;
@@ -158,20 +174,4 @@ export interface TextTextWordAlignmentInputs
   extends WithModel<TextTextWordAlignmentModel> {
   input_string_language_1: string;
   input_string_language_2: string;
-}
-export interface TextTextArticleGenerationInputs 
-  extends WithModel<TextTextArticleGenerationModel> {
-  title?: string;
-}
-export interface TextTextAdGenerationInputs 
-  extends WithModel<TextTextAdGenerationModel> {
-  keywords?: string[];
-}
-export interface TextTextSummarizationInputs 
-  extends WithModel<TextTextSummarizationModel> {
-  text?: string;
-}
-export interface TextTextIntentClassificationInputs 
-  extends WithModel<TextTextIntentClassificationModel> {
-  text?: string;
 }

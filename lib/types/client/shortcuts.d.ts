@@ -6,7 +6,7 @@ import { FromImageToText } from './from-image-to-text';
 import { FromText } from './from-text';
 import { FromTextToImage } from './from-text-to-image';
 import { FromTextToText } from './from-text-to-text';
-import { AudioTextAudioTranscriptionInputs, ImageImageBackgroundRemovalInputs, ImageImageColorizationInputs, ImageImageFaceBluringInputs, ImageImageUncolorizationInputs, ImageTextAsciifyInputs, ImageTextClassificationInputs, ImageTextOcrInputs, TextImageImageGenerationInputs, TextTextAutocorrectInputs, TextTextEmotionRecognitionInputs, TextTextHateSpeechDetectionInputs, TextTextKeywordExtractionInputs, TextTextLanguageDetectionInputs, TextTextLanguageGenerationInputs, TextTextNamedEntityRecognitionInputs, TextTextNextSentencePredictionInputs, TextTextNextWordPredictionInputs, TextTextPluralInputs, TextTextProgrammingLanguageGenerationInputs, TextTextQuestionAnsweringInputs, TextTextSentenceParaphraserInputs, TextTextSentimentAnalysisInputs, TextTextSimilarityInputs, TextTextTranslationInputs, TextTextWordAlignmentInputs, TextTextArticleGenerationInputs, TextTextAdGenerationInputs, TextTextSummarizationInputs, TextTextIntentClassificationInputs } from './input-models';
+import { AudioTextAudioTranscriptionInputs, ImageImageBackgroundRemovalInputs, ImageImageColorizationInputs, ImageImageFaceBluringInputs, ImageImageUncolorizationInputs, ImageTextAsciifyInputs, ImageTextClassificationInputs, ImageTextOcrInputs, TextImageImageGenerationInputs, TextTextAdGenerationInputs, TextTextArticleGenerationInputs, TextTextAutocorrectInputs, TextTextEmotionRecognitionInputs, TextTextHateSpeechDetectionInputs, TextTextIntentClassificationInputs, TextTextKeywordExtractionInputs, TextTextLanguageDetectionInputs, TextTextLanguageGenerationInputs, TextTextNamedEntityRecognitionInputs, TextTextNextSentencePredictionInputs, TextTextNextWordPredictionInputs, TextTextPluralInputs, TextTextProgrammingLanguageGenerationInputs, TextTextQuestionAnsweringInputs, TextTextSentenceParaphraserInputs, TextTextSentimentAnalysisInputs, TextTextSimilarityInputs, TextTextSummarizationInputs, TextTextTranslationInputs, TextTextWordAlignmentInputs } from './input-models';
 export declare abstract class Shortcuts implements Omit<FromAudioToText, 'httpClient'>, Omit<FromImageToImage, 'httpClient'>, Omit<FromImageToText, 'httpClient'>, Omit<FromTextToImage, 'httpClient'>, Omit<FromTextToText, 'httpClient'> {
     abstract fromAudio(): FromAudio;
     audioTranscription(args: AudioTextAudioTranscriptionInputs): Promise<import("./output-models").AudioTextAudioTranscriptionOutputs>;
@@ -20,9 +20,12 @@ export declare abstract class Shortcuts implements Omit<FromAudioToText, 'httpCl
     ocr(args: ImageTextOcrInputs): Promise<import("./output-models").ImageTextOcrOutputs>;
     abstract fromText(): FromText;
     imageGeneration(args: TextImageImageGenerationInputs): Promise<ArrayBuffer>;
+    adGeneration(args: TextTextAdGenerationInputs): Promise<import("./output-models").TextTextAdGenerationOutputs>;
+    articleGeneration(args: TextTextArticleGenerationInputs): Promise<import("./output-models").TextTextArticleGenerationOutputs>;
     autocorrect(args: TextTextAutocorrectInputs): Promise<import("./output-models").TextTextAutocorrectOutputs>;
     emotionRecognition(args: TextTextEmotionRecognitionInputs): Promise<import("./output-models").TextTextEmotionRecognitionOutputs>;
     hateSpeechDetection(args: TextTextHateSpeechDetectionInputs): Promise<import("./output-models").TextTextHateSpeechDetectionOutputs>;
+    intentClassification(args: TextTextIntentClassificationInputs): Promise<import("./output-models").TextTextIntentClassificationOutputs>;
     keywordExtraction(args: TextTextKeywordExtractionInputs): Promise<import("./output-models").TextTextKeywordExtractionOutputs>;
     languageDetection(args: TextTextLanguageDetectionInputs): Promise<import("./output-models").TextTextLanguageDetectionOutputs>;
     languageGeneration(args: TextTextLanguageGenerationInputs): Promise<import("./output-models").TextTextLanguageGenerationOutputs>;
@@ -35,10 +38,7 @@ export declare abstract class Shortcuts implements Omit<FromAudioToText, 'httpCl
     sentenceParaphraser(args: TextTextSentenceParaphraserInputs): Promise<import("./output-models").TextTextSentenceParaphraserOutputs>;
     sentimentAnalysis(args: TextTextSentimentAnalysisInputs): Promise<import("./output-models").TextTextSentimentAnalysisOutputs>;
     similarity(args: TextTextSimilarityInputs): Promise<import("./output-models").TextTextSimilarityOutputs>;
+    summarization(args: TextTextSummarizationInputs): Promise<import("./output-models").TextTextSummarizationOutputs>;
     translation(args: TextTextTranslationInputs): Promise<import("./output-models").TextTextTranslationOutputs>;
     wordAlignment(args: TextTextWordAlignmentInputs): Promise<import("./output-models").TextTextWordAlignmentOutputs>;
-    articleGeneration(args: TextTextArticleGenerationInputs): Promise<import("./output-models").TextTextArticleGenerationOutputs>;
-    adGeneration(args: TextTextAdGenerationInputs): Promise<import("./output-models").TextTextAdGenerationOutputs>;
-    summarization(args: TextTextSummarizationInputs): Promise<import("./output-models").TextTextSummarizationOutputs>;
-    intentClassification(args: TextTextIntentClassificationInputs): Promise<import("./output-models").TextTextIntentClassificationOutputs>;
 }

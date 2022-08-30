@@ -1,13 +1,16 @@
-import { TextTextAutocorrectInputs, TextTextEmotionRecognitionInputs, TextTextHateSpeechDetectionInputs, TextTextKeywordExtractionInputs, TextTextLanguageDetectionInputs, TextTextLanguageGenerationInputs, TextTextNamedEntityRecognitionInputs, TextTextNextSentencePredictionInputs, TextTextNextWordPredictionInputs, TextTextPluralInputs, TextTextProgrammingLanguageGenerationInputs, TextTextQuestionAnsweringInputs, TextTextSentenceParaphraserInputs, TextTextSentimentAnalysisInputs, TextTextSimilarityInputs, TextTextTranslationInputs, TextTextWordAlignmentInputs, TextTextArticleGenerationInputs, TextTextAdGenerationInputs, TextTextSummarizationInputs, TextTextIntentClassificationInputs } from './input-models';
-import { TextTextAutocorrectOutputs, TextTextEmotionRecognitionOutputs, TextTextHateSpeechDetectionOutputs, TextTextKeywordExtractionOutputs, TextTextLanguageDetectionOutputs, TextTextLanguageGenerationOutputs, TextTextNamedEntityRecognitionOutputs, TextTextNextSentencePredictionOutputs, TextTextNextWordPredictionOutputs, TextTextPluralOutputs, TextTextProgrammingLanguageGenerationOutputs, TextTextQuestionAnsweringOutputs, TextTextSentenceParaphraserOutputs, TextTextSentimentAnalysisOutputs, TextTextSimilarityOutputs, TextTextTranslationOutputs, TextTextWordAlignmentOutputs, TextTextArticleGenerationOutputs, TextTextAdGenerationOutputs, TextTextSummarizationOutputs, TextTextIntentClassificationOutputs } from './output-models';
+import { TextTextAdGenerationInputs, TextTextArticleGenerationInputs, TextTextAutocorrectInputs, TextTextEmotionRecognitionInputs, TextTextHateSpeechDetectionInputs, TextTextIntentClassificationInputs, TextTextKeywordExtractionInputs, TextTextLanguageDetectionInputs, TextTextLanguageGenerationInputs, TextTextNamedEntityRecognitionInputs, TextTextNextSentencePredictionInputs, TextTextNextWordPredictionInputs, TextTextPluralInputs, TextTextProgrammingLanguageGenerationInputs, TextTextQuestionAnsweringInputs, TextTextSentenceParaphraserInputs, TextTextSentimentAnalysisInputs, TextTextSimilarityInputs, TextTextSummarizationInputs, TextTextTranslationInputs, TextTextWordAlignmentInputs } from './input-models';
+import { TextTextAdGenerationOutputs, TextTextArticleGenerationOutputs, TextTextAutocorrectOutputs, TextTextEmotionRecognitionOutputs, TextTextHateSpeechDetectionOutputs, TextTextIntentClassificationOutputs, TextTextKeywordExtractionOutputs, TextTextLanguageDetectionOutputs, TextTextLanguageGenerationOutputs, TextTextNamedEntityRecognitionOutputs, TextTextNextSentencePredictionOutputs, TextTextNextWordPredictionOutputs, TextTextPluralOutputs, TextTextProgrammingLanguageGenerationOutputs, TextTextQuestionAnsweringOutputs, TextTextSentenceParaphraserOutputs, TextTextSentimentAnalysisOutputs, TextTextSimilarityOutputs, TextTextSummarizationOutputs, TextTextTranslationOutputs, TextTextWordAlignmentOutputs } from './output-models';
 import { GladiaClientParams } from './gladia-client-params';
 export declare class FromTextToText {
     private params;
     private httpClient;
     constructor(params: GladiaClientParams);
+    adGeneration(args: TextTextAdGenerationInputs): Promise<TextTextAdGenerationOutputs>;
+    articleGeneration(args: TextTextArticleGenerationInputs): Promise<TextTextArticleGenerationOutputs>;
     autocorrect(args: TextTextAutocorrectInputs): Promise<TextTextAutocorrectOutputs>;
     emotionRecognition(args: TextTextEmotionRecognitionInputs): Promise<TextTextEmotionRecognitionOutputs>;
     hateSpeechDetection(args: TextTextHateSpeechDetectionInputs): Promise<TextTextHateSpeechDetectionOutputs>;
+    intentClassification(args: TextTextIntentClassificationInputs): Promise<TextTextIntentClassificationOutputs>;
     keywordExtraction(args: TextTextKeywordExtractionInputs): Promise<TextTextKeywordExtractionOutputs>;
     languageDetection(args: TextTextLanguageDetectionInputs): Promise<TextTextLanguageDetectionOutputs>;
     languageGeneration(args: TextTextLanguageGenerationInputs): Promise<TextTextLanguageGenerationOutputs>;
@@ -20,10 +23,7 @@ export declare class FromTextToText {
     sentenceParaphraser(args: TextTextSentenceParaphraserInputs): Promise<TextTextSentenceParaphraserOutputs>;
     sentimentAnalysis(args: TextTextSentimentAnalysisInputs): Promise<TextTextSentimentAnalysisOutputs>;
     similarity(args: TextTextSimilarityInputs): Promise<TextTextSimilarityOutputs>;
+    summarization(args: TextTextSummarizationInputs): Promise<TextTextSummarizationOutputs>;
     translation(args: TextTextTranslationInputs): Promise<TextTextTranslationOutputs>;
     wordAlignment(args: TextTextWordAlignmentInputs): Promise<TextTextWordAlignmentOutputs>;
-    articleGeneration(args: TextTextArticleGenerationInputs): Promise<TextTextArticleGenerationOutputs>;
-    adGeneration(args: TextTextAdGenerationInputs): Promise<TextTextAdGenerationOutputs>;
-    summarization(args: TextTextSummarizationInputs): Promise<TextTextSummarizationOutputs>;
-    intentClassification(args: TextTextIntentClassificationInputs): Promise<TextTextIntentClassificationOutputs>;
 }

@@ -1,9 +1,12 @@
 /* Generated file with "scripts/generate-sdk.ts" */
 
 import {
+  TextTextAdGenerationInputs,
+  TextTextArticleGenerationInputs,
   TextTextAutocorrectInputs,
   TextTextEmotionRecognitionInputs,
   TextTextHateSpeechDetectionInputs,
+  TextTextIntentClassificationInputs,
   TextTextKeywordExtractionInputs,
   TextTextLanguageDetectionInputs,
   TextTextLanguageGenerationInputs,
@@ -16,17 +19,17 @@ import {
   TextTextSentenceParaphraserInputs,
   TextTextSentimentAnalysisInputs,
   TextTextSimilarityInputs,
+  TextTextSummarizationInputs,
   TextTextTranslationInputs,
   TextTextWordAlignmentInputs,
-  TextTextArticleGenerationInputs,
-  TextTextAdGenerationInputs,
-  TextTextSummarizationInputs,
-  TextTextIntentClassificationInputs,
 } from './input-models'
 import {
+  TextTextAdGenerationOutputs,
+  TextTextArticleGenerationOutputs,
   TextTextAutocorrectOutputs,
   TextTextEmotionRecognitionOutputs,
   TextTextHateSpeechDetectionOutputs,
+  TextTextIntentClassificationOutputs,
   TextTextKeywordExtractionOutputs,
   TextTextLanguageDetectionOutputs,
   TextTextLanguageGenerationOutputs,
@@ -39,20 +42,23 @@ import {
   TextTextSentenceParaphraserOutputs,
   TextTextSentimentAnalysisOutputs,
   TextTextSimilarityOutputs,
+  TextTextSummarizationOutputs,
   TextTextTranslationOutputs,
   TextTextWordAlignmentOutputs,
-  TextTextArticleGenerationOutputs,
-  TextTextAdGenerationOutputs,
-  TextTextSummarizationOutputs,
-  TextTextIntentClassificationOutputs,
 } from './output-models'
 import {
+  TEXT_TEXT_AD_GENERATION_CONTENT_TYPE,
+  TEXT_TEXT_AD_GENERATION_DEFAULT_MODEL,
+  TEXT_TEXT_ARTICLE_GENERATION_CONTENT_TYPE,
+  TEXT_TEXT_ARTICLE_GENERATION_DEFAULT_MODEL,
   TEXT_TEXT_AUTOCORRECT_CONTENT_TYPE,
   TEXT_TEXT_AUTOCORRECT_DEFAULT_MODEL,
   TEXT_TEXT_EMOTION_RECOGNITION_CONTENT_TYPE,
   TEXT_TEXT_EMOTION_RECOGNITION_DEFAULT_MODEL,
   TEXT_TEXT_HATE_SPEECH_DETECTION_CONTENT_TYPE,
   TEXT_TEXT_HATE_SPEECH_DETECTION_DEFAULT_MODEL,
+  TEXT_TEXT_INTENT_CLASSIFICATION_CONTENT_TYPE,
+  TEXT_TEXT_INTENT_CLASSIFICATION_DEFAULT_MODEL,
   TEXT_TEXT_KEYWORD_EXTRACTION_CONTENT_TYPE,
   TEXT_TEXT_KEYWORD_EXTRACTION_DEFAULT_MODEL,
   TEXT_TEXT_LANGUAGE_DETECTION_CONTENT_TYPE,
@@ -77,18 +83,12 @@ import {
   TEXT_TEXT_SENTIMENT_ANALYSIS_DEFAULT_MODEL,
   TEXT_TEXT_SIMILARITY_CONTENT_TYPE,
   TEXT_TEXT_SIMILARITY_DEFAULT_MODEL,
+  TEXT_TEXT_SUMMARIZATION_CONTENT_TYPE,
+  TEXT_TEXT_SUMMARIZATION_DEFAULT_MODEL,
   TEXT_TEXT_TRANSLATION_CONTENT_TYPE,
   TEXT_TEXT_TRANSLATION_DEFAULT_MODEL,
   TEXT_TEXT_WORD_ALIGNMENT_CONTENT_TYPE,
   TEXT_TEXT_WORD_ALIGNMENT_DEFAULT_MODEL,
-  TEXT_TEXT_ARTICLE_GENERATION_CONTENT_TYPE,
-  TEXT_TEXT_ARTICLE_GENERATION_DEFAULT_MODEL,
-  TEXT_TEXT_AD_GENERATION_CONTENT_TYPE,
-  TEXT_TEXT_AD_GENERATION_DEFAULT_MODEL,
-  TEXT_TEXT_SUMMARIZATION_CONTENT_TYPE,
-  TEXT_TEXT_SUMMARIZATION_DEFAULT_MODEL,
-  TEXT_TEXT_INTENT_CLASSIFICATION_CONTENT_TYPE,
-  TEXT_TEXT_INTENT_CLASSIFICATION_DEFAULT_MODEL,
 } from '../models'
 import { getHttpClient, HttpClient } from '../internal/http-client';
 import { isDefined } from '../utils/fp';
@@ -100,6 +100,36 @@ export class FromTextToText {
 
   constructor(private params: GladiaClientParams) {
     this.httpClient = getHttpClient(this.params);
+  }
+
+  adGeneration(args: TextTextAdGenerationInputs): Promise<TextTextAdGenerationOutputs> {
+    const formData = new UrlFormData();
+    if (isDefined(args.keywords)) {
+      formData.append('keywords', args.keywords);
+    }
+    return this.httpClient.post({
+      url: '/text/text/ad-generation/',
+      headers: { 'Content-Type': TEXT_TEXT_AD_GENERATION_CONTENT_TYPE },
+      query: {
+        model: args.model ?? TEXT_TEXT_AD_GENERATION_DEFAULT_MODEL,
+      },
+      body: formData.toString(),
+    });
+  }
+
+  articleGeneration(args: TextTextArticleGenerationInputs): Promise<TextTextArticleGenerationOutputs> {
+    const formData = new UrlFormData();
+    if (isDefined(args.title)) {
+      formData.append('title', args.title);
+    }
+    return this.httpClient.post({
+      url: '/text/text/article-generation/',
+      headers: { 'Content-Type': TEXT_TEXT_ARTICLE_GENERATION_CONTENT_TYPE },
+      query: {
+        model: args.model ?? TEXT_TEXT_ARTICLE_GENERATION_DEFAULT_MODEL,
+      },
+      body: formData.toString(),
+    });
   }
 
   autocorrect(args: TextTextAutocorrectInputs): Promise<TextTextAutocorrectOutputs> {
@@ -136,6 +166,21 @@ export class FromTextToText {
       headers: { 'Content-Type': TEXT_TEXT_HATE_SPEECH_DETECTION_CONTENT_TYPE },
       query: {
         model: args.model ?? TEXT_TEXT_HATE_SPEECH_DETECTION_DEFAULT_MODEL,
+      },
+      body: formData.toString(),
+    });
+  }
+
+  intentClassification(args: TextTextIntentClassificationInputs): Promise<TextTextIntentClassificationOutputs> {
+    const formData = new UrlFormData();
+    if (isDefined(args.text)) {
+      formData.append('text', args.text);
+    }
+    return this.httpClient.post({
+      url: '/text/text/intent-classification/',
+      headers: { 'Content-Type': TEXT_TEXT_INTENT_CLASSIFICATION_CONTENT_TYPE },
+      query: {
+        model: args.model ?? TEXT_TEXT_INTENT_CLASSIFICATION_DEFAULT_MODEL,
       },
       body: formData.toString(),
     });
@@ -303,6 +348,21 @@ export class FromTextToText {
     });
   }
 
+  summarization(args: TextTextSummarizationInputs): Promise<TextTextSummarizationOutputs> {
+    const formData = new UrlFormData();
+    if (isDefined(args.text)) {
+      formData.append('text', args.text);
+    }
+    return this.httpClient.post({
+      url: '/text/text/summarization/',
+      headers: { 'Content-Type': TEXT_TEXT_SUMMARIZATION_CONTENT_TYPE },
+      query: {
+        model: args.model ?? TEXT_TEXT_SUMMARIZATION_DEFAULT_MODEL,
+      },
+      body: formData.toString(),
+    });
+  }
+
   translation(args: TextTextTranslationInputs): Promise<TextTextTranslationOutputs> {
     const formData = new UrlFormData();
     if (isDefined(args.text)) {
@@ -333,66 +393,6 @@ export class FromTextToText {
       headers: { 'Content-Type': TEXT_TEXT_WORD_ALIGNMENT_CONTENT_TYPE },
       query: {
         model: args.model ?? TEXT_TEXT_WORD_ALIGNMENT_DEFAULT_MODEL,
-      },
-      body: formData.toString(),
-    });
-  }
-
-  articleGeneration(args: TextTextArticleGenerationInputs): Promise<TextTextArticleGenerationOutputs> {
-    const formData = new UrlFormData();
-    if (isDefined(args.title)) {
-      formData.append('title', args.title);
-    }
-    return this.httpClient.post({
-      url: '/text/text/article-generation/',
-      headers: { 'Content-Type': TEXT_TEXT_ARTICLE_GENERATION_CONTENT_TYPE },
-      query: {
-        model: args.model ?? TEXT_TEXT_ARTICLE_GENERATION_DEFAULT_MODEL,
-      },
-      body: formData.toString(),
-    });
-  }
-
-  adGeneration(args: TextTextAdGenerationInputs): Promise<TextTextAdGenerationOutputs> {
-    const formData = new UrlFormData();
-    if (isDefined(args.keywords)) {
-      formData.append('keywords', args.keywords);
-    }
-    return this.httpClient.post({
-      url: '/text/text/ad-generation/',
-      headers: { 'Content-Type': TEXT_TEXT_AD_GENERATION_CONTENT_TYPE },
-      query: {
-        model: args.model ?? TEXT_TEXT_AD_GENERATION_DEFAULT_MODEL,
-      },
-      body: formData.toString(),
-    });
-  }
-
-  summarization(args: TextTextSummarizationInputs): Promise<TextTextSummarizationOutputs> {
-    const formData = new UrlFormData();
-    if (isDefined(args.text)) {
-      formData.append('text', args.text);
-    }
-    return this.httpClient.post({
-      url: '/text/text/summarization/',
-      headers: { 'Content-Type': TEXT_TEXT_SUMMARIZATION_CONTENT_TYPE },
-      query: {
-        model: args.model ?? TEXT_TEXT_SUMMARIZATION_DEFAULT_MODEL,
-      },
-      body: formData.toString(),
-    });
-  }
-
-  intentClassification(args: TextTextIntentClassificationInputs): Promise<TextTextIntentClassificationOutputs> {
-    const formData = new UrlFormData();
-    if (isDefined(args.text)) {
-      formData.append('text', args.text);
-    }
-    return this.httpClient.post({
-      url: '/text/text/intent-classification/',
-      headers: { 'Content-Type': TEXT_TEXT_INTENT_CLASSIFICATION_CONTENT_TYPE },
-      query: {
-        model: args.model ?? TEXT_TEXT_INTENT_CLASSIFICATION_DEFAULT_MODEL,
       },
       body: formData.toString(),
     });
