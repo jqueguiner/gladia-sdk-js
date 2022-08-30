@@ -4,11 +4,17 @@ import packageJson from '../package.json';
 import { openApiJson } from '../src/meta/openapidef';
 import { OpenApiJson, PathDef } from '../src/meta/openapideftype';
 import { EndpointDef, EndpointDefParam } from '../src/meta/endpoint-defs-type';
+import { exit } from 'process';
 
 async function main() {
-  await generateOpenApiDefTs();
-  generateSdkVersionTs();
-  generateEndpointDefs();
+  try {
+    await generateOpenApiDefTs();
+    generateSdkVersionTs();
+    generateEndpointDefs();
+  } catch (err) {
+    console.error(err);
+    exit(-1);
+  }
 }
 
 function getOpenapiJson(): Promise<string> {
@@ -72,6 +78,7 @@ export function generateEndpointDefs() {
       taskName,
       ...getPostModels(def),
       ...getInputBodyContentType(inputType),
+      ...getOutputBodyContentType(def),
       params: getPostParams(def, openApiJson),
     };
   });
@@ -96,7 +103,7 @@ function getPostModels(def: PathDef): Pick<EndpointDef, 'models' | 'defaultModel
   return { models, defaultModel: modelsParam.schema.default };
 }
 
-function getInputBodyContentType(inputType: string) {
+function getInputBodyContentType(inputType: string): Pick<EndpointDef, 'inputBodyContentType'> {
   switch (inputType) {
     case 'text':
       return { inputBodyContentType: 'application/x-www-form-urlencoded' };
@@ -107,6 +114,28 @@ function getInputBodyContentType(inputType: string) {
     default:
       throw { kind: 'InvalidInputType', inputType };
   }
+}
+
+function getOutputBodyContentType(def: PathDef): Pick<EndpointDef, 'outputBodyContentType'> {
+  if (200 in def.post.responses) {
+    const okResponse = def.post.responses[200];
+    if ('application/json' in okResponse.content) {
+      const jsonContent = okResponse.content['application/json'];
+      if ('prediction' in jsonContent.schema && 'prediction_raw' in jsonContent.schema) {
+        return {
+          outputBodyContentType: {
+            type: 'prediction-standard-output',
+            predictionType: jsonContent.schema.prediction,
+          },
+        };
+      } else if (Object.keys(jsonContent.schema).length === 0) {
+        return { outputBodyContentType: { type: 'unknown' } };
+      }
+    } else if ('image/*' in okResponse.content) {
+      return { outputBodyContentType: { type: 'binary' } };
+    }
+  }
+  throw { kind: 'InvalidOutputDefinition', def: JSON.stringify(def.post, undefined, 2) };
 }
 
 function getPostParams(def: PathDef, openApiJson: OpenApiJson) {
@@ -133,7 +162,7 @@ function getPostParams(def: PathDef, openApiJson: OpenApiJson) {
           const isRequired = component.required?.includes(propName) ?? false;
           const type: EndpointDefParam['type'] = (() => {
             switch (propSchema.data_type) {
-              case 'int':
+              case 'integer':
                 return 'integer';
               case 'float':
                 return 'float';
@@ -146,6 +175,7 @@ function getPostParams(def: PathDef, openApiJson: OpenApiJson) {
               case 'array':
                 return 'array';
               case 'text':
+              case 'string':
               default:
                 return 'string';
             }

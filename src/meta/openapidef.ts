@@ -62,7 +62,11 @@ export const openApiJson: OpenApiJson = {
             "description": "Successful Response",
             "content": {
               "application/json": {
-                "schema": {}
+                "schema": {
+                  "type": "object",
+                  "prediction": "string",
+                  "prediction_raw": {}
+                }
               }
             }
           },
@@ -109,8 +113,8 @@ export const openApiJson: OpenApiJson = {
             "schema": {
               "title": "Model",
               "enum": [
-                "xception",
-                "mobilenet"
+                "mobilenet",
+                "xception"
               ],
               "type": "string",
               "default": "xception"
@@ -135,7 +139,8 @@ export const openApiJson: OpenApiJson = {
               "image/*": {
                 "schema": {
                   "type": "string",
-                  "format": "binary"
+                  "format": "binary",
+                  "data_type": "image"
                 }
               }
             }
@@ -209,7 +214,8 @@ export const openApiJson: OpenApiJson = {
               "image/*": {
                 "schema": {
                   "type": "string",
-                  "format": "binary"
+                  "format": "binary",
+                  "data_type": "image"
                 }
               }
             }
@@ -282,7 +288,8 @@ export const openApiJson: OpenApiJson = {
               "image/*": {
                 "schema": {
                   "type": "string",
-                  "format": "binary"
+                  "format": "binary",
+                  "data_type": "image"
                 }
               }
             }
@@ -355,7 +362,8 @@ export const openApiJson: OpenApiJson = {
               "image/*": {
                 "schema": {
                   "type": "string",
-                  "format": "binary"
+                  "format": "binary",
+                  "data_type": "image"
                 }
               }
             }
@@ -426,7 +434,11 @@ export const openApiJson: OpenApiJson = {
             "description": "Successful Response",
             "content": {
               "application/json": {
-                "schema": {}
+                "schema": {
+                  "type": "object",
+                  "prediction": "string",
+                  "prediction_raw": {}
+                }
               }
             }
           },
@@ -473,124 +485,124 @@ export const openApiJson: OpenApiJson = {
             "schema": {
               "title": "Model",
               "enum": [
-                "densenet201",
-                "mobilenet_v2_quantized_qnnpack_v1",
-                "resnet50_v1",
-                "resnext50_32x4d_v1",
-                "efficientnet_b5",
-                "efficientnet_v2_s",
-                "vit_l_16_swag_linear_v1",
-                "vgg16_v1",
-                "regnet_y_128gf_swag_e2e_v1",
-                "shufflenet_v2_x2_0",
-                "regnet_x_1_6gf_v1",
-                "regnet_y_1_6gf_v1",
-                "mnasnet1_3",
-                "shufflenet_v2_x0_5",
-                "convnext_tiny",
-                "vgg16_bn",
-                "mobilenet_v3_large_quantized_qnnpack_v1",
-                "vgg11",
-                "efficientnet_b6",
-                "mnasnet1_0",
+                "convnext_large",
+                "regnet_x_800mf_v1",
+                "regnet_y_32gf_v2",
+                "resnext101_32x8d_v1",
+                "regnet_x_8gf_v2",
+                "resnext101_64x4d_quantized_fbgemm_v1",
                 "mobilenet_v3_small",
-                "vit_b_16_swag_e2e_v1",
-                "vit_b_16_swag_linear_v1",
+                "vgg11",
+                "regnet_y_8gf_v2",
+                "swin_s",
+                "squeezenet1_1",
+                "vgg19",
+                "regnet_x_16gf_v1",
+                "mobilenet_v2_v2",
+                "regnet_x_32gf_v1",
+                "regnet_y_16gf_v2",
+                "mobilenet_v3_large_v1",
+                "vit_l_16_v1",
+                "regnet_y_16gf_swag_linear_v1",
+                "shufflenet_v2_x0_5_quantized_fbgemm_v1",
+                "squeezenet1_0",
                 "regnet_y_8gf_v1",
                 "shufflenet_v2_x2_0_quantized_fbgemm_v1",
-                "regnet_x_3_2gf_v1",
-                "regnet_x_3_2gf_v2",
-                "vit_h_14_swag_e2e_v1",
-                "regnet_y_128gf_swag_linear_v1",
-                "mnasnet0_5",
-                "resnext101_32x8d_quantized_fbgemm_v1",
-                "mobilenet_v3_large_v1",
-                "resnext101_64x4d_v1",
-                "regnet_x_800mf_v2",
-                "vgg13_bn",
-                "swin_t",
-                "efficientnet_b4",
-                "regnet_y_3_2gf_v1",
-                "efficientnet_v2_l",
-                "vgg19_bn",
-                "regnet_x_32gf_v1",
-                "regnet_x_1_6gf_v2",
-                "shufflenet_v2_x1_5_quantized_fbgemm_v1",
-                "regnet_x_32gf_v2",
-                "efficientnet_b3",
-                "vgg11_bn",
-                "vit_l_32",
-                "regnet_x_16gf_v1",
-                "regnet_y_400mf_v2",
-                "mobilenet_v2_v2",
-                "regnet_x_400mf_v1",
-                "vgg13",
-                "vit_l_16_v1",
-                "regnet_y_400mf_v1",
-                "regnet_y_32gf_v2",
-                "squeezenet1_1",
-                "resnext101_32x8d_v1",
-                "resnext101_32x8d_quantized_fbgemm_v2",
-                "resnet18",
-                "regnet_x_800mf_v1",
-                "shufflenet_v2_x1_5",
                 "swin_b",
-                "shufflenet_v2_x0_5_quantized_fbgemm_v1",
-                "vit_l_16_swag_e2e_v1",
-                "mnasnet0_75",
-                "regnet_y_32gf_v1",
-                "inception_v3_fbgemm_v1",
-                "resnet152_v2",
-                "wide_resnet101_2_v2",
-                "regnet_y_16gf_swag_e2e_v1",
-                "densenet169",
-                "regnet_x_8gf_v2",
-                "efficientnet_b7",
-                "mobilenet_v2_v1",
-                "vit_b_32",
-                "vit_h_14_swag_linear_v1",
-                "resnet50_v2",
+                "efficientnet_b4",
+                "regnet_y_1_6gf_v2",
                 "regnet_x_400mf_v2",
-                "resnet50_quantized_fbgemm_v2",
-                "convnext_small",
-                "convnext_base",
-                "shufflenet_v2_x1_0",
-                "regnet_y_16gf_swag_linear_v1",
-                "swin_s",
-                "resnet152_v1",
-                "regnet_x_16gf_v2",
+                "vit_l_16_swag_e2e_v1",
+                "densenet161",
+                "efficientnet_v2_s",
+                "vit_l_32",
+                "regnet_x_8gf_v1",
                 "alexnet",
+                "regnet_y_32gf_v1",
+                "efficientnet_b5",
+                "regnet_y_16gf_swag_e2e_v1",
+                "vit_b_16_v1",
+                "swin_t",
+                "regnet_x_32gf_v2",
+                "mobilenet_v2_v1",
+                "regnet_y_128gf_swag_linear_v1",
+                "shufflenet_v2_x0_5",
+                "vit_h_14_swag_linear_v1",
+                "mobilenet_v3_large_quantized_qnnpack_v1",
+                "resnext101_32x8d_quantized_fbgemm_v2",
+                "regnet_x_1_6gf_v1",
+                "vit_b_32",
+                "regnet_y_1_6gf_v1",
+                "efficientnet_b3",
+                "mnasnet0_5",
+                "vgg16_bn",
+                "efficientnet_b2",
+                "vgg13",
+                "inception_v3_fbgemm_v1",
+                "vgg11_bn",
+                "efficientnet_v2_m",
+                "vgg16_v1",
+                "mnasnet1_0",
+                "mnasnet1_3",
+                "mnasnet0_75",
+                "vit_b_16_swag_e2e_v1",
+                "vit_b_16_swag_linear_v1",
+                "shufflenet_v2_x1_5_quantized_fbgemm_v1",
+                "mobilenet_v3_large_v2",
+                "efficientnet_b7",
+                "efficientnet_v2_l",
+                "resnext101_32x8d_quantized_fbgemm_v1",
+                "googlenet",
                 "wide_resnet101_2_v1",
                 "efficientnet_b1_v1",
-                "googlenet",
-                "vgg19",
-                "resnext50_32x4d_v2",
-                "vit_b_16_v1",
-                "shufflenet_v2_x1_0_quantized_fbgemm_v1",
-                "regnet_y_8gf_v2",
-                "resnet34",
-                "regnet_y_1_6gf_v2",
-                "efficientnet_v2_m",
-                "regnet_y_32gf_swag_linear_v1",
-                "convnext_large",
-                "regnet_y_16gf_v2",
-                "inception_v3",
-                "mobilenet_v3_large_v2",
-                "squeezenet1_0",
-                "regnet_y_16gf_v1",
-                "resnet18_quantized_fbgemm_v1",
                 "resnet50_quantized_fbgemm_v1",
-                "regnet_y_32gf_swag_e2e_v1",
-                "efficientnet_b0",
-                "densenet121",
-                "resnext101_64x4d_quantized_fbgemm_v1",
-                "efficientnet_b1_v2",
-                "regnet_y_3_2gf_v2",
+                "resnet34",
+                "resnet18_quantized_fbgemm_v1",
+                "regnet_y_400mf_v2",
+                "resnet18",
+                "regnet_x_16gf_v2",
+                "shufflenet_v2_x1_5",
+                "vit_h_14_swag_e2e_v1",
+                "regnet_y_400mf_v1",
+                "densenet201",
+                "resnet152_v2",
+                "resnext50_32x4d_v2",
+                "regnet_x_3_2gf_v1",
+                "convnext_small",
                 "googlenet_quantized_fbgemm_v1",
+                "regnet_y_16gf_v1",
+                "regnet_y_3_2gf_v2",
+                "resnet50_v1",
+                "resnext50_32x4d_v1",
+                "shufflenet_v2_x1_0_quantized_fbgemm_v1",
+                "vgg13_bn",
+                "wide_resnet101_2_v2",
+                "regnet_y_32gf_swag_e2e_v1",
+                "densenet169",
+                "mobilenet_v2_quantized_qnnpack_v1",
+                "efficientnet_b6",
+                "vit_l_16_swag_linear_v1",
+                "shufflenet_v2_x2_0",
+                "efficientnet_b1_v2",
+                "resnet50_v2",
+                "regnet_x_400mf_v1",
+                "resnet152_v1",
+                "regnet_x_800mf_v2",
+                "resnext101_64x4d_v1",
+                "resnet50_quantized_fbgemm_v2",
+                "vgg19_bn",
+                "regnet_x_1_6gf_v2",
+                "inception_v3",
+                "convnext_tiny",
+                "regnet_x_3_2gf_v2",
+                "densenet121",
+                "shufflenet_v2_x1_0",
+                "efficientnet_b0",
+                "convnext_base",
                 "resnext101_32x8d_v2",
-                "efficientnet_b2",
-                "densenet161",
-                "regnet_x_8gf_v1"
+                "regnet_y_32gf_swag_linear_v1",
+                "regnet_y_128gf_swag_e2e_v1",
+                "regnet_y_3_2gf_v1"
               ],
               "type": "string",
               "default": "alexnet"
@@ -613,7 +625,11 @@ export const openApiJson: OpenApiJson = {
             "description": "Successful Response",
             "content": {
               "application/json": {
-                "schema": {}
+                "schema": {
+                  "type": "object",
+                  "prediction": "string",
+                  "prediction_raw": {}
+                }
               }
             }
           },
@@ -660,9 +676,9 @@ export const openApiJson: OpenApiJson = {
             "schema": {
               "title": "Model",
               "enum": [
-                "tesseract-default",
+                "easy-ocr",
                 "tesseract-denoising",
-                "easy-ocr"
+                "tesseract-default"
               ],
               "type": "string",
               "default": "easy-ocr"
@@ -685,7 +701,11 @@ export const openApiJson: OpenApiJson = {
             "description": "Successful Response",
             "content": {
               "application/json": {
-                "schema": {}
+                "schema": {
+                  "type": "object",
+                  "prediction": "string",
+                  "prediction_raw": {}
+                }
               }
             }
           },
@@ -732,6 +752,7 @@ export const openApiJson: OpenApiJson = {
             "schema": {
               "title": "Model",
               "enum": [
+                "dream-studio",
                 "stable-diffusion"
               ],
               "type": "string",
@@ -758,7 +779,8 @@ export const openApiJson: OpenApiJson = {
               "image/*": {
                 "schema": {
                   "type": "string",
-                  "format": "binary"
+                  "format": "binary",
+                  "data_type": "image"
                 }
               }
             }
@@ -830,7 +852,11 @@ export const openApiJson: OpenApiJson = {
             "description": "Successful Response",
             "content": {
               "application/json": {
-                "schema": {}
+                "schema": {
+                  "type": "object",
+                  "prediction": "string",
+                  "prediction_raw": {}
+                }
               }
             }
           },
@@ -901,7 +927,11 @@ export const openApiJson: OpenApiJson = {
             "description": "Successful Response",
             "content": {
               "application/json": {
-                "schema": {}
+                "schema": {
+                  "type": "object",
+                  "prediction": "string",
+                  "prediction_raw": {}
+                }
               }
             }
           },
@@ -972,7 +1002,11 @@ export const openApiJson: OpenApiJson = {
             "description": "Successful Response",
             "content": {
               "application/json": {
-                "schema": {}
+                "schema": {
+                  "type": "object",
+                  "prediction": "string",
+                  "prediction_raw": {}
+                }
               }
             }
           },
@@ -1044,7 +1078,11 @@ export const openApiJson: OpenApiJson = {
             "description": "Successful Response",
             "content": {
               "application/json": {
-                "schema": {}
+                "schema": {
+                  "type": "object",
+                  "prediction": "string",
+                  "prediction_raw": {}
+                }
               }
             }
           },
@@ -1116,7 +1154,11 @@ export const openApiJson: OpenApiJson = {
             "description": "Successful Response",
             "content": {
               "application/json": {
-                "schema": {}
+                "schema": {
+                  "type": "object",
+                  "prediction": "string",
+                  "prediction_raw": {}
+                }
               }
             }
           },
@@ -1187,7 +1229,11 @@ export const openApiJson: OpenApiJson = {
             "description": "Successful Response",
             "content": {
               "application/json": {
-                "schema": {}
+                "schema": {
+                  "type": "object",
+                  "prediction": "string",
+                  "prediction_raw": {}
+                }
               }
             }
           },
@@ -1258,7 +1304,11 @@ export const openApiJson: OpenApiJson = {
             "description": "Successful Response",
             "content": {
               "application/json": {
-                "schema": {}
+                "schema": {
+                  "type": "object",
+                  "prediction": "array",
+                  "prediction_raw": {}
+                }
               }
             }
           },
@@ -1329,7 +1379,11 @@ export const openApiJson: OpenApiJson = {
             "description": "Successful Response",
             "content": {
               "application/json": {
-                "schema": {}
+                "schema": {
+                  "type": "object",
+                  "prediction": "number",
+                  "prediction_raw": {}
+                }
               }
             }
           },
@@ -1376,10 +1430,10 @@ export const openApiJson: OpenApiJson = {
             "schema": {
               "title": "Model",
               "enum": [
+                "distilbert-base-uncased",
                 "bert-base-uncased",
                 "albert-base-v2",
-                "roberta-base",
-                "distilbert-base-uncased"
+                "roberta-base"
               ],
               "type": "string",
               "default": "distilbert-base-uncased"
@@ -1403,7 +1457,11 @@ export const openApiJson: OpenApiJson = {
             "description": "Successful Response",
             "content": {
               "application/json": {
-                "schema": {}
+                "schema": {
+                  "type": "object",
+                  "prediction": "string",
+                  "prediction_raw": {}
+                }
               }
             }
           },
@@ -1474,7 +1532,11 @@ export const openApiJson: OpenApiJson = {
             "description": "Successful Response",
             "content": {
               "application/json": {
-                "schema": {}
+                "schema": {
+                  "type": "object",
+                  "prediction": "string",
+                  "prediction_raw": {}
+                }
               }
             }
           },
@@ -1545,7 +1607,11 @@ export const openApiJson: OpenApiJson = {
             "description": "Successful Response",
             "content": {
               "application/json": {
-                "schema": {}
+                "schema": {
+                  "type": "object",
+                  "prediction": "string",
+                  "prediction_raw": {}
+                }
               }
             }
           },
@@ -1592,11 +1658,11 @@ export const openApiJson: OpenApiJson = {
             "schema": {
               "title": "Model",
               "enum": [
+                "mfeb-albert-xxlarge-v2-squad2",
                 "distilbert-base-cased-distilled-squad",
                 "deepset_bert-base-cased-squad2",
-                "mrm8488-bert-tiny-5-finetuned-squadv2",
                 "deepset-roberta-base-squad2",
-                "mfeb-albert-xxlarge-v2-squad2"
+                "mrm8488-bert-tiny-5-finetuned-squadv2"
               ],
               "type": "string",
               "default": "deepset_bert-base-cased-squad2"
@@ -1620,7 +1686,11 @@ export const openApiJson: OpenApiJson = {
             "description": "Successful Response",
             "content": {
               "application/json": {
-                "schema": {}
+                "schema": {
+                  "type": "object",
+                  "prediction": "string",
+                  "prediction_raw": {}
+                }
               }
             }
           },
@@ -1691,7 +1761,11 @@ export const openApiJson: OpenApiJson = {
             "description": "Successful Response",
             "content": {
               "application/json": {
-                "schema": {}
+                "schema": {
+                  "type": "object",
+                  "prediction": "string",
+                  "prediction_raw": {}
+                }
               }
             }
           },
@@ -1738,9 +1812,9 @@ export const openApiJson: OpenApiJson = {
             "schema": {
               "title": "Model",
               "enum": [
+                "distilbert-base-uncased",
                 "zero-shot-classification-facebook-bart-large-mnli",
                 "nlptown-bert-base-multilingual-uncased-sentiment",
-                "distilbert-base-uncased",
                 "distilbert-base-uncased-finetuned-sst-2-english"
               ],
               "type": "string",
@@ -1765,7 +1839,11 @@ export const openApiJson: OpenApiJson = {
             "description": "Successful Response",
             "content": {
               "application/json": {
-                "schema": {}
+                "schema": {
+                  "type": "object",
+                  "prediction": "string",
+                  "prediction_raw": {}
+                }
               }
             }
           },
@@ -1830,6 +1908,63 @@ export const openApiJson: OpenApiJson = {
             }
           },
           "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "prediction": "number",
+                  "prediction_raw": {}
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/text/text/translation/": {
+      "post": {
+        "tags": [
+          "text.text.translation"
+        ],
+        "summary": "Apply model for the translation task for a given model",
+        "operationId": "apply_text_text_translation__post",
+        "parameters": [
+          {
+            "required": false,
+            "schema": {
+              "title": "Model",
+              "enum": [
+                "nllb-200-3-3b"
+              ],
+              "type": "string",
+              "default": "nllb-200-3-3b"
+            },
+            "name": "model",
+            "in": "query"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_apply_text_text_translation__post"
+              }
+            }
+          }
         },
         "responses": {
           "200": {
@@ -1907,7 +2042,11 @@ export const openApiJson: OpenApiJson = {
             "description": "Successful Response",
             "content": {
               "application/json": {
-                "schema": {}
+                "schema": {
+                  "type": "object",
+                  "prediction": "array",
+                  "prediction_raw": {}
+                }
               }
             }
           },
@@ -2083,59 +2222,6 @@ export const openApiJson: OpenApiJson = {
         }
       }
     },
-    "/text/text/translation/": {
-      "post": {
-        "tags": [
-          "text.text.translation"
-        ],
-        "summary": "Apply model for the translation task for a given model",
-        "operationId": "apply_text_text_translation__post",
-        "parameters": [
-          {
-            "required": false,
-            "schema": {
-              "title": "Model",
-              "enum": [
-                "nllb-200-3-3b"
-              ],
-              "type": "string",
-              "default": "nllb-200-3-3b"
-            },
-            "name": "model",
-            "in": "query"
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/x-www-form-urlencoded": {
-              "schema": {
-                "$ref": "#/components/schemas/Body_apply_text_text_translation__post"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Successful Response",
-            "content": {
-              "application/json": {
-                "schema": {}
-              }
-            }
-          },
-          "422": {
-            "description": "Validation Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/HTTPValidationError"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/text/text/intent-classification/": {
       "post": {
         "tags": [
@@ -2200,27 +2286,39 @@ export const openApiJson: OpenApiJson = {
             "title": "audio",
             "type": "string",
             "format": "binary",
-            "_examples": [
-              "https://anshe.org/audio/3Weeks-080715.mp3"
+            "example": "http://files.gladia.io/test/test.mp3",
+            "examples": [
+              "http://files.gladia.io/test/test.mp3"
             ],
-            "data_type": "audio"
+            "data_type": "audio",
+            "_examples": [
+              "http://files.gladia.io/test/test.mp3"
+            ]
           },
           "audio_url": {
             "title": "audio_url",
             "type": "string",
+            "example": "http://files.gladia.io/test/test.mp3",
+            "examples": [
+              "http://files.gladia.io/test/test.mp3"
+            ],
             "data_type": "url",
             "_examples": [
-              "https://anshe.org/audio/3Weeks-080715.mp3"
+              "http://files.gladia.io/test/test.mp3"
             ]
           },
           "language": {
             "title": "language",
             "type": "string",
             "default": "en",
-            "_examples": [
+            "example": "en",
+            "examples": [
               "en"
             ],
-            "data_type": "text"
+            "data_type": "string",
+            "_examples": [
+              "en"
+            ]
           }
         }
       },
@@ -2232,14 +2330,22 @@ export const openApiJson: OpenApiJson = {
             "title": "image",
             "type": "string",
             "format": "binary",
-            "_examples": [
+            "example": "http://files.gladia.io/test/test.png",
+            "examples": [
               "http://files.gladia.io/test/test.png"
             ],
-            "data_type": "image"
+            "data_type": "image",
+            "_examples": [
+              "http://files.gladia.io/test/test.png"
+            ]
           },
           "image_url": {
             "title": "image_url",
             "type": "string",
+            "example": "http://files.gladia.io/test/test.png",
+            "examples": [
+              "http://files.gladia.io/test/test.png"
+            ],
             "data_type": "url",
             "_examples": [
               "http://files.gladia.io/test/test.png"
@@ -2255,14 +2361,22 @@ export const openApiJson: OpenApiJson = {
             "title": "image",
             "type": "string",
             "format": "binary",
-            "_examples": [
+            "example": "http://files.gladia.io/test/test.png",
+            "examples": [
               "http://files.gladia.io/test/test.png"
             ],
-            "data_type": "image"
+            "data_type": "image",
+            "_examples": [
+              "http://files.gladia.io/test/test.png"
+            ]
           },
           "image_url": {
             "title": "image_url",
             "type": "string",
+            "example": "http://files.gladia.io/test/test.png",
+            "examples": [
+              "http://files.gladia.io/test/test.png"
+            ],
             "data_type": "url",
             "_examples": [
               "http://files.gladia.io/test/test.png"
@@ -2278,14 +2392,22 @@ export const openApiJson: OpenApiJson = {
             "title": "image",
             "type": "string",
             "format": "binary",
-            "_examples": [
+            "example": "http://files.gladia.io/test/test.png",
+            "examples": [
               "http://files.gladia.io/test/test.png"
             ],
-            "data_type": "image"
+            "data_type": "image",
+            "_examples": [
+              "http://files.gladia.io/test/test.png"
+            ]
           },
           "image_url": {
             "title": "image_url",
             "type": "string",
+            "example": "http://files.gladia.io/test/test.png",
+            "examples": [
+              "http://files.gladia.io/test/test.png"
+            ],
             "data_type": "url",
             "_examples": [
               "http://files.gladia.io/test/test.png"
@@ -2301,14 +2423,22 @@ export const openApiJson: OpenApiJson = {
             "title": "image",
             "type": "string",
             "format": "binary",
-            "_examples": [
+            "example": "http://files.gladia.io/test/test.png",
+            "examples": [
               "http://files.gladia.io/test/test.png"
             ],
-            "data_type": "image"
+            "data_type": "image",
+            "_examples": [
+              "http://files.gladia.io/test/test.png"
+            ]
           },
           "image_url": {
             "title": "image_url",
             "type": "string",
+            "example": "http://files.gladia.io/test/test.png",
+            "examples": [
+              "http://files.gladia.io/test/test.png"
+            ],
             "data_type": "url",
             "_examples": [
               "http://files.gladia.io/test/test.png"
@@ -2324,14 +2454,22 @@ export const openApiJson: OpenApiJson = {
             "title": "image",
             "type": "string",
             "format": "binary",
-            "_examples": [
+            "example": "http://files.gladia.io/test/test.png",
+            "examples": [
               "http://files.gladia.io/test/test.png"
             ],
-            "data_type": "image"
+            "data_type": "image",
+            "_examples": [
+              "http://files.gladia.io/test/test.png"
+            ]
           },
           "image_url": {
             "title": "image_url",
             "type": "string",
+            "example": "http://files.gladia.io/test/test.png",
+            "examples": [
+              "http://files.gladia.io/test/test.png"
+            ],
             "data_type": "url",
             "_examples": [
               "http://files.gladia.io/test/test.png"
@@ -2347,14 +2485,22 @@ export const openApiJson: OpenApiJson = {
             "title": "image",
             "type": "string",
             "format": "binary",
-            "_examples": [
+            "example": "http://files.gladia.io/test/test.png",
+            "examples": [
               "http://files.gladia.io/test/test.png"
             ],
-            "data_type": "image"
+            "data_type": "image",
+            "_examples": [
+              "http://files.gladia.io/test/test.png"
+            ]
           },
           "image_url": {
             "title": "image_url",
             "type": "string",
+            "example": "http://files.gladia.io/test/test.png",
+            "examples": [
+              "http://files.gladia.io/test/test.png"
+            ],
             "data_type": "url",
             "_examples": [
               "http://files.gladia.io/test/test.png"
@@ -2364,10 +2510,14 @@ export const openApiJson: OpenApiJson = {
             "title": "top_k",
             "type": "integer",
             "default": 1,
-            "_examples": [
+            "example": 1,
+            "examples": [
               1
             ],
-            "data_type": "int"
+            "data_type": "integer",
+            "_examples": [
+              1
+            ]
           }
         }
       },
@@ -2379,14 +2529,22 @@ export const openApiJson: OpenApiJson = {
             "title": "image",
             "type": "string",
             "format": "binary",
-            "_examples": [
+            "example": "http://files.gladia.io/test/test.png",
+            "examples": [
               "http://files.gladia.io/test/test.png"
             ],
-            "data_type": "image"
+            "data_type": "image",
+            "_examples": [
+              "http://files.gladia.io/test/test.png"
+            ]
           },
           "image_url": {
             "title": "image_url",
             "type": "string",
+            "example": "http://files.gladia.io/test/test.png",
+            "examples": [
+              "http://files.gladia.io/test/test.png"
+            ],
             "data_type": "url",
             "_examples": [
               "http://files.gladia.io/test/test.png"
@@ -2396,10 +2554,14 @@ export const openApiJson: OpenApiJson = {
             "title": "source_language",
             "type": "string",
             "default": "en",
-            "_examples": [
+            "example": "en",
+            "examples": [
               "en"
             ],
-            "data_type": "text"
+            "data_type": "string",
+            "_examples": [
+              "en"
+            ]
           }
         }
       },
@@ -2413,7 +2575,11 @@ export const openApiJson: OpenApiJson = {
           "prompt": {
             "title": "prompt",
             "type": "string",
-            "data_type": "text",
+            "example": "the Eiffel tower landing on the moon",
+            "examples": [
+              "the Eiffel tower landing on the moon"
+            ],
+            "data_type": "string",
             "_examples": [
               "the Eiffel tower landing on the moon"
             ]
@@ -2422,28 +2588,40 @@ export const openApiJson: OpenApiJson = {
             "title": "samples",
             "type": "integer",
             "default": 1,
-            "_examples": [
+            "example": 1,
+            "examples": [
               1
             ],
-            "data_type": "int"
+            "data_type": "integer",
+            "_examples": [
+              1
+            ]
           },
           "steps": {
             "title": "steps",
             "type": "integer",
             "default": 40,
-            "_examples": [
+            "example": 40,
+            "examples": [
               40
             ],
-            "data_type": "int"
+            "data_type": "integer",
+            "_examples": [
+              40
+            ]
           },
           "seed": {
             "title": "seed",
             "type": "integer",
             "default": 396916372,
-            "_examples": [
+            "example": 396916372,
+            "examples": [
               396916372
             ],
-            "data_type": "int"
+            "data_type": "integer",
+            "_examples": [
+              396916372
+            ]
           }
         }
       },
@@ -2457,7 +2635,11 @@ export const openApiJson: OpenApiJson = {
           "sentence": {
             "title": "sentence",
             "type": "string",
-            "data_type": "text",
+            "example": "Text to corrcte",
+            "examples": [
+              "Text to corrcte"
+            ],
+            "data_type": "string",
             "_examples": [
               "Text to corrcte"
             ]
@@ -2474,7 +2656,11 @@ export const openApiJson: OpenApiJson = {
           "text": {
             "title": "text",
             "type": "string",
-            "data_type": "text",
+            "example": "I like you. I love you",
+            "examples": [
+              "I like you. I love you"
+            ],
+            "data_type": "string",
             "_examples": [
               "I like you. I love you"
             ]
@@ -2491,7 +2677,11 @@ export const openApiJson: OpenApiJson = {
           "text": {
             "title": "text",
             "type": "string",
-            "data_type": "text",
+            "example": "I hate you piece of shit",
+            "examples": [
+              "I hate you piece of shit"
+            ],
+            "data_type": "string",
             "_examples": [
               "I hate you piece of shit"
             ]
@@ -2508,7 +2698,11 @@ export const openApiJson: OpenApiJson = {
           "text": {
             "title": "text",
             "type": "string",
-            "data_type": "text",
+            "example": "The Crown is a historical drama streaming television series about the reign of Queen Elizabeth II, created and principally written by Peter Morgan, and produced by Left Bank Pictures and Sony Pictures Television for Netflix.",
+            "examples": [
+              "The Crown is a historical drama streaming television series about the reign of Queen Elizabeth II, created and principally written by Peter Morgan, and produced by Left Bank Pictures and Sony Pictures Television for Netflix."
+            ],
+            "data_type": "string",
             "_examples": [
               "The Crown is a historical drama streaming television series about the reign of Queen Elizabeth II, created and principally written by Peter Morgan, and produced by Left Bank Pictures and Sony Pictures Television for Netflix."
             ]
@@ -2525,7 +2719,11 @@ export const openApiJson: OpenApiJson = {
           "text": {
             "title": "text",
             "type": "string",
-            "data_type": "text",
+            "example": "Input text to perform language detection on",
+            "examples": [
+              "Input text to perform language detection on"
+            ],
+            "data_type": "string",
             "_examples": [
               "Input text to perform language detection on"
             ]
@@ -2542,7 +2740,11 @@ export const openApiJson: OpenApiJson = {
           "text": {
             "title": "text",
             "type": "string",
-            "data_type": "text",
+            "example": "Input text to start generation from",
+            "examples": [
+              "Input text to start generation from"
+            ],
+            "data_type": "string",
             "_examples": [
               "Input text to start generation from"
             ]
@@ -2559,7 +2761,11 @@ export const openApiJson: OpenApiJson = {
           "text": {
             "title": "text",
             "type": "string",
-            "data_type": "text",
+            "example": "Hugging Face Inc. is a company based in New York City. Its headquarters are in DUMBO, therefore very close to the Manhattan Bridge.",
+            "examples": [
+              "Hugging Face Inc. is a company based in New York City. Its headquarters are in DUMBO, therefore very close to the Manhattan Bridge."
+            ],
+            "data_type": "string",
             "_examples": [
               "Hugging Face Inc. is a company based in New York City. Its headquarters are in DUMBO, therefore very close to the Manhattan Bridge."
             ]
@@ -2577,7 +2783,11 @@ export const openApiJson: OpenApiJson = {
           "sentence_1": {
             "title": "sentence_1",
             "type": "string",
-            "data_type": "text",
+            "example": "I like you.",
+            "examples": [
+              "I like you."
+            ],
+            "data_type": "string",
             "_examples": [
               "I like you."
             ]
@@ -2585,7 +2795,11 @@ export const openApiJson: OpenApiJson = {
           "sentence_2": {
             "title": "sentence_2",
             "type": "string",
-            "data_type": "text",
+            "example": "But it's not about you.",
+            "examples": [
+              "But it's not about you."
+            ],
+            "data_type": "string",
             "_examples": [
               "But it's not about you."
             ]
@@ -2602,7 +2816,11 @@ export const openApiJson: OpenApiJson = {
           "sentence": {
             "title": "sentence",
             "type": "string",
-            "data_type": "text",
+            "example": "I think therefore I",
+            "examples": [
+              "I think therefore I"
+            ],
+            "data_type": "string",
             "_examples": [
               "I think therefore I"
             ]
@@ -2619,7 +2837,11 @@ export const openApiJson: OpenApiJson = {
           "word": {
             "title": "word",
             "type": "string",
-            "data_type": "text",
+            "example": "cat",
+            "examples": [
+              "cat"
+            ],
+            "data_type": "string",
             "_examples": [
               "cat"
             ]
@@ -2628,10 +2850,14 @@ export const openApiJson: OpenApiJson = {
             "title": "count",
             "type": "integer",
             "default": 2,
-            "_examples": [
+            "example": 2,
+            "examples": [
               2
             ],
-            "data_type": "int"
+            "data_type": "integer",
+            "_examples": [
+              2
+            ]
           }
         }
       },
@@ -2645,7 +2871,11 @@ export const openApiJson: OpenApiJson = {
           "code_snippet": {
             "title": "code_snippet",
             "type": "string",
-            "data_type": "text",
+            "example": "def is_palendrome(s):",
+            "examples": [
+              "def is_palendrome(s):"
+            ],
+            "data_type": "string",
             "_examples": [
               "def is_palendrome(s):"
             ]
@@ -2663,7 +2893,11 @@ export const openApiJson: OpenApiJson = {
           "context": {
             "title": "context",
             "type": "string",
-            "data_type": "text",
+            "example": "My name is Clara and I live in Berkeley.",
+            "examples": [
+              "My name is Clara and I live in Berkeley."
+            ],
+            "data_type": "string",
             "_examples": [
               "My name is Clara and I live in Berkeley."
             ]
@@ -2671,7 +2905,11 @@ export const openApiJson: OpenApiJson = {
           "question": {
             "title": "question",
             "type": "string",
-            "data_type": "text",
+            "example": "What's my name?",
+            "examples": [
+              "What's my name?"
+            ],
+            "data_type": "string",
             "_examples": [
               "What's my name?"
             ]
@@ -2688,7 +2926,11 @@ export const openApiJson: OpenApiJson = {
           "context": {
             "title": "context",
             "type": "string",
-            "data_type": "text",
+            "example": "Once, a group of frogs was roaming around the forest in search of water.",
+            "examples": [
+              "Once, a group of frogs was roaming around the forest in search of water."
+            ],
+            "data_type": "string",
             "_examples": [
               "Once, a group of frogs was roaming around the forest in search of water."
             ]
@@ -2705,7 +2947,11 @@ export const openApiJson: OpenApiJson = {
           "text": {
             "title": "text",
             "type": "string",
-            "data_type": "text",
+            "example": "I like you. I love you",
+            "examples": [
+              "I like you. I love you"
+            ],
+            "data_type": "string",
             "_examples": [
               "I like you. I love you"
             ]
@@ -2723,7 +2969,11 @@ export const openApiJson: OpenApiJson = {
           "sentence_1": {
             "title": "sentence_1",
             "type": "string",
-            "data_type": "text",
+            "example": "I like banana",
+            "examples": [
+              "I like banana"
+            ],
+            "data_type": "string",
             "_examples": [
               "I like banana"
             ]
@@ -2731,10 +2981,46 @@ export const openApiJson: OpenApiJson = {
           "sentence_2": {
             "title": "sentence_2",
             "type": "string",
-            "data_type": "text",
+            "example": "I hate banana",
+            "examples": [
+              "I hate banana"
+            ],
+            "data_type": "string",
             "_examples": [
               "I hate banana"
             ]
+          }
+        }
+      },
+      "Body_apply_text_text_translation__post": {
+        "title": "Body_apply_text_text_translation__post",
+        "type": "object",
+        "properties": {
+          "text": {
+            "title": "text",
+            "type": "string",
+            "_examples": [
+              "John Doe has been working for Microsoft in Seattle since 1999."
+            ],
+            "data_type": "text"
+          },
+          "source": {
+            "title": "source",
+            "type": "string",
+            "default": "eng_Latn",
+            "_examples": [
+              "eng_Latn"
+            ],
+            "data_type": "text"
+          },
+          "target": {
+            "title": "target",
+            "type": "string",
+            "default": "fra_Latn",
+            "_examples": [
+              "fr"
+            ],
+            "data_type": "text"
           }
         }
       },
@@ -2749,7 +3035,11 @@ export const openApiJson: OpenApiJson = {
           "input_string_language_1": {
             "title": "input_string_language_1",
             "type": "string",
-            "data_type": "text",
+            "example": "Sentence from first language",
+            "examples": [
+              "Sentence from first language"
+            ],
+            "data_type": "string",
             "_examples": [
               "Sentence from first language"
             ]
@@ -2757,7 +3047,11 @@ export const openApiJson: OpenApiJson = {
           "input_string_language_2": {
             "title": "input_string_language_2",
             "type": "string",
-            "data_type": "text",
+            "example": "来自 第一 语言的 句子",
+            "examples": [
+              "来自 第一 语言的 句子"
+            ],
+            "data_type": "string",
             "_examples": [
               "来自 第一 语言的 句子"
             ]
@@ -2850,38 +3144,6 @@ export const openApiJson: OpenApiJson = {
             "type": "string",
             "_examples": [
               "One month after the United States began what has become a troubled rollout of a national COVID vaccination campaign, the effort is finally gathering real steam. Close to a million doses -- over 951,000, to be more exact -- made their way into the arms of Americans in the past 24 hours, the U.S. Centers for Disease Control and Prevention reported Wednesday. That s the largest number of shots given in one day since the rollout began and a big jump from the previous day, when just under 340,000 doses were given, CBS News reported. That number is likely to jump quickly after the federal government on Tuesday gave states the OK to vaccinate anyone over 65 and said it would release all the doses of vaccine it has available for distribution. Meanwhile, a number of states have now opened mass vaccination sites in an effort to get larger numbers of people inoculated, CBS News reported."
-            ],
-            "data_type": "text"
-          }
-        }
-      },
-      "Body_apply_text_text_translation__post": {
-        "title": "Body_apply_text_text_translation__post",
-        "type": "object",
-        "properties": {
-          "text": {
-            "title": "text",
-            "type": "string",
-            "_examples": [
-              "John Doe has been working for Microsoft in Seattle since 1999."
-            ],
-            "data_type": "text"
-          },
-          "source": {
-            "title": "source",
-            "type": "string",
-            "default": "eng_Latn",
-            "_examples": [
-              "eng_Latn"
-            ],
-            "data_type": "text"
-          },
-          "target": {
-            "title": "target",
-            "type": "string",
-            "default": "fra_Latn",
-            "_examples": [
-              "fr"
             ],
             "data_type": "text"
           }

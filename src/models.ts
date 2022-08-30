@@ -178,6 +178,7 @@ export const IMAGE_TEXT_OCR_DEFAULT_MODEL = "easy-ocr" as const;
 export type ImageTextOcrModel = typeof IMAGE_TEXT_OCR_MODELS[number];
 
 export const TEXT_IMAGE_IMAGE_GENERATION_MODELS = [
+   'dream-studio',
    'stable-diffusion',
 ] as const;
 export const TEXT_IMAGE_IMAGE_GENERATION_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
@@ -301,6 +302,13 @@ export const TEXT_TEXT_SIMILARITY_CONTENT_TYPE = "application/x-www-form-urlenco
 export const TEXT_TEXT_SIMILARITY_DEFAULT_MODEL = "all-MiniLM-L6-v2" as const;
 export type TextTextSimilarityModel = typeof TEXT_TEXT_SIMILARITY_MODELS[number];
 
+export const TEXT_TEXT_TRANSLATION_MODELS = [
+   'nllb-200-3-3b',
+] as const;
+export const TEXT_TEXT_TRANSLATION_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
+export const TEXT_TEXT_TRANSLATION_DEFAULT_MODEL = "nllb-200-3-3b" as const;
+export type TextTextTranslationModel = typeof TEXT_TEXT_TRANSLATION_MODELS[number];
+
 export const TEXT_TEXT_WORD_ALIGNMENT_MODELS = [
    'bert-base-multilingual-cased',
 ] as const;
@@ -328,13 +336,6 @@ export const TEXT_TEXT_SUMMARIZATION_MODELS = [
 export const TEXT_TEXT_SUMMARIZATION_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
 export const TEXT_TEXT_SUMMARIZATION_DEFAULT_MODEL = "bart-large-cnn" as const;
 export type TextTextSummarizationModel = typeof TEXT_TEXT_SUMMARIZATION_MODELS[number];
-
-export const TEXT_TEXT_TRANSLATION_MODELS = [
-   'nllb-200-3-3b',
-] as const;
-export const TEXT_TEXT_TRANSLATION_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
-export const TEXT_TEXT_TRANSLATION_DEFAULT_MODEL = "nllb-200-3-3b" as const;
-export type TextTextTranslationModel = typeof TEXT_TEXT_TRANSLATION_MODELS[number];
 
 export const TEXT_TEXT_INTENT_CLASSIFICATION_MODELS = [
    'fast-gpt-j',

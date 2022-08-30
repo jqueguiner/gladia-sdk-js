@@ -20,9 +20,38 @@ interface PathRequestDef {
   tags: string[];
   summary: string;
   operationId: string;
-  responses: Record<number, unknown>;
+  responses: Record<number, PathRequestResponseDef>;
   parameters?: PathRequestParamDef[];
   requestBody?: RequestBodyDef;
+}
+
+interface PathRequestResponseDef {
+  description: string;
+  content:
+    | {
+        'application/json': PathRequestResponseContentDef;
+      }
+    | {
+        'image/*': PathRequestResponseContentDef;
+      };
+}
+
+interface PathRequestResponseContentDef {
+  schema:
+    | {}
+    | {
+        $ref: string;
+      }
+    | {
+        type: 'string';
+        format: 'binary';
+        data_type: string;
+      }
+    | {
+        type: 'object';
+        prediction: 'string' | 'number' | 'array';
+        prediction_raw: {};
+      };
 }
 
 interface PathRequestParamDef {
@@ -73,8 +102,10 @@ interface OpenApiJsonComponent {
           default?: string | number;
           format?: 'binary';
           items?: Record<string, unknown>;
+          example?: string | number;
+          examples?: (string | number)[];
           _examples?: (string | number)[];
-          data_type?: 'text' | 'url' | 'int' | 'float' | 'image' | 'audio' | 'array';
+          data_type?: 'string' | 'text' | 'url' | 'integer' | 'float' | 'image' | 'audio' | 'array';
         }
       >;
     }

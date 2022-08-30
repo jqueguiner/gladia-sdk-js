@@ -80,15 +80,26 @@ function generateOutputModelsTs() {
   const endpoints = meta.getEndpoints();
   for (const endpoint of endpoints) {
     const outputModelName = meta.getOutputModelType(endpoint);
-    switch (endpoint.outputType) {
-      case 'text':
+    const outputBodyContentType = endpoint.outputBodyContentType;
+    switch (outputBodyContentType.type) {
+      case 'prediction-standard-output':
+        const predictionType = (() => {
+          if (outputBodyContentType.predictionType === 'array') {
+            return 'string[]';
+          }
+          return outputBodyContentType.predictionType;
+        })();
+        fileContent.push(`export type ${outputModelName} = {`);
+        fileContent.push(`  prediction: ${predictionType},`);
+        fileContent.push(`  prediction_raw: any,`);
+        fileContent.push(`};`);
+        break;
+      case 'unknown':
         fileContent.push(
           `export type ${outputModelName} = Record<string, string | number | boolean>;`,
         );
         break;
-      case 'audio':
-      case 'image':
-      case 'video':
+      case 'binary':
         fileContent.push(`export type ${outputModelName} = ArrayBuffer;`);
         break;
       default:

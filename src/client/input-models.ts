@@ -25,11 +25,11 @@ import {
   TextTextSentenceParaphraserModel,
   TextTextSentimentAnalysisModel,
   TextTextSimilarityModel,
+  TextTextTranslationModel,
   TextTextWordAlignmentModel,
   TextTextArticleGenerationModel,
   TextTextAdGenerationModel,
   TextTextSummarizationModel,
-  TextTextTranslationModel,
   TextTextIntentClassificationModel,
 } from '../models';
 import { WithModel } from './types';
@@ -148,6 +148,12 @@ export interface TextTextSimilarityInputs
   sentence_1: string;
   sentence_2: string;
 }
+export interface TextTextTranslationInputs 
+  extends WithModel<TextTextTranslationModel> {
+  text?: string;
+  source?: string;
+  target?: string;
+}
 export interface TextTextWordAlignmentInputs 
   extends WithModel<TextTextWordAlignmentModel> {
   input_string_language_1: string;
@@ -164,12 +170,6 @@ export interface TextTextAdGenerationInputs
 export interface TextTextSummarizationInputs 
   extends WithModel<TextTextSummarizationModel> {
   text?: string;
-}
-export interface TextTextTranslationInputs 
-  extends WithModel<TextTextTranslationModel> {
-  text?: string;
-  source?: string;
-  target?: string;
 }
 export interface TextTextIntentClassificationInputs 
   extends WithModel<TextTextIntentClassificationModel> {

@@ -23,6 +23,17 @@ describe(getEndpoints.name, () => {
         }
       }
     });
+    it('should have valid outputBodyContentType for every endpoints', () => {
+      for (const endpoint of getEndpoints()) {
+        expect(endpoint.outputBodyContentType).toBeDefined();
+        expect(endpoint.outputBodyContentType.type).toBeDefined();
+        expect(endpoint.outputBodyContentType.type).not.toHaveLength(0);
+        if (endpoint.outputBodyContentType.type === 'prediction-standard-output') {
+          expect(endpoint.outputBodyContentType.predictionType).toBeDefined();
+          expect(endpoint.outputBodyContentType.predictionType).not.toHaveLength(0);
+        }
+      }
+    });
     fieldSurfaceCheck({ field: 'defaultModel', type: 'string' });
     fieldSurfaceCheck({ field: 'inputBodyContentType', type: 'string' });
     fieldSurfaceCheck({ field: 'inputType', type: 'string' });
@@ -31,7 +42,7 @@ describe(getEndpoints.name, () => {
     fieldSurfaceCheck({ field: 'url', type: 'string' });
     fieldSurfaceCheck({ field: 'models', type: 'string_array' });
     type FieldSurfaceCheck = {
-      field: keyof EndpointDef;
+      field: keyof Omit<EndpointDef, 'outputBodyContentType'>;
       type: 'string_array' | 'string';
     };
     function fieldSurfaceCheck({ field, type }: FieldSurfaceCheck) {
@@ -68,6 +79,10 @@ describe(getEndpoints.name, () => {
         models: ['coqui_english_huge_vocab'],
         defaultModel: 'coqui_english_huge_vocab',
         inputBodyContentType: 'multipart/form-data',
+        outputBodyContentType: {
+          type: 'prediction-standard-output',
+          predictionType: 'string',
+        },
         params: [
           {
             in: 'formData',
@@ -102,6 +117,10 @@ describe(getEndpoints.name, () => {
         ],
         defaultModel: 'nlptown-bert-base-multilingual-uncased-sentiment',
         inputBodyContentType: 'application/x-www-form-urlencoded',
+        outputBodyContentType: {
+          type: 'prediction-standard-output',
+          predictionType: 'string',
+        },
         params: [
           {
             in: 'formData',
@@ -119,6 +138,9 @@ describe(getEndpoints.name, () => {
         models: ['gpt-j'],
         defaultModel: 'gpt-j',
         inputBodyContentType: 'application/x-www-form-urlencoded',
+        outputBodyContentType: {
+          type: 'unknown',
+        },
         params: [
           {
             in: 'formData',
@@ -136,6 +158,9 @@ describe(getEndpoints.name, () => {
         models: ['mobilenet', 'xception'],
         defaultModel: 'xception',
         inputBodyContentType: 'multipart/form-data',
+        outputBodyContentType: {
+          type: 'binary',
+        },
         params: [
           {
             in: 'formData',

@@ -9,6 +9,7 @@ export interface EndpointDef {
     defaultModel: string;
     params: EndpointDefParam[];
     inputBodyContentType: string;
+    outputBodyContentType: OutputBodyContentType;
 }
 export interface EndpointDefParam {
     in: 'query' | 'formData';
@@ -16,3 +17,11 @@ export interface EndpointDefParam {
     name: string;
     required: boolean;
 }
+export declare type OutputBodyContentType = {
+    type: 'prediction-standard-output';
+    predictionType: 'string' | 'number' | 'array';
+} | {
+    type: 'binary';
+} | {
+    type: 'unknown';
+};

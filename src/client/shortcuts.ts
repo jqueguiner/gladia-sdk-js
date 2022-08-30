@@ -33,11 +33,11 @@ import {
   TextTextSentenceParaphraserInputs,
   TextTextSentimentAnalysisInputs,
   TextTextSimilarityInputs,
+  TextTextTranslationInputs,
   TextTextWordAlignmentInputs,
   TextTextArticleGenerationInputs,
   TextTextAdGenerationInputs,
   TextTextSummarizationInputs,
-  TextTextTranslationInputs,
   TextTextIntentClassificationInputs,
 } from './input-models'
 
@@ -161,6 +161,10 @@ export abstract class Shortcuts implements
     return this.fromText().toText().similarity(args);
   }
 
+  translation(args: TextTextTranslationInputs) {
+    return this.fromText().toText().translation(args);
+  }
+
   wordAlignment(args: TextTextWordAlignmentInputs) {
     return this.fromText().toText().wordAlignment(args);
   }
@@ -175,10 +179,6 @@ export abstract class Shortcuts implements
 
   summarization(args: TextTextSummarizationInputs) {
     return this.fromText().toText().summarization(args);
-  }
-
-  translation(args: TextTextTranslationInputs) {
-    return this.fromText().toText().translation(args);
   }
 
   intentClassification(args: TextTextIntentClassificationInputs) {

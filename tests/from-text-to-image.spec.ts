@@ -52,7 +52,7 @@ describe('FromTextToImage', () => {
           samples: samples_data,
           steps: steps_data,
           seed: seed_data,
-          model: 'fake-model-name' as any,
+          model: 'dream-studio' as any,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -62,7 +62,7 @@ describe('FromTextToImage', () => {
         });
         expect(firstCallArgs.responseType).toEqual('arraybuffer');
         expect(firstCallArgs.query).toEqual({
-          model: 'fake-model-name',
+          model: 'dream-studio',
         });
         expect(firstCallBody.get('prompt')).toEqual(prompt_data);
         expect(firstCallBody.get('samples')).toEqual(String(samples_data));
@@ -107,7 +107,7 @@ describe('FromTextToImage', () => {
           samples: samples_data,
           steps: steps_data,
           seed: seed_data,
-          model: 'fake-model-name' as any,
+          model: 'dream-studio' as any,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -117,7 +117,7 @@ describe('FromTextToImage', () => {
         });
         expect(firstCallArgs.responseType).toEqual('arraybuffer');
         expect(firstCallArgs.query).toEqual({
-          model: 'fake-model-name',
+          model: 'dream-studio',
         });
         expect(firstCallBody.get('prompt')).toEqual(prompt_data);
         expect(firstCallBody.get('samples')).toEqual(String(samples_data));

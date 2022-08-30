@@ -16,11 +16,11 @@ import {
   TextTextSentenceParaphraserInputs,
   TextTextSentimentAnalysisInputs,
   TextTextSimilarityInputs,
+  TextTextTranslationInputs,
   TextTextWordAlignmentInputs,
   TextTextArticleGenerationInputs,
   TextTextAdGenerationInputs,
   TextTextSummarizationInputs,
-  TextTextTranslationInputs,
   TextTextIntentClassificationInputs,
 } from './input-models'
 import {
@@ -39,11 +39,11 @@ import {
   TextTextSentenceParaphraserOutputs,
   TextTextSentimentAnalysisOutputs,
   TextTextSimilarityOutputs,
+  TextTextTranslationOutputs,
   TextTextWordAlignmentOutputs,
   TextTextArticleGenerationOutputs,
   TextTextAdGenerationOutputs,
   TextTextSummarizationOutputs,
-  TextTextTranslationOutputs,
   TextTextIntentClassificationOutputs,
 } from './output-models'
 import {
@@ -77,6 +77,8 @@ import {
   TEXT_TEXT_SENTIMENT_ANALYSIS_DEFAULT_MODEL,
   TEXT_TEXT_SIMILARITY_CONTENT_TYPE,
   TEXT_TEXT_SIMILARITY_DEFAULT_MODEL,
+  TEXT_TEXT_TRANSLATION_CONTENT_TYPE,
+  TEXT_TEXT_TRANSLATION_DEFAULT_MODEL,
   TEXT_TEXT_WORD_ALIGNMENT_CONTENT_TYPE,
   TEXT_TEXT_WORD_ALIGNMENT_DEFAULT_MODEL,
   TEXT_TEXT_ARTICLE_GENERATION_CONTENT_TYPE,
@@ -85,8 +87,6 @@ import {
   TEXT_TEXT_AD_GENERATION_DEFAULT_MODEL,
   TEXT_TEXT_SUMMARIZATION_CONTENT_TYPE,
   TEXT_TEXT_SUMMARIZATION_DEFAULT_MODEL,
-  TEXT_TEXT_TRANSLATION_CONTENT_TYPE,
-  TEXT_TEXT_TRANSLATION_DEFAULT_MODEL,
   TEXT_TEXT_INTENT_CLASSIFICATION_CONTENT_TYPE,
   TEXT_TEXT_INTENT_CLASSIFICATION_DEFAULT_MODEL,
 } from '../models'
@@ -303,6 +303,27 @@ export class FromTextToText {
     });
   }
 
+  translation(args: TextTextTranslationInputs): Promise<TextTextTranslationOutputs> {
+    const formData = new UrlFormData();
+    if (isDefined(args.text)) {
+      formData.append('text', args.text);
+    }
+    if (isDefined(args.source)) {
+      formData.append('source', args.source);
+    }
+    if (isDefined(args.target)) {
+      formData.append('target', args.target);
+    }
+    return this.httpClient.post({
+      url: '/text/text/translation/',
+      headers: { 'Content-Type': TEXT_TEXT_TRANSLATION_CONTENT_TYPE },
+      query: {
+        model: args.model ?? TEXT_TEXT_TRANSLATION_DEFAULT_MODEL,
+      },
+      body: formData.toString(),
+    });
+  }
+
   wordAlignment(args: TextTextWordAlignmentInputs): Promise<TextTextWordAlignmentOutputs> {
     const formData = new UrlFormData();
     formData.append('input_string_language_1', args.input_string_language_1);
@@ -357,27 +378,6 @@ export class FromTextToText {
       headers: { 'Content-Type': TEXT_TEXT_SUMMARIZATION_CONTENT_TYPE },
       query: {
         model: args.model ?? TEXT_TEXT_SUMMARIZATION_DEFAULT_MODEL,
-      },
-      body: formData.toString(),
-    });
-  }
-
-  translation(args: TextTextTranslationInputs): Promise<TextTextTranslationOutputs> {
-    const formData = new UrlFormData();
-    if (isDefined(args.text)) {
-      formData.append('text', args.text);
-    }
-    if (isDefined(args.source)) {
-      formData.append('source', args.source);
-    }
-    if (isDefined(args.target)) {
-      formData.append('target', args.target);
-    }
-    return this.httpClient.post({
-      url: '/text/text/translation/',
-      headers: { 'Content-Type': TEXT_TEXT_TRANSLATION_CONTENT_TYPE },
-      query: {
-        model: args.model ?? TEXT_TEXT_TRANSLATION_DEFAULT_MODEL,
       },
       body: formData.toString(),
     });

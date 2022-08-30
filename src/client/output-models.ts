@@ -1,32 +1,92 @@
 /* Generated file with "scripts/generate-sdk.ts" */
 
-export type AudioTextAudioTranscriptionOutputs = Record<string, string | number | boolean>;
+export type AudioTextAudioTranscriptionOutputs = {
+  prediction: string,
+  prediction_raw: any,
+};
 export type ImageImageBackgroundRemovalOutputs = ArrayBuffer;
 export type ImageImageColorizationOutputs = ArrayBuffer;
 export type ImageImageFaceBluringOutputs = ArrayBuffer;
 export type ImageImageUncolorizationOutputs = ArrayBuffer;
-export type ImageTextAsciifyOutputs = Record<string, string | number | boolean>;
-export type ImageTextClassificationOutputs = Record<string, string | number | boolean>;
-export type ImageTextOcrOutputs = Record<string, string | number | boolean>;
+export type ImageTextAsciifyOutputs = {
+  prediction: string,
+  prediction_raw: any,
+};
+export type ImageTextClassificationOutputs = {
+  prediction: string,
+  prediction_raw: any,
+};
+export type ImageTextOcrOutputs = {
+  prediction: string,
+  prediction_raw: any,
+};
 export type TextImageImageGenerationOutputs = ArrayBuffer;
-export type TextTextAutocorrectOutputs = Record<string, string | number | boolean>;
-export type TextTextEmotionRecognitionOutputs = Record<string, string | number | boolean>;
-export type TextTextHateSpeechDetectionOutputs = Record<string, string | number | boolean>;
-export type TextTextKeywordExtractionOutputs = Record<string, string | number | boolean>;
-export type TextTextLanguageDetectionOutputs = Record<string, string | number | boolean>;
-export type TextTextLanguageGenerationOutputs = Record<string, string | number | boolean>;
-export type TextTextNamedEntityRecognitionOutputs = Record<string, string | number | boolean>;
-export type TextTextNextSentencePredictionOutputs = Record<string, string | number | boolean>;
-export type TextTextNextWordPredictionOutputs = Record<string, string | number | boolean>;
-export type TextTextPluralOutputs = Record<string, string | number | boolean>;
-export type TextTextProgrammingLanguageGenerationOutputs = Record<string, string | number | boolean>;
-export type TextTextQuestionAnsweringOutputs = Record<string, string | number | boolean>;
-export type TextTextSentenceParaphraserOutputs = Record<string, string | number | boolean>;
-export type TextTextSentimentAnalysisOutputs = Record<string, string | number | boolean>;
-export type TextTextSimilarityOutputs = Record<string, string | number | boolean>;
-export type TextTextWordAlignmentOutputs = Record<string, string | number | boolean>;
+export type TextTextAutocorrectOutputs = {
+  prediction: string,
+  prediction_raw: any,
+};
+export type TextTextEmotionRecognitionOutputs = {
+  prediction: string,
+  prediction_raw: any,
+};
+export type TextTextHateSpeechDetectionOutputs = {
+  prediction: string,
+  prediction_raw: any,
+};
+export type TextTextKeywordExtractionOutputs = {
+  prediction: string,
+  prediction_raw: any,
+};
+export type TextTextLanguageDetectionOutputs = {
+  prediction: string,
+  prediction_raw: any,
+};
+export type TextTextLanguageGenerationOutputs = {
+  prediction: string,
+  prediction_raw: any,
+};
+export type TextTextNamedEntityRecognitionOutputs = {
+  prediction: string[],
+  prediction_raw: any,
+};
+export type TextTextNextSentencePredictionOutputs = {
+  prediction: number,
+  prediction_raw: any,
+};
+export type TextTextNextWordPredictionOutputs = {
+  prediction: string,
+  prediction_raw: any,
+};
+export type TextTextPluralOutputs = {
+  prediction: string,
+  prediction_raw: any,
+};
+export type TextTextProgrammingLanguageGenerationOutputs = {
+  prediction: string,
+  prediction_raw: any,
+};
+export type TextTextQuestionAnsweringOutputs = {
+  prediction: string,
+  prediction_raw: any,
+};
+export type TextTextSentenceParaphraserOutputs = {
+  prediction: string,
+  prediction_raw: any,
+};
+export type TextTextSentimentAnalysisOutputs = {
+  prediction: string,
+  prediction_raw: any,
+};
+export type TextTextSimilarityOutputs = {
+  prediction: number,
+  prediction_raw: any,
+};
+export type TextTextTranslationOutputs = Record<string, string | number | boolean>;
+export type TextTextWordAlignmentOutputs = {
+  prediction: string[],
+  prediction_raw: any,
+};
 export type TextTextArticleGenerationOutputs = Record<string, string | number | boolean>;
 export type TextTextAdGenerationOutputs = Record<string, string | number | boolean>;
 export type TextTextSummarizationOutputs = Record<string, string | number | boolean>;
-export type TextTextTranslationOutputs = Record<string, string | number | boolean>;
 export type TextTextIntentClassificationOutputs = Record<string, string | number | boolean>;
