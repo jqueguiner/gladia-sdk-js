@@ -43,13 +43,13 @@ function generateInputModelsTs() {
     fileContent.push(`  ${meta.getModelTypeName(endpoint)},`);
   }
   fileContent.push(`} from '../models';`);
-  fileContent.push(`import { WithModel } from './types';`);
+  fileContent.push(`import { WithHeaders, WithModel } from './types';`);
   fileContent.push('');
   for (const endpoint of endpoints) {
     const inputModelName = meta.getInputModelType(endpoint);
     const modelTypeName = meta.getModelTypeName(endpoint);
     fileContent.push(`export interface ${inputModelName} `);
-    fileContent.push(`  extends WithModel<${modelTypeName}> {`);
+    fileContent.push(`  extends WithHeaders, WithModel<${modelTypeName}> {`);
     endpoint.params.forEach((param) => {
       const optionalMark = param.required ? '' : '?';
       const paramType = (() => {
@@ -119,19 +119,19 @@ function generateFromInputToOutputClasses() {
         const inputModelClassName = meta.getInputModelType(endpoint);
         fileContent.push(`  ${inputModelClassName},`);
       }
-      fileContent.push(`} from './input-models'`);
+      fileContent.push(`} from './input-models';`);
       fileContent.push(`import {`);
       for (const endpoint of outputTypeEndpoints) {
         const outputModelClassName = meta.getOutputModelType(endpoint);
         fileContent.push(`  ${outputModelClassName},`);
       }
-      fileContent.push(`} from './output-models'`);
+      fileContent.push(`} from './output-models';`);
       fileContent.push(`import {`);
       for (const endpoint of outputTypeEndpoints) {
         fileContent.push(`  ${meta.getContentTypeName(endpoint)},`);
         fileContent.push(`  ${meta.getDefaultValueName(endpoint)},`);
       }
-      fileContent.push(`} from '../models'`);
+      fileContent.push(`} from '../models';`);
       const importUrlFormData = outputTypeEndpoints.some(isEndpointNeedUrlFormData);
       fileContent.push(`import { getHttpClient, HttpClient } from '../internal/http-client';`);
       const shouldImportIsDefined = outputTypeEndpoints.some((endpoints) =>
@@ -184,19 +184,20 @@ function generateFromInputToOutputClasses() {
             fileContent.push(`    return this.httpClient.post({`);
             fileContent.push(`      url: '${endpoint.url}',`);
             if (useUrlFormData) {
-              fileContent.push(
-                `      headers: { 'Content-Type': ${meta.getContentTypeName(endpoint)} },`,
-              );
+              fileContent.push(`      headers: {`);
+              fileContent.push(`        'Content-Type': ${meta.getContentTypeName(endpoint)},`);
+              fileContent.push(`        ...(args.headers ?? {}),`);
+              fileContent.push(`      },`);
             } else {
               // this enforce the browser to compute it self the Content-Type with correct boundary
               // this give something like:
               // Content-Type: multipart/form-data; boundary=---------------------------412830277717200702261256384337
               fileContent.push(`      headers: {`);
+              const contentTypeName = meta.getContentTypeName(endpoint);
               fileContent.push(
-                `        'Content-Type': this.params.useFetch ? ${meta.getContentTypeName(
-                  endpoint,
-                )} : undefined,`,
+                `        'Content-Type': this.params.useFetch ? ${contentTypeName} : undefined,`,
               );
+              fileContent.push(`        ...(args.headers ?? {}),`);
               fileContent.push(`      },`);
             }
             fileContent.push(`      query: {`);

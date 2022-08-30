@@ -2,14 +2,14 @@
 
 import {
   TextImageImageGenerationInputs,
-} from './input-models'
+} from './input-models';
 import {
   TextImageImageGenerationOutputs,
-} from './output-models'
+} from './output-models';
 import {
   TEXT_IMAGE_IMAGE_GENERATION_CONTENT_TYPE,
   TEXT_IMAGE_IMAGE_GENERATION_DEFAULT_MODEL,
-} from '../models'
+} from '../models';
 import { getHttpClient, HttpClient } from '../internal/http-client';
 import { isDefined } from '../utils/fp';
 import { UrlFormData } from '../internal/url-form-data';
@@ -36,7 +36,10 @@ export class FromTextToImage {
     }
     return this.httpClient.post({
       url: '/text/image/image-generation/',
-      headers: { 'Content-Type': TEXT_IMAGE_IMAGE_GENERATION_CONTENT_TYPE },
+      headers: {
+        'Content-Type': TEXT_IMAGE_IMAGE_GENERATION_CONTENT_TYPE,
+        ...(args.headers ?? {}),
+      },
       query: {
         model: args.model ?? TEXT_IMAGE_IMAGE_GENERATION_DEFAULT_MODEL,
       },

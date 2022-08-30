@@ -4,12 +4,12 @@ import {
   ImageTextAsciifyInputs,
   ImageTextClassificationInputs,
   ImageTextOcrInputs,
-} from './input-models'
+} from './input-models';
 import {
   ImageTextAsciifyOutputs,
   ImageTextClassificationOutputs,
   ImageTextOcrOutputs,
-} from './output-models'
+} from './output-models';
 import {
   IMAGE_TEXT_ASCIIFY_CONTENT_TYPE,
   IMAGE_TEXT_ASCIIFY_DEFAULT_MODEL,
@@ -17,7 +17,7 @@ import {
   IMAGE_TEXT_CLASSIFICATION_DEFAULT_MODEL,
   IMAGE_TEXT_OCR_CONTENT_TYPE,
   IMAGE_TEXT_OCR_DEFAULT_MODEL,
-} from '../models'
+} from '../models';
 import { getHttpClient, HttpClient } from '../internal/http-client';
 import { isDefined } from '../utils/fp';
 import { GladiaClientParams } from './gladia-client-params';
@@ -41,6 +41,7 @@ export class FromImageToText {
       url: '/image/text/asciify/',
       headers: {
         'Content-Type': this.params.useFetch ? IMAGE_TEXT_ASCIIFY_CONTENT_TYPE : undefined,
+        ...(args.headers ?? {}),
       },
       query: {
         model: args.model ?? IMAGE_TEXT_ASCIIFY_DEFAULT_MODEL,
@@ -64,6 +65,7 @@ export class FromImageToText {
       url: '/image/text/classification/',
       headers: {
         'Content-Type': this.params.useFetch ? IMAGE_TEXT_CLASSIFICATION_CONTENT_TYPE : undefined,
+        ...(args.headers ?? {}),
       },
       query: {
         model: args.model ?? IMAGE_TEXT_CLASSIFICATION_DEFAULT_MODEL,
@@ -87,6 +89,7 @@ export class FromImageToText {
       url: '/image/text/ocr/',
       headers: {
         'Content-Type': this.params.useFetch ? IMAGE_TEXT_OCR_CONTENT_TYPE : undefined,
+        ...(args.headers ?? {}),
       },
       query: {
         model: args.model ?? IMAGE_TEXT_OCR_DEFAULT_MODEL,

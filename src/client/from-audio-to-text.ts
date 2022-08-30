@@ -2,14 +2,14 @@
 
 import {
   AudioTextAudioTranscriptionInputs,
-} from './input-models'
+} from './input-models';
 import {
   AudioTextAudioTranscriptionOutputs,
-} from './output-models'
+} from './output-models';
 import {
   AUDIO_TEXT_AUDIO_TRANSCRIPTION_CONTENT_TYPE,
   AUDIO_TEXT_AUDIO_TRANSCRIPTION_DEFAULT_MODEL,
-} from '../models'
+} from '../models';
 import { getHttpClient, HttpClient } from '../internal/http-client';
 import { isDefined } from '../utils/fp';
 import { GladiaClientParams } from './gladia-client-params';
@@ -36,6 +36,7 @@ export class FromAudioToText {
       url: '/audio/text/audio-transcription/',
       headers: {
         'Content-Type': this.params.useFetch ? AUDIO_TEXT_AUDIO_TRANSCRIPTION_CONTENT_TYPE : undefined,
+        ...(args.headers ?? {}),
       },
       query: {
         model: args.model ?? AUDIO_TEXT_AUDIO_TRANSCRIPTION_DEFAULT_MODEL,

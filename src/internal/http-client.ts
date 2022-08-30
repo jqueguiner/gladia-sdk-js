@@ -30,6 +30,7 @@ export function getHttpClient(params: GladiaClientParams) {
   const baseHeaders = {
     'x-gladia-key': params.apiKey,
     'x-gladia-sdk': SDK_VERSION,
+    ...(params.headers ?? {}),
   };
   return factory({
     baseHeaders,
@@ -39,7 +40,12 @@ export function getHttpClient(params: GladiaClientParams) {
   });
 }
 
-const AxiosHttpClient: HttpClientFactory = ({ baseHeaders, baseUrl, useFetch, httpClientTimeout }) => {
+const AxiosHttpClient: HttpClientFactory = ({
+  baseHeaders,
+  baseUrl,
+  useFetch,
+  httpClientTimeout,
+}) => {
   return {
     async post(params) {
       const headers = { ...baseHeaders, ...params.headers };

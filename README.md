@@ -144,6 +144,27 @@ const imageUrl = URL.createObjectURL(new Blob([ imageOutput ]));
 // => imageUrl can be used to display the image by setting it as src
 ```
 
+## Use a custom http header
+
+You have 2 choices: adding a global header or adding a task specific header.
+
+### Use a custom global http header
+
+```TypeScript
+import gladia from '@gladiaio/sdk';
+
+const gladiaClient = gladia({ apiKey: 'XXXXXXXX', header: { 'X-Custom-Header': 'value' } });
+```
+
+### Use a custom task specific http header
+
+```TypeScript
+import gladia from '@gladiaio/sdk';
+
+const gladiaClient = gladia({ apiKey: 'XXXXXXXX' });
+const result = await gladiaClient.plural({ word: 'cat', header: { 'X-Custom-Header': 'value' } });
+```
+
 ## Use a custom http client
 
 Under the hood, GladIA SDK use Axios to make http calls. By default Axios use `XMLHttpRequest` on browser and use `request` on node.js. If you prefer use fetch on browser, you can use the `useFetch` param when create the client:

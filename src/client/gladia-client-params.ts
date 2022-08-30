@@ -5,5 +5,6 @@ export interface GladiaClientParams {
   baseUrl?: string;
   httpClientTimeout?: number;
   customHttpClient?: HttpClientFactory;
+  headers?: Record<string, string | number | boolean>;
   useFetch?: boolean;
 }

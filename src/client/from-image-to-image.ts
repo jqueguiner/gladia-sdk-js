@@ -5,13 +5,13 @@ import {
   ImageImageColorizationInputs,
   ImageImageFaceBluringInputs,
   ImageImageUncolorizationInputs,
-} from './input-models'
+} from './input-models';
 import {
   ImageImageBackgroundRemovalOutputs,
   ImageImageColorizationOutputs,
   ImageImageFaceBluringOutputs,
   ImageImageUncolorizationOutputs,
-} from './output-models'
+} from './output-models';
 import {
   IMAGE_IMAGE_BACKGROUND_REMOVAL_CONTENT_TYPE,
   IMAGE_IMAGE_BACKGROUND_REMOVAL_DEFAULT_MODEL,
@@ -21,7 +21,7 @@ import {
   IMAGE_IMAGE_FACE_BLURING_DEFAULT_MODEL,
   IMAGE_IMAGE_UNCOLORIZATION_CONTENT_TYPE,
   IMAGE_IMAGE_UNCOLORIZATION_DEFAULT_MODEL,
-} from '../models'
+} from '../models';
 import { getHttpClient, HttpClient } from '../internal/http-client';
 import { isDefined } from '../utils/fp';
 import { GladiaClientParams } from './gladia-client-params';
@@ -45,6 +45,7 @@ export class FromImageToImage {
       url: '/image/image/background-removal/',
       headers: {
         'Content-Type': this.params.useFetch ? IMAGE_IMAGE_BACKGROUND_REMOVAL_CONTENT_TYPE : undefined,
+        ...(args.headers ?? {}),
       },
       query: {
         model: args.model ?? IMAGE_IMAGE_BACKGROUND_REMOVAL_DEFAULT_MODEL,
@@ -66,6 +67,7 @@ export class FromImageToImage {
       url: '/image/image/colorization/',
       headers: {
         'Content-Type': this.params.useFetch ? IMAGE_IMAGE_COLORIZATION_CONTENT_TYPE : undefined,
+        ...(args.headers ?? {}),
       },
       query: {
         model: args.model ?? IMAGE_IMAGE_COLORIZATION_DEFAULT_MODEL,
@@ -87,6 +89,7 @@ export class FromImageToImage {
       url: '/image/image/face-bluring/',
       headers: {
         'Content-Type': this.params.useFetch ? IMAGE_IMAGE_FACE_BLURING_CONTENT_TYPE : undefined,
+        ...(args.headers ?? {}),
       },
       query: {
         model: args.model ?? IMAGE_IMAGE_FACE_BLURING_DEFAULT_MODEL,
@@ -108,6 +111,7 @@ export class FromImageToImage {
       url: '/image/image/uncolorization/',
       headers: {
         'Content-Type': this.params.useFetch ? IMAGE_IMAGE_UNCOLORIZATION_CONTENT_TYPE : undefined,
+        ...(args.headers ?? {}),
       },
       query: {
         model: args.model ?? IMAGE_IMAGE_UNCOLORIZATION_DEFAULT_MODEL,
