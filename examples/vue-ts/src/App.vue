@@ -58,8 +58,7 @@ console.log('SDK', gladia);
 
 const gladiaClient = gladia.gladia({
   // baseUrl: "http://localhost:3000",
-  // apiKey: "42208fdb-df73-4f9f-9a65-844945ceb61b",
-  apiKey: '3d3aebbd-c88b-4cf9-8905-18f07adf7626',
+  apiKey: import.meta.env.GLADIA_API_KEY,
   // useFetch: true,
 });
 
