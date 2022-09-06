@@ -188,8 +188,8 @@ export const openApiJson: OpenApiJson = {
             "schema": {
               "title": "Model",
               "enum": [
-                "deoldify-artistic",
-                "deoldify-stable"
+                "deoldify-stable",
+                "deoldify-artistic"
               ],
               "type": "string",
               "default": "deoldify-stable"
@@ -485,124 +485,124 @@ export const openApiJson: OpenApiJson = {
             "schema": {
               "title": "Model",
               "enum": [
-                "googlenet",
-                "resnet34",
-                "swin_s",
-                "regnet_x_400mf_v2",
-                "efficientnet_b1_v1",
-                "regnet_y_400mf_v2",
-                "resnet18",
-                "efficientnet_b3",
-                "vit_h_14_swag_e2e_v1",
-                "resnet18_quantized_fbgemm_v1",
-                "swin_b",
-                "densenet201",
-                "convnext_small",
-                "convnext_tiny",
-                "mnasnet0_75",
-                "vgg19_bn",
-                "regnet_y_128gf_swag_linear_v1",
-                "regnet_y_32gf_v2",
-                "regnet_y_16gf_swag_linear_v1",
-                "wide_resnet101_2_v2",
-                "resnet50_quantized_fbgemm_v1",
-                "vit_l_16_v1",
-                "regnet_x_400mf_v1",
-                "regnet_y_8gf_v1",
-                "wide_resnet101_2_v1",
-                "convnext_base",
-                "shufflenet_v2_x0_5_quantized_fbgemm_v1",
-                "inception_v3",
-                "vgg13",
-                "regnet_x_3_2gf_v1",
-                "resnext50_32x4d_v2",
-                "mnasnet1_3",
-                "regnet_y_1_6gf_v1",
-                "efficientnet_v2_m",
-                "regnet_x_3_2gf_v2",
-                "regnet_x_8gf_v2",
-                "densenet161",
-                "efficientnet_b6",
-                "squeezenet1_1",
                 "regnet_x_16gf_v1",
-                "regnet_x_1_6gf_v1",
-                "vit_b_32",
-                "densenet169",
-                "regnet_y_16gf_v1",
-                "mobilenet_v3_small",
-                "alexnet",
+                "convnext_large",
+                "efficientnet_b3",
+                "regnet_y_16gf_v2",
+                "efficientnet_b4",
+                "efficientnet_v2_l",
+                "regnet_x_1_6gf_v2",
+                "shufflenet_v2_x1_0_quantized_fbgemm_v1",
+                "shufflenet_v2_x2_0_quantized_fbgemm_v1",
+                "regnet_x_16gf_v2",
+                "resnext101_32x8d_quantized_fbgemm_v2",
+                "googlenet_quantized_fbgemm_v1",
+                "vit_h_14_swag_linear_v1",
+                "densenet161",
+                "regnet_y_400mf_v2",
+                "mnasnet0_5",
+                "regnet_x_3_2gf_v2",
+                "mobilenet_v2_v2",
                 "vit_b_16_v1",
-                "resnet50_v1",
-                "vit_l_16_swag_linear_v1",
-                "regnet_y_32gf_v1",
-                "inception_v3_fbgemm_v1",
+                "regnet_y_8gf_v1",
+                "efficientnet_v2_s",
                 "resnext50_32x4d_v1",
                 "vgg11",
-                "mnasnet0_5",
-                "regnet_y_3_2gf_v1",
-                "regnet_y_1_6gf_v2",
-                "resnet50_quantized_fbgemm_v2",
-                "shufflenet_v2_x2_0",
-                "shufflenet_v2_x1_5",
-                "vgg16_v1",
-                "regnet_y_400mf_v1",
-                "vit_b_16_swag_e2e_v1",
-                "regnet_x_32gf_v2",
+                "resnext101_32x8d_v2",
+                "efficientnet_b0",
+                "resnet50_v2",
+                "regnet_y_16gf_swag_e2e_v1",
+                "convnext_tiny",
                 "vgg13_bn",
+                "resnext50_32x4d_v2",
+                "resnext101_32x8d_v1",
+                "mobilenet_v2_v1",
+                "resnet50_quantized_fbgemm_v1",
+                "vgg11_bn",
+                "regnet_x_32gf_v1",
+                "vit_l_16_v1",
+                "vgg19",
+                "squeezenet1_1",
+                "vgg13",
+                "vit_b_32",
+                "shufflenet_v2_x1_5_quantized_fbgemm_v1",
+                "regnet_x_3_2gf_v1",
+                "wide_resnet101_2_v2",
+                "densenet169",
+                "inception_v3",
+                "mobilenet_v3_small",
+                "densenet201",
+                "densenet121",
+                "efficientnet_b1_v2",
+                "resnext101_64x4d_v1",
+                "regnet_x_8gf_v1",
+                "regnet_y_32gf_swag_linear_v1",
+                "shufflenet_v2_x1_0",
+                "regnet_x_32gf_v2",
+                "regnet_y_128gf_swag_e2e_v1",
+                "resnet50_quantized_fbgemm_v2",
+                "regnet_x_8gf_v2",
+                "convnext_small",
+                "vit_l_32",
+                "shufflenet_v2_x1_5",
+                "regnet_x_800mf_v1",
+                "swin_b",
                 "swin_t",
-                "vit_l_16_swag_e2e_v1",
+                "regnet_y_3_2gf_v1",
+                "vit_b_16_swag_linear_v1",
+                "efficientnet_b7",
+                "vgg16_v1",
+                "mnasnet1_0",
+                "resnet152_v1",
+                "vgg16_bn",
+                "swin_s",
+                "regnet_x_1_6gf_v1",
+                "regnet_y_8gf_v2",
+                "mobilenet_v3_large_quantized_qnnpack_v1",
+                "googlenet",
+                "efficientnet_v2_m",
+                "inception_v3_fbgemm_v1",
+                "shufflenet_v2_x0_5",
+                "regnet_y_1_6gf_v1",
+                "mobilenet_v3_large_v1",
+                "efficientnet_b2",
+                "vgg19_bn",
+                "regnet_y_16gf_v1",
+                "resnet18_quantized_fbgemm_v1",
+                "alexnet",
+                "efficientnet_b1_v1",
+                "shufflenet_v2_x0_5_quantized_fbgemm_v1",
+                "convnext_base",
                 "efficientnet_b5",
                 "squeezenet1_0",
-                "efficientnet_b1_v2",
-                "shufflenet_v2_x2_0_quantized_fbgemm_v1",
-                "efficientnet_v2_s",
+                "mnasnet0_75",
+                "resnet34",
                 "mobilenet_v2_quantized_qnnpack_v1",
-                "regnet_y_8gf_v2",
-                "efficientnet_v2_l",
-                "shufflenet_v2_x1_5_quantized_fbgemm_v1",
-                "resnext101_32x8d_v1",
-                "efficientnet_b2",
-                "googlenet_quantized_fbgemm_v1",
-                "efficientnet_b7",
-                "mobilenet_v2_v1",
-                "resnet152_v1",
-                "regnet_x_800mf_v1",
-                "regnet_x_8gf_v1",
-                "mnasnet1_0",
-                "vit_b_16_swag_linear_v1",
-                "regnet_y_128gf_swag_e2e_v1",
-                "resnext101_32x8d_quantized_fbgemm_v1",
-                "vit_h_14_swag_linear_v1",
-                "densenet121",
-                "efficientnet_b0",
-                "resnext101_64x4d_v1",
-                "vgg11_bn",
-                "efficientnet_b4",
-                "regnet_x_800mf_v2",
-                "resnext101_64x4d_quantized_fbgemm_v1",
-                "regnet_y_32gf_swag_e2e_v1",
-                "regnet_x_1_6gf_v2",
-                "vgg16_bn",
-                "resnet50_v2",
+                "regnet_y_32gf_v1",
                 "regnet_y_3_2gf_v2",
-                "shufflenet_v2_x0_5",
-                "convnext_large",
-                "vgg19",
-                "regnet_x_32gf_v1",
-                "mobilenet_v3_large_v1",
-                "resnext101_32x8d_v2",
-                "resnext101_32x8d_quantized_fbgemm_v2",
-                "mobilenet_v2_v2",
-                "shufflenet_v2_x1_0",
+                "regnet_y_16gf_swag_linear_v1",
+                "regnet_y_32gf_swag_e2e_v1",
+                "wide_resnet101_2_v1",
+                "resnet50_v1",
+                "regnet_x_800mf_v2",
+                "shufflenet_v2_x2_0",
+                "regnet_x_400mf_v1",
                 "mobilenet_v3_large_v2",
-                "regnet_y_32gf_swag_linear_v1",
-                "shufflenet_v2_x1_0_quantized_fbgemm_v1",
-                "vit_l_32",
-                "regnet_x_16gf_v2",
-                "mobilenet_v3_large_quantized_qnnpack_v1",
-                "regnet_y_16gf_v2",
-                "regnet_y_16gf_swag_e2e_v1",
-                "resnet152_v2"
+                "regnet_y_128gf_swag_linear_v1",
+                "vit_l_16_swag_linear_v1",
+                "efficientnet_b6",
+                "regnet_y_32gf_v2",
+                "vit_b_16_swag_e2e_v1",
+                "resnet152_v2",
+                "resnext101_32x8d_quantized_fbgemm_v1",
+                "vit_l_16_swag_e2e_v1",
+                "vit_h_14_swag_e2e_v1",
+                "resnet18",
+                "regnet_x_400mf_v2",
+                "regnet_y_400mf_v1",
+                "mnasnet1_3",
+                "resnext101_64x4d_quantized_fbgemm_v1",
+                "regnet_y_1_6gf_v2"
               ],
               "type": "string",
               "default": "alexnet"
@@ -676,9 +676,9 @@ export const openApiJson: OpenApiJson = {
             "schema": {
               "title": "Model",
               "enum": [
-                "tesseract-default",
                 "easy-ocr",
-                "tesseract-denoising"
+                "tesseract-denoising",
+                "tesseract-default"
               ],
               "type": "string",
               "default": "tesseract-denoising"
@@ -1430,10 +1430,10 @@ export const openApiJson: OpenApiJson = {
             "schema": {
               "title": "Model",
               "enum": [
-                "roberta-base",
+                "distilbert-base-uncased",
                 "albert-base-v2",
                 "bert-base-uncased",
-                "distilbert-base-uncased"
+                "roberta-base"
               ],
               "type": "string",
               "default": "distilbert-base-uncased"
@@ -1658,11 +1658,11 @@ export const openApiJson: OpenApiJson = {
             "schema": {
               "title": "Model",
               "enum": [
-                "deepset-roberta-base-squad2",
-                "deepset_bert-base-cased-squad2",
-                "distilbert-base-cased-distilled-squad",
                 "mfeb-albert-xxlarge-v2-squad2",
-                "mrm8488-bert-tiny-5-finetuned-squadv2"
+                "mrm8488-bert-tiny-5-finetuned-squadv2",
+                "deepset-roberta-base-squad2",
+                "distilbert-base-cased-distilled-squad",
+                "deepset_bert-base-cased-squad2"
               ],
               "type": "string",
               "default": "deepset_bert-base-cased-squad2"
@@ -1812,9 +1812,9 @@ export const openApiJson: OpenApiJson = {
             "schema": {
               "title": "Model",
               "enum": [
+                "nlptown-bert-base-multilingual-uncased-sentiment",
                 "distilbert-base-uncased",
                 "distilbert-base-uncased-finetuned-sst-2-english",
-                "nlptown-bert-base-multilingual-uncased-sentiment",
                 "zero-shot-classification-facebook-bart-large-mnli"
               ],
               "type": "string",
@@ -2288,10 +2288,10 @@ export const openApiJson: OpenApiJson = {
             "format": "binary",
             "example": "http://files.gladia.io/test/test.mp3",
             "data_type": "audio",
-            "_examples": [
+            "examples": [
               "http://files.gladia.io/test/test.mp3"
             ],
-            "examples": [
+            "_examples": [
               "http://files.gladia.io/test/test.mp3"
             ]
           },
@@ -2300,10 +2300,10 @@ export const openApiJson: OpenApiJson = {
             "type": "string",
             "example": "http://files.gladia.io/test/test.mp3",
             "data_type": "url",
-            "_examples": [
+            "examples": [
               "http://files.gladia.io/test/test.mp3"
             ],
-            "examples": [
+            "_examples": [
               "http://files.gladia.io/test/test.mp3"
             ]
           },
@@ -2313,10 +2313,10 @@ export const openApiJson: OpenApiJson = {
             "default": "en",
             "example": "en",
             "data_type": "string",
-            "_examples": [
+            "examples": [
               "en"
             ],
-            "examples": [
+            "_examples": [
               "en"
             ]
           }
@@ -2332,10 +2332,10 @@ export const openApiJson: OpenApiJson = {
             "format": "binary",
             "example": "http://files.gladia.io/test/test.jpg",
             "data_type": "image",
-            "_examples": [
+            "examples": [
               "http://files.gladia.io/test/test.jpg"
             ],
-            "examples": [
+            "_examples": [
               "http://files.gladia.io/test/test.jpg"
             ]
           },
@@ -2344,10 +2344,10 @@ export const openApiJson: OpenApiJson = {
             "type": "string",
             "example": "http://files.gladia.io/test/test.jpg",
             "data_type": "url",
-            "_examples": [
+            "examples": [
               "http://files.gladia.io/test/test.jpg"
             ],
-            "examples": [
+            "_examples": [
               "http://files.gladia.io/test/test.jpg"
             ]
           }
@@ -2363,10 +2363,10 @@ export const openApiJson: OpenApiJson = {
             "format": "binary",
             "example": "http://files.gladia.io/examples/image/image/background-removal/black-and-white-landscape.png",
             "data_type": "image",
-            "_examples": [
+            "examples": [
               "http://files.gladia.io/examples/image/image/background-removal/black-and-white-landscape.png"
             ],
-            "examples": [
+            "_examples": [
               "http://files.gladia.io/examples/image/image/background-removal/black-and-white-landscape.png"
             ]
           },
@@ -2375,10 +2375,10 @@ export const openApiJson: OpenApiJson = {
             "type": "string",
             "example": "http://files.gladia.io/examples/image/image/background-removal/black-and-white-landscape.png",
             "data_type": "url",
-            "_examples": [
+            "examples": [
               "http://files.gladia.io/examples/image/image/background-removal/black-and-white-landscape.png"
             ],
-            "examples": [
+            "_examples": [
               "http://files.gladia.io/examples/image/image/background-removal/black-and-white-landscape.png"
             ]
           }
@@ -2394,10 +2394,10 @@ export const openApiJson: OpenApiJson = {
             "format": "binary",
             "example": "http://files.gladia.io/examples/image/image/face-bluring/face-bluring.png",
             "data_type": "image",
-            "_examples": [
+            "examples": [
               "http://files.gladia.io/examples/image/image/face-bluring/face-bluring.png"
             ],
-            "examples": [
+            "_examples": [
               "http://files.gladia.io/examples/image/image/face-bluring/face-bluring.png"
             ]
           },
@@ -2406,10 +2406,10 @@ export const openApiJson: OpenApiJson = {
             "type": "string",
             "example": "http://files.gladia.io/examples/image/image/face-bluring/face-bluring.png",
             "data_type": "url",
-            "_examples": [
+            "examples": [
               "http://files.gladia.io/examples/image/image/face-bluring/face-bluring.png"
             ],
-            "examples": [
+            "_examples": [
               "http://files.gladia.io/examples/image/image/face-bluring/face-bluring.png"
             ]
           }
@@ -2425,10 +2425,10 @@ export const openApiJson: OpenApiJson = {
             "format": "binary",
             "example": "http://files.gladia.io/examples/image/image/uncolorization/landscape-pics-wallpapers.png",
             "data_type": "image",
-            "_examples": [
+            "examples": [
               "http://files.gladia.io/examples/image/image/uncolorization/landscape-pics-wallpapers.png"
             ],
-            "examples": [
+            "_examples": [
               "http://files.gladia.io/examples/image/image/uncolorization/landscape-pics-wallpapers.png"
             ]
           },
@@ -2437,10 +2437,10 @@ export const openApiJson: OpenApiJson = {
             "type": "string",
             "example": "http://files.gladia.io/examples/image/image/uncolorization/landscape-pics-wallpapers.png",
             "data_type": "url",
-            "_examples": [
+            "examples": [
               "http://files.gladia.io/examples/image/image/uncolorization/landscape-pics-wallpapers.png"
             ],
-            "examples": [
+            "_examples": [
               "http://files.gladia.io/examples/image/image/uncolorization/landscape-pics-wallpapers.png"
             ]
           }
@@ -2456,10 +2456,10 @@ export const openApiJson: OpenApiJson = {
             "format": "binary",
             "example": "http://files.gladia.io/test/test.png",
             "data_type": "image",
-            "_examples": [
+            "examples": [
               "http://files.gladia.io/test/test.png"
             ],
-            "examples": [
+            "_examples": [
               "http://files.gladia.io/test/test.png"
             ]
           },
@@ -2468,10 +2468,10 @@ export const openApiJson: OpenApiJson = {
             "type": "string",
             "example": "http://files.gladia.io/test/test.png",
             "data_type": "url",
-            "_examples": [
+            "examples": [
               "http://files.gladia.io/test/test.png"
             ],
-            "examples": [
+            "_examples": [
               "http://files.gladia.io/test/test.png"
             ]
           }
@@ -2487,10 +2487,10 @@ export const openApiJson: OpenApiJson = {
             "format": "binary",
             "example": "http://files.gladia.io/test/test.png",
             "data_type": "image",
-            "_examples": [
+            "examples": [
               "http://files.gladia.io/test/test.png"
             ],
-            "examples": [
+            "_examples": [
               "http://files.gladia.io/test/test.png"
             ]
           },
@@ -2499,10 +2499,10 @@ export const openApiJson: OpenApiJson = {
             "type": "string",
             "example": "http://files.gladia.io/test/test.png",
             "data_type": "url",
-            "_examples": [
+            "examples": [
               "http://files.gladia.io/test/test.png"
             ],
-            "examples": [
+            "_examples": [
               "http://files.gladia.io/test/test.png"
             ]
           },
@@ -2512,10 +2512,10 @@ export const openApiJson: OpenApiJson = {
             "default": 1,
             "example": 1,
             "data_type": "integer",
-            "_examples": [
+            "examples": [
               1
             ],
-            "examples": [
+            "_examples": [
               1
             ]
           }
@@ -2531,10 +2531,10 @@ export const openApiJson: OpenApiJson = {
             "format": "binary",
             "example": "http://files.gladia.io/test/test.png",
             "data_type": "image",
-            "_examples": [
+            "examples": [
               "http://files.gladia.io/test/test.png"
             ],
-            "examples": [
+            "_examples": [
               "http://files.gladia.io/test/test.png"
             ]
           },
@@ -2543,10 +2543,10 @@ export const openApiJson: OpenApiJson = {
             "type": "string",
             "example": "http://files.gladia.io/test/test.png",
             "data_type": "url",
-            "_examples": [
+            "examples": [
               "http://files.gladia.io/test/test.png"
             ],
-            "examples": [
+            "_examples": [
               "http://files.gladia.io/test/test.png"
             ]
           },
@@ -2556,10 +2556,10 @@ export const openApiJson: OpenApiJson = {
             "default": "en",
             "example": "en",
             "data_type": "string",
-            "_examples": [
+            "examples": [
               "en"
             ],
-            "examples": [
+            "_examples": [
               "en"
             ]
           }
@@ -2577,10 +2577,10 @@ export const openApiJson: OpenApiJson = {
             "type": "string",
             "example": "the Eiffel tower landing on the moon",
             "data_type": "string",
-            "_examples": [
+            "examples": [
               "the Eiffel tower landing on the moon"
             ],
-            "examples": [
+            "_examples": [
               "the Eiffel tower landing on the moon"
             ]
           },
@@ -2590,10 +2590,10 @@ export const openApiJson: OpenApiJson = {
             "default": 1,
             "example": 1,
             "data_type": "integer",
-            "_examples": [
+            "examples": [
               1
             ],
-            "examples": [
+            "_examples": [
               1
             ]
           },
@@ -2603,10 +2603,10 @@ export const openApiJson: OpenApiJson = {
             "default": 40,
             "example": 40,
             "data_type": "integer",
-            "_examples": [
+            "examples": [
               40
             ],
-            "examples": [
+            "_examples": [
               40
             ]
           },
@@ -2616,10 +2616,10 @@ export const openApiJson: OpenApiJson = {
             "default": 396916372,
             "example": 396916372,
             "data_type": "integer",
-            "_examples": [
+            "examples": [
               396916372
             ],
-            "examples": [
+            "_examples": [
               396916372
             ]
           }
@@ -2637,10 +2637,10 @@ export const openApiJson: OpenApiJson = {
             "type": "string",
             "example": "Text to corrcte",
             "data_type": "string",
-            "_examples": [
+            "examples": [
               "Text to corrcte"
             ],
-            "examples": [
+            "_examples": [
               "Text to corrcte"
             ]
           }
@@ -2658,10 +2658,10 @@ export const openApiJson: OpenApiJson = {
             "type": "string",
             "example": "I like you. I love you",
             "data_type": "string",
-            "_examples": [
+            "examples": [
               "I like you. I love you"
             ],
-            "examples": [
+            "_examples": [
               "I like you. I love you"
             ]
           }
@@ -2679,10 +2679,10 @@ export const openApiJson: OpenApiJson = {
             "type": "string",
             "example": "I hate you piece of shit",
             "data_type": "string",
-            "_examples": [
+            "examples": [
               "I hate you piece of shit"
             ],
-            "examples": [
+            "_examples": [
               "I hate you piece of shit"
             ]
           }
@@ -2700,10 +2700,10 @@ export const openApiJson: OpenApiJson = {
             "type": "string",
             "example": "The Crown is a historical drama streaming television series about the reign of Queen Elizabeth II, created and principally written by Peter Morgan, and produced by Left Bank Pictures and Sony Pictures Television for Netflix.",
             "data_type": "string",
-            "_examples": [
+            "examples": [
               "The Crown is a historical drama streaming television series about the reign of Queen Elizabeth II, created and principally written by Peter Morgan, and produced by Left Bank Pictures and Sony Pictures Television for Netflix."
             ],
-            "examples": [
+            "_examples": [
               "The Crown is a historical drama streaming television series about the reign of Queen Elizabeth II, created and principally written by Peter Morgan, and produced by Left Bank Pictures and Sony Pictures Television for Netflix."
             ]
           }
@@ -2721,10 +2721,10 @@ export const openApiJson: OpenApiJson = {
             "type": "string",
             "example": "Input text to perform language detection on",
             "data_type": "string",
-            "_examples": [
+            "examples": [
               "Input text to perform language detection on"
             ],
-            "examples": [
+            "_examples": [
               "Input text to perform language detection on"
             ]
           }
@@ -2742,10 +2742,10 @@ export const openApiJson: OpenApiJson = {
             "type": "string",
             "example": "Input text to start generation from",
             "data_type": "string",
-            "_examples": [
+            "examples": [
               "Input text to start generation from"
             ],
-            "examples": [
+            "_examples": [
               "Input text to start generation from"
             ]
           }
@@ -2763,10 +2763,10 @@ export const openApiJson: OpenApiJson = {
             "type": "string",
             "example": "Hugging Face Inc. is a company based in New York City. Its headquarters are in DUMBO, therefore very close to the Manhattan Bridge.",
             "data_type": "string",
-            "_examples": [
+            "examples": [
               "Hugging Face Inc. is a company based in New York City. Its headquarters are in DUMBO, therefore very close to the Manhattan Bridge."
             ],
-            "examples": [
+            "_examples": [
               "Hugging Face Inc. is a company based in New York City. Its headquarters are in DUMBO, therefore very close to the Manhattan Bridge."
             ]
           }
@@ -2785,10 +2785,10 @@ export const openApiJson: OpenApiJson = {
             "type": "string",
             "example": "I like you.",
             "data_type": "string",
-            "_examples": [
+            "examples": [
               "I like you."
             ],
-            "examples": [
+            "_examples": [
               "I like you."
             ]
           },
@@ -2797,10 +2797,10 @@ export const openApiJson: OpenApiJson = {
             "type": "string",
             "example": "But it's not about you.",
             "data_type": "string",
-            "_examples": [
+            "examples": [
               "But it's not about you."
             ],
-            "examples": [
+            "_examples": [
               "But it's not about you."
             ]
           }
@@ -2818,10 +2818,10 @@ export const openApiJson: OpenApiJson = {
             "type": "string",
             "example": "I think therefore I",
             "data_type": "string",
-            "_examples": [
+            "examples": [
               "I think therefore I"
             ],
-            "examples": [
+            "_examples": [
               "I think therefore I"
             ]
           }
@@ -2839,10 +2839,10 @@ export const openApiJson: OpenApiJson = {
             "type": "string",
             "example": "cat",
             "data_type": "string",
-            "_examples": [
+            "examples": [
               "cat"
             ],
-            "examples": [
+            "_examples": [
               "cat"
             ]
           },
@@ -2852,10 +2852,10 @@ export const openApiJson: OpenApiJson = {
             "default": 2,
             "example": 2,
             "data_type": "integer",
-            "_examples": [
+            "examples": [
               2
             ],
-            "examples": [
+            "_examples": [
               2
             ]
           }
@@ -2873,10 +2873,10 @@ export const openApiJson: OpenApiJson = {
             "type": "string",
             "example": "def is_palendrome(s):",
             "data_type": "string",
-            "_examples": [
+            "examples": [
               "def is_palendrome(s):"
             ],
-            "examples": [
+            "_examples": [
               "def is_palendrome(s):"
             ]
           }
@@ -2895,10 +2895,10 @@ export const openApiJson: OpenApiJson = {
             "type": "string",
             "example": "My name is Clara and I live in Berkeley.",
             "data_type": "string",
-            "_examples": [
+            "examples": [
               "My name is Clara and I live in Berkeley."
             ],
-            "examples": [
+            "_examples": [
               "My name is Clara and I live in Berkeley."
             ]
           },
@@ -2907,10 +2907,10 @@ export const openApiJson: OpenApiJson = {
             "type": "string",
             "example": "What's my name?",
             "data_type": "string",
-            "_examples": [
+            "examples": [
               "What's my name?"
             ],
-            "examples": [
+            "_examples": [
               "What's my name?"
             ]
           }
@@ -2928,10 +2928,10 @@ export const openApiJson: OpenApiJson = {
             "type": "string",
             "example": "Once, a group of frogs was roaming around the forest in search of water.",
             "data_type": "string",
-            "_examples": [
+            "examples": [
               "Once, a group of frogs was roaming around the forest in search of water."
             ],
-            "examples": [
+            "_examples": [
               "Once, a group of frogs was roaming around the forest in search of water."
             ]
           }
@@ -2949,10 +2949,10 @@ export const openApiJson: OpenApiJson = {
             "type": "string",
             "example": "I like you. I love you",
             "data_type": "string",
-            "_examples": [
+            "examples": [
               "I like you. I love you"
             ],
-            "examples": [
+            "_examples": [
               "I like you. I love you"
             ]
           }
@@ -2971,10 +2971,10 @@ export const openApiJson: OpenApiJson = {
             "type": "string",
             "example": "I like banana",
             "data_type": "string",
-            "_examples": [
+            "examples": [
               "I like banana"
             ],
-            "examples": [
+            "_examples": [
               "I like banana"
             ]
           },
@@ -2983,10 +2983,10 @@ export const openApiJson: OpenApiJson = {
             "type": "string",
             "example": "I hate banana",
             "data_type": "string",
-            "_examples": [
+            "examples": [
               "I hate banana"
             ],
-            "examples": [
+            "_examples": [
               "I hate banana"
             ]
           }
@@ -3037,10 +3037,10 @@ export const openApiJson: OpenApiJson = {
             "type": "string",
             "example": "Sentence from first language",
             "data_type": "string",
-            "_examples": [
+            "examples": [
               "Sentence from first language"
             ],
-            "examples": [
+            "_examples": [
               "Sentence from first language"
             ]
           },
@@ -3049,10 +3049,10 @@ export const openApiJson: OpenApiJson = {
             "type": "string",
             "example": "来自 第一 语言的 句子",
             "data_type": "string",
-            "_examples": [
+            "examples": [
               "来自 第一 语言的 句子"
             ],
-            "examples": [
+            "_examples": [
               "来自 第一 语言的 句子"
             ]
           }
