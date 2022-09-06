@@ -14,13 +14,9 @@ import {
 } from './output-models';
 import {
   IMAGE_IMAGE_BACKGROUND_REMOVAL_CONTENT_TYPE,
-  IMAGE_IMAGE_BACKGROUND_REMOVAL_DEFAULT_MODEL,
   IMAGE_IMAGE_COLORIZATION_CONTENT_TYPE,
-  IMAGE_IMAGE_COLORIZATION_DEFAULT_MODEL,
   IMAGE_IMAGE_FACE_BLURING_CONTENT_TYPE,
-  IMAGE_IMAGE_FACE_BLURING_DEFAULT_MODEL,
   IMAGE_IMAGE_UNCOLORIZATION_CONTENT_TYPE,
-  IMAGE_IMAGE_UNCOLORIZATION_DEFAULT_MODEL,
 } from '../models';
 import { getHttpClient, HttpClient } from '../internal/http-client';
 import { isDefined } from '../utils/fp';
@@ -48,7 +44,7 @@ export class FromImageToImage {
         ...(args.headers ?? {}),
       },
       query: {
-        model: args.model ?? IMAGE_IMAGE_BACKGROUND_REMOVAL_DEFAULT_MODEL,
+        ...(args.model ? {model: args.model} : {}),
       },
       responseType: 'arraybuffer',
       body: formData,
@@ -70,7 +66,7 @@ export class FromImageToImage {
         ...(args.headers ?? {}),
       },
       query: {
-        model: args.model ?? IMAGE_IMAGE_COLORIZATION_DEFAULT_MODEL,
+        ...(args.model ? {model: args.model} : {}),
       },
       responseType: 'arraybuffer',
       body: formData,
@@ -92,7 +88,7 @@ export class FromImageToImage {
         ...(args.headers ?? {}),
       },
       query: {
-        model: args.model ?? IMAGE_IMAGE_FACE_BLURING_DEFAULT_MODEL,
+        ...(args.model ? {model: args.model} : {}),
       },
       responseType: 'arraybuffer',
       body: formData,
@@ -114,7 +110,7 @@ export class FromImageToImage {
         ...(args.headers ?? {}),
       },
       query: {
-        model: args.model ?? IMAGE_IMAGE_UNCOLORIZATION_DEFAULT_MODEL,
+        ...(args.model ? {model: args.model} : {}),
       },
       responseType: 'arraybuffer',
       body: formData,

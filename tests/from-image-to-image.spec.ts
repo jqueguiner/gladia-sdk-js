@@ -31,7 +31,6 @@ describe('FromImageToImage', () => {
         });
         expect(firstCallArgs.responseType).toEqual('arraybuffer');
         expect(firstCallArgs.query).toEqual({
-          model: 'xception',
         });
         expect(firstCallBody.get('image')).toBeDefined();
         expect(firstCallBody.get('image_url')).toEqual(image_url_data);
@@ -42,7 +41,7 @@ describe('FromImageToImage', () => {
         const result = await gladiaClient.fromImage().toImage().backgroundRemoval({
           image: image_data,
           image_url: image_url_data,
-          model: 'mobilenet' as any,
+          model: 'xception' as any,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -52,7 +51,7 @@ describe('FromImageToImage', () => {
         });
         expect(firstCallArgs.responseType).toEqual('arraybuffer');
         expect(firstCallArgs.query).toEqual({
-          model: 'mobilenet',
+          model: 'xception',
         });
         expect(firstCallBody.get('image')).toBeDefined();
         expect(firstCallBody.get('image_url')).toEqual(image_url_data);
@@ -74,7 +73,6 @@ describe('FromImageToImage', () => {
         });
         expect(firstCallArgs.responseType).toEqual('arraybuffer');
         expect(firstCallArgs.query).toEqual({
-          model: 'xception',
         });
         expect(firstCallBody.get('image')).toBeDefined();
         expect(firstCallBody.get('image_url')).toEqual(image_url_data);
@@ -85,7 +83,7 @@ describe('FromImageToImage', () => {
         const result = await gladiaClient.backgroundRemoval({
           image: image_data,
           image_url: image_url_data,
-          model: 'mobilenet' as any,
+          model: 'xception' as any,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -95,7 +93,7 @@ describe('FromImageToImage', () => {
         });
         expect(firstCallArgs.responseType).toEqual('arraybuffer');
         expect(firstCallArgs.query).toEqual({
-          model: 'mobilenet',
+          model: 'xception',
         });
         expect(firstCallBody.get('image')).toBeDefined();
         expect(firstCallBody.get('image_url')).toEqual(image_url_data);
@@ -128,7 +126,6 @@ describe('FromImageToImage', () => {
         });
         expect(firstCallArgs.responseType).toEqual('arraybuffer');
         expect(firstCallArgs.query).toEqual({
-          model: 'deoldify-stable',
         });
         expect(firstCallBody.get('image')).toBeDefined();
         expect(firstCallBody.get('image_url')).toEqual(image_url_data);
@@ -171,7 +168,6 @@ describe('FromImageToImage', () => {
         });
         expect(firstCallArgs.responseType).toEqual('arraybuffer');
         expect(firstCallArgs.query).toEqual({
-          model: 'deoldify-stable',
         });
         expect(firstCallBody.get('image')).toBeDefined();
         expect(firstCallBody.get('image_url')).toEqual(image_url_data);
@@ -225,7 +221,6 @@ describe('FromImageToImage', () => {
         });
         expect(firstCallArgs.responseType).toEqual('arraybuffer');
         expect(firstCallArgs.query).toEqual({
-          model: 'ageitgey',
         });
         expect(firstCallBody.get('image')).toBeDefined();
         expect(firstCallBody.get('image_url')).toEqual(image_url_data);
@@ -268,7 +263,6 @@ describe('FromImageToImage', () => {
         });
         expect(firstCallArgs.responseType).toEqual('arraybuffer');
         expect(firstCallArgs.query).toEqual({
-          model: 'ageitgey',
         });
         expect(firstCallBody.get('image')).toBeDefined();
         expect(firstCallBody.get('image_url')).toEqual(image_url_data);
@@ -322,7 +316,6 @@ describe('FromImageToImage', () => {
         });
         expect(firstCallArgs.responseType).toEqual('arraybuffer');
         expect(firstCallArgs.query).toEqual({
-          model: 'v1',
         });
         expect(firstCallBody.get('image')).toBeDefined();
         expect(firstCallBody.get('image_url')).toEqual(image_url_data);
@@ -365,7 +358,6 @@ describe('FromImageToImage', () => {
         });
         expect(firstCallArgs.responseType).toEqual('arraybuffer');
         expect(firstCallArgs.query).toEqual({
-          model: 'v1',
         });
         expect(firstCallBody.get('image')).toBeDefined();
         expect(firstCallBody.get('image_url')).toEqual(image_url_data);

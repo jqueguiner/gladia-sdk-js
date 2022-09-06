@@ -8,7 +8,6 @@ import {
 } from './output-models';
 import {
   TEXT_IMAGE_IMAGE_GENERATION_CONTENT_TYPE,
-  TEXT_IMAGE_IMAGE_GENERATION_DEFAULT_MODEL,
 } from '../models';
 import { getHttpClient, HttpClient } from '../internal/http-client';
 import { isDefined } from '../utils/fp';
@@ -41,7 +40,7 @@ export class FromTextToImage {
         ...(args.headers ?? {}),
       },
       query: {
-        model: args.model ?? TEXT_IMAGE_IMAGE_GENERATION_DEFAULT_MODEL,
+        ...(args.model ? {model: args.model} : {}),
       },
       responseType: 'arraybuffer',
       body: formData.toString(),

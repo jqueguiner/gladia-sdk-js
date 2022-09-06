@@ -28,7 +28,6 @@ describe('FromTextToText', () => {
           'Content-Type': 'application/x-www-form-urlencoded',
         });
         expect(firstCallArgs.query).toEqual({
-          model: 'gpt-j',
         });
         expect(firstCallBody.get('keywords')).toEqual(keywords_data);
       });
@@ -63,7 +62,6 @@ describe('FromTextToText', () => {
           'Content-Type': 'application/x-www-form-urlencoded',
         });
         expect(firstCallArgs.query).toEqual({
-          model: 'gpt-j',
         });
         expect(firstCallBody.get('keywords')).toEqual(keywords_data);
       });
@@ -109,7 +107,6 @@ describe('FromTextToText', () => {
           'Content-Type': 'application/x-www-form-urlencoded',
         });
         expect(firstCallArgs.query).toEqual({
-          model: 'fast-gpt-j',
         });
         expect(firstCallBody.get('title')).toEqual(title_data);
       });
@@ -144,7 +141,6 @@ describe('FromTextToText', () => {
           'Content-Type': 'application/x-www-form-urlencoded',
         });
         expect(firstCallArgs.query).toEqual({
-          model: 'fast-gpt-j',
         });
         expect(firstCallBody.get('title')).toEqual(title_data);
       });
@@ -190,7 +186,6 @@ describe('FromTextToText', () => {
           'Content-Type': 'application/x-www-form-urlencoded',
         });
         expect(firstCallArgs.query).toEqual({
-          model: 'flexudy-t5-base-multi-sentence-doctor',
         });
         expect(firstCallBody.get('sentence')).toEqual(sentence_data);
       });
@@ -225,7 +220,6 @@ describe('FromTextToText', () => {
           'Content-Type': 'application/x-www-form-urlencoded',
         });
         expect(firstCallArgs.query).toEqual({
-          model: 'flexudy-t5-base-multi-sentence-doctor',
         });
         expect(firstCallBody.get('sentence')).toEqual(sentence_data);
       });
@@ -271,7 +265,6 @@ describe('FromTextToText', () => {
           'Content-Type': 'application/x-www-form-urlencoded',
         });
         expect(firstCallArgs.query).toEqual({
-          model: 'mrm8488-t5-base-finetuned-emotion',
         });
         expect(firstCallBody.get('text')).toEqual(text_data);
       });
@@ -306,7 +299,6 @@ describe('FromTextToText', () => {
           'Content-Type': 'application/x-www-form-urlencoded',
         });
         expect(firstCallArgs.query).toEqual({
-          model: 'mrm8488-t5-base-finetuned-emotion',
         });
         expect(firstCallBody.get('text')).toEqual(text_data);
       });
@@ -352,7 +344,6 @@ describe('FromTextToText', () => {
           'Content-Type': 'application/x-www-form-urlencoded',
         });
         expect(firstCallArgs.query).toEqual({
-          model: 'Hate-speech-CNERG-dehatebert-mono-english',
         });
         expect(firstCallBody.get('text')).toEqual(text_data);
       });
@@ -387,7 +378,6 @@ describe('FromTextToText', () => {
           'Content-Type': 'application/x-www-form-urlencoded',
         });
         expect(firstCallArgs.query).toEqual({
-          model: 'Hate-speech-CNERG-dehatebert-mono-english',
         });
         expect(firstCallBody.get('text')).toEqual(text_data);
       });
@@ -433,7 +423,6 @@ describe('FromTextToText', () => {
           'Content-Type': 'application/x-www-form-urlencoded',
         });
         expect(firstCallArgs.query).toEqual({
-          model: 'fast-gpt-j',
         });
         expect(firstCallBody.get('text')).toEqual(text_data);
       });
@@ -468,7 +457,6 @@ describe('FromTextToText', () => {
           'Content-Type': 'application/x-www-form-urlencoded',
         });
         expect(firstCallArgs.query).toEqual({
-          model: 'fast-gpt-j',
         });
         expect(firstCallBody.get('text')).toEqual(text_data);
       });
@@ -514,7 +502,6 @@ describe('FromTextToText', () => {
           'Content-Type': 'application/x-www-form-urlencoded',
         });
         expect(firstCallArgs.query).toEqual({
-          model: 'keybert-paraphrase-MiniLM-L6-v2',
         });
         expect(firstCallBody.get('text')).toEqual(text_data);
       });
@@ -549,7 +536,6 @@ describe('FromTextToText', () => {
           'Content-Type': 'application/x-www-form-urlencoded',
         });
         expect(firstCallArgs.query).toEqual({
-          model: 'keybert-paraphrase-MiniLM-L6-v2',
         });
         expect(firstCallBody.get('text')).toEqual(text_data);
       });
@@ -595,7 +581,6 @@ describe('FromTextToText', () => {
           'Content-Type': 'application/x-www-form-urlencoded',
         });
         expect(firstCallArgs.query).toEqual({
-          model: 'xlm-roberta-base-language-detection',
         });
         expect(firstCallBody.get('text')).toEqual(text_data);
       });
@@ -630,7 +615,6 @@ describe('FromTextToText', () => {
           'Content-Type': 'application/x-www-form-urlencoded',
         });
         expect(firstCallArgs.query).toEqual({
-          model: 'xlm-roberta-base-language-detection',
         });
         expect(firstCallBody.get('text')).toEqual(text_data);
       });
@@ -676,7 +660,6 @@ describe('FromTextToText', () => {
           'Content-Type': 'application/x-www-form-urlencoded',
         });
         expect(firstCallArgs.query).toEqual({
-          model: 'EleutherAI-gpt-neo-2_7B',
         });
         expect(firstCallBody.get('text')).toEqual(text_data);
       });
@@ -711,7 +694,6 @@ describe('FromTextToText', () => {
           'Content-Type': 'application/x-www-form-urlencoded',
         });
         expect(firstCallArgs.query).toEqual({
-          model: 'EleutherAI-gpt-neo-2_7B',
         });
         expect(firstCallBody.get('text')).toEqual(text_data);
       });
@@ -757,7 +739,6 @@ describe('FromTextToText', () => {
           'Content-Type': 'application/x-www-form-urlencoded',
         });
         expect(firstCallArgs.query).toEqual({
-          model: 'dbmdz-bert-large-cased-finetuned-conll03-english',
         });
         expect(firstCallBody.get('text')).toEqual(text_data);
       });
@@ -792,7 +773,6 @@ describe('FromTextToText', () => {
           'Content-Type': 'application/x-www-form-urlencoded',
         });
         expect(firstCallArgs.query).toEqual({
-          model: 'dbmdz-bert-large-cased-finetuned-conll03-english',
         });
         expect(firstCallBody.get('text')).toEqual(text_data);
       });
@@ -840,7 +820,6 @@ describe('FromTextToText', () => {
           'Content-Type': 'application/x-www-form-urlencoded',
         });
         expect(firstCallArgs.query).toEqual({
-          model: 'bert-base-uncased',
         });
         expect(firstCallBody.get('sentence_1')).toEqual(sentence_1_data);
         expect(firstCallBody.get('sentence_2')).toEqual(sentence_2_data);
@@ -881,7 +860,6 @@ describe('FromTextToText', () => {
           'Content-Type': 'application/x-www-form-urlencoded',
         });
         expect(firstCallArgs.query).toEqual({
-          model: 'bert-base-uncased',
         });
         expect(firstCallBody.get('sentence_1')).toEqual(sentence_1_data);
         expect(firstCallBody.get('sentence_2')).toEqual(sentence_2_data);
@@ -931,7 +909,6 @@ describe('FromTextToText', () => {
           'Content-Type': 'application/x-www-form-urlencoded',
         });
         expect(firstCallArgs.query).toEqual({
-          model: 'distilbert-base-uncased',
         });
         expect(firstCallBody.get('sentence')).toEqual(sentence_data);
       });
@@ -966,7 +943,6 @@ describe('FromTextToText', () => {
           'Content-Type': 'application/x-www-form-urlencoded',
         });
         expect(firstCallArgs.query).toEqual({
-          model: 'distilbert-base-uncased',
         });
         expect(firstCallBody.get('sentence')).toEqual(sentence_data);
       });
@@ -1014,7 +990,6 @@ describe('FromTextToText', () => {
           'Content-Type': 'application/x-www-form-urlencoded',
         });
         expect(firstCallArgs.query).toEqual({
-          model: 'inflect',
         });
         expect(firstCallBody.get('word')).toEqual(word_data);
         expect(firstCallBody.get('count')).toEqual(String(count_data));
@@ -1055,7 +1030,6 @@ describe('FromTextToText', () => {
           'Content-Type': 'application/x-www-form-urlencoded',
         });
         expect(firstCallArgs.query).toEqual({
-          model: 'inflect',
         });
         expect(firstCallBody.get('word')).toEqual(word_data);
         expect(firstCallBody.get('count')).toEqual(String(count_data));
@@ -1105,7 +1079,6 @@ describe('FromTextToText', () => {
           'Content-Type': 'application/x-www-form-urlencoded',
         });
         expect(firstCallArgs.query).toEqual({
-          model: 'sentdex-GPyT',
         });
         expect(firstCallBody.get('code_snippet')).toEqual(code_snippet_data);
       });
@@ -1140,7 +1113,6 @@ describe('FromTextToText', () => {
           'Content-Type': 'application/x-www-form-urlencoded',
         });
         expect(firstCallArgs.query).toEqual({
-          model: 'sentdex-GPyT',
         });
         expect(firstCallBody.get('code_snippet')).toEqual(code_snippet_data);
       });
@@ -1188,7 +1160,6 @@ describe('FromTextToText', () => {
           'Content-Type': 'application/x-www-form-urlencoded',
         });
         expect(firstCallArgs.query).toEqual({
-          model: 'deepset_bert-base-cased-squad2',
         });
         expect(firstCallBody.get('context')).toEqual(context_data);
         expect(firstCallBody.get('question')).toEqual(question_data);
@@ -1229,7 +1200,6 @@ describe('FromTextToText', () => {
           'Content-Type': 'application/x-www-form-urlencoded',
         });
         expect(firstCallArgs.query).toEqual({
-          model: 'deepset_bert-base-cased-squad2',
         });
         expect(firstCallBody.get('context')).toEqual(context_data);
         expect(firstCallBody.get('question')).toEqual(question_data);
@@ -1279,7 +1249,6 @@ describe('FromTextToText', () => {
           'Content-Type': 'application/x-www-form-urlencoded',
         });
         expect(firstCallArgs.query).toEqual({
-          model: 'ramsrigouthamg-t5-large-paraphraser-diverse-high-quality',
         });
         expect(firstCallBody.get('context')).toEqual(context_data);
       });
@@ -1314,7 +1283,6 @@ describe('FromTextToText', () => {
           'Content-Type': 'application/x-www-form-urlencoded',
         });
         expect(firstCallArgs.query).toEqual({
-          model: 'ramsrigouthamg-t5-large-paraphraser-diverse-high-quality',
         });
         expect(firstCallBody.get('context')).toEqual(context_data);
       });
@@ -1360,7 +1328,6 @@ describe('FromTextToText', () => {
           'Content-Type': 'application/x-www-form-urlencoded',
         });
         expect(firstCallArgs.query).toEqual({
-          model: 'nlptown-bert-base-multilingual-uncased-sentiment',
         });
         expect(firstCallBody.get('text')).toEqual(text_data);
       });
@@ -1395,7 +1362,6 @@ describe('FromTextToText', () => {
           'Content-Type': 'application/x-www-form-urlencoded',
         });
         expect(firstCallArgs.query).toEqual({
-          model: 'nlptown-bert-base-multilingual-uncased-sentiment',
         });
         expect(firstCallBody.get('text')).toEqual(text_data);
       });
@@ -1443,7 +1409,6 @@ describe('FromTextToText', () => {
           'Content-Type': 'application/x-www-form-urlencoded',
         });
         expect(firstCallArgs.query).toEqual({
-          model: 'all-MiniLM-L6-v2',
         });
         expect(firstCallBody.get('sentence_1')).toEqual(sentence_1_data);
         expect(firstCallBody.get('sentence_2')).toEqual(sentence_2_data);
@@ -1484,7 +1449,6 @@ describe('FromTextToText', () => {
           'Content-Type': 'application/x-www-form-urlencoded',
         });
         expect(firstCallArgs.query).toEqual({
-          model: 'all-MiniLM-L6-v2',
         });
         expect(firstCallBody.get('sentence_1')).toEqual(sentence_1_data);
         expect(firstCallBody.get('sentence_2')).toEqual(sentence_2_data);
@@ -1534,7 +1498,6 @@ describe('FromTextToText', () => {
           'Content-Type': 'application/x-www-form-urlencoded',
         });
         expect(firstCallArgs.query).toEqual({
-          model: 'bart-large-cnn',
         });
         expect(firstCallBody.get('text')).toEqual(text_data);
       });
@@ -1569,7 +1532,6 @@ describe('FromTextToText', () => {
           'Content-Type': 'application/x-www-form-urlencoded',
         });
         expect(firstCallArgs.query).toEqual({
-          model: 'bart-large-cnn',
         });
         expect(firstCallBody.get('text')).toEqual(text_data);
       });
@@ -1619,7 +1581,6 @@ describe('FromTextToText', () => {
           'Content-Type': 'application/x-www-form-urlencoded',
         });
         expect(firstCallArgs.query).toEqual({
-          model: 'nllb-200-3-3b',
         });
         expect(firstCallBody.get('text')).toEqual(text_data);
         expect(firstCallBody.get('source')).toEqual(source_data);
@@ -1666,7 +1627,6 @@ describe('FromTextToText', () => {
           'Content-Type': 'application/x-www-form-urlencoded',
         });
         expect(firstCallArgs.query).toEqual({
-          model: 'nllb-200-3-3b',
         });
         expect(firstCallBody.get('text')).toEqual(text_data);
         expect(firstCallBody.get('source')).toEqual(source_data);
@@ -1722,7 +1682,6 @@ describe('FromTextToText', () => {
           'Content-Type': 'application/x-www-form-urlencoded',
         });
         expect(firstCallArgs.query).toEqual({
-          model: 'bert-base-multilingual-cased',
         });
         expect(firstCallBody.get('input_string_language_1')).toEqual(input_string_language_1_data);
         expect(firstCallBody.get('input_string_language_2')).toEqual(input_string_language_2_data);
@@ -1763,7 +1722,6 @@ describe('FromTextToText', () => {
           'Content-Type': 'application/x-www-form-urlencoded',
         });
         expect(firstCallArgs.query).toEqual({
-          model: 'bert-base-multilingual-cased',
         });
         expect(firstCallBody.get('input_string_language_1')).toEqual(input_string_language_1_data);
         expect(firstCallBody.get('input_string_language_2')).toEqual(input_string_language_2_data);

@@ -8,7 +8,6 @@ import {
 } from './output-models';
 import {
   AUDIO_TEXT_AUDIO_TRANSCRIPTION_CONTENT_TYPE,
-  AUDIO_TEXT_AUDIO_TRANSCRIPTION_DEFAULT_MODEL,
 } from '../models';
 import { getHttpClient, HttpClient } from '../internal/http-client';
 import { isDefined } from '../utils/fp';
@@ -39,7 +38,7 @@ export class FromAudioToText {
         ...(args.headers ?? {}),
       },
       query: {
-        model: args.model ?? AUDIO_TEXT_AUDIO_TRANSCRIPTION_DEFAULT_MODEL,
+        ...(args.model ? {model: args.model} : {}),
       },
       body: formData,
     });

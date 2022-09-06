@@ -48,47 +48,26 @@ import {
 } from './output-models';
 import {
   TEXT_TEXT_AD_GENERATION_CONTENT_TYPE,
-  TEXT_TEXT_AD_GENERATION_DEFAULT_MODEL,
   TEXT_TEXT_ARTICLE_GENERATION_CONTENT_TYPE,
-  TEXT_TEXT_ARTICLE_GENERATION_DEFAULT_MODEL,
   TEXT_TEXT_AUTOCORRECT_CONTENT_TYPE,
-  TEXT_TEXT_AUTOCORRECT_DEFAULT_MODEL,
   TEXT_TEXT_EMOTION_RECOGNITION_CONTENT_TYPE,
-  TEXT_TEXT_EMOTION_RECOGNITION_DEFAULT_MODEL,
   TEXT_TEXT_HATE_SPEECH_DETECTION_CONTENT_TYPE,
-  TEXT_TEXT_HATE_SPEECH_DETECTION_DEFAULT_MODEL,
   TEXT_TEXT_INTENT_CLASSIFICATION_CONTENT_TYPE,
-  TEXT_TEXT_INTENT_CLASSIFICATION_DEFAULT_MODEL,
   TEXT_TEXT_KEYWORD_EXTRACTION_CONTENT_TYPE,
-  TEXT_TEXT_KEYWORD_EXTRACTION_DEFAULT_MODEL,
   TEXT_TEXT_LANGUAGE_DETECTION_CONTENT_TYPE,
-  TEXT_TEXT_LANGUAGE_DETECTION_DEFAULT_MODEL,
   TEXT_TEXT_LANGUAGE_GENERATION_CONTENT_TYPE,
-  TEXT_TEXT_LANGUAGE_GENERATION_DEFAULT_MODEL,
   TEXT_TEXT_NAMED_ENTITY_RECOGNITION_CONTENT_TYPE,
-  TEXT_TEXT_NAMED_ENTITY_RECOGNITION_DEFAULT_MODEL,
   TEXT_TEXT_NEXT_SENTENCE_PREDICTION_CONTENT_TYPE,
-  TEXT_TEXT_NEXT_SENTENCE_PREDICTION_DEFAULT_MODEL,
   TEXT_TEXT_NEXT_WORD_PREDICTION_CONTENT_TYPE,
-  TEXT_TEXT_NEXT_WORD_PREDICTION_DEFAULT_MODEL,
   TEXT_TEXT_PLURAL_CONTENT_TYPE,
-  TEXT_TEXT_PLURAL_DEFAULT_MODEL,
   TEXT_TEXT_PROGRAMMING_LANGUAGE_GENERATION_CONTENT_TYPE,
-  TEXT_TEXT_PROGRAMMING_LANGUAGE_GENERATION_DEFAULT_MODEL,
   TEXT_TEXT_QUESTION_ANSWERING_CONTENT_TYPE,
-  TEXT_TEXT_QUESTION_ANSWERING_DEFAULT_MODEL,
   TEXT_TEXT_SENTENCE_PARAPHRASER_CONTENT_TYPE,
-  TEXT_TEXT_SENTENCE_PARAPHRASER_DEFAULT_MODEL,
   TEXT_TEXT_SENTIMENT_ANALYSIS_CONTENT_TYPE,
-  TEXT_TEXT_SENTIMENT_ANALYSIS_DEFAULT_MODEL,
   TEXT_TEXT_SIMILARITY_CONTENT_TYPE,
-  TEXT_TEXT_SIMILARITY_DEFAULT_MODEL,
   TEXT_TEXT_SUMMARIZATION_CONTENT_TYPE,
-  TEXT_TEXT_SUMMARIZATION_DEFAULT_MODEL,
   TEXT_TEXT_TRANSLATION_CONTENT_TYPE,
-  TEXT_TEXT_TRANSLATION_DEFAULT_MODEL,
   TEXT_TEXT_WORD_ALIGNMENT_CONTENT_TYPE,
-  TEXT_TEXT_WORD_ALIGNMENT_DEFAULT_MODEL,
 } from '../models';
 import { getHttpClient, HttpClient } from '../internal/http-client';
 import { isDefined } from '../utils/fp';
@@ -114,7 +93,7 @@ export class FromTextToText {
         ...(args.headers ?? {}),
       },
       query: {
-        model: args.model ?? TEXT_TEXT_AD_GENERATION_DEFAULT_MODEL,
+        ...(args.model ? {model: args.model} : {}),
       },
       body: formData.toString(),
     });
@@ -132,7 +111,7 @@ export class FromTextToText {
         ...(args.headers ?? {}),
       },
       query: {
-        model: args.model ?? TEXT_TEXT_ARTICLE_GENERATION_DEFAULT_MODEL,
+        ...(args.model ? {model: args.model} : {}),
       },
       body: formData.toString(),
     });
@@ -148,7 +127,7 @@ export class FromTextToText {
         ...(args.headers ?? {}),
       },
       query: {
-        model: args.model ?? TEXT_TEXT_AUTOCORRECT_DEFAULT_MODEL,
+        ...(args.model ? {model: args.model} : {}),
       },
       body: formData.toString(),
     });
@@ -164,7 +143,7 @@ export class FromTextToText {
         ...(args.headers ?? {}),
       },
       query: {
-        model: args.model ?? TEXT_TEXT_EMOTION_RECOGNITION_DEFAULT_MODEL,
+        ...(args.model ? {model: args.model} : {}),
       },
       body: formData.toString(),
     });
@@ -180,7 +159,7 @@ export class FromTextToText {
         ...(args.headers ?? {}),
       },
       query: {
-        model: args.model ?? TEXT_TEXT_HATE_SPEECH_DETECTION_DEFAULT_MODEL,
+        ...(args.model ? {model: args.model} : {}),
       },
       body: formData.toString(),
     });
@@ -198,7 +177,7 @@ export class FromTextToText {
         ...(args.headers ?? {}),
       },
       query: {
-        model: args.model ?? TEXT_TEXT_INTENT_CLASSIFICATION_DEFAULT_MODEL,
+        ...(args.model ? {model: args.model} : {}),
       },
       body: formData.toString(),
     });
@@ -214,7 +193,7 @@ export class FromTextToText {
         ...(args.headers ?? {}),
       },
       query: {
-        model: args.model ?? TEXT_TEXT_KEYWORD_EXTRACTION_DEFAULT_MODEL,
+        ...(args.model ? {model: args.model} : {}),
       },
       body: formData.toString(),
     });
@@ -230,7 +209,7 @@ export class FromTextToText {
         ...(args.headers ?? {}),
       },
       query: {
-        model: args.model ?? TEXT_TEXT_LANGUAGE_DETECTION_DEFAULT_MODEL,
+        ...(args.model ? {model: args.model} : {}),
       },
       body: formData.toString(),
     });
@@ -246,7 +225,7 @@ export class FromTextToText {
         ...(args.headers ?? {}),
       },
       query: {
-        model: args.model ?? TEXT_TEXT_LANGUAGE_GENERATION_DEFAULT_MODEL,
+        ...(args.model ? {model: args.model} : {}),
       },
       body: formData.toString(),
     });
@@ -262,7 +241,7 @@ export class FromTextToText {
         ...(args.headers ?? {}),
       },
       query: {
-        model: args.model ?? TEXT_TEXT_NAMED_ENTITY_RECOGNITION_DEFAULT_MODEL,
+        ...(args.model ? {model: args.model} : {}),
       },
       body: formData.toString(),
     });
@@ -279,7 +258,7 @@ export class FromTextToText {
         ...(args.headers ?? {}),
       },
       query: {
-        model: args.model ?? TEXT_TEXT_NEXT_SENTENCE_PREDICTION_DEFAULT_MODEL,
+        ...(args.model ? {model: args.model} : {}),
       },
       body: formData.toString(),
     });
@@ -295,7 +274,7 @@ export class FromTextToText {
         ...(args.headers ?? {}),
       },
       query: {
-        model: args.model ?? TEXT_TEXT_NEXT_WORD_PREDICTION_DEFAULT_MODEL,
+        ...(args.model ? {model: args.model} : {}),
       },
       body: formData.toString(),
     });
@@ -314,7 +293,7 @@ export class FromTextToText {
         ...(args.headers ?? {}),
       },
       query: {
-        model: args.model ?? TEXT_TEXT_PLURAL_DEFAULT_MODEL,
+        ...(args.model ? {model: args.model} : {}),
       },
       body: formData.toString(),
     });
@@ -330,7 +309,7 @@ export class FromTextToText {
         ...(args.headers ?? {}),
       },
       query: {
-        model: args.model ?? TEXT_TEXT_PROGRAMMING_LANGUAGE_GENERATION_DEFAULT_MODEL,
+        ...(args.model ? {model: args.model} : {}),
       },
       body: formData.toString(),
     });
@@ -347,7 +326,7 @@ export class FromTextToText {
         ...(args.headers ?? {}),
       },
       query: {
-        model: args.model ?? TEXT_TEXT_QUESTION_ANSWERING_DEFAULT_MODEL,
+        ...(args.model ? {model: args.model} : {}),
       },
       body: formData.toString(),
     });
@@ -363,7 +342,7 @@ export class FromTextToText {
         ...(args.headers ?? {}),
       },
       query: {
-        model: args.model ?? TEXT_TEXT_SENTENCE_PARAPHRASER_DEFAULT_MODEL,
+        ...(args.model ? {model: args.model} : {}),
       },
       body: formData.toString(),
     });
@@ -379,7 +358,7 @@ export class FromTextToText {
         ...(args.headers ?? {}),
       },
       query: {
-        model: args.model ?? TEXT_TEXT_SENTIMENT_ANALYSIS_DEFAULT_MODEL,
+        ...(args.model ? {model: args.model} : {}),
       },
       body: formData.toString(),
     });
@@ -396,7 +375,7 @@ export class FromTextToText {
         ...(args.headers ?? {}),
       },
       query: {
-        model: args.model ?? TEXT_TEXT_SIMILARITY_DEFAULT_MODEL,
+        ...(args.model ? {model: args.model} : {}),
       },
       body: formData.toString(),
     });
@@ -414,7 +393,7 @@ export class FromTextToText {
         ...(args.headers ?? {}),
       },
       query: {
-        model: args.model ?? TEXT_TEXT_SUMMARIZATION_DEFAULT_MODEL,
+        ...(args.model ? {model: args.model} : {}),
       },
       body: formData.toString(),
     });
@@ -438,7 +417,7 @@ export class FromTextToText {
         ...(args.headers ?? {}),
       },
       query: {
-        model: args.model ?? TEXT_TEXT_TRANSLATION_DEFAULT_MODEL,
+        ...(args.model ? {model: args.model} : {}),
       },
       body: formData.toString(),
     });
@@ -455,7 +434,7 @@ export class FromTextToText {
         ...(args.headers ?? {}),
       },
       query: {
-        model: args.model ?? TEXT_TEXT_WORD_ALIGNMENT_DEFAULT_MODEL,
+        ...(args.model ? {model: args.model} : {}),
       },
       body: formData.toString(),
     });

@@ -4,7 +4,6 @@ export const AUDIO_TEXT_AUDIO_TRANSCRIPTION_MODELS = [
    'coqui_english_huge_vocab',
 ] as const;
 export const AUDIO_TEXT_AUDIO_TRANSCRIPTION_CONTENT_TYPE = "multipart/form-data" as const;
-export const AUDIO_TEXT_AUDIO_TRANSCRIPTION_DEFAULT_MODEL = "coqui_english_huge_vocab" as const;
 export type AudioTextAudioTranscriptionModel = typeof AUDIO_TEXT_AUDIO_TRANSCRIPTION_MODELS[number];
 
 export const IMAGE_IMAGE_BACKGROUND_REMOVAL_MODELS = [
@@ -12,7 +11,6 @@ export const IMAGE_IMAGE_BACKGROUND_REMOVAL_MODELS = [
    'xception',
 ] as const;
 export const IMAGE_IMAGE_BACKGROUND_REMOVAL_CONTENT_TYPE = "multipart/form-data" as const;
-export const IMAGE_IMAGE_BACKGROUND_REMOVAL_DEFAULT_MODEL = "xception" as const;
 export type ImageImageBackgroundRemovalModel = typeof IMAGE_IMAGE_BACKGROUND_REMOVAL_MODELS[number];
 
 export const IMAGE_IMAGE_COLORIZATION_MODELS = [
@@ -20,28 +18,24 @@ export const IMAGE_IMAGE_COLORIZATION_MODELS = [
    'deoldify-stable',
 ] as const;
 export const IMAGE_IMAGE_COLORIZATION_CONTENT_TYPE = "multipart/form-data" as const;
-export const IMAGE_IMAGE_COLORIZATION_DEFAULT_MODEL = "deoldify-stable" as const;
 export type ImageImageColorizationModel = typeof IMAGE_IMAGE_COLORIZATION_MODELS[number];
 
 export const IMAGE_IMAGE_FACE_BLURING_MODELS = [
    'ageitgey',
 ] as const;
 export const IMAGE_IMAGE_FACE_BLURING_CONTENT_TYPE = "multipart/form-data" as const;
-export const IMAGE_IMAGE_FACE_BLURING_DEFAULT_MODEL = "ageitgey" as const;
 export type ImageImageFaceBluringModel = typeof IMAGE_IMAGE_FACE_BLURING_MODELS[number];
 
 export const IMAGE_IMAGE_UNCOLORIZATION_MODELS = [
    'v1',
 ] as const;
 export const IMAGE_IMAGE_UNCOLORIZATION_CONTENT_TYPE = "multipart/form-data" as const;
-export const IMAGE_IMAGE_UNCOLORIZATION_DEFAULT_MODEL = "v1" as const;
 export type ImageImageUncolorizationModel = typeof IMAGE_IMAGE_UNCOLORIZATION_MODELS[number];
 
 export const IMAGE_TEXT_ASCIIFY_MODELS = [
    'ramesh-aditya',
 ] as const;
 export const IMAGE_TEXT_ASCIIFY_CONTENT_TYPE = "multipart/form-data" as const;
-export const IMAGE_TEXT_ASCIIFY_DEFAULT_MODEL = "ramesh-aditya" as const;
 export type ImageTextAsciifyModel = typeof IMAGE_TEXT_ASCIIFY_MODELS[number];
 
 export const IMAGE_TEXT_CLASSIFICATION_MODELS = [
@@ -165,7 +159,6 @@ export const IMAGE_TEXT_CLASSIFICATION_MODELS = [
    'wide_resnet101_2_v2',
 ] as const;
 export const IMAGE_TEXT_CLASSIFICATION_CONTENT_TYPE = "multipart/form-data" as const;
-export const IMAGE_TEXT_CLASSIFICATION_DEFAULT_MODEL = "alexnet" as const;
 export type ImageTextClassificationModel = typeof IMAGE_TEXT_CLASSIFICATION_MODELS[number];
 
 export const IMAGE_TEXT_OCR_MODELS = [
@@ -174,7 +167,6 @@ export const IMAGE_TEXT_OCR_MODELS = [
    'tesseract-denoising',
 ] as const;
 export const IMAGE_TEXT_OCR_CONTENT_TYPE = "multipart/form-data" as const;
-export const IMAGE_TEXT_OCR_DEFAULT_MODEL = "easy-ocr" as const;
 export type ImageTextOcrModel = typeof IMAGE_TEXT_OCR_MODELS[number];
 
 export const TEXT_IMAGE_IMAGE_GENERATION_MODELS = [
@@ -182,49 +174,42 @@ export const TEXT_IMAGE_IMAGE_GENERATION_MODELS = [
    'stable-diffusion',
 ] as const;
 export const TEXT_IMAGE_IMAGE_GENERATION_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
-export const TEXT_IMAGE_IMAGE_GENERATION_DEFAULT_MODEL = "stable-diffusion" as const;
 export type TextImageImageGenerationModel = typeof TEXT_IMAGE_IMAGE_GENERATION_MODELS[number];
 
 export const TEXT_TEXT_AD_GENERATION_MODELS = [
    'gpt-j',
 ] as const;
 export const TEXT_TEXT_AD_GENERATION_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
-export const TEXT_TEXT_AD_GENERATION_DEFAULT_MODEL = "gpt-j" as const;
 export type TextTextAdGenerationModel = typeof TEXT_TEXT_AD_GENERATION_MODELS[number];
 
 export const TEXT_TEXT_ARTICLE_GENERATION_MODELS = [
    'fast-gpt-j',
 ] as const;
 export const TEXT_TEXT_ARTICLE_GENERATION_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
-export const TEXT_TEXT_ARTICLE_GENERATION_DEFAULT_MODEL = "fast-gpt-j" as const;
 export type TextTextArticleGenerationModel = typeof TEXT_TEXT_ARTICLE_GENERATION_MODELS[number];
 
 export const TEXT_TEXT_AUTOCORRECT_MODELS = [
    'flexudy-t5-base-multi-sentence-doctor',
 ] as const;
 export const TEXT_TEXT_AUTOCORRECT_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
-export const TEXT_TEXT_AUTOCORRECT_DEFAULT_MODEL = "flexudy-t5-base-multi-sentence-doctor" as const;
 export type TextTextAutocorrectModel = typeof TEXT_TEXT_AUTOCORRECT_MODELS[number];
 
 export const TEXT_TEXT_EMOTION_RECOGNITION_MODELS = [
    'mrm8488-t5-base-finetuned-emotion',
 ] as const;
 export const TEXT_TEXT_EMOTION_RECOGNITION_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
-export const TEXT_TEXT_EMOTION_RECOGNITION_DEFAULT_MODEL = "mrm8488-t5-base-finetuned-emotion" as const;
 export type TextTextEmotionRecognitionModel = typeof TEXT_TEXT_EMOTION_RECOGNITION_MODELS[number];
 
 export const TEXT_TEXT_HATE_SPEECH_DETECTION_MODELS = [
    'Hate-speech-CNERG-dehatebert-mono-english',
 ] as const;
 export const TEXT_TEXT_HATE_SPEECH_DETECTION_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
-export const TEXT_TEXT_HATE_SPEECH_DETECTION_DEFAULT_MODEL = "Hate-speech-CNERG-dehatebert-mono-english" as const;
 export type TextTextHateSpeechDetectionModel = typeof TEXT_TEXT_HATE_SPEECH_DETECTION_MODELS[number];
 
 export const TEXT_TEXT_INTENT_CLASSIFICATION_MODELS = [
    'fast-gpt-j',
 ] as const;
 export const TEXT_TEXT_INTENT_CLASSIFICATION_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
-export const TEXT_TEXT_INTENT_CLASSIFICATION_DEFAULT_MODEL = "fast-gpt-j" as const;
 export type TextTextIntentClassificationModel = typeof TEXT_TEXT_INTENT_CLASSIFICATION_MODELS[number];
 
 export const TEXT_TEXT_KEYWORD_EXTRACTION_MODELS = [
@@ -232,7 +217,6 @@ export const TEXT_TEXT_KEYWORD_EXTRACTION_MODELS = [
    'keybert-paraphrase-multilingual-MiniLM-L12-v2',
 ] as const;
 export const TEXT_TEXT_KEYWORD_EXTRACTION_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
-export const TEXT_TEXT_KEYWORD_EXTRACTION_DEFAULT_MODEL = "keybert-paraphrase-MiniLM-L6-v2" as const;
 export type TextTextKeywordExtractionModel = typeof TEXT_TEXT_KEYWORD_EXTRACTION_MODELS[number];
 
 export const TEXT_TEXT_LANGUAGE_DETECTION_MODELS = [
@@ -240,28 +224,24 @@ export const TEXT_TEXT_LANGUAGE_DETECTION_MODELS = [
    'xlm-roberta-base-language-detection',
 ] as const;
 export const TEXT_TEXT_LANGUAGE_DETECTION_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
-export const TEXT_TEXT_LANGUAGE_DETECTION_DEFAULT_MODEL = "xlm-roberta-base-language-detection" as const;
 export type TextTextLanguageDetectionModel = typeof TEXT_TEXT_LANGUAGE_DETECTION_MODELS[number];
 
 export const TEXT_TEXT_LANGUAGE_GENERATION_MODELS = [
    'EleutherAI-gpt-neo-2_7B',
 ] as const;
 export const TEXT_TEXT_LANGUAGE_GENERATION_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
-export const TEXT_TEXT_LANGUAGE_GENERATION_DEFAULT_MODEL = "EleutherAI-gpt-neo-2_7B" as const;
 export type TextTextLanguageGenerationModel = typeof TEXT_TEXT_LANGUAGE_GENERATION_MODELS[number];
 
 export const TEXT_TEXT_NAMED_ENTITY_RECOGNITION_MODELS = [
    'dbmdz-bert-large-cased-finetuned-conll03-english',
 ] as const;
 export const TEXT_TEXT_NAMED_ENTITY_RECOGNITION_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
-export const TEXT_TEXT_NAMED_ENTITY_RECOGNITION_DEFAULT_MODEL = "dbmdz-bert-large-cased-finetuned-conll03-english" as const;
 export type TextTextNamedEntityRecognitionModel = typeof TEXT_TEXT_NAMED_ENTITY_RECOGNITION_MODELS[number];
 
 export const TEXT_TEXT_NEXT_SENTENCE_PREDICTION_MODELS = [
    'bert-base-uncased',
 ] as const;
 export const TEXT_TEXT_NEXT_SENTENCE_PREDICTION_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
-export const TEXT_TEXT_NEXT_SENTENCE_PREDICTION_DEFAULT_MODEL = "bert-base-uncased" as const;
 export type TextTextNextSentencePredictionModel = typeof TEXT_TEXT_NEXT_SENTENCE_PREDICTION_MODELS[number];
 
 export const TEXT_TEXT_NEXT_WORD_PREDICTION_MODELS = [
@@ -271,21 +251,18 @@ export const TEXT_TEXT_NEXT_WORD_PREDICTION_MODELS = [
    'roberta-base',
 ] as const;
 export const TEXT_TEXT_NEXT_WORD_PREDICTION_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
-export const TEXT_TEXT_NEXT_WORD_PREDICTION_DEFAULT_MODEL = "distilbert-base-uncased" as const;
 export type TextTextNextWordPredictionModel = typeof TEXT_TEXT_NEXT_WORD_PREDICTION_MODELS[number];
 
 export const TEXT_TEXT_PLURAL_MODELS = [
    'inflect',
 ] as const;
 export const TEXT_TEXT_PLURAL_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
-export const TEXT_TEXT_PLURAL_DEFAULT_MODEL = "inflect" as const;
 export type TextTextPluralModel = typeof TEXT_TEXT_PLURAL_MODELS[number];
 
 export const TEXT_TEXT_PROGRAMMING_LANGUAGE_GENERATION_MODELS = [
    'sentdex-GPyT',
 ] as const;
 export const TEXT_TEXT_PROGRAMMING_LANGUAGE_GENERATION_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
-export const TEXT_TEXT_PROGRAMMING_LANGUAGE_GENERATION_DEFAULT_MODEL = "sentdex-GPyT" as const;
 export type TextTextProgrammingLanguageGenerationModel = typeof TEXT_TEXT_PROGRAMMING_LANGUAGE_GENERATION_MODELS[number];
 
 export const TEXT_TEXT_QUESTION_ANSWERING_MODELS = [
@@ -296,14 +273,12 @@ export const TEXT_TEXT_QUESTION_ANSWERING_MODELS = [
    'mrm8488-bert-tiny-5-finetuned-squadv2',
 ] as const;
 export const TEXT_TEXT_QUESTION_ANSWERING_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
-export const TEXT_TEXT_QUESTION_ANSWERING_DEFAULT_MODEL = "deepset_bert-base-cased-squad2" as const;
 export type TextTextQuestionAnsweringModel = typeof TEXT_TEXT_QUESTION_ANSWERING_MODELS[number];
 
 export const TEXT_TEXT_SENTENCE_PARAPHRASER_MODELS = [
    'ramsrigouthamg-t5-large-paraphraser-diverse-high-quality',
 ] as const;
 export const TEXT_TEXT_SENTENCE_PARAPHRASER_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
-export const TEXT_TEXT_SENTENCE_PARAPHRASER_DEFAULT_MODEL = "ramsrigouthamg-t5-large-paraphraser-diverse-high-quality" as const;
 export type TextTextSentenceParaphraserModel = typeof TEXT_TEXT_SENTENCE_PARAPHRASER_MODELS[number];
 
 export const TEXT_TEXT_SENTIMENT_ANALYSIS_MODELS = [
@@ -313,33 +288,28 @@ export const TEXT_TEXT_SENTIMENT_ANALYSIS_MODELS = [
    'zero-shot-classification-facebook-bart-large-mnli',
 ] as const;
 export const TEXT_TEXT_SENTIMENT_ANALYSIS_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
-export const TEXT_TEXT_SENTIMENT_ANALYSIS_DEFAULT_MODEL = "nlptown-bert-base-multilingual-uncased-sentiment" as const;
 export type TextTextSentimentAnalysisModel = typeof TEXT_TEXT_SENTIMENT_ANALYSIS_MODELS[number];
 
 export const TEXT_TEXT_SIMILARITY_MODELS = [
    'all-MiniLM-L6-v2',
 ] as const;
 export const TEXT_TEXT_SIMILARITY_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
-export const TEXT_TEXT_SIMILARITY_DEFAULT_MODEL = "all-MiniLM-L6-v2" as const;
 export type TextTextSimilarityModel = typeof TEXT_TEXT_SIMILARITY_MODELS[number];
 
 export const TEXT_TEXT_SUMMARIZATION_MODELS = [
    'bart-large-cnn',
 ] as const;
 export const TEXT_TEXT_SUMMARIZATION_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
-export const TEXT_TEXT_SUMMARIZATION_DEFAULT_MODEL = "bart-large-cnn" as const;
 export type TextTextSummarizationModel = typeof TEXT_TEXT_SUMMARIZATION_MODELS[number];
 
 export const TEXT_TEXT_TRANSLATION_MODELS = [
    'nllb-200-3-3b',
 ] as const;
 export const TEXT_TEXT_TRANSLATION_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
-export const TEXT_TEXT_TRANSLATION_DEFAULT_MODEL = "nllb-200-3-3b" as const;
 export type TextTextTranslationModel = typeof TEXT_TEXT_TRANSLATION_MODELS[number];
 
 export const TEXT_TEXT_WORD_ALIGNMENT_MODELS = [
    'bert-base-multilingual-cased',
 ] as const;
 export const TEXT_TEXT_WORD_ALIGNMENT_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
-export const TEXT_TEXT_WORD_ALIGNMENT_DEFAULT_MODEL = "bert-base-multilingual-cased" as const;
 export type TextTextWordAlignmentModel = typeof TEXT_TEXT_WORD_ALIGNMENT_MODELS[number];

@@ -156,7 +156,7 @@ describe(getEndpoints.name, () => {
         outputType: 'image',
         taskName: 'background-removal',
         models: ['mobilenet', 'xception'],
-        defaultModel: 'xception',
+        defaultModel: 'mobilenet',
         inputBodyContentType: 'multipart/form-data',
         outputBodyContentType: {
           type: 'binary',

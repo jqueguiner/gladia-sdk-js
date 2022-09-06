@@ -35,7 +35,6 @@ describe('FromTextToImage', () => {
         });
         expect(firstCallArgs.responseType).toEqual('arraybuffer');
         expect(firstCallArgs.query).toEqual({
-          model: 'stable-diffusion',
         });
         expect(firstCallBody.get('prompt')).toEqual(prompt_data);
         expect(firstCallBody.get('samples')).toEqual(String(samples_data));
@@ -90,7 +89,6 @@ describe('FromTextToImage', () => {
         });
         expect(firstCallArgs.responseType).toEqual('arraybuffer');
         expect(firstCallArgs.query).toEqual({
-          model: 'stable-diffusion',
         });
         expect(firstCallBody.get('prompt')).toEqual(prompt_data);
         expect(firstCallBody.get('samples')).toEqual(String(samples_data));

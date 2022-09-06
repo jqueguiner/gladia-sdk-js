@@ -30,7 +30,6 @@ describe('FromImageToText', () => {
           'Content-Type': undefined,
         });
         expect(firstCallArgs.query).toEqual({
-          model: 'ramesh-aditya',
         });
         expect(firstCallBody.get('image')).toBeDefined();
         expect(firstCallBody.get('image_url')).toEqual(image_url_data);
@@ -71,7 +70,6 @@ describe('FromImageToText', () => {
           'Content-Type': undefined,
         });
         expect(firstCallArgs.query).toEqual({
-          model: 'ramesh-aditya',
         });
         expect(firstCallBody.get('image')).toBeDefined();
         expect(firstCallBody.get('image_url')).toEqual(image_url_data);
@@ -125,7 +123,6 @@ describe('FromImageToText', () => {
           'Content-Type': undefined,
         });
         expect(firstCallArgs.query).toEqual({
-          model: 'alexnet',
         });
         expect(firstCallBody.get('image')).toBeDefined();
         expect(firstCallBody.get('image_url')).toEqual(image_url_data);
@@ -172,7 +169,6 @@ describe('FromImageToText', () => {
           'Content-Type': undefined,
         });
         expect(firstCallArgs.query).toEqual({
-          model: 'alexnet',
         });
         expect(firstCallBody.get('image')).toBeDefined();
         expect(firstCallBody.get('image_url')).toEqual(image_url_data);
@@ -230,7 +226,6 @@ describe('FromImageToText', () => {
           'Content-Type': undefined,
         });
         expect(firstCallArgs.query).toEqual({
-          model: 'easy-ocr',
         });
         expect(firstCallBody.get('image')).toBeDefined();
         expect(firstCallBody.get('image_url')).toEqual(image_url_data);
@@ -244,7 +239,7 @@ describe('FromImageToText', () => {
           image: image_data,
           image_url: image_url_data,
           source_language: source_language_data,
-          model: 'tesseract-default' as any,
+          model: 'easy-ocr' as any,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -253,7 +248,7 @@ describe('FromImageToText', () => {
           'Content-Type': undefined,
         });
         expect(firstCallArgs.query).toEqual({
-          model: 'tesseract-default',
+          model: 'easy-ocr',
         });
         expect(firstCallBody.get('image')).toBeDefined();
         expect(firstCallBody.get('image_url')).toEqual(image_url_data);
@@ -277,7 +272,6 @@ describe('FromImageToText', () => {
           'Content-Type': undefined,
         });
         expect(firstCallArgs.query).toEqual({
-          model: 'easy-ocr',
         });
         expect(firstCallBody.get('image')).toBeDefined();
         expect(firstCallBody.get('image_url')).toEqual(image_url_data);
@@ -291,7 +285,7 @@ describe('FromImageToText', () => {
           image: image_data,
           image_url: image_url_data,
           source_language: source_language_data,
-          model: 'tesseract-default' as any,
+          model: 'easy-ocr' as any,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -300,7 +294,7 @@ describe('FromImageToText', () => {
           'Content-Type': undefined,
         });
         expect(firstCallArgs.query).toEqual({
-          model: 'tesseract-default',
+          model: 'easy-ocr',
         });
         expect(firstCallBody.get('image')).toBeDefined();
         expect(firstCallBody.get('image_url')).toEqual(image_url_data);

@@ -32,7 +32,6 @@ describe('FromAudioToText', () => {
           'Content-Type': undefined,
         });
         expect(firstCallArgs.query).toEqual({
-          model: 'coqui_english_huge_vocab',
         });
         expect(firstCallBody.get('audio')).toBeDefined();
         expect(firstCallBody.get('audio_url')).toEqual(audio_url_data);
@@ -79,7 +78,6 @@ describe('FromAudioToText', () => {
           'Content-Type': undefined,
         });
         expect(firstCallArgs.query).toEqual({
-          model: 'coqui_english_huge_vocab',
         });
         expect(firstCallBody.get('audio')).toBeDefined();
         expect(firstCallBody.get('audio_url')).toEqual(audio_url_data);

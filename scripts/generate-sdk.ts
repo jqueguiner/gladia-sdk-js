@@ -19,7 +19,6 @@ function generateModelsTs() {
   for (const endpoint of endpoints) {
     const typeName = meta.getModelTypeName(endpoint);
     const contentTypeName = meta.getContentTypeName(endpoint);
-    const defaultValueName = meta.getDefaultValueName(endpoint);
     const modelValuesName = meta.getModelValuesName(endpoint);
     fileContent.push(`export const ${modelValuesName} = [`);
     endpoint.models.map((model) => `   '${model}',`).forEach((model) => fileContent.push(model));
@@ -27,7 +26,6 @@ function generateModelsTs() {
     fileContent.push(
       `export const ${contentTypeName} = "${endpoint.inputBodyContentType}" as const;`,
     );
-    fileContent.push(`export const ${defaultValueName} = "${endpoint.defaultModel}" as const;`);
     fileContent.push(`export type ${typeName} = typeof ${modelValuesName}[number];`);
     fileContent.push('');
   }
@@ -129,7 +127,6 @@ function generateFromInputToOutputClasses() {
       fileContent.push(`import {`);
       for (const endpoint of outputTypeEndpoints) {
         fileContent.push(`  ${meta.getContentTypeName(endpoint)},`);
-        fileContent.push(`  ${meta.getDefaultValueName(endpoint)},`);
       }
       fileContent.push(`} from '../models';`);
       const importUrlFormData = outputTypeEndpoints.some(isEndpointNeedUrlFormData);
@@ -156,7 +153,6 @@ function generateFromInputToOutputClasses() {
         const methodName = meta.getMethodName(endpoint);
         const inputModelType = meta.getInputModelType(endpoint);
         const outputModelType = meta.getOutputModelType(endpoint);
-        const defaultModelName = meta.getDefaultValueName(endpoint);
         fileContent.push(`  ${methodName}(args: ${inputModelType}): Promise<${outputModelType}> {`);
         switch (inputType) {
           case 'text':
@@ -201,7 +197,7 @@ function generateFromInputToOutputClasses() {
               fileContent.push(`      },`);
             }
             fileContent.push(`      query: {`);
-            fileContent.push(`        model: args.model ?? ${defaultModelName},`);
+            fileContent.push(`        ...(args.model ? {model: args.model} : {}),`);
             for (const param of endpoint.params.filter((p) => p.in === 'query')) {
               const argValue =
                 param.type === 'integer' || param.type === 'float'
@@ -588,7 +584,9 @@ function generateTestAssertions(endpoint: meta.EndpointDef, specifyModel?: strin
     fileContent.push(`        expect(firstCallArgs.responseType).toEqual('arraybuffer');`);
   }
   fileContent.push(`        expect(firstCallArgs.query).toEqual({`);
-  fileContent.push(`          model: '${specifyModel ?? endpoint.defaultModel}',`);
+  if (specifyModel) {
+    fileContent.push(`          model: '${specifyModel}',`);
+  }
   for (const param of endpoint.params.filter((p) => p.in === 'query')) {
     fileContent.push(`          ${param.name}: ${param.name}_data,`);
   }

@@ -47,7 +47,7 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
       "mobilenet",
       "xception"
     ],
-    "defaultModel": "xception",
+    "defaultModel": "mobilenet",
     "inputBodyContentType": "multipart/form-data",
     "outputBodyContentType": {
       "type": "binary"
@@ -343,7 +343,7 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
       "tesseract-default",
       "tesseract-denoising"
     ],
-    "defaultModel": "easy-ocr",
+    "defaultModel": "tesseract-denoising",
     "inputBodyContentType": "multipart/form-data",
     "outputBodyContentType": {
       "type": "prediction-standard-output",
@@ -602,7 +602,7 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
     "models": [
       "EleutherAI-gpt-neo-2_7B"
     ],
-    "defaultModel": "EleutherAI-gpt-neo-2_7B",
+    "defaultModel": "bloom-560m",
     "inputBodyContentType": "application/x-www-form-urlencoded",
     "outputBodyContentType": {
       "type": "prediction-standard-output",

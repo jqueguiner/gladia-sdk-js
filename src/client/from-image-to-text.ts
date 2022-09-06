@@ -12,11 +12,8 @@ import {
 } from './output-models';
 import {
   IMAGE_TEXT_ASCIIFY_CONTENT_TYPE,
-  IMAGE_TEXT_ASCIIFY_DEFAULT_MODEL,
   IMAGE_TEXT_CLASSIFICATION_CONTENT_TYPE,
-  IMAGE_TEXT_CLASSIFICATION_DEFAULT_MODEL,
   IMAGE_TEXT_OCR_CONTENT_TYPE,
-  IMAGE_TEXT_OCR_DEFAULT_MODEL,
 } from '../models';
 import { getHttpClient, HttpClient } from '../internal/http-client';
 import { isDefined } from '../utils/fp';
@@ -44,7 +41,7 @@ export class FromImageToText {
         ...(args.headers ?? {}),
       },
       query: {
-        model: args.model ?? IMAGE_TEXT_ASCIIFY_DEFAULT_MODEL,
+        ...(args.model ? {model: args.model} : {}),
       },
       body: formData,
     });
@@ -68,7 +65,7 @@ export class FromImageToText {
         ...(args.headers ?? {}),
       },
       query: {
-        model: args.model ?? IMAGE_TEXT_CLASSIFICATION_DEFAULT_MODEL,
+        ...(args.model ? {model: args.model} : {}),
       },
       body: formData,
     });
@@ -92,7 +89,7 @@ export class FromImageToText {
         ...(args.headers ?? {}),
       },
       query: {
-        model: args.model ?? IMAGE_TEXT_OCR_DEFAULT_MODEL,
+        ...(args.model ? {model: args.model} : {}),
       },
       body: formData,
     });
