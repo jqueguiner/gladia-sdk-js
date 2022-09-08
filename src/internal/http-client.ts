@@ -52,7 +52,10 @@ const AxiosHttpClient: HttpClientFactory = ({
       const url = `${baseUrl}${params.url}${searchQueryParamSerializer(params.query)}`;
       const responseType = params.responseType ?? 'json';
       const timeout = httpClientTimeout ?? 300_000;
-      const adapter = useFetch ? { adapter: await axiosFetchAdapter() } : {};
+      // TODO rewrite the fetch implementation (with a dedicated http client that does not use axios at all?)
+      // disabled for now because of IE compatibility
+      // const adapter = useFetch ? { adapter: await axiosFetchAdapter() } : {};
+      const adapter = {};
       return axios
         .post(url, params.body, { headers, responseType, ...adapter, timeout })
         .then((response) => response.data);

@@ -2,8 +2,8 @@ const path = require('path');
 
 function baseConfig({ devtool, filename }) {
   return {
-    entry: './src/index.ts',
-    target: 'web',
+    entry: './src/polyfill.ts',
+    target: ['web', 'es5'],
     module: {
       rules: [
         {
@@ -27,7 +27,7 @@ function baseConfig({ devtool, filename }) {
     output: {
       path: path.resolve(__dirname, 'lib'),
       filename,
-      globalObject: 'this',
+      globalObject: 'window',
       library: {
         name: 'gladiaio_sdk',
         type: 'umd',
