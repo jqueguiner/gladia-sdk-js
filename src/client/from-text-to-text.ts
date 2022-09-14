@@ -4,8 +4,10 @@ import {
   TextTextAdGenerationInputs,
   TextTextArticleGenerationInputs,
   TextTextAutocorrectInputs,
+  TextTextBulletPointGenerationInputs,
   TextTextEmotionRecognitionInputs,
   TextTextHateSpeechDetectionInputs,
+  TextTextHeadlineGenerationInputs,
   TextTextIntentClassificationInputs,
   TextTextKeywordExtractionInputs,
   TextTextLanguageDetectionInputs,
@@ -27,8 +29,10 @@ import {
   TextTextAdGenerationOutputs,
   TextTextArticleGenerationOutputs,
   TextTextAutocorrectOutputs,
+  TextTextBulletPointGenerationOutputs,
   TextTextEmotionRecognitionOutputs,
   TextTextHateSpeechDetectionOutputs,
+  TextTextHeadlineGenerationOutputs,
   TextTextIntentClassificationOutputs,
   TextTextKeywordExtractionOutputs,
   TextTextLanguageDetectionOutputs,
@@ -50,8 +54,10 @@ import {
   TEXT_TEXT_AD_GENERATION_CONTENT_TYPE,
   TEXT_TEXT_ARTICLE_GENERATION_CONTENT_TYPE,
   TEXT_TEXT_AUTOCORRECT_CONTENT_TYPE,
+  TEXT_TEXT_BULLET_POINT_GENERATION_CONTENT_TYPE,
   TEXT_TEXT_EMOTION_RECOGNITION_CONTENT_TYPE,
   TEXT_TEXT_HATE_SPEECH_DETECTION_CONTENT_TYPE,
+  TEXT_TEXT_HEADLINE_GENERATION_CONTENT_TYPE,
   TEXT_TEXT_INTENT_CLASSIFICATION_CONTENT_TYPE,
   TEXT_TEXT_KEYWORD_EXTRACTION_CONTENT_TYPE,
   TEXT_TEXT_LANGUAGE_DETECTION_CONTENT_TYPE,
@@ -133,6 +139,24 @@ export class FromTextToText {
     });
   }
 
+  bulletPointGeneration(args: TextTextBulletPointGenerationInputs): Promise<TextTextBulletPointGenerationOutputs> {
+    const formData = new UrlFormData();
+    if (isDefined(args.text)) {
+      formData.append('text', args.text);
+    }
+    return this.httpClient.post({
+      url: '/text/text/bullet-point-generation/',
+      headers: {
+        'Content-Type': TEXT_TEXT_BULLET_POINT_GENERATION_CONTENT_TYPE,
+        ...(args.headers ?? {}),
+      },
+      query: {
+        ...(args.model ? {model: args.model} : {}),
+      },
+      body: formData.toString(),
+    });
+  }
+
   emotionRecognition(args: TextTextEmotionRecognitionInputs): Promise<TextTextEmotionRecognitionOutputs> {
     const formData = new UrlFormData();
     formData.append('text', args.text);
@@ -165,6 +189,24 @@ export class FromTextToText {
     });
   }
 
+  headlineGeneration(args: TextTextHeadlineGenerationInputs): Promise<TextTextHeadlineGenerationOutputs> {
+    const formData = new UrlFormData();
+    if (isDefined(args.text)) {
+      formData.append('text', args.text);
+    }
+    return this.httpClient.post({
+      url: '/text/text/headline-generation/',
+      headers: {
+        'Content-Type': TEXT_TEXT_HEADLINE_GENERATION_CONTENT_TYPE,
+        ...(args.headers ?? {}),
+      },
+      query: {
+        ...(args.model ? {model: args.model} : {}),
+      },
+      body: formData.toString(),
+    });
+  }
+
   intentClassification(args: TextTextIntentClassificationInputs): Promise<TextTextIntentClassificationOutputs> {
     const formData = new UrlFormData();
     if (isDefined(args.text)) {
@@ -186,6 +228,9 @@ export class FromTextToText {
   keywordExtraction(args: TextTextKeywordExtractionInputs): Promise<TextTextKeywordExtractionOutputs> {
     const formData = new UrlFormData();
     formData.append('text', args.text);
+    if (isDefined(args.top_k)) {
+      formData.append('top_k', String(args.top_k));
+    }
     return this.httpClient.post({
       url: '/text/text/keyword-extraction/',
       headers: {
@@ -267,6 +312,9 @@ export class FromTextToText {
   nextWordPrediction(args: TextTextNextWordPredictionInputs): Promise<TextTextNextWordPredictionOutputs> {
     const formData = new UrlFormData();
     formData.append('sentence', args.sentence);
+    if (isDefined(args.top_k)) {
+      formData.append('top_k', String(args.top_k));
+    }
     return this.httpClient.post({
       url: '/text/text/next-word-prediction/',
       headers: {
@@ -319,6 +367,9 @@ export class FromTextToText {
     const formData = new UrlFormData();
     formData.append('context', args.context);
     formData.append('question', args.question);
+    if (isDefined(args.top_k)) {
+      formData.append('top_k', String(args.top_k));
+    }
     return this.httpClient.post({
       url: '/text/text/question-answering/',
       headers: {

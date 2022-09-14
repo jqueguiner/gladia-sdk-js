@@ -6,7 +6,11 @@ export type AudioTextAudioTranscriptionOutputs = {
 };
 export type ImageImageBackgroundRemovalOutputs = ArrayBuffer;
 export type ImageImageColorizationOutputs = ArrayBuffer;
+export type ImageImageDeblurringOutputs = ArrayBuffer;
 export type ImageImageFaceBluringOutputs = ArrayBuffer;
+export type ImageImageGuidedInpaintingOutputs = ArrayBuffer;
+export type ImageImageInpaintingOutputs = ArrayBuffer;
+export type ImageImageSuperResolutionOutputs = ArrayBuffer;
 export type ImageImageUncolorizationOutputs = ArrayBuffer;
 export type ImageTextAsciifyOutputs = {
   prediction: string,
@@ -27,6 +31,7 @@ export type TextTextAutocorrectOutputs = {
   prediction: string,
   prediction_raw: any,
 };
+export type TextTextBulletPointGenerationOutputs = Record<string, string | number | boolean>;
 export type TextTextEmotionRecognitionOutputs = {
   prediction: string,
   prediction_raw: any,
@@ -35,6 +40,7 @@ export type TextTextHateSpeechDetectionOutputs = {
   prediction: string,
   prediction_raw: any,
 };
+export type TextTextHeadlineGenerationOutputs = Record<string, string | number | boolean>;
 export type TextTextIntentClassificationOutputs = Record<string, string | number | boolean>;
 export type TextTextKeywordExtractionOutputs = {
   prediction: string,

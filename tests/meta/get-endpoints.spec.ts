@@ -6,32 +6,36 @@ describe(getEndpoints.name, () => {
     it('should have no undefined values', () => {
       expect(getEndpoints().every(isDefined)).toBeTruthy();
     });
-    it('should have valid params for every endpoints', () => {
+    describe('should have valid params for every endpoints', () => {
       for (const endpoint of getEndpoints()) {
-        expect(endpoint.params).toBeDefined();
-        expect(endpoint.params).not.toHaveLength(0);
-        for (const param of endpoint.params) {
-          expect(param).toBeDefined();
-          expect(['query', 'formData'].includes(param.in)).toBeTruthy();
-          expect(param.type).toBeDefined();
-          expect(param.type).not.toHaveLength(0);
-          expect(typeof param.type).toEqual('string');
-          expect(param.name).toBeDefined();
-          expect(param.name).not.toHaveLength(0);
-          expect(param.required).toBeDefined();
-          expect(typeof param.required).toEqual('boolean');
-        }
+        it(`for task ${endpoint.taskName}`, () => {
+          expect(endpoint.params).toBeDefined();
+          expect(endpoint.params).not.toHaveLength(0);
+          for (const param of endpoint.params) {
+            expect(param).toBeDefined();
+            expect(['query', 'formData'].includes(param.in)).toBeTruthy();
+            expect(param.type).toBeDefined();
+            expect(param.type).not.toHaveLength(0);
+            expect(typeof param.type).toEqual('string');
+            expect(param.name).toBeDefined();
+            expect(param.name).not.toHaveLength(0);
+            expect(param.required).toBeDefined();
+            expect(typeof param.required).toEqual('boolean');
+          }
+        });
       }
     });
-    it('should have valid outputBodyContentType for every endpoints', () => {
+    describe('should have valid outputBodyContentType for every endpoints', () => {
       for (const endpoint of getEndpoints()) {
-        expect(endpoint.outputBodyContentType).toBeDefined();
-        expect(endpoint.outputBodyContentType.type).toBeDefined();
-        expect(endpoint.outputBodyContentType.type).not.toHaveLength(0);
-        if (endpoint.outputBodyContentType.type === 'prediction-standard-output') {
-          expect(endpoint.outputBodyContentType.predictionType).toBeDefined();
-          expect(endpoint.outputBodyContentType.predictionType).not.toHaveLength(0);
-        }
+        it(`for task ${endpoint.taskName}`, () => {
+          expect(endpoint.outputBodyContentType).toBeDefined();
+          expect(endpoint.outputBodyContentType.type).toBeDefined();
+          expect(endpoint.outputBodyContentType.type).not.toHaveLength(0);
+          if (endpoint.outputBodyContentType.type === 'prediction-standard-output') {
+            expect(endpoint.outputBodyContentType.predictionType).toBeDefined();
+            expect(endpoint.outputBodyContentType.predictionType).not.toHaveLength(0);
+          }
+        });
       }
     });
     fieldSurfaceCheck({ field: 'defaultModel', type: 'string' });
@@ -40,28 +44,33 @@ describe(getEndpoints.name, () => {
     fieldSurfaceCheck({ field: 'outputType', type: 'string' });
     fieldSurfaceCheck({ field: 'taskName', type: 'string' });
     fieldSurfaceCheck({ field: 'url', type: 'string' });
-    fieldSurfaceCheck({ field: 'models', type: 'string_array' });
+    fieldSurfaceCheck({ field: 'models', type: 'string_array', exception: ['super-resolution'] });
     type FieldSurfaceCheck = {
       field: keyof Omit<EndpointDef, 'outputBodyContentType'>;
       type: 'string_array' | 'string';
+      exception?: string[];
     };
-    function fieldSurfaceCheck({ field, type }: FieldSurfaceCheck) {
-      it(`should find a ${field} for every endpoints`, () => {
+    function fieldSurfaceCheck({ field, type, exception = [] }: FieldSurfaceCheck) {
+      describe(`should find a ${field} for every endpoints`, () => {
         for (const endpoint of getEndpoints()) {
-          expect(endpoint[field]).toBeDefined();
-          expect(endpoint[field]).not.toHaveLength(0);
-          switch (type) {
-            case 'string':
-              expect(typeof endpoint[field]).toBe(type);
-              break;
-            case 'string_array':
-              expect(typeof endpoint[field]).toBe('object');
-              for (const value of endpoint[field]) {
-                expect(value).toBeDefined();
-                expect(value).not.toHaveLength(0);
+          it(`for task ${endpoint.taskName}`, () => {
+            expect(endpoint[field]).toBeDefined();
+            if (!exception.includes(endpoint.taskName)) {
+              expect(endpoint[field]).not.toHaveLength(0);
+              switch (type) {
+                case 'string':
+                  expect(typeof endpoint[field]).toBe(type);
+                  break;
+                case 'string_array':
+                  expect(typeof endpoint[field]).toBe('object');
+                  for (const value of endpoint[field]) {
+                    expect(value).toBeDefined();
+                    expect(value).not.toHaveLength(0);
+                  }
+                  break;
               }
-              break;
-          }
+            }
+          });
         }
       });
     }

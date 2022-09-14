@@ -243,6 +243,85 @@ describe('FromTextToText', () => {
     });
   });
 
+  describe('bulletPointGeneration', () => {
+    let gladiaClient: GladiaClient;
+    let httpClientMock: HttpClient;
+
+    beforeEach(() => {
+      gladiaClient = gladia({ apiKey: 'API-KEY', customHttpClient: mockHttpClient() });
+      httpClientMock = gladiaClient.fromText().toText()['httpClient'];
+    });
+
+    describe('full path', () => {
+      it('should call the api with the text and the default model by default', async () => {
+        const text_data = getRandomText();
+        const result = await gladiaClient.fromText().toText().bulletPointGeneration({
+          text: text_data,
+        });
+        const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
+        expect(postMock).toHaveBeenCalledTimes(1);
+        expect(firstCallArgs.url).toEqual('/text/text/bullet-point-generation/');
+        expect(firstCallArgs.headers).toEqual({
+          'Content-Type': 'application/x-www-form-urlencoded',
+        });
+        expect(firstCallArgs.query).toEqual({
+        });
+        expect(firstCallBody.get('text')).toEqual(text_data);
+      });
+      it('should call the api with the text and the specified model', async () => {
+        const text_data = getRandomText();
+        const result = await gladiaClient.fromText().toText().bulletPointGeneration({
+          text: text_data,
+          model: 'fake-model-name' as any,
+        });
+        const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
+        expect(postMock).toHaveBeenCalledTimes(1);
+        expect(firstCallArgs.url).toEqual('/text/text/bullet-point-generation/');
+        expect(firstCallArgs.headers).toEqual({
+          'Content-Type': 'application/x-www-form-urlencoded',
+        });
+        expect(firstCallArgs.query).toEqual({
+          model: 'fake-model-name',
+        });
+        expect(firstCallBody.get('text')).toEqual(text_data);
+      });
+    });
+    describe('shortcuts', () => {
+      it('should call the api with the text and the default model by default', async () => {
+        const text_data = getRandomText();
+        const result = await gladiaClient.bulletPointGeneration({
+          text: text_data,
+        });
+        const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
+        expect(postMock).toHaveBeenCalledTimes(1);
+        expect(firstCallArgs.url).toEqual('/text/text/bullet-point-generation/');
+        expect(firstCallArgs.headers).toEqual({
+          'Content-Type': 'application/x-www-form-urlencoded',
+        });
+        expect(firstCallArgs.query).toEqual({
+        });
+        expect(firstCallBody.get('text')).toEqual(text_data);
+      });
+      it('should call the api with the text and the specified model', async () => {
+        const text_data = getRandomText();
+        const result = await gladiaClient.bulletPointGeneration({
+          text: text_data,
+          model: 'fake-model-name' as any,
+        });
+        const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
+        expect(postMock).toHaveBeenCalledTimes(1);
+        expect(firstCallArgs.url).toEqual('/text/text/bullet-point-generation/');
+        expect(firstCallArgs.headers).toEqual({
+          'Content-Type': 'application/x-www-form-urlencoded',
+        });
+        expect(firstCallArgs.query).toEqual({
+          model: 'fake-model-name',
+        });
+        expect(firstCallBody.get('text')).toEqual(text_data);
+      });
+    });
+  });
+
   describe('emotionRecognition', () => {
     let gladiaClient: GladiaClient;
     let httpClientMock: HttpClient;
@@ -351,7 +430,7 @@ describe('FromTextToText', () => {
         const text_data = getRandomText();
         const result = await gladiaClient.fromText().toText().hateSpeechDetection({
           text: text_data,
-          model: 'fake-model-name' as any,
+          model: 'Hate-speech-CNERG-dehatebert-mono-english' as any,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -360,7 +439,7 @@ describe('FromTextToText', () => {
           'Content-Type': 'application/x-www-form-urlencoded',
         });
         expect(firstCallArgs.query).toEqual({
-          model: 'fake-model-name',
+          model: 'Hate-speech-CNERG-dehatebert-mono-english',
         });
         expect(firstCallBody.get('text')).toEqual(text_data);
       });
@@ -385,11 +464,90 @@ describe('FromTextToText', () => {
         const text_data = getRandomText();
         const result = await gladiaClient.hateSpeechDetection({
           text: text_data,
-          model: 'fake-model-name' as any,
+          model: 'Hate-speech-CNERG-dehatebert-mono-english' as any,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
         expect(firstCallArgs.url).toEqual('/text/text/hate-speech-detection/');
+        expect(firstCallArgs.headers).toEqual({
+          'Content-Type': 'application/x-www-form-urlencoded',
+        });
+        expect(firstCallArgs.query).toEqual({
+          model: 'Hate-speech-CNERG-dehatebert-mono-english',
+        });
+        expect(firstCallBody.get('text')).toEqual(text_data);
+      });
+    });
+  });
+
+  describe('headlineGeneration', () => {
+    let gladiaClient: GladiaClient;
+    let httpClientMock: HttpClient;
+
+    beforeEach(() => {
+      gladiaClient = gladia({ apiKey: 'API-KEY', customHttpClient: mockHttpClient() });
+      httpClientMock = gladiaClient.fromText().toText()['httpClient'];
+    });
+
+    describe('full path', () => {
+      it('should call the api with the text and the default model by default', async () => {
+        const text_data = getRandomText();
+        const result = await gladiaClient.fromText().toText().headlineGeneration({
+          text: text_data,
+        });
+        const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
+        expect(postMock).toHaveBeenCalledTimes(1);
+        expect(firstCallArgs.url).toEqual('/text/text/headline-generation/');
+        expect(firstCallArgs.headers).toEqual({
+          'Content-Type': 'application/x-www-form-urlencoded',
+        });
+        expect(firstCallArgs.query).toEqual({
+        });
+        expect(firstCallBody.get('text')).toEqual(text_data);
+      });
+      it('should call the api with the text and the specified model', async () => {
+        const text_data = getRandomText();
+        const result = await gladiaClient.fromText().toText().headlineGeneration({
+          text: text_data,
+          model: 'fake-model-name' as any,
+        });
+        const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
+        expect(postMock).toHaveBeenCalledTimes(1);
+        expect(firstCallArgs.url).toEqual('/text/text/headline-generation/');
+        expect(firstCallArgs.headers).toEqual({
+          'Content-Type': 'application/x-www-form-urlencoded',
+        });
+        expect(firstCallArgs.query).toEqual({
+          model: 'fake-model-name',
+        });
+        expect(firstCallBody.get('text')).toEqual(text_data);
+      });
+    });
+    describe('shortcuts', () => {
+      it('should call the api with the text and the default model by default', async () => {
+        const text_data = getRandomText();
+        const result = await gladiaClient.headlineGeneration({
+          text: text_data,
+        });
+        const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
+        expect(postMock).toHaveBeenCalledTimes(1);
+        expect(firstCallArgs.url).toEqual('/text/text/headline-generation/');
+        expect(firstCallArgs.headers).toEqual({
+          'Content-Type': 'application/x-www-form-urlencoded',
+        });
+        expect(firstCallArgs.query).toEqual({
+        });
+        expect(firstCallBody.get('text')).toEqual(text_data);
+      });
+      it('should call the api with the text and the specified model', async () => {
+        const text_data = getRandomText();
+        const result = await gladiaClient.headlineGeneration({
+          text: text_data,
+          model: 'fake-model-name' as any,
+        });
+        const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
+        expect(postMock).toHaveBeenCalledTimes(1);
+        expect(firstCallArgs.url).toEqual('/text/text/headline-generation/');
         expect(firstCallArgs.headers).toEqual({
           'Content-Type': 'application/x-www-form-urlencoded',
         });
@@ -492,8 +650,10 @@ describe('FromTextToText', () => {
     describe('full path', () => {
       it('should call the api with the text and the default model by default', async () => {
         const text_data = getRandomText();
+        const top_k_data = getRandomInt();
         const result = await gladiaClient.fromText().toText().keywordExtraction({
           text: text_data,
+          top_k: top_k_data,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -504,11 +664,14 @@ describe('FromTextToText', () => {
         expect(firstCallArgs.query).toEqual({
         });
         expect(firstCallBody.get('text')).toEqual(text_data);
+        expect(firstCallBody.get('top_k')).toEqual(String(top_k_data));
       });
       it('should call the api with the text and the specified model', async () => {
         const text_data = getRandomText();
+        const top_k_data = getRandomInt();
         const result = await gladiaClient.fromText().toText().keywordExtraction({
           text: text_data,
+          top_k: top_k_data,
           model: 'keybert-paraphrase-multilingual-MiniLM-L12-v2' as any,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
@@ -521,13 +684,16 @@ describe('FromTextToText', () => {
           model: 'keybert-paraphrase-multilingual-MiniLM-L12-v2',
         });
         expect(firstCallBody.get('text')).toEqual(text_data);
+        expect(firstCallBody.get('top_k')).toEqual(String(top_k_data));
       });
     });
     describe('shortcuts', () => {
       it('should call the api with the text and the default model by default', async () => {
         const text_data = getRandomText();
+        const top_k_data = getRandomInt();
         const result = await gladiaClient.keywordExtraction({
           text: text_data,
+          top_k: top_k_data,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -538,11 +704,14 @@ describe('FromTextToText', () => {
         expect(firstCallArgs.query).toEqual({
         });
         expect(firstCallBody.get('text')).toEqual(text_data);
+        expect(firstCallBody.get('top_k')).toEqual(String(top_k_data));
       });
       it('should call the api with the text and the specified model', async () => {
         const text_data = getRandomText();
+        const top_k_data = getRandomInt();
         const result = await gladiaClient.keywordExtraction({
           text: text_data,
+          top_k: top_k_data,
           model: 'keybert-paraphrase-multilingual-MiniLM-L12-v2' as any,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
@@ -555,6 +724,7 @@ describe('FromTextToText', () => {
           model: 'keybert-paraphrase-multilingual-MiniLM-L12-v2',
         });
         expect(firstCallBody.get('text')).toEqual(text_data);
+        expect(firstCallBody.get('top_k')).toEqual(String(top_k_data));
       });
     });
   });
@@ -667,7 +837,7 @@ describe('FromTextToText', () => {
         const text_data = getRandomText();
         const result = await gladiaClient.fromText().toText().languageGeneration({
           text: text_data,
-          model: 'fake-model-name' as any,
+          model: 'EleutherAI-gpt-neo-2_7B' as any,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -676,7 +846,7 @@ describe('FromTextToText', () => {
           'Content-Type': 'application/x-www-form-urlencoded',
         });
         expect(firstCallArgs.query).toEqual({
-          model: 'fake-model-name',
+          model: 'EleutherAI-gpt-neo-2_7B',
         });
         expect(firstCallBody.get('text')).toEqual(text_data);
       });
@@ -701,7 +871,7 @@ describe('FromTextToText', () => {
         const text_data = getRandomText();
         const result = await gladiaClient.languageGeneration({
           text: text_data,
-          model: 'fake-model-name' as any,
+          model: 'EleutherAI-gpt-neo-2_7B' as any,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -710,7 +880,7 @@ describe('FromTextToText', () => {
           'Content-Type': 'application/x-www-form-urlencoded',
         });
         expect(firstCallArgs.query).toEqual({
-          model: 'fake-model-name',
+          model: 'EleutherAI-gpt-neo-2_7B',
         });
         expect(firstCallBody.get('text')).toEqual(text_data);
       });
@@ -899,8 +1069,10 @@ describe('FromTextToText', () => {
     describe('full path', () => {
       it('should call the api with the text and the default model by default', async () => {
         const sentence_data = getRandomText();
+        const top_k_data = getRandomInt();
         const result = await gladiaClient.fromText().toText().nextWordPrediction({
           sentence: sentence_data,
+          top_k: top_k_data,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -911,11 +1083,14 @@ describe('FromTextToText', () => {
         expect(firstCallArgs.query).toEqual({
         });
         expect(firstCallBody.get('sentence')).toEqual(sentence_data);
+        expect(firstCallBody.get('top_k')).toEqual(String(top_k_data));
       });
       it('should call the api with the text and the specified model', async () => {
         const sentence_data = getRandomText();
+        const top_k_data = getRandomInt();
         const result = await gladiaClient.fromText().toText().nextWordPrediction({
           sentence: sentence_data,
+          top_k: top_k_data,
           model: 'albert-base-v2' as any,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
@@ -928,13 +1103,16 @@ describe('FromTextToText', () => {
           model: 'albert-base-v2',
         });
         expect(firstCallBody.get('sentence')).toEqual(sentence_data);
+        expect(firstCallBody.get('top_k')).toEqual(String(top_k_data));
       });
     });
     describe('shortcuts', () => {
       it('should call the api with the text and the default model by default', async () => {
         const sentence_data = getRandomText();
+        const top_k_data = getRandomInt();
         const result = await gladiaClient.nextWordPrediction({
           sentence: sentence_data,
+          top_k: top_k_data,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -945,11 +1123,14 @@ describe('FromTextToText', () => {
         expect(firstCallArgs.query).toEqual({
         });
         expect(firstCallBody.get('sentence')).toEqual(sentence_data);
+        expect(firstCallBody.get('top_k')).toEqual(String(top_k_data));
       });
       it('should call the api with the text and the specified model', async () => {
         const sentence_data = getRandomText();
+        const top_k_data = getRandomInt();
         const result = await gladiaClient.nextWordPrediction({
           sentence: sentence_data,
+          top_k: top_k_data,
           model: 'albert-base-v2' as any,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
@@ -962,6 +1143,7 @@ describe('FromTextToText', () => {
           model: 'albert-base-v2',
         });
         expect(firstCallBody.get('sentence')).toEqual(sentence_data);
+        expect(firstCallBody.get('top_k')).toEqual(String(top_k_data));
       });
     });
   });
@@ -1149,9 +1331,11 @@ describe('FromTextToText', () => {
       it('should call the api with the text and the default model by default', async () => {
         const context_data = getRandomText();
         const question_data = getRandomText();
+        const top_k_data = getRandomInt();
         const result = await gladiaClient.fromText().toText().questionAnswering({
           context: context_data,
           question: question_data,
+          top_k: top_k_data,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -1163,13 +1347,16 @@ describe('FromTextToText', () => {
         });
         expect(firstCallBody.get('context')).toEqual(context_data);
         expect(firstCallBody.get('question')).toEqual(question_data);
+        expect(firstCallBody.get('top_k')).toEqual(String(top_k_data));
       });
       it('should call the api with the text and the specified model', async () => {
         const context_data = getRandomText();
         const question_data = getRandomText();
+        const top_k_data = getRandomInt();
         const result = await gladiaClient.fromText().toText().questionAnswering({
           context: context_data,
           question: question_data,
+          top_k: top_k_data,
           model: 'deepset-roberta-base-squad2' as any,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
@@ -1183,15 +1370,18 @@ describe('FromTextToText', () => {
         });
         expect(firstCallBody.get('context')).toEqual(context_data);
         expect(firstCallBody.get('question')).toEqual(question_data);
+        expect(firstCallBody.get('top_k')).toEqual(String(top_k_data));
       });
     });
     describe('shortcuts', () => {
       it('should call the api with the text and the default model by default', async () => {
         const context_data = getRandomText();
         const question_data = getRandomText();
+        const top_k_data = getRandomInt();
         const result = await gladiaClient.questionAnswering({
           context: context_data,
           question: question_data,
+          top_k: top_k_data,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -1203,13 +1393,16 @@ describe('FromTextToText', () => {
         });
         expect(firstCallBody.get('context')).toEqual(context_data);
         expect(firstCallBody.get('question')).toEqual(question_data);
+        expect(firstCallBody.get('top_k')).toEqual(String(top_k_data));
       });
       it('should call the api with the text and the specified model', async () => {
         const context_data = getRandomText();
         const question_data = getRandomText();
+        const top_k_data = getRandomInt();
         const result = await gladiaClient.questionAnswering({
           context: context_data,
           question: question_data,
+          top_k: top_k_data,
           model: 'deepset-roberta-base-squad2' as any,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
@@ -1223,6 +1416,7 @@ describe('FromTextToText', () => {
         });
         expect(firstCallBody.get('context')).toEqual(context_data);
         expect(firstCallBody.get('question')).toEqual(question_data);
+        expect(firstCallBody.get('top_k')).toEqual(String(top_k_data));
       });
     });
   });
@@ -1256,7 +1450,7 @@ describe('FromTextToText', () => {
         const context_data = getRandomText();
         const result = await gladiaClient.fromText().toText().sentenceParaphraser({
           context: context_data,
-          model: 'fake-model-name' as any,
+          model: 'ramsrigouthamg-t5_sentence_paraphraser' as any,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -1265,7 +1459,7 @@ describe('FromTextToText', () => {
           'Content-Type': 'application/x-www-form-urlencoded',
         });
         expect(firstCallArgs.query).toEqual({
-          model: 'fake-model-name',
+          model: 'ramsrigouthamg-t5_sentence_paraphraser',
         });
         expect(firstCallBody.get('context')).toEqual(context_data);
       });
@@ -1290,7 +1484,7 @@ describe('FromTextToText', () => {
         const context_data = getRandomText();
         const result = await gladiaClient.sentenceParaphraser({
           context: context_data,
-          model: 'fake-model-name' as any,
+          model: 'ramsrigouthamg-t5_sentence_paraphraser' as any,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -1299,7 +1493,7 @@ describe('FromTextToText', () => {
           'Content-Type': 'application/x-www-form-urlencoded',
         });
         expect(firstCallArgs.query).toEqual({
-          model: 'fake-model-name',
+          model: 'ramsrigouthamg-t5_sentence_paraphraser',
         });
         expect(firstCallBody.get('context')).toEqual(context_data);
       });

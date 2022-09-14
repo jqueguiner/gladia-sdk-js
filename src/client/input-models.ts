@@ -4,7 +4,11 @@ import {
   AudioTextAudioTranscriptionModel,
   ImageImageBackgroundRemovalModel,
   ImageImageColorizationModel,
+  ImageImageDeblurringModel,
   ImageImageFaceBluringModel,
+  ImageImageGuidedInpaintingModel,
+  ImageImageInpaintingModel,
+  ImageImageSuperResolutionModel,
   ImageImageUncolorizationModel,
   ImageTextAsciifyModel,
   ImageTextClassificationModel,
@@ -13,8 +17,10 @@ import {
   TextTextAdGenerationModel,
   TextTextArticleGenerationModel,
   TextTextAutocorrectModel,
+  TextTextBulletPointGenerationModel,
   TextTextEmotionRecognitionModel,
   TextTextHateSpeechDetectionModel,
+  TextTextHeadlineGenerationModel,
   TextTextIntentClassificationModel,
   TextTextKeywordExtractionModel,
   TextTextLanguageDetectionModel,
@@ -50,8 +56,33 @@ export interface ImageImageColorizationInputs
   image?: Blob;
   image_url?: string;
 }
+export interface ImageImageDeblurringInputs 
+  extends WithHeaders, WithModel<ImageImageDeblurringModel> {
+  image?: Blob;
+  image_url?: string;
+}
 export interface ImageImageFaceBluringInputs 
   extends WithHeaders, WithModel<ImageImageFaceBluringModel> {
+  image?: Blob;
+  image_url?: string;
+}
+export interface ImageImageGuidedInpaintingInputs 
+  extends WithHeaders, WithModel<ImageImageGuidedInpaintingModel> {
+  original_image?: Blob;
+  original_image_url?: string;
+  mask_image?: Blob;
+  mask_image_url?: string;
+  prompt: string;
+}
+export interface ImageImageInpaintingInputs 
+  extends WithHeaders, WithModel<ImageImageInpaintingModel> {
+  original_image?: Blob;
+  original_image_url?: string;
+  mask_image?: Blob;
+  mask_image_url?: string;
+}
+export interface ImageImageSuperResolutionInputs 
+  extends WithHeaders, WithModel<ImageImageSuperResolutionModel> {
   image?: Blob;
   image_url?: string;
 }
@@ -96,6 +127,10 @@ export interface TextTextAutocorrectInputs
   extends WithHeaders, WithModel<TextTextAutocorrectModel> {
   sentence: string;
 }
+export interface TextTextBulletPointGenerationInputs 
+  extends WithHeaders, WithModel<TextTextBulletPointGenerationModel> {
+  text?: string;
+}
 export interface TextTextEmotionRecognitionInputs 
   extends WithHeaders, WithModel<TextTextEmotionRecognitionModel> {
   text: string;
@@ -104,6 +139,10 @@ export interface TextTextHateSpeechDetectionInputs
   extends WithHeaders, WithModel<TextTextHateSpeechDetectionModel> {
   text: string;
 }
+export interface TextTextHeadlineGenerationInputs 
+  extends WithHeaders, WithModel<TextTextHeadlineGenerationModel> {
+  text?: string;
+}
 export interface TextTextIntentClassificationInputs 
   extends WithHeaders, WithModel<TextTextIntentClassificationModel> {
   text?: string;
@@ -111,6 +150,7 @@ export interface TextTextIntentClassificationInputs
 export interface TextTextKeywordExtractionInputs 
   extends WithHeaders, WithModel<TextTextKeywordExtractionModel> {
   text: string;
+  top_k?: number;
 }
 export interface TextTextLanguageDetectionInputs 
   extends WithHeaders, WithModel<TextTextLanguageDetectionModel> {
@@ -132,6 +172,7 @@ export interface TextTextNextSentencePredictionInputs
 export interface TextTextNextWordPredictionInputs 
   extends WithHeaders, WithModel<TextTextNextWordPredictionModel> {
   sentence: string;
+  top_k?: number;
 }
 export interface TextTextPluralInputs 
   extends WithHeaders, WithModel<TextTextPluralModel> {
@@ -146,6 +187,7 @@ export interface TextTextQuestionAnsweringInputs
   extends WithHeaders, WithModel<TextTextQuestionAnsweringModel> {
   context: string;
   question: string;
+  top_k?: number;
 }
 export interface TextTextSentenceParaphraserInputs 
   extends WithHeaders, WithModel<TextTextSentenceParaphraserModel> {

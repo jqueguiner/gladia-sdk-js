@@ -34,6 +34,8 @@ interface PathRequestResponseDef {
     | {
         'image/*': PathRequestResponseContentDef;
       };
+  example?: any;
+  examples?: any;
 }
 
 interface PathRequestResponseContentDef {
@@ -96,15 +98,16 @@ interface OpenApiJsonComponent {
       properties: Record<
         string,
         {
-          title: string;
+          title?: string;
+          text?: string;
           type: string;
           description?: string;
           default?: string | number;
           format?: 'binary';
           items?: Record<string, unknown>;
-          example?: string | number;
-          examples?: (string | number)[];
-          _examples?: (string | number)[];
+          example?: any;
+          examples?: any;
+          _examples?: any;
           data_type?: 'string' | 'text' | 'url' | 'integer' | 'float' | 'image' | 'audio' | 'array';
         }
       >;

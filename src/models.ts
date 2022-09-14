@@ -16,15 +16,43 @@ export type ImageImageBackgroundRemovalModel = typeof IMAGE_IMAGE_BACKGROUND_REM
 export const IMAGE_IMAGE_COLORIZATION_MODELS = [
    'deoldify-artistic',
    'deoldify-stable',
+   'mlhubber_colorize',
 ] as const;
 export const IMAGE_IMAGE_COLORIZATION_CONTENT_TYPE = "multipart/form-data" as const;
 export type ImageImageColorizationModel = typeof IMAGE_IMAGE_COLORIZATION_MODELS[number];
+
+export const IMAGE_IMAGE_DEBLURRING_MODELS = [
+   'CMFNet',
+] as const;
+export const IMAGE_IMAGE_DEBLURRING_CONTENT_TYPE = "multipart/form-data" as const;
+export type ImageImageDeblurringModel = typeof IMAGE_IMAGE_DEBLURRING_MODELS[number];
 
 export const IMAGE_IMAGE_FACE_BLURING_MODELS = [
    'ageitgey',
 ] as const;
 export const IMAGE_IMAGE_FACE_BLURING_CONTENT_TYPE = "multipart/form-data" as const;
 export type ImageImageFaceBluringModel = typeof IMAGE_IMAGE_FACE_BLURING_MODELS[number];
+
+export const IMAGE_IMAGE_GUIDED_INPAINTING_MODELS = [
+   'stable-diffusion',
+] as const;
+export const IMAGE_IMAGE_GUIDED_INPAINTING_CONTENT_TYPE = "multipart/form-data" as const;
+export type ImageImageGuidedInpaintingModel = typeof IMAGE_IMAGE_GUIDED_INPAINTING_MODELS[number];
+
+export const IMAGE_IMAGE_INPAINTING_MODELS = [
+   'fcf',
+   'lama',
+   'latent-diffusion',
+   'mat',
+   'zits',
+] as const;
+export const IMAGE_IMAGE_INPAINTING_CONTENT_TYPE = "multipart/form-data" as const;
+export type ImageImageInpaintingModel = typeof IMAGE_IMAGE_INPAINTING_MODELS[number];
+
+export const IMAGE_IMAGE_SUPER_RESOLUTION_MODELS = [
+] as const;
+export const IMAGE_IMAGE_SUPER_RESOLUTION_CONTENT_TYPE = "multipart/form-data" as const;
+export type ImageImageSuperResolutionModel = typeof IMAGE_IMAGE_SUPER_RESOLUTION_MODELS[number];
 
 export const IMAGE_IMAGE_UNCOLORIZATION_MODELS = [
    'v1',
@@ -194,6 +222,12 @@ export const TEXT_TEXT_AUTOCORRECT_MODELS = [
 export const TEXT_TEXT_AUTOCORRECT_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
 export type TextTextAutocorrectModel = typeof TEXT_TEXT_AUTOCORRECT_MODELS[number];
 
+export const TEXT_TEXT_BULLET_POINT_GENERATION_MODELS = [
+   'jpt',
+] as const;
+export const TEXT_TEXT_BULLET_POINT_GENERATION_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
+export type TextTextBulletPointGenerationModel = typeof TEXT_TEXT_BULLET_POINT_GENERATION_MODELS[number];
+
 export const TEXT_TEXT_EMOTION_RECOGNITION_MODELS = [
    'mrm8488-t5-base-finetuned-emotion',
 ] as const;
@@ -202,9 +236,16 @@ export type TextTextEmotionRecognitionModel = typeof TEXT_TEXT_EMOTION_RECOGNITI
 
 export const TEXT_TEXT_HATE_SPEECH_DETECTION_MODELS = [
    'Hate-speech-CNERG-dehatebert-mono-english',
+   'byt5-base-tweet-hate-detection',
 ] as const;
 export const TEXT_TEXT_HATE_SPEECH_DETECTION_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
 export type TextTextHateSpeechDetectionModel = typeof TEXT_TEXT_HATE_SPEECH_DETECTION_MODELS[number];
+
+export const TEXT_TEXT_HEADLINE_GENERATION_MODELS = [
+   't5-base-en-generate-headline',
+] as const;
+export const TEXT_TEXT_HEADLINE_GENERATION_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
+export type TextTextHeadlineGenerationModel = typeof TEXT_TEXT_HEADLINE_GENERATION_MODELS[number];
 
 export const TEXT_TEXT_INTENT_CLASSIFICATION_MODELS = [
    'fast-gpt-j',
@@ -228,6 +269,7 @@ export type TextTextLanguageDetectionModel = typeof TEXT_TEXT_LANGUAGE_DETECTION
 
 export const TEXT_TEXT_LANGUAGE_GENERATION_MODELS = [
    'EleutherAI-gpt-neo-2_7B',
+   'bloom-560m',
 ] as const;
 export const TEXT_TEXT_LANGUAGE_GENERATION_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
 export type TextTextLanguageGenerationModel = typeof TEXT_TEXT_LANGUAGE_GENERATION_MODELS[number];
@@ -277,6 +319,7 @@ export type TextTextQuestionAnsweringModel = typeof TEXT_TEXT_QUESTION_ANSWERING
 
 export const TEXT_TEXT_SENTENCE_PARAPHRASER_MODELS = [
    'ramsrigouthamg-t5-large-paraphraser-diverse-high-quality',
+   'ramsrigouthamg-t5_sentence_paraphraser',
 ] as const;
 export const TEXT_TEXT_SENTENCE_PARAPHRASER_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
 export type TextTextSentenceParaphraserModel = typeof TEXT_TEXT_SENTENCE_PARAPHRASER_MODELS[number];

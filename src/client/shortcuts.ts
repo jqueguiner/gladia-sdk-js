@@ -12,7 +12,11 @@ import {
   AudioTextAudioTranscriptionInputs,
   ImageImageBackgroundRemovalInputs,
   ImageImageColorizationInputs,
+  ImageImageDeblurringInputs,
   ImageImageFaceBluringInputs,
+  ImageImageGuidedInpaintingInputs,
+  ImageImageInpaintingInputs,
+  ImageImageSuperResolutionInputs,
   ImageImageUncolorizationInputs,
   ImageTextAsciifyInputs,
   ImageTextClassificationInputs,
@@ -21,8 +25,10 @@ import {
   TextTextAdGenerationInputs,
   TextTextArticleGenerationInputs,
   TextTextAutocorrectInputs,
+  TextTextBulletPointGenerationInputs,
   TextTextEmotionRecognitionInputs,
   TextTextHateSpeechDetectionInputs,
+  TextTextHeadlineGenerationInputs,
   TextTextIntentClassificationInputs,
   TextTextKeywordExtractionInputs,
   TextTextLanguageDetectionInputs,
@@ -69,8 +75,24 @@ export abstract class Shortcuts implements
     return this.fromImage().toImage().colorization(args);
   }
 
+  deblurring(args: ImageImageDeblurringInputs) {
+    return this.fromImage().toImage().deblurring(args);
+  }
+
   faceBluring(args: ImageImageFaceBluringInputs) {
     return this.fromImage().toImage().faceBluring(args);
+  }
+
+  guidedInpainting(args: ImageImageGuidedInpaintingInputs) {
+    return this.fromImage().toImage().guidedInpainting(args);
+  }
+
+  inpainting(args: ImageImageInpaintingInputs) {
+    return this.fromImage().toImage().inpainting(args);
+  }
+
+  superResolution(args: ImageImageSuperResolutionInputs) {
+    return this.fromImage().toImage().superResolution(args);
   }
 
   uncolorization(args: ImageImageUncolorizationInputs) {
@@ -113,12 +135,20 @@ export abstract class Shortcuts implements
     return this.fromText().toText().autocorrect(args);
   }
 
+  bulletPointGeneration(args: TextTextBulletPointGenerationInputs) {
+    return this.fromText().toText().bulletPointGeneration(args);
+  }
+
   emotionRecognition(args: TextTextEmotionRecognitionInputs) {
     return this.fromText().toText().emotionRecognition(args);
   }
 
   hateSpeechDetection(args: TextTextHateSpeechDetectionInputs) {
     return this.fromText().toText().hateSpeechDetection(args);
+  }
+
+  headlineGeneration(args: TextTextHeadlineGenerationInputs) {
+    return this.fromText().toText().headlineGeneration(args);
   }
 
   intentClassification(args: TextTextIntentClassificationInputs) {
