@@ -36,7 +36,6 @@ import {
   TextTextNamedEntityRecognitionInputs,
   TextTextNextSentencePredictionInputs,
   TextTextNextWordPredictionInputs,
-  TextTextPluralInputs,
   TextTextProgrammingLanguageGenerationInputs,
   TextTextQuestionAnsweringInputs,
   TextTextSentenceParaphraserInputs,
@@ -46,6 +45,45 @@ import {
   TextTextTranslationInputs,
   TextTextWordAlignmentInputs,
 } from './input-models'
+import {
+  AudioTextAudioTranscriptionOutputs,
+  ImageImageBackgroundRemovalOutputs,
+  ImageImageColorizationOutputs,
+  ImageImageDeblurringOutputs,
+  ImageImageFaceBluringOutputs,
+  ImageImageGuidedInpaintingOutputs,
+  ImageImageInpaintingOutputs,
+  ImageImageSuperResolutionOutputs,
+  ImageImageUncolorizationOutputs,
+  ImageTextAsciifyOutputs,
+  ImageTextClassificationOutputs,
+  ImageTextOcrOutputs,
+  TextImageImageGenerationOutputs,
+  TextImageImageGenerationOutputsMultipleSamples,
+  TextImageImageGenerationOutputsOneSample,
+  TextTextAdGenerationOutputs,
+  TextTextArticleGenerationOutputs,
+  TextTextAutocorrectOutputs,
+  TextTextBulletPointGenerationOutputs,
+  TextTextEmotionRecognitionOutputs,
+  TextTextHateSpeechDetectionOutputs,
+  TextTextHeadlineGenerationOutputs,
+  TextTextIntentClassificationOutputs,
+  TextTextKeywordExtractionOutputs,
+  TextTextLanguageDetectionOutputs,
+  TextTextLanguageGenerationOutputs,
+  TextTextNamedEntityRecognitionOutputs,
+  TextTextNextSentencePredictionOutputs,
+  TextTextNextWordPredictionOutputs,
+  TextTextProgrammingLanguageGenerationOutputs,
+  TextTextQuestionAnsweringOutputs,
+  TextTextSentenceParaphraserOutputs,
+  TextTextSentimentAnalysisOutputs,
+  TextTextSimilarityOutputs,
+  TextTextSummarizationOutputs,
+  TextTextTranslationOutputs,
+  TextTextWordAlignmentOutputs,
+} from './output-models';
 
 export abstract class Shortcuts implements
   Omit<FromAudioToText, 'httpClient'>,
@@ -59,7 +97,7 @@ export abstract class Shortcuts implements
 
   // AUDIO => TEXT
 
-  audioTranscription(args: AudioTextAudioTranscriptionInputs) {
+  audioTranscription(args: AudioTextAudioTranscriptionInputs): Promise<AudioTextAudioTranscriptionOutputs> {
     return this.fromAudio().toText().audioTranscription(args);
   }
 
@@ -67,49 +105,49 @@ export abstract class Shortcuts implements
 
   // IMAGE => IMAGE
 
-  backgroundRemoval(args: ImageImageBackgroundRemovalInputs) {
+  backgroundRemoval(args: ImageImageBackgroundRemovalInputs): Promise<ImageImageBackgroundRemovalOutputs> {
     return this.fromImage().toImage().backgroundRemoval(args);
   }
 
-  colorization(args: ImageImageColorizationInputs) {
+  colorization(args: ImageImageColorizationInputs): Promise<ImageImageColorizationOutputs> {
     return this.fromImage().toImage().colorization(args);
   }
 
-  deblurring(args: ImageImageDeblurringInputs) {
+  deblurring(args: ImageImageDeblurringInputs): Promise<ImageImageDeblurringOutputs> {
     return this.fromImage().toImage().deblurring(args);
   }
 
-  faceBluring(args: ImageImageFaceBluringInputs) {
+  faceBluring(args: ImageImageFaceBluringInputs): Promise<ImageImageFaceBluringOutputs> {
     return this.fromImage().toImage().faceBluring(args);
   }
 
-  guidedInpainting(args: ImageImageGuidedInpaintingInputs) {
+  guidedInpainting(args: ImageImageGuidedInpaintingInputs): Promise<ImageImageGuidedInpaintingOutputs> {
     return this.fromImage().toImage().guidedInpainting(args);
   }
 
-  inpainting(args: ImageImageInpaintingInputs) {
+  inpainting(args: ImageImageInpaintingInputs): Promise<ImageImageInpaintingOutputs> {
     return this.fromImage().toImage().inpainting(args);
   }
 
-  superResolution(args: ImageImageSuperResolutionInputs) {
+  superResolution(args: ImageImageSuperResolutionInputs): Promise<ImageImageSuperResolutionOutputs> {
     return this.fromImage().toImage().superResolution(args);
   }
 
-  uncolorization(args: ImageImageUncolorizationInputs) {
+  uncolorization(args: ImageImageUncolorizationInputs): Promise<ImageImageUncolorizationOutputs> {
     return this.fromImage().toImage().uncolorization(args);
   }
 
   // IMAGE => TEXT
 
-  asciify(args: ImageTextAsciifyInputs) {
+  asciify(args: ImageTextAsciifyInputs): Promise<ImageTextAsciifyOutputs> {
     return this.fromImage().toText().asciify(args);
   }
 
-  classification(args: ImageTextClassificationInputs) {
+  classification(args: ImageTextClassificationInputs): Promise<ImageTextClassificationOutputs> {
     return this.fromImage().toText().classification(args);
   }
 
-  ocr(args: ImageTextOcrInputs) {
+  ocr(args: ImageTextOcrInputs): Promise<ImageTextOcrOutputs> {
     return this.fromImage().toText().ocr(args);
   }
 
@@ -117,101 +155,99 @@ export abstract class Shortcuts implements
 
   // TEXT => IMAGE
 
-  imageGeneration(args: TextImageImageGenerationInputs) {
+  imageGeneration(args: TextImageImageGenerationInputs & { samples: 1 }): Promise<TextImageImageGenerationOutputsOneSample>;
+  imageGeneration(args: TextImageImageGenerationInputs): Promise<TextImageImageGenerationOutputsMultipleSamples>;
+  imageGeneration(args: TextImageImageGenerationInputs): Promise<TextImageImageGenerationOutputs> {
     return this.fromText().toImage().imageGeneration(args);
   }
 
   // TEXT => TEXT
 
-  adGeneration(args: TextTextAdGenerationInputs) {
+  adGeneration(args: TextTextAdGenerationInputs): Promise<TextTextAdGenerationOutputs> {
     return this.fromText().toText().adGeneration(args);
   }
 
-  articleGeneration(args: TextTextArticleGenerationInputs) {
+  articleGeneration(args: TextTextArticleGenerationInputs): Promise<TextTextArticleGenerationOutputs> {
     return this.fromText().toText().articleGeneration(args);
   }
 
-  autocorrect(args: TextTextAutocorrectInputs) {
+  autocorrect(args: TextTextAutocorrectInputs): Promise<TextTextAutocorrectOutputs> {
     return this.fromText().toText().autocorrect(args);
   }
 
-  bulletPointGeneration(args: TextTextBulletPointGenerationInputs) {
+  bulletPointGeneration(args: TextTextBulletPointGenerationInputs): Promise<TextTextBulletPointGenerationOutputs> {
     return this.fromText().toText().bulletPointGeneration(args);
   }
 
-  emotionRecognition(args: TextTextEmotionRecognitionInputs) {
+  emotionRecognition(args: TextTextEmotionRecognitionInputs): Promise<TextTextEmotionRecognitionOutputs> {
     return this.fromText().toText().emotionRecognition(args);
   }
 
-  hateSpeechDetection(args: TextTextHateSpeechDetectionInputs) {
+  hateSpeechDetection(args: TextTextHateSpeechDetectionInputs): Promise<TextTextHateSpeechDetectionOutputs> {
     return this.fromText().toText().hateSpeechDetection(args);
   }
 
-  headlineGeneration(args: TextTextHeadlineGenerationInputs) {
+  headlineGeneration(args: TextTextHeadlineGenerationInputs): Promise<TextTextHeadlineGenerationOutputs> {
     return this.fromText().toText().headlineGeneration(args);
   }
 
-  intentClassification(args: TextTextIntentClassificationInputs) {
+  intentClassification(args: TextTextIntentClassificationInputs): Promise<TextTextIntentClassificationOutputs> {
     return this.fromText().toText().intentClassification(args);
   }
 
-  keywordExtraction(args: TextTextKeywordExtractionInputs) {
+  keywordExtraction(args: TextTextKeywordExtractionInputs): Promise<TextTextKeywordExtractionOutputs> {
     return this.fromText().toText().keywordExtraction(args);
   }
 
-  languageDetection(args: TextTextLanguageDetectionInputs) {
+  languageDetection(args: TextTextLanguageDetectionInputs): Promise<TextTextLanguageDetectionOutputs> {
     return this.fromText().toText().languageDetection(args);
   }
 
-  languageGeneration(args: TextTextLanguageGenerationInputs) {
+  languageGeneration(args: TextTextLanguageGenerationInputs): Promise<TextTextLanguageGenerationOutputs> {
     return this.fromText().toText().languageGeneration(args);
   }
 
-  namedEntityRecognition(args: TextTextNamedEntityRecognitionInputs) {
+  namedEntityRecognition(args: TextTextNamedEntityRecognitionInputs): Promise<TextTextNamedEntityRecognitionOutputs> {
     return this.fromText().toText().namedEntityRecognition(args);
   }
 
-  nextSentencePrediction(args: TextTextNextSentencePredictionInputs) {
+  nextSentencePrediction(args: TextTextNextSentencePredictionInputs): Promise<TextTextNextSentencePredictionOutputs> {
     return this.fromText().toText().nextSentencePrediction(args);
   }
 
-  nextWordPrediction(args: TextTextNextWordPredictionInputs) {
+  nextWordPrediction(args: TextTextNextWordPredictionInputs): Promise<TextTextNextWordPredictionOutputs> {
     return this.fromText().toText().nextWordPrediction(args);
   }
 
-  plural(args: TextTextPluralInputs) {
-    return this.fromText().toText().plural(args);
-  }
-
-  programmingLanguageGeneration(args: TextTextProgrammingLanguageGenerationInputs) {
+  programmingLanguageGeneration(args: TextTextProgrammingLanguageGenerationInputs): Promise<TextTextProgrammingLanguageGenerationOutputs> {
     return this.fromText().toText().programmingLanguageGeneration(args);
   }
 
-  questionAnswering(args: TextTextQuestionAnsweringInputs) {
+  questionAnswering(args: TextTextQuestionAnsweringInputs): Promise<TextTextQuestionAnsweringOutputs> {
     return this.fromText().toText().questionAnswering(args);
   }
 
-  sentenceParaphraser(args: TextTextSentenceParaphraserInputs) {
+  sentenceParaphraser(args: TextTextSentenceParaphraserInputs): Promise<TextTextSentenceParaphraserOutputs> {
     return this.fromText().toText().sentenceParaphraser(args);
   }
 
-  sentimentAnalysis(args: TextTextSentimentAnalysisInputs) {
+  sentimentAnalysis(args: TextTextSentimentAnalysisInputs): Promise<TextTextSentimentAnalysisOutputs> {
     return this.fromText().toText().sentimentAnalysis(args);
   }
 
-  similarity(args: TextTextSimilarityInputs) {
+  similarity(args: TextTextSimilarityInputs): Promise<TextTextSimilarityOutputs> {
     return this.fromText().toText().similarity(args);
   }
 
-  summarization(args: TextTextSummarizationInputs) {
+  summarization(args: TextTextSummarizationInputs): Promise<TextTextSummarizationOutputs> {
     return this.fromText().toText().summarization(args);
   }
 
-  translation(args: TextTextTranslationInputs) {
+  translation(args: TextTextTranslationInputs): Promise<TextTextTranslationOutputs> {
     return this.fromText().toText().translation(args);
   }
 
-  wordAlignment(args: TextTextWordAlignmentInputs) {
+  wordAlignment(args: TextTextWordAlignmentInputs): Promise<TextTextWordAlignmentOutputs> {
     return this.fromText().toText().wordAlignment(args);
   }
 

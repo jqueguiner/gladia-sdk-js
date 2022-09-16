@@ -5,6 +5,8 @@ import {
 } from './input-models';
 import {
   TextImageImageGenerationOutputs,
+  TextImageImageGenerationOutputsMultipleSamples,
+  TextImageImageGenerationOutputsOneSample,
 } from './output-models';
 import {
   TEXT_IMAGE_IMAGE_GENERATION_CONTENT_TYPE,
@@ -21,6 +23,8 @@ export class FromTextToImage {
     this.httpClient = getHttpClient(this.params);
   }
 
+  imageGeneration(args: TextImageImageGenerationInputs & { samples: 1 }): Promise<TextImageImageGenerationOutputsOneSample>;
+  imageGeneration(args: TextImageImageGenerationInputs): Promise<TextImageImageGenerationOutputsMultipleSamples>;
   imageGeneration(args: TextImageImageGenerationInputs): Promise<TextImageImageGenerationOutputs> {
     const formData = new UrlFormData();
     formData.append('prompt', args.prompt);
@@ -42,7 +46,7 @@ export class FromTextToImage {
       query: {
         ...(args.model ? {model: args.model} : {}),
       },
-      responseType: 'arraybuffer',
+      responseType: args.samples > 1 ? 'json' : 'arraybuffer',
       body: formData.toString(),
     });
   }

@@ -28,7 +28,6 @@ import {
   TextTextNamedEntityRecognitionModel,
   TextTextNextSentencePredictionModel,
   TextTextNextWordPredictionModel,
-  TextTextPluralModel,
   TextTextProgrammingLanguageGenerationModel,
   TextTextQuestionAnsweringModel,
   TextTextSentenceParaphraserModel,
@@ -173,11 +172,6 @@ export interface TextTextNextWordPredictionInputs
   extends WithHeaders, WithModel<TextTextNextWordPredictionModel> {
   sentence: string;
   top_k?: number;
-}
-export interface TextTextPluralInputs 
-  extends WithHeaders, WithModel<TextTextPluralModel> {
-  word: string;
-  count?: number;
 }
 export interface TextTextProgrammingLanguageGenerationInputs 
   extends WithHeaders, WithModel<TextTextProgrammingLanguageGenerationModel> {

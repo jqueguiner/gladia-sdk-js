@@ -295,12 +295,6 @@ export const TEXT_TEXT_NEXT_WORD_PREDICTION_MODELS = [
 export const TEXT_TEXT_NEXT_WORD_PREDICTION_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
 export type TextTextNextWordPredictionModel = typeof TEXT_TEXT_NEXT_WORD_PREDICTION_MODELS[number];
 
-export const TEXT_TEXT_PLURAL_MODELS = [
-   'inflect',
-] as const;
-export const TEXT_TEXT_PLURAL_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
-export type TextTextPluralModel = typeof TEXT_TEXT_PLURAL_MODELS[number];
-
 export const TEXT_TEXT_PROGRAMMING_LANGUAGE_GENERATION_MODELS = [
    'sentdex-GPyT',
 ] as const;

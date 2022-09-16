@@ -15,7 +15,6 @@ import {
   TextTextNamedEntityRecognitionInputs,
   TextTextNextSentencePredictionInputs,
   TextTextNextWordPredictionInputs,
-  TextTextPluralInputs,
   TextTextProgrammingLanguageGenerationInputs,
   TextTextQuestionAnsweringInputs,
   TextTextSentenceParaphraserInputs,
@@ -40,7 +39,6 @@ import {
   TextTextNamedEntityRecognitionOutputs,
   TextTextNextSentencePredictionOutputs,
   TextTextNextWordPredictionOutputs,
-  TextTextPluralOutputs,
   TextTextProgrammingLanguageGenerationOutputs,
   TextTextQuestionAnsweringOutputs,
   TextTextSentenceParaphraserOutputs,
@@ -65,7 +63,6 @@ import {
   TEXT_TEXT_NAMED_ENTITY_RECOGNITION_CONTENT_TYPE,
   TEXT_TEXT_NEXT_SENTENCE_PREDICTION_CONTENT_TYPE,
   TEXT_TEXT_NEXT_WORD_PREDICTION_CONTENT_TYPE,
-  TEXT_TEXT_PLURAL_CONTENT_TYPE,
   TEXT_TEXT_PROGRAMMING_LANGUAGE_GENERATION_CONTENT_TYPE,
   TEXT_TEXT_QUESTION_ANSWERING_CONTENT_TYPE,
   TEXT_TEXT_SENTENCE_PARAPHRASER_CONTENT_TYPE,
@@ -319,25 +316,6 @@ export class FromTextToText {
       url: '/text/text/next-word-prediction/',
       headers: {
         'Content-Type': TEXT_TEXT_NEXT_WORD_PREDICTION_CONTENT_TYPE,
-        ...(args.headers ?? {}),
-      },
-      query: {
-        ...(args.model ? {model: args.model} : {}),
-      },
-      body: formData.toString(),
-    });
-  }
-
-  plural(args: TextTextPluralInputs): Promise<TextTextPluralOutputs> {
-    const formData = new UrlFormData();
-    formData.append('word', args.word);
-    if (isDefined(args.count)) {
-      formData.append('count', String(args.count));
-    }
-    return this.httpClient.post({
-      url: '/text/text/plural/',
-      headers: {
-        'Content-Type': TEXT_TEXT_PLURAL_CONTENT_TYPE,
         ...(args.headers ?? {}),
       },
       query: {

@@ -64,10 +64,13 @@ export const openApiJson: OpenApiJson = {
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "prediction": "string",
-                  "prediction_raw": {}
+                  "prediction_raw": {},
+                  "prediction": "string"
                 }
               }
+            },
+            "examples": {
+              "coqui_english_huge_vocab": {}
             },
             "example": {
               "coqui_english_huge_vocab": {
@@ -76,9 +79,6 @@ export const openApiJson: OpenApiJson = {
                   "prediction_raw": "hi there in the day's english listening practice i'd like to help you with phrases and words about the supermarket"
                 }
               }
-            },
-            "examples": {
-              "coqui_english_huge_vocab": {}
             }
           },
           "422": {
@@ -124,8 +124,8 @@ export const openApiJson: OpenApiJson = {
             "schema": {
               "title": "Model",
               "enum": [
-                "xception",
-                "mobilenet"
+                "mobilenet",
+                "xception"
               ],
               "type": "string",
               "default": "mobilenet"
@@ -155,10 +155,6 @@ export const openApiJson: OpenApiJson = {
                 }
               }
             },
-            "example": {
-              "mobilenet": "http://files.gladia.io/output/image/image/background-removal/mobilenet/example/from_owl2_png.png",
-              "xception": "http://files.gladia.io/output/image/image/background-removal/xception/example/from_owl2_png.png"
-            },
             "examples": {
               "mobilenet": {
                 "from_owl2_jpg": "http://files.gladia.io/output/image/image/background-removal/mobilenet/examples/from_owl2_jpg.png",
@@ -168,6 +164,10 @@ export const openApiJson: OpenApiJson = {
                 "from_owl2_jpg": "http://files.gladia.io/output/image/image/background-removal/xception/examples/from_owl2_jpg.png",
                 "from_owl2_png": "http://files.gladia.io/output/image/image/background-removal/xception/examples/from_owl2_png.png"
               }
+            },
+            "example": {
+              "mobilenet": "http://files.gladia.io/output/image/image/background-removal/mobilenet/example/from_owl2_png.png",
+              "xception": "http://files.gladia.io/output/image/image/background-removal/xception/example/from_owl2_png.png"
             }
           },
           "422": {
@@ -213,9 +213,9 @@ export const openApiJson: OpenApiJson = {
             "schema": {
               "title": "Model",
               "enum": [
-                "mlhubber_colorize",
                 "deoldify-artistic",
-                "deoldify-stable"
+                "deoldify-stable",
+                "mlhubber_colorize"
               ],
               "type": "string",
               "default": "mlhubber_colorize"
@@ -245,11 +245,6 @@ export const openApiJson: OpenApiJson = {
                 }
               }
             },
-            "example": {
-              "mlhubber_colorize": "http://files.gladia.io/output/image/image/colorization/deoldify-stable/example/from_rsz_paris_jpg.png",
-              "deoldify-stable": "http://files.gladia.io/output/image/image/colorization/deoldify-stable/example/from_rsz_paris_jpg.png",
-              "deoldify-artistic": "http://files.gladia.io/output/image/image/colorization/deoldify-artistic/example/from_rsz_paris_jpg.png"
-            },
             "examples": {
               "mlhubber_colorize": {
                 "from_rsz_paris_jpg": "http://files.gladia.io/output/image/image/colorization/deoldify-stable/examples/from_rsz_paris_jpg.png",
@@ -263,6 +258,11 @@ export const openApiJson: OpenApiJson = {
                 "from_rsz_paris_jpg": "http://files.gladia.io/output/image/image/colorization/deoldify-artistic/examples/from_rsz_paris_jpg.png",
                 "from_rsz_paris_png": "http://files.gladia.io/output/image/image/colorization/deoldify-artistic/examples/from_rsz_paris_png.png"
               }
+            },
+            "example": {
+              "mlhubber_colorize": "http://files.gladia.io/output/image/image/colorization/deoldify-stable/example/from_rsz_paris_jpg.png",
+              "deoldify-stable": "http://files.gladia.io/output/image/image/colorization/deoldify-stable/example/from_rsz_paris_jpg.png",
+              "deoldify-artistic": "http://files.gladia.io/output/image/image/colorization/deoldify-artistic/example/from_rsz_paris_jpg.png"
             }
           },
           "422": {
@@ -338,11 +338,11 @@ export const openApiJson: OpenApiJson = {
                 }
               }
             },
-            "example": {
-              "CMFNet": ""
-            },
             "examples": {
               "CMFNet": {}
+            },
+            "example": {
+              "CMFNet": ""
             }
           },
           "422": {
@@ -418,14 +418,14 @@ export const openApiJson: OpenApiJson = {
                 }
               }
             },
-            "example": {
-              "ageitgey": "http://files.gladia.io/output/image/image/face-bluring/ageitgey/example/from_face-bluring_png.png"
-            },
             "examples": {
               "ageitgey": {
                 "from_face-bluring_jpg": "http://files.gladia.io/output/image/image/face-bluring/ageitgey/examples/from_face-bluring_jpg.png",
                 "from_face-bluring_png": "http://files.gladia.io/output/image/image/face-bluring/ageitgey/examples/from_face-bluring_png.png"
               }
+            },
+            "example": {
+              "ageitgey": "http://files.gladia.io/output/image/image/face-bluring/ageitgey/example/from_face-bluring_png.png"
             }
           },
           "422": {
@@ -502,11 +502,11 @@ export const openApiJson: OpenApiJson = {
                 }
               }
             },
-            "example": {
-              "stable-diffusion": ""
-            },
             "examples": {
               "stable-diffusion": {}
+            },
+            "example": {
+              "stable-diffusion": ""
             }
           },
           "422": {
@@ -553,10 +553,10 @@ export const openApiJson: OpenApiJson = {
               "title": "Model",
               "enum": [
                 "lama",
-                "latent-diffusion",
-                "zits",
                 "mat",
-                "fcf"
+                "fcf",
+                "zits",
+                "latent-diffusion"
               ],
               "type": "string",
               "default": "zits"
@@ -586,19 +586,19 @@ export const openApiJson: OpenApiJson = {
                 }
               }
             },
-            "example": {
-              "mat": "",
-              "zits": "",
-              "lama": "",
-              "latent-diffusion": "",
-              "fcf": ""
-            },
             "examples": {
               "mat": {},
               "zits": {},
               "lama": {},
               "latent-diffusion": {},
               "fcf": {}
+            },
+            "example": {
+              "mat": "",
+              "zits": "",
+              "lama": "",
+              "latent-diffusion": "",
+              "fcf": ""
             }
           },
           "422": {
@@ -672,8 +672,8 @@ export const openApiJson: OpenApiJson = {
                 }
               }
             },
-            "example": {},
-            "examples": {}
+            "examples": {},
+            "example": {}
           },
           "422": {
             "description": "Validation Error",
@@ -748,14 +748,14 @@ export const openApiJson: OpenApiJson = {
                 }
               }
             },
-            "example": {
-              "v1": "http://files.gladia.io/output/image/image/uncolorization/v1/example/from_landscape-pics-wallpapers_png.png"
-            },
             "examples": {
               "v1": {
                 "from_landscape-pics-wallpapers_jpg": "http://files.gladia.io/output/image/image/uncolorization/v1/examples/from_landscape-pics-wallpapers_jpg.png",
                 "from_landscape-pics-wallpapers_png": "http://files.gladia.io/output/image/image/uncolorization/v1/examples/from_landscape-pics-wallpapers_png.png"
               }
+            },
+            "example": {
+              "v1": "http://files.gladia.io/output/image/image/uncolorization/v1/example/from_landscape-pics-wallpapers_png.png"
             }
           },
           "422": {
@@ -826,10 +826,13 @@ export const openApiJson: OpenApiJson = {
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "prediction": "string",
-                  "prediction_raw": {}
+                  "prediction_raw": {},
+                  "prediction": "string"
                 }
               }
+            },
+            "examples": {
+              "ramesh-aditya": {}
             },
             "example": {
               "ramesh-aditya": {
@@ -838,9 +841,6 @@ export const openApiJson: OpenApiJson = {
                   "prediction_raw": "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#SS%%%%%SS#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@S?+;:,,,,,,,,,:;+*%#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#%+:,,,,,,,,,,,,,,,,,,,:+%#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#*:,,,,,,,,,,,,,,,,,,,,,,,,,:*S@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@S+:,,:,,,,,,,,,,,,,,,,,,,,,,,,,,,+S@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#*:,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@?:,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,:?@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@#+,,:,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,+#@@@@@@@@@@@@@@@@@@@@@@@@@@@\n@@@@@@@@@@@@@@@@@@@@@@@@@@@S:,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,:%@@@@@@@@@@@@@@@@@@@@@@@@@@\n@@@@@@@@@@@@@@@@@@@@@@@@@@%:,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,?@@@@@@@@@@@@@@@@@@@@@@@@@\n@@@@@@@@@@@@@@@@@@@@@@@@@?,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,*@@@@@@@@@@@@@@@@@@@@@@@@\n@@@@@@@@@@@@@@@@@@@@@@@@?,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,*@@@@@@@@@@@@@@@@@@@@@@@\n@@@@@@@@@@@@@@@@@@@@@@@?,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,?@@@@@@@@@@@@@@@@@@@@@@\n@@@@@@@@@@@@@@@@@@@@@@%:,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,?@@@@@@@@@@@@@@@@@@@@@\n@@@@@@@@@@@@@@@@@@@@@#:,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,:S@@@@@@@@@@@@@@@@@@@@\n@@@@@@@@@@@@@@@@@@@@@;,,,,,,,,,,,,,,,,+SS*:,,,,,,,,,,,,,,;%S?;,,,,,,,,,,,,,,,,,:#@@@@@@@@@@@@@@@@@@@\n@@@@@@@@@@@@@@@@@@@@*,,,,,,,,,,,,,,,,?@@@@%:,,,,,,,,,,,,;#@@@#;,,,,,,,,,,,,,,,,,+@@@@@@@@@@@@@@@@@@@\n@@@@@@@@@@@@@@@@@@@S:,,,,,,,,,,,,,,,+@@@@@@?,,,,,,,,,,,:#@@@@@#:,,,,,,,,,,,,,,,,,%@@@@@@@@@@@@@@@@@@\n@@@@@@@@@@@@@@@@@@@;,,,,,,,,,,,,,,,:#@@@@@@@;,,,,,,,,,,?@@@@@@@*,,,,,,,,,,,,,,,,,:#@@@@@@@@@@@@@@@@@\n@@@@@@@@@@@@@@@@@@?,,,,,,,,,,,,,,,,+@@@@@@@@?,,,,,,,,,:#@@@@@@@S:,,,,,,,,,,,,,,,,,*@@@@@@@@@@@@@@@@@\n@@@@@@@@@@@@@@@@@@:,,,,,,,,,,,,,,,,%@@@@@@@@S:,,,,,,,,+@@@@@@@@@;,,,,,,,,,,,,,,,,,:#@@@@@@@@@@@@@@@@\n@@@@@@@@@@@@@@@@@?,,,,,,,,,,,,,,,,:S@@@@@@@@@:,,,,,,,,*@@@@@@@@@*,,,,,,,,,,,,,,,,,,*@@@@@@@@@@@@@@@@\n@@@@@@@@@@@@@@@@@;,,,,,,,,,,,,,,,,:#@@@@@@@@@;,,,,,,,,%@@@@@@@@@?,,,,,,,,,,,,,,,,,,:#@@@@@@@@@@@@@@@\n@@@@@@@@@@@@@@@@%,:,,,,,,,,,,,,,,,;@@@@@@@@@@+,,,,,,,,S@@@@@@@@@%,,,,,,,,,,,,,,,,,,,?@@@@@@@@@@@@@@@\n@@@@@@@@@@@@@@@@+,,,,,,,,,,,,,,,,,;@@@@@@@@@@+,,,,,,,,S@@@@@@@@@%,,,,,,,,,,,,,,,,,,,;@@@@@@@@@@@@@@@\n@@@@@@@@@@@@@@@#:,,,,,,,,,,,,,,,,,;@@@@@@@@@@+,,,,,,,,S@@@@@@@@@%,,,,,,,,,,,,,,,,,,,,S@@@@@@@@@@@@@@\n@@@@@@@@@@@@@@@?,,,,,,,,,,,,,,,,,,:@@@@@@@@@@;,,,,,,,,%@@@@@@@@@?,,,,,,,,,,,,,,,,,,,,?@@@@@@@@@@@@@@\n@@@@@@@@@@@@@@@+,,,,,,,,,,,,,,,,,,:#@@@@@@@@@:,,,,,,,,?@@@@@@@@@*,,,,,,,,,,,,,,,,,,,,;@@@@@@@@@@@@@@\n@@@@@@@@@@@@@@@:,,,,,,,,,,,,,,,,,,,%@@@@@@@@#:,,,,,,,,+@@@@@@@@@;,,,,,,,,,,,,,,,,,,,,:#@@@@@@@@@@@@@\n@@@@@@@@@@@@@@S:,,,,,,,,,,,,,,,,,,,+@@@@@@@@?,,,,,,,,,:#@@@@@@@#:,,,,,,,,,,,,,,,,,,,,,S@@@@@@@@@@@@@\n@@@@@@@@@@@@@@%,,,,,,,,,,,,,,,,,,,,:#@@@@@@@;,,,,,,,,,,?@@@@@@@?,,,,,,,,,,,,,,,,,,,,,,?@@@@@@@@@@@@@\n@@@@@@@@@@@@@@*,,,,,,,,,,,,,,,,,,,,,*@@@@@@%,,,,,,,,,,,;@@@@@@#:,,,,,,,,,,,,,,,,,,,,,,+@@@@@@@@@@@@@\n@@@@@@@@@@@@@@+,,,,,,,,,,,,,,,,,,,,,,%@@@@S:,,,,,,,,,,,,+@@@@@+,,,,,,,,,,,,,,,,,,,,,,,;@@@@@@@@@@@@@\n@@@@@@@@@@@@@@;,,,,,,,,,,,,,,,,,,,,,,,?##%:,,,,,,,,,,,,,,+S#S;,,,,,,,,,,,,,,,,,,,,,,,,;@@@@@@@@@@@@@\n@@@@@@@@@@@@@@;,,,,,,,,,,,,,,,,,,,,,,,,::,,,,,,,,,,,,,,,,,,:,,,,,,,,,,,,,,,,,,,,,,,,,,:@@@@@@@@@@@@@\n@@@@@@@@@@@@@@:,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,:#@@@@@@@@@@@@\n@@@@@@@@@@@@@@:,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,:#@@@@@@@@@@@@\n@@@@@@@@@@@@@@:,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,:#@@@@@@@@@@@@\n@@@@@@@@@@@@@@:,,,,,,,,:,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,:#@@@@@@@@@@@@\n@@@@@@@@@@@@@@;,,,,,,,,;:,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,:;,,,,,,,,:#@@@@@@@@@@@@\n@@@@@@@@@@@@@@;,,,,,,,,:*:,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,:?:,,,,,,,,;@@@@@@@@@@@@@\n@@@@@@@@@@@@@@+,,,,,,,,,;%:,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,:%+,,,,,,,,,;@@@@@@@@@@@@@\n@@@@@@@@@@@@@@*,,,,,,,,,,*%:,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,:S%,,,,,,,,,,+@@@@@@@@@@@@@\n@@@@@@@@@@@@@@?,,,,,,,,,,,S%:,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,:%#:,,,,,,,,,,*@@@@@@@@@@@@@\n@@@@@@@@@@@@@@S,,,,,,,,,,,:#S:,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,:%@;,,,,,,,,,,,%@@@@@@@@@@@@@\n@@@@@@@@@@@@@@#:,,,,,,,,,,,;@#;,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,:%@?,,,,,,,,,,,:#@@@@@@@@@@@@@\n@@@@@@@@@@@@@@@+,,,,,,,,,,,,+@@*:,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,:S@%,,,,,,,,,,,,;@@@@@@@@@@@@@@\n@@@@@@@@@@@@@@@?,,,,,,,,,,,,,*@@S;,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,+#@#:,,,,,,,,,,,,*@@@@@@@@@@@@@@\n@@@@@@@@@@@@@@@S:,,,,,,,,,,,,,?@@@?:,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,:?@@#;,,,,,,,,,,,,,S@@@@@@@@@@@@@@\n@@@@@@@@@@@@@@@@;,,,,,,,,,,,,,,*@@@#?;,,,,,,,,,,,,,,,,,,,,,,,,,,:*#@@@;,,,,,,,,,,,,,:@@@@@@@@@@@@@@@\n@@@@@@@@@@@@@@@@?,,,,,,,,,,,,,,,*@@@@@S+:,,,,,,,,,,,,,,,,,,,,:;?#@@@#;,,,,,,,,,,,,,,*@@@@@@@@@@@@@@@\n@@@@@@@@@@@@@@@@#:,,,,,,,,,,,,,,,;#@@@@@@S?+;::,,,,,,,,::;+*%#@@@@@#;,,,,,,,,,,,,,,:#@@@@@@@@@@@@@@@\n@@@@@@@@@@@@@@@@@*,,,,,,,,,,,,,,,,:S@@@@@@@@@##SS%%%SSS##@@@@@@@@@S:,,,,,,,,,,,,,,,+@@@@@@@@@@@@@@@@\n@@@@@@@@@@@@@@@@@#:,,,,,,,,,,,,,,,,,*#@@@@@@@@@@@@@@@@@@@@@@@@@@@*,,,,,,,,,,,,,,,,:S@@@@@@@@@@@@@@@@\n@@@@@@@@@@@@@@@@@@*,,,,,,,,,,,,,,,,,,:?@@@@@@@@@@@@@@@@@@@@@@@@%;,,,,,,,,,,,,,,,,,+@@@@@@@@@@@@@@@@@\n@@@@@@@@@@@@@@@@@@#:,,,,,,,,,,,,,,,,,,,:?#@@@@@@@@@@@@@@@@@@@%;,,,,,,,,,,,,,,,,,,:#@@@@@@@@@@@@@@@@@\n@@@@@@@@@@@@@@@@@@@?,,,,,,,,,,,,,,,,,,,,,:+%#@@@@@@@@@@@@@S*:,,,,,,,,,,,,,,,,,,,,*@@@@@@@@@@@@@@@@@@\n@@@@@@@@@@@@@@@@@@@@+,,,,,,,,,,,,,,,,,,,,,,,:;*?%SSSS%?*;:,,,,,,,,,,,,,,,,,,,,,,;@@@@@@@@@@@@@@@@@@@\n@@@@@@@@@@@@@@@@@@@@#:,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,:S@@@@@@@@@@@@@@@@@@@\n@@@@@@@@@@@@@@@@@@@@@%,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,?@@@@@@@@@@@@@@@@@@@@\n@@@@@@@@@@@@@@@@@@@@@@?,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,*@@@@@@@@@@@@@@@@@@@@@\n@@@@@@@@@@@@@@@@@@@@@@@*,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,+@@@@@@@@@@@@@@@@@@@@@@\n@@@@@@@@@@@@@@@@@@@@@@@@+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,;@@@@@@@@@@@@@@@@@@@@@@@\n@@@@@@@@@@@@@@@@@@@@@@@@@+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,+@@@@@@@@@@@@@@@@@@@@@@@@\n@@@@@@@@@@@@@@@@@@@@@@@@@@*,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,+@@@@@@@@@@@@@@@@@@@@@@@@@\n@@@@@@@@@@@@@@@@@@@@@@@@@@@?:,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,*@@@@@@@@@@@@@@@@@@@@@@@@@@\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@S:,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,:%@@@@@@@@@@@@@@@@@@@@@@@@@@@\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%;,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,:%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@?;,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,:?#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@?;,,,,,,,,,,,,,,,,,,,,,,,,,,,;?#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@S*:,,,,,,,,,,,,,,,,,,,,,:+%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@S*+::,,,,,,,,,,,,:;*%#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@S%?**+++**?%S#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
                 }
               }
-            },
-            "examples": {
-              "ramesh-aditya": {}
             }
           },
           "422": {
@@ -886,124 +886,124 @@ export const openApiJson: OpenApiJson = {
             "schema": {
               "title": "Model",
               "enum": [
-                "mnasnet0_75",
-                "regnet_x_32gf_v2",
-                "densenet169",
-                "vit_b_16_swag_linear_v1",
-                "resnet152_v2",
-                "densenet161",
-                "resnet18",
-                "regnet_y_1_6gf_v2",
-                "regnet_y_16gf_v2",
-                "mnasnet0_5",
-                "efficientnet_b2",
-                "mobilenet_v2_quantized_qnnpack_v1",
-                "mnasnet1_0",
-                "convnext_base",
-                "vit_l_16_v1",
-                "densenet201",
-                "swin_s",
-                "vgg11_bn",
-                "wide_resnet101_2_v2",
-                "vit_h_14_swag_e2e_v1",
-                "swin_t",
-                "resnext101_32x8d_v2",
-                "efficientnet_b7",
-                "efficientnet_b1_v1",
-                "regnet_x_3_2gf_v1",
-                "regnet_y_32gf_v2",
-                "resnext101_32x8d_quantized_fbgemm_v1",
-                "regnet_x_16gf_v1",
-                "regnet_y_400mf_v2",
-                "vgg16_bn",
-                "regnet_x_8gf_v1",
-                "regnet_x_800mf_v2",
-                "vit_b_16_swag_e2e_v1",
-                "regnet_y_8gf_v2",
-                "efficientnet_b0",
-                "vgg13",
-                "resnet50_quantized_fbgemm_v1",
-                "mobilenet_v2_v1",
-                "squeezenet1_1",
-                "regnet_x_8gf_v2",
-                "googlenet_quantized_fbgemm_v1",
-                "regnet_y_1_6gf_v1",
-                "efficientnet_v2_s",
-                "shufflenet_v2_x0_5_quantized_fbgemm_v1",
-                "shufflenet_v2_x2_0_quantized_fbgemm_v1",
-                "resnet50_v2",
-                "resnet50_quantized_fbgemm_v2",
-                "vit_l_32",
-                "efficientnet_b1_v2",
-                "resnet34",
-                "efficientnet_b5",
-                "resnext101_64x4d_quantized_fbgemm_v1",
-                "regnet_x_400mf_v2",
-                "mnasnet1_3",
-                "regnet_x_16gf_v2",
-                "vit_b_16_v1",
-                "inception_v3",
-                "shufflenet_v2_x0_5",
-                "vgg13_bn",
-                "inception_v3_fbgemm_v1",
-                "vgg16_v1",
-                "vgg19",
-                "regnet_y_128gf_swag_e2e_v1",
-                "convnext_tiny",
-                "mobilenet_v3_small",
-                "regnet_y_400mf_v1",
-                "regnet_y_16gf_v1",
-                "mobilenet_v2_v2",
                 "resnext101_32x8d_v1",
+                "regnet_x_32gf_v1",
+                "regnet_y_32gf_v2",
+                "alexnet",
+                "googlenet",
+                "inception_v3_fbgemm_v1",
+                "regnet_x_32gf_v2",
+                "regnet_y_8gf_v1",
+                "resnet18",
+                "regnet_y_16gf_v2",
+                "efficientnet_b1_v2",
+                "densenet121",
+                "regnet_y_32gf_v1",
+                "mobilenet_v3_large_quantized_qnnpack_v1",
+                "regnet_y_16gf_swag_e2e_v1",
+                "vgg11_bn",
+                "regnet_y_3_2gf_v1",
+                "inception_v3",
+                "resnet50_v2",
+                "efficientnet_v2_l",
+                "regnet_x_16gf_v2",
+                "vit_h_14_swag_linear_v1",
+                "shufflenet_v2_x2_0_quantized_fbgemm_v1",
+                "efficientnet_b6",
+                "vgg13_bn",
+                "densenet201",
+                "regnet_x_1_6gf_v2",
+                "regnet_x_8gf_v2",
+                "densenet161",
+                "resnext50_32x4d_v1",
+                "googlenet_quantized_fbgemm_v1",
+                "vgg11",
+                "regnet_y_1_6gf_v2",
+                "swin_b",
+                "resnet152_v1",
+                "vit_l_16_v1",
+                "resnext101_32x8d_quantized_fbgemm_v1",
+                "convnext_tiny",
+                "efficientnet_b2",
+                "mobilenet_v3_large_v1",
+                "wide_resnet101_2_v1",
+                "swin_t",
+                "regnet_x_400mf_v2",
+                "efficientnet_b1_v1",
+                "shufflenet_v2_x1_5",
+                "vit_l_16_swag_e2e_v1",
+                "regnet_x_800mf_v2",
+                "efficientnet_b7",
+                "shufflenet_v2_x2_0",
+                "vgg19",
+                "swin_s",
+                "vit_b_16_swag_e2e_v1",
+                "regnet_x_16gf_v1",
+                "efficientnet_b0",
                 "regnet_y_32gf_swag_linear_v1",
-                "convnext_large",
-                "regnet_x_400mf_v1",
+                "resnext50_32x4d_v2",
                 "resnext101_32x8d_quantized_fbgemm_v2",
+                "resnet18_quantized_fbgemm_v1",
+                "regnet_x_3_2gf_v1",
+                "mobilenet_v3_small",
+                "regnet_y_8gf_v2",
+                "densenet169",
+                "mnasnet0_75",
+                "vit_l_16_swag_linear_v1",
+                "regnet_y_3_2gf_v2",
+                "convnext_base",
+                "shufflenet_v2_x0_5_quantized_fbgemm_v1",
+                "efficientnet_b5",
+                "shufflenet_v2_x1_5_quantized_fbgemm_v1",
+                "mnasnet0_5",
+                "efficientnet_b3",
+                "regnet_x_3_2gf_v2",
+                "mobilenet_v2_v1",
+                "regnet_y_128gf_swag_e2e_v1",
                 "efficientnet_v2_m",
                 "squeezenet1_0",
-                "vit_b_32",
-                "mobilenet_v3_large_v1",
-                "resnext101_64x4d_v1",
-                "shufflenet_v2_x1_5",
-                "densenet121",
                 "resnet50_v1",
-                "googlenet",
-                "regnet_y_3_2gf_v2",
-                "mobilenet_v3_large_v2",
                 "regnet_y_128gf_swag_linear_v1",
-                "shufflenet_v2_x2_0",
-                "vit_l_16_swag_linear_v1",
-                "regnet_y_8gf_v1",
-                "shufflenet_v2_x1_0_quantized_fbgemm_v1",
-                "regnet_y_16gf_swag_e2e_v1",
-                "efficientnet_v2_l",
-                "efficientnet_b6",
-                "resnext50_32x4d_v2",
                 "regnet_x_800mf_v1",
-                "regnet_x_32gf_v1",
-                "alexnet",
-                "resnet152_v1",
-                "resnet18_quantized_fbgemm_v1",
-                "shufflenet_v2_x1_0",
-                "vit_h_14_swag_linear_v1",
-                "wide_resnet101_2_v1",
-                "resnext50_32x4d_v1",
-                "regnet_y_32gf_v1",
-                "vgg11",
-                "convnext_small",
-                "regnet_y_16gf_swag_linear_v1",
-                "regnet_y_32gf_swag_e2e_v1",
-                "regnet_y_3_2gf_v1",
-                "regnet_x_1_6gf_v1",
-                "swin_b",
-                "vit_l_16_swag_e2e_v1",
-                "regnet_x_1_6gf_v2",
+                "vit_l_32",
+                "resnet152_v2",
+                "mnasnet1_0",
+                "regnet_y_400mf_v2",
                 "vgg19_bn",
-                "efficientnet_b3",
-                "mobilenet_v3_large_quantized_qnnpack_v1",
+                "shufflenet_v2_x1_0",
+                "wide_resnet101_2_v2",
+                "vit_b_32",
+                "squeezenet1_1",
+                "resnet34",
+                "regnet_x_8gf_v1",
+                "shufflenet_v2_x0_5",
+                "regnet_y_16gf_v1",
+                "vit_h_14_swag_e2e_v1",
                 "efficientnet_b4",
-                "regnet_x_3_2gf_v2",
-                "shufflenet_v2_x1_5_quantized_fbgemm_v1"
+                "vgg13",
+                "resnext101_64x4d_v1",
+                "vit_b_16_v1",
+                "regnet_x_400mf_v1",
+                "convnext_small",
+                "mobilenet_v2_quantized_qnnpack_v1",
+                "shufflenet_v2_x1_0_quantized_fbgemm_v1",
+                "vgg16_v1",
+                "efficientnet_v2_s",
+                "mobilenet_v3_large_v2",
+                "mnasnet1_3",
+                "resnet50_quantized_fbgemm_v1",
+                "regnet_y_1_6gf_v1",
+                "regnet_y_400mf_v1",
+                "vgg16_bn",
+                "resnext101_32x8d_v2",
+                "regnet_x_1_6gf_v1",
+                "resnext101_64x4d_quantized_fbgemm_v1",
+                "vit_b_16_swag_linear_v1",
+                "regnet_y_32gf_swag_e2e_v1",
+                "regnet_y_16gf_swag_linear_v1",
+                "resnet50_quantized_fbgemm_v2",
+                "convnext_large",
+                "mobilenet_v2_v2"
               ],
               "type": "string",
               "default": "alexnet"
@@ -1028,10 +1028,130 @@ export const openApiJson: OpenApiJson = {
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "prediction": "string",
-                  "prediction_raw": {}
+                  "prediction_raw": {},
+                  "prediction": "string"
                 }
               }
+            },
+            "examples": {
+              "swin_b": {},
+              "regnet_y_8gf_v2": {},
+              "vgg13": {},
+              "vgg13_bn": {},
+              "efficientnet_b1_v2": {},
+              "regnet_x_1_6gf_v1": {},
+              "regnet_y_32gf_v1": {},
+              "regnet_y_16gf_swag_linear_v1": {},
+              "mobilenet_v2_v2": {},
+              "efficientnet_b5": {},
+              "resnet18": {},
+              "resnext101_64x4d_v1": {},
+              "googlenet": {},
+              "resnet34": {},
+              "efficientnet_b0": {},
+              "regnet_y_128gf_swag_e2e_v1": {},
+              "shufflenet_v2_x1_0_quantized_fbgemm_v1": {},
+              "efficientnet_b4": {},
+              "resnet18_quantized_fbgemm_v1": {},
+              "squeezenet1_0": {},
+              "mnasnet1_3": {},
+              "regnet_y_32gf_swag_e2e_v1": {},
+              "regnet_x_3_2gf_v2": {},
+              "efficientnet_b6": {},
+              "mobilenet_v3_large_quantized_qnnpack_v1": {},
+              "regnet_y_16gf_v2": {},
+              "regnet_y_3_2gf_v1": {},
+              "vit_l_16_swag_e2e_v1": {},
+              "resnet50_v2": {},
+              "inception_v3": {},
+              "convnext_small": {},
+              "densenet121": {},
+              "regnet_y_1_6gf_v1": {},
+              "shufflenet_v2_x0_5": {},
+              "mobilenet_v3_large_v1": {},
+              "vit_l_32": {},
+              "wide_resnet101_2_v1": {},
+              "regnet_y_32gf_v2": {},
+              "resnext101_32x8d_quantized_fbgemm_v1": {},
+              "regnet_y_1_6gf_v2": {},
+              "convnext_large": {},
+              "regnet_y_32gf_swag_linear_v1": {},
+              "regnet_x_1_6gf_v2": {},
+              "resnet50_quantized_fbgemm_v2": {},
+              "swin_s": {},
+              "regnet_x_16gf_v2": {},
+              "vgg16_bn": {},
+              "regnet_y_16gf_v1": {},
+              "regnet_x_8gf_v2": {},
+              "vit_b_16_v1": {},
+              "resnext50_32x4d_v2": {},
+              "resnext101_64x4d_quantized_fbgemm_v1": {},
+              "inception_v3_fbgemm_v1": {},
+              "mobilenet_v2_quantized_qnnpack_v1": {},
+              "regnet_x_16gf_v1": {},
+              "mobilenet_v3_small": {},
+              "swin_t": {},
+              "resnet50_quantized_fbgemm_v1": {},
+              "wide_resnet101_2_v2": {},
+              "mnasnet0_5": {},
+              "vit_h_14_swag_e2e_v1": {},
+              "efficientnet_v2_s": {},
+              "regnet_x_8gf_v1": {},
+              "mobilenet_v3_large_v2": {},
+              "regnet_y_16gf_swag_e2e_v1": {},
+              "efficientnet_v2_l": {},
+              "efficientnet_b3": {},
+              "vit_l_16_swag_linear_v1": {},
+              "vgg16_v1": {},
+              "regnet_x_400mf_v1": {},
+              "vgg11_bn": {},
+              "resnext101_32x8d_quantized_fbgemm_v2": {},
+              "convnext_base": {},
+              "resnet152_v2": {},
+              "shufflenet_v2_x1_0": {},
+              "regnet_y_128gf_swag_linear_v1": {},
+              "squeezenet1_1": {},
+              "densenet161": {},
+              "resnext101_32x8d_v1": {},
+              "shufflenet_v2_x2_0_quantized_fbgemm_v1": {},
+              "efficientnet_v2_m": {},
+              "mnasnet0_75": {},
+              "vgg19_bn": {},
+              "regnet_x_400mf_v2": {},
+              "shufflenet_v2_x2_0": {},
+              "resnet50_v1": {},
+              "regnet_x_3_2gf_v1": {},
+              "googlenet_quantized_fbgemm_v1": {},
+              "shufflenet_v2_x1_5_quantized_fbgemm_v1": {},
+              "regnet_x_32gf_v1": {},
+              "efficientnet_b7": {},
+              "resnet152_v1": {},
+              "vgg19": {},
+              "densenet169": {},
+              "vit_l_16_v1": {},
+              "mobilenet_v2_v1": {},
+              "regnet_y_3_2gf_v2": {},
+              "shufflenet_v2_x0_5_quantized_fbgemm_v1": {},
+              "efficientnet_b1_v1": {},
+              "resnext50_32x4d_v1": {},
+              "shufflenet_v2_x1_5": {},
+              "regnet_y_8gf_v1": {},
+              "regnet_y_400mf_v1": {},
+              "vit_b_16_swag_linear_v1": {},
+              "resnext101_32x8d_v2": {},
+              "vit_h_14_swag_linear_v1": {},
+              "efficientnet_b2": {},
+              "regnet_x_800mf_v2": {},
+              "vgg11": {},
+              "alexnet": {},
+              "regnet_x_800mf_v1": {},
+              "vit_b_32": {},
+              "regnet_x_32gf_v2": {},
+              "regnet_y_400mf_v2": {},
+              "densenet201": {},
+              "convnext_tiny": {},
+              "vit_b_16_swag_e2e_v1": {},
+              "mnasnet1_0": {}
             },
             "example": {
               "swin_b": {
@@ -1978,126 +2098,6 @@ export const openApiJson: OpenApiJson = {
                   }
                 }
               }
-            },
-            "examples": {
-              "swin_b": {},
-              "regnet_y_8gf_v2": {},
-              "vgg13": {},
-              "vgg13_bn": {},
-              "efficientnet_b1_v2": {},
-              "regnet_x_1_6gf_v1": {},
-              "regnet_y_32gf_v1": {},
-              "regnet_y_16gf_swag_linear_v1": {},
-              "mobilenet_v2_v2": {},
-              "efficientnet_b5": {},
-              "resnet18": {},
-              "resnext101_64x4d_v1": {},
-              "googlenet": {},
-              "resnet34": {},
-              "efficientnet_b0": {},
-              "regnet_y_128gf_swag_e2e_v1": {},
-              "shufflenet_v2_x1_0_quantized_fbgemm_v1": {},
-              "efficientnet_b4": {},
-              "resnet18_quantized_fbgemm_v1": {},
-              "squeezenet1_0": {},
-              "mnasnet1_3": {},
-              "regnet_y_32gf_swag_e2e_v1": {},
-              "regnet_x_3_2gf_v2": {},
-              "efficientnet_b6": {},
-              "mobilenet_v3_large_quantized_qnnpack_v1": {},
-              "regnet_y_16gf_v2": {},
-              "regnet_y_3_2gf_v1": {},
-              "vit_l_16_swag_e2e_v1": {},
-              "resnet50_v2": {},
-              "inception_v3": {},
-              "convnext_small": {},
-              "densenet121": {},
-              "regnet_y_1_6gf_v1": {},
-              "shufflenet_v2_x0_5": {},
-              "mobilenet_v3_large_v1": {},
-              "vit_l_32": {},
-              "wide_resnet101_2_v1": {},
-              "regnet_y_32gf_v2": {},
-              "resnext101_32x8d_quantized_fbgemm_v1": {},
-              "regnet_y_1_6gf_v2": {},
-              "convnext_large": {},
-              "regnet_y_32gf_swag_linear_v1": {},
-              "regnet_x_1_6gf_v2": {},
-              "resnet50_quantized_fbgemm_v2": {},
-              "swin_s": {},
-              "regnet_x_16gf_v2": {},
-              "vgg16_bn": {},
-              "regnet_y_16gf_v1": {},
-              "regnet_x_8gf_v2": {},
-              "vit_b_16_v1": {},
-              "resnext50_32x4d_v2": {},
-              "resnext101_64x4d_quantized_fbgemm_v1": {},
-              "inception_v3_fbgemm_v1": {},
-              "mobilenet_v2_quantized_qnnpack_v1": {},
-              "regnet_x_16gf_v1": {},
-              "mobilenet_v3_small": {},
-              "swin_t": {},
-              "resnet50_quantized_fbgemm_v1": {},
-              "wide_resnet101_2_v2": {},
-              "mnasnet0_5": {},
-              "vit_h_14_swag_e2e_v1": {},
-              "efficientnet_v2_s": {},
-              "regnet_x_8gf_v1": {},
-              "mobilenet_v3_large_v2": {},
-              "regnet_y_16gf_swag_e2e_v1": {},
-              "efficientnet_v2_l": {},
-              "efficientnet_b3": {},
-              "vit_l_16_swag_linear_v1": {},
-              "vgg16_v1": {},
-              "regnet_x_400mf_v1": {},
-              "vgg11_bn": {},
-              "resnext101_32x8d_quantized_fbgemm_v2": {},
-              "convnext_base": {},
-              "resnet152_v2": {},
-              "shufflenet_v2_x1_0": {},
-              "regnet_y_128gf_swag_linear_v1": {},
-              "squeezenet1_1": {},
-              "densenet161": {},
-              "resnext101_32x8d_v1": {},
-              "shufflenet_v2_x2_0_quantized_fbgemm_v1": {},
-              "efficientnet_v2_m": {},
-              "mnasnet0_75": {},
-              "vgg19_bn": {},
-              "regnet_x_400mf_v2": {},
-              "shufflenet_v2_x2_0": {},
-              "resnet50_v1": {},
-              "regnet_x_3_2gf_v1": {},
-              "googlenet_quantized_fbgemm_v1": {},
-              "shufflenet_v2_x1_5_quantized_fbgemm_v1": {},
-              "regnet_x_32gf_v1": {},
-              "efficientnet_b7": {},
-              "resnet152_v1": {},
-              "vgg19": {},
-              "densenet169": {},
-              "vit_l_16_v1": {},
-              "mobilenet_v2_v1": {},
-              "regnet_y_3_2gf_v2": {},
-              "shufflenet_v2_x0_5_quantized_fbgemm_v1": {},
-              "efficientnet_b1_v1": {},
-              "resnext50_32x4d_v1": {},
-              "shufflenet_v2_x1_5": {},
-              "regnet_y_8gf_v1": {},
-              "regnet_y_400mf_v1": {},
-              "vit_b_16_swag_linear_v1": {},
-              "resnext101_32x8d_v2": {},
-              "vit_h_14_swag_linear_v1": {},
-              "efficientnet_b2": {},
-              "regnet_x_800mf_v2": {},
-              "vgg11": {},
-              "alexnet": {},
-              "regnet_x_800mf_v1": {},
-              "vit_b_32": {},
-              "regnet_x_32gf_v2": {},
-              "regnet_y_400mf_v2": {},
-              "densenet201": {},
-              "convnext_tiny": {},
-              "vit_b_16_swag_e2e_v1": {},
-              "mnasnet1_0": {}
             }
           },
           "422": {
@@ -2143,8 +2143,8 @@ export const openApiJson: OpenApiJson = {
             "schema": {
               "title": "Model",
               "enum": [
-                "tesseract-denoising",
                 "tesseract-default",
+                "tesseract-denoising",
                 "easy-ocr"
               ],
               "type": "string",
@@ -2170,10 +2170,15 @@ export const openApiJson: OpenApiJson = {
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "prediction": "string",
-                  "prediction_raw": {}
+                  "prediction_raw": {},
+                  "prediction": "string"
                 }
               }
+            },
+            "examples": {
+              "easy-ocr": {},
+              "tesseract-default": {},
+              "tesseract-denoising": {}
             },
             "example": {
               "easy-ocr": {
@@ -2204,11 +2209,6 @@ export const openApiJson: OpenApiJson = {
                   "prediction_raw": "{'prediction': 'This is a lot of 12 point text to test the\\nocr code and see if it works on all types\\nof file format.\\n\\nThe quick brown dog jumped over the\\nlazy fox. The quick brown dog jumped\\nover the lazy fox. The quick brown dog\\njumped over the lazy fox. The quick\\nbrown dog jumped over the lazy fox.', 'prediction_raw': 'This is a lot of 12 point text to test the\\nocr code and see if it works on all types\\nof file format.\\n\\nThe quick brown dog jumped over the\\nlazy fox. The quick brown dog jumped\\nover the lazy fox. The quick brown dog\\njumped over the lazy fox. The quick\\nbrown dog jumped over the lazy fox.\\n\\x0c'}"
                 }
               }
-            },
-            "examples": {
-              "easy-ocr": {},
-              "tesseract-default": {},
-              "tesseract-denoising": {}
             }
           },
           "422": {
@@ -2254,8 +2254,8 @@ export const openApiJson: OpenApiJson = {
             "schema": {
               "title": "Model",
               "enum": [
-                "dream-studio",
-                "stable-diffusion"
+                "stable-diffusion",
+                "dream-studio"
               ],
               "type": "string",
               "default": "stable-diffusion"
@@ -2286,6 +2286,10 @@ export const openApiJson: OpenApiJson = {
                 }
               }
             },
+            "examples": {
+              "dream-studio": {},
+              "stable-diffusion": {}
+            },
             "example": {
               "dream-studio": {
                 "output": "http://files.gladia.io/output/text/image/image-generation/dream-studio/example/output.png"
@@ -2293,10 +2297,6 @@ export const openApiJson: OpenApiJson = {
               "stable-diffusion": {
                 "output": "http://files.gladia.io/output/text/image/image-generation/stable-diffusion/example/output.png"
               }
-            },
-            "examples": {
-              "dream-studio": {},
-              "stable-diffusion": {}
             }
           },
           "422": {
@@ -2368,10 +2368,13 @@ export const openApiJson: OpenApiJson = {
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "prediction": "string",
-                  "prediction_raw": {}
+                  "prediction_raw": {},
+                  "prediction": "string"
                 }
               }
+            },
+            "examples": {
+              "flexudy-t5-base-multi-sentence-doctor": {}
             },
             "example": {
               "flexudy-t5-base-multi-sentence-doctor": {
@@ -2380,9 +2383,6 @@ export const openApiJson: OpenApiJson = {
                   "prediction_raw": "Text to correct."
                 }
               }
-            },
-            "examples": {
-              "flexudy-t5-base-multi-sentence-doctor": {}
             }
           },
           "422": {
@@ -2454,10 +2454,13 @@ export const openApiJson: OpenApiJson = {
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "prediction": "string",
-                  "prediction_raw": {}
+                  "prediction_raw": {},
+                  "prediction": "string"
                 }
               }
+            },
+            "examples": {
+              "mrm8488-t5-base-finetuned-emotion": {}
             },
             "example": {
               "mrm8488-t5-base-finetuned-emotion": {
@@ -2466,9 +2469,6 @@ export const openApiJson: OpenApiJson = {
                   "prediction_raw": "love"
                 }
               }
-            },
-            "examples": {
-              "mrm8488-t5-base-finetuned-emotion": {}
             }
           },
           "422": {
@@ -2514,8 +2514,8 @@ export const openApiJson: OpenApiJson = {
             "schema": {
               "title": "Model",
               "enum": [
-                "Hate-speech-CNERG-dehatebert-mono-english",
-                "byt5-base-tweet-hate-detection"
+                "byt5-base-tweet-hate-detection",
+                "Hate-speech-CNERG-dehatebert-mono-english"
               ],
               "type": "string",
               "default": "byt5-base-tweet-hate-detection"
@@ -2541,10 +2541,14 @@ export const openApiJson: OpenApiJson = {
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "prediction": "string",
-                  "prediction_raw": {}
+                  "prediction_raw": {},
+                  "prediction": "string"
                 }
               }
+            },
+            "examples": {
+              "byt5-base-tweet-hate-detection": {},
+              "Hate-speech-CNERG-dehatebert-mono-english": {}
             },
             "example": {
               "byt5-base-tweet-hate-detection": {
@@ -2563,10 +2567,6 @@ export const openApiJson: OpenApiJson = {
                   }
                 }
               }
-            },
-            "examples": {
-              "byt5-base-tweet-hate-detection": {},
-              "Hate-speech-CNERG-dehatebert-mono-english": {}
             }
           },
           "422": {
@@ -2692,10 +2692,14 @@ export const openApiJson: OpenApiJson = {
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "prediction": "string",
-                  "prediction_raw": {}
+                  "prediction_raw": {},
+                  "prediction": "string"
                 }
               }
+            },
+            "examples": {
+              "keybert-paraphrase-MiniLM-L6-v2": {},
+              "keybert-paraphrase-multilingual-MiniLM-L12-v2": {}
             },
             "example": {
               "keybert-paraphrase-MiniLM-L6-v2": {
@@ -2750,10 +2754,6 @@ export const openApiJson: OpenApiJson = {
                   }
                 }
               }
-            },
-            "examples": {
-              "keybert-paraphrase-MiniLM-L6-v2": {},
-              "keybert-paraphrase-multilingual-MiniLM-L12-v2": {}
             }
           },
           "422": {
@@ -2826,10 +2826,14 @@ export const openApiJson: OpenApiJson = {
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "prediction": "string",
-                  "prediction_raw": {}
+                  "prediction_raw": {},
+                  "prediction": "string"
                 }
               }
+            },
+            "examples": {
+              "toftrup-etal-2021": {},
+              "xlm-roberta-base-language-detection": {}
             },
             "example": {
               "toftrup-etal-2021": {
@@ -2886,10 +2890,6 @@ export const openApiJson: OpenApiJson = {
                   }
                 }
               }
-            },
-            "examples": {
-              "toftrup-etal-2021": {},
-              "xlm-roberta-base-language-detection": {}
             }
           },
           "422": {
@@ -2962,10 +2962,14 @@ export const openApiJson: OpenApiJson = {
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "prediction": "string",
-                  "prediction_raw": {}
+                  "prediction_raw": {},
+                  "prediction": "string"
                 }
               }
+            },
+            "examples": {
+              "bloom-560m": {},
+              "EleutherAI-gpt-neo-2_7B": {}
             },
             "example": {
               "bloom-560m": {
@@ -2988,10 +2992,6 @@ export const openApiJson: OpenApiJson = {
                   ]
                 }
               }
-            },
-            "examples": {
-              "bloom-560m": {},
-              "EleutherAI-gpt-neo-2_7B": {}
             }
           },
           "422": {
@@ -3063,10 +3063,13 @@ export const openApiJson: OpenApiJson = {
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "prediction": "array",
-                  "prediction_raw": {}
+                  "prediction_raw": {},
+                  "prediction": "array"
                 }
               }
+            },
+            "examples": {
+              "dbmdz-bert-large-cased-finetuned-conll03-english": {}
             },
             "example": {
               "dbmdz-bert-large-cased-finetuned-conll03-english": {
@@ -3106,9 +3109,6 @@ export const openApiJson: OpenApiJson = {
                   ]
                 }
               }
-            },
-            "examples": {
-              "dbmdz-bert-large-cased-finetuned-conll03-english": {}
             }
           },
           "422": {
@@ -3180,10 +3180,13 @@ export const openApiJson: OpenApiJson = {
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "prediction": "number",
-                  "prediction_raw": {}
+                  "prediction_raw": {},
+                  "prediction": "number"
                 }
               }
+            },
+            "examples": {
+              "bert-base-uncased": {}
             },
             "example": {
               "bert-base-uncased": {
@@ -3192,9 +3195,6 @@ export const openApiJson: OpenApiJson = {
                   "prediction_raw": 0.9999550580978394
                 }
               }
-            },
-            "examples": {
-              "bert-base-uncased": {}
             }
           },
           "422": {
@@ -3240,10 +3240,10 @@ export const openApiJson: OpenApiJson = {
             "schema": {
               "title": "Model",
               "enum": [
-                "albert-base-v2",
+                "roberta-base",
                 "distilbert-base-uncased",
                 "bert-base-uncased",
-                "roberta-base"
+                "albert-base-v2"
               ],
               "type": "string",
               "default": "distilbert-base-uncased"
@@ -3269,10 +3269,16 @@ export const openApiJson: OpenApiJson = {
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "prediction": "string",
-                  "prediction_raw": {}
+                  "prediction_raw": {},
+                  "prediction": "string"
                 }
               }
+            },
+            "examples": {
+              "roberta-base": {},
+              "albert-base-v2": {},
+              "distilbert-base-uncased": {},
+              "bert-base-uncased": {}
             },
             "example": {
               "roberta-base": {
@@ -3315,98 +3321,6 @@ export const openApiJson: OpenApiJson = {
                   }
                 }
               }
-            },
-            "examples": {
-              "roberta-base": {},
-              "albert-base-v2": {},
-              "distilbert-base-uncased": {},
-              "bert-base-uncased": {}
-            }
-          },
-          "422": {
-            "description": "Validation Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/HTTPValidationError"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/text/text/plural/": {
-      "get": {
-        "tags": [
-          "text.text.plural"
-        ],
-        "summary": "Get list of models available for plural",
-        "operationId": "get_versions_text_text_plural__get",
-        "responses": {
-          "200": {
-            "description": "Successful Response",
-            "content": {
-              "application/json": {
-                "schema": {}
-              }
-            }
-          }
-        }
-      },
-      "post": {
-        "tags": [
-          "text.text.plural"
-        ],
-        "summary": "Apply model for the plural task for a given models",
-        "operationId": "apply_text_text_plural__post",
-        "parameters": [
-          {
-            "required": false,
-            "schema": {
-              "title": "Model",
-              "enum": [
-                "inflect"
-              ],
-              "type": "string",
-              "default": "inflect"
-            },
-            "name": "model",
-            "in": "query"
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/x-www-form-urlencoded": {
-              "schema": {
-                "$ref": "#/components/schemas/Body_apply_text_text_plural__post"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "Successful Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "prediction": "string",
-                  "prediction_raw": {}
-                }
-              }
-            },
-            "example": {
-              "inflect": {
-                "output": {
-                  "prediction": "cats",
-                  "prediction_raw": "cats"
-                }
-              }
-            },
-            "examples": {
-              "inflect": {}
             }
           },
           "422": {
@@ -3478,10 +3392,13 @@ export const openApiJson: OpenApiJson = {
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "prediction": "string",
-                  "prediction_raw": {}
+                  "prediction_raw": {},
+                  "prediction": "string"
                 }
               }
+            },
+            "examples": {
+              "sentdex-GPyT": {}
             },
             "example": {
               "sentdex-GPyT": {
@@ -3490,9 +3407,6 @@ export const openApiJson: OpenApiJson = {
                   "prediction_raw": "def is_palendrome(s): return False<N>    if s == 'a':<N>        return True<N>    if s == 'b':<N>        return False<N>    if s == 'c':<N>        return False<N>    if s == 'd':<N>        return False<N>    if s == 'e':<N>        return False<N>    if s == 'f':<N>        return"
                 }
               }
-            },
-            "examples": {
-              "sentdex-GPyT": {}
             }
           },
           "422": {
@@ -3539,9 +3453,9 @@ export const openApiJson: OpenApiJson = {
               "title": "Model",
               "enum": [
                 "deepset_bert-base-cased-squad2",
-                "deepset-roberta-base-squad2",
-                "mrm8488-bert-tiny-5-finetuned-squadv2",
                 "mfeb-albert-xxlarge-v2-squad2",
+                "mrm8488-bert-tiny-5-finetuned-squadv2",
+                "deepset-roberta-base-squad2",
                 "distilbert-base-cased-distilled-squad"
               ],
               "type": "string",
@@ -3568,10 +3482,17 @@ export const openApiJson: OpenApiJson = {
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "prediction": "string",
-                  "prediction_raw": {}
+                  "prediction_raw": {},
+                  "prediction": "string"
                 }
               }
+            },
+            "examples": {
+              "mrm8488-bert-tiny-5-finetuned-squadv2": {},
+              "deepset-roberta-base-squad2": {},
+              "mfeb-albert-xxlarge-v2-squad2": {},
+              "distilbert-base-cased-distilled-squad": {},
+              "deepset_bert-base-cased-squad2": {}
             },
             "example": {
               "mrm8488-bert-tiny-5-finetuned-squadv2": {
@@ -3632,13 +3553,6 @@ export const openApiJson: OpenApiJson = {
                   "prediction_raw": "Clara"
                 }
               }
-            },
-            "examples": {
-              "mrm8488-bert-tiny-5-finetuned-squadv2": {},
-              "deepset-roberta-base-squad2": {},
-              "mfeb-albert-xxlarge-v2-squad2": {},
-              "distilbert-base-cased-distilled-squad": {},
-              "deepset_bert-base-cased-squad2": {}
             }
           },
           "422": {
@@ -3684,8 +3598,8 @@ export const openApiJson: OpenApiJson = {
             "schema": {
               "title": "Model",
               "enum": [
-                "ramsrigouthamg-t5_sentence_paraphraser",
-                "ramsrigouthamg-t5-large-paraphraser-diverse-high-quality"
+                "ramsrigouthamg-t5-large-paraphraser-diverse-high-quality",
+                "ramsrigouthamg-t5_sentence_paraphraser"
               ],
               "type": "string",
               "default": "ramsrigouthamg-t5-large-paraphraser-diverse-high-quality"
@@ -3711,10 +3625,14 @@ export const openApiJson: OpenApiJson = {
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "prediction": "string",
-                  "prediction_raw": {}
+                  "prediction_raw": {},
+                  "prediction": "string"
                 }
               }
+            },
+            "examples": {
+              "ramsrigouthamg-t5-large-paraphraser-diverse-high-quality": {},
+              "ramsrigouthamg-t5_sentence_paraphraser": {}
             },
             "example": {
               "ramsrigouthamg-t5-large-paraphraser-diverse-high-quality": {
@@ -3733,10 +3651,6 @@ export const openApiJson: OpenApiJson = {
                   ]
                 }
               }
-            },
-            "examples": {
-              "ramsrigouthamg-t5-large-paraphraser-diverse-high-quality": {},
-              "ramsrigouthamg-t5_sentence_paraphraser": {}
             }
           },
           "422": {
@@ -3782,10 +3696,10 @@ export const openApiJson: OpenApiJson = {
             "schema": {
               "title": "Model",
               "enum": [
-                "zero-shot-classification-facebook-bart-large-mnli",
                 "distilbert-base-uncased-finetuned-sst-2-english",
-                "distilbert-base-uncased",
-                "nlptown-bert-base-multilingual-uncased-sentiment"
+                "nlptown-bert-base-multilingual-uncased-sentiment",
+                "zero-shot-classification-facebook-bart-large-mnli",
+                "distilbert-base-uncased"
               ],
               "type": "string",
               "default": "nlptown-bert-base-multilingual-uncased-sentiment"
@@ -3811,10 +3725,16 @@ export const openApiJson: OpenApiJson = {
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "prediction": "string",
-                  "prediction_raw": {}
+                  "prediction_raw": {},
+                  "prediction": "string"
                 }
               }
+            },
+            "examples": {
+              "zero-shot-classification-facebook-bart-large-mnli": {},
+              "distilbert-base-uncased-finetuned-sst-2-english": {},
+              "distilbert-base-uncased": {},
+              "nlptown-bert-base-multilingual-uncased-sentiment": {}
             },
             "example": {
               "zero-shot-classification-facebook-bart-large-mnli": {
@@ -3865,12 +3785,6 @@ export const openApiJson: OpenApiJson = {
                   ]
                 }
               }
-            },
-            "examples": {
-              "zero-shot-classification-facebook-bart-large-mnli": {},
-              "distilbert-base-uncased-finetuned-sst-2-english": {},
-              "distilbert-base-uncased": {},
-              "nlptown-bert-base-multilingual-uncased-sentiment": {}
             }
           },
           "422": {
@@ -3942,10 +3856,13 @@ export const openApiJson: OpenApiJson = {
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "prediction": "number",
-                  "prediction_raw": {}
+                  "prediction_raw": {},
+                  "prediction": "number"
                 }
               }
+            },
+            "examples": {
+              "all-MiniLM-L6-v2": {}
             },
             "example": {
               "all-MiniLM-L6-v2": {
@@ -3954,9 +3871,6 @@ export const openApiJson: OpenApiJson = {
                   "prediction_raw": 0.9097199440002441
                 }
               }
-            },
-            "examples": {
-              "all-MiniLM-L6-v2": {}
             }
           },
           "422": {
@@ -4134,10 +4048,13 @@ export const openApiJson: OpenApiJson = {
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "prediction": "array",
-                  "prediction_raw": {}
+                  "prediction_raw": {},
+                  "prediction": "array"
                 }
               }
+            },
+            "examples": {
+              "bert-base-multilingual-cased": {}
             },
             "example": {
               "bert-base-multilingual-cased": {
@@ -4196,9 +4113,6 @@ export const openApiJson: OpenApiJson = {
                   ]
                 }
               }
-            },
-            "examples": {
-              "bert-base-multilingual-cased": {}
             }
           },
           "422": {
@@ -4439,8 +4353,8 @@ export const openApiJson: OpenApiJson = {
             "format": "binary",
             "example": "http://files.gladia.io/examples/audio/text/audio-transcription/audio.mp3",
             "examples": {
-              "from_audio_m4a": "http://files.gladia.io/examples/audio/text/audio-transcription/audio.m4a",
               "from_audio_mp3": "http://files.gladia.io/examples/audio/text/audio-transcription/audio.mp3",
+              "from_audio_m4a": "http://files.gladia.io/examples/audio/text/audio-transcription/audio.m4a",
               "from_audio_wav": "http://files.gladia.io/examples/audio/text/audio-transcription/audio.wav"
             },
             "data_type": "audio"
@@ -4450,8 +4364,8 @@ export const openApiJson: OpenApiJson = {
             "type": "string",
             "example": "http://files.gladia.io/examples/audio/text/audio-transcription/audio.mp3",
             "examples": {
-              "from_audio_m4a": "http://files.gladia.io/examples/audio/text/audio-transcription/audio.m4a",
               "from_audio_mp3": "http://files.gladia.io/examples/audio/text/audio-transcription/audio.mp3",
+              "from_audio_m4a": "http://files.gladia.io/examples/audio/text/audio-transcription/audio.m4a",
               "from_audio_wav": "http://files.gladia.io/examples/audio/text/audio-transcription/audio.wav"
             },
             "data_type": "url"
@@ -4477,8 +4391,8 @@ export const openApiJson: OpenApiJson = {
             "example": "http://files.gladia.io/examples/image/image/background-removal/owl2.png",
             "examples": {
               "from_owl2_png": "http://files.gladia.io/examples/image/image/background-removal/owl2.png",
-              "from_lions-4_jpg": "https://15pictures.com/wp-content/gallery/15-pictures-lions/lions-4.jpg",
-              "from_owl2_jpg": "http://files.gladia.io/examples/image/image/background-removal/owl2.jpg"
+              "from_owl2_jpg": "http://files.gladia.io/examples/image/image/background-removal/owl2.jpg",
+              "from_lions-4_jpg": "https://15pictures.com/wp-content/gallery/15-pictures-lions/lions-4.jpg"
             },
             "data_type": "image"
           },
@@ -4488,8 +4402,8 @@ export const openApiJson: OpenApiJson = {
             "example": "http://files.gladia.io/examples/image/image/background-removal/owl2.png",
             "examples": {
               "from_owl2_png": "http://files.gladia.io/examples/image/image/background-removal/owl2.png",
-              "from_lions-4_jpg": "https://15pictures.com/wp-content/gallery/15-pictures-lions/lions-4.jpg",
-              "from_owl2_jpg": "http://files.gladia.io/examples/image/image/background-removal/owl2.jpg"
+              "from_owl2_jpg": "http://files.gladia.io/examples/image/image/background-removal/owl2.jpg",
+              "from_lions-4_jpg": "https://15pictures.com/wp-content/gallery/15-pictures-lions/lions-4.jpg"
             },
             "data_type": "url"
           }
@@ -4711,9 +4625,8 @@ export const openApiJson: OpenApiJson = {
             "format": "binary",
             "example": "http://files.gladia.io/examples/image/image/uncolorization/landscape-pics-wallpapers.png",
             "examples": {
-              "from_landscape-pics-wallpapers_jng": "http://files.gladia.io/examples/image/image/uncolorization/landscape-pics-wallpapers.jng",
               "from_landscape-pics-wallpapers_png": "http://files.gladia.io/examples/image/image/uncolorization/landscape-pics-wallpapers.png",
-              "from_landscape-pics-wallpapers_gif": "http://files.gladia.io/examples/image/image/uncolorization/landscape-pics-wallpapers.gif"
+              "from_landscape-pics-wallpapers_jpg": "http://files.gladia.io/examples/image/image/uncolorization/landscape-pics-wallpapers.jpg"
             },
             "data_type": "image"
           },
@@ -4722,9 +4635,8 @@ export const openApiJson: OpenApiJson = {
             "type": "string",
             "example": "http://files.gladia.io/examples/image/image/uncolorization/landscape-pics-wallpapers.png",
             "examples": {
-              "from_landscape-pics-wallpapers_jng": "http://files.gladia.io/examples/image/image/uncolorization/landscape-pics-wallpapers.jng",
               "from_landscape-pics-wallpapers_png": "http://files.gladia.io/examples/image/image/uncolorization/landscape-pics-wallpapers.png",
-              "from_landscape-pics-wallpapers_gif": "http://files.gladia.io/examples/image/image/uncolorization/landscape-pics-wallpapers.gif"
+              "from_landscape-pics-wallpapers_jpg": "http://files.gladia.io/examples/image/image/uncolorization/landscape-pics-wallpapers.jpg"
             },
             "data_type": "url"
           }
@@ -4740,9 +4652,9 @@ export const openApiJson: OpenApiJson = {
             "format": "binary",
             "example": "http://files.gladia.io/examples/image/text/asciify/asciify.png",
             "examples": {
-              "from_asciify_gif": "http://files.gladia.io/examples/image/text/asciify/asciify.gif",
+              "from_asciify_png": "http://files.gladia.io/examples/image/text/asciify/asciify.png",
               "from_asciify_jpg": "http://files.gladia.io/examples/image/text/asciify/asciify.jpg",
-              "from_asciify_png": "http://files.gladia.io/examples/image/text/asciify/asciify.png"
+              "from_asciify_gif": "http://files.gladia.io/examples/image/text/asciify/asciify.gif"
             },
             "data_type": "image"
           },
@@ -4751,9 +4663,9 @@ export const openApiJson: OpenApiJson = {
             "type": "string",
             "example": "http://files.gladia.io/examples/image/text/asciify/asciify.png",
             "examples": {
-              "from_asciify_gif": "http://files.gladia.io/examples/image/text/asciify/asciify.gif",
+              "from_asciify_png": "http://files.gladia.io/examples/image/text/asciify/asciify.png",
               "from_asciify_jpg": "http://files.gladia.io/examples/image/text/asciify/asciify.jpg",
-              "from_asciify_png": "http://files.gladia.io/examples/image/text/asciify/asciify.png"
+              "from_asciify_gif": "http://files.gladia.io/examples/image/text/asciify/asciify.gif"
             },
             "data_type": "url"
           }
@@ -4769,9 +4681,9 @@ export const openApiJson: OpenApiJson = {
             "format": "binary",
             "example": "http://files.gladia.io/examples/image/text/classification/image.png",
             "examples": {
-              "from_image_gif": "http://files.gladia.io/examples/image/text/classification/image.gif",
+              "from_image_png": "http://files.gladia.io/examples/image/text/classification/image.png",
               "from_image_jpg": "http://files.gladia.io/examples/image/text/classification/image.jpg",
-              "from_image_png": "http://files.gladia.io/examples/image/text/classification/image.png"
+              "from_image_gif": "http://files.gladia.io/examples/image/text/classification/image.gif"
             },
             "data_type": "image"
           },
@@ -4780,9 +4692,9 @@ export const openApiJson: OpenApiJson = {
             "type": "string",
             "example": "http://files.gladia.io/examples/image/text/classification/image.png",
             "examples": {
-              "from_image_gif": "http://files.gladia.io/examples/image/text/classification/image.gif",
+              "from_image_png": "http://files.gladia.io/examples/image/text/classification/image.png",
               "from_image_jpg": "http://files.gladia.io/examples/image/text/classification/image.jpg",
-              "from_image_png": "http://files.gladia.io/examples/image/text/classification/image.png"
+              "from_image_gif": "http://files.gladia.io/examples/image/text/classification/image.gif"
             },
             "data_type": "url"
           },
@@ -4806,9 +4718,9 @@ export const openApiJson: OpenApiJson = {
             "format": "binary",
             "example": "http://files.gladia.io/examples/image/text/ocr/testocr.png",
             "examples": {
-              "from_testocr_gif": "http://files.gladia.io/examples/image/text/ocr/testocr.gif",
+              "from_testocr_png": "http://files.gladia.io/examples/image/text/ocr/testocr.png",
               "from_testocr_jpg": "http://files.gladia.io/examples/image/text/ocr/testocr.jpg",
-              "from_testocr_png": "http://files.gladia.io/examples/image/text/ocr/testocr.png"
+              "from_testocr_gif": "http://files.gladia.io/examples/image/text/ocr/testocr.gif"
             },
             "data_type": "image"
           },
@@ -4817,9 +4729,9 @@ export const openApiJson: OpenApiJson = {
             "type": "string",
             "example": "http://files.gladia.io/examples/image/text/ocr/testocr.png",
             "examples": {
-              "from_testocr_gif": "http://files.gladia.io/examples/image/text/ocr/testocr.gif",
+              "from_testocr_png": "http://files.gladia.io/examples/image/text/ocr/testocr.png",
               "from_testocr_jpg": "http://files.gladia.io/examples/image/text/ocr/testocr.jpg",
-              "from_testocr_png": "http://files.gladia.io/examples/image/text/ocr/testocr.png"
+              "from_testocr_gif": "http://files.gladia.io/examples/image/text/ocr/testocr.gif"
             },
             "data_type": "url"
           },
@@ -4843,7 +4755,7 @@ export const openApiJson: OpenApiJson = {
           "prompt": {
             "title": "prompt",
             "type": "string",
-            "example": "the Eiffel tower landing on the moon",
+            "example": "The Eiffel tower landing on the moon, unreal engine.",
             "examples": {},
             "data_type": "string"
           },
@@ -4899,7 +4811,7 @@ export const openApiJson: OpenApiJson = {
           "text": {
             "title": "text",
             "type": "string",
-            "example": "I like you. I love you",
+            "example": "I love you.",
             "examples": {},
             "data_type": "string"
           }
@@ -4989,7 +4901,7 @@ export const openApiJson: OpenApiJson = {
           "text": {
             "title": "text",
             "type": "string",
-            "example": "Input text to start generation from",
+            "example": "I'm currently driving while eating a",
             "examples": {},
             "data_type": "string"
           }
@@ -5054,30 +4966,6 @@ export const openApiJson: OpenApiJson = {
             "type": "integer",
             "default": 3,
             "example": 3,
-            "examples": {},
-            "data_type": "integer"
-          }
-        }
-      },
-      "Body_apply_text_text_plural__post": {
-        "title": "Body_apply_text_text_plural__post",
-        "required": [
-          "word"
-        ],
-        "type": "object",
-        "properties": {
-          "word": {
-            "title": "word",
-            "type": "string",
-            "example": "cat",
-            "examples": {},
-            "data_type": "string"
-          },
-          "count": {
-            "title": "count",
-            "type": "integer",
-            "default": 2,
-            "example": 2,
             "examples": {},
             "data_type": "integer"
           }

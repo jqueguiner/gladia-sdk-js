@@ -7,3 +7,17 @@ export function getOutputModelType(endpoint: EndpointDef): string {
   const taskName = kebabToPascalCase(endpoint.taskName);
   return `${inputType}${outputType}${taskName}Outputs`;
 }
+
+export function getOutputModelTypeOneSample(endpoint: EndpointDef): string {
+  const inputType = capitalizeFirst(endpoint.inputType);
+  const outputType = capitalizeFirst(endpoint.outputType);
+  const taskName = kebabToPascalCase(endpoint.taskName);
+  return `${inputType}${outputType}${taskName}OutputsOneSample`;
+}
+
+export function getOutputModelTypeMultipleSamples(endpoint: EndpointDef): string {
+  const inputType = capitalizeFirst(endpoint.inputType);
+  const outputType = capitalizeFirst(endpoint.outputType);
+  const taskName = kebabToPascalCase(endpoint.taskName);
+  return `${inputType}${outputType}${taskName}OutputsMultipleSamples`;
+}

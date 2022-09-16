@@ -71,6 +71,7 @@ export function generateEndpointDefs() {
   fileContent.push('');
   const endpointDefs: EndpointDef[] = Object.entries(openApiJson.paths).map(([path, def]) => {
     const [, inputType, outputType, taskName] = path.split('/');
+    const params = getPostParams(def, openApiJson);
     return {
       url: path,
       inputType,
@@ -79,7 +80,8 @@ export function generateEndpointDefs() {
       ...getPostModels(def),
       ...getInputBodyContentType(inputType),
       ...getOutputBodyContentType(def),
-      params: getPostParams(def, openApiJson),
+      params,
+      hasSamplesParam: params.some((param) => param.name === 'samples'),
     };
   });
   endpointDefs.sort((a, b) => a.url.localeCompare(b.url));

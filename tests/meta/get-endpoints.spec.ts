@@ -38,6 +38,15 @@ describe(getEndpoints.name, () => {
         });
       }
     });
+    describe('should have valid hasSamplesParam for every endpoints', () => {
+      for (const endpoint of getEndpoints()) {
+        it(`for task ${endpoint.taskName}`, () => {
+          const hasSamplesParam = endpoint.params.some((p) => p.name === 'samples');
+          expect(endpoint.hasSamplesParam).toBeDefined();
+          expect(endpoint.hasSamplesParam).toBe(hasSamplesParam);
+        });
+      }
+    });
     fieldSurfaceCheck({ field: 'defaultModel', type: 'string' });
     fieldSurfaceCheck({ field: 'inputBodyContentType', type: 'string' });
     fieldSurfaceCheck({ field: 'inputType', type: 'string' });
@@ -46,7 +55,7 @@ describe(getEndpoints.name, () => {
     fieldSurfaceCheck({ field: 'url', type: 'string' });
     fieldSurfaceCheck({ field: 'models', type: 'string_array', exception: ['super-resolution'] });
     type FieldSurfaceCheck = {
-      field: keyof Omit<EndpointDef, 'outputBodyContentType'>;
+      field: keyof Omit<EndpointDef, 'outputBodyContentType' | 'hasSamplesParam'>;
       type: 'string_array' | 'string';
       exception?: string[];
     };
@@ -112,6 +121,7 @@ describe(getEndpoints.name, () => {
             required: false,
           },
         ],
+        hasSamplesParam: false,
       },
       {
         url: '/text/text/sentiment-analysis/',
@@ -138,6 +148,7 @@ describe(getEndpoints.name, () => {
             required: true,
           },
         ],
+        hasSamplesParam: false,
       },
       {
         url: '/text/text/ad-generation/',
@@ -158,6 +169,7 @@ describe(getEndpoints.name, () => {
             required: false,
           },
         ],
+        hasSamplesParam: false,
       },
       {
         url: '/image/image/background-removal/',
@@ -184,6 +196,46 @@ describe(getEndpoints.name, () => {
             required: false,
           },
         ],
+        hasSamplesParam: false,
+      },
+      {
+        url: '/text/image/image-generation/',
+        inputType: 'text',
+        outputType: 'image',
+        taskName: 'image-generation',
+        models: ['dream-studio', 'stable-diffusion'],
+        defaultModel: 'stable-diffusion',
+        inputBodyContentType: 'application/x-www-form-urlencoded',
+        outputBodyContentType: {
+          type: 'binary',
+        },
+        params: [
+          {
+            in: 'formData',
+            type: 'string',
+            name: 'prompt',
+            required: true,
+          },
+          {
+            in: 'formData',
+            type: 'integer',
+            name: 'samples',
+            required: false,
+          },
+          {
+            in: 'formData',
+            type: 'integer',
+            name: 'steps',
+            required: false,
+          },
+          {
+            in: 'formData',
+            type: 'integer',
+            name: 'seed',
+            required: false,
+          },
+        ],
+        hasSamplesParam: true,
       },
     ];
     toTests.forEach((expectedDef) => {

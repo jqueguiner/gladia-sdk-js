@@ -1,5 +1,7 @@
 /* Generated file with "scripts/generate-sdk.ts" */
 
+type Base64Image = string;
+
 export type AudioTextAudioTranscriptionOutputs = {
   prediction: string,
   prediction_raw: any,
@@ -24,7 +26,9 @@ export type ImageTextOcrOutputs = {
   prediction: string,
   prediction_raw: any,
 };
-export type TextImageImageGenerationOutputs = ArrayBuffer;
+export type TextImageImageGenerationOutputsOneSample = Base64Image[];
+export type TextImageImageGenerationOutputsMultipleSamples = ArrayBuffer;
+export type TextImageImageGenerationOutputs = TextImageImageGenerationOutputsOneSample | TextImageImageGenerationOutputsMultipleSamples;
 export type TextTextAdGenerationOutputs = Record<string, string | number | boolean>;
 export type TextTextArticleGenerationOutputs = Record<string, string | number | boolean>;
 export type TextTextAutocorrectOutputs = {
@@ -63,10 +67,6 @@ export type TextTextNextSentencePredictionOutputs = {
   prediction_raw: any,
 };
 export type TextTextNextWordPredictionOutputs = {
-  prediction: string,
-  prediction_raw: any,
-};
-export type TextTextPluralOutputs = {
   prediction: string,
   prediction_raw: any,
 };

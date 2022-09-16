@@ -75,6 +75,8 @@ function generateInputModelsTs() {
 
 function generateOutputModelsTs() {
   const fileContent: string[] = [...getGeneratedMarks()];
+  fileContent.push('type Base64Image = string;');
+  fileContent.push('');
   const endpoints = meta.getEndpoints();
   for (const endpoint of endpoints) {
     const outputModelName = meta.getOutputModelType(endpoint);
@@ -98,7 +100,17 @@ function generateOutputModelsTs() {
         );
         break;
       case 'binary':
-        fileContent.push(`export type ${outputModelName} = ArrayBuffer;`);
+        if (endpoint.hasSamplesParam) {
+          const outputModelNameForOneSample = meta.getOutputModelTypeOneSample(endpoint);
+          const outputModelNameForMulitpleSample = meta.getOutputModelTypeMultipleSamples(endpoint);
+          fileContent.push(`export type ${outputModelNameForOneSample} = Base64Image[];`);
+          fileContent.push(`export type ${outputModelNameForMulitpleSample} = ArrayBuffer;`);
+          fileContent.push(
+            `export type ${outputModelName} = ${outputModelNameForOneSample} | ${outputModelNameForMulitpleSample};`,
+          );
+        } else {
+          fileContent.push(`export type ${outputModelName} = ArrayBuffer;`);
+        }
         break;
       default:
         throw { kind: 'UnknownOutputType', outputType: endpoint.outputType };
@@ -118,12 +130,7 @@ function generateFromInputToOutputClasses() {
         fileContent.push(`  ${inputModelClassName},`);
       }
       fileContent.push(`} from './input-models';`);
-      fileContent.push(`import {`);
-      for (const endpoint of outputTypeEndpoints) {
-        const outputModelClassName = meta.getOutputModelType(endpoint);
-        fileContent.push(`  ${outputModelClassName},`);
-      }
-      fileContent.push(`} from './output-models';`);
+      fileContent.push(...generateOutputModelsImports(outputTypeEndpoints));
       fileContent.push(`import {`);
       for (const endpoint of outputTypeEndpoints) {
         fileContent.push(`  ${meta.getContentTypeName(endpoint)},`);
@@ -153,6 +160,16 @@ function generateFromInputToOutputClasses() {
         const methodName = meta.getMethodName(endpoint);
         const inputModelType = meta.getInputModelType(endpoint);
         const outputModelType = meta.getOutputModelType(endpoint);
+        if (endpoint.hasSamplesParam) {
+          const outputModelNameForOneSample = meta.getOutputModelTypeOneSample(endpoint);
+          const outputModelNameForMulitpleSample = meta.getOutputModelTypeMultipleSamples(endpoint);
+          fileContent.push(
+            `  ${methodName}(args: ${inputModelType} & { samples: 1 }): Promise<${outputModelNameForOneSample}>;`,
+          );
+          fileContent.push(
+            `  ${methodName}(args: ${inputModelType}): Promise<${outputModelNameForMulitpleSample}>;`,
+          );
+        }
         fileContent.push(`  ${methodName}(args: ${inputModelType}): Promise<${outputModelType}> {`);
         switch (inputType) {
           case 'text':
@@ -207,7 +224,11 @@ function generateFromInputToOutputClasses() {
             }
             fileContent.push(`      },`);
             if (endpoint.outputType !== 'text') {
-              fileContent.push(`      responseType: 'arraybuffer',`);
+              if (endpoint.hasSamplesParam) {
+                fileContent.push(`      responseType: args.samples > 1 ? 'json' : 'arraybuffer',`);
+              } else {
+                fileContent.push(`      responseType: 'arraybuffer',`);
+              }
             }
             if (useUrlFormData) {
               fileContent.push(`      body: formData.toString(),`);
@@ -295,6 +316,7 @@ function generateShortcuts() {
     fileContent.push(`  ${inputModelClassName},`);
   }
   fileContent.push(`} from './input-models'`);
+  fileContent.push(...generateOutputModelsImports(endpoints));
   fileContent.push('');
   fileContent.push(`export abstract class Shortcuts implements`);
   const implemented: string[] = [];
@@ -320,7 +342,20 @@ function generateShortcuts() {
       for (const endpoint of outputTypeEndpoints) {
         const methodName = meta.getMethodName(endpoint);
         const inputModelClassName = meta.getInputModelType(endpoint);
-        fileContent.push(`  ${methodName}(args: ${inputModelClassName}) {`);
+        const outputModelName = meta.getOutputModelType(endpoint);
+        if (endpoint.hasSamplesParam) {
+          const outputModelNameForOneSample = meta.getOutputModelTypeOneSample(endpoint);
+          const outputModelNameForMulitpleSample = meta.getOutputModelTypeMultipleSamples(endpoint);
+          fileContent.push(
+            `  ${methodName}(args: ${inputModelClassName} & { samples: 1 }): Promise<${outputModelNameForOneSample}>;`,
+          );
+          fileContent.push(
+            `  ${methodName}(args: ${inputModelClassName}): Promise<${outputModelNameForMulitpleSample}>;`,
+          );
+        }
+        fileContent.push(
+          `  ${methodName}(args: ${inputModelClassName}): Promise<${outputModelName}> {`,
+        );
         fileContent.push(`    return this.${fromMethod}().${toMethod}().${methodName}(args);`);
         fileContent.push(`  }`);
         fileContent.push('');
@@ -431,6 +466,28 @@ function generateUnitTests() {
 
           fileContent.push(...generateTestAssertions(endpoint, specifiedModel));
           fileContent.push(`      });`);
+          if (endpoint.hasSamplesParam) {
+            fileContent.push(
+              `      it('should call the api with responseType = "arraybuffer" when samples = 1', async () => {`,
+            );
+            fileContent.push(
+              ...generateTestInputs(callPath, endpoint, undefined, { samples: '1' }),
+            );
+            fileContent.push(
+              ...generateTestAssertions(endpoint, undefined, { responseType: 'arraybuffer' }),
+            );
+            fileContent.push(`      });`);
+            fileContent.push(
+              `      it('should call the api with responseType = "json" when samples > 1', async () => {`,
+            );
+            fileContent.push(
+              ...generateTestInputs(callPath, endpoint, undefined, { samples: '2' }),
+            );
+            fileContent.push(
+              ...generateTestAssertions(endpoint, undefined, { responseType: 'json' }),
+            );
+            fileContent.push(`      });`);
+          }
           fileContent.push(`    });`);
         }
         fileContent.push(`  });`);
@@ -531,9 +588,14 @@ function generateTestInputs(
   callPath: string,
   endpoint: meta.EndpointDef,
   specifyModel?: string,
+  fixedValueFormParams: Record<string, string> = {},
 ): string[] {
   const fileContent: string[] = [];
   for (const param of endpoint.params) {
+    if (param.name in fixedValueFormParams) {
+      fileContent.push(`        const ${param.name}_data = ${fixedValueFormParams[param.name]};`);
+      continue;
+    }
     switch (param.type) {
       case 'integer':
         fileContent.push(`        const ${param.name}_data = getRandomInt();`);
@@ -566,7 +628,11 @@ function generateTestInputs(
   return fileContent;
 }
 
-function generateTestAssertions(endpoint: meta.EndpointDef, specifyModel?: string) {
+function generateTestAssertions(
+  endpoint: meta.EndpointDef,
+  specifyModel?: string,
+  fixedValueFormParams: Record<string, string> = {},
+) {
   const fileContent: string[] = [];
   fileContent.push(
     `        const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);`,
@@ -580,7 +646,13 @@ function generateTestAssertions(endpoint: meta.EndpointDef, specifyModel?: strin
     fileContent.push(`          'Content-Type': undefined,`);
   }
   fileContent.push(`        });`);
-  if (endpoint.outputType !== 'text') {
+  if ('responseType' in fixedValueFormParams) {
+    fileContent.push(
+      `        expect(firstCallArgs.responseType).toEqual('${fixedValueFormParams['responseType']}');`,
+    );
+  } else if (endpoint.hasSamplesParam) {
+    fileContent.push(`        expect(firstCallArgs.responseType).toEqual('json');`);
+  } else if (endpoint.outputType !== 'text') {
     fileContent.push(`        expect(firstCallArgs.responseType).toEqual('arraybuffer');`);
   }
   fileContent.push(`        expect(firstCallArgs.query).toEqual({`);
@@ -613,6 +685,23 @@ function generateTestAssertions(endpoint: meta.EndpointDef, specifyModel?: strin
         break;
     }
   }
+  return fileContent;
+}
+
+function generateOutputModelsImports(endpoints: meta.EndpointDef[]) {
+  const fileContent: string[] = [];
+  fileContent.push(`import {`);
+  for (const endpoint of endpoints) {
+    const outputModelClassName = meta.getOutputModelType(endpoint);
+    fileContent.push(`  ${outputModelClassName},`);
+    if (endpoint.hasSamplesParam) {
+      const outputModelNameForOneSample = meta.getOutputModelTypeOneSample(endpoint);
+      const outputModelNameForMulitpleSample = meta.getOutputModelTypeMultipleSamples(endpoint);
+      fileContent.push(`  ${outputModelNameForMulitpleSample},`);
+      fileContent.push(`  ${outputModelNameForOneSample},`);
+    }
+  }
+  fileContent.push(`} from './output-models';`);
   return fileContent;
 }
 
