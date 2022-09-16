@@ -1,5 +1,9 @@
 # Gladia SDK JS
 
+## Docs
+
+- [SDK API doc](API.md)
+
 ## Setup
 
 ### Install the SDK
@@ -25,8 +29,8 @@ or to get the latest version from git, add this to your `package.json`:
 import gladia from '@gladiaio/sdk';
 
 const gladiaClient = gladia({ apiKey: 'XXXXXXXX' });
-const result = await gladiaClient.plural({ word: 'cat' });
-// result = { prediction: 'cats' }
+const result = await gladiaClient.autocorrect({ sentence: 'thnik' });
+// result = { prediction: 'think' }
 ```
 ### Use it with JavaScript with ES module
 
@@ -34,8 +38,8 @@ const result = await gladiaClient.plural({ word: 'cat' });
 import { gladia } from '@gladiaio/sdk';
 
 const gladiaClient = gladia({ apiKey: 'XXXXXXXX' });
-const result = await gladiaClient.plural({ word: 'cat' });
-// result = { prediction: 'cats' }
+const result = await gladiaClient.autocorrect({ sentence: 'thnik' });
+// result = { prediction: 'think' }
 ```
 
 ### Use it with JavaScript (without module)
@@ -44,8 +48,8 @@ const result = await gladiaClient.plural({ word: 'cat' });
 const { gladia } = require('@gladiaio/sdk');
 
 const gladiaClient = gladia({ apiKey: 'XXXXXXXX' });
-const result = await gladiaClient.plural({ word: 'cat' });
-// result = { prediction: 'cats' }
+const result = await gladiaClient.autocorrect({ sentence: 'thnik' });
+// result = { prediction: 'think' }
 ```
 ### Use it with JavaScript (without module, in ES5 context)
 
@@ -55,8 +59,8 @@ Notes: ES5 version is built for IE targets when you have no bundler, prefer othe
 const { gladia } = require('@gladiaio/sdk/lib/es5');
 
 const gladiaClient = gladia({ apiKey: 'XXXXXXXX' });
-const result = await gladiaClient.plural({ word: 'cat' });
-// result = { prediction: 'cats' }
+const result = await gladiaClient.autocorrect({ sentence: 'thnik' });
+// result = { prediction: 'think' }
 ```
 ### Use it with JavaScript in the browser with script import
 
@@ -68,8 +72,8 @@ const result = await gladiaClient.plural({ word: 'cat' });
     <script>
         const gladiaClient = gladiaio_sdk({ apiKey: 'XXXXXXXX' });
         (async () => {
-            const result = await gladiaClient.plural({ word: 'cat' });
-            // result = { prediction: 'cats' }
+            const result = await gladiaClient.autocorrect({ sentence: 'thnik' });
+            // result = { prediction: 'think' }
         })();
     </script>
 </body>
@@ -162,7 +166,7 @@ const gladiaClient = gladia({ apiKey: 'XXXXXXXX', header: { 'X-Custom-Header': '
 import gladia from '@gladiaio/sdk';
 
 const gladiaClient = gladia({ apiKey: 'XXXXXXXX' });
-const result = await gladiaClient.plural({ word: 'cat', header: { 'X-Custom-Header': 'value' } });
+const result = await gladiaClient.autocorrect({ sentence: 'thnik', header: { 'X-Custom-Header': 'value' } });
 ```
 
 ## Use a custom http client

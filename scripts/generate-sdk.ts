@@ -11,6 +11,7 @@ function main() {
   generateShortcuts();
   generateGladiaClient();
   generateUnitTests();
+  generateApiMd();
 }
 
 function generateModelsTs() {
@@ -498,6 +499,49 @@ function generateUnitTests() {
       fs.writeFileSync(fileName, fileContent.join('\n'));
     }
   }
+}
+
+function generateApiMd() {
+  const endpointsByInputOutput = meta.getEndpointsByInputOutput();
+  const fileContent: string[] = [];
+  fileContent.push('# API');
+  fileContent.push('');
+  fileContent.push('Pay attention default model may be outdated.');
+  fileContent.push('The default model of this doc is designed on SDK generation time.');
+  fileContent.push('The runtime default model is defined on the GladIA server.');
+
+  for (const [inputType, outputs] of Object.entries(endpointsByInputOutput)) {
+    for (const [outputType, outputEndpoints] of Object.entries(outputs)) {
+      fileContent.push('');
+      fileContent.push(`## ${inputType.toLocaleUpperCase()} => ${outputType.toLocaleUpperCase()}`);
+      for (const endpoint of outputEndpoints) {
+        fileContent.push('');
+        fileContent.push(`### \`${endpoint.taskName}\``);
+        fileContent.push('');
+        fileContent.push(`#### \`models\``);
+        fileContent.push('');
+        for (const model of endpoint.models) {
+          if (model === endpoint.defaultModel) {
+            fileContent.push(` - **${model} (default)**`);
+          } else {
+            fileContent.push(` - ${model}`);
+          }
+        }
+
+        fileContent.push('');
+        fileContent.push(`#### other params`);
+        fileContent.push('');
+        for (const param of endpoint.params) {
+          const required = param.required ? ' *(required)*' : '';
+          fileContent.push(` - \`${param.name}\`: ${param.type}${required}`);
+        }
+      }
+    }
+  }
+  fileContent.push('');
+  fileContent.push(...getGeneratedMarks());
+  fileContent.push('');
+  fs.writeFileSync('./API.md', fileContent.join('\n'));
 }
 
 function getGeneratedMarks(): string[] {
