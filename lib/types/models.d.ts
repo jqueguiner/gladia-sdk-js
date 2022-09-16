@@ -79,9 +79,6 @@ export declare type TextTextNextSentencePredictionModel = typeof TEXT_TEXT_NEXT_
 export declare const TEXT_TEXT_NEXT_WORD_PREDICTION_MODELS: readonly ["albert-base-v2", "bert-base-uncased", "distilbert-base-uncased", "roberta-base"];
 export declare const TEXT_TEXT_NEXT_WORD_PREDICTION_CONTENT_TYPE: "application/x-www-form-urlencoded";
 export declare type TextTextNextWordPredictionModel = typeof TEXT_TEXT_NEXT_WORD_PREDICTION_MODELS[number];
-export declare const TEXT_TEXT_PLURAL_MODELS: readonly ["inflect"];
-export declare const TEXT_TEXT_PLURAL_CONTENT_TYPE: "application/x-www-form-urlencoded";
-export declare type TextTextPluralModel = typeof TEXT_TEXT_PLURAL_MODELS[number];
 export declare const TEXT_TEXT_PROGRAMMING_LANGUAGE_GENERATION_MODELS: readonly ["sentdex-GPyT"];
 export declare const TEXT_TEXT_PROGRAMMING_LANGUAGE_GENERATION_CONTENT_TYPE: "application/x-www-form-urlencoded";
 export declare type TextTextProgrammingLanguageGenerationModel = typeof TEXT_TEXT_PROGRAMMING_LANGUAGE_GENERATION_MODELS[number];

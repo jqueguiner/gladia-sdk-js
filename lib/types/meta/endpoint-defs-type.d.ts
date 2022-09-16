@@ -8,6 +8,7 @@ export interface EndpointDef {
     models: string[];
     defaultModel: string;
     params: EndpointDefParam[];
+    hasSamplesParam: boolean;
     inputBodyContentType: string;
     outputBodyContentType: OutputBodyContentType;
 }

@@ -1,3 +1,4 @@
+declare type Base64Image = string;
 export declare type AudioTextAudioTranscriptionOutputs = {
     prediction: string;
     prediction_raw: any;
@@ -22,7 +23,9 @@ export declare type ImageTextOcrOutputs = {
     prediction: string;
     prediction_raw: any;
 };
-export declare type TextImageImageGenerationOutputs = ArrayBuffer;
+export declare type TextImageImageGenerationOutputsOneSample = Base64Image[];
+export declare type TextImageImageGenerationOutputsMultipleSamples = ArrayBuffer;
+export declare type TextImageImageGenerationOutputs = TextImageImageGenerationOutputsOneSample | TextImageImageGenerationOutputsMultipleSamples;
 export declare type TextTextAdGenerationOutputs = Record<string, string | number | boolean>;
 export declare type TextTextArticleGenerationOutputs = Record<string, string | number | boolean>;
 export declare type TextTextAutocorrectOutputs = {
@@ -64,10 +67,6 @@ export declare type TextTextNextWordPredictionOutputs = {
     prediction: string;
     prediction_raw: any;
 };
-export declare type TextTextPluralOutputs = {
-    prediction: string;
-    prediction_raw: any;
-};
 export declare type TextTextProgrammingLanguageGenerationOutputs = {
     prediction: string;
     prediction_raw: any;
@@ -94,3 +93,4 @@ export declare type TextTextWordAlignmentOutputs = {
     prediction: string[];
     prediction_raw: any;
 };
+export {};
