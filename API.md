@@ -332,6 +332,7 @@ The runtime default model is defined on the GladIA server.
 #### other params
 
  - `text`: string
+ - `bullets`: integer
 
 ### `emotion-recognition`
 

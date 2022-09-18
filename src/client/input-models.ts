@@ -129,6 +129,7 @@ export interface TextTextAutocorrectInputs
 export interface TextTextBulletPointGenerationInputs 
   extends WithHeaders, WithModel<TextTextBulletPointGenerationModel> {
   text?: string;
+  bullets?: number;
 }
 export interface TextTextEmotionRecognitionInputs 
   extends WithHeaders, WithModel<TextTextEmotionRecognitionModel> {

@@ -4062,53 +4062,53 @@ export const openApiJson: OpenApiJson = {
                   "prediction": [
                     {
                       "source": "Sentence",
-                      "target": "来自"
+                      "target": "æ¥è‡ª"
                     },
                     {
                       "source": "Sentence",
-                      "target": "句子"
+                      "target": "å¥å­"
                     },
                     {
                       "source": "from",
-                      "target": "来自"
+                      "target": "æ¥è‡ª"
                     },
                     {
                       "source": "first",
-                      "target": "第一"
+                      "target": "ç¬¬ä¸€"
                     },
                     {
                       "source": "language",
-                      "target": "语言的"
+                      "target": "è¯­è¨€çš„"
                     },
                     {
                       "source": "language",
-                      "target": "句子"
+                      "target": "å¥å­"
                     }
                   ],
                   "prediction_raw": [
                     {
                       "source": "Sentence",
-                      "target": "来自"
+                      "target": "æ¥è‡ª"
                     },
                     {
                       "source": "Sentence",
-                      "target": "句子"
+                      "target": "å¥å­"
                     },
                     {
                       "source": "from",
-                      "target": "来自"
+                      "target": "æ¥è‡ª"
                     },
                     {
                       "source": "first",
-                      "target": "第一"
+                      "target": "ç¬¬ä¸€"
                     },
                     {
                       "source": "language",
-                      "target": "语言的"
+                      "target": "è¯­è¨€çš„"
                     },
                     {
                       "source": "language",
-                      "target": "句子"
+                      "target": "å¥å­"
                     }
                   ]
                 }
@@ -4840,14 +4840,9 @@ export const openApiJson: OpenApiJson = {
           "text": {
             "title": "text",
             "type": "string",
-            "_examples": [
-              "One month after the United States began what has become a troubled rollout of a national COVID vaccination campaign, the effort is finally gathering real steam. Close to a million doses -- over 951,000, to be more exact -- made their way into the arms of Americans in the past 24 hours, the U.S. Centers for Disease Control and Prevention reported Wednesday. That s the largest number of shots given in one day since the rollout began and a big jump from the previous day, when just under 340,000 doses were given, CBS News reported. That number is likely to jump quickly after the federal government on Tuesday gave states the OK to vaccinate anyone over 65 and said it would release all the doses of vaccine it has available for distribution. Meanwhile, a number of states have now opened mass vaccination sites in an effort to get larger numbers of people inoculated, CBS News reported."
-            ],
             "example": "One month after the United States began what has become a troubled rollout of a national COVID vaccination campaign, the effort is finally gathering real steam. Close to a million doses -- over 951,000, to be more exact -- made their way into the arms of Americans in the past 24 hours, the U.S. Centers for Disease Control and Prevention reported Wednesday. That s the largest number of shots given in one day since the rollout began and a big jump from the previous day, when just under 340,000 doses were given, CBS News reported. That number is likely to jump quickly after the federal government on Tuesday gave states the OK to vaccinate anyone over 65 and said it would release all the doses of vaccine it has available for distribution. Meanwhile, a number of states have now opened mass vaccination sites in an effort to get larger numbers of people inoculated, CBS News reported.",
-            "examples": [
-              "One month after the United States began what has become a troubled rollout of a national COVID vaccination campaign, the effort is finally gathering real steam. Close to a million doses -- over 951,000, to be more exact -- made their way into the arms of Americans in the past 24 hours, the U.S. Centers for Disease Control and Prevention reported Wednesday. That s the largest number of shots given in one day since the rollout began and a big jump from the previous day, when just under 340,000 doses were given, CBS News reported. That number is likely to jump quickly after the federal government on Tuesday gave states the OK to vaccinate anyone over 65 and said it would release all the doses of vaccine it has available for distribution. Meanwhile, a number of states have now opened mass vaccination sites in an effort to get larger numbers of people inoculated, CBS News reported."
-            ],
-            "data_type": "string"
+            "data_type": "string",
+            "examples": {}
           }
         }
       },
@@ -5082,14 +5077,9 @@ export const openApiJson: OpenApiJson = {
           "text": {
             "title": "text",
             "type": "string",
-            "_examples": [
-              "One month after the United States began what has become a troubled rollout of a national COVID vaccination campaign, the effort is finally gathering real steam. Close to a million doses -- over 951,000, to be more exact -- made their way into the arms of Americans in the past 24 hours, the U.S. Centers for Disease Control and Prevention reported Wednesday. That s the largest number of shots given in one day since the rollout began and a big jump from the previous day, when just under 340,000 doses were given, CBS News reported. That number is likely to jump quickly after the federal government on Tuesday gave states the OK to vaccinate anyone over 65 and said it would release all the doses of vaccine it has available for distribution. Meanwhile, a number of states have now opened mass vaccination sites in an effort to get larger numbers of people inoculated, CBS News reported."
-            ],
             "example": "One month after the United States began what has become a troubled rollout of a national COVID vaccination campaign, the effort is finally gathering real steam. Close to a million doses -- over 951,000, to be more exact -- made their way into the arms of Americans in the past 24 hours, the U.S. Centers for Disease Control and Prevention reported Wednesday. That s the largest number of shots given in one day since the rollout began and a big jump from the previous day, when just under 340,000 doses were given, CBS News reported. That number is likely to jump quickly after the federal government on Tuesday gave states the OK to vaccinate anyone over 65 and said it would release all the doses of vaccine it has available for distribution. Meanwhile, a number of states have now opened mass vaccination sites in an effort to get larger numbers of people inoculated, CBS News reported.",
-            "examples": [
-              "One month after the United States began what has become a troubled rollout of a national COVID vaccination campaign, the effort is finally gathering real steam. Close to a million doses -- over 951,000, to be more exact -- made their way into the arms of Americans in the past 24 hours, the U.S. Centers for Disease Control and Prevention reported Wednesday. That s the largest number of shots given in one day since the rollout began and a big jump from the previous day, when just under 340,000 doses were given, CBS News reported. That number is likely to jump quickly after the federal government on Tuesday gave states the OK to vaccinate anyone over 65 and said it would release all the doses of vaccine it has available for distribution. Meanwhile, a number of states have now opened mass vaccination sites in an effort to get larger numbers of people inoculated, CBS News reported."
-            ],
-            "data_type": "string"
+            "data_type": "string",
+            "examples": {}
           }
         }
       },
@@ -5100,40 +5090,25 @@ export const openApiJson: OpenApiJson = {
           "text": {
             "title": "text",
             "type": "string",
-            "_examples": [
-              "John Doe has been working for Microsoft in Seattle since 1999."
-            ],
             "example": "John Doe has been working for Microsoft in Seattle since 1999.",
-            "examples": [
-              "John Doe has been working for Microsoft in Seattle since 1999."
-            ],
-            "data_type": "string"
+            "data_type": "string",
+            "examples": {}
           },
           "source": {
             "title": "source",
             "type": "string",
             "default": "eng_Latn",
-            "_examples": [
-              "eng_Latn"
-            ],
             "example": "eng_Latn",
-            "examples": [
-              "eng_Latn"
-            ],
-            "data_type": "string"
+            "data_type": "string",
+            "examples": {}
           },
           "target": {
             "title": "target",
             "type": "string",
             "default": "fra_Latn",
-            "_examples": [
-              "fra_Latn"
-            ],
             "example": "fra_Latn",
-            "examples": [
-              "fra_Latn"
-            ],
-            "data_type": "string"
+            "data_type": "string",
+            "examples": {}
           }
         }
       },
@@ -5155,7 +5130,7 @@ export const openApiJson: OpenApiJson = {
           "input_string_language_2": {
             "title": "input_string_language_2",
             "type": "string",
-            "example": "来自 第一 语言的 句子",
+            "example": "æ¥è‡ª ç¬¬ä¸€ è¯­è¨€çš„ å¥å­",
             "examples": {},
             "data_type": "string"
           }
@@ -5214,14 +5189,9 @@ export const openApiJson: OpenApiJson = {
           "title": {
             "title": "title",
             "type": "string",
-            "_examples": [
-              "How to become a programmer?"
-            ],
             "example": "How to become a programmer?",
-            "examples": [
-              "How to become a programmer?"
-            ],
-            "data_type": "string"
+            "data_type": "string",
+            "examples": {}
           }
         }
       },
@@ -5235,26 +5205,13 @@ export const openApiJson: OpenApiJson = {
             "items": {
               "type": "string"
             },
-            "_examples": [
-              [
-                "gpu",
-                "gaming",
-                "$1299"
-              ]
-            ],
             "example": [
               "gpu",
               "gaming",
               "$1299"
             ],
-            "examples": [
-              [
-                "gpu",
-                "gaming",
-                "$1299"
-              ]
-            ],
-            "data_type": "array"
+            "data_type": "array",
+            "examples": {}
           }
         }
       },
@@ -5265,14 +5222,9 @@ export const openApiJson: OpenApiJson = {
           "text": {
             "title": "text",
             "type": "string",
-            "_examples": [
-              "Hello\nI spent some time on your documentation but I could not figure how to add a new credit card.\nIt is a problem because my current card is going to expire soon and I am affraid that it will cause a service disruption.\nHow can I update my credit card?\nThanks in advance,\nLooking forward to hearing from you,\nJohn Doe"
-            ],
             "example": "Hello\nI spent some time on your documentation but I could not figure how to add a new credit card.\nIt is a problem because my current card is going to expire soon and I am affraid that it will cause a service disruption.\nHow can I update my credit card?\nThanks in advance,\nLooking forward to hearing from you,\nJohn Doe",
-            "examples": [
-              "Hello\nI spent some time on your documentation but I could not figure how to add a new credit card.\nIt is a problem because my current card is going to expire soon and I am affraid that it will cause a service disruption.\nHow can I update my credit card?\nThanks in advance,\nLooking forward to hearing from you,\nJohn Doe"
-            ],
-            "data_type": "string"
+            "data_type": "string",
+            "examples": {}
           }
         }
       },
@@ -5281,16 +5233,19 @@ export const openApiJson: OpenApiJson = {
         "type": "object",
         "properties": {
           "text": {
-            "text": "string",
+            "title": "text",
             "type": "string",
-            "_examples": [
-              "Deep learning (also known as deep structured learning) is part of a broader family of machine learning methods based on artificial neural networks with representation learning. Learning can be supervised, semi-supervised or unsupervised.[2]Deep-learning architectures such as deep neural networks, deep belief networks, deep reinforcement learning, recurrent neural networks, convolutional neural networks and Transformers have been applied to fields including computer vision, speech recognition, natural language processing, machine translation, bioinformatics, drug design, medical image analysis, climate science, material inspection and board game programs, where they have produced results comparable to and in some cases surpassing human expert performance.[3][4][5]Artificial neural networks (ANNs) were inspired by information processing and distributed communication nodes in biological systems. ANNs have various differences from biological brains. Specifically, artificial neural networks tend to be static and symbolic, while the biological brain of most living organisms is dynamic (plastic) and analogue.[6][7]The adjective deep in deep learning refers to the use of multiple layers in the network. Early work showed that a linear perceptron cannot be a universal classifier, but that a network with a nonpolynomial activation function with one hidden layer of unbounded width can. Deep learning is a modern variation which is concerned with an unbounded number of layers of bounded size, which permits practical application and optimized implementation, while retaining theoretical universality under mild conditions. In deep learning the layers are also permitted to be heterogeneous and to deviate widely from biologically informed connectionist models, for the sake of efficiency, trainability and understandability, hence the structured part."
-            ],
             "example": "Deep learning (also known as deep structured learning) is part of a broader family of machine learning methods based on artificial neural networks with representation learning. Learning can be supervised, semi-supervised or unsupervised.[2]Deep-learning architectures such as deep neural networks, deep belief networks, deep reinforcement learning, recurrent neural networks, convolutional neural networks and Transformers have been applied to fields including computer vision, speech recognition, natural language processing, machine translation, bioinformatics, drug design, medical image analysis, climate science, material inspection and board game programs, where they have produced results comparable to and in some cases surpassing human expert performance.[3][4][5]Artificial neural networks (ANNs) were inspired by information processing and distributed communication nodes in biological systems. ANNs have various differences from biological brains. Specifically, artificial neural networks tend to be static and symbolic, while the biological brain of most living organisms is dynamic (plastic) and analogue.[6][7]The adjective deep in deep learning refers to the use of multiple layers in the network. Early work showed that a linear perceptron cannot be a universal classifier, but that a network with a nonpolynomial activation function with one hidden layer of unbounded width can. Deep learning is a modern variation which is concerned with an unbounded number of layers of bounded size, which permits practical application and optimized implementation, while retaining theoretical universality under mild conditions. In deep learning the layers are also permitted to be heterogeneous and to deviate widely from biologically informed connectionist models, for the sake of efficiency, trainability and understandability, hence the structured part.",
-            "examples": [
-              "Deep learning (also known as deep structured learning) is part of a broader family of machine learning methods based on artificial neural networks with representation learning. Learning can be supervised, semi-supervised or unsupervised.[2]Deep-learning architectures such as deep neural networks, deep belief networks, deep reinforcement learning, recurrent neural networks, convolutional neural networks and Transformers have been applied to fields including computer vision, speech recognition, natural language processing, machine translation, bioinformatics, drug design, medical image analysis, climate science, material inspection and board game programs, where they have produced results comparable to and in some cases surpassing human expert performance.[3][4][5]Artificial neural networks (ANNs) were inspired by information processing and distributed communication nodes in biological systems. ANNs have various differences from biological brains. Specifically, artificial neural networks tend to be static and symbolic, while the biological brain of most living organisms is dynamic (plastic) and analogue.[6][7]The adjective deep in deep learning refers to the use of multiple layers in the network. Early work showed that a linear perceptron cannot be a universal classifier, but that a network with a nonpolynomial activation function with one hidden layer of unbounded width can. Deep learning is a modern variation which is concerned with an unbounded number of layers of bounded size, which permits practical application and optimized implementation, while retaining theoretical universality under mild conditions. In deep learning the layers are also permitted to be heterogeneous and to deviate widely from biologically informed connectionist models, for the sake of efficiency, trainability and understandability, hence the structured part."
-            ],
-            "data_type": "string"
+            "data_type": "string",
+            "examples": {}
+          },
+          "bullets": {
+            "title": "bullets",
+            "type": "integer",
+            "default": 3,
+            "example": 3,
+            "data_type": "integer",
+            "examples": {}
           }
         }
       }

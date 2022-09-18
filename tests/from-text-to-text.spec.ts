@@ -255,8 +255,10 @@ describe('FromTextToText', () => {
     describe('full path', () => {
       it('should call the api with the text and the default model by default', async () => {
         const text_data = getRandomText();
+        const bullets_data = getRandomInt();
         const result = await gladiaClient.fromText().toText().bulletPointGeneration({
           text: text_data,
+          bullets: bullets_data,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -267,11 +269,14 @@ describe('FromTextToText', () => {
         expect(firstCallArgs.query).toEqual({
         });
         expect(firstCallBody.get('text')).toEqual(text_data);
+        expect(firstCallBody.get('bullets')).toEqual(String(bullets_data));
       });
       it('should call the api with the text and the specified model', async () => {
         const text_data = getRandomText();
+        const bullets_data = getRandomInt();
         const result = await gladiaClient.fromText().toText().bulletPointGeneration({
           text: text_data,
+          bullets: bullets_data,
           model: 'fake-model-name' as any,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
@@ -284,13 +289,16 @@ describe('FromTextToText', () => {
           model: 'fake-model-name',
         });
         expect(firstCallBody.get('text')).toEqual(text_data);
+        expect(firstCallBody.get('bullets')).toEqual(String(bullets_data));
       });
     });
     describe('shortcuts', () => {
       it('should call the api with the text and the default model by default', async () => {
         const text_data = getRandomText();
+        const bullets_data = getRandomInt();
         const result = await gladiaClient.bulletPointGeneration({
           text: text_data,
+          bullets: bullets_data,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -301,11 +309,14 @@ describe('FromTextToText', () => {
         expect(firstCallArgs.query).toEqual({
         });
         expect(firstCallBody.get('text')).toEqual(text_data);
+        expect(firstCallBody.get('bullets')).toEqual(String(bullets_data));
       });
       it('should call the api with the text and the specified model', async () => {
         const text_data = getRandomText();
+        const bullets_data = getRandomInt();
         const result = await gladiaClient.bulletPointGeneration({
           text: text_data,
+          bullets: bullets_data,
           model: 'fake-model-name' as any,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
@@ -318,6 +329,7 @@ describe('FromTextToText', () => {
           model: 'fake-model-name',
         });
         expect(firstCallBody.get('text')).toEqual(text_data);
+        expect(firstCallBody.get('bullets')).toEqual(String(bullets_data));
       });
     });
   });

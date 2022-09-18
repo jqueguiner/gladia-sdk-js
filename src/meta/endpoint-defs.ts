@@ -658,6 +658,12 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
         "type": "string",
         "name": "text",
         "required": false
+      },
+      {
+        "in": "formData",
+        "type": "integer",
+        "name": "bullets",
+        "required": false
       }
     ],
     "hasSamplesParam": false
