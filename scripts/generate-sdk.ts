@@ -104,8 +104,8 @@ function generateOutputModelsTs() {
         if (endpoint.hasSamplesParam) {
           const outputModelNameForOneSample = meta.getOutputModelTypeOneSample(endpoint);
           const outputModelNameForMulitpleSample = meta.getOutputModelTypeMultipleSamples(endpoint);
-          fileContent.push(`export type ${outputModelNameForOneSample} = Base64Image[];`);
-          fileContent.push(`export type ${outputModelNameForMulitpleSample} = ArrayBuffer;`);
+          fileContent.push(`export type ${outputModelNameForOneSample} = ArrayBuffer;`);
+          fileContent.push(`export type ${outputModelNameForMulitpleSample} = Base64Image[];`);
           fileContent.push(
             `export type ${outputModelName} = ${outputModelNameForOneSample} | ${outputModelNameForMulitpleSample};`,
           );
