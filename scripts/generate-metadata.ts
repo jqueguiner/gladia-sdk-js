@@ -1,10 +1,10 @@
 import fs from 'fs';
-import https from 'https';
 import packageJson from '../package.json';
 import { openApiJson } from '../src/meta/openapidef';
 import { OpenApiJson, PathDef } from '../src/meta/openapideftype';
 import { EndpointDef, EndpointDefParam } from '../src/meta/endpoint-defs-type';
 import { exit } from 'process';
+import { getOpenapiJson } from './openapi.utils';
 
 async function main() {
   try {
@@ -17,33 +17,19 @@ async function main() {
   }
 }
 
-function getOpenapiJson(): Promise<string> {
-  const options = {
-    hostname: 'v2-api.gladia.io',
-    port: 443,
-    path: '/openapi.json',
-    method: 'GET',
-  };
-  return new Promise<string>((resolve, reject) => {
-    let body: string = '';
-
-    const req = https.request(options, (res) => {
-      res.on('data', (chunk) => {
-        body += chunk;
-      });
-      res.on('end', () => resolve(Buffer.from(body).toString()));
-    });
-
-    req.on('error', (error) => {
-      reject(error);
-    });
-
-    req.end();
-  });
-}
+const ARG_FROM_FILE_PREFIX = '--from-file=';
 
 async function generateOpenApiDefTs() {
-  const openApiJson = await getOpenapiJson();
+  const fromFile = process.argv
+    .filter((arg) => arg.startsWith(ARG_FROM_FILE_PREFIX))
+    .map((arg) => arg.substring(ARG_FROM_FILE_PREFIX.length))
+    .find(() => true); // extract first element
+  let openApiJson: string;
+  if (fromFile) {
+    openApiJson = fs.readFileSync(fromFile, { encoding: 'utf-8' });
+  } else {
+    openApiJson = await getOpenapiJson();
+  }
   const openApiJsonObj = JSON.parse(openApiJson);
   const jsonLines = JSON.stringify(openApiJsonObj, undefined, 2).split('\n');
   const fileContent: string[] = [...getGeneratedMarks()];

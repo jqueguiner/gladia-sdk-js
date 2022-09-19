@@ -215,14 +215,14 @@ const gladiaClient = gladia({ apiKey: 'XXXXXXXX', useFetch: true, httpClientTime
 npm i
 npm run generate-metadata
 npm run generate-sdk
+npm run build
 ```
 
 Notes:
-- `generate-metadata` script will download the latest `openapi.json` file from production api
+- `generate-metadata` script will download the latest `openapi.json` file from production api and generate 
 - `generate-sdk` will generate most parts of the SDK using the `openapi.json` definition
-- you can call `generate-sdk` without calling `generate-metadata` in two cases:
-    - you know the file `src/meta/openapidef.ts` is up to date with the production `openapi.json`
-    - you want to generate a sdk against another definition and you have already updated manually the file `src/meta/openapidef.ts`
+- If you need a custom sdk, you can provide a `openapi.json` file like this `npm run generate-metadata -- --from-file=./path/to/openapi.json`, then call the scripts `generate-sdk` and `build` like before
+- You can download only the current `openapi.json` by calling `npm run download-openapi` 
 
 ## Make a release manually
 
