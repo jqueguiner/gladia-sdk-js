@@ -223,3 +223,17 @@ Notes:
 - you can call `generate-sdk` without calling `generate-metadata` in two cases:
     - you know the file `src/meta/openapidef.ts` is up to date with the production `openapi.json`
     - you want to generate a sdk against another definition and you have already updated manually the file `src/meta/openapidef.ts`
+
+## Make a release manually
+
+Change version in `package.json` then:
+
+```
+npm install
+npm run generate-metadata
+npm run generate-sdk
+npm run test
+npm run build
+```
+
+Then create a commit with every modified files with name `[release] x.y.z` (where x.y.z is replace with the version specified in `package.json`).

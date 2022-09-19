@@ -23,8 +23,8 @@ export declare type ImageTextOcrOutputs = {
     prediction: string;
     prediction_raw: any;
 };
-export declare type TextImageImageGenerationOutputsOneSample = Base64Image[];
-export declare type TextImageImageGenerationOutputsMultipleSamples = ArrayBuffer;
+export declare type TextImageImageGenerationOutputsOneSample = ArrayBuffer;
+export declare type TextImageImageGenerationOutputsMultipleSamples = Base64Image[];
 export declare type TextImageImageGenerationOutputs = TextImageImageGenerationOutputsOneSample | TextImageImageGenerationOutputsMultipleSamples;
 export declare type TextTextAdGenerationOutputs = Record<string, string | number | boolean>;
 export declare type TextTextArticleGenerationOutputs = Record<string, string | number | boolean>;
