@@ -13,6 +13,7 @@ import {
   ImageImageBackgroundRemovalInputs,
   ImageImageColorizationInputs,
   ImageImageDeblurringInputs,
+  ImageImageEnhancementInputs,
   ImageImageFaceBluringInputs,
   ImageImageGuidedInpaintingInputs,
   ImageImageInpaintingInputs,
@@ -50,6 +51,7 @@ import {
   ImageImageBackgroundRemovalOutputs,
   ImageImageColorizationOutputs,
   ImageImageDeblurringOutputs,
+  ImageImageEnhancementOutputs,
   ImageImageFaceBluringOutputs,
   ImageImageGuidedInpaintingOutputs,
   ImageImageInpaintingOutputs,
@@ -115,6 +117,10 @@ export abstract class Shortcuts implements
 
   deblurring(args: ImageImageDeblurringInputs): Promise<ImageImageDeblurringOutputs> {
     return this.fromImage().toImage().deblurring(args);
+  }
+
+  enhancement(args: ImageImageEnhancementInputs): Promise<ImageImageEnhancementOutputs> {
+    return this.fromImage().toImage().enhancement(args);
   }
 
   faceBluring(args: ImageImageFaceBluringInputs): Promise<ImageImageFaceBluringOutputs> {

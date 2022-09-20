@@ -56,6 +56,18 @@ The runtime default model is defined on the GladIA server.
  - `image`: image
  - `image_url`: url
 
+### `enhancement`
+
+#### `models`
+
+ - **FiveK (default)**
+ - LOL
+
+#### other params
+
+ - `image`: image
+ - `image_url`: url
+
 ### `face-bluring`
 
 #### `models`

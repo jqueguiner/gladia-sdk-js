@@ -6,6 +6,7 @@ export declare type AudioTextAudioTranscriptionOutputs = {
 export declare type ImageImageBackgroundRemovalOutputs = ArrayBuffer;
 export declare type ImageImageColorizationOutputs = ArrayBuffer;
 export declare type ImageImageDeblurringOutputs = ArrayBuffer;
+export declare type ImageImageEnhancementOutputs = ArrayBuffer;
 export declare type ImageImageFaceBluringOutputs = ArrayBuffer;
 export declare type ImageImageGuidedInpaintingOutputs = ArrayBuffer;
 export declare type ImageImageInpaintingOutputs = ArrayBuffer;

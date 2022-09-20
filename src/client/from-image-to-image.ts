@@ -4,6 +4,7 @@ import {
   ImageImageBackgroundRemovalInputs,
   ImageImageColorizationInputs,
   ImageImageDeblurringInputs,
+  ImageImageEnhancementInputs,
   ImageImageFaceBluringInputs,
   ImageImageGuidedInpaintingInputs,
   ImageImageInpaintingInputs,
@@ -14,6 +15,7 @@ import {
   ImageImageBackgroundRemovalOutputs,
   ImageImageColorizationOutputs,
   ImageImageDeblurringOutputs,
+  ImageImageEnhancementOutputs,
   ImageImageFaceBluringOutputs,
   ImageImageGuidedInpaintingOutputs,
   ImageImageInpaintingOutputs,
@@ -24,6 +26,7 @@ import {
   IMAGE_IMAGE_BACKGROUND_REMOVAL_CONTENT_TYPE,
   IMAGE_IMAGE_COLORIZATION_CONTENT_TYPE,
   IMAGE_IMAGE_DEBLURRING_CONTENT_TYPE,
+  IMAGE_IMAGE_ENHANCEMENT_CONTENT_TYPE,
   IMAGE_IMAGE_FACE_BLURING_CONTENT_TYPE,
   IMAGE_IMAGE_GUIDED_INPAINTING_CONTENT_TYPE,
   IMAGE_IMAGE_INPAINTING_CONTENT_TYPE,
@@ -97,6 +100,28 @@ export class FromImageToImage {
       url: '/image/image/deblurring/',
       headers: {
         'Content-Type': this.params.useFetch ? IMAGE_IMAGE_DEBLURRING_CONTENT_TYPE : undefined,
+        ...(args.headers ?? {}),
+      },
+      query: {
+        ...(args.model ? {model: args.model} : {}),
+      },
+      responseType: 'arraybuffer',
+      body: formData,
+    });
+  }
+
+  enhancement(args: ImageImageEnhancementInputs): Promise<ImageImageEnhancementOutputs> {
+    const formData = new FormData();
+    if (isDefined(args.image)) {
+      formData.append('image', args.image);
+    }
+    if (isDefined(args.image_url)) {
+      formData.append('image_url', args.image_url);
+    }
+    return this.httpClient.post({
+      url: '/image/image/enhancement/',
+      headers: {
+        'Content-Type': this.params.useFetch ? IMAGE_IMAGE_ENHANCEMENT_CONTENT_TYPE : undefined,
         ...(args.headers ?? {}),
       },
       query: {

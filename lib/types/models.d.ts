@@ -10,6 +10,9 @@ export declare type ImageImageColorizationModel = typeof IMAGE_IMAGE_COLORIZATIO
 export declare const IMAGE_IMAGE_DEBLURRING_MODELS: readonly ["CMFNet"];
 export declare const IMAGE_IMAGE_DEBLURRING_CONTENT_TYPE: "multipart/form-data";
 export declare type ImageImageDeblurringModel = typeof IMAGE_IMAGE_DEBLURRING_MODELS[number];
+export declare const IMAGE_IMAGE_ENHANCEMENT_MODELS: readonly ["FiveK", "LOL"];
+export declare const IMAGE_IMAGE_ENHANCEMENT_CONTENT_TYPE: "multipart/form-data";
+export declare type ImageImageEnhancementModel = typeof IMAGE_IMAGE_ENHANCEMENT_MODELS[number];
 export declare const IMAGE_IMAGE_FACE_BLURING_MODELS: readonly ["ageitgey"];
 export declare const IMAGE_IMAGE_FACE_BLURING_CONTENT_TYPE: "multipart/form-data";
 export declare type ImageImageFaceBluringModel = typeof IMAGE_IMAGE_FACE_BLURING_MODELS[number];

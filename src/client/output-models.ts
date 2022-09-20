@@ -9,6 +9,7 @@ export type AudioTextAudioTranscriptionOutputs = {
 export type ImageImageBackgroundRemovalOutputs = ArrayBuffer;
 export type ImageImageColorizationOutputs = ArrayBuffer;
 export type ImageImageDeblurringOutputs = ArrayBuffer;
+export type ImageImageEnhancementOutputs = ArrayBuffer;
 export type ImageImageFaceBluringOutputs = ArrayBuffer;
 export type ImageImageGuidedInpaintingOutputs = ArrayBuffer;
 export type ImageImageInpaintingOutputs = ArrayBuffer;

@@ -291,6 +291,101 @@ describe('FromImageToImage', () => {
     });
   });
 
+  describe('enhancement', () => {
+    let gladiaClient: GladiaClient;
+    let httpClientMock: HttpClient;
+
+    beforeEach(() => {
+      gladiaClient = gladia({ apiKey: 'API-KEY', customHttpClient: mockHttpClient() });
+      httpClientMock = gladiaClient.fromImage().toImage()['httpClient'];
+    });
+
+    describe('full path', () => {
+      it('should call the api with the text and the default model by default', async () => {
+        const image_data = new Blob([getRandomText()]);
+        const image_url_data = getRandomText();
+        const result = await gladiaClient.fromImage().toImage().enhancement({
+          image: image_data,
+          image_url: image_url_data,
+        });
+        const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
+        expect(postMock).toHaveBeenCalledTimes(1);
+        expect(firstCallArgs.url).toEqual('/image/image/enhancement/');
+        expect(firstCallArgs.headers).toEqual({
+          'Content-Type': undefined,
+        });
+        expect(firstCallArgs.responseType).toEqual('arraybuffer');
+        expect(firstCallArgs.query).toEqual({
+        });
+        expect(firstCallBody.get('image')).toBeDefined();
+        expect(firstCallBody.get('image_url')).toEqual(image_url_data);
+      });
+      it('should call the api with the text and the specified model', async () => {
+        const image_data = new Blob([getRandomText()]);
+        const image_url_data = getRandomText();
+        const result = await gladiaClient.fromImage().toImage().enhancement({
+          image: image_data,
+          image_url: image_url_data,
+          model: 'LOL' as any,
+        });
+        const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
+        expect(postMock).toHaveBeenCalledTimes(1);
+        expect(firstCallArgs.url).toEqual('/image/image/enhancement/');
+        expect(firstCallArgs.headers).toEqual({
+          'Content-Type': undefined,
+        });
+        expect(firstCallArgs.responseType).toEqual('arraybuffer');
+        expect(firstCallArgs.query).toEqual({
+          model: 'LOL',
+        });
+        expect(firstCallBody.get('image')).toBeDefined();
+        expect(firstCallBody.get('image_url')).toEqual(image_url_data);
+      });
+    });
+    describe('shortcuts', () => {
+      it('should call the api with the text and the default model by default', async () => {
+        const image_data = new Blob([getRandomText()]);
+        const image_url_data = getRandomText();
+        const result = await gladiaClient.enhancement({
+          image: image_data,
+          image_url: image_url_data,
+        });
+        const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
+        expect(postMock).toHaveBeenCalledTimes(1);
+        expect(firstCallArgs.url).toEqual('/image/image/enhancement/');
+        expect(firstCallArgs.headers).toEqual({
+          'Content-Type': undefined,
+        });
+        expect(firstCallArgs.responseType).toEqual('arraybuffer');
+        expect(firstCallArgs.query).toEqual({
+        });
+        expect(firstCallBody.get('image')).toBeDefined();
+        expect(firstCallBody.get('image_url')).toEqual(image_url_data);
+      });
+      it('should call the api with the text and the specified model', async () => {
+        const image_data = new Blob([getRandomText()]);
+        const image_url_data = getRandomText();
+        const result = await gladiaClient.enhancement({
+          image: image_data,
+          image_url: image_url_data,
+          model: 'LOL' as any,
+        });
+        const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
+        expect(postMock).toHaveBeenCalledTimes(1);
+        expect(firstCallArgs.url).toEqual('/image/image/enhancement/');
+        expect(firstCallArgs.headers).toEqual({
+          'Content-Type': undefined,
+        });
+        expect(firstCallArgs.responseType).toEqual('arraybuffer');
+        expect(firstCallArgs.query).toEqual({
+          model: 'LOL',
+        });
+        expect(firstCallBody.get('image')).toBeDefined();
+        expect(firstCallBody.get('image_url')).toEqual(image_url_data);
+      });
+    });
+  });
+
   describe('faceBluring', () => {
     let gladiaClient: GladiaClient;
     let httpClientMock: HttpClient;

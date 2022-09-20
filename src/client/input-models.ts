@@ -5,6 +5,7 @@ import {
   ImageImageBackgroundRemovalModel,
   ImageImageColorizationModel,
   ImageImageDeblurringModel,
+  ImageImageEnhancementModel,
   ImageImageFaceBluringModel,
   ImageImageGuidedInpaintingModel,
   ImageImageInpaintingModel,
@@ -57,6 +58,11 @@ export interface ImageImageColorizationInputs
 }
 export interface ImageImageDeblurringInputs 
   extends WithHeaders, WithModel<ImageImageDeblurringModel> {
+  image?: Blob;
+  image_url?: string;
+}
+export interface ImageImageEnhancementInputs 
+  extends WithHeaders, WithModel<ImageImageEnhancementModel> {
   image?: Blob;
   image_url?: string;
 }

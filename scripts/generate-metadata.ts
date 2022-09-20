@@ -20,11 +20,13 @@ async function main() {
 const ARG_FROM_FILE_PREFIX = '--from-file=';
 
 async function generateOpenApiDefTs() {
+  console.log(process.argv)
   const fromFile = process.argv
     .filter((arg) => arg.startsWith(ARG_FROM_FILE_PREFIX))
     .map((arg) => arg.substring(ARG_FROM_FILE_PREFIX.length))
     .find(() => true); // extract first element
   let openApiJson: string;
+  console.log(fromFile)
   if (fromFile) {
     openApiJson = fs.readFileSync(fromFile, { encoding: 'utf-8' });
   } else {

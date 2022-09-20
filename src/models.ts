@@ -27,6 +27,13 @@ export const IMAGE_IMAGE_DEBLURRING_MODELS = [
 export const IMAGE_IMAGE_DEBLURRING_CONTENT_TYPE = "multipart/form-data" as const;
 export type ImageImageDeblurringModel = typeof IMAGE_IMAGE_DEBLURRING_MODELS[number];
 
+export const IMAGE_IMAGE_ENHANCEMENT_MODELS = [
+   'FiveK',
+   'LOL',
+] as const;
+export const IMAGE_IMAGE_ENHANCEMENT_CONTENT_TYPE = "multipart/form-data" as const;
+export type ImageImageEnhancementModel = typeof IMAGE_IMAGE_ENHANCEMENT_MODELS[number];
+
 export const IMAGE_IMAGE_FACE_BLURING_MODELS = [
    'ageitgey',
 ] as const;

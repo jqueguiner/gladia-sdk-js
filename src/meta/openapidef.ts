@@ -213,9 +213,9 @@ export const openApiJson: OpenApiJson = {
             "schema": {
               "title": "Model",
               "enum": [
+                "deoldify-stable",
                 "deoldify-artistic",
-                "mlhubber_colorize",
-                "deoldify-stable"
+                "mlhubber_colorize"
               ],
               "type": "string",
               "default": "mlhubber_colorize"
@@ -343,6 +343,89 @@ export const openApiJson: OpenApiJson = {
             },
             "examples": {
               "CMFNet": {}
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/image/image/enhancement/": {
+      "get": {
+        "tags": [
+          "image.image.enhancement"
+        ],
+        "summary": "Get list of models available for enhancement",
+        "operationId": "get_versions_image_image_enhancement__get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "image.image.enhancement"
+        ],
+        "summary": "Apply model for the enhancement task for a given models",
+        "operationId": "apply_image_image_enhancement__post",
+        "parameters": [
+          {
+            "required": false,
+            "schema": {
+              "title": "Model",
+              "enum": [
+                "LOL",
+                "FiveK"
+              ],
+              "type": "string",
+              "default": "FiveK"
+            },
+            "name": "model",
+            "in": "query"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_apply_image_image_enhancement__post"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "image/*": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary",
+                  "data_type": "image"
+                }
+              }
+            },
+            "example": {
+              "LOL": "",
+              "FiveK": ""
+            },
+            "examples": {
+              "LOL": {},
+              "FiveK": {}
             }
           },
           "422": {
@@ -553,10 +636,10 @@ export const openApiJson: OpenApiJson = {
               "title": "Model",
               "enum": [
                 "zits",
-                "fcf",
-                "mat",
+                "lama",
                 "latent-diffusion",
-                "lama"
+                "fcf",
+                "mat"
               ],
               "type": "string",
               "default": "zits"
@@ -886,124 +969,124 @@ export const openApiJson: OpenApiJson = {
             "schema": {
               "title": "Model",
               "enum": [
-                "regnet_y_8gf_v1",
-                "resnet18",
-                "regnet_y_3_2gf_v2",
-                "densenet169",
-                "convnext_tiny",
-                "resnet50_quantized_fbgemm_v1",
-                "mobilenet_v2_v1",
-                "regnet_y_16gf_v2",
-                "resnext101_64x4d_quantized_fbgemm_v1",
-                "inception_v3",
-                "regnet_x_400mf_v2",
-                "regnet_y_32gf_v1",
-                "mobilenet_v3_large_v2",
-                "regnet_y_400mf_v2",
-                "regnet_y_32gf_swag_linear_v1",
-                "resnext101_64x4d_v1",
-                "resnext101_32x8d_v1",
-                "vgg13_bn",
-                "shufflenet_v2_x1_0_quantized_fbgemm_v1",
-                "vit_h_14_swag_e2e_v1",
-                "vit_l_16_swag_linear_v1",
-                "resnet34",
-                "regnet_x_32gf_v1",
+                "convnext_base",
+                "alexnet",
                 "regnet_y_400mf_v1",
-                "vgg16_bn",
-                "regnet_x_8gf_v2",
-                "resnet152_v1",
-                "mnasnet1_3",
-                "shufflenet_v2_x1_5",
-                "efficientnet_b6",
-                "densenet161",
-                "vgg11_bn",
-                "vit_b_16_v1",
-                "vgg19_bn",
-                "resnet50_v2",
-                "regnet_x_1_6gf_v2",
-                "wide_resnet101_2_v2",
                 "resnet152_v2",
-                "efficientnet_v2_m",
-                "resnet18_quantized_fbgemm_v1",
-                "efficientnet_b1_v2",
+                "regnet_y_3_2gf_v2",
                 "regnet_y_32gf_swag_e2e_v1",
+                "mobilenet_v3_small",
+                "regnet_y_8gf_v1",
+                "efficientnet_b3",
+                "efficientnet_b2",
+                "mobilenet_v3_large_v1",
+                "densenet161",
+                "regnet_x_800mf_v2",
+                "regnet_x_400mf_v1",
+                "resnext50_32x4d_v1",
+                "squeezenet1_0",
+                "vit_l_16_swag_e2e_v1",
+                "resnet50_quantized_fbgemm_v2",
+                "efficientnet_v2_l",
+                "vit_b_32",
+                "vgg16_bn",
+                "regnet_y_8gf_v2",
+                "efficientnet_b0",
+                "efficientnet_b6",
+                "shufflenet_v2_x1_0_quantized_fbgemm_v1",
+                "inception_v3",
+                "vgg13_bn",
+                "resnet50_v2",
+                "convnext_small",
+                "convnext_large",
                 "vgg11",
                 "inception_v3_fbgemm_v1",
-                "efficientnet_v2_s",
-                "vit_b_16_swag_linear_v1",
-                "mobilenet_v3_small",
-                "mobilenet_v2_v2",
-                "wide_resnet101_2_v1",
-                "convnext_large",
-                "efficientnet_b4",
-                "regnet_y_16gf_swag_e2e_v1",
-                "vit_l_16_v1",
-                "mnasnet0_75",
-                "vit_l_32",
                 "efficientnet_b7",
-                "regnet_y_8gf_v2",
-                "convnext_base",
-                "regnet_y_1_6gf_v2",
-                "regnet_y_16gf_v1",
-                "regnet_x_8gf_v1",
-                "shufflenet_v2_x1_5_quantized_fbgemm_v1",
-                "regnet_y_128gf_swag_linear_v1",
-                "resnext101_32x8d_quantized_fbgemm_v1",
-                "mobilenet_v3_large_quantized_qnnpack_v1",
-                "densenet201",
-                "googlenet_quantized_fbgemm_v1",
-                "resnet50_quantized_fbgemm_v2",
-                "squeezenet1_1",
-                "regnet_x_1_6gf_v1",
-                "efficientnet_b2",
-                "regnet_y_3_2gf_v1",
-                "regnet_x_800mf_v2",
-                "regnet_x_16gf_v1",
-                "efficientnet_v2_l",
-                "vgg16_v1",
-                "resnext101_32x8d_v2",
-                "shufflenet_v2_x0_5",
-                "resnext50_32x4d_v1",
-                "densenet121",
-                "resnext50_32x4d_v2",
-                "regnet_x_800mf_v1",
-                "regnet_y_32gf_v2",
-                "regnet_x_16gf_v2",
-                "shufflenet_v2_x2_0_quantized_fbgemm_v1",
-                "resnext101_32x8d_quantized_fbgemm_v2",
-                "googlenet",
-                "regnet_y_16gf_swag_linear_v1",
-                "squeezenet1_0",
-                "swin_s",
-                "regnet_x_400mf_v1",
-                "vgg13",
-                "convnext_small",
-                "regnet_x_3_2gf_v1",
-                "shufflenet_v2_x2_0",
-                "vit_b_16_swag_e2e_v1",
-                "regnet_x_32gf_v2",
-                "vit_h_14_swag_linear_v1",
-                "vit_l_16_swag_e2e_v1",
-                "shufflenet_v2_x1_0",
                 "efficientnet_b1_v1",
-                "efficientnet_b0",
-                "alexnet",
-                "vit_b_32",
-                "mobilenet_v2_quantized_qnnpack_v1",
-                "swin_t",
-                "shufflenet_v2_x0_5_quantized_fbgemm_v1",
-                "regnet_y_128gf_swag_e2e_v1",
-                "mnasnet1_0",
-                "regnet_x_3_2gf_v2",
+                "shufflenet_v2_x1_5",
+                "mobilenet_v2_v1",
+                "googlenet",
+                "swin_s",
                 "regnet_y_1_6gf_v1",
-                "mobilenet_v3_large_v1",
+                "resnext101_64x4d_quantized_fbgemm_v1",
+                "vit_l_16_swag_linear_v1",
+                "regnet_y_1_6gf_v2",
+                "resnet152_v1",
+                "vit_h_14_swag_linear_v1",
+                "vgg13",
+                "regnet_x_8gf_v2",
+                "swin_b",
+                "regnet_x_8gf_v1",
+                "regnet_y_32gf_v1",
+                "regnet_x_1_6gf_v1",
+                "regnet_y_32gf_v2",
+                "swin_t",
+                "efficientnet_v2_m",
+                "shufflenet_v2_x2_0",
+                "regnet_x_1_6gf_v2",
+                "regnet_x_400mf_v2",
+                "vit_b_16_swag_linear_v1",
+                "mobilenet_v2_quantized_qnnpack_v1",
+                "vgg19_bn",
                 "efficientnet_b5",
-                "efficientnet_b3",
-                "mnasnet0_5",
-                "resnet50_v1",
+                "vit_h_14_swag_e2e_v1",
+                "resnet50_quantized_fbgemm_v1",
+                "regnet_y_128gf_swag_linear_v1",
+                "regnet_y_128gf_swag_e2e_v1",
+                "vgg16_v1",
+                "densenet121",
+                "regnet_y_400mf_v2",
+                "resnext101_32x8d_quantized_fbgemm_v1",
+                "regnet_y_16gf_swag_linear_v1",
+                "resnext101_64x4d_v1",
+                "shufflenet_v2_x1_0",
+                "efficientnet_b1_v2",
+                "squeezenet1_1",
+                "mnasnet0_75",
+                "efficientnet_v2_s",
+                "regnet_y_16gf_v2",
+                "regnet_x_32gf_v1",
+                "vit_b_16_v1",
+                "mobilenet_v3_large_quantized_qnnpack_v1",
+                "mobilenet_v3_large_v2",
                 "vgg19",
-                "swin_b"
+                "vit_b_16_swag_e2e_v1",
+                "resnet34",
+                "regnet_x_16gf_v2",
+                "vit_l_32",
+                "regnet_y_32gf_swag_linear_v1",
+                "resnext50_32x4d_v2",
+                "shufflenet_v2_x1_5_quantized_fbgemm_v1",
+                "resnext101_32x8d_v2",
+                "wide_resnet101_2_v1",
+                "resnext101_32x8d_v1",
+                "resnet50_v1",
+                "shufflenet_v2_x0_5_quantized_fbgemm_v1",
+                "convnext_tiny",
+                "regnet_x_32gf_v2",
+                "regnet_y_16gf_swag_e2e_v1",
+                "resnet18",
+                "resnet18_quantized_fbgemm_v1",
+                "efficientnet_b4",
+                "regnet_x_3_2gf_v2",
+                "mobilenet_v2_v2",
+                "wide_resnet101_2_v2",
+                "mnasnet1_0",
+                "vgg11_bn",
+                "mnasnet0_5",
+                "regnet_x_800mf_v1",
+                "regnet_y_3_2gf_v1",
+                "vit_l_16_v1",
+                "shufflenet_v2_x2_0_quantized_fbgemm_v1",
+                "googlenet_quantized_fbgemm_v1",
+                "resnext101_32x8d_quantized_fbgemm_v2",
+                "regnet_x_3_2gf_v1",
+                "shufflenet_v2_x0_5",
+                "densenet169",
+                "mnasnet1_3",
+                "regnet_x_16gf_v1",
+                "regnet_y_16gf_v1",
+                "densenet201"
               ],
               "type": "string",
               "default": "alexnet"
@@ -2143,8 +2226,8 @@ export const openApiJson: OpenApiJson = {
             "schema": {
               "title": "Model",
               "enum": [
-                "tesseract-default",
                 "tesseract-denoising",
+                "tesseract-default",
                 "easy-ocr"
               ],
               "type": "string",
@@ -2254,8 +2337,8 @@ export const openApiJson: OpenApiJson = {
             "schema": {
               "title": "Model",
               "enum": [
-                "dream-studio",
-                "stable-diffusion"
+                "stable-diffusion",
+                "dream-studio"
               ],
               "type": "string",
               "default": "stable-diffusion"
@@ -2665,8 +2748,8 @@ export const openApiJson: OpenApiJson = {
             "schema": {
               "title": "Model",
               "enum": [
-                "keybert-paraphrase-MiniLM-L6-v2",
-                "keybert-paraphrase-multilingual-MiniLM-L12-v2"
+                "keybert-paraphrase-multilingual-MiniLM-L12-v2",
+                "keybert-paraphrase-MiniLM-L6-v2"
               ],
               "type": "string",
               "default": "keybert-paraphrase-MiniLM-L6-v2"
@@ -3240,10 +3323,10 @@ export const openApiJson: OpenApiJson = {
             "schema": {
               "title": "Model",
               "enum": [
-                "roberta-base",
-                "bert-base-uncased",
+                "albert-base-v2",
                 "distilbert-base-uncased",
-                "albert-base-v2"
+                "bert-base-uncased",
+                "roberta-base"
               ],
               "type": "string",
               "default": "distilbert-base-uncased"
@@ -3452,11 +3535,11 @@ export const openApiJson: OpenApiJson = {
             "schema": {
               "title": "Model",
               "enum": [
-                "mrm8488-bert-tiny-5-finetuned-squadv2",
-                "distilbert-base-cased-distilled-squad",
                 "deepset-roberta-base-squad2",
-                "deepset_bert-base-cased-squad2",
-                "mfeb-albert-xxlarge-v2-squad2"
+                "distilbert-base-cased-distilled-squad",
+                "mfeb-albert-xxlarge-v2-squad2",
+                "mrm8488-bert-tiny-5-finetuned-squadv2",
+                "deepset_bert-base-cased-squad2"
               ],
               "type": "string",
               "default": "distilbert-base-cased-distilled-squad"
@@ -3598,8 +3681,8 @@ export const openApiJson: OpenApiJson = {
             "schema": {
               "title": "Model",
               "enum": [
-                "ramsrigouthamg-t5-large-paraphraser-diverse-high-quality",
-                "ramsrigouthamg-t5_sentence_paraphraser"
+                "ramsrigouthamg-t5_sentence_paraphraser",
+                "ramsrigouthamg-t5-large-paraphraser-diverse-high-quality"
               ],
               "type": "string",
               "default": "ramsrigouthamg-t5-large-paraphraser-diverse-high-quality"
@@ -3696,10 +3779,10 @@ export const openApiJson: OpenApiJson = {
             "schema": {
               "title": "Model",
               "enum": [
+                "distilbert-base-uncased-finetuned-sst-2-english",
                 "zero-shot-classification-facebook-bart-large-mnli",
-                "nlptown-bert-base-multilingual-uncased-sentiment",
                 "distilbert-base-uncased",
-                "distilbert-base-uncased-finetuned-sst-2-english"
+                "nlptown-bert-base-multilingual-uncased-sentiment"
               ],
               "type": "string",
               "default": "nlptown-bert-base-multilingual-uncased-sentiment"
@@ -4059,53 +4142,53 @@ export const openApiJson: OpenApiJson = {
                   "prediction": [
                     {
                       "source": "Sentence",
-                      "target": "来自"
+                      "target": "æ¥è‡ª"
                     },
                     {
                       "source": "Sentence",
-                      "target": "句子"
+                      "target": "å¥å­"
                     },
                     {
                       "source": "from",
-                      "target": "来自"
+                      "target": "æ¥è‡ª"
                     },
                     {
                       "source": "first",
-                      "target": "第一"
+                      "target": "ç¬¬ä¸€"
                     },
                     {
                       "source": "language",
-                      "target": "语言的"
+                      "target": "è¯­è¨€çš„"
                     },
                     {
                       "source": "language",
-                      "target": "句子"
+                      "target": "å¥å­"
                     }
                   ],
                   "prediction_raw": [
                     {
                       "source": "Sentence",
-                      "target": "来自"
+                      "target": "æ¥è‡ª"
                     },
                     {
                       "source": "Sentence",
-                      "target": "句子"
+                      "target": "å¥å­"
                     },
                     {
                       "source": "from",
-                      "target": "来自"
+                      "target": "æ¥è‡ª"
                     },
                     {
                       "source": "first",
-                      "target": "第一"
+                      "target": "ç¬¬ä¸€"
                     },
                     {
                       "source": "language",
-                      "target": "语言的"
+                      "target": "è¯­è¨€çš„"
                     },
                     {
                       "source": "language",
-                      "target": "句子"
+                      "target": "å¥å­"
                     }
                   ]
                 }
@@ -4440,6 +4523,31 @@ export const openApiJson: OpenApiJson = {
       },
       "Body_apply_image_image_deblurring__post": {
         "title": "Body_apply_image_image_deblurring__post",
+        "type": "object",
+        "properties": {
+          "image": {
+            "title": "image",
+            "type": "string",
+            "format": "binary",
+            "example": "http://files.gladia.io/test/test.png",
+            "data_type": "image",
+            "examples": {
+              "from_test_png": "http://files.gladia.io/test/test.png"
+            }
+          },
+          "image_url": {
+            "title": "image_url",
+            "type": "string",
+            "example": "http://files.gladia.io/test/test.png",
+            "data_type": "url",
+            "examples": {
+              "from_test_png": "http://files.gladia.io/test/test.png"
+            }
+          }
+        }
+      },
+      "Body_apply_image_image_enhancement__post": {
+        "title": "Body_apply_image_image_enhancement__post",
         "type": "object",
         "properties": {
           "image": {
@@ -5130,7 +5238,7 @@ export const openApiJson: OpenApiJson = {
           "input_string_language_2": {
             "title": "input_string_language_2",
             "type": "string",
-            "example": "来自 第一 语言的 句子",
+            "example": "æ¥è‡ª ç¬¬ä¸€ è¯­è¨€çš„ å¥å­",
             "data_type": "string",
             "examples": {}
           }

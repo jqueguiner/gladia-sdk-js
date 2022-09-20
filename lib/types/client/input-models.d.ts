@@ -1,4 +1,4 @@
-import { AudioTextAudioTranscriptionModel, ImageImageBackgroundRemovalModel, ImageImageColorizationModel, ImageImageDeblurringModel, ImageImageFaceBluringModel, ImageImageGuidedInpaintingModel, ImageImageInpaintingModel, ImageImageSuperResolutionModel, ImageImageUncolorizationModel, ImageTextAsciifyModel, ImageTextClassificationModel, ImageTextOcrModel, TextImageImageGenerationModel, TextTextAdGenerationModel, TextTextArticleGenerationModel, TextTextAutocorrectModel, TextTextBulletPointGenerationModel, TextTextEmotionRecognitionModel, TextTextHateSpeechDetectionModel, TextTextHeadlineGenerationModel, TextTextIntentClassificationModel, TextTextKeywordExtractionModel, TextTextLanguageDetectionModel, TextTextLanguageGenerationModel, TextTextNamedEntityRecognitionModel, TextTextNextSentencePredictionModel, TextTextNextWordPredictionModel, TextTextProgrammingLanguageGenerationModel, TextTextQuestionAnsweringModel, TextTextSentenceParaphraserModel, TextTextSentimentAnalysisModel, TextTextSimilarityModel, TextTextSummarizationModel, TextTextTranslationModel, TextTextWordAlignmentModel } from '../models';
+import { AudioTextAudioTranscriptionModel, ImageImageBackgroundRemovalModel, ImageImageColorizationModel, ImageImageDeblurringModel, ImageImageEnhancementModel, ImageImageFaceBluringModel, ImageImageGuidedInpaintingModel, ImageImageInpaintingModel, ImageImageSuperResolutionModel, ImageImageUncolorizationModel, ImageTextAsciifyModel, ImageTextClassificationModel, ImageTextOcrModel, TextImageImageGenerationModel, TextTextAdGenerationModel, TextTextArticleGenerationModel, TextTextAutocorrectModel, TextTextBulletPointGenerationModel, TextTextEmotionRecognitionModel, TextTextHateSpeechDetectionModel, TextTextHeadlineGenerationModel, TextTextIntentClassificationModel, TextTextKeywordExtractionModel, TextTextLanguageDetectionModel, TextTextLanguageGenerationModel, TextTextNamedEntityRecognitionModel, TextTextNextSentencePredictionModel, TextTextNextWordPredictionModel, TextTextProgrammingLanguageGenerationModel, TextTextQuestionAnsweringModel, TextTextSentenceParaphraserModel, TextTextSentimentAnalysisModel, TextTextSimilarityModel, TextTextSummarizationModel, TextTextTranslationModel, TextTextWordAlignmentModel } from '../models';
 import { WithHeaders, WithModel } from './types';
 export interface AudioTextAudioTranscriptionInputs extends WithHeaders, WithModel<AudioTextAudioTranscriptionModel> {
     audio?: Blob;
@@ -14,6 +14,10 @@ export interface ImageImageColorizationInputs extends WithHeaders, WithModel<Ima
     image_url?: string;
 }
 export interface ImageImageDeblurringInputs extends WithHeaders, WithModel<ImageImageDeblurringModel> {
+    image?: Blob;
+    image_url?: string;
+}
+export interface ImageImageEnhancementInputs extends WithHeaders, WithModel<ImageImageEnhancementModel> {
     image?: Blob;
     image_url?: string;
 }
