@@ -230,8 +230,7 @@ Change version in `package.json` then:
 
 ```
 npm install
-npm run generate-metadata -- --from-file={path_to_file} 
-# i.e. npm run generate-metadata -- --from-file=openapi.json
+npm run generate-metadata
 npm run generate-sdk
 npm run test
 npm run build
