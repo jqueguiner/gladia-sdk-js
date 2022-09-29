@@ -30,17 +30,12 @@
     "regenerator-runtime": "^0.13.7"
   },
   "devDependencies": {
-    "@babel/core": "^7.13.16",
-    "@babel/polyfill": "^7.12.1",
-    "@babel/preset-env": "^7.15.6",
-    "@babel/preset-typescript": "7.18.6",
     "@types/custom-functions-runtime": "^1.6.4",
     "@types/find-process": "1.2.0",
     "@types/jest": "^28.1.6",
     "@types/mocha": "^9.1.1",
     "@types/node": "^18.7.2",
     "acorn": "^8.5.0",
-    "babel-loader": "^8.2.2",
     "copy-webpack-plugin": "^11.0.0",
     "custom-functions-metadata-plugin": "^1.2.9",
     "file-loader": "^6.2.0",
