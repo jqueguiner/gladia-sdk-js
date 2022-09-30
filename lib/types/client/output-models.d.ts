@@ -4,6 +4,7 @@ export declare type AudioTextAudioTranscriptionOutputs = {
     prediction_raw: any;
 };
 export declare type ImageImageBackgroundRemovalOutputs = ArrayBuffer;
+export declare type ImageImageBackgroundReplacementOutputs = ArrayBuffer;
 export declare type ImageImageColorizationOutputs = ArrayBuffer;
 export declare type ImageImageDeblurringOutputs = ArrayBuffer;
 export declare type ImageImageEnhancementOutputs = ArrayBuffer;
@@ -34,14 +35,8 @@ export declare type TextTextAutocorrectOutputs = {
     prediction_raw: any;
 };
 export declare type TextTextBulletPointGenerationOutputs = Record<string, string | number | boolean>;
-export declare type TextTextEmotionRecognitionOutputs = {
-    prediction: string;
-    prediction_raw: any;
-};
-export declare type TextTextHateSpeechDetectionOutputs = {
-    prediction: string;
-    prediction_raw: any;
-};
+export declare type TextTextEmotionRecognitionOutputs = Record<string, string | number | boolean>;
+export declare type TextTextHateSpeechDetectionOutputs = Record<string, string | number | boolean>;
 export declare type TextTextHeadlineGenerationOutputs = Record<string, string | number | boolean>;
 export declare type TextTextIntentClassificationOutputs = Record<string, string | number | boolean>;
 export declare type TextTextKeywordExtractionOutputs = {
