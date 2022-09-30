@@ -2,6 +2,7 @@
 
 import {
   ImageImageBackgroundRemovalInputs,
+  ImageImageBackgroundReplacementInputs,
   ImageImageColorizationInputs,
   ImageImageDeblurringInputs,
   ImageImageEnhancementInputs,
@@ -13,6 +14,7 @@ import {
 } from './input-models';
 import {
   ImageImageBackgroundRemovalOutputs,
+  ImageImageBackgroundReplacementOutputs,
   ImageImageColorizationOutputs,
   ImageImageDeblurringOutputs,
   ImageImageEnhancementOutputs,
@@ -24,6 +26,7 @@ import {
 } from './output-models';
 import {
   IMAGE_IMAGE_BACKGROUND_REMOVAL_CONTENT_TYPE,
+  IMAGE_IMAGE_BACKGROUND_REPLACEMENT_CONTENT_TYPE,
   IMAGE_IMAGE_COLORIZATION_CONTENT_TYPE,
   IMAGE_IMAGE_DEBLURRING_CONTENT_TYPE,
   IMAGE_IMAGE_ENHANCEMENT_CONTENT_TYPE,
@@ -56,6 +59,35 @@ export class FromImageToImage {
       url: '/image/image/background-removal/',
       headers: {
         'Content-Type': this.params.useFetch ? IMAGE_IMAGE_BACKGROUND_REMOVAL_CONTENT_TYPE : undefined,
+        ...(args.headers ?? {}),
+      },
+      query: {
+        ...(args.model ? {model: args.model} : {}),
+      },
+      responseType: 'arraybuffer',
+      body: formData,
+    });
+  }
+
+  backgroundReplacement(args: ImageImageBackgroundReplacementInputs): Promise<ImageImageBackgroundReplacementOutputs> {
+    const formData = new FormData();
+    if (isDefined(args.original_image)) {
+      formData.append('original_image', args.original_image);
+    }
+    if (isDefined(args.original_image_url)) {
+      formData.append('original_image_url', args.original_image_url);
+    }
+    if (isDefined(args.background_image)) {
+      formData.append('background_image', args.background_image);
+    }
+    if (isDefined(args.background_image_url)) {
+      formData.append('background_image_url', args.background_image_url);
+    }
+    formData.append('alignment', args.alignment);
+    return this.httpClient.post({
+      url: '/image/image/background-replacement/',
+      headers: {
+        'Content-Type': this.params.useFetch ? IMAGE_IMAGE_BACKGROUND_REPLACEMENT_CONTENT_TYPE : undefined,
         ...(args.headers ?? {}),
       },
       query: {

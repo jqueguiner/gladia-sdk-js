@@ -442,7 +442,7 @@ describe('FromTextToText', () => {
         const text_data = getRandomText();
         const result = await gladiaClient.fromText().toText().hateSpeechDetection({
           text: text_data,
-          model: 'Hate-speech-CNERG-dehatebert-mono-english' as any,
+          model: 'fake-model-name' as any,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -451,7 +451,7 @@ describe('FromTextToText', () => {
           'Content-Type': 'application/x-www-form-urlencoded',
         });
         expect(firstCallArgs.query).toEqual({
-          model: 'Hate-speech-CNERG-dehatebert-mono-english',
+          model: 'fake-model-name',
         });
         expect(firstCallBody.get('text')).toEqual(text_data);
       });
@@ -476,7 +476,7 @@ describe('FromTextToText', () => {
         const text_data = getRandomText();
         const result = await gladiaClient.hateSpeechDetection({
           text: text_data,
-          model: 'Hate-speech-CNERG-dehatebert-mono-english' as any,
+          model: 'fake-model-name' as any,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -485,7 +485,7 @@ describe('FromTextToText', () => {
           'Content-Type': 'application/x-www-form-urlencoded',
         });
         expect(firstCallArgs.query).toEqual({
-          model: 'Hate-speech-CNERG-dehatebert-mono-english',
+          model: 'fake-model-name',
         });
         expect(firstCallBody.get('text')).toEqual(text_data);
       });

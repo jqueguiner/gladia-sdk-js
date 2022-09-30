@@ -11,6 +11,7 @@ import { FromTextToText } from './from-text-to-text'
 import {
   AudioTextAudioTranscriptionInputs,
   ImageImageBackgroundRemovalInputs,
+  ImageImageBackgroundReplacementInputs,
   ImageImageColorizationInputs,
   ImageImageDeblurringInputs,
   ImageImageEnhancementInputs,
@@ -49,6 +50,7 @@ import {
 import {
   AudioTextAudioTranscriptionOutputs,
   ImageImageBackgroundRemovalOutputs,
+  ImageImageBackgroundReplacementOutputs,
   ImageImageColorizationOutputs,
   ImageImageDeblurringOutputs,
   ImageImageEnhancementOutputs,
@@ -109,6 +111,10 @@ export abstract class Shortcuts implements
 
   backgroundRemoval(args: ImageImageBackgroundRemovalInputs): Promise<ImageImageBackgroundRemovalOutputs> {
     return this.fromImage().toImage().backgroundRemoval(args);
+  }
+
+  backgroundReplacement(args: ImageImageBackgroundReplacementInputs): Promise<ImageImageBackgroundReplacementOutputs> {
+    return this.fromImage().toImage().backgroundReplacement(args);
   }
 
   colorization(args: ImageImageColorizationInputs): Promise<ImageImageColorizationOutputs> {

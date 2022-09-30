@@ -2,6 +2,11 @@
 
 export const AUDIO_TEXT_AUDIO_TRANSCRIPTION_MODELS = [
    'coqui_english_huge_vocab',
+   'openai-whisper-base',
+   'openai-whisper-large',
+   'openai-whisper-medium',
+   'openai-whisper-small',
+   'openai-whisper-tiny',
 ] as const;
 export const AUDIO_TEXT_AUDIO_TRANSCRIPTION_CONTENT_TYPE = "multipart/form-data" as const;
 export type AudioTextAudioTranscriptionModel = typeof AUDIO_TEXT_AUDIO_TRANSCRIPTION_MODELS[number];
@@ -12,6 +17,12 @@ export const IMAGE_IMAGE_BACKGROUND_REMOVAL_MODELS = [
 ] as const;
 export const IMAGE_IMAGE_BACKGROUND_REMOVAL_CONTENT_TYPE = "multipart/form-data" as const;
 export type ImageImageBackgroundRemovalModel = typeof IMAGE_IMAGE_BACKGROUND_REMOVAL_MODELS[number];
+
+export const IMAGE_IMAGE_BACKGROUND_REPLACEMENT_MODELS = [
+   'mobilenet',
+] as const;
+export const IMAGE_IMAGE_BACKGROUND_REPLACEMENT_CONTENT_TYPE = "multipart/form-data" as const;
+export type ImageImageBackgroundReplacementModel = typeof IMAGE_IMAGE_BACKGROUND_REPLACEMENT_MODELS[number];
 
 export const IMAGE_IMAGE_COLORIZATION_MODELS = [
    'deoldify-artistic',
@@ -200,6 +211,7 @@ export const IMAGE_TEXT_OCR_MODELS = [
    'easy-ocr',
    'tesseract-default',
    'tesseract-denoising',
+   'textract-extractor',
 ] as const;
 export const IMAGE_TEXT_OCR_CONTENT_TYPE = "multipart/form-data" as const;
 export type ImageTextOcrModel = typeof IMAGE_TEXT_OCR_MODELS[number];
@@ -236,14 +248,13 @@ export const TEXT_TEXT_BULLET_POINT_GENERATION_CONTENT_TYPE = "application/x-www
 export type TextTextBulletPointGenerationModel = typeof TEXT_TEXT_BULLET_POINT_GENERATION_MODELS[number];
 
 export const TEXT_TEXT_EMOTION_RECOGNITION_MODELS = [
-   'mrm8488-t5-base-finetuned-emotion',
+   'distilbert-base-uncased-emotion',
 ] as const;
 export const TEXT_TEXT_EMOTION_RECOGNITION_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
 export type TextTextEmotionRecognitionModel = typeof TEXT_TEXT_EMOTION_RECOGNITION_MODELS[number];
 
 export const TEXT_TEXT_HATE_SPEECH_DETECTION_MODELS = [
-   'Hate-speech-CNERG-dehatebert-mono-english',
-   'byt5-base-tweet-hate-detection',
+   'distilbert-base-uncased-emotion',
 ] as const;
 export const TEXT_TEXT_HATE_SPEECH_DETECTION_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
 export type TextTextHateSpeechDetectionModel = typeof TEXT_TEXT_HATE_SPEECH_DETECTION_MODELS[number];

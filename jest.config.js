@@ -1,7 +1,7 @@
 /** @type {import('ts-jest/dist/types').InitialOptionsTsJest} */
 module.exports = {
   preset: 'ts-jest',
-  testEnvironment: 'node',
+  testEnvironment: 'jsdom',
   setupFilesAfterEnv: ['./tests/mandatoryAssertions.js'],
   transformIgnorePatterns: ['/node_modules/(?!(@vespaiach)/)', '\\.pnp\\.[^\\/]+$'],
   globals: {

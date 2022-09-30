@@ -94,8 +94,15 @@ describe(getEndpoints.name, () => {
         inputType: 'audio',
         outputType: 'text',
         taskName: 'audio-transcription',
-        models: ['coqui_english_huge_vocab'],
-        defaultModel: 'coqui_english_huge_vocab',
+        models: [
+          'coqui_english_huge_vocab',
+          'openai-whisper-base',
+          'openai-whisper-large',
+          'openai-whisper-medium',
+          'openai-whisper-small',
+          'openai-whisper-tiny',
+        ],
+        defaultModel: 'openai-whisper-tiny',
         inputBodyContentType: 'multipart/form-data',
         outputBodyContentType: {
           type: 'prediction-standard-output',

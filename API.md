@@ -10,7 +10,12 @@ The runtime default model is defined on the GladIA server.
 
 #### `models`
 
- - **coqui_english_huge_vocab (default)**
+ - coqui_english_huge_vocab
+ - openai-whisper-base
+ - openai-whisper-large
+ - openai-whisper-medium
+ - openai-whisper-small
+ - **openai-whisper-tiny (default)**
 
 #### other params
 
@@ -31,6 +36,20 @@ The runtime default model is defined on the GladIA server.
 
  - `image`: image
  - `image_url`: url
+
+### `background-replacement`
+
+#### `models`
+
+ - **mobilenet (default)**
+
+#### other params
+
+ - `original_image`: image
+ - `original_image_url`: url
+ - `background_image`: image
+ - `background_image_url`: url
+ - `alignment`: string *(required)*
 
 ### `colorization`
 
@@ -280,6 +299,7 @@ The runtime default model is defined on the GladIA server.
  - easy-ocr
  - tesseract-default
  - **tesseract-denoising (default)**
+ - textract-extractor
 
 #### other params
 
@@ -350,22 +370,21 @@ The runtime default model is defined on the GladIA server.
 
 #### `models`
 
- - **mrm8488-t5-base-finetuned-emotion (default)**
+ - **distilbert-base-uncased-emotion (default)**
 
 #### other params
 
- - `text`: string *(required)*
+ - `text`: string
 
 ### `hate-speech-detection`
 
 #### `models`
 
- - Hate-speech-CNERG-dehatebert-mono-english
- - **byt5-base-tweet-hate-detection (default)**
+ - **distilbert-base-uncased-emotion (default)**
 
 #### other params
 
- - `text`: string *(required)*
+ - `text`: string
 
 ### `headline-generation`
 

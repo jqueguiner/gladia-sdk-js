@@ -3,6 +3,7 @@
 import {
   AudioTextAudioTranscriptionModel,
   ImageImageBackgroundRemovalModel,
+  ImageImageBackgroundReplacementModel,
   ImageImageColorizationModel,
   ImageImageDeblurringModel,
   ImageImageEnhancementModel,
@@ -50,6 +51,14 @@ export interface ImageImageBackgroundRemovalInputs
   extends WithHeaders, WithModel<ImageImageBackgroundRemovalModel> {
   image?: Blob;
   image_url?: string;
+}
+export interface ImageImageBackgroundReplacementInputs 
+  extends WithHeaders, WithModel<ImageImageBackgroundReplacementModel> {
+  original_image?: Blob;
+  original_image_url?: string;
+  background_image?: Blob;
+  background_image_url?: string;
+  alignment: string;
 }
 export interface ImageImageColorizationInputs 
   extends WithHeaders, WithModel<ImageImageColorizationModel> {
@@ -139,11 +148,11 @@ export interface TextTextBulletPointGenerationInputs
 }
 export interface TextTextEmotionRecognitionInputs 
   extends WithHeaders, WithModel<TextTextEmotionRecognitionModel> {
-  text: string;
+  text?: string;
 }
 export interface TextTextHateSpeechDetectionInputs 
   extends WithHeaders, WithModel<TextTextHateSpeechDetectionModel> {
-  text: string;
+  text?: string;
 }
 export interface TextTextHeadlineGenerationInputs 
   extends WithHeaders, WithModel<TextTextHeadlineGenerationModel> {

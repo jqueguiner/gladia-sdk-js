@@ -101,6 +101,137 @@ describe('FromImageToImage', () => {
     });
   });
 
+  describe('backgroundReplacement', () => {
+    let gladiaClient: GladiaClient;
+    let httpClientMock: HttpClient;
+
+    beforeEach(() => {
+      gladiaClient = gladia({ apiKey: 'API-KEY', customHttpClient: mockHttpClient() });
+      httpClientMock = gladiaClient.fromImage().toImage()['httpClient'];
+    });
+
+    describe('full path', () => {
+      it('should call the api with the text and the default model by default', async () => {
+        const original_image_data = new Blob([getRandomText()]);
+        const original_image_url_data = getRandomText();
+        const background_image_data = new Blob([getRandomText()]);
+        const background_image_url_data = getRandomText();
+        const alignment_data = getRandomText();
+        const result = await gladiaClient.fromImage().toImage().backgroundReplacement({
+          original_image: original_image_data,
+          original_image_url: original_image_url_data,
+          background_image: background_image_data,
+          background_image_url: background_image_url_data,
+          alignment: alignment_data,
+        });
+        const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
+        expect(postMock).toHaveBeenCalledTimes(1);
+        expect(firstCallArgs.url).toEqual('/image/image/background-replacement/');
+        expect(firstCallArgs.headers).toEqual({
+          'Content-Type': undefined,
+        });
+        expect(firstCallArgs.responseType).toEqual('arraybuffer');
+        expect(firstCallArgs.query).toEqual({
+        });
+        expect(firstCallBody.get('original_image')).toBeDefined();
+        expect(firstCallBody.get('original_image_url')).toEqual(original_image_url_data);
+        expect(firstCallBody.get('background_image')).toBeDefined();
+        expect(firstCallBody.get('background_image_url')).toEqual(background_image_url_data);
+        expect(firstCallBody.get('alignment')).toEqual(alignment_data);
+      });
+      it('should call the api with the text and the specified model', async () => {
+        const original_image_data = new Blob([getRandomText()]);
+        const original_image_url_data = getRandomText();
+        const background_image_data = new Blob([getRandomText()]);
+        const background_image_url_data = getRandomText();
+        const alignment_data = getRandomText();
+        const result = await gladiaClient.fromImage().toImage().backgroundReplacement({
+          original_image: original_image_data,
+          original_image_url: original_image_url_data,
+          background_image: background_image_data,
+          background_image_url: background_image_url_data,
+          alignment: alignment_data,
+          model: 'fake-model-name' as any,
+        });
+        const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
+        expect(postMock).toHaveBeenCalledTimes(1);
+        expect(firstCallArgs.url).toEqual('/image/image/background-replacement/');
+        expect(firstCallArgs.headers).toEqual({
+          'Content-Type': undefined,
+        });
+        expect(firstCallArgs.responseType).toEqual('arraybuffer');
+        expect(firstCallArgs.query).toEqual({
+          model: 'fake-model-name',
+        });
+        expect(firstCallBody.get('original_image')).toBeDefined();
+        expect(firstCallBody.get('original_image_url')).toEqual(original_image_url_data);
+        expect(firstCallBody.get('background_image')).toBeDefined();
+        expect(firstCallBody.get('background_image_url')).toEqual(background_image_url_data);
+        expect(firstCallBody.get('alignment')).toEqual(alignment_data);
+      });
+    });
+    describe('shortcuts', () => {
+      it('should call the api with the text and the default model by default', async () => {
+        const original_image_data = new Blob([getRandomText()]);
+        const original_image_url_data = getRandomText();
+        const background_image_data = new Blob([getRandomText()]);
+        const background_image_url_data = getRandomText();
+        const alignment_data = getRandomText();
+        const result = await gladiaClient.backgroundReplacement({
+          original_image: original_image_data,
+          original_image_url: original_image_url_data,
+          background_image: background_image_data,
+          background_image_url: background_image_url_data,
+          alignment: alignment_data,
+        });
+        const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
+        expect(postMock).toHaveBeenCalledTimes(1);
+        expect(firstCallArgs.url).toEqual('/image/image/background-replacement/');
+        expect(firstCallArgs.headers).toEqual({
+          'Content-Type': undefined,
+        });
+        expect(firstCallArgs.responseType).toEqual('arraybuffer');
+        expect(firstCallArgs.query).toEqual({
+        });
+        expect(firstCallBody.get('original_image')).toBeDefined();
+        expect(firstCallBody.get('original_image_url')).toEqual(original_image_url_data);
+        expect(firstCallBody.get('background_image')).toBeDefined();
+        expect(firstCallBody.get('background_image_url')).toEqual(background_image_url_data);
+        expect(firstCallBody.get('alignment')).toEqual(alignment_data);
+      });
+      it('should call the api with the text and the specified model', async () => {
+        const original_image_data = new Blob([getRandomText()]);
+        const original_image_url_data = getRandomText();
+        const background_image_data = new Blob([getRandomText()]);
+        const background_image_url_data = getRandomText();
+        const alignment_data = getRandomText();
+        const result = await gladiaClient.backgroundReplacement({
+          original_image: original_image_data,
+          original_image_url: original_image_url_data,
+          background_image: background_image_data,
+          background_image_url: background_image_url_data,
+          alignment: alignment_data,
+          model: 'fake-model-name' as any,
+        });
+        const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
+        expect(postMock).toHaveBeenCalledTimes(1);
+        expect(firstCallArgs.url).toEqual('/image/image/background-replacement/');
+        expect(firstCallArgs.headers).toEqual({
+          'Content-Type': undefined,
+        });
+        expect(firstCallArgs.responseType).toEqual('arraybuffer');
+        expect(firstCallArgs.query).toEqual({
+          model: 'fake-model-name',
+        });
+        expect(firstCallBody.get('original_image')).toBeDefined();
+        expect(firstCallBody.get('original_image_url')).toEqual(original_image_url_data);
+        expect(firstCallBody.get('background_image')).toBeDefined();
+        expect(firstCallBody.get('background_image_url')).toEqual(background_image_url_data);
+        expect(firstCallBody.get('alignment')).toEqual(alignment_data);
+      });
+    });
+  });
+
   describe('colorization', () => {
     let gladiaClient: GladiaClient;
     let httpClientMock: HttpClient;

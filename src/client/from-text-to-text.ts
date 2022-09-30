@@ -159,7 +159,9 @@ export class FromTextToText {
 
   emotionRecognition(args: TextTextEmotionRecognitionInputs): Promise<TextTextEmotionRecognitionOutputs> {
     const formData = new UrlFormData();
-    formData.append('text', args.text);
+    if (isDefined(args.text)) {
+      formData.append('text', args.text);
+    }
     return this.httpClient.post({
       url: '/text/text/emotion-recognition/',
       headers: {
@@ -175,7 +177,9 @@ export class FromTextToText {
 
   hateSpeechDetection(args: TextTextHateSpeechDetectionInputs): Promise<TextTextHateSpeechDetectionOutputs> {
     const formData = new UrlFormData();
-    formData.append('text', args.text);
+    if (isDefined(args.text)) {
+      formData.append('text', args.text);
+    }
     return this.httpClient.post({
       url: '/text/text/hate-speech-detection/',
       headers: {
