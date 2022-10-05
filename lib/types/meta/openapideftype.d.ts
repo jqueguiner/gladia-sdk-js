@@ -28,11 +28,11 @@ interface PathRequestResponseDef {
     } | {
         'image/*': PathRequestResponseContentDef;
     };
-    example?: any;
-    examples?: any;
+    example?: unknown;
+    examples?: unknown;
 }
 interface PathRequestResponseContentDef {
-    schema: {} | {
+    schema: Record<string, never> | {
         $ref: string;
     } | {
         type: 'string';
@@ -40,8 +40,8 @@ interface PathRequestResponseContentDef {
         data_type: string;
     } | {
         type: 'object';
-        prediction: 'string' | 'number' | 'array';
-        prediction_raw: {};
+        prediction: 'string' | 'number' | 'array' | 'str';
+        prediction_raw: unknown;
     };
 }
 interface PathRequestParamDef {
@@ -76,20 +76,27 @@ interface OpenApiJsonComponent {
     schemas: Record<string, {
         title: string;
         required?: string[];
-        type: string;
-        properties: Record<string, {
+        enum?: string[];
+        description?: string;
+        type?: string;
+        properties?: Record<string, {
             title?: string;
             text?: string;
-            type: string;
             description?: string;
             default?: string | number;
             format?: 'binary';
             items?: Record<string, unknown>;
-            example?: any;
-            examples?: any;
-            _examples?: any;
-            data_type?: 'string' | 'text' | 'url' | 'integer' | 'float' | 'image' | 'audio' | 'array';
-        }>;
+            example?: unknown;
+            examples?: unknown;
+            _examples?: unknown;
+            data_type?: 'string' | 'text' | 'url' | 'integer' | 'float' | 'image' | 'audio' | 'list' | 'array';
+        } & ({
+            type: string;
+        } | {
+            allOf: [{
+                $ref: string;
+            }];
+        })>;
     }>;
     securitySchemes?: unknown;
 }

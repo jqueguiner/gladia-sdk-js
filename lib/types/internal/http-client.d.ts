@@ -1,8 +1,8 @@
 import { GladiaClientParams } from '../client/gladia-client-params';
-export interface PostParams {
+export interface PostParams<T = unknown> {
     url: string;
     query?: Record<string, string | number | boolean>;
-    body?: any;
+    body?: T;
     headers?: Record<string, string | number | boolean>;
     responseType?: 'json' | 'arraybuffer';
 }
