@@ -4,7 +4,7 @@ type Base64Image = string;
 
 export type AudioTextAudioTranscriptionOutputs = {
   prediction: string,
-  prediction_raw: any,
+  prediction_raw: unknown,
 };
 export type ImageImageBackgroundRemovalOutputs = ArrayBuffer;
 export type ImageImageBackgroundReplacementOutputs = ArrayBuffer;
@@ -18,15 +18,15 @@ export type ImageImageSuperResolutionOutputs = ArrayBuffer;
 export type ImageImageUncolorizationOutputs = ArrayBuffer;
 export type ImageTextAsciifyOutputs = {
   prediction: string,
-  prediction_raw: any,
+  prediction_raw: unknown,
 };
 export type ImageTextClassificationOutputs = {
   prediction: string,
-  prediction_raw: any,
+  prediction_raw: unknown,
 };
 export type ImageTextOcrOutputs = {
   prediction: string,
-  prediction_raw: any,
+  prediction_raw: unknown,
 };
 export type TextImageImageGenerationOutputsOneSample = ArrayBuffer;
 export type TextImageImageGenerationOutputsMultipleSamples = Base64Image[];
@@ -35,7 +35,7 @@ export type TextTextAdGenerationOutputs = Record<string, string | number | boole
 export type TextTextArticleGenerationOutputs = Record<string, string | number | boolean>;
 export type TextTextAutocorrectOutputs = {
   prediction: string,
-  prediction_raw: any,
+  prediction_raw: unknown,
 };
 export type TextTextBulletPointGenerationOutputs = Record<string, string | number | boolean>;
 export type TextTextEmotionRecognitionOutputs = Record<string, string | number | boolean>;
@@ -44,51 +44,51 @@ export type TextTextHeadlineGenerationOutputs = Record<string, string | number |
 export type TextTextIntentClassificationOutputs = Record<string, string | number | boolean>;
 export type TextTextKeywordExtractionOutputs = {
   prediction: string,
-  prediction_raw: any,
+  prediction_raw: unknown,
 };
 export type TextTextLanguageDetectionOutputs = {
   prediction: string,
-  prediction_raw: any,
+  prediction_raw: unknown,
 };
 export type TextTextLanguageGenerationOutputs = {
   prediction: string,
-  prediction_raw: any,
+  prediction_raw: unknown,
 };
 export type TextTextNamedEntityRecognitionOutputs = {
   prediction: string[],
-  prediction_raw: any,
+  prediction_raw: unknown,
 };
 export type TextTextNextSentencePredictionOutputs = {
   prediction: number,
-  prediction_raw: any,
+  prediction_raw: unknown,
 };
 export type TextTextNextWordPredictionOutputs = {
   prediction: string,
-  prediction_raw: any,
+  prediction_raw: unknown,
 };
 export type TextTextProgrammingLanguageGenerationOutputs = {
   prediction: string,
-  prediction_raw: any,
+  prediction_raw: unknown,
 };
 export type TextTextQuestionAnsweringOutputs = {
   prediction: string,
-  prediction_raw: any,
+  prediction_raw: unknown,
 };
 export type TextTextSentenceParaphraserOutputs = {
   prediction: string,
-  prediction_raw: any,
+  prediction_raw: unknown,
 };
 export type TextTextSentimentAnalysisOutputs = {
   prediction: string,
-  prediction_raw: any,
+  prediction_raw: unknown,
 };
 export type TextTextSimilarityOutputs = {
   prediction: number,
-  prediction_raw: any,
+  prediction_raw: unknown,
 };
 export type TextTextSummarizationOutputs = Record<string, string | number | boolean>;
 export type TextTextTranslationOutputs = Record<string, string | number | boolean>;
 export type TextTextWordAlignmentOutputs = {
   prediction: string[],
-  prediction_raw: any,
+  prediction_raw: unknown,
 };

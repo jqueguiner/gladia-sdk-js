@@ -8,7 +8,7 @@ export function getOpenapiJson(): Promise<string> {
     method: 'GET',
   };
   return new Promise<string>((resolve, reject) => {
-    let body: string = '';
+    let body = '';
 
     const req = https.request(options, (res) => {
       res.on('data', (chunk) => {

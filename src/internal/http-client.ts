@@ -1,13 +1,13 @@
 import axios from 'axios';
-import { axiosFetchAdapter } from './axios-fetch-adapter';
+// import { axiosFetchAdapter } from './axios-fetch-adapter';
 import { SDK_VERSION } from '../meta/sdk-version';
 import { GladiaClientParams } from '../client/gladia-client-params';
 import { searchQueryParamSerializer } from './search-query-param-serializer';
 
-export interface PostParams {
+export interface PostParams<T = unknown> {
   url: string;
   query?: Record<string, string | number | boolean>;
-  body?: any;
+  body?: T;
   headers?: Record<string, string | number | boolean>;
   responseType?: 'json' | 'arraybuffer';
 }
@@ -40,12 +40,7 @@ export function getHttpClient(params: GladiaClientParams) {
   });
 }
 
-const AxiosHttpClient: HttpClientFactory = ({
-  baseHeaders,
-  baseUrl,
-  useFetch,
-  httpClientTimeout,
-}) => {
+const AxiosHttpClient: HttpClientFactory = ({ baseHeaders, baseUrl, httpClientTimeout }) => {
   return {
     async post(params) {
       const headers = { ...baseHeaders, ...params.headers };

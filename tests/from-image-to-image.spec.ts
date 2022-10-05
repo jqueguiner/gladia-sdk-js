@@ -1,6 +1,13 @@
 /* Generated file with "scripts/generate-sdk.ts" */
 
 import { GladiaClient } from '../src/gladia-client';
+import {
+  ImageImageBackgroundReplacementModel,
+  ImageImageDeblurringModel,
+  ImageImageFaceBluringModel,
+  ImageImageGuidedInpaintingModel,
+  ImageImageUncolorizationModel,
+} from '../src/models';
 import gladia from '../src/index';
 import { HttpClient } from '../src/internal/http-client';
 import { getRandomText, getPostMock, mockHttpClient } from './helpers/mocks';
@@ -19,7 +26,7 @@ describe('FromImageToImage', () => {
       it('should call the api with the text and the default model by default', async () => {
         const image_data = new Blob([getRandomText()]);
         const image_url_data = getRandomText();
-        const result = await gladiaClient.fromImage().toImage().backgroundRemoval({
+        await gladiaClient.fromImage().toImage().backgroundRemoval({
           image: image_data,
           image_url: image_url_data,
         });
@@ -38,10 +45,10 @@ describe('FromImageToImage', () => {
       it('should call the api with the text and the specified model', async () => {
         const image_data = new Blob([getRandomText()]);
         const image_url_data = getRandomText();
-        const result = await gladiaClient.fromImage().toImage().backgroundRemoval({
+        await gladiaClient.fromImage().toImage().backgroundRemoval({
           image: image_data,
           image_url: image_url_data,
-          model: 'xception' as any,
+          model: 'xception',
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -61,7 +68,7 @@ describe('FromImageToImage', () => {
       it('should call the api with the text and the default model by default', async () => {
         const image_data = new Blob([getRandomText()]);
         const image_url_data = getRandomText();
-        const result = await gladiaClient.backgroundRemoval({
+        await gladiaClient.backgroundRemoval({
           image: image_data,
           image_url: image_url_data,
         });
@@ -80,10 +87,10 @@ describe('FromImageToImage', () => {
       it('should call the api with the text and the specified model', async () => {
         const image_data = new Blob([getRandomText()]);
         const image_url_data = getRandomText();
-        const result = await gladiaClient.backgroundRemoval({
+        await gladiaClient.backgroundRemoval({
           image: image_data,
           image_url: image_url_data,
-          model: 'xception' as any,
+          model: 'xception',
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -117,7 +124,7 @@ describe('FromImageToImage', () => {
         const background_image_data = new Blob([getRandomText()]);
         const background_image_url_data = getRandomText();
         const alignment_data = getRandomText();
-        const result = await gladiaClient.fromImage().toImage().backgroundReplacement({
+        await gladiaClient.fromImage().toImage().backgroundReplacement({
           original_image: original_image_data,
           original_image_url: original_image_url_data,
           background_image: background_image_data,
@@ -145,13 +152,13 @@ describe('FromImageToImage', () => {
         const background_image_data = new Blob([getRandomText()]);
         const background_image_url_data = getRandomText();
         const alignment_data = getRandomText();
-        const result = await gladiaClient.fromImage().toImage().backgroundReplacement({
+        await gladiaClient.fromImage().toImage().backgroundReplacement({
           original_image: original_image_data,
           original_image_url: original_image_url_data,
           background_image: background_image_data,
           background_image_url: background_image_url_data,
           alignment: alignment_data,
-          model: 'fake-model-name' as any,
+          model: 'fake-model-name' as unknown as ImageImageBackgroundReplacementModel,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -177,7 +184,7 @@ describe('FromImageToImage', () => {
         const background_image_data = new Blob([getRandomText()]);
         const background_image_url_data = getRandomText();
         const alignment_data = getRandomText();
-        const result = await gladiaClient.backgroundReplacement({
+        await gladiaClient.backgroundReplacement({
           original_image: original_image_data,
           original_image_url: original_image_url_data,
           background_image: background_image_data,
@@ -205,13 +212,13 @@ describe('FromImageToImage', () => {
         const background_image_data = new Blob([getRandomText()]);
         const background_image_url_data = getRandomText();
         const alignment_data = getRandomText();
-        const result = await gladiaClient.backgroundReplacement({
+        await gladiaClient.backgroundReplacement({
           original_image: original_image_data,
           original_image_url: original_image_url_data,
           background_image: background_image_data,
           background_image_url: background_image_url_data,
           alignment: alignment_data,
-          model: 'fake-model-name' as any,
+          model: 'fake-model-name' as unknown as ImageImageBackgroundReplacementModel,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -245,7 +252,7 @@ describe('FromImageToImage', () => {
       it('should call the api with the text and the default model by default', async () => {
         const image_data = new Blob([getRandomText()]);
         const image_url_data = getRandomText();
-        const result = await gladiaClient.fromImage().toImage().colorization({
+        await gladiaClient.fromImage().toImage().colorization({
           image: image_data,
           image_url: image_url_data,
         });
@@ -264,10 +271,10 @@ describe('FromImageToImage', () => {
       it('should call the api with the text and the specified model', async () => {
         const image_data = new Blob([getRandomText()]);
         const image_url_data = getRandomText();
-        const result = await gladiaClient.fromImage().toImage().colorization({
+        await gladiaClient.fromImage().toImage().colorization({
           image: image_data,
           image_url: image_url_data,
-          model: 'deoldify-artistic' as any,
+          model: 'deoldify-artistic',
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -287,7 +294,7 @@ describe('FromImageToImage', () => {
       it('should call the api with the text and the default model by default', async () => {
         const image_data = new Blob([getRandomText()]);
         const image_url_data = getRandomText();
-        const result = await gladiaClient.colorization({
+        await gladiaClient.colorization({
           image: image_data,
           image_url: image_url_data,
         });
@@ -306,10 +313,10 @@ describe('FromImageToImage', () => {
       it('should call the api with the text and the specified model', async () => {
         const image_data = new Blob([getRandomText()]);
         const image_url_data = getRandomText();
-        const result = await gladiaClient.colorization({
+        await gladiaClient.colorization({
           image: image_data,
           image_url: image_url_data,
-          model: 'deoldify-artistic' as any,
+          model: 'deoldify-artistic',
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -340,7 +347,7 @@ describe('FromImageToImage', () => {
       it('should call the api with the text and the default model by default', async () => {
         const image_data = new Blob([getRandomText()]);
         const image_url_data = getRandomText();
-        const result = await gladiaClient.fromImage().toImage().deblurring({
+        await gladiaClient.fromImage().toImage().deblurring({
           image: image_data,
           image_url: image_url_data,
         });
@@ -359,10 +366,10 @@ describe('FromImageToImage', () => {
       it('should call the api with the text and the specified model', async () => {
         const image_data = new Blob([getRandomText()]);
         const image_url_data = getRandomText();
-        const result = await gladiaClient.fromImage().toImage().deblurring({
+        await gladiaClient.fromImage().toImage().deblurring({
           image: image_data,
           image_url: image_url_data,
-          model: 'fake-model-name' as any,
+          model: 'fake-model-name' as unknown as ImageImageDeblurringModel,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -382,7 +389,7 @@ describe('FromImageToImage', () => {
       it('should call the api with the text and the default model by default', async () => {
         const image_data = new Blob([getRandomText()]);
         const image_url_data = getRandomText();
-        const result = await gladiaClient.deblurring({
+        await gladiaClient.deblurring({
           image: image_data,
           image_url: image_url_data,
         });
@@ -401,10 +408,10 @@ describe('FromImageToImage', () => {
       it('should call the api with the text and the specified model', async () => {
         const image_data = new Blob([getRandomText()]);
         const image_url_data = getRandomText();
-        const result = await gladiaClient.deblurring({
+        await gladiaClient.deblurring({
           image: image_data,
           image_url: image_url_data,
-          model: 'fake-model-name' as any,
+          model: 'fake-model-name' as unknown as ImageImageDeblurringModel,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -435,7 +442,7 @@ describe('FromImageToImage', () => {
       it('should call the api with the text and the default model by default', async () => {
         const image_data = new Blob([getRandomText()]);
         const image_url_data = getRandomText();
-        const result = await gladiaClient.fromImage().toImage().enhancement({
+        await gladiaClient.fromImage().toImage().enhancement({
           image: image_data,
           image_url: image_url_data,
         });
@@ -454,10 +461,10 @@ describe('FromImageToImage', () => {
       it('should call the api with the text and the specified model', async () => {
         const image_data = new Blob([getRandomText()]);
         const image_url_data = getRandomText();
-        const result = await gladiaClient.fromImage().toImage().enhancement({
+        await gladiaClient.fromImage().toImage().enhancement({
           image: image_data,
           image_url: image_url_data,
-          model: 'LOL' as any,
+          model: 'LOL',
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -477,7 +484,7 @@ describe('FromImageToImage', () => {
       it('should call the api with the text and the default model by default', async () => {
         const image_data = new Blob([getRandomText()]);
         const image_url_data = getRandomText();
-        const result = await gladiaClient.enhancement({
+        await gladiaClient.enhancement({
           image: image_data,
           image_url: image_url_data,
         });
@@ -496,10 +503,10 @@ describe('FromImageToImage', () => {
       it('should call the api with the text and the specified model', async () => {
         const image_data = new Blob([getRandomText()]);
         const image_url_data = getRandomText();
-        const result = await gladiaClient.enhancement({
+        await gladiaClient.enhancement({
           image: image_data,
           image_url: image_url_data,
-          model: 'LOL' as any,
+          model: 'LOL',
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -530,7 +537,7 @@ describe('FromImageToImage', () => {
       it('should call the api with the text and the default model by default', async () => {
         const image_data = new Blob([getRandomText()]);
         const image_url_data = getRandomText();
-        const result = await gladiaClient.fromImage().toImage().faceBluring({
+        await gladiaClient.fromImage().toImage().faceBluring({
           image: image_data,
           image_url: image_url_data,
         });
@@ -549,10 +556,10 @@ describe('FromImageToImage', () => {
       it('should call the api with the text and the specified model', async () => {
         const image_data = new Blob([getRandomText()]);
         const image_url_data = getRandomText();
-        const result = await gladiaClient.fromImage().toImage().faceBluring({
+        await gladiaClient.fromImage().toImage().faceBluring({
           image: image_data,
           image_url: image_url_data,
-          model: 'fake-model-name' as any,
+          model: 'fake-model-name' as unknown as ImageImageFaceBluringModel,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -572,7 +579,7 @@ describe('FromImageToImage', () => {
       it('should call the api with the text and the default model by default', async () => {
         const image_data = new Blob([getRandomText()]);
         const image_url_data = getRandomText();
-        const result = await gladiaClient.faceBluring({
+        await gladiaClient.faceBluring({
           image: image_data,
           image_url: image_url_data,
         });
@@ -591,10 +598,10 @@ describe('FromImageToImage', () => {
       it('should call the api with the text and the specified model', async () => {
         const image_data = new Blob([getRandomText()]);
         const image_url_data = getRandomText();
-        const result = await gladiaClient.faceBluring({
+        await gladiaClient.faceBluring({
           image: image_data,
           image_url: image_url_data,
-          model: 'fake-model-name' as any,
+          model: 'fake-model-name' as unknown as ImageImageFaceBluringModel,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -628,7 +635,7 @@ describe('FromImageToImage', () => {
         const mask_image_data = new Blob([getRandomText()]);
         const mask_image_url_data = getRandomText();
         const prompt_data = getRandomText();
-        const result = await gladiaClient.fromImage().toImage().guidedInpainting({
+        await gladiaClient.fromImage().toImage().guidedInpainting({
           original_image: original_image_data,
           original_image_url: original_image_url_data,
           mask_image: mask_image_data,
@@ -656,13 +663,13 @@ describe('FromImageToImage', () => {
         const mask_image_data = new Blob([getRandomText()]);
         const mask_image_url_data = getRandomText();
         const prompt_data = getRandomText();
-        const result = await gladiaClient.fromImage().toImage().guidedInpainting({
+        await gladiaClient.fromImage().toImage().guidedInpainting({
           original_image: original_image_data,
           original_image_url: original_image_url_data,
           mask_image: mask_image_data,
           mask_image_url: mask_image_url_data,
           prompt: prompt_data,
-          model: 'fake-model-name' as any,
+          model: 'fake-model-name' as unknown as ImageImageGuidedInpaintingModel,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -688,7 +695,7 @@ describe('FromImageToImage', () => {
         const mask_image_data = new Blob([getRandomText()]);
         const mask_image_url_data = getRandomText();
         const prompt_data = getRandomText();
-        const result = await gladiaClient.guidedInpainting({
+        await gladiaClient.guidedInpainting({
           original_image: original_image_data,
           original_image_url: original_image_url_data,
           mask_image: mask_image_data,
@@ -716,13 +723,13 @@ describe('FromImageToImage', () => {
         const mask_image_data = new Blob([getRandomText()]);
         const mask_image_url_data = getRandomText();
         const prompt_data = getRandomText();
-        const result = await gladiaClient.guidedInpainting({
+        await gladiaClient.guidedInpainting({
           original_image: original_image_data,
           original_image_url: original_image_url_data,
           mask_image: mask_image_data,
           mask_image_url: mask_image_url_data,
           prompt: prompt_data,
-          model: 'fake-model-name' as any,
+          model: 'fake-model-name' as unknown as ImageImageGuidedInpaintingModel,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -758,7 +765,7 @@ describe('FromImageToImage', () => {
         const original_image_url_data = getRandomText();
         const mask_image_data = new Blob([getRandomText()]);
         const mask_image_url_data = getRandomText();
-        const result = await gladiaClient.fromImage().toImage().inpainting({
+        await gladiaClient.fromImage().toImage().inpainting({
           original_image: original_image_data,
           original_image_url: original_image_url_data,
           mask_image: mask_image_data,
@@ -783,12 +790,12 @@ describe('FromImageToImage', () => {
         const original_image_url_data = getRandomText();
         const mask_image_data = new Blob([getRandomText()]);
         const mask_image_url_data = getRandomText();
-        const result = await gladiaClient.fromImage().toImage().inpainting({
+        await gladiaClient.fromImage().toImage().inpainting({
           original_image: original_image_data,
           original_image_url: original_image_url_data,
           mask_image: mask_image_data,
           mask_image_url: mask_image_url_data,
-          model: 'fcf' as any,
+          model: 'fcf',
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -812,7 +819,7 @@ describe('FromImageToImage', () => {
         const original_image_url_data = getRandomText();
         const mask_image_data = new Blob([getRandomText()]);
         const mask_image_url_data = getRandomText();
-        const result = await gladiaClient.inpainting({
+        await gladiaClient.inpainting({
           original_image: original_image_data,
           original_image_url: original_image_url_data,
           mask_image: mask_image_data,
@@ -837,12 +844,12 @@ describe('FromImageToImage', () => {
         const original_image_url_data = getRandomText();
         const mask_image_data = new Blob([getRandomText()]);
         const mask_image_url_data = getRandomText();
-        const result = await gladiaClient.inpainting({
+        await gladiaClient.inpainting({
           original_image: original_image_data,
           original_image_url: original_image_url_data,
           mask_image: mask_image_data,
           mask_image_url: mask_image_url_data,
-          model: 'fcf' as any,
+          model: 'fcf',
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -875,7 +882,7 @@ describe('FromImageToImage', () => {
       it('should call the api with the text and the default model by default', async () => {
         const image_data = new Blob([getRandomText()]);
         const image_url_data = getRandomText();
-        const result = await gladiaClient.fromImage().toImage().superResolution({
+        await gladiaClient.fromImage().toImage().superResolution({
           image: image_data,
           image_url: image_url_data,
         });
@@ -894,7 +901,7 @@ describe('FromImageToImage', () => {
       it('should call the api with the text and the specified model', async () => {
         const image_data = new Blob([getRandomText()]);
         const image_url_data = getRandomText();
-        const result = await gladiaClient.fromImage().toImage().superResolution({
+        await gladiaClient.fromImage().toImage().superResolution({
           image: image_data,
           image_url: image_url_data,
         });
@@ -915,7 +922,7 @@ describe('FromImageToImage', () => {
       it('should call the api with the text and the default model by default', async () => {
         const image_data = new Blob([getRandomText()]);
         const image_url_data = getRandomText();
-        const result = await gladiaClient.superResolution({
+        await gladiaClient.superResolution({
           image: image_data,
           image_url: image_url_data,
         });
@@ -934,7 +941,7 @@ describe('FromImageToImage', () => {
       it('should call the api with the text and the specified model', async () => {
         const image_data = new Blob([getRandomText()]);
         const image_url_data = getRandomText();
-        const result = await gladiaClient.superResolution({
+        await gladiaClient.superResolution({
           image: image_data,
           image_url: image_url_data,
         });
@@ -966,7 +973,7 @@ describe('FromImageToImage', () => {
       it('should call the api with the text and the default model by default', async () => {
         const image_data = new Blob([getRandomText()]);
         const image_url_data = getRandomText();
-        const result = await gladiaClient.fromImage().toImage().uncolorization({
+        await gladiaClient.fromImage().toImage().uncolorization({
           image: image_data,
           image_url: image_url_data,
         });
@@ -985,10 +992,10 @@ describe('FromImageToImage', () => {
       it('should call the api with the text and the specified model', async () => {
         const image_data = new Blob([getRandomText()]);
         const image_url_data = getRandomText();
-        const result = await gladiaClient.fromImage().toImage().uncolorization({
+        await gladiaClient.fromImage().toImage().uncolorization({
           image: image_data,
           image_url: image_url_data,
-          model: 'fake-model-name' as any,
+          model: 'fake-model-name' as unknown as ImageImageUncolorizationModel,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -1008,7 +1015,7 @@ describe('FromImageToImage', () => {
       it('should call the api with the text and the default model by default', async () => {
         const image_data = new Blob([getRandomText()]);
         const image_url_data = getRandomText();
-        const result = await gladiaClient.uncolorization({
+        await gladiaClient.uncolorization({
           image: image_data,
           image_url: image_url_data,
         });
@@ -1027,10 +1034,10 @@ describe('FromImageToImage', () => {
       it('should call the api with the text and the specified model', async () => {
         const image_data = new Blob([getRandomText()]);
         const image_url_data = getRandomText();
-        const result = await gladiaClient.uncolorization({
+        await gladiaClient.uncolorization({
           image: image_data,
           image_url: image_url_data,
-          model: 'fake-model-name' as any,
+          model: 'fake-model-name' as unknown as ImageImageUncolorizationModel,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);

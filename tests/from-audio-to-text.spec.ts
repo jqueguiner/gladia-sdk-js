@@ -1,6 +1,8 @@
 /* Generated file with "scripts/generate-sdk.ts" */
 
 import { GladiaClient } from '../src/gladia-client';
+import {
+} from '../src/models';
 import gladia from '../src/index';
 import { HttpClient } from '../src/internal/http-client';
 import { getRandomText, getPostMock, mockHttpClient } from './helpers/mocks';
@@ -20,7 +22,7 @@ describe('FromAudioToText', () => {
         const audio_data = new Blob([getRandomText()]);
         const audio_url_data = getRandomText();
         const language_data = getRandomText();
-        const result = await gladiaClient.fromAudio().toText().audioTranscription({
+        await gladiaClient.fromAudio().toText().audioTranscription({
           audio: audio_data,
           audio_url: audio_url_data,
           language: language_data,
@@ -41,11 +43,11 @@ describe('FromAudioToText', () => {
         const audio_data = new Blob([getRandomText()]);
         const audio_url_data = getRandomText();
         const language_data = getRandomText();
-        const result = await gladiaClient.fromAudio().toText().audioTranscription({
+        await gladiaClient.fromAudio().toText().audioTranscription({
           audio: audio_data,
           audio_url: audio_url_data,
           language: language_data,
-          model: 'coqui_english_huge_vocab' as any,
+          model: 'coqui_english_huge_vocab',
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -66,7 +68,7 @@ describe('FromAudioToText', () => {
         const audio_data = new Blob([getRandomText()]);
         const audio_url_data = getRandomText();
         const language_data = getRandomText();
-        const result = await gladiaClient.audioTranscription({
+        await gladiaClient.audioTranscription({
           audio: audio_data,
           audio_url: audio_url_data,
           language: language_data,
@@ -87,11 +89,11 @@ describe('FromAudioToText', () => {
         const audio_data = new Blob([getRandomText()]);
         const audio_url_data = getRandomText();
         const language_data = getRandomText();
-        const result = await gladiaClient.audioTranscription({
+        await gladiaClient.audioTranscription({
           audio: audio_data,
           audio_url: audio_url_data,
           language: language_data,
-          model: 'coqui_english_huge_vocab' as any,
+          model: 'coqui_english_huge_vocab',
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);

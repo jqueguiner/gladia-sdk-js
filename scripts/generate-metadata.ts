@@ -20,13 +20,11 @@ async function main() {
 const ARG_FROM_FILE_PREFIX = '--from-file=';
 
 async function generateOpenApiDefTs() {
-  console.log(process.argv)
   const fromFile = process.argv
     .filter((arg) => arg.startsWith(ARG_FROM_FILE_PREFIX))
     .map((arg) => arg.substring(ARG_FROM_FILE_PREFIX.length))
     .find(() => true); // extract first element
   let openApiJson: string;
-  console.log(fromFile)
   if (fromFile) {
     openApiJson = fs.readFileSync(fromFile, { encoding: 'utf-8' });
   } else {
@@ -45,7 +43,7 @@ async function generateOpenApiDefTs() {
 
 function generateSdkVersionTs() {
   const fileContent: string[] = [...getGeneratedMarks()];
-  fileContent.push(`export const SDK_VERSION: string = "${packageJson.version}";`);
+  fileContent.push(`export const SDK_VERSION = '${packageJson.version}';`);
   fs.writeFileSync('./src/meta/sdk-version.ts', fileContent.join('\n'));
 }
 
@@ -148,32 +146,36 @@ function getPostParams(def: PathDef, openApiJson: OpenApiJson) {
       }
       const component =
         openApiJson.components.schemas[componentRef.substring('#/components/schemas/'.length)];
-      params.push(
-        ...Object.entries(component.properties).map(([propName, propSchema]): EndpointDefParam => {
-          const isRequired = component.required?.includes(propName) ?? false;
-          const type: EndpointDefParam['type'] = (() => {
-            switch (propSchema.data_type) {
-              case 'integer':
-                return 'integer';
-              case 'float':
-                return 'float';
-              case 'url':
-                return 'url';
-              case 'audio':
-                return 'audio';
-              case 'image':
-                return 'image';
-              case 'array':
-                return 'array';
-              case 'text':
-              case 'string':
-              default:
-                return 'string';
-            }
-          })();
-          return { in: 'formData', type, name: propName, required: isRequired };
-        }),
-      );
+      if (component.properties) {
+        params.push(
+          ...Object.entries(component.properties).map(
+            ([propName, propSchema]): EndpointDefParam => {
+              const isRequired = component.required?.includes(propName) ?? false;
+              const type: EndpointDefParam['type'] = (() => {
+                switch (propSchema.data_type) {
+                  case 'integer':
+                    return 'integer';
+                  case 'float':
+                    return 'float';
+                  case 'url':
+                    return 'url';
+                  case 'audio':
+                    return 'audio';
+                  case 'image':
+                    return 'image';
+                  case 'array':
+                    return 'array';
+                  case 'text':
+                  case 'string':
+                  default:
+                    return 'string';
+                }
+              })();
+              return { in: 'formData', type, name: propName, required: isRequired };
+            },
+          ),
+        );
+      }
     });
   }
   return params;

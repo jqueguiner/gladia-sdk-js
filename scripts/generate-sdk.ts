@@ -83,7 +83,7 @@ function generateOutputModelsTs() {
     const outputModelName = meta.getOutputModelType(endpoint);
     const outputBodyContentType = endpoint.outputBodyContentType;
     switch (outputBodyContentType.type) {
-      case 'prediction-standard-output':
+      case 'prediction-standard-output': {
         const predictionType = (() => {
           if (outputBodyContentType.predictionType === 'array') {
             return 'string[]';
@@ -92,9 +92,10 @@ function generateOutputModelsTs() {
         })();
         fileContent.push(`export type ${outputModelName} = {`);
         fileContent.push(`  prediction: ${predictionType},`);
-        fileContent.push(`  prediction_raw: any,`);
+        fileContent.push(`  prediction_raw: unknown,`);
         fileContent.push(`};`);
         break;
+      }
       case 'unknown':
         fileContent.push(
           `export type ${outputModelName} = Record<string, string | number | boolean>;`,
@@ -175,7 +176,7 @@ function generateFromInputToOutputClasses() {
         switch (inputType) {
           case 'text':
           case 'audio':
-          case 'image':
+          case 'image': {
             const useUrlFormData = isEndpointNeedUrlFormData(endpoint);
             if (useUrlFormData) {
               fileContent.push(`    const formData = new UrlFormData();`);
@@ -238,6 +239,7 @@ function generateFromInputToOutputClasses() {
             }
             fileContent.push(`    });`);
             break;
+          }
           default:
             throw { kind: 'UnknownInputType', inputType };
         }
@@ -329,7 +331,9 @@ function generateShortcuts() {
   }
   const lastImplemented = implemented.pop();
   implemented.forEach((i) => fileContent.push(`${i},`));
-  fileContent.push(lastImplemented!);
+  if (lastImplemented) {
+    fileContent.push(lastImplemented);
+  }
   fileContent.push(`{`);
   fileContent.push('');
   for (const [inputType, outputs] of Object.entries(endpointsByInputOutput)) {
@@ -424,6 +428,11 @@ function generateUnitTests() {
       const inputOutputClassName = getClientInputOutputClassName(inputType, outputType);
       const inputOutputFileName = getClientInputOutput(inputType, outputType);
       fileContent.push(`import { GladiaClient } from '../src/gladia-client';`);
+      fileContent.push('import {');
+      for (const endpoint of outputTypeEndpoints.filter((e) => e.models.length === 1)) {
+        fileContent.push(`  ${meta.getModelTypeName(endpoint)},`);
+      }
+      fileContent.push(`} from '../src/models';`);
       fileContent.push(`import gladia from '../src/index';`);
       fileContent.push(`import { HttpClient } from '../src/internal/http-client';`);
       const helperMocks = getHelperMockList(outputTypeEndpoints);
@@ -661,12 +670,17 @@ function generateTestInputs(
         break;
     }
   }
-  fileContent.push(`        const result = await gladiaClient.${callPath}({`);
+  fileContent.push(`        await gladiaClient.${callPath}({`);
   for (const param of endpoint.params) {
     fileContent.push(`          ${param.name}: ${param.name}_data,`);
   }
   if (specifyModel) {
-    fileContent.push(`          model: '${specifyModel}' as any,`);
+    if (endpoint.models.includes(specifyModel)) {
+      fileContent.push(`          model: '${specifyModel}',`);
+    } else {
+      const modelType = meta.getModelTypeName(endpoint);
+      fileContent.push(`          model: '${specifyModel}' as unknown as ${modelType},`);
+    }
   }
   fileContent.push(`        });`);
   return fileContent;

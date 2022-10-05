@@ -1,6 +1,8 @@
 /* Generated file with "scripts/generate-sdk.ts" */
 
 import { GladiaClient } from '../src/gladia-client';
+import {
+} from '../src/models';
 import gladia from '../src/index';
 import { HttpClient } from '../src/internal/http-client';
 import { getRandomInt, getRandomText, getPostMock, mockHttpClient } from './helpers/mocks';
@@ -21,7 +23,7 @@ describe('FromTextToImage', () => {
         const samples_data = getRandomInt();
         const steps_data = getRandomInt();
         const seed_data = getRandomInt();
-        const result = await gladiaClient.fromText().toImage().imageGeneration({
+        await gladiaClient.fromText().toImage().imageGeneration({
           prompt: prompt_data,
           samples: samples_data,
           steps: steps_data,
@@ -46,12 +48,12 @@ describe('FromTextToImage', () => {
         const samples_data = getRandomInt();
         const steps_data = getRandomInt();
         const seed_data = getRandomInt();
-        const result = await gladiaClient.fromText().toImage().imageGeneration({
+        await gladiaClient.fromText().toImage().imageGeneration({
           prompt: prompt_data,
           samples: samples_data,
           steps: steps_data,
           seed: seed_data,
-          model: 'dream-studio' as any,
+          model: 'dream-studio',
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -73,7 +75,7 @@ describe('FromTextToImage', () => {
         const samples_data = 1;
         const steps_data = getRandomInt();
         const seed_data = getRandomInt();
-        const result = await gladiaClient.fromText().toImage().imageGeneration({
+        await gladiaClient.fromText().toImage().imageGeneration({
           prompt: prompt_data,
           samples: samples_data,
           steps: steps_data,
@@ -98,7 +100,7 @@ describe('FromTextToImage', () => {
         const samples_data = 2;
         const steps_data = getRandomInt();
         const seed_data = getRandomInt();
-        const result = await gladiaClient.fromText().toImage().imageGeneration({
+        await gladiaClient.fromText().toImage().imageGeneration({
           prompt: prompt_data,
           samples: samples_data,
           steps: steps_data,
@@ -125,7 +127,7 @@ describe('FromTextToImage', () => {
         const samples_data = getRandomInt();
         const steps_data = getRandomInt();
         const seed_data = getRandomInt();
-        const result = await gladiaClient.imageGeneration({
+        await gladiaClient.imageGeneration({
           prompt: prompt_data,
           samples: samples_data,
           steps: steps_data,
@@ -150,12 +152,12 @@ describe('FromTextToImage', () => {
         const samples_data = getRandomInt();
         const steps_data = getRandomInt();
         const seed_data = getRandomInt();
-        const result = await gladiaClient.imageGeneration({
+        await gladiaClient.imageGeneration({
           prompt: prompt_data,
           samples: samples_data,
           steps: steps_data,
           seed: seed_data,
-          model: 'dream-studio' as any,
+          model: 'dream-studio',
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -177,7 +179,7 @@ describe('FromTextToImage', () => {
         const samples_data = 1;
         const steps_data = getRandomInt();
         const seed_data = getRandomInt();
-        const result = await gladiaClient.imageGeneration({
+        await gladiaClient.imageGeneration({
           prompt: prompt_data,
           samples: samples_data,
           steps: steps_data,
@@ -202,7 +204,7 @@ describe('FromTextToImage', () => {
         const samples_data = 2;
         const steps_data = getRandomInt();
         const seed_data = getRandomInt();
-        const result = await gladiaClient.imageGeneration({
+        await gladiaClient.imageGeneration({
           prompt: prompt_data,
           samples: samples_data,
           steps: steps_data,

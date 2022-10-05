@@ -2,7 +2,8 @@ import { HttpClient, HttpClientFactory } from '../../src/internal/http-client';
 import { UrlFormData } from '../../src/internal/url-form-data';
 
 export function mockHttpClient(): HttpClientFactory {
-  return ({}) => ({
+  return () => ({
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     post: jest.fn(() => Promise.resolve<any>('')),
   });
 }

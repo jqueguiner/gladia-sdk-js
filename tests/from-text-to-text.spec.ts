@@ -1,6 +1,23 @@
 /* Generated file with "scripts/generate-sdk.ts" */
 
 import { GladiaClient } from '../src/gladia-client';
+import {
+  TextTextAdGenerationModel,
+  TextTextArticleGenerationModel,
+  TextTextAutocorrectModel,
+  TextTextBulletPointGenerationModel,
+  TextTextEmotionRecognitionModel,
+  TextTextHateSpeechDetectionModel,
+  TextTextHeadlineGenerationModel,
+  TextTextIntentClassificationModel,
+  TextTextNamedEntityRecognitionModel,
+  TextTextNextSentencePredictionModel,
+  TextTextProgrammingLanguageGenerationModel,
+  TextTextSimilarityModel,
+  TextTextSummarizationModel,
+  TextTextTranslationModel,
+  TextTextWordAlignmentModel,
+} from '../src/models';
 import gladia from '../src/index';
 import { HttpClient } from '../src/internal/http-client';
 import { getRandomArray, getRandomInt, getRandomText, getPostMock, mockHttpClient } from './helpers/mocks';
@@ -18,7 +35,7 @@ describe('FromTextToText', () => {
     describe('full path', () => {
       it('should call the api with the text and the default model by default', async () => {
         const keywords_data = getRandomArray();
-        const result = await gladiaClient.fromText().toText().adGeneration({
+        await gladiaClient.fromText().toText().adGeneration({
           keywords: keywords_data,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
@@ -33,9 +50,9 @@ describe('FromTextToText', () => {
       });
       it('should call the api with the text and the specified model', async () => {
         const keywords_data = getRandomArray();
-        const result = await gladiaClient.fromText().toText().adGeneration({
+        await gladiaClient.fromText().toText().adGeneration({
           keywords: keywords_data,
-          model: 'fake-model-name' as any,
+          model: 'fake-model-name' as unknown as TextTextAdGenerationModel,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -52,7 +69,7 @@ describe('FromTextToText', () => {
     describe('shortcuts', () => {
       it('should call the api with the text and the default model by default', async () => {
         const keywords_data = getRandomArray();
-        const result = await gladiaClient.adGeneration({
+        await gladiaClient.adGeneration({
           keywords: keywords_data,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
@@ -67,9 +84,9 @@ describe('FromTextToText', () => {
       });
       it('should call the api with the text and the specified model', async () => {
         const keywords_data = getRandomArray();
-        const result = await gladiaClient.adGeneration({
+        await gladiaClient.adGeneration({
           keywords: keywords_data,
-          model: 'fake-model-name' as any,
+          model: 'fake-model-name' as unknown as TextTextAdGenerationModel,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -97,7 +114,7 @@ describe('FromTextToText', () => {
     describe('full path', () => {
       it('should call the api with the text and the default model by default', async () => {
         const title_data = getRandomText();
-        const result = await gladiaClient.fromText().toText().articleGeneration({
+        await gladiaClient.fromText().toText().articleGeneration({
           title: title_data,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
@@ -112,9 +129,9 @@ describe('FromTextToText', () => {
       });
       it('should call the api with the text and the specified model', async () => {
         const title_data = getRandomText();
-        const result = await gladiaClient.fromText().toText().articleGeneration({
+        await gladiaClient.fromText().toText().articleGeneration({
           title: title_data,
-          model: 'fake-model-name' as any,
+          model: 'fake-model-name' as unknown as TextTextArticleGenerationModel,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -131,7 +148,7 @@ describe('FromTextToText', () => {
     describe('shortcuts', () => {
       it('should call the api with the text and the default model by default', async () => {
         const title_data = getRandomText();
-        const result = await gladiaClient.articleGeneration({
+        await gladiaClient.articleGeneration({
           title: title_data,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
@@ -146,9 +163,9 @@ describe('FromTextToText', () => {
       });
       it('should call the api with the text and the specified model', async () => {
         const title_data = getRandomText();
-        const result = await gladiaClient.articleGeneration({
+        await gladiaClient.articleGeneration({
           title: title_data,
-          model: 'fake-model-name' as any,
+          model: 'fake-model-name' as unknown as TextTextArticleGenerationModel,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -176,7 +193,7 @@ describe('FromTextToText', () => {
     describe('full path', () => {
       it('should call the api with the text and the default model by default', async () => {
         const sentence_data = getRandomText();
-        const result = await gladiaClient.fromText().toText().autocorrect({
+        await gladiaClient.fromText().toText().autocorrect({
           sentence: sentence_data,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
@@ -191,9 +208,9 @@ describe('FromTextToText', () => {
       });
       it('should call the api with the text and the specified model', async () => {
         const sentence_data = getRandomText();
-        const result = await gladiaClient.fromText().toText().autocorrect({
+        await gladiaClient.fromText().toText().autocorrect({
           sentence: sentence_data,
-          model: 'fake-model-name' as any,
+          model: 'fake-model-name' as unknown as TextTextAutocorrectModel,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -210,7 +227,7 @@ describe('FromTextToText', () => {
     describe('shortcuts', () => {
       it('should call the api with the text and the default model by default', async () => {
         const sentence_data = getRandomText();
-        const result = await gladiaClient.autocorrect({
+        await gladiaClient.autocorrect({
           sentence: sentence_data,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
@@ -225,9 +242,9 @@ describe('FromTextToText', () => {
       });
       it('should call the api with the text and the specified model', async () => {
         const sentence_data = getRandomText();
-        const result = await gladiaClient.autocorrect({
+        await gladiaClient.autocorrect({
           sentence: sentence_data,
-          model: 'fake-model-name' as any,
+          model: 'fake-model-name' as unknown as TextTextAutocorrectModel,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -256,7 +273,7 @@ describe('FromTextToText', () => {
       it('should call the api with the text and the default model by default', async () => {
         const text_data = getRandomText();
         const bullets_data = getRandomInt();
-        const result = await gladiaClient.fromText().toText().bulletPointGeneration({
+        await gladiaClient.fromText().toText().bulletPointGeneration({
           text: text_data,
           bullets: bullets_data,
         });
@@ -274,10 +291,10 @@ describe('FromTextToText', () => {
       it('should call the api with the text and the specified model', async () => {
         const text_data = getRandomText();
         const bullets_data = getRandomInt();
-        const result = await gladiaClient.fromText().toText().bulletPointGeneration({
+        await gladiaClient.fromText().toText().bulletPointGeneration({
           text: text_data,
           bullets: bullets_data,
-          model: 'fake-model-name' as any,
+          model: 'fake-model-name' as unknown as TextTextBulletPointGenerationModel,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -296,7 +313,7 @@ describe('FromTextToText', () => {
       it('should call the api with the text and the default model by default', async () => {
         const text_data = getRandomText();
         const bullets_data = getRandomInt();
-        const result = await gladiaClient.bulletPointGeneration({
+        await gladiaClient.bulletPointGeneration({
           text: text_data,
           bullets: bullets_data,
         });
@@ -314,10 +331,10 @@ describe('FromTextToText', () => {
       it('should call the api with the text and the specified model', async () => {
         const text_data = getRandomText();
         const bullets_data = getRandomInt();
-        const result = await gladiaClient.bulletPointGeneration({
+        await gladiaClient.bulletPointGeneration({
           text: text_data,
           bullets: bullets_data,
-          model: 'fake-model-name' as any,
+          model: 'fake-model-name' as unknown as TextTextBulletPointGenerationModel,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -346,7 +363,7 @@ describe('FromTextToText', () => {
     describe('full path', () => {
       it('should call the api with the text and the default model by default', async () => {
         const text_data = getRandomText();
-        const result = await gladiaClient.fromText().toText().emotionRecognition({
+        await gladiaClient.fromText().toText().emotionRecognition({
           text: text_data,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
@@ -361,9 +378,9 @@ describe('FromTextToText', () => {
       });
       it('should call the api with the text and the specified model', async () => {
         const text_data = getRandomText();
-        const result = await gladiaClient.fromText().toText().emotionRecognition({
+        await gladiaClient.fromText().toText().emotionRecognition({
           text: text_data,
-          model: 'fake-model-name' as any,
+          model: 'fake-model-name' as unknown as TextTextEmotionRecognitionModel,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -380,7 +397,7 @@ describe('FromTextToText', () => {
     describe('shortcuts', () => {
       it('should call the api with the text and the default model by default', async () => {
         const text_data = getRandomText();
-        const result = await gladiaClient.emotionRecognition({
+        await gladiaClient.emotionRecognition({
           text: text_data,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
@@ -395,9 +412,9 @@ describe('FromTextToText', () => {
       });
       it('should call the api with the text and the specified model', async () => {
         const text_data = getRandomText();
-        const result = await gladiaClient.emotionRecognition({
+        await gladiaClient.emotionRecognition({
           text: text_data,
-          model: 'fake-model-name' as any,
+          model: 'fake-model-name' as unknown as TextTextEmotionRecognitionModel,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -425,7 +442,7 @@ describe('FromTextToText', () => {
     describe('full path', () => {
       it('should call the api with the text and the default model by default', async () => {
         const text_data = getRandomText();
-        const result = await gladiaClient.fromText().toText().hateSpeechDetection({
+        await gladiaClient.fromText().toText().hateSpeechDetection({
           text: text_data,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
@@ -440,9 +457,9 @@ describe('FromTextToText', () => {
       });
       it('should call the api with the text and the specified model', async () => {
         const text_data = getRandomText();
-        const result = await gladiaClient.fromText().toText().hateSpeechDetection({
+        await gladiaClient.fromText().toText().hateSpeechDetection({
           text: text_data,
-          model: 'fake-model-name' as any,
+          model: 'fake-model-name' as unknown as TextTextHateSpeechDetectionModel,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -459,7 +476,7 @@ describe('FromTextToText', () => {
     describe('shortcuts', () => {
       it('should call the api with the text and the default model by default', async () => {
         const text_data = getRandomText();
-        const result = await gladiaClient.hateSpeechDetection({
+        await gladiaClient.hateSpeechDetection({
           text: text_data,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
@@ -474,9 +491,9 @@ describe('FromTextToText', () => {
       });
       it('should call the api with the text and the specified model', async () => {
         const text_data = getRandomText();
-        const result = await gladiaClient.hateSpeechDetection({
+        await gladiaClient.hateSpeechDetection({
           text: text_data,
-          model: 'fake-model-name' as any,
+          model: 'fake-model-name' as unknown as TextTextHateSpeechDetectionModel,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -504,7 +521,7 @@ describe('FromTextToText', () => {
     describe('full path', () => {
       it('should call the api with the text and the default model by default', async () => {
         const text_data = getRandomText();
-        const result = await gladiaClient.fromText().toText().headlineGeneration({
+        await gladiaClient.fromText().toText().headlineGeneration({
           text: text_data,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
@@ -519,9 +536,9 @@ describe('FromTextToText', () => {
       });
       it('should call the api with the text and the specified model', async () => {
         const text_data = getRandomText();
-        const result = await gladiaClient.fromText().toText().headlineGeneration({
+        await gladiaClient.fromText().toText().headlineGeneration({
           text: text_data,
-          model: 'fake-model-name' as any,
+          model: 'fake-model-name' as unknown as TextTextHeadlineGenerationModel,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -538,7 +555,7 @@ describe('FromTextToText', () => {
     describe('shortcuts', () => {
       it('should call the api with the text and the default model by default', async () => {
         const text_data = getRandomText();
-        const result = await gladiaClient.headlineGeneration({
+        await gladiaClient.headlineGeneration({
           text: text_data,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
@@ -553,9 +570,9 @@ describe('FromTextToText', () => {
       });
       it('should call the api with the text and the specified model', async () => {
         const text_data = getRandomText();
-        const result = await gladiaClient.headlineGeneration({
+        await gladiaClient.headlineGeneration({
           text: text_data,
-          model: 'fake-model-name' as any,
+          model: 'fake-model-name' as unknown as TextTextHeadlineGenerationModel,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -583,7 +600,7 @@ describe('FromTextToText', () => {
     describe('full path', () => {
       it('should call the api with the text and the default model by default', async () => {
         const text_data = getRandomText();
-        const result = await gladiaClient.fromText().toText().intentClassification({
+        await gladiaClient.fromText().toText().intentClassification({
           text: text_data,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
@@ -598,9 +615,9 @@ describe('FromTextToText', () => {
       });
       it('should call the api with the text and the specified model', async () => {
         const text_data = getRandomText();
-        const result = await gladiaClient.fromText().toText().intentClassification({
+        await gladiaClient.fromText().toText().intentClassification({
           text: text_data,
-          model: 'fake-model-name' as any,
+          model: 'fake-model-name' as unknown as TextTextIntentClassificationModel,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -617,7 +634,7 @@ describe('FromTextToText', () => {
     describe('shortcuts', () => {
       it('should call the api with the text and the default model by default', async () => {
         const text_data = getRandomText();
-        const result = await gladiaClient.intentClassification({
+        await gladiaClient.intentClassification({
           text: text_data,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
@@ -632,9 +649,9 @@ describe('FromTextToText', () => {
       });
       it('should call the api with the text and the specified model', async () => {
         const text_data = getRandomText();
-        const result = await gladiaClient.intentClassification({
+        await gladiaClient.intentClassification({
           text: text_data,
-          model: 'fake-model-name' as any,
+          model: 'fake-model-name' as unknown as TextTextIntentClassificationModel,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -663,7 +680,7 @@ describe('FromTextToText', () => {
       it('should call the api with the text and the default model by default', async () => {
         const text_data = getRandomText();
         const top_k_data = getRandomInt();
-        const result = await gladiaClient.fromText().toText().keywordExtraction({
+        await gladiaClient.fromText().toText().keywordExtraction({
           text: text_data,
           top_k: top_k_data,
         });
@@ -681,10 +698,10 @@ describe('FromTextToText', () => {
       it('should call the api with the text and the specified model', async () => {
         const text_data = getRandomText();
         const top_k_data = getRandomInt();
-        const result = await gladiaClient.fromText().toText().keywordExtraction({
+        await gladiaClient.fromText().toText().keywordExtraction({
           text: text_data,
           top_k: top_k_data,
-          model: 'keybert-paraphrase-multilingual-MiniLM-L12-v2' as any,
+          model: 'keybert-paraphrase-multilingual-MiniLM-L12-v2',
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -703,7 +720,7 @@ describe('FromTextToText', () => {
       it('should call the api with the text and the default model by default', async () => {
         const text_data = getRandomText();
         const top_k_data = getRandomInt();
-        const result = await gladiaClient.keywordExtraction({
+        await gladiaClient.keywordExtraction({
           text: text_data,
           top_k: top_k_data,
         });
@@ -721,10 +738,10 @@ describe('FromTextToText', () => {
       it('should call the api with the text and the specified model', async () => {
         const text_data = getRandomText();
         const top_k_data = getRandomInt();
-        const result = await gladiaClient.keywordExtraction({
+        await gladiaClient.keywordExtraction({
           text: text_data,
           top_k: top_k_data,
-          model: 'keybert-paraphrase-multilingual-MiniLM-L12-v2' as any,
+          model: 'keybert-paraphrase-multilingual-MiniLM-L12-v2',
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -753,7 +770,7 @@ describe('FromTextToText', () => {
     describe('full path', () => {
       it('should call the api with the text and the default model by default', async () => {
         const text_data = getRandomText();
-        const result = await gladiaClient.fromText().toText().languageDetection({
+        await gladiaClient.fromText().toText().languageDetection({
           text: text_data,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
@@ -768,9 +785,9 @@ describe('FromTextToText', () => {
       });
       it('should call the api with the text and the specified model', async () => {
         const text_data = getRandomText();
-        const result = await gladiaClient.fromText().toText().languageDetection({
+        await gladiaClient.fromText().toText().languageDetection({
           text: text_data,
-          model: 'toftrup-etal-2021' as any,
+          model: 'toftrup-etal-2021',
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -787,7 +804,7 @@ describe('FromTextToText', () => {
     describe('shortcuts', () => {
       it('should call the api with the text and the default model by default', async () => {
         const text_data = getRandomText();
-        const result = await gladiaClient.languageDetection({
+        await gladiaClient.languageDetection({
           text: text_data,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
@@ -802,9 +819,9 @@ describe('FromTextToText', () => {
       });
       it('should call the api with the text and the specified model', async () => {
         const text_data = getRandomText();
-        const result = await gladiaClient.languageDetection({
+        await gladiaClient.languageDetection({
           text: text_data,
-          model: 'toftrup-etal-2021' as any,
+          model: 'toftrup-etal-2021',
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -832,7 +849,7 @@ describe('FromTextToText', () => {
     describe('full path', () => {
       it('should call the api with the text and the default model by default', async () => {
         const text_data = getRandomText();
-        const result = await gladiaClient.fromText().toText().languageGeneration({
+        await gladiaClient.fromText().toText().languageGeneration({
           text: text_data,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
@@ -847,9 +864,9 @@ describe('FromTextToText', () => {
       });
       it('should call the api with the text and the specified model', async () => {
         const text_data = getRandomText();
-        const result = await gladiaClient.fromText().toText().languageGeneration({
+        await gladiaClient.fromText().toText().languageGeneration({
           text: text_data,
-          model: 'EleutherAI-gpt-neo-2_7B' as any,
+          model: 'EleutherAI-gpt-neo-2_7B',
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -866,7 +883,7 @@ describe('FromTextToText', () => {
     describe('shortcuts', () => {
       it('should call the api with the text and the default model by default', async () => {
         const text_data = getRandomText();
-        const result = await gladiaClient.languageGeneration({
+        await gladiaClient.languageGeneration({
           text: text_data,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
@@ -881,9 +898,9 @@ describe('FromTextToText', () => {
       });
       it('should call the api with the text and the specified model', async () => {
         const text_data = getRandomText();
-        const result = await gladiaClient.languageGeneration({
+        await gladiaClient.languageGeneration({
           text: text_data,
-          model: 'EleutherAI-gpt-neo-2_7B' as any,
+          model: 'EleutherAI-gpt-neo-2_7B',
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -911,7 +928,7 @@ describe('FromTextToText', () => {
     describe('full path', () => {
       it('should call the api with the text and the default model by default', async () => {
         const text_data = getRandomText();
-        const result = await gladiaClient.fromText().toText().namedEntityRecognition({
+        await gladiaClient.fromText().toText().namedEntityRecognition({
           text: text_data,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
@@ -926,9 +943,9 @@ describe('FromTextToText', () => {
       });
       it('should call the api with the text and the specified model', async () => {
         const text_data = getRandomText();
-        const result = await gladiaClient.fromText().toText().namedEntityRecognition({
+        await gladiaClient.fromText().toText().namedEntityRecognition({
           text: text_data,
-          model: 'fake-model-name' as any,
+          model: 'fake-model-name' as unknown as TextTextNamedEntityRecognitionModel,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -945,7 +962,7 @@ describe('FromTextToText', () => {
     describe('shortcuts', () => {
       it('should call the api with the text and the default model by default', async () => {
         const text_data = getRandomText();
-        const result = await gladiaClient.namedEntityRecognition({
+        await gladiaClient.namedEntityRecognition({
           text: text_data,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
@@ -960,9 +977,9 @@ describe('FromTextToText', () => {
       });
       it('should call the api with the text and the specified model', async () => {
         const text_data = getRandomText();
-        const result = await gladiaClient.namedEntityRecognition({
+        await gladiaClient.namedEntityRecognition({
           text: text_data,
-          model: 'fake-model-name' as any,
+          model: 'fake-model-name' as unknown as TextTextNamedEntityRecognitionModel,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -991,7 +1008,7 @@ describe('FromTextToText', () => {
       it('should call the api with the text and the default model by default', async () => {
         const sentence_1_data = getRandomText();
         const sentence_2_data = getRandomText();
-        const result = await gladiaClient.fromText().toText().nextSentencePrediction({
+        await gladiaClient.fromText().toText().nextSentencePrediction({
           sentence_1: sentence_1_data,
           sentence_2: sentence_2_data,
         });
@@ -1009,10 +1026,10 @@ describe('FromTextToText', () => {
       it('should call the api with the text and the specified model', async () => {
         const sentence_1_data = getRandomText();
         const sentence_2_data = getRandomText();
-        const result = await gladiaClient.fromText().toText().nextSentencePrediction({
+        await gladiaClient.fromText().toText().nextSentencePrediction({
           sentence_1: sentence_1_data,
           sentence_2: sentence_2_data,
-          model: 'fake-model-name' as any,
+          model: 'fake-model-name' as unknown as TextTextNextSentencePredictionModel,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -1031,7 +1048,7 @@ describe('FromTextToText', () => {
       it('should call the api with the text and the default model by default', async () => {
         const sentence_1_data = getRandomText();
         const sentence_2_data = getRandomText();
-        const result = await gladiaClient.nextSentencePrediction({
+        await gladiaClient.nextSentencePrediction({
           sentence_1: sentence_1_data,
           sentence_2: sentence_2_data,
         });
@@ -1049,10 +1066,10 @@ describe('FromTextToText', () => {
       it('should call the api with the text and the specified model', async () => {
         const sentence_1_data = getRandomText();
         const sentence_2_data = getRandomText();
-        const result = await gladiaClient.nextSentencePrediction({
+        await gladiaClient.nextSentencePrediction({
           sentence_1: sentence_1_data,
           sentence_2: sentence_2_data,
-          model: 'fake-model-name' as any,
+          model: 'fake-model-name' as unknown as TextTextNextSentencePredictionModel,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -1082,7 +1099,7 @@ describe('FromTextToText', () => {
       it('should call the api with the text and the default model by default', async () => {
         const sentence_data = getRandomText();
         const top_k_data = getRandomInt();
-        const result = await gladiaClient.fromText().toText().nextWordPrediction({
+        await gladiaClient.fromText().toText().nextWordPrediction({
           sentence: sentence_data,
           top_k: top_k_data,
         });
@@ -1100,10 +1117,10 @@ describe('FromTextToText', () => {
       it('should call the api with the text and the specified model', async () => {
         const sentence_data = getRandomText();
         const top_k_data = getRandomInt();
-        const result = await gladiaClient.fromText().toText().nextWordPrediction({
+        await gladiaClient.fromText().toText().nextWordPrediction({
           sentence: sentence_data,
           top_k: top_k_data,
-          model: 'albert-base-v2' as any,
+          model: 'albert-base-v2',
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -1122,7 +1139,7 @@ describe('FromTextToText', () => {
       it('should call the api with the text and the default model by default', async () => {
         const sentence_data = getRandomText();
         const top_k_data = getRandomInt();
-        const result = await gladiaClient.nextWordPrediction({
+        await gladiaClient.nextWordPrediction({
           sentence: sentence_data,
           top_k: top_k_data,
         });
@@ -1140,10 +1157,10 @@ describe('FromTextToText', () => {
       it('should call the api with the text and the specified model', async () => {
         const sentence_data = getRandomText();
         const top_k_data = getRandomInt();
-        const result = await gladiaClient.nextWordPrediction({
+        await gladiaClient.nextWordPrediction({
           sentence: sentence_data,
           top_k: top_k_data,
-          model: 'albert-base-v2' as any,
+          model: 'albert-base-v2',
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -1172,7 +1189,7 @@ describe('FromTextToText', () => {
     describe('full path', () => {
       it('should call the api with the text and the default model by default', async () => {
         const code_snippet_data = getRandomText();
-        const result = await gladiaClient.fromText().toText().programmingLanguageGeneration({
+        await gladiaClient.fromText().toText().programmingLanguageGeneration({
           code_snippet: code_snippet_data,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
@@ -1187,9 +1204,9 @@ describe('FromTextToText', () => {
       });
       it('should call the api with the text and the specified model', async () => {
         const code_snippet_data = getRandomText();
-        const result = await gladiaClient.fromText().toText().programmingLanguageGeneration({
+        await gladiaClient.fromText().toText().programmingLanguageGeneration({
           code_snippet: code_snippet_data,
-          model: 'fake-model-name' as any,
+          model: 'fake-model-name' as unknown as TextTextProgrammingLanguageGenerationModel,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -1206,7 +1223,7 @@ describe('FromTextToText', () => {
     describe('shortcuts', () => {
       it('should call the api with the text and the default model by default', async () => {
         const code_snippet_data = getRandomText();
-        const result = await gladiaClient.programmingLanguageGeneration({
+        await gladiaClient.programmingLanguageGeneration({
           code_snippet: code_snippet_data,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
@@ -1221,9 +1238,9 @@ describe('FromTextToText', () => {
       });
       it('should call the api with the text and the specified model', async () => {
         const code_snippet_data = getRandomText();
-        const result = await gladiaClient.programmingLanguageGeneration({
+        await gladiaClient.programmingLanguageGeneration({
           code_snippet: code_snippet_data,
-          model: 'fake-model-name' as any,
+          model: 'fake-model-name' as unknown as TextTextProgrammingLanguageGenerationModel,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -1253,7 +1270,7 @@ describe('FromTextToText', () => {
         const context_data = getRandomText();
         const question_data = getRandomText();
         const top_k_data = getRandomInt();
-        const result = await gladiaClient.fromText().toText().questionAnswering({
+        await gladiaClient.fromText().toText().questionAnswering({
           context: context_data,
           question: question_data,
           top_k: top_k_data,
@@ -1274,11 +1291,11 @@ describe('FromTextToText', () => {
         const context_data = getRandomText();
         const question_data = getRandomText();
         const top_k_data = getRandomInt();
-        const result = await gladiaClient.fromText().toText().questionAnswering({
+        await gladiaClient.fromText().toText().questionAnswering({
           context: context_data,
           question: question_data,
           top_k: top_k_data,
-          model: 'deepset-roberta-base-squad2' as any,
+          model: 'deepset-roberta-base-squad2',
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -1299,7 +1316,7 @@ describe('FromTextToText', () => {
         const context_data = getRandomText();
         const question_data = getRandomText();
         const top_k_data = getRandomInt();
-        const result = await gladiaClient.questionAnswering({
+        await gladiaClient.questionAnswering({
           context: context_data,
           question: question_data,
           top_k: top_k_data,
@@ -1320,11 +1337,11 @@ describe('FromTextToText', () => {
         const context_data = getRandomText();
         const question_data = getRandomText();
         const top_k_data = getRandomInt();
-        const result = await gladiaClient.questionAnswering({
+        await gladiaClient.questionAnswering({
           context: context_data,
           question: question_data,
           top_k: top_k_data,
-          model: 'deepset-roberta-base-squad2' as any,
+          model: 'deepset-roberta-base-squad2',
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -1354,7 +1371,7 @@ describe('FromTextToText', () => {
     describe('full path', () => {
       it('should call the api with the text and the default model by default', async () => {
         const context_data = getRandomText();
-        const result = await gladiaClient.fromText().toText().sentenceParaphraser({
+        await gladiaClient.fromText().toText().sentenceParaphraser({
           context: context_data,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
@@ -1369,9 +1386,9 @@ describe('FromTextToText', () => {
       });
       it('should call the api with the text and the specified model', async () => {
         const context_data = getRandomText();
-        const result = await gladiaClient.fromText().toText().sentenceParaphraser({
+        await gladiaClient.fromText().toText().sentenceParaphraser({
           context: context_data,
-          model: 'ramsrigouthamg-t5_sentence_paraphraser' as any,
+          model: 'ramsrigouthamg-t5_sentence_paraphraser',
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -1388,7 +1405,7 @@ describe('FromTextToText', () => {
     describe('shortcuts', () => {
       it('should call the api with the text and the default model by default', async () => {
         const context_data = getRandomText();
-        const result = await gladiaClient.sentenceParaphraser({
+        await gladiaClient.sentenceParaphraser({
           context: context_data,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
@@ -1403,9 +1420,9 @@ describe('FromTextToText', () => {
       });
       it('should call the api with the text and the specified model', async () => {
         const context_data = getRandomText();
-        const result = await gladiaClient.sentenceParaphraser({
+        await gladiaClient.sentenceParaphraser({
           context: context_data,
-          model: 'ramsrigouthamg-t5_sentence_paraphraser' as any,
+          model: 'ramsrigouthamg-t5_sentence_paraphraser',
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -1433,7 +1450,7 @@ describe('FromTextToText', () => {
     describe('full path', () => {
       it('should call the api with the text and the default model by default', async () => {
         const text_data = getRandomText();
-        const result = await gladiaClient.fromText().toText().sentimentAnalysis({
+        await gladiaClient.fromText().toText().sentimentAnalysis({
           text: text_data,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
@@ -1448,9 +1465,9 @@ describe('FromTextToText', () => {
       });
       it('should call the api with the text and the specified model', async () => {
         const text_data = getRandomText();
-        const result = await gladiaClient.fromText().toText().sentimentAnalysis({
+        await gladiaClient.fromText().toText().sentimentAnalysis({
           text: text_data,
-          model: 'distilbert-base-uncased' as any,
+          model: 'distilbert-base-uncased',
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -1467,7 +1484,7 @@ describe('FromTextToText', () => {
     describe('shortcuts', () => {
       it('should call the api with the text and the default model by default', async () => {
         const text_data = getRandomText();
-        const result = await gladiaClient.sentimentAnalysis({
+        await gladiaClient.sentimentAnalysis({
           text: text_data,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
@@ -1482,9 +1499,9 @@ describe('FromTextToText', () => {
       });
       it('should call the api with the text and the specified model', async () => {
         const text_data = getRandomText();
-        const result = await gladiaClient.sentimentAnalysis({
+        await gladiaClient.sentimentAnalysis({
           text: text_data,
-          model: 'distilbert-base-uncased' as any,
+          model: 'distilbert-base-uncased',
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -1513,7 +1530,7 @@ describe('FromTextToText', () => {
       it('should call the api with the text and the default model by default', async () => {
         const sentence_1_data = getRandomText();
         const sentence_2_data = getRandomText();
-        const result = await gladiaClient.fromText().toText().similarity({
+        await gladiaClient.fromText().toText().similarity({
           sentence_1: sentence_1_data,
           sentence_2: sentence_2_data,
         });
@@ -1531,10 +1548,10 @@ describe('FromTextToText', () => {
       it('should call the api with the text and the specified model', async () => {
         const sentence_1_data = getRandomText();
         const sentence_2_data = getRandomText();
-        const result = await gladiaClient.fromText().toText().similarity({
+        await gladiaClient.fromText().toText().similarity({
           sentence_1: sentence_1_data,
           sentence_2: sentence_2_data,
-          model: 'fake-model-name' as any,
+          model: 'fake-model-name' as unknown as TextTextSimilarityModel,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -1553,7 +1570,7 @@ describe('FromTextToText', () => {
       it('should call the api with the text and the default model by default', async () => {
         const sentence_1_data = getRandomText();
         const sentence_2_data = getRandomText();
-        const result = await gladiaClient.similarity({
+        await gladiaClient.similarity({
           sentence_1: sentence_1_data,
           sentence_2: sentence_2_data,
         });
@@ -1571,10 +1588,10 @@ describe('FromTextToText', () => {
       it('should call the api with the text and the specified model', async () => {
         const sentence_1_data = getRandomText();
         const sentence_2_data = getRandomText();
-        const result = await gladiaClient.similarity({
+        await gladiaClient.similarity({
           sentence_1: sentence_1_data,
           sentence_2: sentence_2_data,
-          model: 'fake-model-name' as any,
+          model: 'fake-model-name' as unknown as TextTextSimilarityModel,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -1603,7 +1620,7 @@ describe('FromTextToText', () => {
     describe('full path', () => {
       it('should call the api with the text and the default model by default', async () => {
         const text_data = getRandomText();
-        const result = await gladiaClient.fromText().toText().summarization({
+        await gladiaClient.fromText().toText().summarization({
           text: text_data,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
@@ -1618,9 +1635,9 @@ describe('FromTextToText', () => {
       });
       it('should call the api with the text and the specified model', async () => {
         const text_data = getRandomText();
-        const result = await gladiaClient.fromText().toText().summarization({
+        await gladiaClient.fromText().toText().summarization({
           text: text_data,
-          model: 'fake-model-name' as any,
+          model: 'fake-model-name' as unknown as TextTextSummarizationModel,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -1637,7 +1654,7 @@ describe('FromTextToText', () => {
     describe('shortcuts', () => {
       it('should call the api with the text and the default model by default', async () => {
         const text_data = getRandomText();
-        const result = await gladiaClient.summarization({
+        await gladiaClient.summarization({
           text: text_data,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
@@ -1652,9 +1669,9 @@ describe('FromTextToText', () => {
       });
       it('should call the api with the text and the specified model', async () => {
         const text_data = getRandomText();
-        const result = await gladiaClient.summarization({
+        await gladiaClient.summarization({
           text: text_data,
-          model: 'fake-model-name' as any,
+          model: 'fake-model-name' as unknown as TextTextSummarizationModel,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -1684,7 +1701,7 @@ describe('FromTextToText', () => {
         const text_data = getRandomText();
         const source_data = getRandomText();
         const target_data = getRandomText();
-        const result = await gladiaClient.fromText().toText().translation({
+        await gladiaClient.fromText().toText().translation({
           text: text_data,
           source: source_data,
           target: target_data,
@@ -1705,11 +1722,11 @@ describe('FromTextToText', () => {
         const text_data = getRandomText();
         const source_data = getRandomText();
         const target_data = getRandomText();
-        const result = await gladiaClient.fromText().toText().translation({
+        await gladiaClient.fromText().toText().translation({
           text: text_data,
           source: source_data,
           target: target_data,
-          model: 'fake-model-name' as any,
+          model: 'fake-model-name' as unknown as TextTextTranslationModel,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -1730,7 +1747,7 @@ describe('FromTextToText', () => {
         const text_data = getRandomText();
         const source_data = getRandomText();
         const target_data = getRandomText();
-        const result = await gladiaClient.translation({
+        await gladiaClient.translation({
           text: text_data,
           source: source_data,
           target: target_data,
@@ -1751,11 +1768,11 @@ describe('FromTextToText', () => {
         const text_data = getRandomText();
         const source_data = getRandomText();
         const target_data = getRandomText();
-        const result = await gladiaClient.translation({
+        await gladiaClient.translation({
           text: text_data,
           source: source_data,
           target: target_data,
-          model: 'fake-model-name' as any,
+          model: 'fake-model-name' as unknown as TextTextTranslationModel,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -1786,7 +1803,7 @@ describe('FromTextToText', () => {
       it('should call the api with the text and the default model by default', async () => {
         const input_string_language_1_data = getRandomText();
         const input_string_language_2_data = getRandomText();
-        const result = await gladiaClient.fromText().toText().wordAlignment({
+        await gladiaClient.fromText().toText().wordAlignment({
           input_string_language_1: input_string_language_1_data,
           input_string_language_2: input_string_language_2_data,
         });
@@ -1804,10 +1821,10 @@ describe('FromTextToText', () => {
       it('should call the api with the text and the specified model', async () => {
         const input_string_language_1_data = getRandomText();
         const input_string_language_2_data = getRandomText();
-        const result = await gladiaClient.fromText().toText().wordAlignment({
+        await gladiaClient.fromText().toText().wordAlignment({
           input_string_language_1: input_string_language_1_data,
           input_string_language_2: input_string_language_2_data,
-          model: 'fake-model-name' as any,
+          model: 'fake-model-name' as unknown as TextTextWordAlignmentModel,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -1826,7 +1843,7 @@ describe('FromTextToText', () => {
       it('should call the api with the text and the default model by default', async () => {
         const input_string_language_1_data = getRandomText();
         const input_string_language_2_data = getRandomText();
-        const result = await gladiaClient.wordAlignment({
+        await gladiaClient.wordAlignment({
           input_string_language_1: input_string_language_1_data,
           input_string_language_2: input_string_language_2_data,
         });
@@ -1844,10 +1861,10 @@ describe('FromTextToText', () => {
       it('should call the api with the text and the specified model', async () => {
         const input_string_language_1_data = getRandomText();
         const input_string_language_2_data = getRandomText();
-        const result = await gladiaClient.wordAlignment({
+        await gladiaClient.wordAlignment({
           input_string_language_1: input_string_language_1_data,
           input_string_language_2: input_string_language_2_data,
-          model: 'fake-model-name' as any,
+          model: 'fake-model-name' as unknown as TextTextWordAlignmentModel,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);

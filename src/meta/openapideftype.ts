@@ -34,13 +34,13 @@ interface PathRequestResponseDef {
     | {
         'image/*': PathRequestResponseContentDef;
       };
-  example?: any;
-  examples?: any;
+  example?: unknown;
+  examples?: unknown;
 }
 
 interface PathRequestResponseContentDef {
   schema:
-    | {}
+    | Record<string, never>
     | {
         $ref: string;
       }
@@ -52,7 +52,7 @@ interface PathRequestResponseContentDef {
     | {
         type: 'object';
         prediction: 'string' | 'number' | 'array';
-        prediction_raw: {};
+        prediction_raw: unknown;
       };
 }
 
@@ -94,8 +94,10 @@ interface OpenApiJsonComponent {
     {
       title: string;
       required?: string[];
-      type: string;
-      properties: Record<
+      enum?: string[];
+      description?: string;
+      type?: string;
+      properties?: Record<
         string,
         {
           title?: string;
@@ -105,9 +107,9 @@ interface OpenApiJsonComponent {
           default?: string | number;
           format?: 'binary';
           items?: Record<string, unknown>;
-          example?: any;
-          examples?: any;
-          _examples?: any;
+          example?: unknown;
+          examples?: unknown;
+          _examples?: unknown;
           data_type?: 'string' | 'text' | 'url' | 'integer' | 'float' | 'image' | 'audio' | 'array';
         }
       >;
