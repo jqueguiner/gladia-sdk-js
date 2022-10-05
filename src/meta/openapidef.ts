@@ -2835,7 +2835,6 @@ export const openApiJson: OpenApiJson = {
                 "jpt",
                 "jpt",
                 "jpt",
-                "jpt",
                 "jpt"
               ],
               "type": "string",
