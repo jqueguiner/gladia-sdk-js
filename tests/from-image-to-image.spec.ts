@@ -10,7 +10,10 @@ import {
 } from '../src/models';
 import gladia from '../src/index';
 import { HttpClient } from '../src/internal/http-client';
-import { getRandomText, getPostMock, mockHttpClient } from './helpers/mocks';
+import { getRandomFromEnum, getRandomText, getPostMock, mockHttpClient } from './helpers/mocks';
+import {
+  IMAGE_IMAGE_BACKGROUND_REPLACEMENT_ENUM_PARAM_ALIGNMENT_VALUES,
+} from '../src/client/input-models';
 
 describe('FromImageToImage', () => {
   describe('backgroundRemoval', () => {
@@ -123,7 +126,7 @@ describe('FromImageToImage', () => {
         const original_image_url_data = getRandomText();
         const background_image_data = new Blob([getRandomText()]);
         const background_image_url_data = getRandomText();
-        const alignment_data = getRandomText();
+        const alignment_data = getRandomFromEnum(IMAGE_IMAGE_BACKGROUND_REPLACEMENT_ENUM_PARAM_ALIGNMENT_VALUES);
         await gladiaClient.fromImage().toImage().backgroundReplacement({
           original_image: original_image_data,
           original_image_url: original_image_url_data,
@@ -151,7 +154,7 @@ describe('FromImageToImage', () => {
         const original_image_url_data = getRandomText();
         const background_image_data = new Blob([getRandomText()]);
         const background_image_url_data = getRandomText();
-        const alignment_data = getRandomText();
+        const alignment_data = getRandomFromEnum(IMAGE_IMAGE_BACKGROUND_REPLACEMENT_ENUM_PARAM_ALIGNMENT_VALUES);
         await gladiaClient.fromImage().toImage().backgroundReplacement({
           original_image: original_image_data,
           original_image_url: original_image_url_data,
@@ -183,7 +186,7 @@ describe('FromImageToImage', () => {
         const original_image_url_data = getRandomText();
         const background_image_data = new Blob([getRandomText()]);
         const background_image_url_data = getRandomText();
-        const alignment_data = getRandomText();
+        const alignment_data = getRandomFromEnum(IMAGE_IMAGE_BACKGROUND_REPLACEMENT_ENUM_PARAM_ALIGNMENT_VALUES);
         await gladiaClient.backgroundReplacement({
           original_image: original_image_data,
           original_image_url: original_image_url_data,
@@ -211,7 +214,7 @@ describe('FromImageToImage', () => {
         const original_image_url_data = getRandomText();
         const background_image_data = new Blob([getRandomText()]);
         const background_image_url_data = getRandomText();
-        const alignment_data = getRandomText();
+        const alignment_data = getRandomFromEnum(IMAGE_IMAGE_BACKGROUND_REPLACEMENT_ENUM_PARAM_ALIGNMENT_VALUES);
         await gladiaClient.backgroundReplacement({
           original_image: original_image_data,
           original_image_url: original_image_url_data,

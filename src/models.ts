@@ -249,17 +249,22 @@ export type TextTextBulletPointGenerationModel = typeof TEXT_TEXT_BULLET_POINT_G
 
 export const TEXT_TEXT_EMOTION_RECOGNITION_MODELS = [
    'distilbert-base-uncased-emotion',
+   'mrm8488-t5-base-finetuned-emotion',
 ] as const;
 export const TEXT_TEXT_EMOTION_RECOGNITION_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
 export type TextTextEmotionRecognitionModel = typeof TEXT_TEXT_EMOTION_RECOGNITION_MODELS[number];
 
 export const TEXT_TEXT_HATE_SPEECH_DETECTION_MODELS = [
+   'Hate-speech-CNERG-dehatebert-mono-english',
+   'byt5-base-tweet-hate-detection',
    'distilbert-base-uncased-emotion',
 ] as const;
 export const TEXT_TEXT_HATE_SPEECH_DETECTION_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
 export type TextTextHateSpeechDetectionModel = typeof TEXT_TEXT_HATE_SPEECH_DETECTION_MODELS[number];
 
 export const TEXT_TEXT_HEADLINE_GENERATION_MODELS = [
+   'jpt',
+   'michau-t5-base-en-generate-headline',
    't5-base-en-generate-headline',
 ] as const;
 export const TEXT_TEXT_HEADLINE_GENERATION_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
@@ -352,12 +357,14 @@ export const TEXT_TEXT_SIMILARITY_CONTENT_TYPE = "application/x-www-form-urlenco
 export type TextTextSimilarityModel = typeof TEXT_TEXT_SIMILARITY_MODELS[number];
 
 export const TEXT_TEXT_SUMMARIZATION_MODELS = [
+   'all-MiniLM-L6-v2',
    'bart-large-cnn',
 ] as const;
 export const TEXT_TEXT_SUMMARIZATION_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
 export type TextTextSummarizationModel = typeof TEXT_TEXT_SUMMARIZATION_MODELS[number];
 
 export const TEXT_TEXT_TRANSLATION_MODELS = [
+   'facebook-nllb-200-distilled-600M',
    'nllb-200-3-3b',
 ] as const;
 export const TEXT_TEXT_TRANSLATION_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;

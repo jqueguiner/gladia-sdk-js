@@ -13,12 +13,17 @@ export interface EndpointDef {
   outputBodyContentType: OutputBodyContentType;
 }
 
-export interface EndpointDefParam {
+export interface EndpointDefParamBase<TType> {
   in: 'query' | 'formData';
-  type: 'audio' | 'image' | 'string' | 'integer' | 'float' | 'url' | 'array';
+  type: TType;
   name: string;
   required: boolean;
 }
+
+export type EnumEndpointDefParam = EndpointDefParamBase<'enum'> & { enumValues: string[] };
+export type EndpointDefParam =
+  | EndpointDefParamBase<'audio' | 'image' | 'string' | 'integer' | 'float' | 'url' | 'array'>
+  | EnumEndpointDefParam;
 
 export type OutputBodyContentType =
   | { type: 'prediction-standard-output'; predictionType: 'string' | 'number' | 'array' }

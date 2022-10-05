@@ -38,9 +38,18 @@ export type TextTextAutocorrectOutputs = {
   prediction_raw: unknown,
 };
 export type TextTextBulletPointGenerationOutputs = Record<string, string | number | boolean>;
-export type TextTextEmotionRecognitionOutputs = Record<string, string | number | boolean>;
-export type TextTextHateSpeechDetectionOutputs = Record<string, string | number | boolean>;
-export type TextTextHeadlineGenerationOutputs = Record<string, string | number | boolean>;
+export type TextTextEmotionRecognitionOutputs = {
+  prediction: string,
+  prediction_raw: unknown,
+};
+export type TextTextHateSpeechDetectionOutputs = {
+  prediction: string,
+  prediction_raw: unknown,
+};
+export type TextTextHeadlineGenerationOutputs = {
+  prediction: string,
+  prediction_raw: unknown,
+};
 export type TextTextIntentClassificationOutputs = Record<string, string | number | boolean>;
 export type TextTextKeywordExtractionOutputs = {
   prediction: string,
@@ -86,8 +95,14 @@ export type TextTextSimilarityOutputs = {
   prediction: number,
   prediction_raw: unknown,
 };
-export type TextTextSummarizationOutputs = Record<string, string | number | boolean>;
-export type TextTextTranslationOutputs = Record<string, string | number | boolean>;
+export type TextTextSummarizationOutputs = {
+  prediction: string,
+  prediction_raw: unknown,
+};
+export type TextTextTranslationOutputs = {
+  prediction: string,
+  prediction_raw: unknown,
+};
 export type TextTextWordAlignmentOutputs = {
   prediction: string[],
   prediction_raw: unknown,

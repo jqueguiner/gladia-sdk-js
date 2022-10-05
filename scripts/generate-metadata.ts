@@ -87,7 +87,7 @@ function getPostModels(def: PathDef): Pick<EndpointDef, 'models' | 'defaultModel
   if (modelsParam.schema.type === 'integer') {
     throw { kind: 'InvalidSchema', def };
   }
-  const models = modelsParam.schema.enum ?? [];
+  const models = [...new Set(modelsParam.schema.enum ?? [])];
   models.sort();
   return { models, defaultModel: modelsParam.schema.default };
 }
@@ -114,7 +114,8 @@ function getOutputBodyContentType(def: PathDef): Pick<EndpointDef, 'outputBodyCo
         return {
           outputBodyContentType: {
             type: 'prediction-standard-output',
-            predictionType: jsonContent.schema.prediction,
+            predictionType:
+              jsonContent.schema.prediction === 'str' ? 'string' : jsonContent.schema.prediction,
           },
         };
       } else if (Object.keys(jsonContent.schema).length === 0) {
@@ -165,13 +166,31 @@ function getPostParams(def: PathDef, openApiJson: OpenApiJson) {
                     return 'image';
                   case 'array':
                     return 'array';
+                  case 'list':
+                    return 'enum';
                   case 'text':
                   case 'string':
                   default:
                     return 'string';
                 }
               })();
-              return { in: 'formData', type, name: propName, required: isRequired };
+              if (type === 'enum') {
+                if (!('allOf' in propSchema)) {
+                  throw new Error('Property allOf missing with data_type "enum"');
+                }
+                const ref = propSchema.allOf[0].$ref;
+                const dynamicEnum =
+                  openApiJson.components.schemas[ref.substring('#/components/schemas/'.length)];
+                const enumValues = dynamicEnum.enum;
+                if (!enumValues || enumValues.length === 0) {
+                  throw new Error(
+                    `"${ref}" should have property enum that contains enum values for the property "${propName}"`,
+                  );
+                }
+                return { in: 'formData', type, name: propName, required: isRequired, enumValues };
+              } else {
+                return { in: 'formData', type, name: propName, required: isRequired };
+              }
             },
           ),
         );

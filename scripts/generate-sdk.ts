@@ -45,6 +45,19 @@ function generateInputModelsTs() {
   fileContent.push(`import { WithHeaders, WithModel } from './types';`);
   fileContent.push('');
   for (const endpoint of endpoints) {
+    const enumParams = endpoint.params.filter(
+      (p): p is meta.EnumEndpointDefParam => p.type === 'enum',
+    );
+    enumParams.forEach((param) => {
+      const paramTypeName = meta.getInputEnumParamType(endpoint, param);
+      const paramValuesName = meta.getInputEnumParamValues(endpoint, param);
+      fileContent.push(`export const ${paramValuesName} = [`);
+      param.enumValues.forEach((enumValue) => {
+        fileContent.push(`  '${enumValue}', `);
+      });
+      fileContent.push(`] as const;`);
+      fileContent.push(`export type ${paramTypeName} = typeof ${paramValuesName}[number];`);
+    });
     const inputModelName = meta.getInputModelType(endpoint);
     const modelTypeName = meta.getModelTypeName(endpoint);
     fileContent.push(`export interface ${inputModelName} `);
@@ -53,6 +66,7 @@ function generateInputModelsTs() {
       const optionalMark = param.required ? '' : '?';
       const paramType = (() => {
         switch (param.type) {
+          case 'url':
           case 'string':
             return 'string';
           case 'audio':
@@ -63,8 +77,11 @@ function generateInputModelsTs() {
             return 'number';
           case 'array':
             return 'string[]';
+          case 'enum':
+            return meta.getInputEnumParamType(endpoint, param);
           default:
-            return 'string';
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            throw new Error(`Unknown param type: "${(param as any).type}"`);
         }
       })();
       fileContent.push(`  ${param.name}${optionalMark}: ${paramType};`);
@@ -441,6 +458,18 @@ function generateUnitTests() {
           helperMocks.length === 0 ? '' : helperMocks + ', '
         }getPostMock, mockHttpClient } from './helpers/mocks';`,
       );
+      const enumParams = outputTypeEndpoints.flatMap((endpoint) =>
+        endpoint.params
+          .filter((param) => param.type === 'enum')
+          .map((param) => ({ endpoint, param })),
+      );
+      if (enumParams.length > 0) {
+        fileContent.push(`import {`);
+        enumParams.forEach(({ endpoint, param }) => {
+          fileContent.push(`  ${meta.getInputEnumParamValues(endpoint, param)},`);
+        });
+        fileContent.push(`} from '../src/client/input-models';`);
+      }
       fileContent.push('');
       fileContent.push(`describe('${inputOutputClassName}', () => {`);
 
@@ -543,6 +572,11 @@ function generateApiMd() {
         for (const param of endpoint.params) {
           const required = param.required ? ' *(required)*' : '';
           fileContent.push(` - \`${param.name}\`: ${param.type}${required}`);
+          if (param.type === 'enum') {
+            for (const enumValue of param.enumValues) {
+              fileContent.push(`   - *\`${enumValue}\`*`);
+            }
+          }
         }
       }
     }
@@ -622,6 +656,8 @@ function getHelperMockList(endpoints: meta.EndpointDef[]) {
           return 'getRandomFloat';
         case 'array':
           return 'getRandomArray';
+        case 'enum':
+          return 'getRandomFromEnum';
         default:
           return 'getRandomText';
       }
@@ -665,9 +701,13 @@ function generateTestInputs(
         break;
       case 'string':
       case 'url':
-      default:
         fileContent.push(`        const ${param.name}_data = getRandomText();`);
         break;
+      case 'enum': {
+        const paramValues = meta.getInputEnumParamValues(endpoint, param);
+        fileContent.push(`        const ${param.name}_data = getRandomFromEnum(${paramValues});`);
+        break;
+      }
     }
   }
   fileContent.push(`        await gladiaClient.${callPath}({`);

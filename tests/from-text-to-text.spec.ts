@@ -6,16 +6,11 @@ import {
   TextTextArticleGenerationModel,
   TextTextAutocorrectModel,
   TextTextBulletPointGenerationModel,
-  TextTextEmotionRecognitionModel,
-  TextTextHateSpeechDetectionModel,
-  TextTextHeadlineGenerationModel,
   TextTextIntentClassificationModel,
   TextTextNamedEntityRecognitionModel,
   TextTextNextSentencePredictionModel,
   TextTextProgrammingLanguageGenerationModel,
   TextTextSimilarityModel,
-  TextTextSummarizationModel,
-  TextTextTranslationModel,
   TextTextWordAlignmentModel,
 } from '../src/models';
 import gladia from '../src/index';
@@ -380,7 +375,7 @@ describe('FromTextToText', () => {
         const text_data = getRandomText();
         await gladiaClient.fromText().toText().emotionRecognition({
           text: text_data,
-          model: 'fake-model-name' as unknown as TextTextEmotionRecognitionModel,
+          model: 'mrm8488-t5-base-finetuned-emotion',
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -389,7 +384,7 @@ describe('FromTextToText', () => {
           'Content-Type': 'application/x-www-form-urlencoded',
         });
         expect(firstCallArgs.query).toEqual({
-          model: 'fake-model-name',
+          model: 'mrm8488-t5-base-finetuned-emotion',
         });
         expect(firstCallBody.get('text')).toEqual(text_data);
       });
@@ -414,7 +409,7 @@ describe('FromTextToText', () => {
         const text_data = getRandomText();
         await gladiaClient.emotionRecognition({
           text: text_data,
-          model: 'fake-model-name' as unknown as TextTextEmotionRecognitionModel,
+          model: 'mrm8488-t5-base-finetuned-emotion',
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -423,7 +418,7 @@ describe('FromTextToText', () => {
           'Content-Type': 'application/x-www-form-urlencoded',
         });
         expect(firstCallArgs.query).toEqual({
-          model: 'fake-model-name',
+          model: 'mrm8488-t5-base-finetuned-emotion',
         });
         expect(firstCallBody.get('text')).toEqual(text_data);
       });
@@ -459,7 +454,7 @@ describe('FromTextToText', () => {
         const text_data = getRandomText();
         await gladiaClient.fromText().toText().hateSpeechDetection({
           text: text_data,
-          model: 'fake-model-name' as unknown as TextTextHateSpeechDetectionModel,
+          model: 'Hate-speech-CNERG-dehatebert-mono-english',
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -468,7 +463,7 @@ describe('FromTextToText', () => {
           'Content-Type': 'application/x-www-form-urlencoded',
         });
         expect(firstCallArgs.query).toEqual({
-          model: 'fake-model-name',
+          model: 'Hate-speech-CNERG-dehatebert-mono-english',
         });
         expect(firstCallBody.get('text')).toEqual(text_data);
       });
@@ -493,7 +488,7 @@ describe('FromTextToText', () => {
         const text_data = getRandomText();
         await gladiaClient.hateSpeechDetection({
           text: text_data,
-          model: 'fake-model-name' as unknown as TextTextHateSpeechDetectionModel,
+          model: 'Hate-speech-CNERG-dehatebert-mono-english',
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -502,7 +497,7 @@ describe('FromTextToText', () => {
           'Content-Type': 'application/x-www-form-urlencoded',
         });
         expect(firstCallArgs.query).toEqual({
-          model: 'fake-model-name',
+          model: 'Hate-speech-CNERG-dehatebert-mono-english',
         });
         expect(firstCallBody.get('text')).toEqual(text_data);
       });
@@ -538,7 +533,7 @@ describe('FromTextToText', () => {
         const text_data = getRandomText();
         await gladiaClient.fromText().toText().headlineGeneration({
           text: text_data,
-          model: 'fake-model-name' as unknown as TextTextHeadlineGenerationModel,
+          model: 'michau-t5-base-en-generate-headline',
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -547,7 +542,7 @@ describe('FromTextToText', () => {
           'Content-Type': 'application/x-www-form-urlencoded',
         });
         expect(firstCallArgs.query).toEqual({
-          model: 'fake-model-name',
+          model: 'michau-t5-base-en-generate-headline',
         });
         expect(firstCallBody.get('text')).toEqual(text_data);
       });
@@ -572,7 +567,7 @@ describe('FromTextToText', () => {
         const text_data = getRandomText();
         await gladiaClient.headlineGeneration({
           text: text_data,
-          model: 'fake-model-name' as unknown as TextTextHeadlineGenerationModel,
+          model: 'michau-t5-base-en-generate-headline',
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -581,7 +576,7 @@ describe('FromTextToText', () => {
           'Content-Type': 'application/x-www-form-urlencoded',
         });
         expect(firstCallArgs.query).toEqual({
-          model: 'fake-model-name',
+          model: 'michau-t5-base-en-generate-headline',
         });
         expect(firstCallBody.get('text')).toEqual(text_data);
       });
@@ -1637,7 +1632,7 @@ describe('FromTextToText', () => {
         const text_data = getRandomText();
         await gladiaClient.fromText().toText().summarization({
           text: text_data,
-          model: 'fake-model-name' as unknown as TextTextSummarizationModel,
+          model: 'all-MiniLM-L6-v2',
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -1646,7 +1641,7 @@ describe('FromTextToText', () => {
           'Content-Type': 'application/x-www-form-urlencoded',
         });
         expect(firstCallArgs.query).toEqual({
-          model: 'fake-model-name',
+          model: 'all-MiniLM-L6-v2',
         });
         expect(firstCallBody.get('text')).toEqual(text_data);
       });
@@ -1671,7 +1666,7 @@ describe('FromTextToText', () => {
         const text_data = getRandomText();
         await gladiaClient.summarization({
           text: text_data,
-          model: 'fake-model-name' as unknown as TextTextSummarizationModel,
+          model: 'all-MiniLM-L6-v2',
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -1680,7 +1675,7 @@ describe('FromTextToText', () => {
           'Content-Type': 'application/x-www-form-urlencoded',
         });
         expect(firstCallArgs.query).toEqual({
-          model: 'fake-model-name',
+          model: 'all-MiniLM-L6-v2',
         });
         expect(firstCallBody.get('text')).toEqual(text_data);
       });
@@ -1726,7 +1721,7 @@ describe('FromTextToText', () => {
           text: text_data,
           source: source_data,
           target: target_data,
-          model: 'fake-model-name' as unknown as TextTextTranslationModel,
+          model: 'facebook-nllb-200-distilled-600M',
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -1735,7 +1730,7 @@ describe('FromTextToText', () => {
           'Content-Type': 'application/x-www-form-urlencoded',
         });
         expect(firstCallArgs.query).toEqual({
-          model: 'fake-model-name',
+          model: 'facebook-nllb-200-distilled-600M',
         });
         expect(firstCallBody.get('text')).toEqual(text_data);
         expect(firstCallBody.get('source')).toEqual(source_data);
@@ -1772,7 +1767,7 @@ describe('FromTextToText', () => {
           text: text_data,
           source: source_data,
           target: target_data,
-          model: 'fake-model-name' as unknown as TextTextTranslationModel,
+          model: 'facebook-nllb-200-distilled-600M',
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -1781,7 +1776,7 @@ describe('FromTextToText', () => {
           'Content-Type': 'application/x-www-form-urlencoded',
         });
         expect(firstCallArgs.query).toEqual({
-          model: 'fake-model-name',
+          model: 'facebook-nllb-200-distilled-600M',
         });
         expect(firstCallBody.get('text')).toEqual(text_data);
         expect(firstCallBody.get('source')).toEqual(source_data);

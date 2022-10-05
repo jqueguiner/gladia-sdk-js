@@ -49,7 +49,19 @@ The runtime default model is defined on the GladIA server.
  - `original_image_url`: url
  - `background_image`: image
  - `background_image_url`: url
- - `alignment`: string *(required)*
+ - `alignment`: enum *(required)*
+   - *`center`*
+   - *`top`*
+   - *`bottom`*
+   - *`left`*
+   - *`right`*
+   - *`top-left`*
+   - *`top-center`*
+   - *`top-right`*
+   - *`bottom-left`*
+   - *`bottom-center`*
+   - *`bottom-right`*
+   - *`cropped`*
 
 ### `colorization`
 
@@ -371,6 +383,7 @@ The runtime default model is defined on the GladIA server.
 #### `models`
 
  - **distilbert-base-uncased-emotion (default)**
+ - mrm8488-t5-base-finetuned-emotion
 
 #### other params
 
@@ -380,6 +393,8 @@ The runtime default model is defined on the GladIA server.
 
 #### `models`
 
+ - Hate-speech-CNERG-dehatebert-mono-english
+ - byt5-base-tweet-hate-detection
  - **distilbert-base-uncased-emotion (default)**
 
 #### other params
@@ -390,7 +405,9 @@ The runtime default model is defined on the GladIA server.
 
 #### `models`
 
- - **t5-base-en-generate-headline (default)**
+ - **jpt (default)**
+ - michau-t5-base-en-generate-headline
+ - t5-base-en-generate-headline
 
 #### other params
 
@@ -540,6 +557,7 @@ The runtime default model is defined on the GladIA server.
 
 #### `models`
 
+ - all-MiniLM-L6-v2
  - **bart-large-cnn (default)**
 
 #### other params
@@ -550,6 +568,7 @@ The runtime default model is defined on the GladIA server.
 
 #### `models`
 
+ - facebook-nllb-200-distilled-600M
  - **nllb-200-3-3b (default)**
 
 #### other params

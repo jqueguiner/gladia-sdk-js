@@ -31,6 +31,10 @@ export function getRandomArray(): string[] {
   return [getRandomText(), getRandomText()];
 }
 
+export function getRandomFromEnum<T>(values: readonly T[]): T {
+  return values[Math.floor(Math.random() * values.length)];
+}
+
 export function getPostMock(httpClientMock: HttpClient) {
   const postMock = httpClientMock.post as jest.Mock;
   const firstCallArgs = postMock.mock.calls[0][0];
