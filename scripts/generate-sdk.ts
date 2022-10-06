@@ -401,8 +401,10 @@ function generateGladiaClient() {
       )}';`,
     );
   }
+  fileContent.push(`import { GladiaClientBase } from './client/gladia-client-base';`);
+  fileContent.push(`import { applyMixins } from './utils/mixin';`);
   fileContent.push('');
-  fileContent.push('export class GladiaClient extends Shortcuts {');
+  fileContent.push('export class GladiaClient extends GladiaClientBase {');
   for (const inputType of Object.keys(endpoints)) {
     fileContent.push(
       `  private ${getClientInputMemberName(inputType)}: ${getClientInputClassName(inputType)};`,
@@ -410,11 +412,11 @@ function generateGladiaClient() {
   }
   fileContent.push('');
   fileContent.push('  constructor(params: GladiaClientParams) {');
-  fileContent.push('    super();');
   fileContent.push(`    const validatedParams: GladiaClientParams = {`);
   fileContent.push(`      ...params,`);
   fileContent.push(`      useFetch: params.useFetch ?? false,`);
-  fileContent.push(`    }`);
+  fileContent.push(`    };`);
+  fileContent.push('    super(validatedParams);');
   for (const inputType of Object.keys(endpoints)) {
     fileContent.push(
       `    this.${getClientInputMemberName(inputType)} = new ${getClientInputClassName(
@@ -423,14 +425,19 @@ function generateGladiaClient() {
     );
   }
   fileContent.push('  }');
-  fileContent.push('');
   for (const inputType of Object.keys(endpoints)) {
+    fileContent.push('');
     fileContent.push(`  ${getClientInputMethodName(inputType)}() {`);
     fileContent.push(`    return this.${getClientInputMemberName(inputType)};`);
     fileContent.push(`  }`);
-    fileContent.push('');
   }
   fileContent.push('}');
+  fileContent.push('');
+  fileContent.push(
+    `// extending this interface and applying mixin here is a multi-inheritance simulation`,
+  );
+  fileContent.push(`export interface GladiaClient extends GladiaClientBase, Shortcuts {}`);
+  fileContent.push(`applyMixins(GladiaClient, [Shortcuts]);`);
   fileContent.push('');
   fs.writeFileSync('./src/gladia-client.ts', fileContent.join('\n'));
 }
