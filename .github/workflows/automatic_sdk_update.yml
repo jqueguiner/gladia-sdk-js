@@ -1,4 +1,4 @@
-name: continuous integration delivery
+name: automatic SDK update
 on: 
   schedule:
     - cron: '0 */2 * * 1-5'

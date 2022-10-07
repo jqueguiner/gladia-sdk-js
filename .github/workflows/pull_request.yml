@@ -1,4 +1,4 @@
-name: continuous integration delivery
+name: PR checks
 on: 
   pull_request:
 
