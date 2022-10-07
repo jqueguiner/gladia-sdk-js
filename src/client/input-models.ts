@@ -20,6 +20,7 @@ import {
   TextTextArticleGenerationModel,
   TextTextAutocorrectModel,
   TextTextBulletPointGenerationModel,
+  TextTextConversationSummarizationModel,
   TextTextEmotionRecognitionModel,
   TextTextHateSpeechDetectionModel,
   TextTextHeadlineGenerationModel,
@@ -160,6 +161,10 @@ export interface TextTextBulletPointGenerationInputs
   extends WithHeaders, WithModel<TextTextBulletPointGenerationModel> {
   text?: string;
   bullets?: number;
+}
+export interface TextTextConversationSummarizationInputs 
+  extends WithHeaders, WithModel<TextTextConversationSummarizationModel> {
+  text: string;
 }
 export interface TextTextEmotionRecognitionInputs 
   extends WithHeaders, WithModel<TextTextEmotionRecognitionModel> {

@@ -378,6 +378,16 @@ The runtime default model is defined on the GladIA server.
  - `text`: string
  - `bullets`: integer
 
+### `conversation-summarization`
+
+#### `models`
+
+ - **bart-large-xsum-samsum (default)**
+
+#### other params
+
+ - `text`: string *(required)*
+
 ### `emotion-recognition`
 
 #### `models`

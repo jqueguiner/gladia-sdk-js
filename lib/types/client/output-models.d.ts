@@ -35,6 +35,10 @@ export declare type TextTextAutocorrectOutputs = {
     prediction_raw: unknown;
 };
 export declare type TextTextBulletPointGenerationOutputs = Record<string, string | number | boolean>;
+export declare type TextTextConversationSummarizationOutputs = {
+    prediction: string;
+    prediction_raw: unknown;
+};
 export declare type TextTextEmotionRecognitionOutputs = {
     prediction: string;
     prediction_raw: unknown;

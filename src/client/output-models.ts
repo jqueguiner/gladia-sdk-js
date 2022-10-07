@@ -38,6 +38,10 @@ export type TextTextAutocorrectOutputs = {
   prediction_raw: unknown,
 };
 export type TextTextBulletPointGenerationOutputs = Record<string, string | number | boolean>;
+export type TextTextConversationSummarizationOutputs = {
+  prediction: string,
+  prediction_raw: unknown,
+};
 export type TextTextEmotionRecognitionOutputs = {
   prediction: string,
   prediction_raw: unknown,

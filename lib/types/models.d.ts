@@ -55,6 +55,9 @@ export declare type TextTextAutocorrectModel = typeof TEXT_TEXT_AUTOCORRECT_MODE
 export declare const TEXT_TEXT_BULLET_POINT_GENERATION_MODELS: readonly ["jpt"];
 export declare const TEXT_TEXT_BULLET_POINT_GENERATION_CONTENT_TYPE: "application/x-www-form-urlencoded";
 export declare type TextTextBulletPointGenerationModel = typeof TEXT_TEXT_BULLET_POINT_GENERATION_MODELS[number];
+export declare const TEXT_TEXT_CONVERSATION_SUMMARIZATION_MODELS: readonly ["bart-large-xsum-samsum"];
+export declare const TEXT_TEXT_CONVERSATION_SUMMARIZATION_CONTENT_TYPE: "application/x-www-form-urlencoded";
+export declare type TextTextConversationSummarizationModel = typeof TEXT_TEXT_CONVERSATION_SUMMARIZATION_MODELS[number];
 export declare const TEXT_TEXT_EMOTION_RECOGNITION_MODELS: readonly ["distilbert-base-uncased-emotion", "mrm8488-t5-base-finetuned-emotion"];
 export declare const TEXT_TEXT_EMOTION_RECOGNITION_CONTENT_TYPE: "application/x-www-form-urlencoded";
 export declare type TextTextEmotionRecognitionModel = typeof TEXT_TEXT_EMOTION_RECOGNITION_MODELS[number];

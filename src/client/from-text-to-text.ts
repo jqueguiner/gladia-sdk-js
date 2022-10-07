@@ -5,6 +5,7 @@ import {
   TextTextArticleGenerationInputs,
   TextTextAutocorrectInputs,
   TextTextBulletPointGenerationInputs,
+  TextTextConversationSummarizationInputs,
   TextTextEmotionRecognitionInputs,
   TextTextHateSpeechDetectionInputs,
   TextTextHeadlineGenerationInputs,
@@ -29,6 +30,7 @@ import {
   TextTextArticleGenerationOutputs,
   TextTextAutocorrectOutputs,
   TextTextBulletPointGenerationOutputs,
+  TextTextConversationSummarizationOutputs,
   TextTextEmotionRecognitionOutputs,
   TextTextHateSpeechDetectionOutputs,
   TextTextHeadlineGenerationOutputs,
@@ -53,6 +55,7 @@ import {
   TEXT_TEXT_ARTICLE_GENERATION_CONTENT_TYPE,
   TEXT_TEXT_AUTOCORRECT_CONTENT_TYPE,
   TEXT_TEXT_BULLET_POINT_GENERATION_CONTENT_TYPE,
+  TEXT_TEXT_CONVERSATION_SUMMARIZATION_CONTENT_TYPE,
   TEXT_TEXT_EMOTION_RECOGNITION_CONTENT_TYPE,
   TEXT_TEXT_HATE_SPEECH_DETECTION_CONTENT_TYPE,
   TEXT_TEXT_HEADLINE_GENERATION_CONTENT_TYPE,
@@ -148,6 +151,22 @@ export class FromTextToText {
       url: '/text/text/bullet-point-generation/',
       headers: {
         'Content-Type': TEXT_TEXT_BULLET_POINT_GENERATION_CONTENT_TYPE,
+        ...(args.headers ?? {}),
+      },
+      query: {
+        ...(args.model ? {model: args.model} : {}),
+      },
+      body: formData.toString(),
+    });
+  }
+
+  conversationSummarization(args: TextTextConversationSummarizationInputs): Promise<TextTextConversationSummarizationOutputs> {
+    const formData = new UrlFormData();
+    formData.append('text', args.text);
+    return this.httpClient.post({
+      url: '/text/text/conversation-summarization/',
+      headers: {
+        'Content-Type': TEXT_TEXT_CONVERSATION_SUMMARIZATION_CONTENT_TYPE,
         ...(args.headers ?? {}),
       },
       query: {

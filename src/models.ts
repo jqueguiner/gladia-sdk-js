@@ -247,6 +247,12 @@ export const TEXT_TEXT_BULLET_POINT_GENERATION_MODELS = [
 export const TEXT_TEXT_BULLET_POINT_GENERATION_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
 export type TextTextBulletPointGenerationModel = typeof TEXT_TEXT_BULLET_POINT_GENERATION_MODELS[number];
 
+export const TEXT_TEXT_CONVERSATION_SUMMARIZATION_MODELS = [
+   'bart-large-xsum-samsum',
+] as const;
+export const TEXT_TEXT_CONVERSATION_SUMMARIZATION_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
+export type TextTextConversationSummarizationModel = typeof TEXT_TEXT_CONVERSATION_SUMMARIZATION_MODELS[number];
+
 export const TEXT_TEXT_EMOTION_RECOGNITION_MODELS = [
    'distilbert-base-uncased-emotion',
    'mrm8488-t5-base-finetuned-emotion',

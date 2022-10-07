@@ -28,6 +28,7 @@ import {
   TextTextArticleGenerationInputs,
   TextTextAutocorrectInputs,
   TextTextBulletPointGenerationInputs,
+  TextTextConversationSummarizationInputs,
   TextTextEmotionRecognitionInputs,
   TextTextHateSpeechDetectionInputs,
   TextTextHeadlineGenerationInputs,
@@ -69,6 +70,7 @@ import {
   TextTextArticleGenerationOutputs,
   TextTextAutocorrectOutputs,
   TextTextBulletPointGenerationOutputs,
+  TextTextConversationSummarizationOutputs,
   TextTextEmotionRecognitionOutputs,
   TextTextHateSpeechDetectionOutputs,
   TextTextHeadlineGenerationOutputs,
@@ -189,6 +191,10 @@ export abstract class Shortcuts implements
 
   bulletPointGeneration(args: TextTextBulletPointGenerationInputs): Promise<TextTextBulletPointGenerationOutputs> {
     return this.fromText().toText().bulletPointGeneration(args);
+  }
+
+  conversationSummarization(args: TextTextConversationSummarizationInputs): Promise<TextTextConversationSummarizationOutputs> {
+    return this.fromText().toText().conversationSummarization(args);
   }
 
   emotionRecognition(args: TextTextEmotionRecognitionInputs): Promise<TextTextEmotionRecognitionOutputs> {
