@@ -1,9 +1,6 @@
 name: continuous integration delivery
 on: 
-  # run if there is a push to main branch
-  push:
-    branches:    
-      - 'main'
+  pull_request:
 
 jobs:
 
@@ -23,12 +20,6 @@ jobs:
 
       - name: install npm dependencies
         run: npm ci
-        
-      - name: increment version
-        run: |
-          git config user.email "apena@gladia.io"
-          git config user.name "GladIA CI"
-          npm version patch -m "[release] %s"
 
       - name: generate metadata
         run: npm run generate-metadata
@@ -44,18 +35,3 @@ jobs:
 
       - name: build the application
         run: npm run build
-
-      - name: create release
-        run: |
-          git add .
-          COMMIT_MSG=`git show --format=format:%B -s`
-          git commit --amend -m "$COMMIT_MSG [skip ci]"
-
-      - name: Push release
-        uses: CasperWA/push-protected@v2
-        with:
-          token: ${{ secrets.PUSH_TO_MAIN }}
-          branch: main
-          tags: true
-
-

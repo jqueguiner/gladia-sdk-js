@@ -1,9 +1,7 @@
 name: continuous integration delivery
 on: 
-  # run if there is a push to main branch
-  push:
-    branches:    
-      - 'main'
+  schedule:
+    - cron: '0 */2 * * 1-5'
 
 jobs:
 
@@ -33,25 +31,36 @@ jobs:
       - name: generate metadata
         run: npm run generate-metadata
 
+      - name: should we update the sdk?
+        # this commit will return 1 if there is some modification on the listed files, 0 otherwise
+        # if the result is zero we stop the job here, because we consider there is no modifications
+        run: echo "SHOULD_UPDATE=$(git diff --shortstat -- src/meta/endpoint-defs.ts | wc -l)" >> $GITHUB_ENV
+
       - name: generate sdk
+        if: ${{ env.SHOULD_UPDATE != 0 }}
         run: npm run generate-sdk
 
       - name: lint
+        if: ${{ env.SHOULD_UPDATE != 0 }}
         run: npm run lint
 
       - name: tests
+        if: ${{ env.SHOULD_UPDATE != 0 }}
         run: npm run test
 
       - name: build the application
+        if: ${{ env.SHOULD_UPDATE != 0 }}
         run: npm run build
 
       - name: create release
+        if: ${{ env.SHOULD_UPDATE != 0 }}
         run: |
           git add .
           COMMIT_MSG=`git show --format=format:%B -s`
           git commit --amend -m "$COMMIT_MSG [skip ci]"
 
       - name: Push release
+        if: ${{ env.SHOULD_UPDATE != 0 }}
         uses: CasperWA/push-protected@v2
         with:
           token: ${{ secrets.PUSH_TO_MAIN }}
