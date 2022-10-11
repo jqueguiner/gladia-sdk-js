@@ -3,3 +3,4 @@ _lib/
 lib/*.tsbuildinfo
 coverage/
 openapi.json
+.DS_Store
