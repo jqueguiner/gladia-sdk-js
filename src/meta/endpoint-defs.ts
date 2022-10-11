@@ -596,7 +596,7 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
       "tesseract-denoising",
       "textract-extractor"
     ],
-    "defaultModel": "tesseract-denoising",
+    "defaultModel": "textract-extractor",
     "inputBodyContentType": "multipart/form-data",
     "outputBodyContentType": {
       "type": "prediction-standard-output",
@@ -809,7 +809,7 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
         "in": "formData",
         "type": "string",
         "name": "text",
-        "required": false
+        "required": true
       }
     ],
     "hasSamplesParam": false
@@ -835,7 +835,7 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
         "in": "formData",
         "type": "string",
         "name": "text",
-        "required": false
+        "required": true
       }
     ],
     "hasSamplesParam": false
@@ -861,7 +861,13 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
         "in": "formData",
         "type": "string",
         "name": "text",
-        "required": false
+        "required": true
+      },
+      {
+        "in": "formData",
+        "type": "integer",
+        "name": "max_length",
+        "required": true
       }
     ],
     "hasSamplesParam": false
@@ -926,10 +932,11 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
     "outputType": "text",
     "taskName": "language-detection",
     "models": [
+      "deepl",
       "toftrup-etal-2021",
       "xlm-roberta-base-language-detection"
     ],
-    "defaultModel": "xlm-roberta-base-language-detection",
+    "defaultModel": "deepl",
     "inputBodyContentType": "application/x-www-form-urlencoded",
     "outputBodyContentType": {
       "type": "prediction-standard-output",
@@ -1223,6 +1230,24 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
         "in": "formData",
         "type": "string",
         "name": "text",
+        "required": true
+      },
+      {
+        "in": "formData",
+        "type": "string",
+        "name": "source_language",
+        "required": true
+      },
+      {
+        "in": "formData",
+        "type": "integer",
+        "name": "min_length",
+        "required": false
+      },
+      {
+        "in": "formData",
+        "type": "integer",
+        "name": "max_length",
         "required": false
       }
     ],
@@ -1234,10 +1259,11 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
     "outputType": "text",
     "taskName": "translation",
     "models": [
+      "deepl",
       "facebook-nllb-200-distilled-600M",
       "nllb-200-3-3b"
     ],
-    "defaultModel": "nllb-200-3-3b",
+    "defaultModel": "deepl",
     "inputBodyContentType": "application/x-www-form-urlencoded",
     "outputBodyContentType": {
       "type": "prediction-standard-output",
@@ -1247,20 +1273,20 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
       {
         "in": "formData",
         "type": "string",
-        "name": "text",
-        "required": false
+        "name": "input_string",
+        "required": true
       },
       {
         "in": "formData",
         "type": "string",
-        "name": "source",
-        "required": false
+        "name": "source_language",
+        "required": true
       },
       {
         "in": "formData",
         "type": "string",
-        "name": "target",
-        "required": false
+        "name": "target_language",
+        "required": true
       }
     ],
     "hasSamplesParam": false

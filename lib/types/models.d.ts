@@ -73,7 +73,7 @@ export declare type TextTextIntentClassificationModel = typeof TEXT_TEXT_INTENT_
 export declare const TEXT_TEXT_KEYWORD_EXTRACTION_MODELS: readonly ["keybert-paraphrase-MiniLM-L6-v2", "keybert-paraphrase-multilingual-MiniLM-L12-v2"];
 export declare const TEXT_TEXT_KEYWORD_EXTRACTION_CONTENT_TYPE: "application/x-www-form-urlencoded";
 export declare type TextTextKeywordExtractionModel = typeof TEXT_TEXT_KEYWORD_EXTRACTION_MODELS[number];
-export declare const TEXT_TEXT_LANGUAGE_DETECTION_MODELS: readonly ["toftrup-etal-2021", "xlm-roberta-base-language-detection"];
+export declare const TEXT_TEXT_LANGUAGE_DETECTION_MODELS: readonly ["deepl", "toftrup-etal-2021", "xlm-roberta-base-language-detection"];
 export declare const TEXT_TEXT_LANGUAGE_DETECTION_CONTENT_TYPE: "application/x-www-form-urlencoded";
 export declare type TextTextLanguageDetectionModel = typeof TEXT_TEXT_LANGUAGE_DETECTION_MODELS[number];
 export declare const TEXT_TEXT_LANGUAGE_GENERATION_MODELS: readonly ["EleutherAI-gpt-neo-2_7B", "bloom-560m"];
@@ -106,7 +106,7 @@ export declare type TextTextSimilarityModel = typeof TEXT_TEXT_SIMILARITY_MODELS
 export declare const TEXT_TEXT_SUMMARIZATION_MODELS: readonly ["all-MiniLM-L6-v2", "bart-large-cnn"];
 export declare const TEXT_TEXT_SUMMARIZATION_CONTENT_TYPE: "application/x-www-form-urlencoded";
 export declare type TextTextSummarizationModel = typeof TEXT_TEXT_SUMMARIZATION_MODELS[number];
-export declare const TEXT_TEXT_TRANSLATION_MODELS: readonly ["facebook-nllb-200-distilled-600M", "nllb-200-3-3b"];
+export declare const TEXT_TEXT_TRANSLATION_MODELS: readonly ["deepl", "facebook-nllb-200-distilled-600M", "nllb-200-3-3b"];
 export declare const TEXT_TEXT_TRANSLATION_CONTENT_TYPE: "application/x-www-form-urlencoded";
 export declare type TextTextTranslationModel = typeof TEXT_TEXT_TRANSLATION_MODELS[number];
 export declare const TEXT_TEXT_WORD_ALIGNMENT_MODELS: readonly ["bert-base-multilingual-cased"];

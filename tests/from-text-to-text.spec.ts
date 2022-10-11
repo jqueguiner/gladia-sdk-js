@@ -596,8 +596,10 @@ describe('FromTextToText', () => {
     describe('full path', () => {
       it('should call the api with the text and the default model by default', async () => {
         const text_data = getRandomText();
+        const max_length_data = getRandomInt();
         await gladiaClient.fromText().toText().headlineGeneration({
           text: text_data,
+          max_length: max_length_data,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -608,11 +610,14 @@ describe('FromTextToText', () => {
         expect(firstCallArgs.query).toEqual({
         });
         expect(firstCallBody.get('text')).toEqual(text_data);
+        expect(firstCallBody.get('max_length')).toEqual(String(max_length_data));
       });
       it('should call the api with the text and the specified model', async () => {
         const text_data = getRandomText();
+        const max_length_data = getRandomInt();
         await gladiaClient.fromText().toText().headlineGeneration({
           text: text_data,
+          max_length: max_length_data,
           model: 'michau-t5-base-en-generate-headline',
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
@@ -625,13 +630,16 @@ describe('FromTextToText', () => {
           model: 'michau-t5-base-en-generate-headline',
         });
         expect(firstCallBody.get('text')).toEqual(text_data);
+        expect(firstCallBody.get('max_length')).toEqual(String(max_length_data));
       });
     });
     describe('shortcuts', () => {
       it('should call the api with the text and the default model by default', async () => {
         const text_data = getRandomText();
+        const max_length_data = getRandomInt();
         await gladiaClient.headlineGeneration({
           text: text_data,
+          max_length: max_length_data,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -642,11 +650,14 @@ describe('FromTextToText', () => {
         expect(firstCallArgs.query).toEqual({
         });
         expect(firstCallBody.get('text')).toEqual(text_data);
+        expect(firstCallBody.get('max_length')).toEqual(String(max_length_data));
       });
       it('should call the api with the text and the specified model', async () => {
         const text_data = getRandomText();
+        const max_length_data = getRandomInt();
         await gladiaClient.headlineGeneration({
           text: text_data,
+          max_length: max_length_data,
           model: 'michau-t5-base-en-generate-headline',
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
@@ -659,6 +670,7 @@ describe('FromTextToText', () => {
           model: 'michau-t5-base-en-generate-headline',
         });
         expect(firstCallBody.get('text')).toEqual(text_data);
+        expect(firstCallBody.get('max_length')).toEqual(String(max_length_data));
       });
     });
   });
@@ -1695,8 +1707,14 @@ describe('FromTextToText', () => {
     describe('full path', () => {
       it('should call the api with the text and the default model by default', async () => {
         const text_data = getRandomText();
+        const source_language_data = getRandomText();
+        const min_length_data = getRandomInt();
+        const max_length_data = getRandomInt();
         await gladiaClient.fromText().toText().summarization({
           text: text_data,
+          source_language: source_language_data,
+          min_length: min_length_data,
+          max_length: max_length_data,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -1707,11 +1725,20 @@ describe('FromTextToText', () => {
         expect(firstCallArgs.query).toEqual({
         });
         expect(firstCallBody.get('text')).toEqual(text_data);
+        expect(firstCallBody.get('source_language')).toEqual(source_language_data);
+        expect(firstCallBody.get('min_length')).toEqual(String(min_length_data));
+        expect(firstCallBody.get('max_length')).toEqual(String(max_length_data));
       });
       it('should call the api with the text and the specified model', async () => {
         const text_data = getRandomText();
+        const source_language_data = getRandomText();
+        const min_length_data = getRandomInt();
+        const max_length_data = getRandomInt();
         await gladiaClient.fromText().toText().summarization({
           text: text_data,
+          source_language: source_language_data,
+          min_length: min_length_data,
+          max_length: max_length_data,
           model: 'all-MiniLM-L6-v2',
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
@@ -1724,13 +1751,22 @@ describe('FromTextToText', () => {
           model: 'all-MiniLM-L6-v2',
         });
         expect(firstCallBody.get('text')).toEqual(text_data);
+        expect(firstCallBody.get('source_language')).toEqual(source_language_data);
+        expect(firstCallBody.get('min_length')).toEqual(String(min_length_data));
+        expect(firstCallBody.get('max_length')).toEqual(String(max_length_data));
       });
     });
     describe('shortcuts', () => {
       it('should call the api with the text and the default model by default', async () => {
         const text_data = getRandomText();
+        const source_language_data = getRandomText();
+        const min_length_data = getRandomInt();
+        const max_length_data = getRandomInt();
         await gladiaClient.summarization({
           text: text_data,
+          source_language: source_language_data,
+          min_length: min_length_data,
+          max_length: max_length_data,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -1741,11 +1777,20 @@ describe('FromTextToText', () => {
         expect(firstCallArgs.query).toEqual({
         });
         expect(firstCallBody.get('text')).toEqual(text_data);
+        expect(firstCallBody.get('source_language')).toEqual(source_language_data);
+        expect(firstCallBody.get('min_length')).toEqual(String(min_length_data));
+        expect(firstCallBody.get('max_length')).toEqual(String(max_length_data));
       });
       it('should call the api with the text and the specified model', async () => {
         const text_data = getRandomText();
+        const source_language_data = getRandomText();
+        const min_length_data = getRandomInt();
+        const max_length_data = getRandomInt();
         await gladiaClient.summarization({
           text: text_data,
+          source_language: source_language_data,
+          min_length: min_length_data,
+          max_length: max_length_data,
           model: 'all-MiniLM-L6-v2',
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
@@ -1758,6 +1803,9 @@ describe('FromTextToText', () => {
           model: 'all-MiniLM-L6-v2',
         });
         expect(firstCallBody.get('text')).toEqual(text_data);
+        expect(firstCallBody.get('source_language')).toEqual(source_language_data);
+        expect(firstCallBody.get('min_length')).toEqual(String(min_length_data));
+        expect(firstCallBody.get('max_length')).toEqual(String(max_length_data));
       });
     });
   });
@@ -1773,13 +1821,13 @@ describe('FromTextToText', () => {
 
     describe('full path', () => {
       it('should call the api with the text and the default model by default', async () => {
-        const text_data = getRandomText();
-        const source_data = getRandomText();
-        const target_data = getRandomText();
+        const input_string_data = getRandomText();
+        const source_language_data = getRandomText();
+        const target_language_data = getRandomText();
         await gladiaClient.fromText().toText().translation({
-          text: text_data,
-          source: source_data,
-          target: target_data,
+          input_string: input_string_data,
+          source_language: source_language_data,
+          target_language: target_language_data,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -1789,18 +1837,18 @@ describe('FromTextToText', () => {
         });
         expect(firstCallArgs.query).toEqual({
         });
-        expect(firstCallBody.get('text')).toEqual(text_data);
-        expect(firstCallBody.get('source')).toEqual(source_data);
-        expect(firstCallBody.get('target')).toEqual(target_data);
+        expect(firstCallBody.get('input_string')).toEqual(input_string_data);
+        expect(firstCallBody.get('source_language')).toEqual(source_language_data);
+        expect(firstCallBody.get('target_language')).toEqual(target_language_data);
       });
       it('should call the api with the text and the specified model', async () => {
-        const text_data = getRandomText();
-        const source_data = getRandomText();
-        const target_data = getRandomText();
+        const input_string_data = getRandomText();
+        const source_language_data = getRandomText();
+        const target_language_data = getRandomText();
         await gladiaClient.fromText().toText().translation({
-          text: text_data,
-          source: source_data,
-          target: target_data,
+          input_string: input_string_data,
+          source_language: source_language_data,
+          target_language: target_language_data,
           model: 'facebook-nllb-200-distilled-600M',
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
@@ -1812,20 +1860,20 @@ describe('FromTextToText', () => {
         expect(firstCallArgs.query).toEqual({
           model: 'facebook-nllb-200-distilled-600M',
         });
-        expect(firstCallBody.get('text')).toEqual(text_data);
-        expect(firstCallBody.get('source')).toEqual(source_data);
-        expect(firstCallBody.get('target')).toEqual(target_data);
+        expect(firstCallBody.get('input_string')).toEqual(input_string_data);
+        expect(firstCallBody.get('source_language')).toEqual(source_language_data);
+        expect(firstCallBody.get('target_language')).toEqual(target_language_data);
       });
     });
     describe('shortcuts', () => {
       it('should call the api with the text and the default model by default', async () => {
-        const text_data = getRandomText();
-        const source_data = getRandomText();
-        const target_data = getRandomText();
+        const input_string_data = getRandomText();
+        const source_language_data = getRandomText();
+        const target_language_data = getRandomText();
         await gladiaClient.translation({
-          text: text_data,
-          source: source_data,
-          target: target_data,
+          input_string: input_string_data,
+          source_language: source_language_data,
+          target_language: target_language_data,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -1835,18 +1883,18 @@ describe('FromTextToText', () => {
         });
         expect(firstCallArgs.query).toEqual({
         });
-        expect(firstCallBody.get('text')).toEqual(text_data);
-        expect(firstCallBody.get('source')).toEqual(source_data);
-        expect(firstCallBody.get('target')).toEqual(target_data);
+        expect(firstCallBody.get('input_string')).toEqual(input_string_data);
+        expect(firstCallBody.get('source_language')).toEqual(source_language_data);
+        expect(firstCallBody.get('target_language')).toEqual(target_language_data);
       });
       it('should call the api with the text and the specified model', async () => {
-        const text_data = getRandomText();
-        const source_data = getRandomText();
-        const target_data = getRandomText();
+        const input_string_data = getRandomText();
+        const source_language_data = getRandomText();
+        const target_language_data = getRandomText();
         await gladiaClient.translation({
-          text: text_data,
-          source: source_data,
-          target: target_data,
+          input_string: input_string_data,
+          source_language: source_language_data,
+          target_language: target_language_data,
           model: 'facebook-nllb-200-distilled-600M',
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
@@ -1858,9 +1906,9 @@ describe('FromTextToText', () => {
         expect(firstCallArgs.query).toEqual({
           model: 'facebook-nllb-200-distilled-600M',
         });
-        expect(firstCallBody.get('text')).toEqual(text_data);
-        expect(firstCallBody.get('source')).toEqual(source_data);
-        expect(firstCallBody.get('target')).toEqual(target_data);
+        expect(firstCallBody.get('input_string')).toEqual(input_string_data);
+        expect(firstCallBody.get('source_language')).toEqual(source_language_data);
+        expect(firstCallBody.get('target_language')).toEqual(target_language_data);
       });
     });
   });

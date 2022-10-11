@@ -310,8 +310,8 @@ The runtime default model is defined on the GladIA server.
 
  - easy-ocr
  - tesseract-default
- - **tesseract-denoising (default)**
- - textract-extractor
+ - tesseract-denoising
+ - **textract-extractor (default)**
 
 #### other params
 
@@ -397,7 +397,7 @@ The runtime default model is defined on the GladIA server.
 
 #### other params
 
- - `text`: string
+ - `text`: string *(required)*
 
 ### `hate-speech-detection`
 
@@ -409,7 +409,7 @@ The runtime default model is defined on the GladIA server.
 
 #### other params
 
- - `text`: string
+ - `text`: string *(required)*
 
 ### `headline-generation`
 
@@ -421,7 +421,8 @@ The runtime default model is defined on the GladIA server.
 
 #### other params
 
- - `text`: string
+ - `text`: string *(required)*
+ - `max_length`: integer *(required)*
 
 ### `intent-classification`
 
@@ -449,8 +450,9 @@ The runtime default model is defined on the GladIA server.
 
 #### `models`
 
+ - **deepl (default)**
  - toftrup-etal-2021
- - **xlm-roberta-base-language-detection (default)**
+ - xlm-roberta-base-language-detection
 
 #### other params
 
@@ -572,20 +574,24 @@ The runtime default model is defined on the GladIA server.
 
 #### other params
 
- - `text`: string
+ - `text`: string *(required)*
+ - `source_language`: string *(required)*
+ - `min_length`: integer
+ - `max_length`: integer
 
 ### `translation`
 
 #### `models`
 
+ - **deepl (default)**
  - facebook-nllb-200-distilled-600M
- - **nllb-200-3-3b (default)**
+ - nllb-200-3-3b
 
 #### other params
 
- - `text`: string
- - `source`: string
- - `target`: string
+ - `input_string`: string *(required)*
+ - `source_language`: string *(required)*
+ - `target_language`: string *(required)*
 
 ### `word-alignment`
 

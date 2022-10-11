@@ -178,9 +178,7 @@ export class FromTextToText {
 
   emotionRecognition(args: TextTextEmotionRecognitionInputs): Promise<TextTextEmotionRecognitionOutputs> {
     const formData = new UrlFormData();
-    if (isDefined(args.text)) {
-      formData.append('text', args.text);
-    }
+    formData.append('text', args.text);
     return this.httpClient.post({
       url: '/text/text/emotion-recognition/',
       headers: {
@@ -196,9 +194,7 @@ export class FromTextToText {
 
   hateSpeechDetection(args: TextTextHateSpeechDetectionInputs): Promise<TextTextHateSpeechDetectionOutputs> {
     const formData = new UrlFormData();
-    if (isDefined(args.text)) {
-      formData.append('text', args.text);
-    }
+    formData.append('text', args.text);
     return this.httpClient.post({
       url: '/text/text/hate-speech-detection/',
       headers: {
@@ -214,9 +210,8 @@ export class FromTextToText {
 
   headlineGeneration(args: TextTextHeadlineGenerationInputs): Promise<TextTextHeadlineGenerationOutputs> {
     const formData = new UrlFormData();
-    if (isDefined(args.text)) {
-      formData.append('text', args.text);
-    }
+    formData.append('text', args.text);
+    formData.append('max_length', String(args.max_length));
     return this.httpClient.post({
       url: '/text/text/headline-generation/',
       headers: {
@@ -438,8 +433,13 @@ export class FromTextToText {
 
   summarization(args: TextTextSummarizationInputs): Promise<TextTextSummarizationOutputs> {
     const formData = new UrlFormData();
-    if (isDefined(args.text)) {
-      formData.append('text', args.text);
+    formData.append('text', args.text);
+    formData.append('source_language', args.source_language);
+    if (isDefined(args.min_length)) {
+      formData.append('min_length', String(args.min_length));
+    }
+    if (isDefined(args.max_length)) {
+      formData.append('max_length', String(args.max_length));
     }
     return this.httpClient.post({
       url: '/text/text/summarization/',
@@ -456,15 +456,9 @@ export class FromTextToText {
 
   translation(args: TextTextTranslationInputs): Promise<TextTextTranslationOutputs> {
     const formData = new UrlFormData();
-    if (isDefined(args.text)) {
-      formData.append('text', args.text);
-    }
-    if (isDefined(args.source)) {
-      formData.append('source', args.source);
-    }
-    if (isDefined(args.target)) {
-      formData.append('target', args.target);
-    }
+    formData.append('input_string', args.input_string);
+    formData.append('source_language', args.source_language);
+    formData.append('target_language', args.target_language);
     return this.httpClient.post({
       url: '/text/text/translation/',
       headers: {

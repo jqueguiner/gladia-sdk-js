@@ -92,13 +92,14 @@ export interface TextTextConversationSummarizationInputs extends WithHeaders, Wi
     text: string;
 }
 export interface TextTextEmotionRecognitionInputs extends WithHeaders, WithModel<TextTextEmotionRecognitionModel> {
-    text?: string;
+    text: string;
 }
 export interface TextTextHateSpeechDetectionInputs extends WithHeaders, WithModel<TextTextHateSpeechDetectionModel> {
-    text?: string;
+    text: string;
 }
 export interface TextTextHeadlineGenerationInputs extends WithHeaders, WithModel<TextTextHeadlineGenerationModel> {
-    text?: string;
+    text: string;
+    max_length: number;
 }
 export interface TextTextIntentClassificationInputs extends WithHeaders, WithModel<TextTextIntentClassificationModel> {
     text?: string;
@@ -143,12 +144,15 @@ export interface TextTextSimilarityInputs extends WithHeaders, WithModel<TextTex
     sentence_2: string;
 }
 export interface TextTextSummarizationInputs extends WithHeaders, WithModel<TextTextSummarizationModel> {
-    text?: string;
+    text: string;
+    source_language: string;
+    min_length?: number;
+    max_length?: number;
 }
 export interface TextTextTranslationInputs extends WithHeaders, WithModel<TextTextTranslationModel> {
-    text?: string;
-    source?: string;
-    target?: string;
+    input_string: string;
+    source_language: string;
+    target_language: string;
 }
 export interface TextTextWordAlignmentInputs extends WithHeaders, WithModel<TextTextWordAlignmentModel> {
     input_string_language_1: string;

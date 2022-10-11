@@ -290,6 +290,7 @@ export const TEXT_TEXT_KEYWORD_EXTRACTION_CONTENT_TYPE = "application/x-www-form
 export type TextTextKeywordExtractionModel = typeof TEXT_TEXT_KEYWORD_EXTRACTION_MODELS[number];
 
 export const TEXT_TEXT_LANGUAGE_DETECTION_MODELS = [
+   'deepl',
    'toftrup-etal-2021',
    'xlm-roberta-base-language-detection',
 ] as const;
@@ -370,6 +371,7 @@ export const TEXT_TEXT_SUMMARIZATION_CONTENT_TYPE = "application/x-www-form-urle
 export type TextTextSummarizationModel = typeof TEXT_TEXT_SUMMARIZATION_MODELS[number];
 
 export const TEXT_TEXT_TRANSLATION_MODELS = [
+   'deepl',
    'facebook-nllb-200-distilled-600M',
    'nllb-200-3-3b',
 ] as const;
