@@ -2,11 +2,19 @@
 
 import {
   TextTextAdGenerationInputs,
+  TextTextAddressFormattingInputs,
+  TextTextAgeFromNameInputs,
   TextTextArticleGenerationInputs,
   TextTextAutocorrectInputs,
   TextTextBulletPointGenerationInputs,
+  TextTextCleanCityInputs,
+  TextTextCleanCountryInputs,
+  TextTextCommandGenerationInputs,
   TextTextConversationSummarizationInputs,
+  TextTextCountryFromNameInputs,
   TextTextEmotionRecognitionInputs,
+  TextTextGenderFromNameInputs,
+  TextTextGpsAddressFormattingInputs,
   TextTextHateSpeechDetectionInputs,
   TextTextHeadlineGenerationInputs,
   TextTextIntentClassificationInputs,
@@ -27,11 +35,19 @@ import {
 } from './input-models';
 import {
   TextTextAdGenerationOutputs,
+  TextTextAddressFormattingOutputs,
+  TextTextAgeFromNameOutputs,
   TextTextArticleGenerationOutputs,
   TextTextAutocorrectOutputs,
   TextTextBulletPointGenerationOutputs,
+  TextTextCleanCityOutputs,
+  TextTextCleanCountryOutputs,
+  TextTextCommandGenerationOutputs,
   TextTextConversationSummarizationOutputs,
+  TextTextCountryFromNameOutputs,
   TextTextEmotionRecognitionOutputs,
+  TextTextGenderFromNameOutputs,
+  TextTextGpsAddressFormattingOutputs,
   TextTextHateSpeechDetectionOutputs,
   TextTextHeadlineGenerationOutputs,
   TextTextIntentClassificationOutputs,
@@ -52,11 +68,19 @@ import {
 } from './output-models';
 import {
   TEXT_TEXT_AD_GENERATION_CONTENT_TYPE,
+  TEXT_TEXT_ADDRESS_FORMATTING_CONTENT_TYPE,
+  TEXT_TEXT_AGE_FROM_NAME_CONTENT_TYPE,
   TEXT_TEXT_ARTICLE_GENERATION_CONTENT_TYPE,
   TEXT_TEXT_AUTOCORRECT_CONTENT_TYPE,
   TEXT_TEXT_BULLET_POINT_GENERATION_CONTENT_TYPE,
+  TEXT_TEXT_CLEAN_CITY_CONTENT_TYPE,
+  TEXT_TEXT_CLEAN_COUNTRY_CONTENT_TYPE,
+  TEXT_TEXT_COMMAND_GENERATION_CONTENT_TYPE,
   TEXT_TEXT_CONVERSATION_SUMMARIZATION_CONTENT_TYPE,
+  TEXT_TEXT_COUNTRY_FROM_NAME_CONTENT_TYPE,
   TEXT_TEXT_EMOTION_RECOGNITION_CONTENT_TYPE,
+  TEXT_TEXT_GENDER_FROM_NAME_CONTENT_TYPE,
+  TEXT_TEXT_GPS_ADDRESS_FORMATTING_CONTENT_TYPE,
   TEXT_TEXT_HATE_SPEECH_DETECTION_CONTENT_TYPE,
   TEXT_TEXT_HEADLINE_GENERATION_CONTENT_TYPE,
   TEXT_TEXT_INTENT_CLASSIFICATION_CONTENT_TYPE,
@@ -96,6 +120,40 @@ export class FromTextToText {
       url: '/text/text/ad-generation/',
       headers: {
         'Content-Type': TEXT_TEXT_AD_GENERATION_CONTENT_TYPE,
+        ...(args.headers ?? {}),
+      },
+      query: {
+        ...(args.model ? {model: args.model} : {}),
+      },
+      body: formData.toString(),
+    });
+  }
+
+  addressFormatting(args: TextTextAddressFormattingInputs): Promise<TextTextAddressFormattingOutputs> {
+    const formData = new UrlFormData();
+    formData.append('address', args.address);
+    return this.httpClient.post({
+      url: '/text/text/address-formatting/',
+      headers: {
+        'Content-Type': TEXT_TEXT_ADDRESS_FORMATTING_CONTENT_TYPE,
+        ...(args.headers ?? {}),
+      },
+      query: {
+        ...(args.model ? {model: args.model} : {}),
+      },
+      body: formData.toString(),
+    });
+  }
+
+  ageFromName(args: TextTextAgeFromNameInputs): Promise<TextTextAgeFromNameOutputs> {
+    const formData = new UrlFormData();
+    if (isDefined(args.name)) {
+      formData.append('name', args.name);
+    }
+    return this.httpClient.post({
+      url: '/text/text/age-from-name/',
+      headers: {
+        'Content-Type': TEXT_TEXT_AGE_FROM_NAME_CONTENT_TYPE,
         ...(args.headers ?? {}),
       },
       query: {
@@ -160,6 +218,60 @@ export class FromTextToText {
     });
   }
 
+  cleanCity(args: TextTextCleanCityInputs): Promise<TextTextCleanCityOutputs> {
+    const formData = new UrlFormData();
+    if (isDefined(args.text)) {
+      formData.append('text', args.text);
+    }
+    return this.httpClient.post({
+      url: '/text/text/clean-city/',
+      headers: {
+        'Content-Type': TEXT_TEXT_CLEAN_CITY_CONTENT_TYPE,
+        ...(args.headers ?? {}),
+      },
+      query: {
+        ...(args.model ? {model: args.model} : {}),
+      },
+      body: formData.toString(),
+    });
+  }
+
+  cleanCountry(args: TextTextCleanCountryInputs): Promise<TextTextCleanCountryOutputs> {
+    const formData = new UrlFormData();
+    if (isDefined(args.text)) {
+      formData.append('text', args.text);
+    }
+    return this.httpClient.post({
+      url: '/text/text/clean-country/',
+      headers: {
+        'Content-Type': TEXT_TEXT_CLEAN_COUNTRY_CONTENT_TYPE,
+        ...(args.headers ?? {}),
+      },
+      query: {
+        ...(args.model ? {model: args.model} : {}),
+      },
+      body: formData.toString(),
+    });
+  }
+
+  commandGeneration(args: TextTextCommandGenerationInputs): Promise<TextTextCommandGenerationOutputs> {
+    const formData = new UrlFormData();
+    if (isDefined(args.text)) {
+      formData.append('text', args.text);
+    }
+    return this.httpClient.post({
+      url: '/text/text/command-generation/',
+      headers: {
+        'Content-Type': TEXT_TEXT_COMMAND_GENERATION_CONTENT_TYPE,
+        ...(args.headers ?? {}),
+      },
+      query: {
+        ...(args.model ? {model: args.model} : {}),
+      },
+      body: formData.toString(),
+    });
+  }
+
   conversationSummarization(args: TextTextConversationSummarizationInputs): Promise<TextTextConversationSummarizationOutputs> {
     const formData = new UrlFormData();
     formData.append('text', args.text);
@@ -176,6 +288,24 @@ export class FromTextToText {
     });
   }
 
+  countryFromName(args: TextTextCountryFromNameInputs): Promise<TextTextCountryFromNameOutputs> {
+    const formData = new UrlFormData();
+    if (isDefined(args.name)) {
+      formData.append('name', args.name);
+    }
+    return this.httpClient.post({
+      url: '/text/text/country-from-name/',
+      headers: {
+        'Content-Type': TEXT_TEXT_COUNTRY_FROM_NAME_CONTENT_TYPE,
+        ...(args.headers ?? {}),
+      },
+      query: {
+        ...(args.model ? {model: args.model} : {}),
+      },
+      body: formData.toString(),
+    });
+  }
+
   emotionRecognition(args: TextTextEmotionRecognitionInputs): Promise<TextTextEmotionRecognitionOutputs> {
     const formData = new UrlFormData();
     formData.append('text', args.text);
@@ -183,6 +313,41 @@ export class FromTextToText {
       url: '/text/text/emotion-recognition/',
       headers: {
         'Content-Type': TEXT_TEXT_EMOTION_RECOGNITION_CONTENT_TYPE,
+        ...(args.headers ?? {}),
+      },
+      query: {
+        ...(args.model ? {model: args.model} : {}),
+      },
+      body: formData.toString(),
+    });
+  }
+
+  genderFromName(args: TextTextGenderFromNameInputs): Promise<TextTextGenderFromNameOutputs> {
+    const formData = new UrlFormData();
+    if (isDefined(args.name)) {
+      formData.append('name', args.name);
+    }
+    return this.httpClient.post({
+      url: '/text/text/gender-from-name/',
+      headers: {
+        'Content-Type': TEXT_TEXT_GENDER_FROM_NAME_CONTENT_TYPE,
+        ...(args.headers ?? {}),
+      },
+      query: {
+        ...(args.model ? {model: args.model} : {}),
+      },
+      body: formData.toString(),
+    });
+  }
+
+  gpsAddressFormatting(args: TextTextGpsAddressFormattingInputs): Promise<TextTextGpsAddressFormattingOutputs> {
+    const formData = new UrlFormData();
+    formData.append('latitude', String(args.latitude));
+    formData.append('longitude', String(args.longitude));
+    return this.httpClient.post({
+      url: '/text/text/gps-address-formatting/',
+      headers: {
+        'Content-Type': TEXT_TEXT_GPS_ADDRESS_FORMATTING_CONTENT_TYPE,
         ...(args.headers ?? {}),
       },
       query: {

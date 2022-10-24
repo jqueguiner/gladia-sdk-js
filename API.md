@@ -347,6 +347,26 @@ The runtime default model is defined on the GladIA server.
 
  - `keywords`: array
 
+### `address-formatting`
+
+#### `models`
+
+ - **geopy-formatter (default)**
+
+#### other params
+
+ - `address`: string *(required)*
+
+### `age-from-name`
+
+#### `models`
+
+ - **jpt (default)**
+
+#### other params
+
+ - `name`: string
+
 ### `article-generation`
 
 #### `models`
@@ -378,6 +398,36 @@ The runtime default model is defined on the GladIA server.
  - `text`: string
  - `bullets`: integer
 
+### `clean-city`
+
+#### `models`
+
+ - **jpt (default)**
+
+#### other params
+
+ - `text`: string
+
+### `clean-country`
+
+#### `models`
+
+ - **jpt (default)**
+
+#### other params
+
+ - `text`: string
+
+### `command-generation`
+
+#### `models`
+
+ - **jpt (default)**
+
+#### other params
+
+ - `text`: string
+
 ### `conversation-summarization`
 
 #### `models`
@@ -387,6 +437,16 @@ The runtime default model is defined on the GladIA server.
 #### other params
 
  - `text`: string *(required)*
+
+### `country-from-name`
+
+#### `models`
+
+ - **jpt (default)**
+
+#### other params
+
+ - `name`: string
 
 ### `emotion-recognition`
 
@@ -398,6 +458,27 @@ The runtime default model is defined on the GladIA server.
 #### other params
 
  - `text`: string *(required)*
+
+### `gender-from-name`
+
+#### `models`
+
+ - **jpt (default)**
+
+#### other params
+
+ - `name`: string
+
+### `gps-address-formatting`
+
+#### `models`
+
+ - **geopy-formatter (default)**
+
+#### other params
+
+ - `latitude`: float *(required)*
+ - `longitude`: float *(required)*
 
 ### `hate-speech-detection`
 
@@ -417,7 +498,6 @@ The runtime default model is defined on the GladIA server.
 
  - **jpt (default)**
  - michau-t5-base-en-generate-headline
- - t5-base-en-generate-headline
 
 #### other params
 
@@ -585,7 +665,6 @@ The runtime default model is defined on the GladIA server.
 
  - **deepl (default)**
  - facebook-nllb-200-distilled-600M
- - nllb-200-3-3b
 
 #### other params
 

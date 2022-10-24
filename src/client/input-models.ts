@@ -17,11 +17,19 @@ import {
   ImageTextOcrModel,
   TextImageImageGenerationModel,
   TextTextAdGenerationModel,
+  TextTextAddressFormattingModel,
+  TextTextAgeFromNameModel,
   TextTextArticleGenerationModel,
   TextTextAutocorrectModel,
   TextTextBulletPointGenerationModel,
+  TextTextCleanCityModel,
+  TextTextCleanCountryModel,
+  TextTextCommandGenerationModel,
   TextTextConversationSummarizationModel,
+  TextTextCountryFromNameModel,
   TextTextEmotionRecognitionModel,
+  TextTextGenderFromNameModel,
+  TextTextGpsAddressFormattingModel,
   TextTextHateSpeechDetectionModel,
   TextTextHeadlineGenerationModel,
   TextTextIntentClassificationModel,
@@ -149,6 +157,14 @@ export interface TextTextAdGenerationInputs
   extends WithHeaders, WithModel<TextTextAdGenerationModel> {
   keywords?: string[];
 }
+export interface TextTextAddressFormattingInputs 
+  extends WithHeaders, WithModel<TextTextAddressFormattingModel> {
+  address: string;
+}
+export interface TextTextAgeFromNameInputs 
+  extends WithHeaders, WithModel<TextTextAgeFromNameModel> {
+  name?: string;
+}
 export interface TextTextArticleGenerationInputs 
   extends WithHeaders, WithModel<TextTextArticleGenerationModel> {
   title?: string;
@@ -162,13 +178,38 @@ export interface TextTextBulletPointGenerationInputs
   text?: string;
   bullets?: number;
 }
+export interface TextTextCleanCityInputs 
+  extends WithHeaders, WithModel<TextTextCleanCityModel> {
+  text?: string;
+}
+export interface TextTextCleanCountryInputs 
+  extends WithHeaders, WithModel<TextTextCleanCountryModel> {
+  text?: string;
+}
+export interface TextTextCommandGenerationInputs 
+  extends WithHeaders, WithModel<TextTextCommandGenerationModel> {
+  text?: string;
+}
 export interface TextTextConversationSummarizationInputs 
   extends WithHeaders, WithModel<TextTextConversationSummarizationModel> {
   text: string;
 }
+export interface TextTextCountryFromNameInputs 
+  extends WithHeaders, WithModel<TextTextCountryFromNameModel> {
+  name?: string;
+}
 export interface TextTextEmotionRecognitionInputs 
   extends WithHeaders, WithModel<TextTextEmotionRecognitionModel> {
   text: string;
+}
+export interface TextTextGenderFromNameInputs 
+  extends WithHeaders, WithModel<TextTextGenderFromNameModel> {
+  name?: string;
+}
+export interface TextTextGpsAddressFormattingInputs 
+  extends WithHeaders, WithModel<TextTextGpsAddressFormattingModel> {
+  latitude: number;
+  longitude: number;
 }
 export interface TextTextHateSpeechDetectionInputs 
   extends WithHeaders, WithModel<TextTextHateSpeechDetectionModel> {

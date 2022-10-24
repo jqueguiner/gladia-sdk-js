@@ -29,17 +29,31 @@ export declare type TextImageImageGenerationOutputsOneSample = ArrayBuffer;
 export declare type TextImageImageGenerationOutputsMultipleSamples = Base64Image[];
 export declare type TextImageImageGenerationOutputs = TextImageImageGenerationOutputsOneSample | TextImageImageGenerationOutputsMultipleSamples;
 export declare type TextTextAdGenerationOutputs = Record<string, string | number | boolean>;
+export declare type TextTextAddressFormattingOutputs = {
+    prediction: string;
+    prediction_raw: unknown;
+};
+export declare type TextTextAgeFromNameOutputs = Record<string, string | number | boolean>;
 export declare type TextTextArticleGenerationOutputs = Record<string, string | number | boolean>;
 export declare type TextTextAutocorrectOutputs = {
     prediction: string;
     prediction_raw: unknown;
 };
 export declare type TextTextBulletPointGenerationOutputs = Record<string, string | number | boolean>;
+export declare type TextTextCleanCityOutputs = Record<string, string | number | boolean>;
+export declare type TextTextCleanCountryOutputs = Record<string, string | number | boolean>;
+export declare type TextTextCommandGenerationOutputs = Record<string, string | number | boolean>;
 export declare type TextTextConversationSummarizationOutputs = {
     prediction: string;
     prediction_raw: unknown;
 };
+export declare type TextTextCountryFromNameOutputs = Record<string, string | number | boolean>;
 export declare type TextTextEmotionRecognitionOutputs = {
+    prediction: string;
+    prediction_raw: unknown;
+};
+export declare type TextTextGenderFromNameOutputs = Record<string, string | number | boolean>;
+export declare type TextTextGpsAddressFormattingOutputs = {
     prediction: string;
     prediction_raw: unknown;
 };

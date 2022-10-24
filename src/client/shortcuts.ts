@@ -25,11 +25,19 @@ import {
   ImageTextOcrInputs,
   TextImageImageGenerationInputs,
   TextTextAdGenerationInputs,
+  TextTextAddressFormattingInputs,
+  TextTextAgeFromNameInputs,
   TextTextArticleGenerationInputs,
   TextTextAutocorrectInputs,
   TextTextBulletPointGenerationInputs,
+  TextTextCleanCityInputs,
+  TextTextCleanCountryInputs,
+  TextTextCommandGenerationInputs,
   TextTextConversationSummarizationInputs,
+  TextTextCountryFromNameInputs,
   TextTextEmotionRecognitionInputs,
+  TextTextGenderFromNameInputs,
+  TextTextGpsAddressFormattingInputs,
   TextTextHateSpeechDetectionInputs,
   TextTextHeadlineGenerationInputs,
   TextTextIntentClassificationInputs,
@@ -67,11 +75,19 @@ import {
   TextImageImageGenerationOutputsMultipleSamples,
   TextImageImageGenerationOutputsOneSample,
   TextTextAdGenerationOutputs,
+  TextTextAddressFormattingOutputs,
+  TextTextAgeFromNameOutputs,
   TextTextArticleGenerationOutputs,
   TextTextAutocorrectOutputs,
   TextTextBulletPointGenerationOutputs,
+  TextTextCleanCityOutputs,
+  TextTextCleanCountryOutputs,
+  TextTextCommandGenerationOutputs,
   TextTextConversationSummarizationOutputs,
+  TextTextCountryFromNameOutputs,
   TextTextEmotionRecognitionOutputs,
+  TextTextGenderFromNameOutputs,
+  TextTextGpsAddressFormattingOutputs,
   TextTextHateSpeechDetectionOutputs,
   TextTextHeadlineGenerationOutputs,
   TextTextIntentClassificationOutputs,
@@ -181,6 +197,14 @@ export abstract class Shortcuts implements
     return this.fromText().toText().adGeneration(args);
   }
 
+  addressFormatting(args: TextTextAddressFormattingInputs): Promise<TextTextAddressFormattingOutputs> {
+    return this.fromText().toText().addressFormatting(args);
+  }
+
+  ageFromName(args: TextTextAgeFromNameInputs): Promise<TextTextAgeFromNameOutputs> {
+    return this.fromText().toText().ageFromName(args);
+  }
+
   articleGeneration(args: TextTextArticleGenerationInputs): Promise<TextTextArticleGenerationOutputs> {
     return this.fromText().toText().articleGeneration(args);
   }
@@ -193,12 +217,36 @@ export abstract class Shortcuts implements
     return this.fromText().toText().bulletPointGeneration(args);
   }
 
+  cleanCity(args: TextTextCleanCityInputs): Promise<TextTextCleanCityOutputs> {
+    return this.fromText().toText().cleanCity(args);
+  }
+
+  cleanCountry(args: TextTextCleanCountryInputs): Promise<TextTextCleanCountryOutputs> {
+    return this.fromText().toText().cleanCountry(args);
+  }
+
+  commandGeneration(args: TextTextCommandGenerationInputs): Promise<TextTextCommandGenerationOutputs> {
+    return this.fromText().toText().commandGeneration(args);
+  }
+
   conversationSummarization(args: TextTextConversationSummarizationInputs): Promise<TextTextConversationSummarizationOutputs> {
     return this.fromText().toText().conversationSummarization(args);
   }
 
+  countryFromName(args: TextTextCountryFromNameInputs): Promise<TextTextCountryFromNameOutputs> {
+    return this.fromText().toText().countryFromName(args);
+  }
+
   emotionRecognition(args: TextTextEmotionRecognitionInputs): Promise<TextTextEmotionRecognitionOutputs> {
     return this.fromText().toText().emotionRecognition(args);
+  }
+
+  genderFromName(args: TextTextGenderFromNameInputs): Promise<TextTextGenderFromNameOutputs> {
+    return this.fromText().toText().genderFromName(args);
+  }
+
+  gpsAddressFormatting(args: TextTextGpsAddressFormattingInputs): Promise<TextTextGpsAddressFormattingOutputs> {
+    return this.fromText().toText().gpsAddressFormatting(args);
   }
 
   hateSpeechDetection(args: TextTextHateSpeechDetectionInputs): Promise<TextTextHateSpeechDetectionOutputs> {

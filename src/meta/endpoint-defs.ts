@@ -690,6 +690,53 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
     "hasSamplesParam": false
   },
   {
+    "url": "/text/text/address-formatting/",
+    "inputType": "text",
+    "outputType": "text",
+    "taskName": "address-formatting",
+    "models": [
+      "geopy-formatter"
+    ],
+    "defaultModel": "geopy-formatter",
+    "inputBodyContentType": "application/x-www-form-urlencoded",
+    "outputBodyContentType": {
+      "type": "prediction-standard-output",
+      "predictionType": "string"
+    },
+    "params": [
+      {
+        "in": "formData",
+        "type": "string",
+        "name": "address",
+        "required": true
+      }
+    ],
+    "hasSamplesParam": false
+  },
+  {
+    "url": "/text/text/age-from-name/",
+    "inputType": "text",
+    "outputType": "text",
+    "taskName": "age-from-name",
+    "models": [
+      "jpt"
+    ],
+    "defaultModel": "jpt",
+    "inputBodyContentType": "application/x-www-form-urlencoded",
+    "outputBodyContentType": {
+      "type": "unknown"
+    },
+    "params": [
+      {
+        "in": "formData",
+        "type": "string",
+        "name": "name",
+        "required": false
+      }
+    ],
+    "hasSamplesParam": false
+  },
+  {
     "url": "/text/text/article-generation/",
     "inputType": "text",
     "outputType": "text",
@@ -766,6 +813,75 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
     "hasSamplesParam": false
   },
   {
+    "url": "/text/text/clean-city/",
+    "inputType": "text",
+    "outputType": "text",
+    "taskName": "clean-city",
+    "models": [
+      "jpt"
+    ],
+    "defaultModel": "jpt",
+    "inputBodyContentType": "application/x-www-form-urlencoded",
+    "outputBodyContentType": {
+      "type": "unknown"
+    },
+    "params": [
+      {
+        "in": "formData",
+        "type": "string",
+        "name": "text",
+        "required": false
+      }
+    ],
+    "hasSamplesParam": false
+  },
+  {
+    "url": "/text/text/clean-country/",
+    "inputType": "text",
+    "outputType": "text",
+    "taskName": "clean-country",
+    "models": [
+      "jpt"
+    ],
+    "defaultModel": "jpt",
+    "inputBodyContentType": "application/x-www-form-urlencoded",
+    "outputBodyContentType": {
+      "type": "unknown"
+    },
+    "params": [
+      {
+        "in": "formData",
+        "type": "string",
+        "name": "text",
+        "required": false
+      }
+    ],
+    "hasSamplesParam": false
+  },
+  {
+    "url": "/text/text/command-generation/",
+    "inputType": "text",
+    "outputType": "text",
+    "taskName": "command-generation",
+    "models": [
+      "jpt"
+    ],
+    "defaultModel": "jpt",
+    "inputBodyContentType": "application/x-www-form-urlencoded",
+    "outputBodyContentType": {
+      "type": "unknown"
+    },
+    "params": [
+      {
+        "in": "formData",
+        "type": "string",
+        "name": "text",
+        "required": false
+      }
+    ],
+    "hasSamplesParam": false
+  },
+  {
     "url": "/text/text/conversation-summarization/",
     "inputType": "text",
     "outputType": "text",
@@ -790,6 +906,29 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
     "hasSamplesParam": false
   },
   {
+    "url": "/text/text/country-from-name/",
+    "inputType": "text",
+    "outputType": "text",
+    "taskName": "country-from-name",
+    "models": [
+      "jpt"
+    ],
+    "defaultModel": "jpt",
+    "inputBodyContentType": "application/x-www-form-urlencoded",
+    "outputBodyContentType": {
+      "type": "unknown"
+    },
+    "params": [
+      {
+        "in": "formData",
+        "type": "string",
+        "name": "name",
+        "required": false
+      }
+    ],
+    "hasSamplesParam": false
+  },
+  {
     "url": "/text/text/emotion-recognition/",
     "inputType": "text",
     "outputType": "text",
@@ -809,6 +948,59 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
         "in": "formData",
         "type": "string",
         "name": "text",
+        "required": true
+      }
+    ],
+    "hasSamplesParam": false
+  },
+  {
+    "url": "/text/text/gender-from-name/",
+    "inputType": "text",
+    "outputType": "text",
+    "taskName": "gender-from-name",
+    "models": [
+      "jpt"
+    ],
+    "defaultModel": "jpt",
+    "inputBodyContentType": "application/x-www-form-urlencoded",
+    "outputBodyContentType": {
+      "type": "unknown"
+    },
+    "params": [
+      {
+        "in": "formData",
+        "type": "string",
+        "name": "name",
+        "required": false
+      }
+    ],
+    "hasSamplesParam": false
+  },
+  {
+    "url": "/text/text/gps-address-formatting/",
+    "inputType": "text",
+    "outputType": "text",
+    "taskName": "gps-address-formatting",
+    "models": [
+      "geopy-formatter"
+    ],
+    "defaultModel": "geopy-formatter",
+    "inputBodyContentType": "application/x-www-form-urlencoded",
+    "outputBodyContentType": {
+      "type": "prediction-standard-output",
+      "predictionType": "string"
+    },
+    "params": [
+      {
+        "in": "formData",
+        "type": "float",
+        "name": "latitude",
+        "required": true
+      },
+      {
+        "in": "formData",
+        "type": "float",
+        "name": "longitude",
         "required": true
       }
     ],
@@ -847,8 +1039,7 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
     "taskName": "headline-generation",
     "models": [
       "jpt",
-      "michau-t5-base-en-generate-headline",
-      "t5-base-en-generate-headline"
+      "michau-t5-base-en-generate-headline"
     ],
     "defaultModel": "jpt",
     "inputBodyContentType": "application/x-www-form-urlencoded",
@@ -1260,8 +1451,7 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
     "taskName": "translation",
     "models": [
       "deepl",
-      "facebook-nllb-200-distilled-600M",
-      "nllb-200-3-3b"
+      "facebook-nllb-200-distilled-600M"
     ],
     "defaultModel": "deepl",
     "inputBodyContentType": "application/x-www-form-urlencoded",

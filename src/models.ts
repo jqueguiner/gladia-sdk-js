@@ -229,6 +229,18 @@ export const TEXT_TEXT_AD_GENERATION_MODELS = [
 export const TEXT_TEXT_AD_GENERATION_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
 export type TextTextAdGenerationModel = typeof TEXT_TEXT_AD_GENERATION_MODELS[number];
 
+export const TEXT_TEXT_ADDRESS_FORMATTING_MODELS = [
+   'geopy-formatter',
+] as const;
+export const TEXT_TEXT_ADDRESS_FORMATTING_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
+export type TextTextAddressFormattingModel = typeof TEXT_TEXT_ADDRESS_FORMATTING_MODELS[number];
+
+export const TEXT_TEXT_AGE_FROM_NAME_MODELS = [
+   'jpt',
+] as const;
+export const TEXT_TEXT_AGE_FROM_NAME_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
+export type TextTextAgeFromNameModel = typeof TEXT_TEXT_AGE_FROM_NAME_MODELS[number];
+
 export const TEXT_TEXT_ARTICLE_GENERATION_MODELS = [
    'fast-gpt-j',
 ] as const;
@@ -247,11 +259,35 @@ export const TEXT_TEXT_BULLET_POINT_GENERATION_MODELS = [
 export const TEXT_TEXT_BULLET_POINT_GENERATION_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
 export type TextTextBulletPointGenerationModel = typeof TEXT_TEXT_BULLET_POINT_GENERATION_MODELS[number];
 
+export const TEXT_TEXT_CLEAN_CITY_MODELS = [
+   'jpt',
+] as const;
+export const TEXT_TEXT_CLEAN_CITY_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
+export type TextTextCleanCityModel = typeof TEXT_TEXT_CLEAN_CITY_MODELS[number];
+
+export const TEXT_TEXT_CLEAN_COUNTRY_MODELS = [
+   'jpt',
+] as const;
+export const TEXT_TEXT_CLEAN_COUNTRY_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
+export type TextTextCleanCountryModel = typeof TEXT_TEXT_CLEAN_COUNTRY_MODELS[number];
+
+export const TEXT_TEXT_COMMAND_GENERATION_MODELS = [
+   'jpt',
+] as const;
+export const TEXT_TEXT_COMMAND_GENERATION_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
+export type TextTextCommandGenerationModel = typeof TEXT_TEXT_COMMAND_GENERATION_MODELS[number];
+
 export const TEXT_TEXT_CONVERSATION_SUMMARIZATION_MODELS = [
    'bart-large-xsum-samsum',
 ] as const;
 export const TEXT_TEXT_CONVERSATION_SUMMARIZATION_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
 export type TextTextConversationSummarizationModel = typeof TEXT_TEXT_CONVERSATION_SUMMARIZATION_MODELS[number];
+
+export const TEXT_TEXT_COUNTRY_FROM_NAME_MODELS = [
+   'jpt',
+] as const;
+export const TEXT_TEXT_COUNTRY_FROM_NAME_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
+export type TextTextCountryFromNameModel = typeof TEXT_TEXT_COUNTRY_FROM_NAME_MODELS[number];
 
 export const TEXT_TEXT_EMOTION_RECOGNITION_MODELS = [
    'distilbert-base-uncased-emotion',
@@ -259,6 +295,18 @@ export const TEXT_TEXT_EMOTION_RECOGNITION_MODELS = [
 ] as const;
 export const TEXT_TEXT_EMOTION_RECOGNITION_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
 export type TextTextEmotionRecognitionModel = typeof TEXT_TEXT_EMOTION_RECOGNITION_MODELS[number];
+
+export const TEXT_TEXT_GENDER_FROM_NAME_MODELS = [
+   'jpt',
+] as const;
+export const TEXT_TEXT_GENDER_FROM_NAME_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
+export type TextTextGenderFromNameModel = typeof TEXT_TEXT_GENDER_FROM_NAME_MODELS[number];
+
+export const TEXT_TEXT_GPS_ADDRESS_FORMATTING_MODELS = [
+   'geopy-formatter',
+] as const;
+export const TEXT_TEXT_GPS_ADDRESS_FORMATTING_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
+export type TextTextGpsAddressFormattingModel = typeof TEXT_TEXT_GPS_ADDRESS_FORMATTING_MODELS[number];
 
 export const TEXT_TEXT_HATE_SPEECH_DETECTION_MODELS = [
    'Hate-speech-CNERG-dehatebert-mono-english',
@@ -271,7 +319,6 @@ export type TextTextHateSpeechDetectionModel = typeof TEXT_TEXT_HATE_SPEECH_DETE
 export const TEXT_TEXT_HEADLINE_GENERATION_MODELS = [
    'jpt',
    'michau-t5-base-en-generate-headline',
-   't5-base-en-generate-headline',
 ] as const;
 export const TEXT_TEXT_HEADLINE_GENERATION_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
 export type TextTextHeadlineGenerationModel = typeof TEXT_TEXT_HEADLINE_GENERATION_MODELS[number];
@@ -373,7 +420,6 @@ export type TextTextSummarizationModel = typeof TEXT_TEXT_SUMMARIZATION_MODELS[n
 export const TEXT_TEXT_TRANSLATION_MODELS = [
    'deepl',
    'facebook-nllb-200-distilled-600M',
-   'nllb-200-3-3b',
 ] as const;
 export const TEXT_TEXT_TRANSLATION_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
 export type TextTextTranslationModel = typeof TEXT_TEXT_TRANSLATION_MODELS[number];

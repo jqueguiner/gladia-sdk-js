@@ -32,17 +32,31 @@ export type TextImageImageGenerationOutputsOneSample = ArrayBuffer;
 export type TextImageImageGenerationOutputsMultipleSamples = Base64Image[];
 export type TextImageImageGenerationOutputs = TextImageImageGenerationOutputsOneSample | TextImageImageGenerationOutputsMultipleSamples;
 export type TextTextAdGenerationOutputs = Record<string, string | number | boolean>;
+export type TextTextAddressFormattingOutputs = {
+  prediction: string,
+  prediction_raw: unknown,
+};
+export type TextTextAgeFromNameOutputs = Record<string, string | number | boolean>;
 export type TextTextArticleGenerationOutputs = Record<string, string | number | boolean>;
 export type TextTextAutocorrectOutputs = {
   prediction: string,
   prediction_raw: unknown,
 };
 export type TextTextBulletPointGenerationOutputs = Record<string, string | number | boolean>;
+export type TextTextCleanCityOutputs = Record<string, string | number | boolean>;
+export type TextTextCleanCountryOutputs = Record<string, string | number | boolean>;
+export type TextTextCommandGenerationOutputs = Record<string, string | number | boolean>;
 export type TextTextConversationSummarizationOutputs = {
   prediction: string,
   prediction_raw: unknown,
 };
+export type TextTextCountryFromNameOutputs = Record<string, string | number | boolean>;
 export type TextTextEmotionRecognitionOutputs = {
+  prediction: string,
+  prediction_raw: unknown,
+};
+export type TextTextGenderFromNameOutputs = Record<string, string | number | boolean>;
+export type TextTextGpsAddressFormattingOutputs = {
   prediction: string,
   prediction_raw: unknown,
 };
