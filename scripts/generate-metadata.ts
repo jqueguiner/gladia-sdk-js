@@ -56,6 +56,7 @@ export function generateEndpointDefs() {
   fileContent.push(`import { EndpointDef } from "./endpoint-defs-type";`);
   fileContent.push('');
   const endpointDefs: EndpointDef[] = Object.entries(openApiJson.paths).map(([path, def]) => {
+    console.debug('Found endpoint', path);
     const [, inputType, outputType, taskName] = path.split('/');
     const params = getPostParams(def, openApiJson);
     return {
@@ -70,6 +71,7 @@ export function generateEndpointDefs() {
       hasSamplesParam: params.some((param) => param.name === 'samples'),
     };
   });
+  console.debug('found', endpointDefs.length, 'endpoints');
   endpointDefs.sort((a, b) => a.url.localeCompare(b.url));
   const jsonLines = JSON.stringify(endpointDefs, undefined, 2).split('\n');
 

@@ -34,7 +34,9 @@ jobs:
       - name: should we update the sdk?
         # this commit will return 1 if there is some modification on the listed files, 0 otherwise
         # if the result is zero we stop the job here, because we consider there is no modifications
-        run: echo "SHOULD_UPDATE=$(git diff --shortstat -- src/meta/endpoint-defs.ts | wc -l)" >> $GITHUB_ENV
+        run: |
+          git diff --shortstat -- src/meta/endpoint-defs.ts
+          echo "SHOULD_UPDATE=$(git diff --shortstat -- src/meta/endpoint-defs.ts | wc -l)" >> $GITHUB_ENV
 
       - name: generate sdk
         if: ${{ env.SHOULD_UPDATE != 0 }}
