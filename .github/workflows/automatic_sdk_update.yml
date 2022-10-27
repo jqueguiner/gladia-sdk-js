@@ -1,10 +1,10 @@
 name: automatic SDK update
-on: 
+on:
+  workflow_dispatch:
   schedule:
     - cron: '0 */2 * * 1-5'
 
 jobs:
-
   generate-sdk:
     name: Generate SDK
     runs-on: ubuntu-latest
@@ -21,7 +21,7 @@ jobs:
 
       - name: install npm dependencies
         run: npm ci
-        
+
       - name: increment version
         run: |
           git config user.email "apena@gladia.io"
@@ -68,5 +68,3 @@ jobs:
           token: ${{ secrets.PUSH_TO_MAIN }}
           branch: main
           tags: true
-
-
