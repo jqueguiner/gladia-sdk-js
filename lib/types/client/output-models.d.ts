@@ -13,10 +13,6 @@ export declare type ImageImageGuidedInpaintingOutputs = ArrayBuffer;
 export declare type ImageImageInpaintingOutputs = ArrayBuffer;
 export declare type ImageImageSuperResolutionOutputs = ArrayBuffer;
 export declare type ImageImageUncolorizationOutputs = ArrayBuffer;
-export declare type ImageTextAsciifyOutputs = {
-    prediction: string;
-    prediction_raw: unknown;
-};
 export declare type ImageTextClassificationOutputs = {
     prediction: string;
     prediction_raw: unknown;
@@ -34,6 +30,10 @@ export declare type TextTextAddressFormattingOutputs = {
     prediction_raw: unknown;
 };
 export declare type TextTextAgeFromNameOutputs = Record<string, string | number | boolean>;
+export declare type TextTextAnonymizationOutputs = {
+    prediction: string;
+    prediction_raw: unknown;
+};
 export declare type TextTextArticleGenerationOutputs = Record<string, string | number | boolean>;
 export declare type TextTextAutocorrectOutputs = {
     prediction: string;
@@ -91,6 +91,10 @@ export declare type TextTextNextWordPredictionOutputs = {
     prediction_raw: unknown;
 };
 export declare type TextTextProgrammingLanguageGenerationOutputs = {
+    prediction: string;
+    prediction_raw: unknown;
+};
+export declare type TextTextPunctuationRestorationOutputs = {
     prediction: string;
     prediction_raw: unknown;
 };

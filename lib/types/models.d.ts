@@ -31,9 +31,6 @@ export declare type ImageImageSuperResolutionModel = typeof IMAGE_IMAGE_SUPER_RE
 export declare const IMAGE_IMAGE_UNCOLORIZATION_MODELS: readonly ["v1"];
 export declare const IMAGE_IMAGE_UNCOLORIZATION_CONTENT_TYPE: "multipart/form-data";
 export declare type ImageImageUncolorizationModel = typeof IMAGE_IMAGE_UNCOLORIZATION_MODELS[number];
-export declare const IMAGE_TEXT_ASCIIFY_MODELS: readonly ["ramesh-aditya"];
-export declare const IMAGE_TEXT_ASCIIFY_CONTENT_TYPE: "multipart/form-data";
-export declare type ImageTextAsciifyModel = typeof IMAGE_TEXT_ASCIIFY_MODELS[number];
 export declare const IMAGE_TEXT_CLASSIFICATION_MODELS: readonly ["alexnet", "convnext_base", "convnext_large", "convnext_small", "convnext_tiny", "densenet121", "densenet161", "densenet169", "densenet201", "efficientnet_b0", "efficientnet_b1_v1", "efficientnet_b1_v2", "efficientnet_b2", "efficientnet_b3", "efficientnet_b4", "efficientnet_b5", "efficientnet_b6", "efficientnet_b7", "efficientnet_v2_l", "efficientnet_v2_m", "efficientnet_v2_s", "googlenet", "googlenet_quantized_fbgemm_v1", "inception_v3", "inception_v3_fbgemm_v1", "mnasnet0_5", "mnasnet0_75", "mnasnet1_0", "mnasnet1_3", "mobilenet_v2_quantized_qnnpack_v1", "mobilenet_v2_v1", "mobilenet_v2_v2", "mobilenet_v3_large_quantized_qnnpack_v1", "mobilenet_v3_large_v1", "mobilenet_v3_large_v2", "mobilenet_v3_small", "regnet_x_16gf_v1", "regnet_x_16gf_v2", "regnet_x_1_6gf_v1", "regnet_x_1_6gf_v2", "regnet_x_32gf_v1", "regnet_x_32gf_v2", "regnet_x_3_2gf_v1", "regnet_x_3_2gf_v2", "regnet_x_400mf_v1", "regnet_x_400mf_v2", "regnet_x_800mf_v1", "regnet_x_800mf_v2", "regnet_x_8gf_v1", "regnet_x_8gf_v2", "regnet_y_128gf_swag_e2e_v1", "regnet_y_128gf_swag_linear_v1", "regnet_y_16gf_swag_e2e_v1", "regnet_y_16gf_swag_linear_v1", "regnet_y_16gf_v1", "regnet_y_16gf_v2", "regnet_y_1_6gf_v1", "regnet_y_1_6gf_v2", "regnet_y_32gf_swag_e2e_v1", "regnet_y_32gf_swag_linear_v1", "regnet_y_32gf_v1", "regnet_y_32gf_v2", "regnet_y_3_2gf_v1", "regnet_y_3_2gf_v2", "regnet_y_400mf_v1", "regnet_y_400mf_v2", "regnet_y_8gf_v1", "regnet_y_8gf_v2", "resnet152_v1", "resnet152_v2", "resnet18", "resnet18_quantized_fbgemm_v1", "resnet34", "resnet50_quantized_fbgemm_v1", "resnet50_quantized_fbgemm_v2", "resnet50_v1", "resnet50_v2", "resnext101_32x8d_quantized_fbgemm_v1", "resnext101_32x8d_quantized_fbgemm_v2", "resnext101_32x8d_v1", "resnext101_32x8d_v2", "resnext101_64x4d_quantized_fbgemm_v1", "resnext101_64x4d_v1", "resnext50_32x4d_v1", "resnext50_32x4d_v2", "shufflenet_v2_x0_5", "shufflenet_v2_x0_5_quantized_fbgemm_v1", "shufflenet_v2_x1_0", "shufflenet_v2_x1_0_quantized_fbgemm_v1", "shufflenet_v2_x1_5", "shufflenet_v2_x1_5_quantized_fbgemm_v1", "shufflenet_v2_x2_0", "shufflenet_v2_x2_0_quantized_fbgemm_v1", "squeezenet1_0", "squeezenet1_1", "swin_b", "swin_s", "swin_t", "vgg11", "vgg11_bn", "vgg13", "vgg13_bn", "vgg16_bn", "vgg16_v1", "vgg19", "vgg19_bn", "vit_b_16_swag_e2e_v1", "vit_b_16_swag_linear_v1", "vit_b_16_v1", "vit_b_32", "vit_h_14_swag_e2e_v1", "vit_h_14_swag_linear_v1", "vit_l_16_swag_e2e_v1", "vit_l_16_swag_linear_v1", "vit_l_16_v1", "vit_l_32", "wide_resnet101_2_v1", "wide_resnet101_2_v2"];
 export declare const IMAGE_TEXT_CLASSIFICATION_CONTENT_TYPE: "multipart/form-data";
 export declare type ImageTextClassificationModel = typeof IMAGE_TEXT_CLASSIFICATION_MODELS[number];
@@ -52,6 +49,9 @@ export declare type TextTextAddressFormattingModel = typeof TEXT_TEXT_ADDRESS_FO
 export declare const TEXT_TEXT_AGE_FROM_NAME_MODELS: readonly ["jpt"];
 export declare const TEXT_TEXT_AGE_FROM_NAME_CONTENT_TYPE: "application/x-www-form-urlencoded";
 export declare type TextTextAgeFromNameModel = typeof TEXT_TEXT_AGE_FROM_NAME_MODELS[number];
+export declare const TEXT_TEXT_ANONYMIZATION_MODELS: readonly ["ms-presidio"];
+export declare const TEXT_TEXT_ANONYMIZATION_CONTENT_TYPE: "application/x-www-form-urlencoded";
+export declare type TextTextAnonymizationModel = typeof TEXT_TEXT_ANONYMIZATION_MODELS[number];
 export declare const TEXT_TEXT_ARTICLE_GENERATION_MODELS: readonly ["fast-gpt-j"];
 export declare const TEXT_TEXT_ARTICLE_GENERATION_CONTENT_TYPE: "application/x-www-form-urlencoded";
 export declare type TextTextArticleGenerationModel = typeof TEXT_TEXT_ARTICLE_GENERATION_MODELS[number];
@@ -85,7 +85,7 @@ export declare type TextTextGenderFromNameModel = typeof TEXT_TEXT_GENDER_FROM_N
 export declare const TEXT_TEXT_GPS_ADDRESS_FORMATTING_MODELS: readonly ["geopy-formatter"];
 export declare const TEXT_TEXT_GPS_ADDRESS_FORMATTING_CONTENT_TYPE: "application/x-www-form-urlencoded";
 export declare type TextTextGpsAddressFormattingModel = typeof TEXT_TEXT_GPS_ADDRESS_FORMATTING_MODELS[number];
-export declare const TEXT_TEXT_HATE_SPEECH_DETECTION_MODELS: readonly ["Hate-speech-CNERG-dehatebert-mono-english", "byt5-base-tweet-hate-detection", "distilbert-base-uncased-emotion"];
+export declare const TEXT_TEXT_HATE_SPEECH_DETECTION_MODELS: readonly ["byt5-base-tweet-hate-detection", "distilbert-base-uncased-emotion"];
 export declare const TEXT_TEXT_HATE_SPEECH_DETECTION_CONTENT_TYPE: "application/x-www-form-urlencoded";
 export declare type TextTextHateSpeechDetectionModel = typeof TEXT_TEXT_HATE_SPEECH_DETECTION_MODELS[number];
 export declare const TEXT_TEXT_HEADLINE_GENERATION_MODELS: readonly ["jpt", "michau-t5-base-en-generate-headline"];
@@ -115,6 +115,9 @@ export declare type TextTextNextWordPredictionModel = typeof TEXT_TEXT_NEXT_WORD
 export declare const TEXT_TEXT_PROGRAMMING_LANGUAGE_GENERATION_MODELS: readonly ["sentdex-GPyT"];
 export declare const TEXT_TEXT_PROGRAMMING_LANGUAGE_GENERATION_CONTENT_TYPE: "application/x-www-form-urlencoded";
 export declare type TextTextProgrammingLanguageGenerationModel = typeof TEXT_TEXT_PROGRAMMING_LANGUAGE_GENERATION_MODELS[number];
+export declare const TEXT_TEXT_PUNCTUATION_RESTORATION_MODELS: readonly ["kredor-punctuate-all"];
+export declare const TEXT_TEXT_PUNCTUATION_RESTORATION_CONTENT_TYPE: "application/x-www-form-urlencoded";
+export declare type TextTextPunctuationRestorationModel = typeof TEXT_TEXT_PUNCTUATION_RESTORATION_MODELS[number];
 export declare const TEXT_TEXT_QUESTION_ANSWERING_MODELS: readonly ["deepset-roberta-base-squad2", "deepset_bert-base-cased-squad2", "distilbert-base-cased-distilled-squad", "mfeb-albert-xxlarge-v2-squad2", "mrm8488-bert-tiny-5-finetuned-squadv2"];
 export declare const TEXT_TEXT_QUESTION_ANSWERING_CONTENT_TYPE: "application/x-www-form-urlencoded";
 export declare type TextTextQuestionAnsweringModel = typeof TEXT_TEXT_QUESTION_ANSWERING_MODELS[number];

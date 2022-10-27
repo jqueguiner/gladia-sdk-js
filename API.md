@@ -164,17 +164,6 @@ The runtime default model is defined on the GladIA server.
 
 ## IMAGE => TEXT
 
-### `asciify`
-
-#### `models`
-
- - **ramesh-aditya (default)**
-
-#### other params
-
- - `image`: image
- - `image_url`: url
-
 ### `classification`
 
 #### `models`
@@ -367,6 +356,18 @@ The runtime default model is defined on the GladIA server.
 
  - `name`: string
 
+### `anonymization`
+
+#### `models`
+
+ - **ms-presidio (default)**
+
+#### other params
+
+ - `text`: string *(required)*
+ - `language`: string *(required)*
+ - `entities`: string *(required)*
+
 ### `article-generation`
 
 #### `models`
@@ -484,7 +485,6 @@ The runtime default model is defined on the GladIA server.
 
 #### `models`
 
- - Hate-speech-CNERG-dehatebert-mono-english
  - byt5-base-tweet-hate-detection
  - **distilbert-base-uncased-emotion (default)**
 
@@ -593,6 +593,16 @@ The runtime default model is defined on the GladIA server.
 #### other params
 
  - `code_snippet`: string *(required)*
+
+### `punctuation-restoration`
+
+#### `models`
+
+ - **kredor-punctuate-all (default)**
+
+#### other params
+
+ - `sentence`: string *(required)*
 
 ### `question-answering`
 

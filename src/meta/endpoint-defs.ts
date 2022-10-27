@@ -403,36 +403,6 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
     "hasSamplesParam": false
   },
   {
-    "url": "/image/text/asciify/",
-    "inputType": "image",
-    "outputType": "text",
-    "taskName": "asciify",
-    "models": [
-      "ramesh-aditya"
-    ],
-    "defaultModel": "ramesh-aditya",
-    "inputBodyContentType": "multipart/form-data",
-    "outputBodyContentType": {
-      "type": "prediction-standard-output",
-      "predictionType": "string"
-    },
-    "params": [
-      {
-        "in": "formData",
-        "type": "image",
-        "name": "image",
-        "required": false
-      },
-      {
-        "in": "formData",
-        "type": "url",
-        "name": "image_url",
-        "required": false
-      }
-    ],
-    "hasSamplesParam": false
-  },
-  {
     "url": "/image/text/classification/",
     "inputType": "image",
     "outputType": "text",
@@ -737,6 +707,42 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
     "hasSamplesParam": false
   },
   {
+    "url": "/text/text/anonymization/",
+    "inputType": "text",
+    "outputType": "text",
+    "taskName": "anonymization",
+    "models": [
+      "ms-presidio"
+    ],
+    "defaultModel": "ms-presidio",
+    "inputBodyContentType": "application/x-www-form-urlencoded",
+    "outputBodyContentType": {
+      "type": "prediction-standard-output",
+      "predictionType": "string"
+    },
+    "params": [
+      {
+        "in": "formData",
+        "type": "string",
+        "name": "text",
+        "required": true
+      },
+      {
+        "in": "formData",
+        "type": "string",
+        "name": "language",
+        "required": true
+      },
+      {
+        "in": "formData",
+        "type": "string",
+        "name": "entities",
+        "required": true
+      }
+    ],
+    "hasSamplesParam": false
+  },
+  {
     "url": "/text/text/article-generation/",
     "inputType": "text",
     "outputType": "text",
@@ -1012,7 +1018,6 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
     "outputType": "text",
     "taskName": "hate-speech-detection",
     "models": [
-      "Hate-speech-CNERG-dehatebert-mono-english",
       "byt5-base-tweet-hate-detection",
       "distilbert-base-uncased-emotion"
     ],
@@ -1274,6 +1279,30 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
         "in": "formData",
         "type": "string",
         "name": "code_snippet",
+        "required": true
+      }
+    ],
+    "hasSamplesParam": false
+  },
+  {
+    "url": "/text/text/punctuation-restoration/",
+    "inputType": "text",
+    "outputType": "text",
+    "taskName": "punctuation-restoration",
+    "models": [
+      "kredor-punctuate-all"
+    ],
+    "defaultModel": "kredor-punctuate-all",
+    "inputBodyContentType": "application/x-www-form-urlencoded",
+    "outputBodyContentType": {
+      "type": "prediction-standard-output",
+      "predictionType": "string"
+    },
+    "params": [
+      {
+        "in": "formData",
+        "type": "string",
+        "name": "sentence",
         "required": true
       }
     ],

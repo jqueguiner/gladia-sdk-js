@@ -4,6 +4,7 @@ import {
   TextTextAdGenerationInputs,
   TextTextAddressFormattingInputs,
   TextTextAgeFromNameInputs,
+  TextTextAnonymizationInputs,
   TextTextArticleGenerationInputs,
   TextTextAutocorrectInputs,
   TextTextBulletPointGenerationInputs,
@@ -25,6 +26,7 @@ import {
   TextTextNextSentencePredictionInputs,
   TextTextNextWordPredictionInputs,
   TextTextProgrammingLanguageGenerationInputs,
+  TextTextPunctuationRestorationInputs,
   TextTextQuestionAnsweringInputs,
   TextTextSentenceParaphraserInputs,
   TextTextSentimentAnalysisInputs,
@@ -37,6 +39,7 @@ import {
   TextTextAdGenerationOutputs,
   TextTextAddressFormattingOutputs,
   TextTextAgeFromNameOutputs,
+  TextTextAnonymizationOutputs,
   TextTextArticleGenerationOutputs,
   TextTextAutocorrectOutputs,
   TextTextBulletPointGenerationOutputs,
@@ -58,6 +61,7 @@ import {
   TextTextNextSentencePredictionOutputs,
   TextTextNextWordPredictionOutputs,
   TextTextProgrammingLanguageGenerationOutputs,
+  TextTextPunctuationRestorationOutputs,
   TextTextQuestionAnsweringOutputs,
   TextTextSentenceParaphraserOutputs,
   TextTextSentimentAnalysisOutputs,
@@ -70,6 +74,7 @@ import {
   TEXT_TEXT_AD_GENERATION_CONTENT_TYPE,
   TEXT_TEXT_ADDRESS_FORMATTING_CONTENT_TYPE,
   TEXT_TEXT_AGE_FROM_NAME_CONTENT_TYPE,
+  TEXT_TEXT_ANONYMIZATION_CONTENT_TYPE,
   TEXT_TEXT_ARTICLE_GENERATION_CONTENT_TYPE,
   TEXT_TEXT_AUTOCORRECT_CONTENT_TYPE,
   TEXT_TEXT_BULLET_POINT_GENERATION_CONTENT_TYPE,
@@ -91,6 +96,7 @@ import {
   TEXT_TEXT_NEXT_SENTENCE_PREDICTION_CONTENT_TYPE,
   TEXT_TEXT_NEXT_WORD_PREDICTION_CONTENT_TYPE,
   TEXT_TEXT_PROGRAMMING_LANGUAGE_GENERATION_CONTENT_TYPE,
+  TEXT_TEXT_PUNCTUATION_RESTORATION_CONTENT_TYPE,
   TEXT_TEXT_QUESTION_ANSWERING_CONTENT_TYPE,
   TEXT_TEXT_SENTENCE_PARAPHRASER_CONTENT_TYPE,
   TEXT_TEXT_SENTIMENT_ANALYSIS_CONTENT_TYPE,
@@ -154,6 +160,24 @@ export class FromTextToText {
       url: '/text/text/age-from-name/',
       headers: {
         'Content-Type': TEXT_TEXT_AGE_FROM_NAME_CONTENT_TYPE,
+        ...(args.headers ?? {}),
+      },
+      query: {
+        ...(args.model ? {model: args.model} : {}),
+      },
+      body: formData.toString(),
+    });
+  }
+
+  anonymization(args: TextTextAnonymizationInputs): Promise<TextTextAnonymizationOutputs> {
+    const formData = new UrlFormData();
+    formData.append('text', args.text);
+    formData.append('language', args.language);
+    formData.append('entities', args.entities);
+    return this.httpClient.post({
+      url: '/text/text/anonymization/',
+      headers: {
+        'Content-Type': TEXT_TEXT_ANONYMIZATION_CONTENT_TYPE,
         ...(args.headers ?? {}),
       },
       query: {
@@ -518,6 +542,22 @@ export class FromTextToText {
       url: '/text/text/programming-language-generation/',
       headers: {
         'Content-Type': TEXT_TEXT_PROGRAMMING_LANGUAGE_GENERATION_CONTENT_TYPE,
+        ...(args.headers ?? {}),
+      },
+      query: {
+        ...(args.model ? {model: args.model} : {}),
+      },
+      body: formData.toString(),
+    });
+  }
+
+  punctuationRestoration(args: TextTextPunctuationRestorationInputs): Promise<TextTextPunctuationRestorationOutputs> {
+    const formData = new UrlFormData();
+    formData.append('sentence', args.sentence);
+    return this.httpClient.post({
+      url: '/text/text/punctuation-restoration/',
+      headers: {
+        'Content-Type': TEXT_TEXT_PUNCTUATION_RESTORATION_CONTENT_TYPE,
         ...(args.headers ?? {}),
       },
       query: {

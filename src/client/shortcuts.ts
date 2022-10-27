@@ -20,13 +20,13 @@ import {
   ImageImageInpaintingInputs,
   ImageImageSuperResolutionInputs,
   ImageImageUncolorizationInputs,
-  ImageTextAsciifyInputs,
   ImageTextClassificationInputs,
   ImageTextOcrInputs,
   TextImageImageGenerationInputs,
   TextTextAdGenerationInputs,
   TextTextAddressFormattingInputs,
   TextTextAgeFromNameInputs,
+  TextTextAnonymizationInputs,
   TextTextArticleGenerationInputs,
   TextTextAutocorrectInputs,
   TextTextBulletPointGenerationInputs,
@@ -48,6 +48,7 @@ import {
   TextTextNextSentencePredictionInputs,
   TextTextNextWordPredictionInputs,
   TextTextProgrammingLanguageGenerationInputs,
+  TextTextPunctuationRestorationInputs,
   TextTextQuestionAnsweringInputs,
   TextTextSentenceParaphraserInputs,
   TextTextSentimentAnalysisInputs,
@@ -68,7 +69,6 @@ import {
   ImageImageInpaintingOutputs,
   ImageImageSuperResolutionOutputs,
   ImageImageUncolorizationOutputs,
-  ImageTextAsciifyOutputs,
   ImageTextClassificationOutputs,
   ImageTextOcrOutputs,
   TextImageImageGenerationOutputs,
@@ -77,6 +77,7 @@ import {
   TextTextAdGenerationOutputs,
   TextTextAddressFormattingOutputs,
   TextTextAgeFromNameOutputs,
+  TextTextAnonymizationOutputs,
   TextTextArticleGenerationOutputs,
   TextTextAutocorrectOutputs,
   TextTextBulletPointGenerationOutputs,
@@ -98,6 +99,7 @@ import {
   TextTextNextSentencePredictionOutputs,
   TextTextNextWordPredictionOutputs,
   TextTextProgrammingLanguageGenerationOutputs,
+  TextTextPunctuationRestorationOutputs,
   TextTextQuestionAnsweringOutputs,
   TextTextSentenceParaphraserOutputs,
   TextTextSentimentAnalysisOutputs,
@@ -169,10 +171,6 @@ export abstract class Shortcuts implements
 
   // IMAGE => TEXT
 
-  asciify(args: ImageTextAsciifyInputs): Promise<ImageTextAsciifyOutputs> {
-    return this.fromImage().toText().asciify(args);
-  }
-
   classification(args: ImageTextClassificationInputs): Promise<ImageTextClassificationOutputs> {
     return this.fromImage().toText().classification(args);
   }
@@ -203,6 +201,10 @@ export abstract class Shortcuts implements
 
   ageFromName(args: TextTextAgeFromNameInputs): Promise<TextTextAgeFromNameOutputs> {
     return this.fromText().toText().ageFromName(args);
+  }
+
+  anonymization(args: TextTextAnonymizationInputs): Promise<TextTextAnonymizationOutputs> {
+    return this.fromText().toText().anonymization(args);
   }
 
   articleGeneration(args: TextTextArticleGenerationInputs): Promise<TextTextArticleGenerationOutputs> {
@@ -287,6 +289,10 @@ export abstract class Shortcuts implements
 
   programmingLanguageGeneration(args: TextTextProgrammingLanguageGenerationInputs): Promise<TextTextProgrammingLanguageGenerationOutputs> {
     return this.fromText().toText().programmingLanguageGeneration(args);
+  }
+
+  punctuationRestoration(args: TextTextPunctuationRestorationInputs): Promise<TextTextPunctuationRestorationOutputs> {
+    return this.fromText().toText().punctuationRestoration(args);
   }
 
   questionAnswering(args: TextTextQuestionAnsweringInputs): Promise<TextTextQuestionAnsweringOutputs> {

@@ -16,10 +16,6 @@ export type ImageImageGuidedInpaintingOutputs = ArrayBuffer;
 export type ImageImageInpaintingOutputs = ArrayBuffer;
 export type ImageImageSuperResolutionOutputs = ArrayBuffer;
 export type ImageImageUncolorizationOutputs = ArrayBuffer;
-export type ImageTextAsciifyOutputs = {
-  prediction: string,
-  prediction_raw: unknown,
-};
 export type ImageTextClassificationOutputs = {
   prediction: string,
   prediction_raw: unknown,
@@ -37,6 +33,10 @@ export type TextTextAddressFormattingOutputs = {
   prediction_raw: unknown,
 };
 export type TextTextAgeFromNameOutputs = Record<string, string | number | boolean>;
+export type TextTextAnonymizationOutputs = {
+  prediction: string,
+  prediction_raw: unknown,
+};
 export type TextTextArticleGenerationOutputs = Record<string, string | number | boolean>;
 export type TextTextAutocorrectOutputs = {
   prediction: string,
@@ -94,6 +94,10 @@ export type TextTextNextWordPredictionOutputs = {
   prediction_raw: unknown,
 };
 export type TextTextProgrammingLanguageGenerationOutputs = {
+  prediction: string,
+  prediction_raw: unknown,
+};
+export type TextTextPunctuationRestorationOutputs = {
   prediction: string,
   prediction_raw: unknown,
 };

@@ -12,13 +12,13 @@ import {
   ImageImageInpaintingModel,
   ImageImageSuperResolutionModel,
   ImageImageUncolorizationModel,
-  ImageTextAsciifyModel,
   ImageTextClassificationModel,
   ImageTextOcrModel,
   TextImageImageGenerationModel,
   TextTextAdGenerationModel,
   TextTextAddressFormattingModel,
   TextTextAgeFromNameModel,
+  TextTextAnonymizationModel,
   TextTextArticleGenerationModel,
   TextTextAutocorrectModel,
   TextTextBulletPointGenerationModel,
@@ -40,6 +40,7 @@ import {
   TextTextNextSentencePredictionModel,
   TextTextNextWordPredictionModel,
   TextTextProgrammingLanguageGenerationModel,
+  TextTextPunctuationRestorationModel,
   TextTextQuestionAnsweringModel,
   TextTextSentenceParaphraserModel,
   TextTextSentimentAnalysisModel,
@@ -129,11 +130,6 @@ export interface ImageImageUncolorizationInputs
   image?: Blob;
   image_url?: string;
 }
-export interface ImageTextAsciifyInputs 
-  extends WithHeaders, WithModel<ImageTextAsciifyModel> {
-  image?: Blob;
-  image_url?: string;
-}
 export interface ImageTextClassificationInputs 
   extends WithHeaders, WithModel<ImageTextClassificationModel> {
   image?: Blob;
@@ -164,6 +160,12 @@ export interface TextTextAddressFormattingInputs
 export interface TextTextAgeFromNameInputs 
   extends WithHeaders, WithModel<TextTextAgeFromNameModel> {
   name?: string;
+}
+export interface TextTextAnonymizationInputs 
+  extends WithHeaders, WithModel<TextTextAnonymizationModel> {
+  text: string;
+  language: string;
+  entities: string;
 }
 export interface TextTextArticleGenerationInputs 
   extends WithHeaders, WithModel<TextTextArticleGenerationModel> {
@@ -254,6 +256,10 @@ export interface TextTextNextWordPredictionInputs
 export interface TextTextProgrammingLanguageGenerationInputs 
   extends WithHeaders, WithModel<TextTextProgrammingLanguageGenerationModel> {
   code_snippet: string;
+}
+export interface TextTextPunctuationRestorationInputs 
+  extends WithHeaders, WithModel<TextTextPunctuationRestorationModel> {
+  sentence: string;
 }
 export interface TextTextQuestionAnsweringInputs 
   extends WithHeaders, WithModel<TextTextQuestionAnsweringModel> {

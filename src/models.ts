@@ -78,12 +78,6 @@ export const IMAGE_IMAGE_UNCOLORIZATION_MODELS = [
 export const IMAGE_IMAGE_UNCOLORIZATION_CONTENT_TYPE = "multipart/form-data" as const;
 export type ImageImageUncolorizationModel = typeof IMAGE_IMAGE_UNCOLORIZATION_MODELS[number];
 
-export const IMAGE_TEXT_ASCIIFY_MODELS = [
-   'ramesh-aditya',
-] as const;
-export const IMAGE_TEXT_ASCIIFY_CONTENT_TYPE = "multipart/form-data" as const;
-export type ImageTextAsciifyModel = typeof IMAGE_TEXT_ASCIIFY_MODELS[number];
-
 export const IMAGE_TEXT_CLASSIFICATION_MODELS = [
    'alexnet',
    'convnext_base',
@@ -241,6 +235,12 @@ export const TEXT_TEXT_AGE_FROM_NAME_MODELS = [
 export const TEXT_TEXT_AGE_FROM_NAME_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
 export type TextTextAgeFromNameModel = typeof TEXT_TEXT_AGE_FROM_NAME_MODELS[number];
 
+export const TEXT_TEXT_ANONYMIZATION_MODELS = [
+   'ms-presidio',
+] as const;
+export const TEXT_TEXT_ANONYMIZATION_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
+export type TextTextAnonymizationModel = typeof TEXT_TEXT_ANONYMIZATION_MODELS[number];
+
 export const TEXT_TEXT_ARTICLE_GENERATION_MODELS = [
    'fast-gpt-j',
 ] as const;
@@ -309,7 +309,6 @@ export const TEXT_TEXT_GPS_ADDRESS_FORMATTING_CONTENT_TYPE = "application/x-www-
 export type TextTextGpsAddressFormattingModel = typeof TEXT_TEXT_GPS_ADDRESS_FORMATTING_MODELS[number];
 
 export const TEXT_TEXT_HATE_SPEECH_DETECTION_MODELS = [
-   'Hate-speech-CNERG-dehatebert-mono-english',
    'byt5-base-tweet-hate-detection',
    'distilbert-base-uncased-emotion',
 ] as const;
@@ -377,6 +376,12 @@ export const TEXT_TEXT_PROGRAMMING_LANGUAGE_GENERATION_MODELS = [
 ] as const;
 export const TEXT_TEXT_PROGRAMMING_LANGUAGE_GENERATION_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
 export type TextTextProgrammingLanguageGenerationModel = typeof TEXT_TEXT_PROGRAMMING_LANGUAGE_GENERATION_MODELS[number];
+
+export const TEXT_TEXT_PUNCTUATION_RESTORATION_MODELS = [
+   'kredor-punctuate-all',
+] as const;
+export const TEXT_TEXT_PUNCTUATION_RESTORATION_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
+export type TextTextPunctuationRestorationModel = typeof TEXT_TEXT_PUNCTUATION_RESTORATION_MODELS[number];
 
 export const TEXT_TEXT_QUESTION_ANSWERING_MODELS = [
    'deepset-roberta-base-squad2',
