@@ -70,6 +70,7 @@ jobs:
           tags: true
 
       - name: Publish release to NPM
+        if: ${{ env.SHOULD_UPDATE != 0 }}
         uses: JS-DevTools/npm-publish@v1
         with:
           access: public
