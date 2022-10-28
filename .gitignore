@@ -4,3 +4,4 @@ lib/*.tsbuildinfo
 coverage/
 openapi.json
 .DS_Store
+examples/vanilla-js/lib

@@ -24,6 +24,12 @@ function baseConfig({ devtool, filename }) {
     devtool,
     resolve: {
       extensions: ['.tsx', '.ts', '.js'],
+      fallback: {
+        // this allow to build the all in one bundle
+        // nodejs cannot use this bundle (the bundle depends on window)
+        // so no problem to break this module
+        https: false,
+      },
     },
     output: {
       path: path.resolve(__dirname, 'lib'),

@@ -11,9 +11,8 @@ import {
 import {
   TEXT_IMAGE_IMAGE_GENERATION_CONTENT_TYPE,
 } from '../models';
-import { getHttpClient, HttpClient } from '../internal/http-client';
+import { getHttpClient, HttpClient, UrlFormData } from '../internal/http-client';
 import { isDefined } from '../utils/fp';
-import { UrlFormData } from '../internal/url-form-data';
 import { GladiaClientParams } from './gladia-client-params';
 
 export class FromTextToImage {

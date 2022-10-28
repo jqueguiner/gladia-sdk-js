@@ -1,4 +1,4 @@
-import { UrlFormData } from '../../src/internal/url-form-data';
+import { UrlFormData } from '../../src/internal/http-client';
 
 describe(UrlFormData.name, () => {
   describe('basis', () => {

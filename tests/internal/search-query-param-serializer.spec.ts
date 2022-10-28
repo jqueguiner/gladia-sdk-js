@@ -2,7 +2,7 @@ import {
   searchQueryParamSerializer,
   searchParamSerializer,
   searchParamDeserializer,
-} from '../../src/internal/search-query-param-serializer';
+} from '../../src/internal/http-client/search-query-param-serializer';
 
 describe(searchQueryParamSerializer.name, () => {
   it('should return empty string for no param', () => {
