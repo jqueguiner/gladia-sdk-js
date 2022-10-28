@@ -1,5 +1,4 @@
-import { HttpClient, HttpClientFactory } from '../../src/internal/http-client';
-import { UrlFormData } from '../../src/internal/url-form-data';
+import { HttpClient, HttpClientFactory, UrlFormData } from '../../src/internal/http-client';
 
 export function mockHttpClient(): HttpClientFactory {
   return () => ({

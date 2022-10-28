@@ -156,15 +156,15 @@ function generateFromInputToOutputClasses() {
       }
       fileContent.push(`} from '../models';`);
       const importUrlFormData = outputTypeEndpoints.some(isEndpointNeedUrlFormData);
-      fileContent.push(`import { getHttpClient, HttpClient } from '../internal/http-client';`);
+      const urlFormDataImport = importUrlFormData ? ', UrlFormData' : '';
+      fileContent.push(
+        `import { getHttpClient, HttpClient${urlFormDataImport} } from '../internal/http-client';`,
+      );
       const shouldImportIsDefined = outputTypeEndpoints.some((endpoints) =>
         endpoints.params.some((param) => !param.required),
       );
       if (shouldImportIsDefined) {
         fileContent.push(`import { isDefined } from '../utils/fp';`);
-      }
-      if (importUrlFormData) {
-        fileContent.push(`import { UrlFormData } from '../internal/url-form-data';`);
       }
       fileContent.push(`import { GladiaClientParams } from './gladia-client-params';`);
       fileContent.push('');

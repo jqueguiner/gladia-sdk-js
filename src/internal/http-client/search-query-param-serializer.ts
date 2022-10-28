@@ -1,4 +1,4 @@
-import { isNotDefined } from '../utils/fp';
+import { isNotDefined } from '../../utils/fp';
 
 type ParamValueType = string | number | boolean | string[];
 

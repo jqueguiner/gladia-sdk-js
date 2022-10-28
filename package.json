@@ -16,7 +16,7 @@
     "build:es5": "tsc -p ./tsconfig.es5.json",
     "bundle": "webpack --mode production",
     "build": "npm run build:clean && npm run build:esm && npm run build:cjs && npm run build:es5 && npm run bundle",
-    "postbuild": "npm run lint",
+    "postbuild": "npm run lint && ln -s ../../lib ./examples/vanilla-js/lib",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
@@ -27,10 +27,7 @@
     "generate-sdk": "ts-node scripts/generate-sdk.ts"
   },
   "dependencies": {
-    "@vespaiach/axios-fetch-adapter": "^0.3.0",
-    "axios": "^0.27.2",
-    "core-js": "^3.9.1",
-    "regenerator-runtime": "^0.13.7"
+    "core-js": "^3.9.1"
   },
   "devDependencies": {
     "@types/custom-functions-runtime": "^1.6.4",
