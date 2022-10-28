@@ -68,3 +68,9 @@ jobs:
           token: ${{ secrets.PUSH_TO_MAIN }}
           branch: main
           tags: true
+
+      - name: Publish release to NPM
+        uses: JS-DevTools/npm-publish@v1
+        with:
+          access: public
+          token: ${{ secrets.NPM_TOKEN }}
