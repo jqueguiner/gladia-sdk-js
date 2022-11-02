@@ -70,6 +70,15 @@ export declare type TextTextCleanCountryModel = typeof TEXT_TEXT_CLEAN_COUNTRY_M
 export declare const TEXT_TEXT_COMMAND_GENERATION_MODELS: readonly ["jpt"];
 export declare const TEXT_TEXT_COMMAND_GENERATION_CONTENT_TYPE: "application/x-www-form-urlencoded";
 export declare type TextTextCommandGenerationModel = typeof TEXT_TEXT_COMMAND_GENERATION_MODELS[number];
+export declare const TEXT_TEXT_COMPANY_CATEGORIZATION_MODELS: readonly ["jpt"];
+export declare const TEXT_TEXT_COMPANY_CATEGORIZATION_CONTENT_TYPE: "application/x-www-form-urlencoded";
+export declare type TextTextCompanyCategorizationModel = typeof TEXT_TEXT_COMPANY_CATEGORIZATION_MODELS[number];
+export declare const TEXT_TEXT_COMPANY_NAME_NORMALIZATION_MODELS: readonly ["jpt"];
+export declare const TEXT_TEXT_COMPANY_NAME_NORMALIZATION_CONTENT_TYPE: "application/x-www-form-urlencoded";
+export declare type TextTextCompanyNameNormalizationModel = typeof TEXT_TEXT_COMPANY_NAME_NORMALIZATION_MODELS[number];
+export declare const TEXT_TEXT_COMPANY_STOCK_CODE_MODELS: readonly ["jpt"];
+export declare const TEXT_TEXT_COMPANY_STOCK_CODE_CONTENT_TYPE: "application/x-www-form-urlencoded";
+export declare type TextTextCompanyStockCodeModel = typeof TEXT_TEXT_COMPANY_STOCK_CODE_MODELS[number];
 export declare const TEXT_TEXT_CONVERSATION_SUMMARIZATION_MODELS: readonly ["bart-large-xsum-samsum"];
 export declare const TEXT_TEXT_CONVERSATION_SUMMARIZATION_CONTENT_TYPE: "application/x-www-form-urlencoded";
 export declare type TextTextConversationSummarizationModel = typeof TEXT_TEXT_CONVERSATION_SUMMARIZATION_MODELS[number];

@@ -25,6 +25,9 @@ import {
   TextTextCleanCityModel,
   TextTextCleanCountryModel,
   TextTextCommandGenerationModel,
+  TextTextCompanyCategorizationModel,
+  TextTextCompanyNameNormalizationModel,
+  TextTextCompanyStockCodeModel,
   TextTextConversationSummarizationModel,
   TextTextCountryFromNameModel,
   TextTextEmotionRecognitionModel,
@@ -190,6 +193,18 @@ export interface TextTextCleanCountryInputs
 }
 export interface TextTextCommandGenerationInputs 
   extends WithHeaders, WithModel<TextTextCommandGenerationModel> {
+  text?: string;
+}
+export interface TextTextCompanyCategorizationInputs 
+  extends WithHeaders, WithModel<TextTextCompanyCategorizationModel> {
+  text?: string;
+}
+export interface TextTextCompanyNameNormalizationInputs 
+  extends WithHeaders, WithModel<TextTextCompanyNameNormalizationModel> {
+  text?: string;
+}
+export interface TextTextCompanyStockCodeInputs 
+  extends WithHeaders, WithModel<TextTextCompanyStockCodeModel> {
   text?: string;
 }
 export interface TextTextConversationSummarizationInputs 

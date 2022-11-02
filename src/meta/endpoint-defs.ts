@@ -888,6 +888,75 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
     "hasSamplesParam": false
   },
   {
+    "url": "/text/text/company-categorization/",
+    "inputType": "text",
+    "outputType": "text",
+    "taskName": "company-categorization",
+    "models": [
+      "jpt"
+    ],
+    "defaultModel": "jpt",
+    "inputBodyContentType": "application/x-www-form-urlencoded",
+    "outputBodyContentType": {
+      "type": "unknown"
+    },
+    "params": [
+      {
+        "in": "formData",
+        "type": "string",
+        "name": "text",
+        "required": false
+      }
+    ],
+    "hasSamplesParam": false
+  },
+  {
+    "url": "/text/text/company-name-normalization/",
+    "inputType": "text",
+    "outputType": "text",
+    "taskName": "company-name-normalization",
+    "models": [
+      "jpt"
+    ],
+    "defaultModel": "jpt",
+    "inputBodyContentType": "application/x-www-form-urlencoded",
+    "outputBodyContentType": {
+      "type": "unknown"
+    },
+    "params": [
+      {
+        "in": "formData",
+        "type": "string",
+        "name": "text",
+        "required": false
+      }
+    ],
+    "hasSamplesParam": false
+  },
+  {
+    "url": "/text/text/company-stock-code/",
+    "inputType": "text",
+    "outputType": "text",
+    "taskName": "company-stock-code",
+    "models": [
+      "jpt"
+    ],
+    "defaultModel": "jpt",
+    "inputBodyContentType": "application/x-www-form-urlencoded",
+    "outputBodyContentType": {
+      "type": "unknown"
+    },
+    "params": [
+      {
+        "in": "formData",
+        "type": "string",
+        "name": "text",
+        "required": false
+      }
+    ],
+    "hasSamplesParam": false
+  },
+  {
     "url": "/text/text/conversation-summarization/",
     "inputType": "text",
     "outputType": "text",

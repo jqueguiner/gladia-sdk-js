@@ -11,6 +11,9 @@ import {
   TextTextCleanCityInputs,
   TextTextCleanCountryInputs,
   TextTextCommandGenerationInputs,
+  TextTextCompanyCategorizationInputs,
+  TextTextCompanyNameNormalizationInputs,
+  TextTextCompanyStockCodeInputs,
   TextTextConversationSummarizationInputs,
   TextTextCountryFromNameInputs,
   TextTextEmotionRecognitionInputs,
@@ -46,6 +49,9 @@ import {
   TextTextCleanCityOutputs,
   TextTextCleanCountryOutputs,
   TextTextCommandGenerationOutputs,
+  TextTextCompanyCategorizationOutputs,
+  TextTextCompanyNameNormalizationOutputs,
+  TextTextCompanyStockCodeOutputs,
   TextTextConversationSummarizationOutputs,
   TextTextCountryFromNameOutputs,
   TextTextEmotionRecognitionOutputs,
@@ -81,6 +87,9 @@ import {
   TEXT_TEXT_CLEAN_CITY_CONTENT_TYPE,
   TEXT_TEXT_CLEAN_COUNTRY_CONTENT_TYPE,
   TEXT_TEXT_COMMAND_GENERATION_CONTENT_TYPE,
+  TEXT_TEXT_COMPANY_CATEGORIZATION_CONTENT_TYPE,
+  TEXT_TEXT_COMPANY_NAME_NORMALIZATION_CONTENT_TYPE,
+  TEXT_TEXT_COMPANY_STOCK_CODE_CONTENT_TYPE,
   TEXT_TEXT_CONVERSATION_SUMMARIZATION_CONTENT_TYPE,
   TEXT_TEXT_COUNTRY_FROM_NAME_CONTENT_TYPE,
   TEXT_TEXT_EMOTION_RECOGNITION_CONTENT_TYPE,
@@ -286,6 +295,60 @@ export class FromTextToText {
       url: '/text/text/command-generation/',
       headers: {
         'Content-Type': TEXT_TEXT_COMMAND_GENERATION_CONTENT_TYPE,
+        ...(args.headers ?? {}),
+      },
+      query: {
+        ...(args.model ? {model: args.model} : {}),
+      },
+      body: formData.toString(),
+    });
+  }
+
+  companyCategorization(args: TextTextCompanyCategorizationInputs): Promise<TextTextCompanyCategorizationOutputs> {
+    const formData = new UrlFormData();
+    if (isDefined(args.text)) {
+      formData.append('text', args.text);
+    }
+    return this.httpClient.post({
+      url: '/text/text/company-categorization/',
+      headers: {
+        'Content-Type': TEXT_TEXT_COMPANY_CATEGORIZATION_CONTENT_TYPE,
+        ...(args.headers ?? {}),
+      },
+      query: {
+        ...(args.model ? {model: args.model} : {}),
+      },
+      body: formData.toString(),
+    });
+  }
+
+  companyNameNormalization(args: TextTextCompanyNameNormalizationInputs): Promise<TextTextCompanyNameNormalizationOutputs> {
+    const formData = new UrlFormData();
+    if (isDefined(args.text)) {
+      formData.append('text', args.text);
+    }
+    return this.httpClient.post({
+      url: '/text/text/company-name-normalization/',
+      headers: {
+        'Content-Type': TEXT_TEXT_COMPANY_NAME_NORMALIZATION_CONTENT_TYPE,
+        ...(args.headers ?? {}),
+      },
+      query: {
+        ...(args.model ? {model: args.model} : {}),
+      },
+      body: formData.toString(),
+    });
+  }
+
+  companyStockCode(args: TextTextCompanyStockCodeInputs): Promise<TextTextCompanyStockCodeOutputs> {
+    const formData = new UrlFormData();
+    if (isDefined(args.text)) {
+      formData.append('text', args.text);
+    }
+    return this.httpClient.post({
+      url: '/text/text/company-stock-code/',
+      headers: {
+        'Content-Type': TEXT_TEXT_COMPANY_STOCK_CODE_CONTENT_TYPE,
         ...(args.headers ?? {}),
       },
       query: {

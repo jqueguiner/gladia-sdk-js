@@ -33,6 +33,9 @@ import {
   TextTextCleanCityInputs,
   TextTextCleanCountryInputs,
   TextTextCommandGenerationInputs,
+  TextTextCompanyCategorizationInputs,
+  TextTextCompanyNameNormalizationInputs,
+  TextTextCompanyStockCodeInputs,
   TextTextConversationSummarizationInputs,
   TextTextCountryFromNameInputs,
   TextTextEmotionRecognitionInputs,
@@ -84,6 +87,9 @@ import {
   TextTextCleanCityOutputs,
   TextTextCleanCountryOutputs,
   TextTextCommandGenerationOutputs,
+  TextTextCompanyCategorizationOutputs,
+  TextTextCompanyNameNormalizationOutputs,
+  TextTextCompanyStockCodeOutputs,
   TextTextConversationSummarizationOutputs,
   TextTextCountryFromNameOutputs,
   TextTextEmotionRecognitionOutputs,
@@ -229,6 +235,18 @@ export abstract class Shortcuts implements
 
   commandGeneration(args: TextTextCommandGenerationInputs): Promise<TextTextCommandGenerationOutputs> {
     return this.fromText().toText().commandGeneration(args);
+  }
+
+  companyCategorization(args: TextTextCompanyCategorizationInputs): Promise<TextTextCompanyCategorizationOutputs> {
+    return this.fromText().toText().companyCategorization(args);
+  }
+
+  companyNameNormalization(args: TextTextCompanyNameNormalizationInputs): Promise<TextTextCompanyNameNormalizationOutputs> {
+    return this.fromText().toText().companyNameNormalization(args);
+  }
+
+  companyStockCode(args: TextTextCompanyStockCodeInputs): Promise<TextTextCompanyStockCodeOutputs> {
+    return this.fromText().toText().companyStockCode(args);
   }
 
   conversationSummarization(args: TextTextConversationSummarizationInputs): Promise<TextTextConversationSummarizationOutputs> {

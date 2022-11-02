@@ -429,6 +429,36 @@ The runtime default model is defined on the GladIA server.
 
  - `text`: string
 
+### `company-categorization`
+
+#### `models`
+
+ - **jpt (default)**
+
+#### other params
+
+ - `text`: string
+
+### `company-name-normalization`
+
+#### `models`
+
+ - **jpt (default)**
+
+#### other params
+
+ - `text`: string
+
+### `company-stock-code`
+
+#### `models`
+
+ - **jpt (default)**
+
+#### other params
+
+ - `text`: string
+
 ### `conversation-summarization`
 
 #### `models`

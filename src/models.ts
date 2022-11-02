@@ -277,6 +277,24 @@ export const TEXT_TEXT_COMMAND_GENERATION_MODELS = [
 export const TEXT_TEXT_COMMAND_GENERATION_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
 export type TextTextCommandGenerationModel = typeof TEXT_TEXT_COMMAND_GENERATION_MODELS[number];
 
+export const TEXT_TEXT_COMPANY_CATEGORIZATION_MODELS = [
+   'jpt',
+] as const;
+export const TEXT_TEXT_COMPANY_CATEGORIZATION_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
+export type TextTextCompanyCategorizationModel = typeof TEXT_TEXT_COMPANY_CATEGORIZATION_MODELS[number];
+
+export const TEXT_TEXT_COMPANY_NAME_NORMALIZATION_MODELS = [
+   'jpt',
+] as const;
+export const TEXT_TEXT_COMPANY_NAME_NORMALIZATION_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
+export type TextTextCompanyNameNormalizationModel = typeof TEXT_TEXT_COMPANY_NAME_NORMALIZATION_MODELS[number];
+
+export const TEXT_TEXT_COMPANY_STOCK_CODE_MODELS = [
+   'jpt',
+] as const;
+export const TEXT_TEXT_COMPANY_STOCK_CODE_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
+export type TextTextCompanyStockCodeModel = typeof TEXT_TEXT_COMPANY_STOCK_CODE_MODELS[number];
+
 export const TEXT_TEXT_CONVERSATION_SUMMARIZATION_MODELS = [
    'bart-large-xsum-samsum',
 ] as const;

@@ -46,6 +46,9 @@ export type TextTextBulletPointGenerationOutputs = Record<string, string | numbe
 export type TextTextCleanCityOutputs = Record<string, string | number | boolean>;
 export type TextTextCleanCountryOutputs = Record<string, string | number | boolean>;
 export type TextTextCommandGenerationOutputs = Record<string, string | number | boolean>;
+export type TextTextCompanyCategorizationOutputs = Record<string, string | number | boolean>;
+export type TextTextCompanyNameNormalizationOutputs = Record<string, string | number | boolean>;
+export type TextTextCompanyStockCodeOutputs = Record<string, string | number | boolean>;
 export type TextTextConversationSummarizationOutputs = {
   prediction: string,
   prediction_raw: unknown,
