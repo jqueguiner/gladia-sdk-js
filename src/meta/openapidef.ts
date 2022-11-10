@@ -39,12 +39,12 @@ export const openApiJson: OpenApiJson = {
             "schema": {
               "title": "Model",
               "enum": [
-                "openai-whisper-small",
-                "coqui_english_huge_vocab",
-                "openai-whisper-tiny",
-                "openai-whisper-base",
                 "openai-whisper-medium",
-                "openai-whisper-large"
+                "openai-whisper-base",
+                "openai-whisper-small",
+                "openai-whisper-tiny",
+                "openai-whisper-large",
+                "coqui_english_huge_vocab"
               ],
               "type": "string",
               "default": "openai-whisper-tiny"
@@ -164,8 +164,8 @@ export const openApiJson: OpenApiJson = {
             "schema": {
               "title": "Model",
               "enum": [
-                "xception",
-                "mobilenet"
+                "mobilenet",
+                "xception"
               ],
               "type": "string",
               "default": "mobilenet"
@@ -337,9 +337,9 @@ export const openApiJson: OpenApiJson = {
             "schema": {
               "title": "Model",
               "enum": [
-                "deoldify-stable",
+                "mlhubber_colorize",
                 "deoldify-artistic",
-                "mlhubber_colorize"
+                "deoldify-stable"
               ],
               "type": "string",
               "default": "mlhubber_colorize"
@@ -759,11 +759,11 @@ export const openApiJson: OpenApiJson = {
             "schema": {
               "title": "Model",
               "enum": [
+                "zits",
                 "latent-diffusion",
-                "mat",
-                "fcf",
                 "lama",
-                "zits"
+                "fcf",
+                "mat"
               ],
               "type": "string",
               "default": "zits"
@@ -1008,124 +1008,124 @@ export const openApiJson: OpenApiJson = {
             "schema": {
               "title": "Model",
               "enum": [
-                "regnet_x_1_6gf_v1",
-                "regnet_y_128gf_swag_e2e_v1",
-                "regnet_y_8gf_v2",
-                "vit_h_14_swag_e2e_v1",
-                "mnasnet0_75",
-                "vit_l_16_swag_linear_v1",
-                "efficientnet_b0",
-                "resnet18",
-                "wide_resnet101_2_v2",
-                "resnet50_quantized_fbgemm_v2",
-                "efficientnet_b3",
-                "resnet50_quantized_fbgemm_v1",
-                "regnet_x_1_6gf_v2",
-                "vgg13",
-                "densenet121",
-                "efficientnet_b1_v2",
-                "regnet_y_400mf_v2",
-                "regnet_x_16gf_v1",
-                "regnet_y_16gf_v2",
-                "regnet_y_16gf_swag_linear_v1",
-                "resnext101_32x8d_v2",
-                "shufflenet_v2_x1_0",
-                "resnext101_64x4d_v1",
-                "convnext_small",
-                "resnext50_32x4d_v1",
-                "vit_l_16_v1",
-                "regnet_x_3_2gf_v1",
-                "convnext_base",
+                "mnasnet1_3",
                 "efficientnet_b1_v1",
-                "vgg11",
-                "vit_l_16_swag_e2e_v1",
-                "mobilenet_v3_large_quantized_qnnpack_v1",
-                "vgg16_v1",
-                "inception_v3_fbgemm_v1",
-                "alexnet",
-                "mobilenet_v3_large_v2",
-                "regnet_x_800mf_v1",
-                "vgg11_bn",
-                "shufflenet_v2_x1_5_quantized_fbgemm_v1",
-                "regnet_y_32gf_swag_linear_v1",
-                "vit_l_32",
-                "regnet_y_128gf_swag_linear_v1",
-                "mnasnet0_5",
-                "resnext101_32x8d_v1",
-                "regnet_y_3_2gf_v2",
-                "regnet_y_8gf_v1",
-                "vgg16_bn",
-                "regnet_y_16gf_swag_e2e_v1",
-                "swin_b",
+                "regnet_y_8gf_v2",
                 "mnasnet1_0",
                 "regnet_y_16gf_v1",
-                "efficientnet_b6",
-                "efficientnet_v2_m",
-                "convnext_large",
-                "regnet_x_8gf_v1",
-                "shufflenet_v2_x1_0_quantized_fbgemm_v1",
-                "regnet_x_16gf_v2",
-                "resnet50_v2",
-                "regnet_x_400mf_v2",
-                "regnet_x_400mf_v1",
-                "efficientnet_b5",
-                "resnet50_v1",
-                "efficientnet_b2",
-                "efficientnet_b4",
-                "efficientnet_v2_l",
-                "squeezenet1_0",
-                "vit_b_16_swag_e2e_v1",
-                "vit_b_16_v1",
-                "resnet152_v2",
-                "vgg19",
-                "efficientnet_b7",
-                "shufflenet_v2_x1_5",
-                "densenet201",
-                "shufflenet_v2_x0_5",
-                "resnext101_32x8d_quantized_fbgemm_v2",
-                "regnet_x_3_2gf_v2",
-                "squeezenet1_1",
-                "mnasnet1_3",
-                "googlenet_quantized_fbgemm_v1",
+                "vgg16_bn",
+                "resnext101_64x4d_v1",
                 "regnet_y_400mf_v1",
-                "swin_s",
-                "mobilenet_v2_quantized_qnnpack_v1",
-                "shufflenet_v2_x2_0_quantized_fbgemm_v1",
-                "efficientnet_v2_s",
-                "vit_b_32",
-                "resnet18_quantized_fbgemm_v1",
-                "swin_t",
-                "resnet152_v1",
-                "regnet_x_32gf_v2",
-                "regnet_x_32gf_v1",
-                "densenet161",
-                "mobilenet_v3_large_v1",
-                "vgg13_bn",
-                "wide_resnet101_2_v1",
-                "mobilenet_v2_v1",
-                "mobilenet_v2_v2",
-                "regnet_x_8gf_v2",
-                "vit_h_14_swag_linear_v1",
-                "regnet_y_1_6gf_v1",
-                "resnet34",
-                "regnet_x_800mf_v2",
-                "resnext101_32x8d_quantized_fbgemm_v1",
-                "shufflenet_v2_x0_5_quantized_fbgemm_v1",
-                "regnet_y_32gf_swag_e2e_v1",
-                "vgg19_bn",
-                "shufflenet_v2_x2_0",
-                "regnet_y_32gf_v2",
+                "mnasnet0_75",
                 "convnext_tiny",
-                "regnet_y_32gf_v1",
-                "inception_v3",
-                "regnet_y_3_2gf_v1",
-                "resnext50_32x4d_v2",
-                "googlenet",
-                "vit_b_16_swag_linear_v1",
-                "densenet169",
+                "regnet_y_400mf_v2",
+                "convnext_small",
+                "squeezenet1_0",
+                "vit_l_16_swag_linear_v1",
+                "regnet_y_16gf_swag_linear_v1",
                 "regnet_y_1_6gf_v2",
+                "resnext50_32x4d_v1",
+                "googlenet_quantized_fbgemm_v1",
+                "shufflenet_v2_x1_0",
+                "regnet_x_8gf_v2",
+                "inception_v3",
+                "convnext_base",
+                "regnet_y_32gf_swag_linear_v1",
+                "vgg19",
+                "resnext101_32x8d_v1",
+                "swin_t",
+                "regnet_y_128gf_swag_e2e_v1",
+                "vit_h_14_swag_e2e_v1",
+                "regnet_x_16gf_v2",
+                "resnet152_v2",
+                "regnet_y_32gf_v1",
                 "mobilenet_v3_small",
-                "resnext101_64x4d_quantized_fbgemm_v1"
+                "densenet169",
+                "mobilenet_v3_large_quantized_qnnpack_v1",
+                "resnet50_v2",
+                "regnet_y_32gf_swag_e2e_v1",
+                "resnext101_32x8d_quantized_fbgemm_v1",
+                "vgg19_bn",
+                "regnet_x_1_6gf_v2",
+                "vit_l_16_swag_e2e_v1",
+                "wide_resnet101_2_v1",
+                "googlenet",
+                "regnet_x_8gf_v1",
+                "resnet152_v1",
+                "efficientnet_b0",
+                "shufflenet_v2_x2_0",
+                "swin_s",
+                "alexnet",
+                "efficientnet_b6",
+                "vit_b_32",
+                "resnext101_32x8d_v2",
+                "swin_b",
+                "wide_resnet101_2_v2",
+                "vgg11",
+                "resnet18",
+                "mobilenet_v3_large_v2",
+                "efficientnet_b7",
+                "shufflenet_v2_x1_5_quantized_fbgemm_v1",
+                "regnet_x_16gf_v1",
+                "resnet50_quantized_fbgemm_v2",
+                "vit_h_14_swag_linear_v1",
+                "resnet50_v1",
+                "efficientnet_b5",
+                "regnet_x_3_2gf_v1",
+                "regnet_x_800mf_v2",
+                "convnext_large",
+                "densenet201",
+                "efficientnet_v2_m",
+                "regnet_x_400mf_v1",
+                "shufflenet_v2_x1_5",
+                "resnext101_32x8d_quantized_fbgemm_v2",
+                "efficientnet_b2",
+                "mobilenet_v2_quantized_qnnpack_v1",
+                "regnet_x_32gf_v1",
+                "resnext101_64x4d_quantized_fbgemm_v1",
+                "mnasnet0_5",
+                "densenet161",
+                "regnet_x_400mf_v2",
+                "regnet_y_32gf_v2",
+                "resnet34",
+                "mobilenet_v2_v2",
+                "vgg11_bn",
+                "vit_b_16_swag_e2e_v1",
+                "regnet_x_1_6gf_v1",
+                "shufflenet_v2_x1_0_quantized_fbgemm_v1",
+                "vit_l_32",
+                "inception_v3_fbgemm_v1",
+                "regnet_x_32gf_v2",
+                "regnet_y_1_6gf_v1",
+                "regnet_x_3_2gf_v2",
+                "shufflenet_v2_x2_0_quantized_fbgemm_v1",
+                "mobilenet_v2_v1",
+                "resnet50_quantized_fbgemm_v1",
+                "resnet18_quantized_fbgemm_v1",
+                "regnet_y_16gf_v2",
+                "regnet_x_800mf_v1",
+                "efficientnet_v2_l",
+                "efficientnet_b1_v2",
+                "vit_l_16_v1",
+                "efficientnet_b3",
+                "shufflenet_v2_x0_5",
+                "regnet_y_3_2gf_v2",
+                "regnet_y_3_2gf_v1",
+                "vgg13",
+                "resnext50_32x4d_v2",
+                "regnet_y_16gf_swag_e2e_v1",
+                "regnet_y_128gf_swag_linear_v1",
+                "vgg16_v1",
+                "vit_b_16_v1",
+                "squeezenet1_1",
+                "efficientnet_v2_s",
+                "regnet_y_8gf_v1",
+                "densenet121",
+                "shufflenet_v2_x0_5_quantized_fbgemm_v1",
+                "vit_b_16_swag_linear_v1",
+                "mobilenet_v3_large_v1",
+                "efficientnet_b4",
+                "vgg13_bn"
               ],
               "type": "string",
               "default": "alexnet"
@@ -2265,9 +2265,9 @@ export const openApiJson: OpenApiJson = {
             "schema": {
               "title": "Model",
               "enum": [
+                "tesseract-default",
                 "textract-extractor",
                 "easy-ocr",
-                "tesseract-default",
                 "tesseract-denoising"
               ],
               "type": "string",
@@ -2384,8 +2384,8 @@ export const openApiJson: OpenApiJson = {
             "schema": {
               "title": "Model",
               "enum": [
-                "stable-diffusion",
-                "dream-studio"
+                "dream-studio",
+                "stable-diffusion"
               ],
               "type": "string",
               "default": "stable-diffusion"
@@ -3143,8 +3143,8 @@ export const openApiJson: OpenApiJson = {
             "schema": {
               "title": "Model",
               "enum": [
-                "keybert-paraphrase-MiniLM-L6-v2",
-                "keybert-paraphrase-multilingual-MiniLM-L12-v2"
+                "keybert-paraphrase-multilingual-MiniLM-L12-v2",
+                "keybert-paraphrase-MiniLM-L6-v2"
               ],
               "type": "string",
               "default": "keybert-paraphrase-MiniLM-L6-v2"
@@ -3279,10 +3279,10 @@ export const openApiJson: OpenApiJson = {
               "enum": [
                 "xlm-roberta-base-language-detection",
                 "toftrup-etal-2021",
-                "deepl"
+                "jpt"
               ],
               "type": "string",
-              "default": "deepl"
+              "default": "jpt"
             },
             "name": "model",
             "in": "query"
@@ -3720,9 +3720,9 @@ export const openApiJson: OpenApiJson = {
               "title": "Model",
               "enum": [
                 "distilbert-base-uncased",
-                "bert-base-uncased",
                 "roberta-base",
-                "albert-base-v2"
+                "albert-base-v2",
+                "bert-base-uncased"
               ],
               "type": "string",
               "default": "distilbert-base-uncased"
@@ -4014,11 +4014,11 @@ export const openApiJson: OpenApiJson = {
             "schema": {
               "title": "Model",
               "enum": [
+                "deepset_bert-base-cased-squad2",
+                "deepset-roberta-base-squad2",
                 "mfeb-albert-xxlarge-v2-squad2",
                 "distilbert-base-cased-distilled-squad",
-                "mrm8488-bert-tiny-5-finetuned-squadv2",
-                "deepset_bert-base-cased-squad2",
-                "deepset-roberta-base-squad2"
+                "mrm8488-bert-tiny-5-finetuned-squadv2"
               ],
               "type": "string",
               "default": "distilbert-base-cased-distilled-squad"
@@ -4160,8 +4160,8 @@ export const openApiJson: OpenApiJson = {
             "schema": {
               "title": "Model",
               "enum": [
-                "ramsrigouthamg-t5_sentence_paraphraser",
-                "ramsrigouthamg-t5-large-paraphraser-diverse-high-quality"
+                "ramsrigouthamg-t5-large-paraphraser-diverse-high-quality",
+                "ramsrigouthamg-t5_sentence_paraphraser"
               ],
               "type": "string",
               "default": "ramsrigouthamg-t5-large-paraphraser-diverse-high-quality"
@@ -4258,10 +4258,10 @@ export const openApiJson: OpenApiJson = {
             "schema": {
               "title": "Model",
               "enum": [
-                "distilbert-base-uncased-finetuned-sst-2-english",
-                "nlptown-bert-base-multilingual-uncased-sentiment",
+                "zero-shot-classification-facebook-bart-large-mnli",
                 "distilbert-base-uncased",
-                "zero-shot-classification-facebook-bart-large-mnli"
+                "distilbert-base-uncased-finetuned-sst-2-english",
+                "nlptown-bert-base-multilingual-uncased-sentiment"
               ],
               "type": "string",
               "default": "nlptown-bert-base-multilingual-uncased-sentiment"
@@ -4566,10 +4566,10 @@ export const openApiJson: OpenApiJson = {
               "title": "Model",
               "enum": [
                 "facebook-nllb-200-distilled-600M",
-                "deepl"
+                "jpt"
               ],
               "type": "string",
-              "default": "deepl"
+              "default": "jpt"
             },
             "name": "model",
             "in": "query"
@@ -5446,6 +5446,165 @@ export const openApiJson: OpenApiJson = {
           }
         }
       }
+    },
+    "/text/text/website-classification/": {
+      "post": {
+        "tags": [
+          "text.text.website-classification"
+        ],
+        "summary": "Get the company stock code",
+        "operationId": "apply_text_text_website_classification__post",
+        "parameters": [
+          {
+            "required": false,
+            "schema": {
+              "title": "Model",
+              "enum": [
+                "jpt"
+              ],
+              "type": "string",
+              "default": "jpt"
+            },
+            "name": "model",
+            "in": "query"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_apply_text_text_website_classification__post"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/text/text/vat-country-guessing/": {
+      "post": {
+        "tags": [
+          "text.text.vat-country-guessing"
+        ],
+        "summary": "Guess the country of the provided VAT number",
+        "operationId": "apply_text_text_vat_country_guessing__post",
+        "parameters": [
+          {
+            "required": false,
+            "schema": {
+              "title": "Model",
+              "enum": [
+                "jpt"
+              ],
+              "type": "string",
+              "default": "jpt"
+            },
+            "name": "model",
+            "in": "query"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_apply_text_text_vat_country_guessing__post"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/text/text/gpt3/": {
+      "post": {
+        "tags": [
+          "text.text.gpt3"
+        ],
+        "summary": "GPT3",
+        "operationId": "apply_text_text_gpt3__post",
+        "parameters": [
+          {
+            "required": false,
+            "schema": {
+              "title": "Model",
+              "enum": [
+                "jpt"
+              ],
+              "type": "string",
+              "default": "jpt"
+            },
+            "name": "model",
+            "in": "query"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_apply_text_text_gpt3__post"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -5496,20 +5655,20 @@ export const openApiJson: OpenApiJson = {
             "type": "string",
             "description": "Insert the text to summarize here",
             "example": "The Crown is a historical drama streaming television series about the reign of Queen Elizabeth II, created and principally written by Peter Morgan, and produced by Left Bank Pictures and Sony Pictures Television for Netflix. Morgan developed it from his drama film The Queen (2006) and especially his stage play The Audience (2013). The first season covers the period from Elizabeth's marriage to Philip, Duke of Edinburgh in 1947 to the disintegration of her sister Princess Margaret's engagement to Group Captain Peter Townsend in 1955. The second season covers the period from the Suez Crisis in 1956 to the retirement of Prime Minister Harold Macmillan in 1963 and the birth of Prince Edward in 1964. The third season spans 1964 to 1977, includes Harold Wilson's two periods as prime minister, and introduces Camilla Shand. The fourth season spans 1979 to the early 1990s and includes Margaret Thatcher's tenure as prime minister and Prince Charles's marriage to Lady Diana Spencer. The fifth and sixth seasons, which will close the series, will cover the Queen's reign into the 21st century. For each of the two-season increments, new actors fill the roles to account for the ageing process in the periods of time portrayed. Claire Foy portrays the Queen in the first two seasons, alongside Matt Smith as Prince Philip and Vanessa Kirby as Princess Margaret. For the third and fourth seasons, Olivia Colman takes over as the Queen, Tobias Menzies as Prince Philip, and Helena Bonham Carter as Princess Margaret. Also added to the cast in season 3 is Josh O'Connor as Prince Charles. In the fourth season, new cast members include Emma Corrin as Lady Diana Spencer and Gillian Anderson as Margaret Thatcher. Imelda Staunton, Jonathan Pryce, and Lesley Manville will succeed Colman, Menzies, and Bonham Carter, respectively, for the final two seasons, while Elizabeth Debicki and Dominic West are expected to assume the role of Princess Diana and Prince Charles, respectively. Filming takes place at Elstree Studios in Borehamwood, Hertfordshire, with location shooting throughout the United Kingdom and internationally. The first season was released by Netflix on 4 November 2016, the second on 8 December 2017, the third on 17 November 2019, and the fourth on 15 November 2020. The fifth season is anticipated in 2022. As of 2020, the estimated production budget of The Crown has been reported to be $260 million, making it one of the most expensive television series in history.[4] The Crown was praised by critics for its acting, directing, writing, cinematography, and production values, although its historical inaccuracies have received some criticism, particularly within the fourth season. Nonetheless, it received accolades at the 23rd Screen Actors Guild Awards, Foy won Best Actress in the lead role and Best Actor for John Lithgow as Winston Churchill, and has secured a total of sixty three nominations for its first four seasons at the Primetime Emmy Awards, including four for Outstanding Drama Series.[5] The series has also twice won the Golden Globe Award for Best Television Series - Drama, at the 74th and 78th ceremonies, with additional acting wins for Foy, Colman, Corrin, O'Connor and Anderson.[6] ",
-            "data_type": "string",
             "examples": [
               "The Crown is a historical drama streaming television series about the reign of Queen Elizabeth II, created and principally written by Peter Morgan, and produced by Left Bank Pictures and Sony Pictures Television for Netflix. Morgan developed it from his drama film The Queen (2006) and especially his stage play The Audience (2013). The first season covers the period from Elizabeth's marriage to Philip, Duke of Edinburgh in 1947 to the disintegration of her sister Princess Margaret's engagement to Group Captain Peter Townsend in 1955. The second season covers the period from the Suez Crisis in 1956 to the retirement of Prime Minister Harold Macmillan in 1963 and the birth of Prince Edward in 1964. The third season spans 1964 to 1977, includes Harold Wilson's two periods as prime minister, and introduces Camilla Shand. The fourth season spans 1979 to the early 1990s and includes Margaret Thatcher's tenure as prime minister and Prince Charles's marriage to Lady Diana Spencer. The fifth and sixth seasons, which will close the series, will cover the Queen's reign into the 21st century. For each of the two-season increments, new actors fill the roles to account for the ageing process in the periods of time portrayed. Claire Foy portrays the Queen in the first two seasons, alongside Matt Smith as Prince Philip and Vanessa Kirby as Princess Margaret. For the third and fourth seasons, Olivia Colman takes over as the Queen, Tobias Menzies as Prince Philip, and Helena Bonham Carter as Princess Margaret. Also added to the cast in season 3 is Josh O'Connor as Prince Charles. In the fourth season, new cast members include Emma Corrin as Lady Diana Spencer and Gillian Anderson as Margaret Thatcher. Imelda Staunton, Jonathan Pryce, and Lesley Manville will succeed Colman, Menzies, and Bonham Carter, respectively, for the final two seasons, while Elizabeth Debicki and Dominic West are expected to assume the role of Princess Diana and Prince Charles, respectively. Filming takes place at Elstree Studios in Borehamwood, Hertfordshire, with location shooting throughout the United Kingdom and internationally. The first season was released by Netflix on 4 November 2016, the second on 8 December 2017, the third on 17 November 2019, and the fourth on 15 November 2020. The fifth season is anticipated in 2022. As of 2020, the estimated production budget of The Crown has been reported to be $260 million, making it one of the most expensive television series in history.[4] The Crown was praised by critics for its acting, directing, writing, cinematography, and production values, although its historical inaccuracies have received some criticism, particularly within the fourth season. Nonetheless, it received accolades at the 23rd Screen Actors Guild Awards, Foy won Best Actress in the lead role and Best Actor for John Lithgow as Winston Churchill, and has secured a total of sixty three nominations for its first four seasons at the Primetime Emmy Awards, including four for Outstanding Drama Series.[5] The series has also twice won the Golden Globe Award for Best Television Series - Drama, at the 74th and 78th ceremonies, with additional acting wins for Foy, Colman, Corrin, O'Connor and Anderson.[6] "
-            ]
+            ],
+            "data_type": "string"
           },
           "source_language": {
             "title": "source_language",
             "type": "string",
             "description": "Use the ISO 3 letters representation for source language",
             "example": "eng",
-            "data_type": "string",
             "examples": [
               "eng"
-            ]
+            ],
+            "data_type": "string"
           },
           "min_length": {
             "title": "min_length",
@@ -5517,10 +5676,10 @@ export const openApiJson: OpenApiJson = {
             "description": "Minimum lenght of the summary",
             "default": 40,
             "example": 40,
-            "data_type": "integer",
             "examples": [
               40
-            ]
+            ],
+            "data_type": "integer"
           },
           "max_length": {
             "title": "max_length",
@@ -5528,10 +5687,10 @@ export const openApiJson: OpenApiJson = {
             "description": "Maximum lenght of the summary",
             "default": 512,
             "example": 512,
-            "data_type": "integer",
             "examples": [
               512
-            ]
+            ],
+            "data_type": "integer"
           }
         }
       },
@@ -5560,10 +5719,10 @@ export const openApiJson: OpenApiJson = {
             "type": "string",
             "description": "Insert the text to anlayse sentiment from",
             "example": "I love you.",
-            "data_type": "string",
             "examples": [
               "I love you."
-            ]
+            ],
+            "data_type": "string"
           }
         }
       },
@@ -5601,21 +5760,21 @@ export const openApiJson: OpenApiJson = {
             "type": "string",
             "description": "Insert text here to generate the headline from",
             "example": "Very early yesterday morning, the United States President Donald Trump reported he and his wife First Lady Melania Trump tested positive for COVID-19. Officials said the Trumps' 14-year-old son Barron tested negative as did First Family and Senior Advisors Jared Kushner and Ivanka Trump.\nTrump took to social media, posting at 12:54 am local time (0454 UTC) on Twitter, \"Tonight, [Melania] and I tested positive for COVID-19. We will begin our quarantine and recovery process immediately. We will get through this TOGETHER!\" Yesterday afternoon Marine One landed on the White House's South Lawn flying Trump to Walter Reed National Military Medical Center (WRNMMC) in Bethesda, Maryland.\nReports said both were showing \"mild symptoms\". Senior administration officials were tested as people were informed of the positive test. Senior advisor Hope Hicks had tested positive on Thursday.\nPresidential physician Sean Conley issued a statement saying Trump has been given zinc, vitamin D, Pepcid and a daily Aspirin. Conley also gave a single dose of the experimental polyclonal antibodies drug from Regeneron Pharmaceuticals.\nAccording to official statements, Trump, now operating from the WRNMMC, is to continue performing his duties as president during a 14-day quarantine. In the event of Trump becoming incapacitated, Vice President Mike Pence could take over the duties of president via the 25th Amendment of the US Constitution. The Pence family all tested negative as of yesterday and there were no changes regarding Pence's campaign events.\n",
-            "data_type": "string",
             "examples": [
               "Very early yesterday morning, the United States President Donald Trump reported he and his wife First Lady Melania Trump tested positive for COVID-19. Officials said the Trumps' 14-year-old son Barron tested negative as did First Family and Senior Advisors Jared Kushner and Ivanka Trump.\nTrump took to social media, posting at 12:54 am local time (0454 UTC) on Twitter, \"Tonight, [Melania] and I tested positive for COVID-19. We will begin our quarantine and recovery process immediately. We will get through this TOGETHER!\" Yesterday afternoon Marine One landed on the White House's South Lawn flying Trump to Walter Reed National Military Medical Center (WRNMMC) in Bethesda, Maryland.\nReports said both were showing \"mild symptoms\". Senior administration officials were tested as people were informed of the positive test. Senior advisor Hope Hicks had tested positive on Thursday.\nPresidential physician Sean Conley issued a statement saying Trump has been given zinc, vitamin D, Pepcid and a daily Aspirin. Conley also gave a single dose of the experimental polyclonal antibodies drug from Regeneron Pharmaceuticals.\nAccording to official statements, Trump, now operating from the WRNMMC, is to continue performing his duties as president during a 14-day quarantine. In the event of Trump becoming incapacitated, Vice President Mike Pence could take over the duties of president via the 25th Amendment of the US Constitution. The Pence family all tested negative as of yesterday and there were no changes regarding Pence's campaign events.\n"
-            ]
+            ],
+            "data_type": "string"
           },
           "max_length": {
             "title": "max_length",
             "type": "integer",
             "description": "Maximum length for the headline",
             "example": 16,
-            "data_type": "integer",
             "examples": [
               16,
               100
-            ]
+            ],
+            "data_type": "integer"
           }
         }
       },
@@ -5658,6 +5817,19 @@ export const openApiJson: OpenApiJson = {
           }
         }
       },
+      "Body_apply_text_text_website_classification__post": {
+        "title": "Body_apply_text_text_website_classification__post",
+        "type": "object",
+        "properties": {
+          "text": {
+            "title": "text",
+            "type": "string",
+            "example": "youtube.com",
+            "data_type": "string",
+            "examples": {}
+          }
+        }
+      },
       "Body_apply_text_text_company_categorization__post": {
         "title": "Body_apply_text_text_company_categorization__post",
         "type": "object",
@@ -5692,6 +5864,32 @@ export const openApiJson: OpenApiJson = {
             "title": "text",
             "type": "string",
             "example": "AMZN",
+            "data_type": "string",
+            "examples": {}
+          }
+        }
+      },
+      "Body_apply_text_text_vat_country_guessing__post": {
+        "title": "Body_apply_text_text_vat_country_guessing__post",
+        "type": "object",
+        "properties": {
+          "text": {
+            "title": "text",
+            "type": "string",
+            "example": "FR123456789",
+            "data_type": "string",
+            "examples": {}
+          }
+        }
+      },
+      "Body_apply_text_text_gpt3__post": {
+        "title": "Body_apply_text_text_gpt3__post",
+        "type": "object",
+        "properties": {
+          "text": {
+            "title": "text",
+            "type": "string",
+            "example": "what color is the sky ?",
             "data_type": "string",
             "examples": {}
           }
@@ -5748,10 +5946,10 @@ export const openApiJson: OpenApiJson = {
             "type": "string",
             "description": "Insert the text to classify as hate or not",
             "example": "I hate you piece of shit",
-            "data_type": "string",
             "examples": [
               "I hate you piece of shit"
-            ]
+            ],
+            "data_type": "string"
           }
         }
       },
@@ -5769,30 +5967,30 @@ export const openApiJson: OpenApiJson = {
             "type": "string",
             "description": "Insert the text to translate here",
             "example": "Text to translate",
-            "data_type": "string",
             "examples": [
               "Text to translate"
-            ]
+            ],
+            "data_type": "string"
           },
           "source_language": {
             "title": "source_language",
             "type": "string",
             "description": "Use the ISO 3 letters (ISO 639-3) representation for source language",
             "example": "eng",
-            "data_type": "string",
             "examples": [
               "eng"
-            ]
+            ],
+            "data_type": "string"
           },
           "target_language": {
             "title": "target_language",
             "type": "string",
             "description": "Use the ISO 3 letters (ISO 639-3) representation for target language",
             "example": "fra",
-            "data_type": "string",
             "examples": [
               "fra"
-            ]
+            ],
+            "data_type": "string"
           }
         }
       },
@@ -5808,10 +6006,10 @@ export const openApiJson: OpenApiJson = {
             "type": "string",
             "description": "Insert the text to perform language detection on",
             "example": "Input text to perform language detection on",
-            "data_type": "string",
             "examples": [
               "Input text to perform language detection on"
-            ]
+            ],
+            "data_type": "string"
           }
         }
       },
@@ -5825,24 +6023,24 @@ export const openApiJson: OpenApiJson = {
             "description": "Audio to transcribe",
             "format": "binary",
             "example": "http://files.gladia.io/examples/audio/text/audio-transcription/audio.mp3",
-            "data_type": "audio",
             "examples": {
               "from_audio_mp3": "http://files.gladia.io/examples/audio/text/audio-transcription/audio.mp3",
               "from_audio_m4a": "http://files.gladia.io/examples/audio/text/audio-transcription/audio.m4a",
               "from_audio_wav": "http://files.gladia.io/examples/audio/text/audio-transcription/audio.wav"
-            }
+            },
+            "data_type": "audio"
           },
           "audio_url": {
             "title": "audio_url",
             "type": "string",
             "description": "Audio to transcribe (url) - ignored if \"audio\" file is provided",
             "example": "http://files.gladia.io/examples/audio/text/audio-transcription/audio.mp3",
-            "data_type": "url",
             "examples": {
               "from_audio_mp3": "http://files.gladia.io/examples/audio/text/audio-transcription/audio.mp3",
               "from_audio_m4a": "http://files.gladia.io/examples/audio/text/audio-transcription/audio.m4a",
               "from_audio_wav": "http://files.gladia.io/examples/audio/text/audio-transcription/audio.wav"
-            }
+            },
+            "data_type": "url"
           },
           "language": {
             "title": "language",
@@ -5850,10 +6048,10 @@ export const openApiJson: OpenApiJson = {
             "description": "Language of the audio",
             "default": "en",
             "example": "en",
-            "data_type": "string",
             "examples": [
               "en"
-            ]
+            ],
+            "data_type": "string"
           }
         }
       },
@@ -5867,24 +6065,24 @@ export const openApiJson: OpenApiJson = {
             "description": "Image to remove the background from",
             "format": "binary",
             "example": "http://files.gladia.io/examples/image/image/background-removal/owl2.png",
-            "data_type": "image",
             "examples": {
               "from_owl2_png": "http://files.gladia.io/examples/image/image/background-removal/owl2.png",
               "from_owl2_jpg": "http://files.gladia.io/examples/image/image/background-removal/owl2.jpg",
               "from_lions-4_jpg": "https://15pictures.com/wp-content/gallery/15-pictures-lions/lions-4.jpg"
-            }
+            },
+            "data_type": "image"
           },
           "image_url": {
             "title": "image_url",
             "type": "string",
             "description": "Image to remove the background from (url) - ignored if \"image\" file is provided",
             "example": "http://files.gladia.io/examples/image/image/background-removal/owl2.png",
-            "data_type": "url",
             "examples": {
               "from_owl2_png": "http://files.gladia.io/examples/image/image/background-removal/owl2.png",
               "from_owl2_jpg": "http://files.gladia.io/examples/image/image/background-removal/owl2.jpg",
               "from_lions-4_jpg": "https://15pictures.com/wp-content/gallery/15-pictures-lions/lions-4.jpg"
-            }
+            },
+            "data_type": "url"
           }
         }
       },
@@ -5901,24 +6099,24 @@ export const openApiJson: OpenApiJson = {
             "description": "Image to replace the background from",
             "format": "binary",
             "example": "http://files.gladia.io/examples/image/image/background-removal/owl2.png",
-            "data_type": "image",
             "examples": {
               "from_owl2_png": "http://files.gladia.io/examples/image/image/background-removal/owl2.png",
               "from_owl2_jpg": "http://files.gladia.io/examples/image/image/background-removal/owl2.jpg",
               "from_lions-4_jpg": "https://15pictures.com/wp-content/gallery/15-pictures-lions/lions-4.jpg"
-            }
+            },
+            "data_type": "image"
           },
           "original_image_url": {
             "title": "original_image_url",
             "type": "string",
             "description": "Image to replace the background from (url) - ignored if \"original_image\" file is provided",
             "example": "http://files.gladia.io/examples/image/image/background-removal/owl2.png",
-            "data_type": "url",
             "examples": {
               "from_owl2_png": "http://files.gladia.io/examples/image/image/background-removal/owl2.png",
               "from_owl2_jpg": "http://files.gladia.io/examples/image/image/background-removal/owl2.jpg",
               "from_lions-4_jpg": "https://15pictures.com/wp-content/gallery/15-pictures-lions/lions-4.jpg"
-            }
+            },
+            "data_type": "url"
           },
           "background_image": {
             "title": "background_image",
@@ -5926,31 +6124,30 @@ export const openApiJson: OpenApiJson = {
             "description": "Image the background will be replaced with",
             "format": "binary",
             "example": "http://files.gladia.io/examples/image/image/bck-grd/green-forest.png",
-            "data_type": "image",
             "examples": {
               "from_green-forest_png": "http://files.gladia.io/examples/image/image/bck-grd/green-forest.png"
-            }
+            },
+            "data_type": "image"
           },
           "background_image_url": {
             "title": "background_image_url",
             "type": "string",
             "description": "Image the background will be replaced with (url) - ignored if \"background_image\" file is provided",
             "example": "http://files.gladia.io/examples/image/image/bck-grd/green-forest.png",
-            "data_type": "url",
             "examples": {
               "from_green-forest_png": "http://files.gladia.io/examples/image/image/bck-grd/green-forest.png"
-            }
+            },
+            "data_type": "url"
           },
           "alignment": {
             "title": "alignment",
             "allOf": [
               {
-                "$ref": "#/components/schemas/DynamicEnum_1666857234.095593"
+                "$ref": "#/components/schemas/DynamicEnum_1667551539.3185067"
               }
             ],
             "description": "original image insertion position in the background image",
             "example": "center",
-            "data_type": "list",
             "examples": [
               "center",
               "top",
@@ -5964,7 +6161,8 @@ export const openApiJson: OpenApiJson = {
               "bottom-center",
               "bottom-right",
               "cropped"
-            ]
+            ],
+            "data_type": "list"
           }
         }
       },
@@ -5978,24 +6176,24 @@ export const openApiJson: OpenApiJson = {
             "description": "Image to colorize",
             "format": "binary",
             "example": "http://files.gladia.io/examples/image/image/colorization/rsz_paris.jpg",
-            "data_type": "image",
             "examples": {
               "from_rsz_paris_jpg": "http://files.gladia.io/examples/image/image/colorization/rsz_paris.jpg",
               "from_rsz_paris_png": "http://files.gladia.io/examples/image/image/colorization/rsz_paris.png",
               "from_rsz_paris_gif": "http://files.gladia.io/examples/image/image/colorization/rsz_paris.gif"
-            }
+            },
+            "data_type": "image"
           },
           "image_url": {
             "title": "image_url",
             "type": "string",
             "description": "Image to colorize (url) - ignored if \"image\" file is provided",
             "example": "http://files.gladia.io/examples/image/image/colorization/rsz_paris.jpg",
-            "data_type": "url",
             "examples": {
               "from_rsz_paris_jpg": "http://files.gladia.io/examples/image/image/colorization/rsz_paris.jpg",
               "from_rsz_paris_png": "http://files.gladia.io/examples/image/image/colorization/rsz_paris.png",
               "from_rsz_paris_gif": "http://files.gladia.io/examples/image/image/colorization/rsz_paris.gif"
-            }
+            },
+            "data_type": "url"
           }
         }
       },
@@ -6009,22 +6207,22 @@ export const openApiJson: OpenApiJson = {
             "description": "Image to deblur",
             "format": "binary",
             "example": "http://files.gladia.io/image/image/deblurring/deblurring.png",
-            "data_type": "image",
             "examples": {
               "from_deblurring_png": "http://files.gladia.io/image/image/deblurring/deblurring.png",
               "from_deblurring_jpg": "http://files.gladia.io/image/image/deblurring/deblurring.jpg"
-            }
+            },
+            "data_type": "image"
           },
           "image_url": {
             "title": "image_url",
             "type": "string",
             "description": "Image to deblur (url) - ignored if \"image\" file is provided",
             "example": "http://files.gladia.io/image/image/deblurring/deblurring.png",
-            "data_type": "url",
             "examples": {
               "from_deblurring_png": "http://files.gladia.io/image/image/deblurring/deblurring.png",
               "from_deblurring_jpg": "http://files.gladia.io/image/image/deblurring/deblurring.jpg"
-            }
+            },
+            "data_type": "url"
           }
         }
       },
@@ -6038,26 +6236,26 @@ export const openApiJson: OpenApiJson = {
             "description": "Image to blur face from",
             "format": "binary",
             "example": "http://files.gladia.io/image/image/enhancement/enhancement_retouching.png",
-            "data_type": "image",
             "examples": {
               "from_enhancement_retouching_png": "http://files.gladia.io/image/image/enhancement/enhancement_retouching.png",
               "from_enhancement_retouching_jpg": "http://files.gladia.io/image/image/enhancement/enhancement_retouching.jpg",
               "from_enhancement_low-light_png": "http://files.gladia.io/image/image/enhancement/enhancement_low-light.png",
               "from_enhancement_low-light_jpg": "http://files.gladia.io/image/image/enhancement/enhancement_low-light.jpg"
-            }
+            },
+            "data_type": "image"
           },
           "image_url": {
             "title": "image_url",
             "type": "string",
             "description": "Image to blur face from (url) - ignored if \"image\" file is provided",
             "example": "http://files.gladia.io/image/image/enhancement/enhancement_retouching.png",
-            "data_type": "url",
             "examples": {
               "from_enhancement_retouching_png": "http://files.gladia.io/image/image/enhancement/enhancement_retouching.png",
               "from_enhancement_retouching_jpg": "http://files.gladia.io/image/image/enhancement/enhancement_retouching.jpg",
               "from_enhancement_low-light_png": "http://files.gladia.io/image/image/enhancement/enhancement_low-light.png",
               "from_enhancement_low-light_jpg": "http://files.gladia.io/image/image/enhancement/enhancement_low-light.jpg"
-            }
+            },
+            "data_type": "url"
           }
         }
       },
@@ -6071,24 +6269,24 @@ export const openApiJson: OpenApiJson = {
             "description": "Image to blur face from",
             "format": "binary",
             "example": "http://files.gladia.io/examples/image/image/face-bluring/face-bluring.jpg",
-            "data_type": "image",
             "examples": {
               "from_face-bluring_jpg": "http://files.gladia.io/examples/image/image/face-bluring/face-bluring.jpg",
               "from_face-bluring_png": "http://files.gladia.io/examples/image/image/face-bluring/face-bluring.png",
               "from_face-bluring_gif": "http://files.gladia.io/examples/image/image/face-bluring/face-bluring.gif"
-            }
+            },
+            "data_type": "image"
           },
           "image_url": {
             "title": "image_url",
             "type": "string",
             "description": "Image to blur face from (url) - ignored if \"image\" file is provided",
             "example": "http://files.gladia.io/examples/image/image/face-bluring/face-bluring.jpg",
-            "data_type": "url",
             "examples": {
               "from_face-bluring_jpg": "http://files.gladia.io/examples/image/image/face-bluring/face-bluring.jpg",
               "from_face-bluring_png": "http://files.gladia.io/examples/image/image/face-bluring/face-bluring.png",
               "from_face-bluring_gif": "http://files.gladia.io/examples/image/image/face-bluring/face-bluring.gif"
-            }
+            },
+            "data_type": "url"
           }
         }
       },
@@ -6105,20 +6303,20 @@ export const openApiJson: OpenApiJson = {
             "description": "Image to inpaint",
             "format": "binary",
             "example": "https://raw.githubusercontent.com/CompVis/latent-diffusion/main/data/inpainting_examples/overture-creations-5sI6fQgYIuo.png",
-            "data_type": "image",
             "examples": {
               "from_overture-creations-5sI6fQgYIuo_png": "https://raw.githubusercontent.com/CompVis/latent-diffusion/main/data/inpainting_examples/overture-creations-5sI6fQgYIuo.png"
-            }
+            },
+            "data_type": "image"
           },
           "original_image_url": {
             "title": "original_image_url",
             "type": "string",
             "description": "Image to inpaint (url) - ignored if \"original_image\" file is provided",
             "example": "https://raw.githubusercontent.com/CompVis/latent-diffusion/main/data/inpainting_examples/overture-creations-5sI6fQgYIuo.png",
-            "data_type": "url",
             "examples": {
               "from_overture-creations-5sI6fQgYIuo_png": "https://raw.githubusercontent.com/CompVis/latent-diffusion/main/data/inpainting_examples/overture-creations-5sI6fQgYIuo.png"
-            }
+            },
+            "data_type": "url"
           },
           "mask_image": {
             "title": "mask_image",
@@ -6126,30 +6324,30 @@ export const openApiJson: OpenApiJson = {
             "description": "Mask to guide inpainting",
             "format": "binary",
             "example": "https://raw.githubusercontent.com/CompVis/latent-diffusion/main/data/inpainting_examples/overture-creations-5sI6fQgYIuo_mask.png",
-            "data_type": "image",
             "examples": {
               "from_overture-creations-5sI6fQgYIuo_mask_png": "https://raw.githubusercontent.com/CompVis/latent-diffusion/main/data/inpainting_examples/overture-creations-5sI6fQgYIuo_mask.png"
-            }
+            },
+            "data_type": "image"
           },
           "mask_image_url": {
             "title": "mask_image_url",
             "type": "string",
             "description": "Mask to guide inpainting (url) - ignored if \"mask_image\" file is provided",
             "example": "https://raw.githubusercontent.com/CompVis/latent-diffusion/main/data/inpainting_examples/overture-creations-5sI6fQgYIuo_mask.png",
-            "data_type": "url",
             "examples": {
               "from_overture-creations-5sI6fQgYIuo_mask_png": "https://raw.githubusercontent.com/CompVis/latent-diffusion/main/data/inpainting_examples/overture-creations-5sI6fQgYIuo_mask.png"
-            }
+            },
+            "data_type": "url"
           },
           "prompt": {
             "title": "prompt",
             "type": "string",
             "description": "Mask to guide inpainting",
             "example": "a cat sitting on a bench",
-            "data_type": "string",
             "examples": [
               "a cat sitting on a bench"
-            ]
+            ],
+            "data_type": "string"
           }
         }
       },
@@ -6163,20 +6361,20 @@ export const openApiJson: OpenApiJson = {
             "description": "Image to inpaint",
             "format": "binary",
             "example": "https://raw.githubusercontent.com/CompVis/latent-diffusion/main/data/inpainting_examples/overture-creations-5sI6fQgYIuo.png",
-            "data_type": "image",
             "examples": {
               "from_overture-creations-5sI6fQgYIuo_png": "https://raw.githubusercontent.com/CompVis/latent-diffusion/main/data/inpainting_examples/overture-creations-5sI6fQgYIuo.png"
-            }
+            },
+            "data_type": "image"
           },
           "original_image_url": {
             "title": "original_image_url",
             "type": "string",
             "description": "Image to inpaint (url) - ignored if \"original_image\" file is provided",
             "example": "https://raw.githubusercontent.com/CompVis/latent-diffusion/main/data/inpainting_examples/overture-creations-5sI6fQgYIuo.png",
-            "data_type": "url",
             "examples": {
               "from_overture-creations-5sI6fQgYIuo_png": "https://raw.githubusercontent.com/CompVis/latent-diffusion/main/data/inpainting_examples/overture-creations-5sI6fQgYIuo.png"
-            }
+            },
+            "data_type": "url"
           },
           "mask_image": {
             "title": "mask_image",
@@ -6184,20 +6382,20 @@ export const openApiJson: OpenApiJson = {
             "description": "Mask to guide inpainting",
             "format": "binary",
             "example": "https://raw.githubusercontent.com/CompVis/latent-diffusion/main/data/inpainting_examples/overture-creations-5sI6fQgYIuo_mask.png",
-            "data_type": "image",
             "examples": {
               "from_overture-creations-5sI6fQgYIuo_mask_png": "https://raw.githubusercontent.com/CompVis/latent-diffusion/main/data/inpainting_examples/overture-creations-5sI6fQgYIuo_mask.png"
-            }
+            },
+            "data_type": "image"
           },
           "mask_image_url": {
             "title": "mask_image_url",
             "type": "string",
             "description": "Mask to guide inpainting (url) - ignored if \"mask_image\" file is provided",
             "example": "https://raw.githubusercontent.com/CompVis/latent-diffusion/main/data/inpainting_examples/overture-creations-5sI6fQgYIuo_mask.png",
-            "data_type": "url",
             "examples": {
               "from_overture-creations-5sI6fQgYIuo_mask_png": "https://raw.githubusercontent.com/CompVis/latent-diffusion/main/data/inpainting_examples/overture-creations-5sI6fQgYIuo_mask.png"
-            }
+            },
+            "data_type": "url"
           }
         }
       },
@@ -6211,20 +6409,20 @@ export const openApiJson: OpenApiJson = {
             "description": "Image to restore",
             "format": "binary",
             "example": "http://files.gladia.io/test/test.png",
-            "data_type": "image",
             "examples": {
               "from_test_png": "http://files.gladia.io/test/test.png"
-            }
+            },
+            "data_type": "image"
           },
           "image_url": {
             "title": "image_url",
             "type": "string",
             "description": "Image to restore (url) - ignored if \"image\" file is provided",
             "example": "http://files.gladia.io/test/test.png",
-            "data_type": "url",
             "examples": {
               "from_test_png": "http://files.gladia.io/test/test.png"
-            }
+            },
+            "data_type": "url"
           }
         }
       },
@@ -6238,22 +6436,22 @@ export const openApiJson: OpenApiJson = {
             "description": "Image to uncolorize",
             "format": "binary",
             "example": "http://files.gladia.io/examples/image/image/uncolorization/landscape-pics-wallpapers.png",
-            "data_type": "image",
             "examples": {
               "from_landscape-pics-wallpapers_png": "http://files.gladia.io/examples/image/image/uncolorization/landscape-pics-wallpapers.png",
               "from_landscape-pics-wallpapers_jpg": "http://files.gladia.io/examples/image/image/uncolorization/landscape-pics-wallpapers.jpg"
-            }
+            },
+            "data_type": "image"
           },
           "image_url": {
             "title": "image_url",
             "type": "string",
             "description": "Image to uncolorize (url) - ignored if \"image\" file is provided",
             "example": "http://files.gladia.io/examples/image/image/uncolorization/landscape-pics-wallpapers.png",
-            "data_type": "url",
             "examples": {
               "from_landscape-pics-wallpapers_png": "http://files.gladia.io/examples/image/image/uncolorization/landscape-pics-wallpapers.png",
               "from_landscape-pics-wallpapers_jpg": "http://files.gladia.io/examples/image/image/uncolorization/landscape-pics-wallpapers.jpg"
-            }
+            },
+            "data_type": "url"
           }
         }
       },
@@ -6267,24 +6465,24 @@ export const openApiJson: OpenApiJson = {
             "description": "Image to classify",
             "format": "binary",
             "example": "http://files.gladia.io/examples/image/text/classification/image.png",
-            "data_type": "image",
             "examples": {
               "from_image_png": "http://files.gladia.io/examples/image/text/classification/image.png",
               "from_image_jpg": "http://files.gladia.io/examples/image/text/classification/image.jpg",
               "from_image_gif": "http://files.gladia.io/examples/image/text/classification/image.gif"
-            }
+            },
+            "data_type": "image"
           },
           "image_url": {
             "title": "image_url",
             "type": "string",
             "description": "Image to classify (url) - ignored if \"image\" file is provided",
             "example": "http://files.gladia.io/examples/image/text/classification/image.png",
-            "data_type": "url",
             "examples": {
               "from_image_png": "http://files.gladia.io/examples/image/text/classification/image.png",
               "from_image_jpg": "http://files.gladia.io/examples/image/text/classification/image.jpg",
               "from_image_gif": "http://files.gladia.io/examples/image/text/classification/image.gif"
-            }
+            },
+            "data_type": "url"
           },
           "top_k": {
             "title": "top_k",
@@ -6292,12 +6490,12 @@ export const openApiJson: OpenApiJson = {
             "description": "Top K",
             "default": 1,
             "example": 1,
-            "data_type": "integer",
             "examples": [
               1,
               2,
               100
-            ]
+            ],
+            "data_type": "integer"
           }
         }
       },
@@ -6311,24 +6509,24 @@ export const openApiJson: OpenApiJson = {
             "description": "Image to extract text from",
             "format": "binary",
             "example": "http://files.gladia.io/examples/image/text/ocr/testocr.png",
-            "data_type": "image",
             "examples": {
               "from_testocr_png": "http://files.gladia.io/examples/image/text/ocr/testocr.png",
               "from_testocr_jpg": "http://files.gladia.io/examples/image/text/ocr/testocr.jpg",
               "from_testocr_gif": "http://files.gladia.io/examples/image/text/ocr/testocr.gif"
-            }
+            },
+            "data_type": "image"
           },
           "image_url": {
             "title": "image_url",
             "type": "string",
             "description": "Image to extract text from (url) - ignored if \"image\" file is provided",
             "example": "http://files.gladia.io/examples/image/text/ocr/testocr.png",
-            "data_type": "url",
             "examples": {
               "from_testocr_png": "http://files.gladia.io/examples/image/text/ocr/testocr.png",
               "from_testocr_jpg": "http://files.gladia.io/examples/image/text/ocr/testocr.jpg",
               "from_testocr_gif": "http://files.gladia.io/examples/image/text/ocr/testocr.gif"
-            }
+            },
+            "data_type": "url"
           },
           "source_language": {
             "title": "source_language",
@@ -6336,11 +6534,11 @@ export const openApiJson: OpenApiJson = {
             "description": "ISO 639-2 Source language (3 letters)",
             "default": "eng",
             "example": "eng",
-            "data_type": "string",
             "examples": [
               "eng",
               "fra"
-            ]
+            ],
+            "data_type": "string"
           }
         }
       },
@@ -6356,10 +6554,10 @@ export const openApiJson: OpenApiJson = {
             "type": "string",
             "description": "Prompt to generate image from",
             "example": "The Eiffel tower landing on the moon, unreal engine.",
-            "data_type": "string",
             "examples": [
               "The Eiffel tower landing on the moon, unreal engine."
-            ]
+            ],
+            "data_type": "string"
           },
           "samples": {
             "title": "samples",
@@ -6367,10 +6565,10 @@ export const openApiJson: OpenApiJson = {
             "description": "Number of predictions",
             "default": 1,
             "example": 1,
-            "data_type": "integer",
             "examples": [
               1
-            ]
+            ],
+            "data_type": "integer"
           },
           "steps": {
             "title": "steps",
@@ -6378,10 +6576,10 @@ export const openApiJson: OpenApiJson = {
             "description": "Number of steps",
             "default": 40,
             "example": 40,
-            "data_type": "integer",
             "examples": [
               40
-            ]
+            ],
+            "data_type": "integer"
           },
           "seed": {
             "title": "seed",
@@ -6389,10 +6587,10 @@ export const openApiJson: OpenApiJson = {
             "description": "Seed for predictions",
             "default": 396916372,
             "example": 396916372,
-            "data_type": "integer",
             "examples": [
               396916372
-            ]
+            ],
+            "data_type": "integer"
           }
         }
       },
@@ -6408,10 +6606,10 @@ export const openApiJson: OpenApiJson = {
             "type": "string",
             "description": "Insert the address to format",
             "example": "Taj Mahal, Agra, Uttar Pradesh 282001",
-            "data_type": "string",
             "examples": [
               "Taj Mahal, Agra, Uttar Pradesh 282001"
-            ]
+            ],
+            "data_type": "string"
           }
         }
       },
@@ -6429,32 +6627,32 @@ export const openApiJson: OpenApiJson = {
             "type": "string",
             "description": "Insert the text to anonymize",
             "example": "Here are a few examples sentences we currently support:\nHello, my name is David Johnson and I live in Maine. My credit card number is 4095-2609-9393-4932 and my crypto wallet id is 16Yeky6GMjeNkAiNcBY7ZhrLoMSgg1BoyZ.\nOn September 18 I visited microsoft.com and sent an email to test@presidio.site,  from the IP 192.168.0.1.\nMy passport: 191280342 and my phone number: (212) 555-1234.\nThis is a valid International Bank Account Number: IL150120690000003111111 . Can you please check the status on bank account 954567876544?\nKate's social security number is 078-05-1126.  Her driver license? it is 1234567A.\n\nThis project welcomes contributions and suggestions. Most contributions require you to agree to a Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us the rights to use your contribution. For details, visit https://cla.microsoft.com When you submit a pull request, a CLA-bot will automatically determine whether you need to provide a CLA and decorate the PR appropriately (e.g., label, comment). Simply follow the instructions provided by the bot. You will only need to do this once across all repos using our CLA. This project has adopted the Microsoft Open Source Code of Conduct.\nFor more information see the Code of Conduct FAQ or contact opencode@microsoft.com with any additional questions or comments.",
-            "data_type": "string",
             "examples": [
               "Here are a few examples sentences we currently support:\nHello, my name is David Johnson and I live in Maine. My credit card number is 4095-2609-9393-4932 and my crypto wallet id is 16Yeky6GMjeNkAiNcBY7ZhrLoMSgg1BoyZ.\nOn September 18 I visited microsoft.com and sent an email to test@presidio.site,  from the IP 192.168.0.1.\nMy passport: 191280342 and my phone number: (212) 555-1234.\nThis is a valid International Bank Account Number: IL150120690000003111111 . Can you please check the status on bank account 954567876544?\nKate's social security number is 078-05-1126.  Her driver license? it is 1234567A.\n\nThis project welcomes contributions and suggestions. Most contributions require you to agree to a Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us the rights to use your contribution. For details, visit https://cla.microsoft.com When you submit a pull request, a CLA-bot will automatically determine whether you need to provide a CLA and decorate the PR appropriately (e.g., label, comment). Simply follow the instructions provided by the bot. You will only need to do this once across all repos using our CLA. This project has adopted the Microsoft Open Source Code of Conduct.\nFor more information see the Code of Conduct FAQ or contact opencode@microsoft.com with any additional questions or comments."
-            ]
+            ],
+            "data_type": "string"
           },
           "language": {
             "title": "language",
             "type": "string",
             "description": "Insert the language of the text to anonymize",
             "example": "en",
-            "data_type": "string",
             "examples": [
               "en",
               "es",
               "fr"
-            ]
+            ],
+            "data_type": "string"
           },
           "entities": {
             "title": "entities",
             "type": "string",
             "description": "Entities to anonymize (default: None=all)",
             "example": "PERSON, LOCATION, ORGANIZATION, CREDIT_CARD, CRYPTO, DATE_TIME, DOMAIN_NAME, EMAIL_ADDRESS, IBAN_CODE, IP_ADDRESS, NRP, PASSPORT, PHONE_NUMBER, US_BANK_NUMBER, US_DRIVER_LICENSE, US_ITIN, US_PASSPORT, US_SSN, US_VEHICLE, US_ZIP_CODE",
-            "data_type": "string",
             "examples": [
               "PERSON, LOCATION, ORGANIZATION, CREDIT_CARD, CRYPTO, DATE_TIME, DOMAIN_NAME, EMAIL_ADDRESS, IBAN_CODE, IP_ADDRESS, NRP, PASSPORT, PHONE_NUMBER, US_BANK_NUMBER, US_DRIVER_LICENSE, US_ITIN, US_PASSPORT, US_SSN, US_VEHICLE, US_ZIP_CODE"
-            ]
+            ],
+            "data_type": "string"
           }
         }
       },
@@ -6470,10 +6668,10 @@ export const openApiJson: OpenApiJson = {
             "type": "string",
             "description": "Insert the text to correct",
             "example": "Text to corrcte",
-            "data_type": "string",
             "examples": [
               "Text to corrcte"
-            ]
+            ],
+            "data_type": "string"
           }
         }
       },
@@ -6489,10 +6687,10 @@ export const openApiJson: OpenApiJson = {
             "type": "string",
             "description": "Insert the text to summarize here",
             "example": "Hannah: Hey, do you have Betty's number? Amanda: Lemme check Amanda: Sorry, can't find it. Amanda: Ask Larry Amanda: He called her last time we were at the park together Hannah: I don't know him well Amanda: Don't be shy, he's very nice Hannah: If you say so.. Hannah: I'd rather you texted him Amanda: Just text him 🙂 Hannah: Urgh.. Alright Hannah: Bye Amanda: Bye bye",
-            "data_type": "string",
             "examples": [
               "Hannah: Hey, do you have Betty's number? Amanda: Lemme check Amanda: Sorry, can't find it. Amanda: Ask Larry Amanda: He called her last time we were at the park together Hannah: I don't know him well Amanda: Don't be shy, he's very nice Hannah: If you say so.. Hannah: I'd rather you texted him Amanda: Just text him 🙂 Hannah: Urgh.. Alright Hannah: Bye Amanda: Bye bye"
-            ]
+            ],
+            "data_type": "string"
           }
         }
       },
@@ -6509,20 +6707,20 @@ export const openApiJson: OpenApiJson = {
             "type": "number",
             "description": "Insert the latitude of the address to fetch",
             "example": 43.2965,
-            "data_type": "float",
             "examples": [
               43.2965
-            ]
+            ],
+            "data_type": "float"
           },
           "longitude": {
             "title": "longitude",
             "type": "number",
             "description": "Insert the longitude of the address to fetch",
             "example": 5.36978,
-            "data_type": "float",
             "examples": [
               5.36978
-            ]
+            ],
+            "data_type": "float"
           }
         }
       },
@@ -6538,10 +6736,10 @@ export const openApiJson: OpenApiJson = {
             "type": "string",
             "description": "Insert the text to summarize here",
             "example": "The Crown is a historical drama streaming television series about the reign of Queen Elizabeth II, created and principally written by Peter Morgan, and produced by Left Bank Pictures and Sony Pictures Television for Netflix.",
-            "data_type": "string",
             "examples": [
               "The Crown is a historical drama streaming television series about the reign of Queen Elizabeth II, created and principally written by Peter Morgan, and produced by Left Bank Pictures and Sony Pictures Television for Netflix."
-            ]
+            ],
+            "data_type": "string"
           },
           "top_k": {
             "title": "top_k",
@@ -6549,12 +6747,12 @@ export const openApiJson: OpenApiJson = {
             "description": "Top K",
             "default": 10,
             "example": 10,
-            "data_type": "integer",
             "examples": [
               1,
               10,
               100
-            ]
+            ],
+            "data_type": "integer"
           }
         }
       },
@@ -6570,10 +6768,10 @@ export const openApiJson: OpenApiJson = {
             "type": "string",
             "description": "Insert the text to generate from",
             "example": "I'm currently driving while eating a",
-            "data_type": "string",
             "examples": [
               "I'm currently driving while eating a"
-            ]
+            ],
+            "data_type": "string"
           }
         }
       },
@@ -6589,10 +6787,10 @@ export const openApiJson: OpenApiJson = {
             "type": "string",
             "description": "Insert the text to anlayse sentiment from",
             "example": "Hugging Face Inc. is a company based in New York City. Its headquarters are in DUMBO, therefore very close to the Manhattan Bridge.",
-            "data_type": "string",
             "examples": [
               "Hugging Face Inc. is a company based in New York City. Its headquarters are in DUMBO, therefore very close to the Manhattan Bridge."
-            ]
+            ],
+            "data_type": "string"
           }
         }
       },
@@ -6609,20 +6807,20 @@ export const openApiJson: OpenApiJson = {
             "type": "string",
             "description": "Insert the first sentence",
             "example": "I like you.",
-            "data_type": "string",
             "examples": [
               "I like you."
-            ]
+            ],
+            "data_type": "string"
           },
           "sentence_2": {
             "title": "sentence_2",
             "type": "string",
             "description": "Insert the second sentence to estimate the probability from",
             "example": "But it's not about you.",
-            "data_type": "string",
             "examples": [
               "But it's not about you."
-            ]
+            ],
+            "data_type": "string"
           }
         }
       },
@@ -6638,10 +6836,10 @@ export const openApiJson: OpenApiJson = {
             "type": "string",
             "description": "Insert the text to find the next word from.",
             "example": "I think therefore I",
-            "data_type": "string",
             "examples": [
               "I think therefore I"
-            ]
+            ],
+            "data_type": "string"
           },
           "top_k": {
             "title": "top_k",
@@ -6649,12 +6847,12 @@ export const openApiJson: OpenApiJson = {
             "description": "Top K",
             "default": 3,
             "example": 3,
-            "data_type": "integer",
             "examples": [
               1,
               3,
               10
-            ]
+            ],
+            "data_type": "integer"
           }
         }
       },
@@ -6670,10 +6868,10 @@ export const openApiJson: OpenApiJson = {
             "type": "string",
             "description": "Insert the code to generate from",
             "example": "def is_palendrome(s):",
-            "data_type": "string",
             "examples": [
               "def is_palendrome(s):"
-            ]
+            ],
+            "data_type": "string"
           }
         }
       },
@@ -6689,12 +6887,12 @@ export const openApiJson: OpenApiJson = {
             "type": "string",
             "description": "Insert the text to restore punctation from",
             "example": "My name is Clara and I live in Berkeley California",
-            "data_type": "string",
             "examples": [
               "My name is Clara and I live in Berkeley California",
               "My name is Sarah and I live in London",
               "My name is Clara and I live in Berkeley, California."
-            ]
+            ],
+            "data_type": "string"
           }
         }
       },
@@ -6711,20 +6909,20 @@ export const openApiJson: OpenApiJson = {
             "type": "string",
             "description": "Insert the text to extract answer from",
             "example": "My name is Clara and I live in Berkeley.",
-            "data_type": "string",
             "examples": [
               "My name is Clara and I live in Berkeley."
-            ]
+            ],
+            "data_type": "string"
           },
           "question": {
             "title": "question",
             "type": "string",
             "description": "Insert the question to be answered",
             "example": "What's my name?",
-            "data_type": "string",
             "examples": [
               "What's my name?"
-            ]
+            ],
+            "data_type": "string"
           },
           "top_k": {
             "title": "top_k",
@@ -6732,11 +6930,11 @@ export const openApiJson: OpenApiJson = {
             "description": "Top K",
             "default": 1,
             "example": 1,
-            "data_type": "integer",
             "examples": [
               1,
               10
-            ]
+            ],
+            "data_type": "integer"
           }
         }
       },
@@ -6752,10 +6950,10 @@ export const openApiJson: OpenApiJson = {
             "type": "string",
             "description": "Insert the text to paraphrase here",
             "example": "Once, a group of frogs was roaming around the forest in search of water.",
-            "data_type": "string",
             "examples": [
               "Once, a group of frogs was roaming around the forest in search of water."
-            ]
+            ],
+            "data_type": "string"
           }
         }
       },
@@ -6771,10 +6969,10 @@ export const openApiJson: OpenApiJson = {
             "type": "string",
             "description": "Insert the text to anlayse sentiment from",
             "example": "I like you. I love you",
-            "data_type": "string",
             "examples": [
               "I like you. I love you"
-            ]
+            ],
+            "data_type": "string"
           }
         }
       },
@@ -6791,20 +6989,20 @@ export const openApiJson: OpenApiJson = {
             "type": "string",
             "description": "Insert the first text to compare here",
             "example": "I like banana",
-            "data_type": "string",
             "examples": [
               "I like banana"
-            ]
+            ],
+            "data_type": "string"
           },
           "sentence_2": {
             "title": "sentence_2",
             "type": "string",
             "description": "Insert the second text to compare here",
             "example": "I hate banana",
-            "data_type": "string",
             "examples": [
               "I hate banana"
-            ]
+            ],
+            "data_type": "string"
           }
         }
       },
@@ -6821,25 +7019,25 @@ export const openApiJson: OpenApiJson = {
             "type": "string",
             "description": "Insert the Sentence from first language",
             "example": "Sentence from first language",
-            "data_type": "string",
             "examples": [
               "Sentence from first language"
-            ]
+            ],
+            "data_type": "string"
           },
           "input_string_language_2": {
             "title": "input_string_language_2",
             "type": "string",
             "description": "Insert the Sentence from second language",
             "example": "来自 第一 语言的 句子",
-            "data_type": "string",
             "examples": [
               "来自 第一 语言的 句子"
-            ]
+            ],
+            "data_type": "string"
           }
         }
       },
-      "DynamicEnum_1666857234.095593": {
-        "title": "DynamicEnum_1666857234.095593",
+      "DynamicEnum_1667551539.3185067": {
+        "title": "DynamicEnum_1667551539.3185067",
         "enum": [
           "center",
           "top",
