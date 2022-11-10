@@ -6,6 +6,9 @@
 
 ## Setup
 
+### Get a free API KEY
+[https://v2-app.gladia.io/auth/login](https://v2-app.gladia.io/auth/login)
+
 ### Install the SDK
 
 ```bash
