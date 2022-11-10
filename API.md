@@ -511,6 +511,16 @@ The runtime default model is defined on the GladIA server.
  - `latitude`: float *(required)*
  - `longitude`: float *(required)*
 
+### `gpt3`
+
+#### `models`
+
+ - **jpt (default)**
+
+#### other params
+
+ - `text`: string
+
 ### `hate-speech-detection`
 
 #### `models`
@@ -560,7 +570,7 @@ The runtime default model is defined on the GladIA server.
 
 #### `models`
 
- - **deepl (default)**
+ - **jpt (default)**
  - toftrup-etal-2021
  - xlm-roberta-base-language-detection
 
@@ -703,14 +713,34 @@ The runtime default model is defined on the GladIA server.
 
 #### `models`
 
- - **deepl (default)**
  - facebook-nllb-200-distilled-600M
+ - **jpt (default)**
 
 #### other params
 
  - `input_string`: string *(required)*
  - `source_language`: string *(required)*
  - `target_language`: string *(required)*
+
+### `vat-country-guessing`
+
+#### `models`
+
+ - **jpt (default)**
+
+#### other params
+
+ - `text`: string
+
+### `website-classification`
+
+#### `models`
+
+ - **jpt (default)**
+
+#### other params
+
+ - `text`: string
 
 ### `word-alignment`
 

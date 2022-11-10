@@ -41,6 +41,7 @@ import {
   TextTextEmotionRecognitionInputs,
   TextTextGenderFromNameInputs,
   TextTextGpsAddressFormattingInputs,
+  TextTextGpt3Inputs,
   TextTextHateSpeechDetectionInputs,
   TextTextHeadlineGenerationInputs,
   TextTextIntentClassificationInputs,
@@ -58,6 +59,8 @@ import {
   TextTextSimilarityInputs,
   TextTextSummarizationInputs,
   TextTextTranslationInputs,
+  TextTextVatCountryGuessingInputs,
+  TextTextWebsiteClassificationInputs,
   TextTextWordAlignmentInputs,
 } from './input-models'
 import {
@@ -95,6 +98,7 @@ import {
   TextTextEmotionRecognitionOutputs,
   TextTextGenderFromNameOutputs,
   TextTextGpsAddressFormattingOutputs,
+  TextTextGpt3Outputs,
   TextTextHateSpeechDetectionOutputs,
   TextTextHeadlineGenerationOutputs,
   TextTextIntentClassificationOutputs,
@@ -112,6 +116,8 @@ import {
   TextTextSimilarityOutputs,
   TextTextSummarizationOutputs,
   TextTextTranslationOutputs,
+  TextTextVatCountryGuessingOutputs,
+  TextTextWebsiteClassificationOutputs,
   TextTextWordAlignmentOutputs,
 } from './output-models';
 
@@ -269,6 +275,10 @@ export abstract class Shortcuts implements
     return this.fromText().toText().gpsAddressFormatting(args);
   }
 
+  gpt3(args: TextTextGpt3Inputs): Promise<TextTextGpt3Outputs> {
+    return this.fromText().toText().gpt3(args);
+  }
+
   hateSpeechDetection(args: TextTextHateSpeechDetectionInputs): Promise<TextTextHateSpeechDetectionOutputs> {
     return this.fromText().toText().hateSpeechDetection(args);
   }
@@ -335,6 +345,14 @@ export abstract class Shortcuts implements
 
   translation(args: TextTextTranslationInputs): Promise<TextTextTranslationOutputs> {
     return this.fromText().toText().translation(args);
+  }
+
+  vatCountryGuessing(args: TextTextVatCountryGuessingInputs): Promise<TextTextVatCountryGuessingOutputs> {
+    return this.fromText().toText().vatCountryGuessing(args);
+  }
+
+  websiteClassification(args: TextTextWebsiteClassificationInputs): Promise<TextTextWebsiteClassificationOutputs> {
+    return this.fromText().toText().websiteClassification(args);
   }
 
   wordAlignment(args: TextTextWordAlignmentInputs): Promise<TextTextWordAlignmentOutputs> {

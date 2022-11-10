@@ -326,6 +326,12 @@ export const TEXT_TEXT_GPS_ADDRESS_FORMATTING_MODELS = [
 export const TEXT_TEXT_GPS_ADDRESS_FORMATTING_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
 export type TextTextGpsAddressFormattingModel = typeof TEXT_TEXT_GPS_ADDRESS_FORMATTING_MODELS[number];
 
+export const TEXT_TEXT_GPT3_MODELS = [
+   'jpt',
+] as const;
+export const TEXT_TEXT_GPT3_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
+export type TextTextGpt3Model = typeof TEXT_TEXT_GPT3_MODELS[number];
+
 export const TEXT_TEXT_HATE_SPEECH_DETECTION_MODELS = [
    'byt5-base-tweet-hate-detection',
    'distilbert-base-uncased-emotion',
@@ -354,7 +360,7 @@ export const TEXT_TEXT_KEYWORD_EXTRACTION_CONTENT_TYPE = "application/x-www-form
 export type TextTextKeywordExtractionModel = typeof TEXT_TEXT_KEYWORD_EXTRACTION_MODELS[number];
 
 export const TEXT_TEXT_LANGUAGE_DETECTION_MODELS = [
-   'deepl',
+   'jpt',
    'toftrup-etal-2021',
    'xlm-roberta-base-language-detection',
 ] as const;
@@ -441,11 +447,23 @@ export const TEXT_TEXT_SUMMARIZATION_CONTENT_TYPE = "application/x-www-form-urle
 export type TextTextSummarizationModel = typeof TEXT_TEXT_SUMMARIZATION_MODELS[number];
 
 export const TEXT_TEXT_TRANSLATION_MODELS = [
-   'deepl',
    'facebook-nllb-200-distilled-600M',
+   'jpt',
 ] as const;
 export const TEXT_TEXT_TRANSLATION_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
 export type TextTextTranslationModel = typeof TEXT_TEXT_TRANSLATION_MODELS[number];
+
+export const TEXT_TEXT_VAT_COUNTRY_GUESSING_MODELS = [
+   'jpt',
+] as const;
+export const TEXT_TEXT_VAT_COUNTRY_GUESSING_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
+export type TextTextVatCountryGuessingModel = typeof TEXT_TEXT_VAT_COUNTRY_GUESSING_MODELS[number];
+
+export const TEXT_TEXT_WEBSITE_CLASSIFICATION_MODELS = [
+   'jpt',
+] as const;
+export const TEXT_TEXT_WEBSITE_CLASSIFICATION_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
+export type TextTextWebsiteClassificationModel = typeof TEXT_TEXT_WEBSITE_CLASSIFICATION_MODELS[number];
 
 export const TEXT_TEXT_WORD_ALIGNMENT_MODELS = [
    'bert-base-multilingual-cased',

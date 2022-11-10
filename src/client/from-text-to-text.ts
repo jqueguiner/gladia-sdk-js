@@ -19,6 +19,7 @@ import {
   TextTextEmotionRecognitionInputs,
   TextTextGenderFromNameInputs,
   TextTextGpsAddressFormattingInputs,
+  TextTextGpt3Inputs,
   TextTextHateSpeechDetectionInputs,
   TextTextHeadlineGenerationInputs,
   TextTextIntentClassificationInputs,
@@ -36,6 +37,8 @@ import {
   TextTextSimilarityInputs,
   TextTextSummarizationInputs,
   TextTextTranslationInputs,
+  TextTextVatCountryGuessingInputs,
+  TextTextWebsiteClassificationInputs,
   TextTextWordAlignmentInputs,
 } from './input-models';
 import {
@@ -57,6 +60,7 @@ import {
   TextTextEmotionRecognitionOutputs,
   TextTextGenderFromNameOutputs,
   TextTextGpsAddressFormattingOutputs,
+  TextTextGpt3Outputs,
   TextTextHateSpeechDetectionOutputs,
   TextTextHeadlineGenerationOutputs,
   TextTextIntentClassificationOutputs,
@@ -74,6 +78,8 @@ import {
   TextTextSimilarityOutputs,
   TextTextSummarizationOutputs,
   TextTextTranslationOutputs,
+  TextTextVatCountryGuessingOutputs,
+  TextTextWebsiteClassificationOutputs,
   TextTextWordAlignmentOutputs,
 } from './output-models';
 import {
@@ -95,6 +101,7 @@ import {
   TEXT_TEXT_EMOTION_RECOGNITION_CONTENT_TYPE,
   TEXT_TEXT_GENDER_FROM_NAME_CONTENT_TYPE,
   TEXT_TEXT_GPS_ADDRESS_FORMATTING_CONTENT_TYPE,
+  TEXT_TEXT_GPT3_CONTENT_TYPE,
   TEXT_TEXT_HATE_SPEECH_DETECTION_CONTENT_TYPE,
   TEXT_TEXT_HEADLINE_GENERATION_CONTENT_TYPE,
   TEXT_TEXT_INTENT_CLASSIFICATION_CONTENT_TYPE,
@@ -112,6 +119,8 @@ import {
   TEXT_TEXT_SIMILARITY_CONTENT_TYPE,
   TEXT_TEXT_SUMMARIZATION_CONTENT_TYPE,
   TEXT_TEXT_TRANSLATION_CONTENT_TYPE,
+  TEXT_TEXT_VAT_COUNTRY_GUESSING_CONTENT_TYPE,
+  TEXT_TEXT_WEBSITE_CLASSIFICATION_CONTENT_TYPE,
   TEXT_TEXT_WORD_ALIGNMENT_CONTENT_TYPE,
 } from '../models';
 import { getHttpClient, HttpClient, UrlFormData } from '../internal/http-client';
@@ -443,6 +452,24 @@ export class FromTextToText {
     });
   }
 
+  gpt3(args: TextTextGpt3Inputs): Promise<TextTextGpt3Outputs> {
+    const formData = new UrlFormData();
+    if (isDefined(args.text)) {
+      formData.append('text', args.text);
+    }
+    return this.httpClient.post({
+      url: '/text/text/gpt3/',
+      headers: {
+        'Content-Type': TEXT_TEXT_GPT3_CONTENT_TYPE,
+        ...(args.headers ?? {}),
+      },
+      query: {
+        ...(args.model ? {model: args.model} : {}),
+      },
+      body: formData.toString(),
+    });
+  }
+
   hateSpeechDetection(args: TextTextHateSpeechDetectionInputs): Promise<TextTextHateSpeechDetectionOutputs> {
     const formData = new UrlFormData();
     formData.append('text', args.text);
@@ -730,6 +757,42 @@ export class FromTextToText {
       url: '/text/text/translation/',
       headers: {
         'Content-Type': TEXT_TEXT_TRANSLATION_CONTENT_TYPE,
+        ...(args.headers ?? {}),
+      },
+      query: {
+        ...(args.model ? {model: args.model} : {}),
+      },
+      body: formData.toString(),
+    });
+  }
+
+  vatCountryGuessing(args: TextTextVatCountryGuessingInputs): Promise<TextTextVatCountryGuessingOutputs> {
+    const formData = new UrlFormData();
+    if (isDefined(args.text)) {
+      formData.append('text', args.text);
+    }
+    return this.httpClient.post({
+      url: '/text/text/vat-country-guessing/',
+      headers: {
+        'Content-Type': TEXT_TEXT_VAT_COUNTRY_GUESSING_CONTENT_TYPE,
+        ...(args.headers ?? {}),
+      },
+      query: {
+        ...(args.model ? {model: args.model} : {}),
+      },
+      body: formData.toString(),
+    });
+  }
+
+  websiteClassification(args: TextTextWebsiteClassificationInputs): Promise<TextTextWebsiteClassificationOutputs> {
+    const formData = new UrlFormData();
+    if (isDefined(args.text)) {
+      formData.append('text', args.text);
+    }
+    return this.httpClient.post({
+      url: '/text/text/website-classification/',
+      headers: {
+        'Content-Type': TEXT_TEXT_WEBSITE_CLASSIFICATION_CONTENT_TYPE,
         ...(args.headers ?? {}),
       },
       query: {

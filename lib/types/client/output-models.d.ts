@@ -60,6 +60,7 @@ export declare type TextTextGpsAddressFormattingOutputs = {
     prediction: string;
     prediction_raw: unknown;
 };
+export declare type TextTextGpt3Outputs = Record<string, string | number | boolean>;
 export declare type TextTextHateSpeechDetectionOutputs = {
     prediction: string;
     prediction_raw: unknown;
@@ -125,6 +126,8 @@ export declare type TextTextTranslationOutputs = {
     prediction: string;
     prediction_raw: unknown;
 };
+export declare type TextTextVatCountryGuessingOutputs = Record<string, string | number | boolean>;
+export declare type TextTextWebsiteClassificationOutputs = Record<string, string | number | boolean>;
 export declare type TextTextWordAlignmentOutputs = {
     prediction: string[];
     prediction_raw: unknown;

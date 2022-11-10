@@ -1,4 +1,4 @@
-import { AudioTextAudioTranscriptionModel, ImageImageBackgroundRemovalModel, ImageImageBackgroundReplacementModel, ImageImageColorizationModel, ImageImageDeblurringModel, ImageImageEnhancementModel, ImageImageFaceBluringModel, ImageImageGuidedInpaintingModel, ImageImageInpaintingModel, ImageImageSuperResolutionModel, ImageImageUncolorizationModel, ImageTextClassificationModel, ImageTextOcrModel, TextImageImageGenerationModel, TextTextAdGenerationModel, TextTextAddressFormattingModel, TextTextAgeFromNameModel, TextTextAnonymizationModel, TextTextArticleGenerationModel, TextTextAutocorrectModel, TextTextBulletPointGenerationModel, TextTextCleanCityModel, TextTextCleanCountryModel, TextTextCommandGenerationModel, TextTextCompanyCategorizationModel, TextTextCompanyNameNormalizationModel, TextTextCompanyStockCodeModel, TextTextConversationSummarizationModel, TextTextCountryFromNameModel, TextTextEmotionRecognitionModel, TextTextGenderFromNameModel, TextTextGpsAddressFormattingModel, TextTextHateSpeechDetectionModel, TextTextHeadlineGenerationModel, TextTextIntentClassificationModel, TextTextKeywordExtractionModel, TextTextLanguageDetectionModel, TextTextLanguageGenerationModel, TextTextNamedEntityRecognitionModel, TextTextNextSentencePredictionModel, TextTextNextWordPredictionModel, TextTextProgrammingLanguageGenerationModel, TextTextPunctuationRestorationModel, TextTextQuestionAnsweringModel, TextTextSentenceParaphraserModel, TextTextSentimentAnalysisModel, TextTextSimilarityModel, TextTextSummarizationModel, TextTextTranslationModel, TextTextWordAlignmentModel } from '../models';
+import { AudioTextAudioTranscriptionModel, ImageImageBackgroundRemovalModel, ImageImageBackgroundReplacementModel, ImageImageColorizationModel, ImageImageDeblurringModel, ImageImageEnhancementModel, ImageImageFaceBluringModel, ImageImageGuidedInpaintingModel, ImageImageInpaintingModel, ImageImageSuperResolutionModel, ImageImageUncolorizationModel, ImageTextClassificationModel, ImageTextOcrModel, TextImageImageGenerationModel, TextTextAdGenerationModel, TextTextAddressFormattingModel, TextTextAgeFromNameModel, TextTextAnonymizationModel, TextTextArticleGenerationModel, TextTextAutocorrectModel, TextTextBulletPointGenerationModel, TextTextCleanCityModel, TextTextCleanCountryModel, TextTextCommandGenerationModel, TextTextCompanyCategorizationModel, TextTextCompanyNameNormalizationModel, TextTextCompanyStockCodeModel, TextTextConversationSummarizationModel, TextTextCountryFromNameModel, TextTextEmotionRecognitionModel, TextTextGenderFromNameModel, TextTextGpsAddressFormattingModel, TextTextGpt3Model, TextTextHateSpeechDetectionModel, TextTextHeadlineGenerationModel, TextTextIntentClassificationModel, TextTextKeywordExtractionModel, TextTextLanguageDetectionModel, TextTextLanguageGenerationModel, TextTextNamedEntityRecognitionModel, TextTextNextSentencePredictionModel, TextTextNextWordPredictionModel, TextTextProgrammingLanguageGenerationModel, TextTextPunctuationRestorationModel, TextTextQuestionAnsweringModel, TextTextSentenceParaphraserModel, TextTextSentimentAnalysisModel, TextTextSimilarityModel, TextTextSummarizationModel, TextTextTranslationModel, TextTextVatCountryGuessingModel, TextTextWebsiteClassificationModel, TextTextWordAlignmentModel } from '../models';
 import { WithHeaders, WithModel } from './types';
 export interface AudioTextAudioTranscriptionInputs extends WithHeaders, WithModel<AudioTextAudioTranscriptionModel> {
     audio?: Blob;
@@ -129,6 +129,9 @@ export interface TextTextGpsAddressFormattingInputs extends WithHeaders, WithMod
     latitude: number;
     longitude: number;
 }
+export interface TextTextGpt3Inputs extends WithHeaders, WithModel<TextTextGpt3Model> {
+    text?: string;
+}
 export interface TextTextHateSpeechDetectionInputs extends WithHeaders, WithModel<TextTextHateSpeechDetectionModel> {
     text: string;
 }
@@ -191,6 +194,12 @@ export interface TextTextTranslationInputs extends WithHeaders, WithModel<TextTe
     input_string: string;
     source_language: string;
     target_language: string;
+}
+export interface TextTextVatCountryGuessingInputs extends WithHeaders, WithModel<TextTextVatCountryGuessingModel> {
+    text?: string;
+}
+export interface TextTextWebsiteClassificationInputs extends WithHeaders, WithModel<TextTextWebsiteClassificationModel> {
+    text?: string;
 }
 export interface TextTextWordAlignmentInputs extends WithHeaders, WithModel<TextTextWordAlignmentModel> {
     input_string_language_1: string;

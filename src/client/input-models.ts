@@ -33,6 +33,7 @@ import {
   TextTextEmotionRecognitionModel,
   TextTextGenderFromNameModel,
   TextTextGpsAddressFormattingModel,
+  TextTextGpt3Model,
   TextTextHateSpeechDetectionModel,
   TextTextHeadlineGenerationModel,
   TextTextIntentClassificationModel,
@@ -50,6 +51,8 @@ import {
   TextTextSimilarityModel,
   TextTextSummarizationModel,
   TextTextTranslationModel,
+  TextTextVatCountryGuessingModel,
+  TextTextWebsiteClassificationModel,
   TextTextWordAlignmentModel,
 } from '../models';
 import { WithHeaders, WithModel } from './types';
@@ -228,6 +231,10 @@ export interface TextTextGpsAddressFormattingInputs
   latitude: number;
   longitude: number;
 }
+export interface TextTextGpt3Inputs 
+  extends WithHeaders, WithModel<TextTextGpt3Model> {
+  text?: string;
+}
 export interface TextTextHateSpeechDetectionInputs 
   extends WithHeaders, WithModel<TextTextHateSpeechDetectionModel> {
   text: string;
@@ -307,6 +314,14 @@ export interface TextTextTranslationInputs
   input_string: string;
   source_language: string;
   target_language: string;
+}
+export interface TextTextVatCountryGuessingInputs 
+  extends WithHeaders, WithModel<TextTextVatCountryGuessingModel> {
+  text?: string;
+}
+export interface TextTextWebsiteClassificationInputs 
+  extends WithHeaders, WithModel<TextTextWebsiteClassificationModel> {
+  text?: string;
 }
 export interface TextTextWordAlignmentInputs 
   extends WithHeaders, WithModel<TextTextWordAlignmentModel> {
