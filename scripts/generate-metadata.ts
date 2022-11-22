@@ -117,7 +117,9 @@ function getOutputBodyContentType(def: PathDef): Pick<EndpointDef, 'outputBodyCo
           outputBodyContentType: {
             type: 'prediction-standard-output',
             predictionType:
-              jsonContent.schema.prediction === 'str' ? 'string' : jsonContent.schema.prediction,
+              jsonContent.schema.prediction === 'str' || jsonContent.schema.prediction === 'text'
+                ? 'string'
+                : jsonContent.schema.prediction,
           },
         };
       } else if (Object.keys(jsonContent.schema).length === 0) {
@@ -157,6 +159,7 @@ function getPostParams(def: PathDef, openApiJson: OpenApiJson) {
               const type: EndpointDefParam['type'] = (() => {
                 switch (propSchema.data_type) {
                   case 'integer':
+                  case 'int':
                     return 'integer';
                   case 'float':
                     return 'float';
@@ -172,6 +175,7 @@ function getPostParams(def: PathDef, openApiJson: OpenApiJson) {
                     return 'enum';
                   case 'text':
                   case 'string':
+                  case 'str':
                   default:
                     return 'string';
                 }

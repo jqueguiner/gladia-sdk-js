@@ -138,10 +138,9 @@ describe(getEndpoints.name, () => {
         models: [
           'distilbert-base-uncased',
           'distilbert-base-uncased-finetuned-sst-2-english',
-          'nlptown-bert-base-multilingual-uncased-sentiment',
           'zero-shot-classification-facebook-bart-large-mnli',
         ],
-        defaultModel: 'nlptown-bert-base-multilingual-uncased-sentiment',
+        defaultModel: 'distilbert-base-uncased-finetuned-sst-2-english',
         inputBodyContentType: 'application/x-www-form-urlencoded',
         outputBodyContentType: {
           type: 'prediction-standard-output',
