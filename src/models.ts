@@ -259,18 +259,6 @@ export const TEXT_TEXT_BULLET_POINT_GENERATION_MODELS = [
 export const TEXT_TEXT_BULLET_POINT_GENERATION_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
 export type TextTextBulletPointGenerationModel = typeof TEXT_TEXT_BULLET_POINT_GENERATION_MODELS[number];
 
-export const TEXT_TEXT_CLEAN_CITY_MODELS = [
-   'jpt',
-] as const;
-export const TEXT_TEXT_CLEAN_CITY_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
-export type TextTextCleanCityModel = typeof TEXT_TEXT_CLEAN_CITY_MODELS[number];
-
-export const TEXT_TEXT_CLEAN_COUNTRY_MODELS = [
-   'jpt',
-] as const;
-export const TEXT_TEXT_CLEAN_COUNTRY_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
-export type TextTextCleanCountryModel = typeof TEXT_TEXT_CLEAN_COUNTRY_MODELS[number];
-
 export const TEXT_TEXT_COMMAND_GENERATION_MODELS = [
    'jpt',
 ] as const;
@@ -307,6 +295,12 @@ export const TEXT_TEXT_COUNTRY_FROM_NAME_MODELS = [
 export const TEXT_TEXT_COUNTRY_FROM_NAME_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
 export type TextTextCountryFromNameModel = typeof TEXT_TEXT_COUNTRY_FROM_NAME_MODELS[number];
 
+export const TEXT_TEXT_DATE_CLEANING_MODELS = [
+   'dataprep-formatter',
+] as const;
+export const TEXT_TEXT_DATE_CLEANING_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
+export type TextTextDateCleaningModel = typeof TEXT_TEXT_DATE_CLEANING_MODELS[number];
+
 export const TEXT_TEXT_EMOTION_RECOGNITION_MODELS = [
    'distilbert-base-uncased-emotion',
    'mrm8488-t5-base-finetuned-emotion',
@@ -332,6 +326,18 @@ export const TEXT_TEXT_GPT3_MODELS = [
 export const TEXT_TEXT_GPT3_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
 export type TextTextGpt3Model = typeof TEXT_TEXT_GPT3_MODELS[number];
 
+export const TEXT_TEXT_GUESS_CITY_MODELS = [
+   'jpt',
+] as const;
+export const TEXT_TEXT_GUESS_CITY_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
+export type TextTextGuessCityModel = typeof TEXT_TEXT_GUESS_CITY_MODELS[number];
+
+export const TEXT_TEXT_GUESS_COUNTRY_MODELS = [
+   'jpt',
+] as const;
+export const TEXT_TEXT_GUESS_COUNTRY_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
+export type TextTextGuessCountryModel = typeof TEXT_TEXT_GUESS_COUNTRY_MODELS[number];
+
 export const TEXT_TEXT_HATE_SPEECH_DETECTION_MODELS = [
    'byt5-base-tweet-hate-detection',
    'distilbert-base-uncased-emotion',
@@ -353,7 +359,6 @@ export const TEXT_TEXT_INTENT_CLASSIFICATION_CONTENT_TYPE = "application/x-www-f
 export type TextTextIntentClassificationModel = typeof TEXT_TEXT_INTENT_CLASSIFICATION_MODELS[number];
 
 export const TEXT_TEXT_KEYWORD_EXTRACTION_MODELS = [
-   'keybert-paraphrase-MiniLM-L6-v2',
    'keybert-paraphrase-multilingual-MiniLM-L12-v2',
 ] as const;
 export const TEXT_TEXT_KEYWORD_EXTRACTION_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
@@ -362,7 +367,6 @@ export type TextTextKeywordExtractionModel = typeof TEXT_TEXT_KEYWORD_EXTRACTION
 export const TEXT_TEXT_LANGUAGE_DETECTION_MODELS = [
    'jpt',
    'toftrup-etal-2021',
-   'xlm-roberta-base-language-detection',
 ] as const;
 export const TEXT_TEXT_LANGUAGE_DETECTION_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
 export type TextTextLanguageDetectionModel = typeof TEXT_TEXT_LANGUAGE_DETECTION_MODELS[number];
@@ -427,7 +431,6 @@ export type TextTextSentenceParaphraserModel = typeof TEXT_TEXT_SENTENCE_PARAPHR
 export const TEXT_TEXT_SENTIMENT_ANALYSIS_MODELS = [
    'distilbert-base-uncased',
    'distilbert-base-uncased-finetuned-sst-2-english',
-   'nlptown-bert-base-multilingual-uncased-sentiment',
    'zero-shot-classification-facebook-bart-large-mnli',
 ] as const;
 export const TEXT_TEXT_SENTIMENT_ANALYSIS_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;

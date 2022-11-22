@@ -43,8 +43,6 @@ export type TextTextAutocorrectOutputs = {
   prediction_raw: unknown,
 };
 export type TextTextBulletPointGenerationOutputs = Record<string, string | number | boolean>;
-export type TextTextCleanCityOutputs = Record<string, string | number | boolean>;
-export type TextTextCleanCountryOutputs = Record<string, string | number | boolean>;
 export type TextTextCommandGenerationOutputs = Record<string, string | number | boolean>;
 export type TextTextCompanyCategorizationOutputs = Record<string, string | number | boolean>;
 export type TextTextCompanyNameNormalizationOutputs = Record<string, string | number | boolean>;
@@ -54,6 +52,10 @@ export type TextTextConversationSummarizationOutputs = {
   prediction_raw: unknown,
 };
 export type TextTextCountryFromNameOutputs = Record<string, string | number | boolean>;
+export type TextTextDateCleaningOutputs = {
+  prediction: string,
+  prediction_raw: unknown,
+};
 export type TextTextEmotionRecognitionOutputs = {
   prediction: string,
   prediction_raw: unknown,
@@ -64,6 +66,8 @@ export type TextTextGpsAddressFormattingOutputs = {
   prediction_raw: unknown,
 };
 export type TextTextGpt3Outputs = Record<string, string | number | boolean>;
+export type TextTextGuessCityOutputs = Record<string, string | number | boolean>;
+export type TextTextGuessCountryOutputs = Record<string, string | number | boolean>;
 export type TextTextHateSpeechDetectionOutputs = {
   prediction: string,
   prediction_raw: unknown,

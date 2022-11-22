@@ -61,12 +61,6 @@ export declare type TextTextAutocorrectModel = typeof TEXT_TEXT_AUTOCORRECT_MODE
 export declare const TEXT_TEXT_BULLET_POINT_GENERATION_MODELS: readonly ["jpt"];
 export declare const TEXT_TEXT_BULLET_POINT_GENERATION_CONTENT_TYPE: "application/x-www-form-urlencoded";
 export declare type TextTextBulletPointGenerationModel = typeof TEXT_TEXT_BULLET_POINT_GENERATION_MODELS[number];
-export declare const TEXT_TEXT_CLEAN_CITY_MODELS: readonly ["jpt"];
-export declare const TEXT_TEXT_CLEAN_CITY_CONTENT_TYPE: "application/x-www-form-urlencoded";
-export declare type TextTextCleanCityModel = typeof TEXT_TEXT_CLEAN_CITY_MODELS[number];
-export declare const TEXT_TEXT_CLEAN_COUNTRY_MODELS: readonly ["jpt"];
-export declare const TEXT_TEXT_CLEAN_COUNTRY_CONTENT_TYPE: "application/x-www-form-urlencoded";
-export declare type TextTextCleanCountryModel = typeof TEXT_TEXT_CLEAN_COUNTRY_MODELS[number];
 export declare const TEXT_TEXT_COMMAND_GENERATION_MODELS: readonly ["jpt"];
 export declare const TEXT_TEXT_COMMAND_GENERATION_CONTENT_TYPE: "application/x-www-form-urlencoded";
 export declare type TextTextCommandGenerationModel = typeof TEXT_TEXT_COMMAND_GENERATION_MODELS[number];
@@ -85,6 +79,9 @@ export declare type TextTextConversationSummarizationModel = typeof TEXT_TEXT_CO
 export declare const TEXT_TEXT_COUNTRY_FROM_NAME_MODELS: readonly ["jpt"];
 export declare const TEXT_TEXT_COUNTRY_FROM_NAME_CONTENT_TYPE: "application/x-www-form-urlencoded";
 export declare type TextTextCountryFromNameModel = typeof TEXT_TEXT_COUNTRY_FROM_NAME_MODELS[number];
+export declare const TEXT_TEXT_DATE_CLEANING_MODELS: readonly ["dataprep-formatter"];
+export declare const TEXT_TEXT_DATE_CLEANING_CONTENT_TYPE: "application/x-www-form-urlencoded";
+export declare type TextTextDateCleaningModel = typeof TEXT_TEXT_DATE_CLEANING_MODELS[number];
 export declare const TEXT_TEXT_EMOTION_RECOGNITION_MODELS: readonly ["distilbert-base-uncased-emotion", "mrm8488-t5-base-finetuned-emotion"];
 export declare const TEXT_TEXT_EMOTION_RECOGNITION_CONTENT_TYPE: "application/x-www-form-urlencoded";
 export declare type TextTextEmotionRecognitionModel = typeof TEXT_TEXT_EMOTION_RECOGNITION_MODELS[number];
@@ -97,6 +94,12 @@ export declare type TextTextGpsAddressFormattingModel = typeof TEXT_TEXT_GPS_ADD
 export declare const TEXT_TEXT_GPT3_MODELS: readonly ["jpt"];
 export declare const TEXT_TEXT_GPT3_CONTENT_TYPE: "application/x-www-form-urlencoded";
 export declare type TextTextGpt3Model = typeof TEXT_TEXT_GPT3_MODELS[number];
+export declare const TEXT_TEXT_GUESS_CITY_MODELS: readonly ["jpt"];
+export declare const TEXT_TEXT_GUESS_CITY_CONTENT_TYPE: "application/x-www-form-urlencoded";
+export declare type TextTextGuessCityModel = typeof TEXT_TEXT_GUESS_CITY_MODELS[number];
+export declare const TEXT_TEXT_GUESS_COUNTRY_MODELS: readonly ["jpt"];
+export declare const TEXT_TEXT_GUESS_COUNTRY_CONTENT_TYPE: "application/x-www-form-urlencoded";
+export declare type TextTextGuessCountryModel = typeof TEXT_TEXT_GUESS_COUNTRY_MODELS[number];
 export declare const TEXT_TEXT_HATE_SPEECH_DETECTION_MODELS: readonly ["byt5-base-tweet-hate-detection", "distilbert-base-uncased-emotion"];
 export declare const TEXT_TEXT_HATE_SPEECH_DETECTION_CONTENT_TYPE: "application/x-www-form-urlencoded";
 export declare type TextTextHateSpeechDetectionModel = typeof TEXT_TEXT_HATE_SPEECH_DETECTION_MODELS[number];
@@ -106,10 +109,10 @@ export declare type TextTextHeadlineGenerationModel = typeof TEXT_TEXT_HEADLINE_
 export declare const TEXT_TEXT_INTENT_CLASSIFICATION_MODELS: readonly ["fast-gpt-j"];
 export declare const TEXT_TEXT_INTENT_CLASSIFICATION_CONTENT_TYPE: "application/x-www-form-urlencoded";
 export declare type TextTextIntentClassificationModel = typeof TEXT_TEXT_INTENT_CLASSIFICATION_MODELS[number];
-export declare const TEXT_TEXT_KEYWORD_EXTRACTION_MODELS: readonly ["keybert-paraphrase-MiniLM-L6-v2", "keybert-paraphrase-multilingual-MiniLM-L12-v2"];
+export declare const TEXT_TEXT_KEYWORD_EXTRACTION_MODELS: readonly ["keybert-paraphrase-multilingual-MiniLM-L12-v2"];
 export declare const TEXT_TEXT_KEYWORD_EXTRACTION_CONTENT_TYPE: "application/x-www-form-urlencoded";
 export declare type TextTextKeywordExtractionModel = typeof TEXT_TEXT_KEYWORD_EXTRACTION_MODELS[number];
-export declare const TEXT_TEXT_LANGUAGE_DETECTION_MODELS: readonly ["jpt", "toftrup-etal-2021", "xlm-roberta-base-language-detection"];
+export declare const TEXT_TEXT_LANGUAGE_DETECTION_MODELS: readonly ["jpt", "toftrup-etal-2021"];
 export declare const TEXT_TEXT_LANGUAGE_DETECTION_CONTENT_TYPE: "application/x-www-form-urlencoded";
 export declare type TextTextLanguageDetectionModel = typeof TEXT_TEXT_LANGUAGE_DETECTION_MODELS[number];
 export declare const TEXT_TEXT_LANGUAGE_GENERATION_MODELS: readonly ["EleutherAI-gpt-neo-2_7B", "bloom-560m"];
@@ -136,7 +139,7 @@ export declare type TextTextQuestionAnsweringModel = typeof TEXT_TEXT_QUESTION_A
 export declare const TEXT_TEXT_SENTENCE_PARAPHRASER_MODELS: readonly ["ramsrigouthamg-t5-large-paraphraser-diverse-high-quality", "ramsrigouthamg-t5_sentence_paraphraser"];
 export declare const TEXT_TEXT_SENTENCE_PARAPHRASER_CONTENT_TYPE: "application/x-www-form-urlencoded";
 export declare type TextTextSentenceParaphraserModel = typeof TEXT_TEXT_SENTENCE_PARAPHRASER_MODELS[number];
-export declare const TEXT_TEXT_SENTIMENT_ANALYSIS_MODELS: readonly ["distilbert-base-uncased", "distilbert-base-uncased-finetuned-sst-2-english", "nlptown-bert-base-multilingual-uncased-sentiment", "zero-shot-classification-facebook-bart-large-mnli"];
+export declare const TEXT_TEXT_SENTIMENT_ANALYSIS_MODELS: readonly ["distilbert-base-uncased", "distilbert-base-uncased-finetuned-sst-2-english", "zero-shot-classification-facebook-bart-large-mnli"];
 export declare const TEXT_TEXT_SENTIMENT_ANALYSIS_CONTENT_TYPE: "application/x-www-form-urlencoded";
 export declare type TextTextSentimentAnalysisModel = typeof TEXT_TEXT_SENTIMENT_ANALYSIS_MODELS[number];
 export declare const TEXT_TEXT_SIMILARITY_MODELS: readonly ["all-MiniLM-L6-v2"];

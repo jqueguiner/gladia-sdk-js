@@ -22,18 +22,19 @@ import {
   TextTextArticleGenerationModel,
   TextTextAutocorrectModel,
   TextTextBulletPointGenerationModel,
-  TextTextCleanCityModel,
-  TextTextCleanCountryModel,
   TextTextCommandGenerationModel,
   TextTextCompanyCategorizationModel,
   TextTextCompanyNameNormalizationModel,
   TextTextCompanyStockCodeModel,
   TextTextConversationSummarizationModel,
   TextTextCountryFromNameModel,
+  TextTextDateCleaningModel,
   TextTextEmotionRecognitionModel,
   TextTextGenderFromNameModel,
   TextTextGpsAddressFormattingModel,
   TextTextGpt3Model,
+  TextTextGuessCityModel,
+  TextTextGuessCountryModel,
   TextTextHateSpeechDetectionModel,
   TextTextHeadlineGenerationModel,
   TextTextIntentClassificationModel,
@@ -186,14 +187,6 @@ export interface TextTextBulletPointGenerationInputs
   text?: string;
   bullets?: number;
 }
-export interface TextTextCleanCityInputs 
-  extends WithHeaders, WithModel<TextTextCleanCityModel> {
-  text?: string;
-}
-export interface TextTextCleanCountryInputs 
-  extends WithHeaders, WithModel<TextTextCleanCountryModel> {
-  text?: string;
-}
 export interface TextTextCommandGenerationInputs 
   extends WithHeaders, WithModel<TextTextCommandGenerationModel> {
   text?: string;
@@ -218,6 +211,10 @@ export interface TextTextCountryFromNameInputs
   extends WithHeaders, WithModel<TextTextCountryFromNameModel> {
   name?: string;
 }
+export interface TextTextDateCleaningInputs 
+  extends WithHeaders, WithModel<TextTextDateCleaningModel> {
+  date: string;
+}
 export interface TextTextEmotionRecognitionInputs 
   extends WithHeaders, WithModel<TextTextEmotionRecognitionModel> {
   text: string;
@@ -233,6 +230,14 @@ export interface TextTextGpsAddressFormattingInputs
 }
 export interface TextTextGpt3Inputs 
   extends WithHeaders, WithModel<TextTextGpt3Model> {
+  text?: string;
+}
+export interface TextTextGuessCityInputs 
+  extends WithHeaders, WithModel<TextTextGuessCityModel> {
+  text?: string;
+}
+export interface TextTextGuessCountryInputs 
+  extends WithHeaders, WithModel<TextTextGuessCountryModel> {
   text?: string;
 }
 export interface TextTextHateSpeechDetectionInputs 

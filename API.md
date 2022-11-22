@@ -399,26 +399,6 @@ The runtime default model is defined on the GladIA server.
  - `text`: string
  - `bullets`: integer
 
-### `clean-city`
-
-#### `models`
-
- - **jpt (default)**
-
-#### other params
-
- - `text`: string
-
-### `clean-country`
-
-#### `models`
-
- - **jpt (default)**
-
-#### other params
-
- - `text`: string
-
 ### `command-generation`
 
 #### `models`
@@ -479,6 +459,16 @@ The runtime default model is defined on the GladIA server.
 
  - `name`: string
 
+### `date-cleaning`
+
+#### `models`
+
+ - **dataprep-formatter (default)**
+
+#### other params
+
+ - `date`: string *(required)*
+
 ### `emotion-recognition`
 
 #### `models`
@@ -512,6 +502,26 @@ The runtime default model is defined on the GladIA server.
  - `longitude`: float *(required)*
 
 ### `gpt3`
+
+#### `models`
+
+ - **jpt (default)**
+
+#### other params
+
+ - `text`: string
+
+### `guess-city`
+
+#### `models`
+
+ - **jpt (default)**
+
+#### other params
+
+ - `text`: string
+
+### `guess-country`
 
 #### `models`
 
@@ -558,8 +568,7 @@ The runtime default model is defined on the GladIA server.
 
 #### `models`
 
- - **keybert-paraphrase-MiniLM-L6-v2 (default)**
- - keybert-paraphrase-multilingual-MiniLM-L12-v2
+ - **keybert-paraphrase-multilingual-MiniLM-L12-v2 (default)**
 
 #### other params
 
@@ -572,7 +581,6 @@ The runtime default model is defined on the GladIA server.
 
  - **jpt (default)**
  - toftrup-etal-2021
- - xlm-roberta-base-language-detection
 
 #### other params
 
@@ -676,8 +684,7 @@ The runtime default model is defined on the GladIA server.
 #### `models`
 
  - distilbert-base-uncased
- - distilbert-base-uncased-finetuned-sst-2-english
- - **nlptown-bert-base-multilingual-uncased-sentiment (default)**
+ - **distilbert-base-uncased-finetuned-sst-2-english (default)**
  - zero-shot-classification-facebook-bart-large-mnli
 
 #### other params

@@ -40,7 +40,7 @@ interface PathRequestResponseContentDef {
         data_type: string;
     } | {
         type: 'object';
-        prediction: 'string' | 'number' | 'array' | 'str';
+        prediction: 'string' | 'text' | 'number' | 'array' | 'str';
         prediction_raw: unknown;
     };
 }
@@ -89,7 +89,7 @@ interface OpenApiJsonComponent {
             example?: unknown;
             examples?: unknown;
             _examples?: unknown;
-            data_type?: 'string' | 'text' | 'url' | 'integer' | 'float' | 'image' | 'audio' | 'list' | 'array';
+            data_type?: 'string' | 'str' | 'text' | 'url' | 'integer' | 'int' | 'float' | 'image' | 'audio' | 'list' | 'array';
         } & ({
             type: string;
         } | {
