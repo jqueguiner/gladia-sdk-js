@@ -1,6 +1,12 @@
 export declare const AUDIO_TEXT_AUDIO_TRANSCRIPTION_MODELS: readonly ["coqui_english_huge_vocab", "openai-whisper-base", "openai-whisper-large", "openai-whisper-medium", "openai-whisper-small", "openai-whisper-tiny"];
 export declare const AUDIO_TEXT_AUDIO_TRANSCRIPTION_CONTENT_TYPE: "multipart/form-data";
 export declare type AudioTextAudioTranscriptionModel = typeof AUDIO_TEXT_AUDIO_TRANSCRIPTION_MODELS[number];
+export declare const AUDIO_TEXT_SPEAKER_DIARIZATION_MODELS: readonly ["pyannote-speaker_diarization"];
+export declare const AUDIO_TEXT_SPEAKER_DIARIZATION_CONTENT_TYPE: "multipart/form-data";
+export declare type AudioTextSpeakerDiarizationModel = typeof AUDIO_TEXT_SPEAKER_DIARIZATION_MODELS[number];
+export declare const AUDIO_TEXT_SPEAKER_GENDER_CLASSIFICATION_MODELS: readonly ["inafoss-inaSpeechSegmenter"];
+export declare const AUDIO_TEXT_SPEAKER_GENDER_CLASSIFICATION_CONTENT_TYPE: "multipart/form-data";
+export declare type AudioTextSpeakerGenderClassificationModel = typeof AUDIO_TEXT_SPEAKER_GENDER_CLASSIFICATION_MODELS[number];
 export declare const IMAGE_IMAGE_BACKGROUND_REMOVAL_MODELS: readonly ["mobilenet", "xception"];
 export declare const IMAGE_IMAGE_BACKGROUND_REMOVAL_CONTENT_TYPE: "multipart/form-data";
 export declare type ImageImageBackgroundRemovalModel = typeof IMAGE_IMAGE_BACKGROUND_REMOVAL_MODELS[number];

@@ -3,6 +3,14 @@ export declare type AudioTextAudioTranscriptionOutputs = {
     prediction: string;
     prediction_raw: unknown;
 };
+export declare type AudioTextSpeakerDiarizationOutputs = {
+    prediction: string;
+    prediction_raw: unknown;
+};
+export declare type AudioTextSpeakerGenderClassificationOutputs = {
+    prediction: string;
+    prediction_raw: unknown;
+};
 export declare type ImageImageBackgroundRemovalOutputs = ArrayBuffer;
 export declare type ImageImageBackgroundReplacementOutputs = ArrayBuffer;
 export declare type ImageImageColorizationOutputs = ArrayBuffer;
@@ -87,11 +95,11 @@ export declare type TextTextLanguageGenerationOutputs = {
     prediction_raw: unknown;
 };
 export declare type TextTextNamedEntityRecognitionOutputs = {
-    prediction: string[];
+    prediction: string;
     prediction_raw: unknown;
 };
 export declare type TextTextNextSentencePredictionOutputs = {
-    prediction: number;
+    prediction: string;
     prediction_raw: unknown;
 };
 export declare type TextTextNextWordPredictionOutputs = {
@@ -119,7 +127,7 @@ export declare type TextTextSentimentAnalysisOutputs = {
     prediction_raw: unknown;
 };
 export declare type TextTextSimilarityOutputs = {
-    prediction: number;
+    prediction: string;
     prediction_raw: unknown;
 };
 export declare type TextTextSummarizationOutputs = {
@@ -133,7 +141,7 @@ export declare type TextTextTranslationOutputs = {
 export declare type TextTextVatCountryGuessingOutputs = Record<string, string | number | boolean>;
 export declare type TextTextWebsiteClassificationOutputs = Record<string, string | number | boolean>;
 export declare type TextTextWordAlignmentOutputs = {
-    prediction: string[];
+    prediction: string;
     prediction_raw: unknown;
 };
 export {};
