@@ -11,6 +11,18 @@ export const AUDIO_TEXT_AUDIO_TRANSCRIPTION_MODELS = [
 export const AUDIO_TEXT_AUDIO_TRANSCRIPTION_CONTENT_TYPE = "multipart/form-data" as const;
 export type AudioTextAudioTranscriptionModel = typeof AUDIO_TEXT_AUDIO_TRANSCRIPTION_MODELS[number];
 
+export const AUDIO_TEXT_SPEAKER_DIARIZATION_MODELS = [
+   'pyannote-speaker_diarization',
+] as const;
+export const AUDIO_TEXT_SPEAKER_DIARIZATION_CONTENT_TYPE = "multipart/form-data" as const;
+export type AudioTextSpeakerDiarizationModel = typeof AUDIO_TEXT_SPEAKER_DIARIZATION_MODELS[number];
+
+export const AUDIO_TEXT_SPEAKER_GENDER_CLASSIFICATION_MODELS = [
+   'inafoss-inaSpeechSegmenter',
+] as const;
+export const AUDIO_TEXT_SPEAKER_GENDER_CLASSIFICATION_CONTENT_TYPE = "multipart/form-data" as const;
+export type AudioTextSpeakerGenderClassificationModel = typeof AUDIO_TEXT_SPEAKER_GENDER_CLASSIFICATION_MODELS[number];
+
 export const IMAGE_IMAGE_BACKGROUND_REMOVAL_MODELS = [
    'mobilenet',
    'xception',

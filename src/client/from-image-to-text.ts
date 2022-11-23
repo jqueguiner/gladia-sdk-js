@@ -31,9 +31,7 @@ export class FromImageToText {
     if (isDefined(args.image_url)) {
       formData.append('image_url', args.image_url);
     }
-    if (isDefined(args.top_k)) {
-      formData.append('top_k', String(args.top_k));
-    }
+    formData.append('top_k', String(args.top_k));
     return this.httpClient.post({
       url: '/image/text/classification/',
       headers: {
@@ -55,9 +53,7 @@ export class FromImageToText {
     if (isDefined(args.image_url)) {
       formData.append('image_url', args.image_url);
     }
-    if (isDefined(args.source_language)) {
-      formData.append('source_language', args.source_language);
-    }
+    formData.append('source_language', args.source_language);
     return this.httpClient.post({
       url: '/image/text/ocr/',
       headers: {

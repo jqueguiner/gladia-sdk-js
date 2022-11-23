@@ -39,6 +39,66 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
         "in": "formData",
         "type": "string",
         "name": "language",
+        "required": true
+      }
+    ],
+    "hasSamplesParam": false
+  },
+  {
+    "url": "/audio/text/speaker-diarization/",
+    "inputType": "audio",
+    "outputType": "text",
+    "taskName": "speaker-diarization",
+    "models": [
+      "pyannote-speaker_diarization"
+    ],
+    "defaultModel": "pyannote-speaker_diarization",
+    "inputBodyContentType": "multipart/form-data",
+    "outputBodyContentType": {
+      "type": "prediction-standard-output",
+      "predictionType": "string"
+    },
+    "params": [
+      {
+        "in": "formData",
+        "type": "audio",
+        "name": "audio",
+        "required": false
+      },
+      {
+        "in": "formData",
+        "type": "url",
+        "name": "audio_url",
+        "required": false
+      }
+    ],
+    "hasSamplesParam": false
+  },
+  {
+    "url": "/audio/text/speaker-gender-classification/",
+    "inputType": "audio",
+    "outputType": "text",
+    "taskName": "speaker-gender-classification",
+    "models": [
+      "inafoss-inaSpeechSegmenter"
+    ],
+    "defaultModel": "inafoss-inaSpeechSegmenter",
+    "inputBodyContentType": "multipart/form-data",
+    "outputBodyContentType": {
+      "type": "prediction-standard-output",
+      "predictionType": "string"
+    },
+    "params": [
+      {
+        "in": "formData",
+        "type": "audio",
+        "name": "audio",
+        "required": false
+      },
+      {
+        "in": "formData",
+        "type": "url",
+        "name": "audio_url",
         "required": false
       }
     ],
@@ -550,7 +610,7 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
         "in": "formData",
         "type": "integer",
         "name": "top_k",
-        "required": false
+        "required": true
       }
     ],
     "hasSamplesParam": false
@@ -589,7 +649,7 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
         "in": "formData",
         "type": "string",
         "name": "source_language",
-        "required": false
+        "required": true
       }
     ],
     "hasSamplesParam": false
@@ -724,12 +784,6 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
       {
         "in": "formData",
         "type": "string",
-        "name": "text",
-        "required": true
-      },
-      {
-        "in": "formData",
-        "type": "string",
         "name": "language",
         "required": true
       },
@@ -737,6 +791,12 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
         "in": "formData",
         "type": "string",
         "name": "entities",
+        "required": true
+      },
+      {
+        "in": "formData",
+        "type": "string",
+        "name": "text",
         "required": true
       }
     ],
@@ -1299,7 +1359,7 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
     "inputBodyContentType": "application/x-www-form-urlencoded",
     "outputBodyContentType": {
       "type": "prediction-standard-output",
-      "predictionType": "array"
+      "predictionType": "string"
     },
     "params": [
       {
@@ -1323,7 +1383,7 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
     "inputBodyContentType": "application/x-www-form-urlencoded",
     "outputBodyContentType": {
       "type": "prediction-standard-output",
-      "predictionType": "number"
+      "predictionType": "string"
     },
     "params": [
       {
@@ -1369,7 +1429,7 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
         "in": "formData",
         "type": "integer",
         "name": "top_k",
-        "required": false
+        "required": true
       }
     ],
     "hasSamplesParam": false
@@ -1525,7 +1585,7 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
     "inputBodyContentType": "application/x-www-form-urlencoded",
     "outputBodyContentType": {
       "type": "prediction-standard-output",
-      "predictionType": "number"
+      "predictionType": "string"
     },
     "params": [
       {
@@ -1681,7 +1741,7 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
     "inputBodyContentType": "application/x-www-form-urlencoded",
     "outputBodyContentType": {
       "type": "prediction-standard-output",
-      "predictionType": "array"
+      "predictionType": "string"
     },
     "params": [
       {

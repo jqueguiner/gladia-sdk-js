@@ -2,6 +2,8 @@
 
 import {
   AudioTextAudioTranscriptionModel,
+  AudioTextSpeakerDiarizationModel,
+  AudioTextSpeakerGenderClassificationModel,
   ImageImageBackgroundRemovalModel,
   ImageImageBackgroundReplacementModel,
   ImageImageColorizationModel,
@@ -62,7 +64,17 @@ export interface AudioTextAudioTranscriptionInputs
   extends WithHeaders, WithModel<AudioTextAudioTranscriptionModel> {
   audio?: Blob;
   audio_url?: string;
-  language?: string;
+  language: string;
+}
+export interface AudioTextSpeakerDiarizationInputs 
+  extends WithHeaders, WithModel<AudioTextSpeakerDiarizationModel> {
+  audio?: Blob;
+  audio_url?: string;
+}
+export interface AudioTextSpeakerGenderClassificationInputs 
+  extends WithHeaders, WithModel<AudioTextSpeakerGenderClassificationModel> {
+  audio?: Blob;
+  audio_url?: string;
 }
 export interface ImageImageBackgroundRemovalInputs 
   extends WithHeaders, WithModel<ImageImageBackgroundRemovalModel> {
@@ -141,13 +153,13 @@ export interface ImageTextClassificationInputs
   extends WithHeaders, WithModel<ImageTextClassificationModel> {
   image?: Blob;
   image_url?: string;
-  top_k?: number;
+  top_k: number;
 }
 export interface ImageTextOcrInputs 
   extends WithHeaders, WithModel<ImageTextOcrModel> {
   image?: Blob;
   image_url?: string;
-  source_language?: string;
+  source_language: string;
 }
 export interface TextImageImageGenerationInputs 
   extends WithHeaders, WithModel<TextImageImageGenerationModel> {
@@ -170,9 +182,9 @@ export interface TextTextAgeFromNameInputs
 }
 export interface TextTextAnonymizationInputs 
   extends WithHeaders, WithModel<TextTextAnonymizationModel> {
-  text: string;
   language: string;
   entities: string;
+  text: string;
 }
 export interface TextTextArticleGenerationInputs 
   extends WithHeaders, WithModel<TextTextArticleGenerationModel> {
@@ -278,7 +290,7 @@ export interface TextTextNextSentencePredictionInputs
 export interface TextTextNextWordPredictionInputs 
   extends WithHeaders, WithModel<TextTextNextWordPredictionModel> {
   sentence: string;
-  top_k?: number;
+  top_k: number;
 }
 export interface TextTextProgrammingLanguageGenerationInputs 
   extends WithHeaders, WithModel<TextTextProgrammingLanguageGenerationModel> {

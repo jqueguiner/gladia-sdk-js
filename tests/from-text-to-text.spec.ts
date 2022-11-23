@@ -285,13 +285,13 @@ describe('FromTextToText', () => {
 
     describe('full path', () => {
       it('should call the api with the text and the default model by default', async () => {
-        const text_data = getRandomText();
         const language_data = getRandomText();
         const entities_data = getRandomText();
+        const text_data = getRandomText();
         await gladiaClient.fromText().toText().anonymization({
-          text: text_data,
           language: language_data,
           entities: entities_data,
+          text: text_data,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -301,18 +301,18 @@ describe('FromTextToText', () => {
         });
         expect(firstCallArgs.query).toEqual({
         });
-        expect(firstCallBody.get('text')).toEqual(text_data);
         expect(firstCallBody.get('language')).toEqual(language_data);
         expect(firstCallBody.get('entities')).toEqual(entities_data);
+        expect(firstCallBody.get('text')).toEqual(text_data);
       });
       it('should call the api with the text and the specified model', async () => {
-        const text_data = getRandomText();
         const language_data = getRandomText();
         const entities_data = getRandomText();
+        const text_data = getRandomText();
         await gladiaClient.fromText().toText().anonymization({
-          text: text_data,
           language: language_data,
           entities: entities_data,
+          text: text_data,
           model: 'fake-model-name' as unknown as TextTextAnonymizationModel,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
@@ -324,20 +324,20 @@ describe('FromTextToText', () => {
         expect(firstCallArgs.query).toEqual({
           model: 'fake-model-name',
         });
-        expect(firstCallBody.get('text')).toEqual(text_data);
         expect(firstCallBody.get('language')).toEqual(language_data);
         expect(firstCallBody.get('entities')).toEqual(entities_data);
+        expect(firstCallBody.get('text')).toEqual(text_data);
       });
     });
     describe('shortcuts', () => {
       it('should call the api with the text and the default model by default', async () => {
-        const text_data = getRandomText();
         const language_data = getRandomText();
         const entities_data = getRandomText();
+        const text_data = getRandomText();
         await gladiaClient.anonymization({
-          text: text_data,
           language: language_data,
           entities: entities_data,
+          text: text_data,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -347,18 +347,18 @@ describe('FromTextToText', () => {
         });
         expect(firstCallArgs.query).toEqual({
         });
-        expect(firstCallBody.get('text')).toEqual(text_data);
         expect(firstCallBody.get('language')).toEqual(language_data);
         expect(firstCallBody.get('entities')).toEqual(entities_data);
+        expect(firstCallBody.get('text')).toEqual(text_data);
       });
       it('should call the api with the text and the specified model', async () => {
-        const text_data = getRandomText();
         const language_data = getRandomText();
         const entities_data = getRandomText();
+        const text_data = getRandomText();
         await gladiaClient.anonymization({
-          text: text_data,
           language: language_data,
           entities: entities_data,
+          text: text_data,
           model: 'fake-model-name' as unknown as TextTextAnonymizationModel,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
@@ -370,9 +370,9 @@ describe('FromTextToText', () => {
         expect(firstCallArgs.query).toEqual({
           model: 'fake-model-name',
         });
-        expect(firstCallBody.get('text')).toEqual(text_data);
         expect(firstCallBody.get('language')).toEqual(language_data);
         expect(firstCallBody.get('entities')).toEqual(entities_data);
+        expect(firstCallBody.get('text')).toEqual(text_data);
       });
     });
   });

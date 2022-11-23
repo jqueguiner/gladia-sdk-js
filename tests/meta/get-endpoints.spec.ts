@@ -125,7 +125,7 @@ describe(getEndpoints.name, () => {
             in: 'formData',
             type: 'string',
             name: 'language',
-            required: false,
+            required: true,
           },
         ],
         hasSamplesParam: false,

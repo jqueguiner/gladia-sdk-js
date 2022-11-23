@@ -21,7 +21,29 @@ The runtime default model is defined on the GladIA server.
 
  - `audio`: audio
  - `audio_url`: url
- - `language`: string
+ - `language`: string *(required)*
+
+### `speaker-diarization`
+
+#### `models`
+
+ - **pyannote-speaker_diarization (default)**
+
+#### other params
+
+ - `audio`: audio
+ - `audio_url`: url
+
+### `speaker-gender-classification`
+
+#### `models`
+
+ - **inafoss-inaSpeechSegmenter (default)**
+
+#### other params
+
+ - `audio`: audio
+ - `audio_url`: url
 
 ## IMAGE => IMAGE
 
@@ -291,7 +313,7 @@ The runtime default model is defined on the GladIA server.
 
  - `image`: image
  - `image_url`: url
- - `top_k`: integer
+ - `top_k`: integer *(required)*
 
 ### `ocr`
 
@@ -306,7 +328,7 @@ The runtime default model is defined on the GladIA server.
 
  - `image`: image
  - `image_url`: url
- - `source_language`: string
+ - `source_language`: string *(required)*
 
 ## TEXT => IMAGE
 
@@ -364,9 +386,9 @@ The runtime default model is defined on the GladIA server.
 
 #### other params
 
- - `text`: string *(required)*
  - `language`: string *(required)*
  - `entities`: string *(required)*
+ - `text`: string *(required)*
 
 ### `article-generation`
 
@@ -630,7 +652,7 @@ The runtime default model is defined on the GladIA server.
 #### other params
 
  - `sentence`: string *(required)*
- - `top_k`: integer
+ - `top_k`: integer *(required)*
 
 ### `programming-language-generation`
 

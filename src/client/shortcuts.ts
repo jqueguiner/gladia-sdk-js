@@ -10,6 +10,8 @@ import { FromTextToImage } from './from-text-to-image'
 import { FromTextToText } from './from-text-to-text'
 import {
   AudioTextAudioTranscriptionInputs,
+  AudioTextSpeakerDiarizationInputs,
+  AudioTextSpeakerGenderClassificationInputs,
   ImageImageBackgroundRemovalInputs,
   ImageImageBackgroundReplacementInputs,
   ImageImageColorizationInputs,
@@ -66,6 +68,8 @@ import {
 } from './input-models'
 import {
   AudioTextAudioTranscriptionOutputs,
+  AudioTextSpeakerDiarizationOutputs,
+  AudioTextSpeakerGenderClassificationOutputs,
   ImageImageBackgroundRemovalOutputs,
   ImageImageBackgroundReplacementOutputs,
   ImageImageColorizationOutputs,
@@ -137,6 +141,14 @@ export abstract class Shortcuts implements
 
   audioTranscription(args: AudioTextAudioTranscriptionInputs): Promise<AudioTextAudioTranscriptionOutputs> {
     return this.fromAudio().toText().audioTranscription(args);
+  }
+
+  speakerDiarization(args: AudioTextSpeakerDiarizationInputs): Promise<AudioTextSpeakerDiarizationOutputs> {
+    return this.fromAudio().toText().speakerDiarization(args);
+  }
+
+  speakerGenderClassification(args: AudioTextSpeakerGenderClassificationInputs): Promise<AudioTextSpeakerGenderClassificationOutputs> {
+    return this.fromAudio().toText().speakerGenderClassification(args);
   }
 
   abstract fromImage(): FromImage;

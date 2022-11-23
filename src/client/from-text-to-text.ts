@@ -191,9 +191,9 @@ export class FromTextToText {
 
   anonymization(args: TextTextAnonymizationInputs): Promise<TextTextAnonymizationOutputs> {
     const formData = new UrlFormData();
-    formData.append('text', args.text);
     formData.append('language', args.language);
     formData.append('entities', args.entities);
+    formData.append('text', args.text);
     return this.httpClient.post({
       url: '/text/text/anonymization/',
       headers: {
@@ -627,9 +627,7 @@ export class FromTextToText {
   nextWordPrediction(args: TextTextNextWordPredictionInputs): Promise<TextTextNextWordPredictionOutputs> {
     const formData = new UrlFormData();
     formData.append('sentence', args.sentence);
-    if (isDefined(args.top_k)) {
-      formData.append('top_k', String(args.top_k));
-    }
+    formData.append('top_k', String(args.top_k));
     return this.httpClient.post({
       url: '/text/text/next-word-prediction/',
       headers: {

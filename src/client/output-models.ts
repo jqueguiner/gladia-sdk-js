@@ -6,6 +6,14 @@ export type AudioTextAudioTranscriptionOutputs = {
   prediction: string,
   prediction_raw: unknown,
 };
+export type AudioTextSpeakerDiarizationOutputs = {
+  prediction: string,
+  prediction_raw: unknown,
+};
+export type AudioTextSpeakerGenderClassificationOutputs = {
+  prediction: string,
+  prediction_raw: unknown,
+};
 export type ImageImageBackgroundRemovalOutputs = ArrayBuffer;
 export type ImageImageBackgroundReplacementOutputs = ArrayBuffer;
 export type ImageImageColorizationOutputs = ArrayBuffer;
@@ -90,11 +98,11 @@ export type TextTextLanguageGenerationOutputs = {
   prediction_raw: unknown,
 };
 export type TextTextNamedEntityRecognitionOutputs = {
-  prediction: string[],
+  prediction: string,
   prediction_raw: unknown,
 };
 export type TextTextNextSentencePredictionOutputs = {
-  prediction: number,
+  prediction: string,
   prediction_raw: unknown,
 };
 export type TextTextNextWordPredictionOutputs = {
@@ -122,7 +130,7 @@ export type TextTextSentimentAnalysisOutputs = {
   prediction_raw: unknown,
 };
 export type TextTextSimilarityOutputs = {
-  prediction: number,
+  prediction: string,
   prediction_raw: unknown,
 };
 export type TextTextSummarizationOutputs = {
@@ -136,6 +144,6 @@ export type TextTextTranslationOutputs = {
 export type TextTextVatCountryGuessingOutputs = Record<string, string | number | boolean>;
 export type TextTextWebsiteClassificationOutputs = Record<string, string | number | boolean>;
 export type TextTextWordAlignmentOutputs = {
-  prediction: string[],
+  prediction: string,
   prediction_raw: unknown,
 };

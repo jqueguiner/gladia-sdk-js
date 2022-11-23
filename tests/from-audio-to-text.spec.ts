@@ -2,6 +2,8 @@
 
 import { GladiaClient } from '../src/gladia-client';
 import {
+  AudioTextSpeakerDiarizationModel,
+  AudioTextSpeakerGenderClassificationModel,
 } from '../src/models';
 import gladia from '../src/index';
 import { HttpClient } from '../src/internal/http-client';
@@ -107,6 +109,188 @@ describe('FromAudioToText', () => {
         expect(firstCallBody.get('audio')).toBeDefined();
         expect(firstCallBody.get('audio_url')).toEqual(audio_url_data);
         expect(firstCallBody.get('language')).toEqual(language_data);
+      });
+    });
+  });
+
+  describe('speakerDiarization', () => {
+    let gladiaClient: GladiaClient;
+    let httpClientMock: HttpClient;
+
+    beforeEach(() => {
+      gladiaClient = gladia({ apiKey: 'API-KEY', customHttpClient: mockHttpClient() });
+      httpClientMock = gladiaClient.fromAudio().toText()['httpClient'];
+    });
+
+    describe('full path', () => {
+      it('should call the api with the text and the default model by default', async () => {
+        const audio_data = new Blob([getRandomText()]);
+        const audio_url_data = getRandomText();
+        await gladiaClient.fromAudio().toText().speakerDiarization({
+          audio: audio_data,
+          audio_url: audio_url_data,
+        });
+        const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
+        expect(postMock).toHaveBeenCalledTimes(1);
+        expect(firstCallArgs.url).toEqual('/audio/text/speaker-diarization/');
+        expect(firstCallArgs.headers).toEqual({
+          'Content-Type': undefined,
+        });
+        expect(firstCallArgs.query).toEqual({
+        });
+        expect(firstCallBody.get('audio')).toBeDefined();
+        expect(firstCallBody.get('audio_url')).toEqual(audio_url_data);
+      });
+      it('should call the api with the text and the specified model', async () => {
+        const audio_data = new Blob([getRandomText()]);
+        const audio_url_data = getRandomText();
+        await gladiaClient.fromAudio().toText().speakerDiarization({
+          audio: audio_data,
+          audio_url: audio_url_data,
+          model: 'fake-model-name' as unknown as AudioTextSpeakerDiarizationModel,
+        });
+        const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
+        expect(postMock).toHaveBeenCalledTimes(1);
+        expect(firstCallArgs.url).toEqual('/audio/text/speaker-diarization/');
+        expect(firstCallArgs.headers).toEqual({
+          'Content-Type': undefined,
+        });
+        expect(firstCallArgs.query).toEqual({
+          model: 'fake-model-name',
+        });
+        expect(firstCallBody.get('audio')).toBeDefined();
+        expect(firstCallBody.get('audio_url')).toEqual(audio_url_data);
+      });
+    });
+    describe('shortcuts', () => {
+      it('should call the api with the text and the default model by default', async () => {
+        const audio_data = new Blob([getRandomText()]);
+        const audio_url_data = getRandomText();
+        await gladiaClient.speakerDiarization({
+          audio: audio_data,
+          audio_url: audio_url_data,
+        });
+        const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
+        expect(postMock).toHaveBeenCalledTimes(1);
+        expect(firstCallArgs.url).toEqual('/audio/text/speaker-diarization/');
+        expect(firstCallArgs.headers).toEqual({
+          'Content-Type': undefined,
+        });
+        expect(firstCallArgs.query).toEqual({
+        });
+        expect(firstCallBody.get('audio')).toBeDefined();
+        expect(firstCallBody.get('audio_url')).toEqual(audio_url_data);
+      });
+      it('should call the api with the text and the specified model', async () => {
+        const audio_data = new Blob([getRandomText()]);
+        const audio_url_data = getRandomText();
+        await gladiaClient.speakerDiarization({
+          audio: audio_data,
+          audio_url: audio_url_data,
+          model: 'fake-model-name' as unknown as AudioTextSpeakerDiarizationModel,
+        });
+        const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
+        expect(postMock).toHaveBeenCalledTimes(1);
+        expect(firstCallArgs.url).toEqual('/audio/text/speaker-diarization/');
+        expect(firstCallArgs.headers).toEqual({
+          'Content-Type': undefined,
+        });
+        expect(firstCallArgs.query).toEqual({
+          model: 'fake-model-name',
+        });
+        expect(firstCallBody.get('audio')).toBeDefined();
+        expect(firstCallBody.get('audio_url')).toEqual(audio_url_data);
+      });
+    });
+  });
+
+  describe('speakerGenderClassification', () => {
+    let gladiaClient: GladiaClient;
+    let httpClientMock: HttpClient;
+
+    beforeEach(() => {
+      gladiaClient = gladia({ apiKey: 'API-KEY', customHttpClient: mockHttpClient() });
+      httpClientMock = gladiaClient.fromAudio().toText()['httpClient'];
+    });
+
+    describe('full path', () => {
+      it('should call the api with the text and the default model by default', async () => {
+        const audio_data = new Blob([getRandomText()]);
+        const audio_url_data = getRandomText();
+        await gladiaClient.fromAudio().toText().speakerGenderClassification({
+          audio: audio_data,
+          audio_url: audio_url_data,
+        });
+        const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
+        expect(postMock).toHaveBeenCalledTimes(1);
+        expect(firstCallArgs.url).toEqual('/audio/text/speaker-gender-classification/');
+        expect(firstCallArgs.headers).toEqual({
+          'Content-Type': undefined,
+        });
+        expect(firstCallArgs.query).toEqual({
+        });
+        expect(firstCallBody.get('audio')).toBeDefined();
+        expect(firstCallBody.get('audio_url')).toEqual(audio_url_data);
+      });
+      it('should call the api with the text and the specified model', async () => {
+        const audio_data = new Blob([getRandomText()]);
+        const audio_url_data = getRandomText();
+        await gladiaClient.fromAudio().toText().speakerGenderClassification({
+          audio: audio_data,
+          audio_url: audio_url_data,
+          model: 'fake-model-name' as unknown as AudioTextSpeakerGenderClassificationModel,
+        });
+        const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
+        expect(postMock).toHaveBeenCalledTimes(1);
+        expect(firstCallArgs.url).toEqual('/audio/text/speaker-gender-classification/');
+        expect(firstCallArgs.headers).toEqual({
+          'Content-Type': undefined,
+        });
+        expect(firstCallArgs.query).toEqual({
+          model: 'fake-model-name',
+        });
+        expect(firstCallBody.get('audio')).toBeDefined();
+        expect(firstCallBody.get('audio_url')).toEqual(audio_url_data);
+      });
+    });
+    describe('shortcuts', () => {
+      it('should call the api with the text and the default model by default', async () => {
+        const audio_data = new Blob([getRandomText()]);
+        const audio_url_data = getRandomText();
+        await gladiaClient.speakerGenderClassification({
+          audio: audio_data,
+          audio_url: audio_url_data,
+        });
+        const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
+        expect(postMock).toHaveBeenCalledTimes(1);
+        expect(firstCallArgs.url).toEqual('/audio/text/speaker-gender-classification/');
+        expect(firstCallArgs.headers).toEqual({
+          'Content-Type': undefined,
+        });
+        expect(firstCallArgs.query).toEqual({
+        });
+        expect(firstCallBody.get('audio')).toBeDefined();
+        expect(firstCallBody.get('audio_url')).toEqual(audio_url_data);
+      });
+      it('should call the api with the text and the specified model', async () => {
+        const audio_data = new Blob([getRandomText()]);
+        const audio_url_data = getRandomText();
+        await gladiaClient.speakerGenderClassification({
+          audio: audio_data,
+          audio_url: audio_url_data,
+          model: 'fake-model-name' as unknown as AudioTextSpeakerGenderClassificationModel,
+        });
+        const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
+        expect(postMock).toHaveBeenCalledTimes(1);
+        expect(firstCallArgs.url).toEqual('/audio/text/speaker-gender-classification/');
+        expect(firstCallArgs.headers).toEqual({
+          'Content-Type': undefined,
+        });
+        expect(firstCallArgs.query).toEqual({
+          model: 'fake-model-name',
+        });
+        expect(firstCallBody.get('audio')).toBeDefined();
+        expect(firstCallBody.get('audio_url')).toEqual(audio_url_data);
       });
     });
   });
