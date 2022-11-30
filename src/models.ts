@@ -378,6 +378,7 @@ export type TextTextKeywordExtractionModel = typeof TEXT_TEXT_KEYWORD_EXTRACTION
 
 export const TEXT_TEXT_LANGUAGE_DETECTION_MODELS = [
    'jpt',
+   'papluca_xlm-roberta-base-language-detection_deepspeed',
    'toftrup-etal-2021',
 ] as const;
 export const TEXT_TEXT_LANGUAGE_DETECTION_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;

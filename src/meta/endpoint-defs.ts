@@ -1304,6 +1304,7 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
     "taskName": "language-detection",
     "models": [
       "jpt",
+      "papluca_xlm-roberta-base-language-detection_deepspeed",
       "toftrup-etal-2021"
     ],
     "defaultModel": "jpt",

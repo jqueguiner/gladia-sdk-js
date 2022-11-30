@@ -602,6 +602,7 @@ The runtime default model is defined on the GladIA server.
 #### `models`
 
  - **jpt (default)**
+ - papluca_xlm-roberta-base-language-detection_deepspeed
  - toftrup-etal-2021
 
 #### other params

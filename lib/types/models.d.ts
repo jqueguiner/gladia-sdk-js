@@ -118,7 +118,7 @@ export declare type TextTextIntentClassificationModel = typeof TEXT_TEXT_INTENT_
 export declare const TEXT_TEXT_KEYWORD_EXTRACTION_MODELS: readonly ["keybert-paraphrase-multilingual-MiniLM-L12-v2"];
 export declare const TEXT_TEXT_KEYWORD_EXTRACTION_CONTENT_TYPE: "application/x-www-form-urlencoded";
 export declare type TextTextKeywordExtractionModel = typeof TEXT_TEXT_KEYWORD_EXTRACTION_MODELS[number];
-export declare const TEXT_TEXT_LANGUAGE_DETECTION_MODELS: readonly ["jpt", "toftrup-etal-2021"];
+export declare const TEXT_TEXT_LANGUAGE_DETECTION_MODELS: readonly ["jpt", "papluca_xlm-roberta-base-language-detection_deepspeed", "toftrup-etal-2021"];
 export declare const TEXT_TEXT_LANGUAGE_DETECTION_CONTENT_TYPE: "application/x-www-form-urlencoded";
 export declare type TextTextLanguageDetectionModel = typeof TEXT_TEXT_LANGUAGE_DETECTION_MODELS[number];
 export declare const TEXT_TEXT_LANGUAGE_GENERATION_MODELS: readonly ["EleutherAI-gpt-neo-2_7B", "bloom-560m"];

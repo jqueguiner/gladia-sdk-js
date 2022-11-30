@@ -2034,7 +2034,7 @@ describe('FromTextToText', () => {
         const text_data = getRandomText();
         await gladiaClient.fromText().toText().languageDetection({
           text: text_data,
-          model: 'toftrup-etal-2021',
+          model: 'papluca_xlm-roberta-base-language-detection_deepspeed',
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -2043,7 +2043,7 @@ describe('FromTextToText', () => {
           'Content-Type': 'application/x-www-form-urlencoded',
         });
         expect(firstCallArgs.query).toEqual({
-          model: 'toftrup-etal-2021',
+          model: 'papluca_xlm-roberta-base-language-detection_deepspeed',
         });
         expect(firstCallBody.get('text')).toEqual(text_data);
       });
@@ -2068,7 +2068,7 @@ describe('FromTextToText', () => {
         const text_data = getRandomText();
         await gladiaClient.languageDetection({
           text: text_data,
-          model: 'toftrup-etal-2021',
+          model: 'papluca_xlm-roberta-base-language-detection_deepspeed',
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -2077,7 +2077,7 @@ describe('FromTextToText', () => {
           'Content-Type': 'application/x-www-form-urlencoded',
         });
         expect(firstCallArgs.query).toEqual({
-          model: 'toftrup-etal-2021',
+          model: 'papluca_xlm-roberta-base-language-detection_deepspeed',
         });
         expect(firstCallBody.get('text')).toEqual(text_data);
       });
