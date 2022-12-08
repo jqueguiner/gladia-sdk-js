@@ -5,6 +5,7 @@
     "type": "git",
     "url": "https://github.com/gladiaio/gladia-sdk-js.git"
   },
+  "author": "gladia",
   "license": "MIT",
   "main": "./lib/cjs/index.js",
   "module": "./lib/esm/index.js",
