@@ -6,6 +6,7 @@ interface BaseGladiaClientParams {
     customHttpClient?: HttpClientFactory;
     headers?: Record<string, string | number | boolean>;
     useFetch?: boolean;
+    useXhr?: boolean;
 }
 interface ReleaseGladiaClientParams extends BaseGladiaClientParams {
     enablePreviewFeatures?: false;

@@ -14,6 +14,7 @@ export interface HttpClientFactoryParams {
     baseHeaders: HttpClientHeaders;
     baseUrl: string;
     useFetch: boolean;
+    useXhr: boolean;
     httpClientTimeout: number;
 }
 export declare type HttpClientFactory = (params: HttpClientFactoryParams) => HttpClient;
