@@ -17,7 +17,6 @@ npm i @gladiaio/sdk
 ```
 
 or to get the latest version from git, add this to your `package.json`:
-
 ```json
 {
   "dependencies": {
@@ -37,7 +36,6 @@ const gladiaClient = gladia({ apiKey: 'XXXXXXXX' });
 const result = await gladiaClient.autocorrect({ sentence: 'thnik' });
 // result = { prediction: 'think' }
 ```
-
 ### Use it with JavaScript with ES module
 
 ```JavaScript
@@ -57,7 +55,6 @@ const gladiaClient = gladia({ apiKey: 'XXXXXXXX' });
 const result = await gladiaClient.autocorrect({ sentence: 'thnik' });
 // result = { prediction: 'think' }
 ```
-
 ### Use it with JavaScript (without module, in ES5 context)
 
 Notes: ES5 version is built for IE targets when you have no bundler, prefer other methods
@@ -69,7 +66,6 @@ const gladiaClient = gladia({ apiKey: 'XXXXXXXX' });
 const result = await gladiaClient.autocorrect({ sentence: 'thnik' });
 // result = { prediction: 'think' }
 ```
-
 ### Use it with JavaScript in the browser with script import
 
 ```html
@@ -89,7 +85,6 @@ const result = await gladiaClient.autocorrect({ sentence: 'thnik' });
 ```
 
 There is multiple bundle choices:
-
 - `gladiaio-sdk.js`: contain bundled ES5 JS + source map
 - `gladiaio-sdk.min.js`: contain bundled ES5 JS but not source map
 - `gladiaio-sdk.min.js.map`: contain only source map for `gladiaio-sdk.min.js`
@@ -219,7 +214,7 @@ const gladiaClient = gladia({ apiKey: 'XXXXXXXX', useFetch: true, httpClientTime
 
 ## Regenerate SDK
 
-```
+```bash
 npm i
 npm run generate-metadata
 npm run generate-sdk
@@ -227,8 +222,7 @@ npm run build
 ```
 
 Notes:
-
-- `generate-metadata` script will download the latest `openapi.json` file from production api and generate
+- `generate-metadata` script will download the latest `openapi.json` file from production api and generate 
 - `generate-sdk` will generate most parts of the SDK using the `openapi.json` definition
 - If you need a custom sdk, you can provide a `openapi.json` file like this `npm run generate-metadata -- --from-file=./path/to/openapi.json`, then call the scripts `generate-sdk` and `build` like before
 - You can download only the current `openapi.json` by calling `npm run download-openapi`
@@ -237,7 +231,7 @@ Notes:
 
 Change version in `package.json` then:
 
-```
+```bash
 npm install
 npm run generate-metadata
 npm run generate-sdk
