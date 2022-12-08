@@ -1,6 +1,6 @@
 import { getHttpClient, HttpClient } from '../../internal/http-client';
 import { PreviewFeatureError } from '../../utils/error';
-import { isDefined, isNotDefined } from '../../utils/fp';
+import { isDefined } from '../../utils/fp';
 import { GladiaClientParams, isPreviewEnabled } from '../gladia-client-params';
 import {
   AutoMlPredictInputParams,
@@ -14,13 +14,13 @@ export class AutoMLTrainable {
   private httpClient: HttpClient;
 
   constructor(private params: GladiaClientParams) {
-    if (isPreviewEnabled(params) && isDefined(params.autoMlBaseUrl)) {
-      this.httpClient = getHttpClient(Object.assign({}, params, { baseUrl: params.autoMlBaseUrl }));
+    if (isPreviewEnabled(params)) {
+      this.httpClient = getHttpClient(this.params);
     }
   }
 
   train<T = unknown>(args: AutoMlTrainInputParams<T>): Promise<AutoMlTrainOutput> {
-    if (!isPreviewEnabled(this.params) || isNotDefined(this.params.autoMlBaseUrl)) {
+    if (!isPreviewEnabled(this.params)) {
       throw new PreviewFeatureError();
     }
     const body: AutoMlTrainRequestBody<T> = {
@@ -33,37 +33,35 @@ export class AutoMLTrainable {
     if (isDefined(args.time_limit)) {
       body.time_limit = args.time_limit;
     }
-    const kind = args.kind ?? 'multimodal';
     return this.httpClient.post({
-      url: `/${kind}/create-model/`,
+      url: `/automl/train`,
       headers: {
         'Content-Type': 'application/json',
         ...(args.headers ?? {}),
       },
       responseType: 'json',
-      body,
+      body: JSON.stringify(body),
     });
   }
 
   predict<TData = unknown, TResult = unknown>(
     args: AutoMlPredictInputParams<TData>,
   ): Promise<AutoMlPredictOutput<TResult[]>> {
-    if (!isPreviewEnabled(this.params) || isNotDefined(this.params.autoMlBaseUrl)) {
+    if (!isPreviewEnabled(this.params)) {
       throw new PreviewFeatureError();
     }
     const body: AutoMlPredictRequestBody<TData> = {
       model_id: args.model_id,
       data: args.data,
     };
-    const kind = args.kind ?? 'multimodal';
     return this.httpClient.post({
-      url: `/${kind}/predict/`,
+      url: `/automl/predict`,
       headers: {
         'Content-Type': 'application/json',
         ...(args.headers ?? {}),
       },
       responseType: 'json',
-      body,
+      body: JSON.stringify(body),
     });
   }
 }

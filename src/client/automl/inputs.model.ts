@@ -12,15 +12,11 @@ export interface AutoMlTrainRequestBody<T> {
   eval_metric?: string;
 }
 
-export interface AutoMlTrainInputParams<T> extends WithHeaders, AutoMlTrainRequestBody<T> {
-  kind?: AutoMlKind;
-}
+export interface AutoMlTrainInputParams<T> extends WithHeaders, AutoMlTrainRequestBody<T> {}
 
 export interface AutoMlPredictRequestBody<T> {
   model_id: string;
   data: AutoMlData<T>;
 }
 
-export interface AutoMlPredictInputParams<T> extends WithHeaders, AutoMlPredictRequestBody<T> {
-  kind?: AutoMlKind;
-}
+export interface AutoMlPredictInputParams<T> extends WithHeaders, AutoMlPredictRequestBody<T> {}
