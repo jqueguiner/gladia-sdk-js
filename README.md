@@ -7,6 +7,7 @@
 ## Setup
 
 ### Get a free API KEY
+
 [https://v2-app.gladia.io/auth/login](https://v2-app.gladia.io/auth/login)
 
 ### Install the SDK
@@ -16,13 +17,14 @@ npm i @gladiaio/sdk
 ```
 
 or to get the latest version from git, add this to your `package.json`:
+
 ```json
 {
-    "dependencies": {
-        "@gladiaio/sdk": "https://github.com/gladiaio/gladia-sdk-js.git",
-        // or
-        "@gladiaio/sdk": "git+ssh://git@github.com:gladiaio/gladia-sdk-js.git",
-    }
+  "dependencies": {
+    "@gladiaio/sdk": "https://github.com/gladiaio/gladia-sdk-js.git",
+    // or
+    "@gladiaio/sdk": "git+ssh://git@github.com:gladiaio/gladia-sdk-js.git"
+  }
 }
 ```
 
@@ -35,6 +37,7 @@ const gladiaClient = gladia({ apiKey: 'XXXXXXXX' });
 const result = await gladiaClient.autocorrect({ sentence: 'thnik' });
 // result = { prediction: 'think' }
 ```
+
 ### Use it with JavaScript with ES module
 
 ```JavaScript
@@ -54,6 +57,7 @@ const gladiaClient = gladia({ apiKey: 'XXXXXXXX' });
 const result = await gladiaClient.autocorrect({ sentence: 'thnik' });
 // result = { prediction: 'think' }
 ```
+
 ### Use it with JavaScript (without module, in ES5 context)
 
 Notes: ES5 version is built for IE targets when you have no bundler, prefer other methods
@@ -65,25 +69,27 @@ const gladiaClient = gladia({ apiKey: 'XXXXXXXX' });
 const result = await gladiaClient.autocorrect({ sentence: 'thnik' });
 // result = { prediction: 'think' }
 ```
+
 ### Use it with JavaScript in the browser with script import
 
 ```html
 <!DOCTYPE html>
 <html>
-<body>
+  <body>
     <script src="./gladiaio-sdk.js"></script>
     <script>
-        const gladiaClient = gladiaio_sdk({ apiKey: 'XXXXXXXX' });
-        (async () => {
-            const result = await gladiaClient.autocorrect({ sentence: 'thnik' });
-            // result = { prediction: 'think' }
-        })();
+      const gladiaClient = gladiaio_sdk({ apiKey: 'XXXXXXXX' });
+      (async () => {
+        const result = await gladiaClient.autocorrect({ sentence: 'thnik' });
+        // result = { prediction: 'think' }
+      })();
     </script>
-</body>
+  </body>
 </html>
 ```
 
 There is multiple bundle choices:
+
 - `gladiaio-sdk.js`: contain bundled ES5 JS + source map
 - `gladiaio-sdk.min.js`: contain bundled ES5 JS but not source map
 - `gladiaio-sdk.min.js.map`: contain only source map for `gladiaio-sdk.min.js`
@@ -117,7 +123,6 @@ const ocrResult = await gladiaClient.ocr({ image: readImageAsArrayBuffer() });
 ```
 
 Here you can see we can directly call the task we want on the GladiaClient without indicating input/output. If you know what you want: it's for you!
-
 
 Note: full path and shortcut are strictly equivalent.
 
@@ -222,10 +227,11 @@ npm run build
 ```
 
 Notes:
-- `generate-metadata` script will download the latest `openapi.json` file from production api and generate 
+
+- `generate-metadata` script will download the latest `openapi.json` file from production api and generate
 - `generate-sdk` will generate most parts of the SDK using the `openapi.json` definition
 - If you need a custom sdk, you can provide a `openapi.json` file like this `npm run generate-metadata -- --from-file=./path/to/openapi.json`, then call the scripts `generate-sdk` and `build` like before
-- You can download only the current `openapi.json` by calling `npm run download-openapi` 
+- You can download only the current `openapi.json` by calling `npm run download-openapi`
 
 ## Make a release manually
 
@@ -240,3 +246,23 @@ npm run build
 ```
 
 Then create a commit with every modified files with name `[release] x.y.z` (where x.y.z is replace with the version specified in `package.json`).
+
+## Test your SDK localy
+
+Create an npm link
+
+```
+npm link
+```
+
+On the other project (ex: Office Addin)
+
+```
+npm link @gladiaio/sdk
+```
+
+After your test, dont forget to do
+
+```
+npm cache clean -f
+```
