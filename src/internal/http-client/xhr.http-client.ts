@@ -27,6 +27,7 @@ export const XhrHttpClient: HttpClientFactory = ({ baseHeaders, baseUrl, httpCli
         headers.forEach((value, key) => {
           xhr.setRequestHeader(key, value);
         });
+        xhr.setRequestHeader('x-gladia-sdk-http-client', 'xhr');
         xhr.send(toXhrBody(params.body));
       });
     },

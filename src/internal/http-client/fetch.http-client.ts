@@ -5,7 +5,13 @@ import { searchQueryParamSerializer } from './search-query-param-serializer';
 export const FetchHttpClient: HttpClientFactory = ({ baseHeaders, baseUrl, httpClientTimeout }) => {
   return {
     async post(params) {
-      const headers = new Headers(headerSerializer({ ...baseHeaders, ...params.headers }));
+      const headers = new Headers(
+        headerSerializer({
+          ...baseHeaders,
+          ...params.headers,
+          'x-gladia-sdk-http-client': 'fetch',
+        }),
+      );
       const url = `${baseUrl}${params.url}${searchQueryParamSerializer(params.query)}`;
       const responseType = params.responseType ?? 'json';
       const timeout = httpClientTimeout ?? 300_000;
