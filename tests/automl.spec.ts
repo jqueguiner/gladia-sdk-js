@@ -12,7 +12,6 @@ describe('AutoML', () => {
       apiKey: 'API-KEY',
       customHttpClient: mockHttpClient(),
       enablePreviewFeatures: true,
-      autoMlBaseUrl: 'https://example.com',
     });
     httpClientMock = gladiaClient.trainable().automl()['httpClient'];
   });
@@ -30,39 +29,11 @@ describe('AutoML', () => {
         expect(error).toEqual(new PreviewFeatureError());
       }
     });
-    it('should throw an error if call train without specifying the automl url', async () => {
-      gladiaClient = gladia({
-        apiKey: 'API-KEY',
-        customHttpClient: mockHttpClient(),
-        enablePreviewFeatures: true,
-        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-        autoMlBaseUrl: undefined!,
-      });
-      try {
-        await gladiaClient.trainable().automl().train({ data: [], label: '' });
-      } catch (error) {
-        expect(error).toEqual(new PreviewFeatureError());
-      }
-    });
     it('should throw an error if call predict without enabling preview features', async () => {
       gladiaClient = gladia({
         apiKey: 'API-KEY',
         customHttpClient: mockHttpClient(),
         enablePreviewFeatures: false,
-      });
-      try {
-        await gladiaClient.trainable().automl().predict({ data: [], model_id: '' });
-      } catch (error) {
-        expect(error).toEqual(new PreviewFeatureError());
-      }
-    });
-    it('should throw an error if call predict without specifying the automl url', async () => {
-      gladiaClient = gladia({
-        apiKey: 'API-KEY',
-        customHttpClient: mockHttpClient(),
-        enablePreviewFeatures: true,
-        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-        autoMlBaseUrl: undefined!,
       });
       try {
         await gladiaClient.trainable().automl().predict({ data: [], model_id: '' });
@@ -87,7 +58,7 @@ describe('AutoML', () => {
       });
       const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
       expect(postMock).toHaveBeenCalledTimes(1);
-      expect(firstCallArgs.url).toEqual('/multimodal/create-model/');
+      expect(firstCallArgs.url.endsWith('/multimodal/create-model/')).toBeTruthy();
       expect(firstCallArgs.headers).toEqual({
         'Content-Type': 'application/json',
       });
@@ -110,7 +81,7 @@ describe('AutoML', () => {
       });
       const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
       expect(postMock).toHaveBeenCalledTimes(1);
-      expect(firstCallArgs.url).toEqual('/multimodal/create-model/');
+      expect(firstCallArgs.url.endsWith('/multimodal/create-model/')).toBeTruthy();
       expect(firstCallArgs.headers).toEqual({
         'Content-Type': 'application/json',
       });
@@ -134,11 +105,10 @@ describe('AutoML', () => {
         label: label_data,
         time_limit: time_limit_data,
         eval_metric: eval_metric_data,
-        kind: 'tabular',
       });
       const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
       expect(postMock).toHaveBeenCalledTimes(1);
-      expect(firstCallArgs.url).toEqual('/tabular/create-model/');
+      expect(firstCallArgs.url.endsWith('/tabular/create-model/')).toBeTruthy();
       expect(firstCallArgs.headers).toEqual({
         'Content-Type': 'application/json',
       });
@@ -166,7 +136,7 @@ describe('AutoML', () => {
       });
       const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
       expect(postMock).toHaveBeenCalledTimes(1);
-      expect(firstCallArgs.url).toEqual('/multimodal/predict/');
+      expect(firstCallArgs.url.endsWith('/multimodal/predict/')).toBeTruthy();
       expect(firstCallArgs.headers).toEqual({
         'Content-Type': 'application/json',
       });
@@ -186,11 +156,10 @@ describe('AutoML', () => {
       await gladiaClient.trainable().automl().predict({
         data: data_data,
         model_id: model_id_data,
-        kind: 'text',
       });
       const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
       expect(postMock).toHaveBeenCalledTimes(1);
-      expect(firstCallArgs.url).toEqual('/text/predict/');
+      expect(firstCallArgs.url.endsWith('/text/predict/')).toBeTruthy();
       expect(firstCallArgs.headers).toEqual({
         'Content-Type': 'application/json',
       });
