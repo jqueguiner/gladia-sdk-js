@@ -55,22 +55,24 @@ export function generateEndpointDefs() {
   const fileContent: string[] = [...getGeneratedMarks()];
   fileContent.push(`import { EndpointDef } from "./endpoint-defs-type";`);
   fileContent.push('');
-  const endpointDefs: EndpointDef[] = Object.entries(openApiJson.paths).map(([path, def]) => {
-    console.debug('Found endpoint', path);
-    const [, inputType, outputType, taskName] = path.split('/');
-    const params = getPostParams(def, openApiJson);
-    return {
-      url: path,
-      inputType,
-      outputType,
-      taskName,
-      ...getPostModels(def),
-      ...getInputBodyContentType(inputType),
-      ...getOutputBodyContentType(def),
-      params,
-      hasSamplesParam: params.some((param) => param.name === 'samples'),
-    };
-  });
+  const endpointDefs: EndpointDef[] = Object.entries(openApiJson.paths)
+    .filter(([path]) => !path.startsWith('/automl/'))
+    .map(([path, def]) => {
+      console.debug('Found endpoint', path);
+      const [, inputType, outputType, taskName] = path.split('/');
+      const params = getPostParams(def, openApiJson);
+      return {
+        url: path,
+        inputType,
+        outputType,
+        taskName,
+        ...getPostModels(def),
+        ...getInputBodyContentType(inputType),
+        ...getOutputBodyContentType(def),
+        params,
+        hasSamplesParam: params.some((param) => param.name === 'samples'),
+      };
+    });
   console.debug('found', endpointDefs.length, 'endpoints');
   endpointDefs.sort((a, b) => a.url.localeCompare(b.url));
   const jsonLines = JSON.stringify(endpointDefs, undefined, 2).split('\n');
