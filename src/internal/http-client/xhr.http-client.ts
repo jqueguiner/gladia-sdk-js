@@ -23,10 +23,10 @@ export const XhrHttpClient: HttpClientFactory = ({ baseHeaders, baseUrl, httpCli
         xhr.onerror = (e) => reject(e);
 
         xhr.timeout = timeout;
+        xhr.open('POST', url);
         headers.forEach((value, key) => {
           xhr.setRequestHeader(key, value);
         });
-        xhr.open('POST', url);
         xhr.send(toXhrBody(params.body));
       });
     },

@@ -21,6 +21,7 @@ export interface HttpClientFactoryParams {
   baseHeaders: HttpClientHeaders;
   baseUrl: string;
   useFetch: boolean;
+  useXhr: boolean;
   httpClientTimeout: number;
 }
 
@@ -37,6 +38,7 @@ export function getHttpClient(params: GladiaClientParams) {
     baseHeaders,
     baseUrl: params.baseUrl ?? 'https://v2-api.gladia.io',
     useFetch: params.useFetch ?? false,
+    useXhr: params.useXhr ?? false,
     httpClientTimeout: params.httpClientTimeout ?? 300_000,
   });
 }
