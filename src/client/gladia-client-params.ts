@@ -14,7 +14,6 @@ interface ReleaseGladiaClientParams extends BaseGladiaClientParams {
 }
 interface PreviewGladiaClientParams extends BaseGladiaClientParams {
   enablePreviewFeatures: true;
-  autoMlBaseUrl: string;
 }
 
 export type GladiaClientParams = ReleaseGladiaClientParams | PreviewGladiaClientParams;
