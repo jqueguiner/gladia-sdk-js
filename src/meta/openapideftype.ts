@@ -17,12 +17,13 @@ export interface PathDef {
 }
 
 interface PathRequestDef {
-  tags: string[];
+  tags?: string[];
   summary: string;
   operationId: string;
   responses: Record<number, PathRequestResponseDef>;
   parameters?: PathRequestParamDef[];
   requestBody?: RequestBodyDef;
+  description?: string;
 }
 
 interface PathRequestResponseDef {
@@ -76,7 +77,7 @@ interface PathRequestParamDef {
 
 interface RequestBodyDef {
   required?: boolean;
-  content: Record<RequestBodyContentType, { schema: RequestBodySchema }>;
+  content: Record<RequestBodyContentType, { schema: RequestBodySchema; example?: unknown }>;
 }
 
 interface RequestBodySchema {
@@ -84,6 +85,7 @@ interface RequestBodySchema {
   title?: string;
   type?: string;
   default?: string;
+  anyOf?: unknown;
 }
 
 type RequestBodyContentType = string;
@@ -109,6 +111,7 @@ interface OpenApiJsonComponent {
           example?: unknown;
           examples?: unknown;
           _examples?: unknown;
+          anyOf?: unknown;
           data_type?:
             | 'string'
             | 'str'
@@ -121,7 +124,7 @@ interface OpenApiJsonComponent {
             | 'audio'
             | 'list'
             | 'array';
-        } & ({ type: string } | { allOf: [{ $ref: string }] })
+        } & ({ type: string } | { allOf?: [{ $ref: string }] })
       >;
     }
   >;
