@@ -1,5 +1,5 @@
-import { ImageImageBackgroundRemovalInputs, ImageImageBackgroundReplacementInputs, ImageImageColorizationInputs, ImageImageDeblurringInputs, ImageImageEnhancementInputs, ImageImageFaceBluringInputs, ImageImageGuidedInpaintingInputs, ImageImageInpaintingInputs, ImageImageSuperResolutionInputs, ImageImageUncolorizationInputs } from './input-models';
-import { ImageImageBackgroundRemovalOutputs, ImageImageBackgroundReplacementOutputs, ImageImageColorizationOutputs, ImageImageDeblurringOutputs, ImageImageEnhancementOutputs, ImageImageFaceBluringOutputs, ImageImageGuidedInpaintingOutputs, ImageImageInpaintingOutputs, ImageImageSuperResolutionOutputs, ImageImageUncolorizationOutputs } from './output-models';
+import { ImageImageBackgroundRemovalInputs, ImageImageBackgroundReplacementInputs, ImageImageColorizationInputs, ImageImageDeblurringInputs, ImageImageEnhancementInputs, ImageImageFaceBluringInputs, ImageImageGuidedInpaintingInputs, ImageImageImageGuidedInpaintingInputs, ImageImageInpaintingInputs, ImageImageUncolorizationInputs } from './input-models';
+import { ImageImageBackgroundRemovalOutputs, ImageImageBackgroundReplacementOutputs, ImageImageColorizationOutputs, ImageImageDeblurringOutputs, ImageImageEnhancementOutputs, ImageImageFaceBluringOutputs, ImageImageGuidedInpaintingOutputs, ImageImageImageGuidedInpaintingOutputs, ImageImageInpaintingOutputs, ImageImageUncolorizationOutputs } from './output-models';
 import { GladiaClientParams } from './gladia-client-params';
 export declare class FromImageToImage {
     private params;
@@ -12,7 +12,7 @@ export declare class FromImageToImage {
     enhancement(args: ImageImageEnhancementInputs): Promise<ImageImageEnhancementOutputs>;
     faceBluring(args: ImageImageFaceBluringInputs): Promise<ImageImageFaceBluringOutputs>;
     guidedInpainting(args: ImageImageGuidedInpaintingInputs): Promise<ImageImageGuidedInpaintingOutputs>;
+    imageGuidedInpainting(args: ImageImageImageGuidedInpaintingInputs): Promise<ImageImageImageGuidedInpaintingOutputs>;
     inpainting(args: ImageImageInpaintingInputs): Promise<ImageImageInpaintingOutputs>;
-    superResolution(args: ImageImageSuperResolutionInputs): Promise<ImageImageSuperResolutionOutputs>;
     uncolorization(args: ImageImageUncolorizationInputs): Promise<ImageImageUncolorizationOutputs>;
 }
