@@ -415,6 +415,7 @@ function generateGladiaClient() {
   fileContent.push(`    const validatedParams: GladiaClientParams = {`);
   fileContent.push(`      ...params,`);
   fileContent.push(`      useFetch: params.useFetch ?? false,`);
+  fileContent.push(`      useXhr: params.useXhr ?? false,`);
   fileContent.push(`    };`);
   fileContent.push('    super(validatedParams);');
   for (const inputType of Object.keys(endpoints)) {

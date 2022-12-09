@@ -58,7 +58,7 @@ describe('AutoML', () => {
       });
       const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
       expect(postMock).toHaveBeenCalledTimes(1);
-      expect(firstCallArgs.url.endsWith('/multimodal/create-model/')).toBeTruthy();
+      expect(firstCallArgs.url.endsWith('/train')).toBeTruthy();
       expect(firstCallArgs.headers).toEqual({
         'Content-Type': 'application/json',
       });
@@ -81,7 +81,7 @@ describe('AutoML', () => {
       });
       const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
       expect(postMock).toHaveBeenCalledTimes(1);
-      expect(firstCallArgs.url.endsWith('/multimodal/create-model/')).toBeTruthy();
+      expect(firstCallArgs.url.endsWith('/train')).toBeTruthy();
       expect(firstCallArgs.headers).toEqual({
         'Content-Type': 'application/json',
       });
@@ -108,7 +108,7 @@ describe('AutoML', () => {
       });
       const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
       expect(postMock).toHaveBeenCalledTimes(1);
-      expect(firstCallArgs.url.endsWith('/tabular/create-model/')).toBeTruthy();
+      expect(firstCallArgs.url.endsWith('/train')).toBeTruthy();
       expect(firstCallArgs.headers).toEqual({
         'Content-Type': 'application/json',
       });
@@ -136,7 +136,7 @@ describe('AutoML', () => {
       });
       const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
       expect(postMock).toHaveBeenCalledTimes(1);
-      expect(firstCallArgs.url.endsWith('/multimodal/predict/')).toBeTruthy();
+      expect(firstCallArgs.url.endsWith('/predict')).toBeTruthy();
       expect(firstCallArgs.headers).toEqual({
         'Content-Type': 'application/json',
       });
@@ -159,7 +159,7 @@ describe('AutoML', () => {
       });
       const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
       expect(postMock).toHaveBeenCalledTimes(1);
-      expect(firstCallArgs.url.endsWith('/text/predict/')).toBeTruthy();
+      expect(firstCallArgs.url.endsWith('/predict')).toBeTruthy();
       expect(firstCallArgs.headers).toEqual({
         'Content-Type': 'application/json',
       });

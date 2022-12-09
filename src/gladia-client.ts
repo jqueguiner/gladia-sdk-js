@@ -17,6 +17,7 @@ export class GladiaClient extends GladiaClientBase {
     const validatedParams: GladiaClientParams = {
       ...params,
       useFetch: params.useFetch ?? false,
+      useXhr: params.useXhr ?? false,
     };
     super(validatedParams);
     this.fromAudioInst = new FromAudio(validatedParams);

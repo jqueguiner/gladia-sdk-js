@@ -39,7 +39,11 @@ export function getPostMock(httpClientMock: HttpClient) {
   const firstCallArgs = postMock.mock.calls[0][0];
   const firstCallBody = (() => {
     if (typeof firstCallArgs.body === 'string') {
-      return new UrlFormData(firstCallArgs.body);
+      if (firstCallArgs.headers['Content-Type'] === 'application/json') {
+        return JSON.parse(firstCallArgs.body);
+      } else {
+        return new UrlFormData(firstCallArgs.body);
+      }
     }
     return firstCallArgs.body;
   })();
