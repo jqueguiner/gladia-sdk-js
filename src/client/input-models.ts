@@ -11,8 +11,8 @@ import {
   ImageImageEnhancementModel,
   ImageImageFaceBluringModel,
   ImageImageGuidedInpaintingModel,
+  ImageImageImageGuidedInpaintingModel,
   ImageImageInpaintingModel,
-  ImageImageSuperResolutionModel,
   ImageImageUncolorizationModel,
   ImageTextClassificationModel,
   ImageTextOcrModel,
@@ -41,17 +41,21 @@ import {
   TextTextHeadlineGenerationModel,
   TextTextIntentClassificationModel,
   TextTextKeywordExtractionModel,
+  TextTextLanguageCodesModel,
   TextTextLanguageDetectionModel,
   TextTextLanguageGenerationModel,
   TextTextNamedEntityRecognitionModel,
   TextTextNextSentencePredictionModel,
   TextTextNextWordPredictionModel,
+  TextTextProductOwnershipModel,
+  TextTextProductSentimentModel,
   TextTextProgrammingLanguageGenerationModel,
   TextTextPunctuationRestorationModel,
   TextTextQuestionAnsweringModel,
   TextTextSentenceParaphraserModel,
   TextTextSentimentAnalysisModel,
   TextTextSimilarityModel,
+  TextTextSpeakerRecognitionModel,
   TextTextSummarizationModel,
   TextTextTranslationModel,
   TextTextVatCountryGuessingModel,
@@ -132,17 +136,24 @@ export interface ImageImageGuidedInpaintingInputs
   mask_image_url?: string;
   prompt: string;
 }
+export interface ImageImageImageGuidedInpaintingInputs 
+  extends WithHeaders, WithModel<ImageImageImageGuidedInpaintingModel> {
+  original_image?: Blob;
+  original_image_url?: string;
+  example_image?: Blob;
+  example_image_url?: string;
+  mask_image?: Blob;
+  mask_image_url?: string;
+  seed: number;
+  steps: number;
+  guidance_scale: number;
+}
 export interface ImageImageInpaintingInputs 
   extends WithHeaders, WithModel<ImageImageInpaintingModel> {
   original_image?: Blob;
   original_image_url?: string;
   mask_image?: Blob;
   mask_image_url?: string;
-}
-export interface ImageImageSuperResolutionInputs 
-  extends WithHeaders, WithModel<ImageImageSuperResolutionModel> {
-  image?: Blob;
-  image_url?: string;
 }
 export interface ImageImageUncolorizationInputs 
   extends WithHeaders, WithModel<ImageImageUncolorizationModel> {
@@ -270,6 +281,11 @@ export interface TextTextKeywordExtractionInputs
   text: string;
   top_k?: number;
 }
+export interface TextTextLanguageCodesInputs 
+  extends WithHeaders, WithModel<TextTextLanguageCodesModel> {
+  language_code: string;
+  display_output_language: string;
+}
 export interface TextTextLanguageDetectionInputs 
   extends WithHeaders, WithModel<TextTextLanguageDetectionModel> {
   text: string;
@@ -291,6 +307,14 @@ export interface TextTextNextWordPredictionInputs
   extends WithHeaders, WithModel<TextTextNextWordPredictionModel> {
   sentence: string;
   top_k: number;
+}
+export interface TextTextProductOwnershipInputs 
+  extends WithHeaders, WithModel<TextTextProductOwnershipModel> {
+  text?: string;
+}
+export interface TextTextProductSentimentInputs 
+  extends WithHeaders, WithModel<TextTextProductSentimentModel> {
+  text?: string;
 }
 export interface TextTextProgrammingLanguageGenerationInputs 
   extends WithHeaders, WithModel<TextTextProgrammingLanguageGenerationModel> {
@@ -318,6 +342,10 @@ export interface TextTextSimilarityInputs
   extends WithHeaders, WithModel<TextTextSimilarityModel> {
   sentence_1: string;
   sentence_2: string;
+}
+export interface TextTextSpeakerRecognitionInputs 
+  extends WithHeaders, WithModel<TextTextSpeakerRecognitionModel> {
+  text?: string;
 }
 export interface TextTextSummarizationInputs 
   extends WithHeaders, WithModel<TextTextSummarizationModel> {

@@ -21,8 +21,8 @@ export type ImageImageDeblurringOutputs = ArrayBuffer;
 export type ImageImageEnhancementOutputs = ArrayBuffer;
 export type ImageImageFaceBluringOutputs = ArrayBuffer;
 export type ImageImageGuidedInpaintingOutputs = ArrayBuffer;
+export type ImageImageImageGuidedInpaintingOutputs = ArrayBuffer;
 export type ImageImageInpaintingOutputs = ArrayBuffer;
-export type ImageImageSuperResolutionOutputs = ArrayBuffer;
 export type ImageImageUncolorizationOutputs = ArrayBuffer;
 export type ImageTextClassificationOutputs = {
   prediction: string,
@@ -89,6 +89,10 @@ export type TextTextKeywordExtractionOutputs = {
   prediction: string,
   prediction_raw: unknown,
 };
+export type TextTextLanguageCodesOutputs = {
+  prediction: string,
+  prediction_raw: unknown,
+};
 export type TextTextLanguageDetectionOutputs = {
   prediction: string,
   prediction_raw: unknown,
@@ -109,6 +113,8 @@ export type TextTextNextWordPredictionOutputs = {
   prediction: string,
   prediction_raw: unknown,
 };
+export type TextTextProductOwnershipOutputs = Record<string, string | number | boolean>;
+export type TextTextProductSentimentOutputs = Record<string, string | number | boolean>;
 export type TextTextProgrammingLanguageGenerationOutputs = {
   prediction: string,
   prediction_raw: unknown,
@@ -133,6 +139,7 @@ export type TextTextSimilarityOutputs = {
   prediction: string,
   prediction_raw: unknown,
 };
+export type TextTextSpeakerRecognitionOutputs = Record<string, string | number | boolean>;
 export type TextTextSummarizationOutputs = {
   prediction: string,
   prediction_raw: unknown,

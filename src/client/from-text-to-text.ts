@@ -25,17 +25,21 @@ import {
   TextTextHeadlineGenerationInputs,
   TextTextIntentClassificationInputs,
   TextTextKeywordExtractionInputs,
+  TextTextLanguageCodesInputs,
   TextTextLanguageDetectionInputs,
   TextTextLanguageGenerationInputs,
   TextTextNamedEntityRecognitionInputs,
   TextTextNextSentencePredictionInputs,
   TextTextNextWordPredictionInputs,
+  TextTextProductOwnershipInputs,
+  TextTextProductSentimentInputs,
   TextTextProgrammingLanguageGenerationInputs,
   TextTextPunctuationRestorationInputs,
   TextTextQuestionAnsweringInputs,
   TextTextSentenceParaphraserInputs,
   TextTextSentimentAnalysisInputs,
   TextTextSimilarityInputs,
+  TextTextSpeakerRecognitionInputs,
   TextTextSummarizationInputs,
   TextTextTranslationInputs,
   TextTextVatCountryGuessingInputs,
@@ -67,17 +71,21 @@ import {
   TextTextHeadlineGenerationOutputs,
   TextTextIntentClassificationOutputs,
   TextTextKeywordExtractionOutputs,
+  TextTextLanguageCodesOutputs,
   TextTextLanguageDetectionOutputs,
   TextTextLanguageGenerationOutputs,
   TextTextNamedEntityRecognitionOutputs,
   TextTextNextSentencePredictionOutputs,
   TextTextNextWordPredictionOutputs,
+  TextTextProductOwnershipOutputs,
+  TextTextProductSentimentOutputs,
   TextTextProgrammingLanguageGenerationOutputs,
   TextTextPunctuationRestorationOutputs,
   TextTextQuestionAnsweringOutputs,
   TextTextSentenceParaphraserOutputs,
   TextTextSentimentAnalysisOutputs,
   TextTextSimilarityOutputs,
+  TextTextSpeakerRecognitionOutputs,
   TextTextSummarizationOutputs,
   TextTextTranslationOutputs,
   TextTextVatCountryGuessingOutputs,
@@ -109,17 +117,21 @@ import {
   TEXT_TEXT_HEADLINE_GENERATION_CONTENT_TYPE,
   TEXT_TEXT_INTENT_CLASSIFICATION_CONTENT_TYPE,
   TEXT_TEXT_KEYWORD_EXTRACTION_CONTENT_TYPE,
+  TEXT_TEXT_LANGUAGE_CODES_CONTENT_TYPE,
   TEXT_TEXT_LANGUAGE_DETECTION_CONTENT_TYPE,
   TEXT_TEXT_LANGUAGE_GENERATION_CONTENT_TYPE,
   TEXT_TEXT_NAMED_ENTITY_RECOGNITION_CONTENT_TYPE,
   TEXT_TEXT_NEXT_SENTENCE_PREDICTION_CONTENT_TYPE,
   TEXT_TEXT_NEXT_WORD_PREDICTION_CONTENT_TYPE,
+  TEXT_TEXT_PRODUCT_OWNERSHIP_CONTENT_TYPE,
+  TEXT_TEXT_PRODUCT_SENTIMENT_CONTENT_TYPE,
   TEXT_TEXT_PROGRAMMING_LANGUAGE_GENERATION_CONTENT_TYPE,
   TEXT_TEXT_PUNCTUATION_RESTORATION_CONTENT_TYPE,
   TEXT_TEXT_QUESTION_ANSWERING_CONTENT_TYPE,
   TEXT_TEXT_SENTENCE_PARAPHRASER_CONTENT_TYPE,
   TEXT_TEXT_SENTIMENT_ANALYSIS_CONTENT_TYPE,
   TEXT_TEXT_SIMILARITY_CONTENT_TYPE,
+  TEXT_TEXT_SPEAKER_RECOGNITION_CONTENT_TYPE,
   TEXT_TEXT_SUMMARIZATION_CONTENT_TYPE,
   TEXT_TEXT_TRANSLATION_CONTENT_TYPE,
   TEXT_TEXT_VAT_COUNTRY_GUESSING_CONTENT_TYPE,
@@ -559,6 +571,23 @@ export class FromTextToText {
     });
   }
 
+  languageCodes(args: TextTextLanguageCodesInputs): Promise<TextTextLanguageCodesOutputs> {
+    const formData = new UrlFormData();
+    formData.append('language_code', args.language_code);
+    formData.append('display_output_language', args.display_output_language);
+    return this.httpClient.post({
+      url: '/text/text/language-codes/',
+      headers: {
+        'Content-Type': TEXT_TEXT_LANGUAGE_CODES_CONTENT_TYPE,
+        ...(args.headers ?? {}),
+      },
+      query: {
+        ...(args.model ? {model: args.model} : {}),
+      },
+      body: formData.toString(),
+    });
+  }
+
   languageDetection(args: TextTextLanguageDetectionInputs): Promise<TextTextLanguageDetectionOutputs> {
     const formData = new UrlFormData();
     formData.append('text', args.text);
@@ -632,6 +661,42 @@ export class FromTextToText {
       url: '/text/text/next-word-prediction/',
       headers: {
         'Content-Type': TEXT_TEXT_NEXT_WORD_PREDICTION_CONTENT_TYPE,
+        ...(args.headers ?? {}),
+      },
+      query: {
+        ...(args.model ? {model: args.model} : {}),
+      },
+      body: formData.toString(),
+    });
+  }
+
+  productOwnership(args: TextTextProductOwnershipInputs): Promise<TextTextProductOwnershipOutputs> {
+    const formData = new UrlFormData();
+    if (isDefined(args.text)) {
+      formData.append('text', args.text);
+    }
+    return this.httpClient.post({
+      url: '/text/text/product-ownership/',
+      headers: {
+        'Content-Type': TEXT_TEXT_PRODUCT_OWNERSHIP_CONTENT_TYPE,
+        ...(args.headers ?? {}),
+      },
+      query: {
+        ...(args.model ? {model: args.model} : {}),
+      },
+      body: formData.toString(),
+    });
+  }
+
+  productSentiment(args: TextTextProductSentimentInputs): Promise<TextTextProductSentimentOutputs> {
+    const formData = new UrlFormData();
+    if (isDefined(args.text)) {
+      formData.append('text', args.text);
+    }
+    return this.httpClient.post({
+      url: '/text/text/product-sentiment/',
+      headers: {
+        'Content-Type': TEXT_TEXT_PRODUCT_SENTIMENT_CONTENT_TYPE,
         ...(args.headers ?? {}),
       },
       query: {
@@ -733,6 +798,24 @@ export class FromTextToText {
       url: '/text/text/similarity/',
       headers: {
         'Content-Type': TEXT_TEXT_SIMILARITY_CONTENT_TYPE,
+        ...(args.headers ?? {}),
+      },
+      query: {
+        ...(args.model ? {model: args.model} : {}),
+      },
+      body: formData.toString(),
+    });
+  }
+
+  speakerRecognition(args: TextTextSpeakerRecognitionInputs): Promise<TextTextSpeakerRecognitionOutputs> {
+    const formData = new UrlFormData();
+    if (isDefined(args.text)) {
+      formData.append('text', args.text);
+    }
+    return this.httpClient.post({
+      url: '/text/text/speaker-recognition/',
+      headers: {
+        'Content-Type': TEXT_TEXT_SPEAKER_RECOGNITION_CONTENT_TYPE,
         ...(args.headers ?? {}),
       },
       query: {

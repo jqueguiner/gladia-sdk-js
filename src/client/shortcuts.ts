@@ -19,8 +19,8 @@ import {
   ImageImageEnhancementInputs,
   ImageImageFaceBluringInputs,
   ImageImageGuidedInpaintingInputs,
+  ImageImageImageGuidedInpaintingInputs,
   ImageImageInpaintingInputs,
-  ImageImageSuperResolutionInputs,
   ImageImageUncolorizationInputs,
   ImageTextClassificationInputs,
   ImageTextOcrInputs,
@@ -49,17 +49,21 @@ import {
   TextTextHeadlineGenerationInputs,
   TextTextIntentClassificationInputs,
   TextTextKeywordExtractionInputs,
+  TextTextLanguageCodesInputs,
   TextTextLanguageDetectionInputs,
   TextTextLanguageGenerationInputs,
   TextTextNamedEntityRecognitionInputs,
   TextTextNextSentencePredictionInputs,
   TextTextNextWordPredictionInputs,
+  TextTextProductOwnershipInputs,
+  TextTextProductSentimentInputs,
   TextTextProgrammingLanguageGenerationInputs,
   TextTextPunctuationRestorationInputs,
   TextTextQuestionAnsweringInputs,
   TextTextSentenceParaphraserInputs,
   TextTextSentimentAnalysisInputs,
   TextTextSimilarityInputs,
+  TextTextSpeakerRecognitionInputs,
   TextTextSummarizationInputs,
   TextTextTranslationInputs,
   TextTextVatCountryGuessingInputs,
@@ -77,8 +81,8 @@ import {
   ImageImageEnhancementOutputs,
   ImageImageFaceBluringOutputs,
   ImageImageGuidedInpaintingOutputs,
+  ImageImageImageGuidedInpaintingOutputs,
   ImageImageInpaintingOutputs,
-  ImageImageSuperResolutionOutputs,
   ImageImageUncolorizationOutputs,
   ImageTextClassificationOutputs,
   ImageTextOcrOutputs,
@@ -109,17 +113,21 @@ import {
   TextTextHeadlineGenerationOutputs,
   TextTextIntentClassificationOutputs,
   TextTextKeywordExtractionOutputs,
+  TextTextLanguageCodesOutputs,
   TextTextLanguageDetectionOutputs,
   TextTextLanguageGenerationOutputs,
   TextTextNamedEntityRecognitionOutputs,
   TextTextNextSentencePredictionOutputs,
   TextTextNextWordPredictionOutputs,
+  TextTextProductOwnershipOutputs,
+  TextTextProductSentimentOutputs,
   TextTextProgrammingLanguageGenerationOutputs,
   TextTextPunctuationRestorationOutputs,
   TextTextQuestionAnsweringOutputs,
   TextTextSentenceParaphraserOutputs,
   TextTextSentimentAnalysisOutputs,
   TextTextSimilarityOutputs,
+  TextTextSpeakerRecognitionOutputs,
   TextTextSummarizationOutputs,
   TextTextTranslationOutputs,
   TextTextVatCountryGuessingOutputs,
@@ -183,12 +191,12 @@ export abstract class Shortcuts implements
     return this.fromImage().toImage().guidedInpainting(args);
   }
 
-  inpainting(args: ImageImageInpaintingInputs): Promise<ImageImageInpaintingOutputs> {
-    return this.fromImage().toImage().inpainting(args);
+  imageGuidedInpainting(args: ImageImageImageGuidedInpaintingInputs): Promise<ImageImageImageGuidedInpaintingOutputs> {
+    return this.fromImage().toImage().imageGuidedInpainting(args);
   }
 
-  superResolution(args: ImageImageSuperResolutionInputs): Promise<ImageImageSuperResolutionOutputs> {
-    return this.fromImage().toImage().superResolution(args);
+  inpainting(args: ImageImageInpaintingInputs): Promise<ImageImageInpaintingOutputs> {
+    return this.fromImage().toImage().inpainting(args);
   }
 
   uncolorization(args: ImageImageUncolorizationInputs): Promise<ImageImageUncolorizationOutputs> {
@@ -313,6 +321,10 @@ export abstract class Shortcuts implements
     return this.fromText().toText().keywordExtraction(args);
   }
 
+  languageCodes(args: TextTextLanguageCodesInputs): Promise<TextTextLanguageCodesOutputs> {
+    return this.fromText().toText().languageCodes(args);
+  }
+
   languageDetection(args: TextTextLanguageDetectionInputs): Promise<TextTextLanguageDetectionOutputs> {
     return this.fromText().toText().languageDetection(args);
   }
@@ -331,6 +343,14 @@ export abstract class Shortcuts implements
 
   nextWordPrediction(args: TextTextNextWordPredictionInputs): Promise<TextTextNextWordPredictionOutputs> {
     return this.fromText().toText().nextWordPrediction(args);
+  }
+
+  productOwnership(args: TextTextProductOwnershipInputs): Promise<TextTextProductOwnershipOutputs> {
+    return this.fromText().toText().productOwnership(args);
+  }
+
+  productSentiment(args: TextTextProductSentimentInputs): Promise<TextTextProductSentimentOutputs> {
+    return this.fromText().toText().productSentiment(args);
   }
 
   programmingLanguageGeneration(args: TextTextProgrammingLanguageGenerationInputs): Promise<TextTextProgrammingLanguageGenerationOutputs> {
@@ -355,6 +375,10 @@ export abstract class Shortcuts implements
 
   similarity(args: TextTextSimilarityInputs): Promise<TextTextSimilarityOutputs> {
     return this.fromText().toText().similarity(args);
+  }
+
+  speakerRecognition(args: TextTextSpeakerRecognitionInputs): Promise<TextTextSpeakerRecognitionOutputs> {
+    return this.fromText().toText().speakerRecognition(args);
   }
 
   summarization(args: TextTextSummarizationInputs): Promise<TextTextSummarizationOutputs> {
