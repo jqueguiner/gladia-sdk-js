@@ -8,8 +8,8 @@ import {
   ImageImageEnhancementInputs,
   ImageImageFaceBluringInputs,
   ImageImageGuidedInpaintingInputs,
+  ImageImageImageGuidedInpaintingInputs,
   ImageImageInpaintingInputs,
-  ImageImageSuperResolutionInputs,
   ImageImageUncolorizationInputs,
 } from './input-models';
 import {
@@ -20,8 +20,8 @@ import {
   ImageImageEnhancementOutputs,
   ImageImageFaceBluringOutputs,
   ImageImageGuidedInpaintingOutputs,
+  ImageImageImageGuidedInpaintingOutputs,
   ImageImageInpaintingOutputs,
-  ImageImageSuperResolutionOutputs,
   ImageImageUncolorizationOutputs,
 } from './output-models';
 import {
@@ -32,8 +32,8 @@ import {
   IMAGE_IMAGE_ENHANCEMENT_CONTENT_TYPE,
   IMAGE_IMAGE_FACE_BLURING_CONTENT_TYPE,
   IMAGE_IMAGE_GUIDED_INPAINTING_CONTENT_TYPE,
+  IMAGE_IMAGE_IMAGE_GUIDED_INPAINTING_CONTENT_TYPE,
   IMAGE_IMAGE_INPAINTING_CONTENT_TYPE,
-  IMAGE_IMAGE_SUPER_RESOLUTION_CONTENT_TYPE,
   IMAGE_IMAGE_UNCOLORIZATION_CONTENT_TYPE,
 } from '../models';
 import { getHttpClient, HttpClient } from '../internal/http-client';
@@ -215,6 +215,43 @@ export class FromImageToImage {
     });
   }
 
+  imageGuidedInpainting(args: ImageImageImageGuidedInpaintingInputs): Promise<ImageImageImageGuidedInpaintingOutputs> {
+    const formData = new FormData();
+    if (isDefined(args.original_image)) {
+      formData.append('original_image', args.original_image);
+    }
+    if (isDefined(args.original_image_url)) {
+      formData.append('original_image_url', args.original_image_url);
+    }
+    if (isDefined(args.example_image)) {
+      formData.append('example_image', args.example_image);
+    }
+    if (isDefined(args.example_image_url)) {
+      formData.append('example_image_url', args.example_image_url);
+    }
+    if (isDefined(args.mask_image)) {
+      formData.append('mask_image', args.mask_image);
+    }
+    if (isDefined(args.mask_image_url)) {
+      formData.append('mask_image_url', args.mask_image_url);
+    }
+    formData.append('seed', String(args.seed));
+    formData.append('steps', String(args.steps));
+    formData.append('guidance_scale', String(args.guidance_scale));
+    return this.httpClient.post({
+      url: '/image/image/image-guided-inpainting/',
+      headers: {
+        'Content-Type': this.params.useFetch ? IMAGE_IMAGE_IMAGE_GUIDED_INPAINTING_CONTENT_TYPE : undefined,
+        ...(args.headers ?? {}),
+      },
+      query: {
+        ...(args.model ? {model: args.model} : {}),
+      },
+      responseType: 'arraybuffer',
+      body: formData,
+    });
+  }
+
   inpainting(args: ImageImageInpaintingInputs): Promise<ImageImageInpaintingOutputs> {
     const formData = new FormData();
     if (isDefined(args.original_image)) {
@@ -233,28 +270,6 @@ export class FromImageToImage {
       url: '/image/image/inpainting/',
       headers: {
         'Content-Type': this.params.useFetch ? IMAGE_IMAGE_INPAINTING_CONTENT_TYPE : undefined,
-        ...(args.headers ?? {}),
-      },
-      query: {
-        ...(args.model ? {model: args.model} : {}),
-      },
-      responseType: 'arraybuffer',
-      body: formData,
-    });
-  }
-
-  superResolution(args: ImageImageSuperResolutionInputs): Promise<ImageImageSuperResolutionOutputs> {
-    const formData = new FormData();
-    if (isDefined(args.image)) {
-      formData.append('image', args.image);
-    }
-    if (isDefined(args.image_url)) {
-      formData.append('image_url', args.image_url);
-    }
-    return this.httpClient.post({
-      url: '/image/image/super-resolution/',
-      headers: {
-        'Content-Type': this.params.useFetch ? IMAGE_IMAGE_SUPER_RESOLUTION_CONTENT_TYPE : undefined,
         ...(args.headers ?? {}),
       },
       query: {

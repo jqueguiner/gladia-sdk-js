@@ -11,11 +11,13 @@ The runtime default model is defined on the GladIA server.
 #### `models`
 
  - coqui_english_huge_vocab
- - openai-whisper-base
- - openai-whisper-large
- - openai-whisper-medium
- - openai-whisper-small
- - **openai-whisper-tiny (default)**
+ - openai-whisper--base
+ - openai-whisper--large
+ - openai-whisper--large-v1
+ - openai-whisper--large-v2
+ - openai-whisper--medium
+ - openai-whisper--small
+ - **openai-whisper--tiny (default)**
 
 #### other params
 
@@ -136,7 +138,8 @@ The runtime default model is defined on the GladIA server.
 
 #### `models`
 
- - **stable-diffusion (default)**
+ - compvis
+ - **runwayml (default)**
 
 #### other params
 
@@ -145,6 +148,24 @@ The runtime default model is defined on the GladIA server.
  - `mask_image`: image
  - `mask_image_url`: url
  - `prompt`: string *(required)*
+
+### `image-guided-inpainting`
+
+#### `models`
+
+ - **fantasy-studio (default)**
+
+#### other params
+
+ - `original_image`: image
+ - `original_image_url`: url
+ - `example_image`: image
+ - `example_image_url`: url
+ - `mask_image`: image
+ - `mask_image_url`: url
+ - `seed`: integer *(required)*
+ - `steps`: integer *(required)*
+ - `guidance_scale`: integer *(required)*
 
 ### `inpainting`
 
@@ -162,16 +183,6 @@ The runtime default model is defined on the GladIA server.
  - `original_image_url`: url
  - `mask_image`: image
  - `mask_image_url`: url
-
-### `super-resolution`
-
-#### `models`
-
-
-#### other params
-
- - `image`: image
- - `image_url`: url
 
 ### `uncolorization`
 
@@ -337,7 +348,10 @@ The runtime default model is defined on the GladIA server.
 #### `models`
 
  - dream-studio
- - **stable-diffusion (default)**
+ - stable-diffusion--compvis-sd-14
+ - stable-diffusion--runwayml-sd-15
+ - stable-diffusion--stabilityai-sd-20
+ - **stable-diffusion--stabilityai-sd-21 (default)**
 
 #### other params
 
@@ -495,8 +509,7 @@ The runtime default model is defined on the GladIA server.
 
 #### `models`
 
- - **distilbert-base-uncased-emotion (default)**
- - mrm8488-t5-base-finetuned-emotion
+ - **mrm8488-t5-base-finetuned-emotion (default)**
 
 #### other params
 
@@ -557,8 +570,8 @@ The runtime default model is defined on the GladIA server.
 
 #### `models`
 
- - byt5-base-tweet-hate-detection
  - **distilbert-base-uncased-emotion (default)**
+ - dkleczek_Polish-Hate-Speech-Detection-Herbert-Large
 
 #### other params
 
@@ -597,6 +610,17 @@ The runtime default model is defined on the GladIA server.
  - `text`: string *(required)*
  - `top_k`: integer
 
+### `language-codes`
+
+#### `models`
+
+ - **language-codes (default)**
+
+#### other params
+
+ - `language_code`: string *(required)*
+ - `display_output_language`: string *(required)*
+
 ### `language-detection`
 
 #### `models`
@@ -613,8 +637,7 @@ The runtime default model is defined on the GladIA server.
 
 #### `models`
 
- - EleutherAI-gpt-neo-2_7B
- - **bloom-560m (default)**
+ - **gpt2_xl (default)**
 
 #### other params
 
@@ -624,7 +647,8 @@ The runtime default model is defined on the GladIA server.
 
 #### `models`
 
- - **dbmdz-bert-large-cased-finetuned-conll03-english (default)**
+ - dbmdz-bert-large-cased-finetuned-conll03-english_deepspeed
+ - **spacy-en (default)**
 
 #### other params
 
@@ -655,6 +679,26 @@ The runtime default model is defined on the GladIA server.
  - `sentence`: string *(required)*
  - `top_k`: integer *(required)*
 
+### `product-ownership`
+
+#### `models`
+
+ - **jpt (default)**
+
+#### other params
+
+ - `text`: string
+
+### `product-sentiment`
+
+#### `models`
+
+ - **jpt (default)**
+
+#### other params
+
+ - `text`: string
+
 ### `programming-language-generation`
 
 #### `models`
@@ -679,11 +723,7 @@ The runtime default model is defined on the GladIA server.
 
 #### `models`
 
- - deepset-roberta-base-squad2
- - deepset_bert-base-cased-squad2
- - **distilbert-base-cased-distilled-squad (default)**
- - mfeb-albert-xxlarge-v2-squad2
- - mrm8488-bert-tiny-5-finetuned-squadv2
+ - **deepset_roberta-large-squad2 (default)**
 
 #### other params
 
@@ -724,6 +764,16 @@ The runtime default model is defined on the GladIA server.
 
  - `sentence_1`: string *(required)*
  - `sentence_2`: string *(required)*
+
+### `speaker-recognition`
+
+#### `models`
+
+ - **jpt (default)**
+
+#### other params
+
+ - `text`: string
 
 ### `summarization`
 
