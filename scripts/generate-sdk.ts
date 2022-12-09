@@ -568,9 +568,9 @@ function generateApiMd() {
         fileContent.push('');
         for (const model of endpoint.models) {
           if (model === endpoint.defaultModel) {
-            fileContent.push(` - **${model} (default)**`);
+            fileContent.push(`- **${model} (default)**`);
           } else {
-            fileContent.push(` - ${model}`);
+            fileContent.push(`- ${model}`);
           }
         }
 
@@ -579,10 +579,10 @@ function generateApiMd() {
         fileContent.push('');
         for (const param of endpoint.params) {
           const required = param.required ? ' *(required)*' : '';
-          fileContent.push(` - \`${param.name}\`: ${param.type}${required}`);
+          fileContent.push(`- \`${param.name}\`: ${param.type}${required}`);
           if (param.type === 'enum') {
             for (const enumValue of param.enumValues) {
-              fileContent.push(`   - *\`${enumValue}\`*`);
+              fileContent.push(`  - *\`${enumValue}\`*`);
             }
           }
         }
@@ -590,7 +590,7 @@ function generateApiMd() {
     }
   }
   fileContent.push('');
-  fileContent.push(...getGeneratedMarks());
+  fileContent.push('> Generated file with "scripts/generate-sdk.ts"');
   fileContent.push('');
   fs.writeFileSync('./API.md', fileContent.join('\n'));
 }
