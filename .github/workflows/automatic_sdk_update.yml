@@ -89,7 +89,7 @@ jobs:
           secure: true
           username: jsoto@gladia.io
           password: ${{secrets.MAIL_PASSWORD}}
-          subject: ${{github.triggering_actor}} has done shit on ${{github.repository}}, ${{github.run_id}}
+          subject: ${{job.status}} on ${{github.repository}}, ${{github.triggering_actor}}, ${{github.run_id}}
           to: github-notifications@gladia.io,jsoto@gladia.io
-          from: Big Brother
-          body: watch here https://github.com/${{github.repository}}/actions/runs/${{github.run_id}}
+          from: github-notifications@gladia.io
+          body: https://github.com/${{github.repository}}/actions/runs/${{github.run_id}}
