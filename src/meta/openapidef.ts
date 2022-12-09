@@ -6507,7 +6507,7 @@ export const openApiJson: OpenApiJson = {
             "title": "alignment",
             "allOf": [
               {
-                "$ref": "#/components/schemas/DynamicEnum_1670572702.5721672"
+                "$ref": "#/components/schemas/DynamicEnum_1670572702.5569744"
               }
             ],
             "description": "Alignment to use",
@@ -7253,8 +7253,8 @@ export const openApiJson: OpenApiJson = {
           }
         }
       },
-      "DynamicEnum_1670572702.5721672": {
-        "title": "DynamicEnum_1670572702.5721672",
+      "DynamicEnum_1670572702.5569744": {
+        "title": "DynamicEnum_1670572702.5569744",
         "enum": [
           "center",
           "top",
