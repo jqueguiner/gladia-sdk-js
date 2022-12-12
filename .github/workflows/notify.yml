@@ -1,0 +1,32 @@
+on:
+  workflow_run:
+    workflows: [PR checks, continuous integration delivery, automatic SDK update]
+    types: [completed]
+
+jobs:
+  notification:
+    name: Notify
+    runs-on: ubuntu-latest
+    if: always()
+    steps:
+      - name: Send mail
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          secure: true
+          username: jsoto@gladia.io
+          password: ${{secrets.MAIL_PASSWORD}}
+          subject: >
+            ${{github.event.workflow_run.conclusion}} of 
+            ${{github.event.workflow_run.name}} on 
+            ${{github.repository}}, 
+            ${{github.triggering_actor}}, 
+            ${{github.run_id}}
+          to: github-notifications@gladia.io,jsoto@gladia.io
+          from: github-notifications@gladia.io
+          body: |
+            ${{github.event.workflow_run.display_title}}
+            ${{github.event.workflow_run.event}}
+            ${{github.event.workflow_run.head_branch}}
+            ${{github.event.workflow_run.html_url}}
