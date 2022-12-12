@@ -1,3 +1,5 @@
+name: notifier
+
 on:
   workflow_run:
     workflows: [PR checks, continuous integration delivery, automatic SDK update]
