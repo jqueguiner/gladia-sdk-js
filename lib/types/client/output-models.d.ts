@@ -32,7 +32,6 @@ export declare type ImageTextOcrOutputs = {
 export declare type TextImageImageGenerationOutputsOneSample = ArrayBuffer;
 export declare type TextImageImageGenerationOutputsMultipleSamples = Base64Image[];
 export declare type TextImageImageGenerationOutputs = TextImageImageGenerationOutputsOneSample | TextImageImageGenerationOutputsMultipleSamples;
-export declare type TextTextAdGenerationOutputs = Record<string, string | number | boolean>;
 export declare type TextTextAddressFormattingOutputs = {
     prediction: string;
     prediction_raw: unknown;
@@ -42,7 +41,6 @@ export declare type TextTextAnonymizationOutputs = {
     prediction: string;
     prediction_raw: unknown;
 };
-export declare type TextTextArticleGenerationOutputs = Record<string, string | number | boolean>;
 export declare type TextTextAutocorrectOutputs = {
     prediction: string;
     prediction_raw: unknown;
@@ -73,6 +71,7 @@ export declare type TextTextGpsAddressFormattingOutputs = {
 export declare type TextTextGpt3Outputs = Record<string, string | number | boolean>;
 export declare type TextTextGuessCityOutputs = Record<string, string | number | boolean>;
 export declare type TextTextGuessCountryOutputs = Record<string, string | number | boolean>;
+export declare type TextTextGuessIntentOutputs = Record<string, string | number | boolean>;
 export declare type TextTextHateSpeechDetectionOutputs = {
     prediction: string;
     prediction_raw: unknown;
@@ -81,7 +80,6 @@ export declare type TextTextHeadlineGenerationOutputs = {
     prediction: string;
     prediction_raw: unknown;
 };
-export declare type TextTextIntentClassificationOutputs = Record<string, string | number | boolean>;
 export declare type TextTextKeywordExtractionOutputs = {
     prediction: string;
     prediction_raw: unknown;
@@ -148,6 +146,10 @@ export declare type TextTextTranslationOutputs = {
 export declare type TextTextVatCountryGuessingOutputs = Record<string, string | number | boolean>;
 export declare type TextTextWebsiteClassificationOutputs = Record<string, string | number | boolean>;
 export declare type TextTextWordAlignmentOutputs = {
+    prediction: string;
+    prediction_raw: unknown;
+};
+export declare type VideoTextActionClassificationsOutputs = {
     prediction: string;
     prediction_raw: unknown;
 };

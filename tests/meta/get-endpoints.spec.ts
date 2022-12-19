@@ -159,27 +159,6 @@ describe(getEndpoints.name, () => {
         hasSamplesParam: false,
       },
       {
-        url: '/text/text/ad-generation/',
-        inputType: 'text',
-        outputType: 'text',
-        taskName: 'ad-generation',
-        models: ['gpt-j'],
-        defaultModel: 'gpt-j',
-        inputBodyContentType: 'application/x-www-form-urlencoded',
-        outputBodyContentType: {
-          type: 'unknown',
-        },
-        params: [
-          {
-            in: 'formData',
-            type: 'array',
-            name: 'keywords',
-            required: false,
-          },
-        ],
-        hasSamplesParam: false,
-      },
-      {
         url: '/image/image/background-removal/',
         inputType: 'image',
         outputType: 'image',

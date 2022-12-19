@@ -35,7 +35,6 @@ export type ImageTextOcrOutputs = {
 export type TextImageImageGenerationOutputsOneSample = ArrayBuffer;
 export type TextImageImageGenerationOutputsMultipleSamples = Base64Image[];
 export type TextImageImageGenerationOutputs = TextImageImageGenerationOutputsOneSample | TextImageImageGenerationOutputsMultipleSamples;
-export type TextTextAdGenerationOutputs = Record<string, string | number | boolean>;
 export type TextTextAddressFormattingOutputs = {
   prediction: string,
   prediction_raw: unknown,
@@ -45,7 +44,6 @@ export type TextTextAnonymizationOutputs = {
   prediction: string,
   prediction_raw: unknown,
 };
-export type TextTextArticleGenerationOutputs = Record<string, string | number | boolean>;
 export type TextTextAutocorrectOutputs = {
   prediction: string,
   prediction_raw: unknown,
@@ -76,6 +74,7 @@ export type TextTextGpsAddressFormattingOutputs = {
 export type TextTextGpt3Outputs = Record<string, string | number | boolean>;
 export type TextTextGuessCityOutputs = Record<string, string | number | boolean>;
 export type TextTextGuessCountryOutputs = Record<string, string | number | boolean>;
+export type TextTextGuessIntentOutputs = Record<string, string | number | boolean>;
 export type TextTextHateSpeechDetectionOutputs = {
   prediction: string,
   prediction_raw: unknown,
@@ -84,7 +83,6 @@ export type TextTextHeadlineGenerationOutputs = {
   prediction: string,
   prediction_raw: unknown,
 };
-export type TextTextIntentClassificationOutputs = Record<string, string | number | boolean>;
 export type TextTextKeywordExtractionOutputs = {
   prediction: string,
   prediction_raw: unknown,
@@ -151,6 +149,10 @@ export type TextTextTranslationOutputs = {
 export type TextTextVatCountryGuessingOutputs = Record<string, string | number | boolean>;
 export type TextTextWebsiteClassificationOutputs = Record<string, string | number | boolean>;
 export type TextTextWordAlignmentOutputs = {
+  prediction: string,
+  prediction_raw: unknown,
+};
+export type VideoTextActionClassificationsOutputs = {
   prediction: string,
   prediction_raw: unknown,
 };

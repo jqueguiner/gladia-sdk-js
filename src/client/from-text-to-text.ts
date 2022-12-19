@@ -1,11 +1,9 @@
 /* Generated file with "scripts/generate-sdk.ts" */
 
 import {
-  TextTextAdGenerationInputs,
   TextTextAddressFormattingInputs,
   TextTextAgeFromNameInputs,
   TextTextAnonymizationInputs,
-  TextTextArticleGenerationInputs,
   TextTextAutocorrectInputs,
   TextTextBulletPointGenerationInputs,
   TextTextCommandGenerationInputs,
@@ -21,9 +19,9 @@ import {
   TextTextGpt3Inputs,
   TextTextGuessCityInputs,
   TextTextGuessCountryInputs,
+  TextTextGuessIntentInputs,
   TextTextHateSpeechDetectionInputs,
   TextTextHeadlineGenerationInputs,
-  TextTextIntentClassificationInputs,
   TextTextKeywordExtractionInputs,
   TextTextLanguageCodesInputs,
   TextTextLanguageDetectionInputs,
@@ -47,11 +45,9 @@ import {
   TextTextWordAlignmentInputs,
 } from './input-models';
 import {
-  TextTextAdGenerationOutputs,
   TextTextAddressFormattingOutputs,
   TextTextAgeFromNameOutputs,
   TextTextAnonymizationOutputs,
-  TextTextArticleGenerationOutputs,
   TextTextAutocorrectOutputs,
   TextTextBulletPointGenerationOutputs,
   TextTextCommandGenerationOutputs,
@@ -67,9 +63,9 @@ import {
   TextTextGpt3Outputs,
   TextTextGuessCityOutputs,
   TextTextGuessCountryOutputs,
+  TextTextGuessIntentOutputs,
   TextTextHateSpeechDetectionOutputs,
   TextTextHeadlineGenerationOutputs,
-  TextTextIntentClassificationOutputs,
   TextTextKeywordExtractionOutputs,
   TextTextLanguageCodesOutputs,
   TextTextLanguageDetectionOutputs,
@@ -93,11 +89,9 @@ import {
   TextTextWordAlignmentOutputs,
 } from './output-models';
 import {
-  TEXT_TEXT_AD_GENERATION_CONTENT_TYPE,
   TEXT_TEXT_ADDRESS_FORMATTING_CONTENT_TYPE,
   TEXT_TEXT_AGE_FROM_NAME_CONTENT_TYPE,
   TEXT_TEXT_ANONYMIZATION_CONTENT_TYPE,
-  TEXT_TEXT_ARTICLE_GENERATION_CONTENT_TYPE,
   TEXT_TEXT_AUTOCORRECT_CONTENT_TYPE,
   TEXT_TEXT_BULLET_POINT_GENERATION_CONTENT_TYPE,
   TEXT_TEXT_COMMAND_GENERATION_CONTENT_TYPE,
@@ -113,9 +107,9 @@ import {
   TEXT_TEXT_GPT3_CONTENT_TYPE,
   TEXT_TEXT_GUESS_CITY_CONTENT_TYPE,
   TEXT_TEXT_GUESS_COUNTRY_CONTENT_TYPE,
+  TEXT_TEXT_GUESS_INTENT_CONTENT_TYPE,
   TEXT_TEXT_HATE_SPEECH_DETECTION_CONTENT_TYPE,
   TEXT_TEXT_HEADLINE_GENERATION_CONTENT_TYPE,
-  TEXT_TEXT_INTENT_CLASSIFICATION_CONTENT_TYPE,
   TEXT_TEXT_KEYWORD_EXTRACTION_CONTENT_TYPE,
   TEXT_TEXT_LANGUAGE_CODES_CONTENT_TYPE,
   TEXT_TEXT_LANGUAGE_DETECTION_CONTENT_TYPE,
@@ -147,24 +141,6 @@ export class FromTextToText {
 
   constructor(private params: GladiaClientParams) {
     this.httpClient = getHttpClient(this.params);
-  }
-
-  adGeneration(args: TextTextAdGenerationInputs): Promise<TextTextAdGenerationOutputs> {
-    const formData = new UrlFormData();
-    if (isDefined(args.keywords)) {
-      formData.append('keywords', args.keywords);
-    }
-    return this.httpClient.post({
-      url: '/text/text/ad-generation/',
-      headers: {
-        'Content-Type': TEXT_TEXT_AD_GENERATION_CONTENT_TYPE,
-        ...(args.headers ?? {}),
-      },
-      query: {
-        ...(args.model ? {model: args.model} : {}),
-      },
-      body: formData.toString(),
-    });
   }
 
   addressFormatting(args: TextTextAddressFormattingInputs): Promise<TextTextAddressFormattingOutputs> {
@@ -210,24 +186,6 @@ export class FromTextToText {
       url: '/text/text/anonymization/',
       headers: {
         'Content-Type': TEXT_TEXT_ANONYMIZATION_CONTENT_TYPE,
-        ...(args.headers ?? {}),
-      },
-      query: {
-        ...(args.model ? {model: args.model} : {}),
-      },
-      body: formData.toString(),
-    });
-  }
-
-  articleGeneration(args: TextTextArticleGenerationInputs): Promise<TextTextArticleGenerationOutputs> {
-    const formData = new UrlFormData();
-    if (isDefined(args.title)) {
-      formData.append('title', args.title);
-    }
-    return this.httpClient.post({
-      url: '/text/text/article-generation/',
-      headers: {
-        'Content-Type': TEXT_TEXT_ARTICLE_GENERATION_CONTENT_TYPE,
         ...(args.headers ?? {}),
       },
       query: {
@@ -501,6 +459,24 @@ export class FromTextToText {
     });
   }
 
+  guessIntent(args: TextTextGuessIntentInputs): Promise<TextTextGuessIntentOutputs> {
+    const formData = new UrlFormData();
+    if (isDefined(args.text)) {
+      formData.append('text', args.text);
+    }
+    return this.httpClient.post({
+      url: '/text/text/guess-intent/',
+      headers: {
+        'Content-Type': TEXT_TEXT_GUESS_INTENT_CONTENT_TYPE,
+        ...(args.headers ?? {}),
+      },
+      query: {
+        ...(args.model ? {model: args.model} : {}),
+      },
+      body: formData.toString(),
+    });
+  }
+
   hateSpeechDetection(args: TextTextHateSpeechDetectionInputs): Promise<TextTextHateSpeechDetectionOutputs> {
     const formData = new UrlFormData();
     formData.append('text', args.text);
@@ -525,24 +501,6 @@ export class FromTextToText {
       url: '/text/text/headline-generation/',
       headers: {
         'Content-Type': TEXT_TEXT_HEADLINE_GENERATION_CONTENT_TYPE,
-        ...(args.headers ?? {}),
-      },
-      query: {
-        ...(args.model ? {model: args.model} : {}),
-      },
-      body: formData.toString(),
-    });
-  }
-
-  intentClassification(args: TextTextIntentClassificationInputs): Promise<TextTextIntentClassificationOutputs> {
-    const formData = new UrlFormData();
-    if (isDefined(args.text)) {
-      formData.append('text', args.text);
-    }
-    return this.httpClient.post({
-      url: '/text/text/intent-classification/',
-      headers: {
-        'Content-Type': TEXT_TEXT_INTENT_CLASSIFICATION_CONTENT_TYPE,
         ...(args.headers ?? {}),
       },
       query: {

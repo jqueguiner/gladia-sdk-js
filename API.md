@@ -362,16 +362,6 @@ The runtime default model is defined on the GladIA server.
 
 ## TEXT => TEXT
 
-### `ad-generation`
-
-#### `models`
-
-- **gpt-j (default)**
-
-#### other params
-
-- `keywords`: array
-
 ### `address-formatting`
 
 #### `models`
@@ -403,16 +393,6 @@ The runtime default model is defined on the GladIA server.
 - `language`: string *(required)*
 - `entities`: string *(required)*
 - `text`: string *(required)*
-
-### `article-generation`
-
-#### `models`
-
-- **fast-gpt-j (default)**
-
-#### other params
-
-- `title`: string
 
 ### `autocorrect`
 
@@ -566,10 +546,21 @@ The runtime default model is defined on the GladIA server.
 
 - `text`: string
 
+### `guess-intent`
+
+#### `models`
+
+- **jpt (default)**
+
+#### other params
+
+- `text`: string
+
 ### `hate-speech-detection`
 
 #### `models`
 
+- byt5-base-tweet-hate-detection
 - **distilbert-base-uncased-emotion (default)**
 - dkleczek_Polish-Hate-Speech-Detection-Herbert-Large
 
@@ -588,16 +579,6 @@ The runtime default model is defined on the GladIA server.
 
 - `text`: string *(required)*
 - `max_length`: integer *(required)*
-
-### `intent-classification`
-
-#### `models`
-
-- **fast-gpt-j (default)**
-
-#### other params
-
-- `text`: string
 
 ### `keyword-extraction`
 
@@ -637,6 +618,8 @@ The runtime default model is defined on the GladIA server.
 
 #### `models`
 
+- EleutherAI-gpt-neo-2_7B
+- bloom-560m
 - **gpt2_xl (default)**
 
 #### other params
@@ -648,7 +631,7 @@ The runtime default model is defined on the GladIA server.
 #### `models`
 
 - dbmdz-bert-large-cased-finetuned-conll03-english_deepspeed
-- **spacy-en (default)**
+- **spacy-multilingual (default)**
 
 #### other params
 
@@ -713,7 +696,7 @@ The runtime default model is defined on the GladIA server.
 
 #### `models`
 
-- **kredor-punctuate-all (default)**
+- **oguhr-multilingualpunctuation (default)**
 
 #### other params
 
@@ -723,7 +706,12 @@ The runtime default model is defined on the GladIA server.
 
 #### `models`
 
+- deepset-roberta-base-squad2
+- deepset_bert-base-cased-squad2
 - **deepset_roberta-large-squad2 (default)**
+- distilbert-base-cased-distilled-squad
+- mfeb-albert-xxlarge-v2-squad2
+- mrm8488-bert-tiny-5-finetuned-squadv2
 
 #### other params
 
@@ -779,8 +767,7 @@ The runtime default model is defined on the GladIA server.
 
 #### `models`
 
-- all-MiniLM-L6-v2
-- **bart-large-cnn (default)**
+- **all-MiniLM-L6-v2 (default)**
 
 #### other params
 
@@ -832,5 +819,19 @@ The runtime default model is defined on the GladIA server.
 
 - `input_string_language_1`: string *(required)*
 - `input_string_language_2`: string *(required)*
+
+## VIDEO => TEXT
+
+### `action-classifications`
+
+#### `models`
+
+- **kinetics--MCG-NJU/videomae-base-finetuned-kinetics (default)**
+- kinetics--facebook/timesformer-base-finetuned-k400
+
+#### other params
+
+- `video`: video
+- `video_url`: url
 
 > Generated file with "scripts/generate-sdk.ts"

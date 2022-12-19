@@ -121,6 +121,7 @@ interface OpenApiJsonComponent {
             | 'int'
             | 'float'
             | 'image'
+            | 'video'
             | 'audio'
             | 'list'
             | 'array';

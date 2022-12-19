@@ -72,6 +72,8 @@ function generateInputModelsTs() {
           case 'audio':
           case 'image':
             return 'Blob';
+          case 'video':
+            return 'Blob';
           case 'integer':
           case 'float':
             return 'number';
@@ -193,6 +195,7 @@ function generateFromInputToOutputClasses() {
         switch (inputType) {
           case 'text':
           case 'audio':
+          case 'video':
           case 'image': {
             const useUrlFormData = isEndpointNeedUrlFormData(endpoint);
             if (useUrlFormData) {
@@ -701,6 +704,7 @@ function generateTestInputs(
         fileContent.push(`        const ${param.name}_data = getRandomFloat();`);
         break;
       case 'audio':
+      case 'video':
       case 'image':
         fileContent.push(`        const ${param.name}_data = new Blob([getRandomText()]);`);
         break;
@@ -772,6 +776,7 @@ function generateTestAssertions(
   for (const param of endpoint.params.filter((p) => p.in === 'formData')) {
     switch (param.type) {
       case 'audio':
+      case 'video':
       case 'image':
         fileContent.push(`        expect(firstCallBody.get('${param.name}')).toBeDefined();`);
         break;

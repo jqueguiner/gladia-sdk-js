@@ -236,12 +236,6 @@ export const TEXT_IMAGE_IMAGE_GENERATION_MODELS = [
 export const TEXT_IMAGE_IMAGE_GENERATION_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
 export type TextImageImageGenerationModel = typeof TEXT_IMAGE_IMAGE_GENERATION_MODELS[number];
 
-export const TEXT_TEXT_AD_GENERATION_MODELS = [
-   'gpt-j',
-] as const;
-export const TEXT_TEXT_AD_GENERATION_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
-export type TextTextAdGenerationModel = typeof TEXT_TEXT_AD_GENERATION_MODELS[number];
-
 export const TEXT_TEXT_ADDRESS_FORMATTING_MODELS = [
    'geopy-formatter',
 ] as const;
@@ -259,12 +253,6 @@ export const TEXT_TEXT_ANONYMIZATION_MODELS = [
 ] as const;
 export const TEXT_TEXT_ANONYMIZATION_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
 export type TextTextAnonymizationModel = typeof TEXT_TEXT_ANONYMIZATION_MODELS[number];
-
-export const TEXT_TEXT_ARTICLE_GENERATION_MODELS = [
-   'fast-gpt-j',
-] as const;
-export const TEXT_TEXT_ARTICLE_GENERATION_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
-export type TextTextArticleGenerationModel = typeof TEXT_TEXT_ARTICLE_GENERATION_MODELS[number];
 
 export const TEXT_TEXT_AUTOCORRECT_MODELS = [
    'flexudy-t5-base-multi-sentence-doctor',
@@ -356,7 +344,14 @@ export const TEXT_TEXT_GUESS_COUNTRY_MODELS = [
 export const TEXT_TEXT_GUESS_COUNTRY_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
 export type TextTextGuessCountryModel = typeof TEXT_TEXT_GUESS_COUNTRY_MODELS[number];
 
+export const TEXT_TEXT_GUESS_INTENT_MODELS = [
+   'jpt',
+] as const;
+export const TEXT_TEXT_GUESS_INTENT_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
+export type TextTextGuessIntentModel = typeof TEXT_TEXT_GUESS_INTENT_MODELS[number];
+
 export const TEXT_TEXT_HATE_SPEECH_DETECTION_MODELS = [
+   'byt5-base-tweet-hate-detection',
    'distilbert-base-uncased-emotion',
    'dkleczek_Polish-Hate-Speech-Detection-Herbert-Large',
 ] as const;
@@ -369,12 +364,6 @@ export const TEXT_TEXT_HEADLINE_GENERATION_MODELS = [
 ] as const;
 export const TEXT_TEXT_HEADLINE_GENERATION_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
 export type TextTextHeadlineGenerationModel = typeof TEXT_TEXT_HEADLINE_GENERATION_MODELS[number];
-
-export const TEXT_TEXT_INTENT_CLASSIFICATION_MODELS = [
-   'fast-gpt-j',
-] as const;
-export const TEXT_TEXT_INTENT_CLASSIFICATION_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
-export type TextTextIntentClassificationModel = typeof TEXT_TEXT_INTENT_CLASSIFICATION_MODELS[number];
 
 export const TEXT_TEXT_KEYWORD_EXTRACTION_MODELS = [
    'keybert-paraphrase-multilingual-MiniLM-L12-v2',
@@ -397,6 +386,8 @@ export const TEXT_TEXT_LANGUAGE_DETECTION_CONTENT_TYPE = "application/x-www-form
 export type TextTextLanguageDetectionModel = typeof TEXT_TEXT_LANGUAGE_DETECTION_MODELS[number];
 
 export const TEXT_TEXT_LANGUAGE_GENERATION_MODELS = [
+   'EleutherAI-gpt-neo-2_7B',
+   'bloom-560m',
    'gpt2_xl',
 ] as const;
 export const TEXT_TEXT_LANGUAGE_GENERATION_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
@@ -404,7 +395,7 @@ export type TextTextLanguageGenerationModel = typeof TEXT_TEXT_LANGUAGE_GENERATI
 
 export const TEXT_TEXT_NAMED_ENTITY_RECOGNITION_MODELS = [
    'dbmdz-bert-large-cased-finetuned-conll03-english_deepspeed',
-   'spacy-en',
+   'spacy-multilingual',
 ] as const;
 export const TEXT_TEXT_NAMED_ENTITY_RECOGNITION_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
 export type TextTextNamedEntityRecognitionModel = typeof TEXT_TEXT_NAMED_ENTITY_RECOGNITION_MODELS[number];
@@ -443,13 +434,18 @@ export const TEXT_TEXT_PROGRAMMING_LANGUAGE_GENERATION_CONTENT_TYPE = "applicati
 export type TextTextProgrammingLanguageGenerationModel = typeof TEXT_TEXT_PROGRAMMING_LANGUAGE_GENERATION_MODELS[number];
 
 export const TEXT_TEXT_PUNCTUATION_RESTORATION_MODELS = [
-   'kredor-punctuate-all',
+   'oguhr-multilingualpunctuation',
 ] as const;
 export const TEXT_TEXT_PUNCTUATION_RESTORATION_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
 export type TextTextPunctuationRestorationModel = typeof TEXT_TEXT_PUNCTUATION_RESTORATION_MODELS[number];
 
 export const TEXT_TEXT_QUESTION_ANSWERING_MODELS = [
+   'deepset-roberta-base-squad2',
+   'deepset_bert-base-cased-squad2',
    'deepset_roberta-large-squad2',
+   'distilbert-base-cased-distilled-squad',
+   'mfeb-albert-xxlarge-v2-squad2',
+   'mrm8488-bert-tiny-5-finetuned-squadv2',
 ] as const;
 export const TEXT_TEXT_QUESTION_ANSWERING_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
 export type TextTextQuestionAnsweringModel = typeof TEXT_TEXT_QUESTION_ANSWERING_MODELS[number];
@@ -483,7 +479,6 @@ export type TextTextSpeakerRecognitionModel = typeof TEXT_TEXT_SPEAKER_RECOGNITI
 
 export const TEXT_TEXT_SUMMARIZATION_MODELS = [
    'all-MiniLM-L6-v2',
-   'bart-large-cnn',
 ] as const;
 export const TEXT_TEXT_SUMMARIZATION_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
 export type TextTextSummarizationModel = typeof TEXT_TEXT_SUMMARIZATION_MODELS[number];
@@ -512,3 +507,10 @@ export const TEXT_TEXT_WORD_ALIGNMENT_MODELS = [
 ] as const;
 export const TEXT_TEXT_WORD_ALIGNMENT_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
 export type TextTextWordAlignmentModel = typeof TEXT_TEXT_WORD_ALIGNMENT_MODELS[number];
+
+export const VIDEO_TEXT_ACTION_CLASSIFICATIONS_MODELS = [
+   'kinetics--MCG-NJU/videomae-base-finetuned-kinetics',
+   'kinetics--facebook/timesformer-base-finetuned-k400',
+] as const;
+export const VIDEO_TEXT_ACTION_CLASSIFICATIONS_CONTENT_TYPE = "multipart/form-data" as const;
+export type VideoTextActionClassificationsModel = typeof VIDEO_TEXT_ACTION_CLASSIFICATIONS_MODELS[number];

@@ -5,6 +5,7 @@ import { Shortcuts } from './client/shortcuts';
 import { FromAudio } from './client/from-audio';
 import { FromImage } from './client/from-image';
 import { FromText } from './client/from-text';
+import { FromVideo } from './client/from-video';
 import { GladiaClientBase } from './client/gladia-client-base';
 import { applyMixins } from './utils/mixin';
 
@@ -12,6 +13,7 @@ export class GladiaClient extends GladiaClientBase {
   private fromAudioInst: FromAudio;
   private fromImageInst: FromImage;
   private fromTextInst: FromText;
+  private fromVideoInst: FromVideo;
 
   constructor(params: GladiaClientParams) {
     const validatedParams: GladiaClientParams = {
@@ -23,6 +25,7 @@ export class GladiaClient extends GladiaClientBase {
     this.fromAudioInst = new FromAudio(validatedParams);
     this.fromImageInst = new FromImage(validatedParams);
     this.fromTextInst = new FromText(validatedParams);
+    this.fromVideoInst = new FromVideo(validatedParams);
   }
 
   fromAudio() {
@@ -35,6 +38,10 @@ export class GladiaClient extends GladiaClientBase {
 
   fromText() {
     return this.fromTextInst;
+  }
+
+  fromVideo() {
+    return this.fromVideoInst;
   }
 }
 

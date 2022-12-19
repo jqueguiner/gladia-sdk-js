@@ -8,6 +8,8 @@ import { FromImageToText } from './from-image-to-text'
 import { FromText } from './from-text'
 import { FromTextToImage } from './from-text-to-image'
 import { FromTextToText } from './from-text-to-text'
+import { FromVideo } from './from-video'
+import { FromVideoToText } from './from-video-to-text'
 import {
   AudioTextAudioTranscriptionInputs,
   AudioTextSpeakerDiarizationInputs,
@@ -25,11 +27,9 @@ import {
   ImageTextClassificationInputs,
   ImageTextOcrInputs,
   TextImageImageGenerationInputs,
-  TextTextAdGenerationInputs,
   TextTextAddressFormattingInputs,
   TextTextAgeFromNameInputs,
   TextTextAnonymizationInputs,
-  TextTextArticleGenerationInputs,
   TextTextAutocorrectInputs,
   TextTextBulletPointGenerationInputs,
   TextTextCommandGenerationInputs,
@@ -45,9 +45,9 @@ import {
   TextTextGpt3Inputs,
   TextTextGuessCityInputs,
   TextTextGuessCountryInputs,
+  TextTextGuessIntentInputs,
   TextTextHateSpeechDetectionInputs,
   TextTextHeadlineGenerationInputs,
-  TextTextIntentClassificationInputs,
   TextTextKeywordExtractionInputs,
   TextTextLanguageCodesInputs,
   TextTextLanguageDetectionInputs,
@@ -69,6 +69,7 @@ import {
   TextTextVatCountryGuessingInputs,
   TextTextWebsiteClassificationInputs,
   TextTextWordAlignmentInputs,
+  VideoTextActionClassificationsInputs,
 } from './input-models'
 import {
   AudioTextAudioTranscriptionOutputs,
@@ -89,11 +90,9 @@ import {
   TextImageImageGenerationOutputs,
   TextImageImageGenerationOutputsMultipleSamples,
   TextImageImageGenerationOutputsOneSample,
-  TextTextAdGenerationOutputs,
   TextTextAddressFormattingOutputs,
   TextTextAgeFromNameOutputs,
   TextTextAnonymizationOutputs,
-  TextTextArticleGenerationOutputs,
   TextTextAutocorrectOutputs,
   TextTextBulletPointGenerationOutputs,
   TextTextCommandGenerationOutputs,
@@ -109,9 +108,9 @@ import {
   TextTextGpt3Outputs,
   TextTextGuessCityOutputs,
   TextTextGuessCountryOutputs,
+  TextTextGuessIntentOutputs,
   TextTextHateSpeechDetectionOutputs,
   TextTextHeadlineGenerationOutputs,
-  TextTextIntentClassificationOutputs,
   TextTextKeywordExtractionOutputs,
   TextTextLanguageCodesOutputs,
   TextTextLanguageDetectionOutputs,
@@ -133,6 +132,7 @@ import {
   TextTextVatCountryGuessingOutputs,
   TextTextWebsiteClassificationOutputs,
   TextTextWordAlignmentOutputs,
+  VideoTextActionClassificationsOutputs,
 } from './output-models';
 
 export abstract class Shortcuts implements
@@ -140,7 +140,8 @@ export abstract class Shortcuts implements
   Omit<FromImageToImage, 'httpClient'>,
   Omit<FromImageToText, 'httpClient'>,
   Omit<FromTextToImage, 'httpClient'>,
-  Omit<FromTextToText, 'httpClient'>
+  Omit<FromTextToText, 'httpClient'>,
+  Omit<FromVideoToText, 'httpClient'>
 {
 
   abstract fromAudio(): FromAudio;
@@ -225,10 +226,6 @@ export abstract class Shortcuts implements
 
   // TEXT => TEXT
 
-  adGeneration(args: TextTextAdGenerationInputs): Promise<TextTextAdGenerationOutputs> {
-    return this.fromText().toText().adGeneration(args);
-  }
-
   addressFormatting(args: TextTextAddressFormattingInputs): Promise<TextTextAddressFormattingOutputs> {
     return this.fromText().toText().addressFormatting(args);
   }
@@ -239,10 +236,6 @@ export abstract class Shortcuts implements
 
   anonymization(args: TextTextAnonymizationInputs): Promise<TextTextAnonymizationOutputs> {
     return this.fromText().toText().anonymization(args);
-  }
-
-  articleGeneration(args: TextTextArticleGenerationInputs): Promise<TextTextArticleGenerationOutputs> {
-    return this.fromText().toText().articleGeneration(args);
   }
 
   autocorrect(args: TextTextAutocorrectInputs): Promise<TextTextAutocorrectOutputs> {
@@ -305,16 +298,16 @@ export abstract class Shortcuts implements
     return this.fromText().toText().guessCountry(args);
   }
 
+  guessIntent(args: TextTextGuessIntentInputs): Promise<TextTextGuessIntentOutputs> {
+    return this.fromText().toText().guessIntent(args);
+  }
+
   hateSpeechDetection(args: TextTextHateSpeechDetectionInputs): Promise<TextTextHateSpeechDetectionOutputs> {
     return this.fromText().toText().hateSpeechDetection(args);
   }
 
   headlineGeneration(args: TextTextHeadlineGenerationInputs): Promise<TextTextHeadlineGenerationOutputs> {
     return this.fromText().toText().headlineGeneration(args);
-  }
-
-  intentClassification(args: TextTextIntentClassificationInputs): Promise<TextTextIntentClassificationOutputs> {
-    return this.fromText().toText().intentClassification(args);
   }
 
   keywordExtraction(args: TextTextKeywordExtractionInputs): Promise<TextTextKeywordExtractionOutputs> {
@@ -399,6 +392,14 @@ export abstract class Shortcuts implements
 
   wordAlignment(args: TextTextWordAlignmentInputs): Promise<TextTextWordAlignmentOutputs> {
     return this.fromText().toText().wordAlignment(args);
+  }
+
+  abstract fromVideo(): FromVideo;
+
+  // VIDEO => TEXT
+
+  actionClassifications(args: VideoTextActionClassificationsInputs): Promise<VideoTextActionClassificationsOutputs> {
+    return this.fromVideo().toText().actionClassifications(args);
   }
 
 }

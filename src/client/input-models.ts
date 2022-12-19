@@ -17,11 +17,9 @@ import {
   ImageTextClassificationModel,
   ImageTextOcrModel,
   TextImageImageGenerationModel,
-  TextTextAdGenerationModel,
   TextTextAddressFormattingModel,
   TextTextAgeFromNameModel,
   TextTextAnonymizationModel,
-  TextTextArticleGenerationModel,
   TextTextAutocorrectModel,
   TextTextBulletPointGenerationModel,
   TextTextCommandGenerationModel,
@@ -37,9 +35,9 @@ import {
   TextTextGpt3Model,
   TextTextGuessCityModel,
   TextTextGuessCountryModel,
+  TextTextGuessIntentModel,
   TextTextHateSpeechDetectionModel,
   TextTextHeadlineGenerationModel,
-  TextTextIntentClassificationModel,
   TextTextKeywordExtractionModel,
   TextTextLanguageCodesModel,
   TextTextLanguageDetectionModel,
@@ -61,6 +59,7 @@ import {
   TextTextVatCountryGuessingModel,
   TextTextWebsiteClassificationModel,
   TextTextWordAlignmentModel,
+  VideoTextActionClassificationsModel,
 } from '../models';
 import { WithHeaders, WithModel } from './types';
 
@@ -179,10 +178,6 @@ export interface TextImageImageGenerationInputs
   steps?: number;
   seed?: number;
 }
-export interface TextTextAdGenerationInputs 
-  extends WithHeaders, WithModel<TextTextAdGenerationModel> {
-  keywords?: string[];
-}
 export interface TextTextAddressFormattingInputs 
   extends WithHeaders, WithModel<TextTextAddressFormattingModel> {
   address: string;
@@ -196,10 +191,6 @@ export interface TextTextAnonymizationInputs
   language: string;
   entities: string;
   text: string;
-}
-export interface TextTextArticleGenerationInputs 
-  extends WithHeaders, WithModel<TextTextArticleGenerationModel> {
-  title?: string;
 }
 export interface TextTextAutocorrectInputs 
   extends WithHeaders, WithModel<TextTextAutocorrectModel> {
@@ -263,6 +254,10 @@ export interface TextTextGuessCountryInputs
   extends WithHeaders, WithModel<TextTextGuessCountryModel> {
   text?: string;
 }
+export interface TextTextGuessIntentInputs 
+  extends WithHeaders, WithModel<TextTextGuessIntentModel> {
+  text?: string;
+}
 export interface TextTextHateSpeechDetectionInputs 
   extends WithHeaders, WithModel<TextTextHateSpeechDetectionModel> {
   text: string;
@@ -271,10 +266,6 @@ export interface TextTextHeadlineGenerationInputs
   extends WithHeaders, WithModel<TextTextHeadlineGenerationModel> {
   text: string;
   max_length: number;
-}
-export interface TextTextIntentClassificationInputs 
-  extends WithHeaders, WithModel<TextTextIntentClassificationModel> {
-  text?: string;
 }
 export interface TextTextKeywordExtractionInputs 
   extends WithHeaders, WithModel<TextTextKeywordExtractionModel> {
@@ -372,4 +363,9 @@ export interface TextTextWordAlignmentInputs
   extends WithHeaders, WithModel<TextTextWordAlignmentModel> {
   input_string_language_1: string;
   input_string_language_2: string;
+}
+export interface VideoTextActionClassificationsInputs 
+  extends WithHeaders, WithModel<VideoTextActionClassificationsModel> {
+  video?: Blob;
+  video_url?: string;
 }

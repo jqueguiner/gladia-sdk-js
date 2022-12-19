@@ -21,7 +21,7 @@ export interface EndpointDefParamBase<TType> {
 export declare type EnumEndpointDefParam = EndpointDefParamBase<'enum'> & {
     enumValues: string[];
 };
-export declare type EndpointDefParam = EndpointDefParamBase<'audio' | 'image' | 'string' | 'integer' | 'float' | 'url' | 'array'> | EnumEndpointDefParam;
+export declare type EndpointDefParam = EndpointDefParamBase<'audio' | 'image' | 'video' | 'string' | 'integer' | 'float' | 'url' | 'array'> | EnumEndpointDefParam;
 export declare type OutputBodyContentType = {
     type: 'prediction-standard-output';
     predictionType: 'string' | 'number' | 'array';

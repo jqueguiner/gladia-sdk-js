@@ -2,11 +2,9 @@
 
 import { GladiaClient } from '../src/gladia-client';
 import {
-  TextTextAdGenerationModel,
   TextTextAddressFormattingModel,
   TextTextAgeFromNameModel,
   TextTextAnonymizationModel,
-  TextTextArticleGenerationModel,
   TextTextAutocorrectModel,
   TextTextBulletPointGenerationModel,
   TextTextCommandGenerationModel,
@@ -22,106 +20,26 @@ import {
   TextTextGpt3Model,
   TextTextGuessCityModel,
   TextTextGuessCountryModel,
-  TextTextIntentClassificationModel,
+  TextTextGuessIntentModel,
   TextTextKeywordExtractionModel,
   TextTextLanguageCodesModel,
-  TextTextLanguageGenerationModel,
   TextTextNextSentencePredictionModel,
   TextTextProductOwnershipModel,
   TextTextProductSentimentModel,
   TextTextProgrammingLanguageGenerationModel,
   TextTextPunctuationRestorationModel,
-  TextTextQuestionAnsweringModel,
   TextTextSimilarityModel,
   TextTextSpeakerRecognitionModel,
+  TextTextSummarizationModel,
   TextTextVatCountryGuessingModel,
   TextTextWebsiteClassificationModel,
   TextTextWordAlignmentModel,
 } from '../src/models';
 import gladia from '../src/index';
 import { HttpClient } from '../src/internal/http-client';
-import { getRandomArray, getRandomFloat, getRandomInt, getRandomText, getPostMock, mockHttpClient } from './helpers/mocks';
+import { getRandomFloat, getRandomInt, getRandomText, getPostMock, mockHttpClient } from './helpers/mocks';
 
 describe('FromTextToText', () => {
-  describe('adGeneration', () => {
-    let gladiaClient: GladiaClient;
-    let httpClientMock: HttpClient;
-
-    beforeEach(() => {
-      gladiaClient = gladia({ apiKey: 'API-KEY', customHttpClient: mockHttpClient() });
-      httpClientMock = gladiaClient.fromText().toText()['httpClient'];
-    });
-
-    describe('full path', () => {
-      it('should call the api with the text and the default model by default', async () => {
-        const keywords_data = getRandomArray();
-        await gladiaClient.fromText().toText().adGeneration({
-          keywords: keywords_data,
-        });
-        const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
-        expect(postMock).toHaveBeenCalledTimes(1);
-        expect(firstCallArgs.url).toEqual('/text/text/ad-generation/');
-        expect(firstCallArgs.headers).toEqual({
-          'Content-Type': 'application/x-www-form-urlencoded',
-        });
-        expect(firstCallArgs.query).toEqual({
-        });
-        expect(firstCallBody.get('keywords')).toEqual(keywords_data);
-      });
-      it('should call the api with the text and the specified model', async () => {
-        const keywords_data = getRandomArray();
-        await gladiaClient.fromText().toText().adGeneration({
-          keywords: keywords_data,
-          model: 'fake-model-name' as unknown as TextTextAdGenerationModel,
-        });
-        const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
-        expect(postMock).toHaveBeenCalledTimes(1);
-        expect(firstCallArgs.url).toEqual('/text/text/ad-generation/');
-        expect(firstCallArgs.headers).toEqual({
-          'Content-Type': 'application/x-www-form-urlencoded',
-        });
-        expect(firstCallArgs.query).toEqual({
-          model: 'fake-model-name',
-        });
-        expect(firstCallBody.get('keywords')).toEqual(keywords_data);
-      });
-    });
-    describe('shortcuts', () => {
-      it('should call the api with the text and the default model by default', async () => {
-        const keywords_data = getRandomArray();
-        await gladiaClient.adGeneration({
-          keywords: keywords_data,
-        });
-        const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
-        expect(postMock).toHaveBeenCalledTimes(1);
-        expect(firstCallArgs.url).toEqual('/text/text/ad-generation/');
-        expect(firstCallArgs.headers).toEqual({
-          'Content-Type': 'application/x-www-form-urlencoded',
-        });
-        expect(firstCallArgs.query).toEqual({
-        });
-        expect(firstCallBody.get('keywords')).toEqual(keywords_data);
-      });
-      it('should call the api with the text and the specified model', async () => {
-        const keywords_data = getRandomArray();
-        await gladiaClient.adGeneration({
-          keywords: keywords_data,
-          model: 'fake-model-name' as unknown as TextTextAdGenerationModel,
-        });
-        const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
-        expect(postMock).toHaveBeenCalledTimes(1);
-        expect(firstCallArgs.url).toEqual('/text/text/ad-generation/');
-        expect(firstCallArgs.headers).toEqual({
-          'Content-Type': 'application/x-www-form-urlencoded',
-        });
-        expect(firstCallArgs.query).toEqual({
-          model: 'fake-model-name',
-        });
-        expect(firstCallBody.get('keywords')).toEqual(keywords_data);
-      });
-    });
-  });
-
   describe('addressFormatting', () => {
     let gladiaClient: GladiaClient;
     let httpClientMock: HttpClient;
@@ -379,85 +297,6 @@ describe('FromTextToText', () => {
         expect(firstCallBody.get('language')).toEqual(language_data);
         expect(firstCallBody.get('entities')).toEqual(entities_data);
         expect(firstCallBody.get('text')).toEqual(text_data);
-      });
-    });
-  });
-
-  describe('articleGeneration', () => {
-    let gladiaClient: GladiaClient;
-    let httpClientMock: HttpClient;
-
-    beforeEach(() => {
-      gladiaClient = gladia({ apiKey: 'API-KEY', customHttpClient: mockHttpClient() });
-      httpClientMock = gladiaClient.fromText().toText()['httpClient'];
-    });
-
-    describe('full path', () => {
-      it('should call the api with the text and the default model by default', async () => {
-        const title_data = getRandomText();
-        await gladiaClient.fromText().toText().articleGeneration({
-          title: title_data,
-        });
-        const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
-        expect(postMock).toHaveBeenCalledTimes(1);
-        expect(firstCallArgs.url).toEqual('/text/text/article-generation/');
-        expect(firstCallArgs.headers).toEqual({
-          'Content-Type': 'application/x-www-form-urlencoded',
-        });
-        expect(firstCallArgs.query).toEqual({
-        });
-        expect(firstCallBody.get('title')).toEqual(title_data);
-      });
-      it('should call the api with the text and the specified model', async () => {
-        const title_data = getRandomText();
-        await gladiaClient.fromText().toText().articleGeneration({
-          title: title_data,
-          model: 'fake-model-name' as unknown as TextTextArticleGenerationModel,
-        });
-        const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
-        expect(postMock).toHaveBeenCalledTimes(1);
-        expect(firstCallArgs.url).toEqual('/text/text/article-generation/');
-        expect(firstCallArgs.headers).toEqual({
-          'Content-Type': 'application/x-www-form-urlencoded',
-        });
-        expect(firstCallArgs.query).toEqual({
-          model: 'fake-model-name',
-        });
-        expect(firstCallBody.get('title')).toEqual(title_data);
-      });
-    });
-    describe('shortcuts', () => {
-      it('should call the api with the text and the default model by default', async () => {
-        const title_data = getRandomText();
-        await gladiaClient.articleGeneration({
-          title: title_data,
-        });
-        const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
-        expect(postMock).toHaveBeenCalledTimes(1);
-        expect(firstCallArgs.url).toEqual('/text/text/article-generation/');
-        expect(firstCallArgs.headers).toEqual({
-          'Content-Type': 'application/x-www-form-urlencoded',
-        });
-        expect(firstCallArgs.query).toEqual({
-        });
-        expect(firstCallBody.get('title')).toEqual(title_data);
-      });
-      it('should call the api with the text and the specified model', async () => {
-        const title_data = getRandomText();
-        await gladiaClient.articleGeneration({
-          title: title_data,
-          model: 'fake-model-name' as unknown as TextTextArticleGenerationModel,
-        });
-        const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
-        expect(postMock).toHaveBeenCalledTimes(1);
-        expect(firstCallArgs.url).toEqual('/text/text/article-generation/');
-        expect(firstCallArgs.headers).toEqual({
-          'Content-Type': 'application/x-www-form-urlencoded',
-        });
-        expect(firstCallArgs.query).toEqual({
-          model: 'fake-model-name',
-        });
-        expect(firstCallBody.get('title')).toEqual(title_data);
       });
     });
   });
@@ -1671,6 +1510,85 @@ describe('FromTextToText', () => {
     });
   });
 
+  describe('guessIntent', () => {
+    let gladiaClient: GladiaClient;
+    let httpClientMock: HttpClient;
+
+    beforeEach(() => {
+      gladiaClient = gladia({ apiKey: 'API-KEY', customHttpClient: mockHttpClient() });
+      httpClientMock = gladiaClient.fromText().toText()['httpClient'];
+    });
+
+    describe('full path', () => {
+      it('should call the api with the text and the default model by default', async () => {
+        const text_data = getRandomText();
+        await gladiaClient.fromText().toText().guessIntent({
+          text: text_data,
+        });
+        const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
+        expect(postMock).toHaveBeenCalledTimes(1);
+        expect(firstCallArgs.url).toEqual('/text/text/guess-intent/');
+        expect(firstCallArgs.headers).toEqual({
+          'Content-Type': 'application/x-www-form-urlencoded',
+        });
+        expect(firstCallArgs.query).toEqual({
+        });
+        expect(firstCallBody.get('text')).toEqual(text_data);
+      });
+      it('should call the api with the text and the specified model', async () => {
+        const text_data = getRandomText();
+        await gladiaClient.fromText().toText().guessIntent({
+          text: text_data,
+          model: 'fake-model-name' as unknown as TextTextGuessIntentModel,
+        });
+        const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
+        expect(postMock).toHaveBeenCalledTimes(1);
+        expect(firstCallArgs.url).toEqual('/text/text/guess-intent/');
+        expect(firstCallArgs.headers).toEqual({
+          'Content-Type': 'application/x-www-form-urlencoded',
+        });
+        expect(firstCallArgs.query).toEqual({
+          model: 'fake-model-name',
+        });
+        expect(firstCallBody.get('text')).toEqual(text_data);
+      });
+    });
+    describe('shortcuts', () => {
+      it('should call the api with the text and the default model by default', async () => {
+        const text_data = getRandomText();
+        await gladiaClient.guessIntent({
+          text: text_data,
+        });
+        const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
+        expect(postMock).toHaveBeenCalledTimes(1);
+        expect(firstCallArgs.url).toEqual('/text/text/guess-intent/');
+        expect(firstCallArgs.headers).toEqual({
+          'Content-Type': 'application/x-www-form-urlencoded',
+        });
+        expect(firstCallArgs.query).toEqual({
+        });
+        expect(firstCallBody.get('text')).toEqual(text_data);
+      });
+      it('should call the api with the text and the specified model', async () => {
+        const text_data = getRandomText();
+        await gladiaClient.guessIntent({
+          text: text_data,
+          model: 'fake-model-name' as unknown as TextTextGuessIntentModel,
+        });
+        const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
+        expect(postMock).toHaveBeenCalledTimes(1);
+        expect(firstCallArgs.url).toEqual('/text/text/guess-intent/');
+        expect(firstCallArgs.headers).toEqual({
+          'Content-Type': 'application/x-www-form-urlencoded',
+        });
+        expect(firstCallArgs.query).toEqual({
+          model: 'fake-model-name',
+        });
+        expect(firstCallBody.get('text')).toEqual(text_data);
+      });
+    });
+  });
+
   describe('hateSpeechDetection', () => {
     let gladiaClient: GladiaClient;
     let httpClientMock: HttpClient;
@@ -1700,7 +1618,7 @@ describe('FromTextToText', () => {
         const text_data = getRandomText();
         await gladiaClient.fromText().toText().hateSpeechDetection({
           text: text_data,
-          model: 'dkleczek_Polish-Hate-Speech-Detection-Herbert-Large',
+          model: 'byt5-base-tweet-hate-detection',
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -1709,7 +1627,7 @@ describe('FromTextToText', () => {
           'Content-Type': 'application/x-www-form-urlencoded',
         });
         expect(firstCallArgs.query).toEqual({
-          model: 'dkleczek_Polish-Hate-Speech-Detection-Herbert-Large',
+          model: 'byt5-base-tweet-hate-detection',
         });
         expect(firstCallBody.get('text')).toEqual(text_data);
       });
@@ -1734,7 +1652,7 @@ describe('FromTextToText', () => {
         const text_data = getRandomText();
         await gladiaClient.hateSpeechDetection({
           text: text_data,
-          model: 'dkleczek_Polish-Hate-Speech-Detection-Herbert-Large',
+          model: 'byt5-base-tweet-hate-detection',
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -1743,7 +1661,7 @@ describe('FromTextToText', () => {
           'Content-Type': 'application/x-www-form-urlencoded',
         });
         expect(firstCallArgs.query).toEqual({
-          model: 'dkleczek_Polish-Hate-Speech-Detection-Herbert-Large',
+          model: 'byt5-base-tweet-hate-detection',
         });
         expect(firstCallBody.get('text')).toEqual(text_data);
       });
@@ -1837,85 +1755,6 @@ describe('FromTextToText', () => {
         });
         expect(firstCallBody.get('text')).toEqual(text_data);
         expect(firstCallBody.get('max_length')).toEqual(String(max_length_data));
-      });
-    });
-  });
-
-  describe('intentClassification', () => {
-    let gladiaClient: GladiaClient;
-    let httpClientMock: HttpClient;
-
-    beforeEach(() => {
-      gladiaClient = gladia({ apiKey: 'API-KEY', customHttpClient: mockHttpClient() });
-      httpClientMock = gladiaClient.fromText().toText()['httpClient'];
-    });
-
-    describe('full path', () => {
-      it('should call the api with the text and the default model by default', async () => {
-        const text_data = getRandomText();
-        await gladiaClient.fromText().toText().intentClassification({
-          text: text_data,
-        });
-        const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
-        expect(postMock).toHaveBeenCalledTimes(1);
-        expect(firstCallArgs.url).toEqual('/text/text/intent-classification/');
-        expect(firstCallArgs.headers).toEqual({
-          'Content-Type': 'application/x-www-form-urlencoded',
-        });
-        expect(firstCallArgs.query).toEqual({
-        });
-        expect(firstCallBody.get('text')).toEqual(text_data);
-      });
-      it('should call the api with the text and the specified model', async () => {
-        const text_data = getRandomText();
-        await gladiaClient.fromText().toText().intentClassification({
-          text: text_data,
-          model: 'fake-model-name' as unknown as TextTextIntentClassificationModel,
-        });
-        const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
-        expect(postMock).toHaveBeenCalledTimes(1);
-        expect(firstCallArgs.url).toEqual('/text/text/intent-classification/');
-        expect(firstCallArgs.headers).toEqual({
-          'Content-Type': 'application/x-www-form-urlencoded',
-        });
-        expect(firstCallArgs.query).toEqual({
-          model: 'fake-model-name',
-        });
-        expect(firstCallBody.get('text')).toEqual(text_data);
-      });
-    });
-    describe('shortcuts', () => {
-      it('should call the api with the text and the default model by default', async () => {
-        const text_data = getRandomText();
-        await gladiaClient.intentClassification({
-          text: text_data,
-        });
-        const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
-        expect(postMock).toHaveBeenCalledTimes(1);
-        expect(firstCallArgs.url).toEqual('/text/text/intent-classification/');
-        expect(firstCallArgs.headers).toEqual({
-          'Content-Type': 'application/x-www-form-urlencoded',
-        });
-        expect(firstCallArgs.query).toEqual({
-        });
-        expect(firstCallBody.get('text')).toEqual(text_data);
-      });
-      it('should call the api with the text and the specified model', async () => {
-        const text_data = getRandomText();
-        await gladiaClient.intentClassification({
-          text: text_data,
-          model: 'fake-model-name' as unknown as TextTextIntentClassificationModel,
-        });
-        const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
-        expect(postMock).toHaveBeenCalledTimes(1);
-        expect(firstCallArgs.url).toEqual('/text/text/intent-classification/');
-        expect(firstCallArgs.headers).toEqual({
-          'Content-Type': 'application/x-www-form-urlencoded',
-        });
-        expect(firstCallArgs.query).toEqual({
-          model: 'fake-model-name',
-        });
-        expect(firstCallBody.get('text')).toEqual(text_data);
       });
     });
   });
@@ -2210,7 +2049,7 @@ describe('FromTextToText', () => {
         const text_data = getRandomText();
         await gladiaClient.fromText().toText().languageGeneration({
           text: text_data,
-          model: 'fake-model-name' as unknown as TextTextLanguageGenerationModel,
+          model: 'EleutherAI-gpt-neo-2_7B',
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -2219,7 +2058,7 @@ describe('FromTextToText', () => {
           'Content-Type': 'application/x-www-form-urlencoded',
         });
         expect(firstCallArgs.query).toEqual({
-          model: 'fake-model-name',
+          model: 'EleutherAI-gpt-neo-2_7B',
         });
         expect(firstCallBody.get('text')).toEqual(text_data);
       });
@@ -2244,7 +2083,7 @@ describe('FromTextToText', () => {
         const text_data = getRandomText();
         await gladiaClient.languageGeneration({
           text: text_data,
-          model: 'fake-model-name' as unknown as TextTextLanguageGenerationModel,
+          model: 'EleutherAI-gpt-neo-2_7B',
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -2253,7 +2092,7 @@ describe('FromTextToText', () => {
           'Content-Type': 'application/x-www-form-urlencoded',
         });
         expect(firstCallArgs.query).toEqual({
-          model: 'fake-model-name',
+          model: 'EleutherAI-gpt-neo-2_7B',
         });
         expect(firstCallBody.get('text')).toEqual(text_data);
       });
@@ -2876,7 +2715,7 @@ describe('FromTextToText', () => {
           context: context_data,
           question: question_data,
           top_k: top_k_data,
-          model: 'fake-model-name' as unknown as TextTextQuestionAnsweringModel,
+          model: 'deepset-roberta-base-squad2',
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -2885,7 +2724,7 @@ describe('FromTextToText', () => {
           'Content-Type': 'application/x-www-form-urlencoded',
         });
         expect(firstCallArgs.query).toEqual({
-          model: 'fake-model-name',
+          model: 'deepset-roberta-base-squad2',
         });
         expect(firstCallBody.get('context')).toEqual(context_data);
         expect(firstCallBody.get('question')).toEqual(question_data);
@@ -2922,7 +2761,7 @@ describe('FromTextToText', () => {
           context: context_data,
           question: question_data,
           top_k: top_k_data,
-          model: 'fake-model-name' as unknown as TextTextQuestionAnsweringModel,
+          model: 'deepset-roberta-base-squad2',
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -2931,7 +2770,7 @@ describe('FromTextToText', () => {
           'Content-Type': 'application/x-www-form-urlencoded',
         });
         expect(firstCallArgs.query).toEqual({
-          model: 'fake-model-name',
+          model: 'deepset-roberta-base-squad2',
         });
         expect(firstCallBody.get('context')).toEqual(context_data);
         expect(firstCallBody.get('question')).toEqual(question_data);
@@ -3312,7 +3151,7 @@ describe('FromTextToText', () => {
           source_language: source_language_data,
           min_length: min_length_data,
           max_length: max_length_data,
-          model: 'all-MiniLM-L6-v2',
+          model: 'fake-model-name' as unknown as TextTextSummarizationModel,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -3321,7 +3160,7 @@ describe('FromTextToText', () => {
           'Content-Type': 'application/x-www-form-urlencoded',
         });
         expect(firstCallArgs.query).toEqual({
-          model: 'all-MiniLM-L6-v2',
+          model: 'fake-model-name',
         });
         expect(firstCallBody.get('text')).toEqual(text_data);
         expect(firstCallBody.get('source_language')).toEqual(source_language_data);
@@ -3364,7 +3203,7 @@ describe('FromTextToText', () => {
           source_language: source_language_data,
           min_length: min_length_data,
           max_length: max_length_data,
-          model: 'all-MiniLM-L6-v2',
+          model: 'fake-model-name' as unknown as TextTextSummarizationModel,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -3373,7 +3212,7 @@ describe('FromTextToText', () => {
           'Content-Type': 'application/x-www-form-urlencoded',
         });
         expect(firstCallArgs.query).toEqual({
-          model: 'all-MiniLM-L6-v2',
+          model: 'fake-model-name',
         });
         expect(firstCallBody.get('text')).toEqual(text_data);
         expect(firstCallBody.get('source_language')).toEqual(source_language_data);

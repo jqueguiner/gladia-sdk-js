@@ -171,6 +171,8 @@ function getPostParams(def: PathDef, openApiJson: OpenApiJson) {
                     return 'audio';
                   case 'image':
                     return 'image';
+                  case 'video':
+                    return 'video';
                   case 'array':
                     return 'array';
                   case 'list':
