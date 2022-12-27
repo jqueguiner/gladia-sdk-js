@@ -2,7 +2,9 @@ import { EndpointDef } from '../../src/meta';
 import {
   getOutputModelType,
   getOutputModelTypeMultipleSamples,
+  getOutputModelTypeMultipleSamplesAsUrl,
   getOutputModelTypeOneSample,
+  getOutputModelTypeOneSampleAsUrl,
 } from '../../src/meta/get-output-model-type';
 import { p } from '../helpers/mocks';
 
@@ -39,6 +41,32 @@ describe(getOutputModelTypeOneSample.name, () => {
     });
     expect(getOutputModelTypeOneSample(endpoint)).toEqual(
       'ImageTextSentimentAnalysisOutputsOneSample',
+    );
+  });
+});
+
+describe(getOutputModelTypeOneSampleAsUrl.name, () => {
+  it('should format correctly', () => {
+    const endpoint = p<EndpointDef>({
+      inputType: 'image',
+      outputType: 'text',
+      taskName: 'background-removal',
+    });
+    expect(getOutputModelTypeOneSampleAsUrl(endpoint)).toEqual(
+      'ImageTextBackgroundRemovalOutputsOneSampleAsUrl',
+    );
+  });
+});
+
+describe(getOutputModelTypeMultipleSamplesAsUrl.name, () => {
+  it('should format correctly', () => {
+    const endpoint = p<EndpointDef>({
+      inputType: 'image',
+      outputType: 'text',
+      taskName: 'background-removal',
+    });
+    expect(getOutputModelTypeMultipleSamplesAsUrl(endpoint)).toEqual(
+      'ImageTextBackgroundRemovalOutputsMultipleSamplesAsUrl',
     );
   });
 });
