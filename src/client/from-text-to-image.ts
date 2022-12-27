@@ -7,6 +7,8 @@ import {
   TextImageImageGenerationOutputs,
   TextImageImageGenerationOutputsMultipleSamples,
   TextImageImageGenerationOutputsOneSample,
+  TextImageImageGenerationOutputsMultipleSamplesAsUrl,
+  TextImageImageGenerationOutputsOneSampleAsUrl,
 } from './output-models';
 import {
   TEXT_IMAGE_IMAGE_GENERATION_CONTENT_TYPE,
@@ -22,6 +24,8 @@ export class FromTextToImage {
     this.httpClient = getHttpClient(this.params);
   }
 
+  imageGeneration(args: TextImageImageGenerationInputs & { samples: 1, asUrl: true }): Promise<TextImageImageGenerationOutputsOneSampleAsUrl>;
+  imageGeneration(args: TextImageImageGenerationInputs & { asUrl: true }): Promise<TextImageImageGenerationOutputsMultipleSamplesAsUrl>;
   imageGeneration(args: TextImageImageGenerationInputs & { samples: 1 }): Promise<TextImageImageGenerationOutputsOneSample>;
   imageGeneration(args: TextImageImageGenerationInputs): Promise<TextImageImageGenerationOutputsMultipleSamples>;
   imageGeneration(args: TextImageImageGenerationInputs): Promise<TextImageImageGenerationOutputs> {
@@ -40,12 +44,13 @@ export class FromTextToImage {
       url: '/text/image/image-generation/',
       headers: {
         'Content-Type': TEXT_IMAGE_IMAGE_GENERATION_CONTENT_TYPE,
+        ...(args.asUrl ? { 'Accept': 'text/uri-list'} : {}),
         ...(args.headers ?? {}),
       },
       query: {
         ...(args.model ? {model: args.model} : {}),
       },
-      responseType: args.samples > 1 ? 'json' : 'arraybuffer',
+      responseType: args.samples > 1 || args.asUrl ? 'json' : 'arraybuffer',
       body: formData.toString(),
     });
   }

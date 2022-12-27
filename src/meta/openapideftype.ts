@@ -118,6 +118,7 @@ interface OpenApiJsonComponent {
             | 'text'
             | 'url'
             | 'integer'
+            | 'enum'
             | 'int'
             | 'float'
             | 'image'

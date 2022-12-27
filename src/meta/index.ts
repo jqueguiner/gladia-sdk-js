@@ -18,4 +18,6 @@ export {
   getOutputModelType,
   getOutputModelTypeMultipleSamples,
   getOutputModelTypeOneSample,
+  getOutputModelTypeMultipleSamplesAsUrl,
+  getOutputModelTypeOneSampleAsUrl,
 } from './get-output-model-type';

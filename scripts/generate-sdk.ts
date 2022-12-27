@@ -42,7 +42,7 @@ function generateInputModelsTs() {
     fileContent.push(`  ${meta.getModelTypeName(endpoint)},`);
   }
   fileContent.push(`} from '../models';`);
-  fileContent.push(`import { WithHeaders, WithModel } from './types';`);
+  fileContent.push(`import { WithAsUrl, WithHeaders, WithModel } from './types';`);
   fileContent.push('');
   for (const endpoint of endpoints) {
     const enumParams = endpoint.params.filter(
@@ -61,7 +61,11 @@ function generateInputModelsTs() {
     const inputModelName = meta.getInputModelType(endpoint);
     const modelTypeName = meta.getModelTypeName(endpoint);
     fileContent.push(`export interface ${inputModelName} `);
-    fileContent.push(`  extends WithHeaders, WithModel<${modelTypeName}> {`);
+    if (endpoint.hasSamplesParam || endpoint.outputType !== 'text') {
+      fileContent.push(`  extends WithHeaders, WithAsUrl, WithModel<${modelTypeName}> {`);
+    } else {
+      fileContent.push(`  extends WithHeaders, WithModel<${modelTypeName}> {`);
+    }
     endpoint.params.forEach((param) => {
       const optionalMark = param.required ? '' : '?';
       const paramType = (() => {
@@ -96,6 +100,7 @@ function generateInputModelsTs() {
 function generateOutputModelsTs() {
   const fileContent: string[] = [...getGeneratedMarks()];
   fileContent.push('type Base64Image = string;');
+  fileContent.push('type ImageUrl = string;');
   fileContent.push('');
   const endpoints = meta.getEndpoints();
   for (const endpoint of endpoints) {
@@ -110,8 +115,8 @@ function generateOutputModelsTs() {
           return outputBodyContentType.predictionType;
         })();
         fileContent.push(`export type ${outputModelName} = {`);
-        fileContent.push(`  prediction: ${predictionType},`);
-        fileContent.push(`  prediction_raw: unknown,`);
+        fileContent.push(`  prediction: ${predictionType};`);
+        fileContent.push(`  prediction_raw: unknown;`);
         fileContent.push(`};`);
         break;
       }
@@ -120,23 +125,37 @@ function generateOutputModelsTs() {
           `export type ${outputModelName} = Record<string, string | number | boolean>;`,
         );
         break;
-      case 'binary':
+      case 'binary': {
+        const outputModelNameForOneSampleAsUrl = meta.getOutputModelTypeOneSampleAsUrl(endpoint);
+        const outputModelNameForMulitpleSampleAsUrl =
+          meta.getOutputModelTypeMultipleSamplesAsUrl(endpoint);
+        fileContent.push(`export type ${outputModelNameForOneSampleAsUrl} = { url: ImageUrl[] };`);
+        fileContent.push(
+          `export type ${outputModelNameForMulitpleSampleAsUrl} = { url: ImageUrl[] };`,
+        );
         if (endpoint.hasSamplesParam) {
           const outputModelNameForOneSample = meta.getOutputModelTypeOneSample(endpoint);
           const outputModelNameForMulitpleSample = meta.getOutputModelTypeMultipleSamples(endpoint);
           fileContent.push(`export type ${outputModelNameForOneSample} = ArrayBuffer;`);
           fileContent.push(`export type ${outputModelNameForMulitpleSample} = Base64Image[];`);
-          fileContent.push(
-            `export type ${outputModelName} = ${outputModelNameForOneSample} | ${outputModelNameForMulitpleSample};`,
-          );
+          fileContent.push(`export type ${outputModelName} = `);
+          fileContent.push(`  | ${outputModelNameForOneSample}`);
+          fileContent.push(`  | ${outputModelNameForMulitpleSample}`);
+          fileContent.push(`  | ${outputModelNameForOneSampleAsUrl}`);
+          fileContent.push(`  | ${outputModelNameForMulitpleSampleAsUrl};`);
         } else {
-          fileContent.push(`export type ${outputModelName} = ArrayBuffer;`);
+          fileContent.push(`export type ${outputModelName} = `);
+          fileContent.push(`  | ArrayBuffer`);
+          fileContent.push(`  | ${outputModelNameForOneSampleAsUrl}`);
+          fileContent.push(`  | ${outputModelNameForMulitpleSampleAsUrl};`);
         }
         break;
+      }
       default:
         throw { kind: 'UnknownOutputType', outputType: endpoint.outputType };
     }
   }
+  fileContent.push(``);
   fs.writeFileSync('./src/client/output-models.ts', fileContent.join('\n'));
 }
 
@@ -178,20 +197,7 @@ function generateFromInputToOutputClasses() {
       fileContent.push('  }');
       fileContent.push('');
       for (const endpoint of outputTypeEndpoints) {
-        const methodName = meta.getMethodName(endpoint);
-        const inputModelType = meta.getInputModelType(endpoint);
-        const outputModelType = meta.getOutputModelType(endpoint);
-        if (endpoint.hasSamplesParam) {
-          const outputModelNameForOneSample = meta.getOutputModelTypeOneSample(endpoint);
-          const outputModelNameForMulitpleSample = meta.getOutputModelTypeMultipleSamples(endpoint);
-          fileContent.push(
-            `  ${methodName}(args: ${inputModelType} & { samples: 1 }): Promise<${outputModelNameForOneSample}>;`,
-          );
-          fileContent.push(
-            `  ${methodName}(args: ${inputModelType}): Promise<${outputModelNameForMulitpleSample}>;`,
-          );
-        }
-        fileContent.push(`  ${methodName}(args: ${inputModelType}): Promise<${outputModelType}> {`);
+        fileContent.push(...generateTaskMethodSignature(endpoint));
         switch (inputType) {
           case 'text':
           case 'audio':
@@ -221,6 +227,9 @@ function generateFromInputToOutputClasses() {
             if (useUrlFormData) {
               fileContent.push(`      headers: {`);
               fileContent.push(`        'Content-Type': ${meta.getContentTypeName(endpoint)},`);
+              if (endpoint.outputType !== 'text') {
+                fileContent.push(`        ...(args.asUrl ? { 'Accept': 'text/uri-list'} : {}),`);
+              }
               fileContent.push(`        ...(args.headers ?? {}),`);
               fileContent.push(`      },`);
             } else {
@@ -232,6 +241,9 @@ function generateFromInputToOutputClasses() {
               fileContent.push(
                 `        'Content-Type': this.params.useFetch ? ${contentTypeName} : undefined,`,
               );
+              if (endpoint.outputType !== 'text') {
+                fileContent.push(`        ...(args.asUrl ? { 'Accept': 'text/uri-list'} : {}),`);
+              }
               fileContent.push(`        ...(args.headers ?? {}),`);
               fileContent.push(`      },`);
             }
@@ -247,7 +259,11 @@ function generateFromInputToOutputClasses() {
             fileContent.push(`      },`);
             if (endpoint.outputType !== 'text') {
               if (endpoint.hasSamplesParam) {
-                fileContent.push(`      responseType: args.samples > 1 ? 'json' : 'arraybuffer',`);
+                fileContent.push(
+                  `      responseType: args.samples > 1 || args.asUrl ? 'json' : 'arraybuffer',`,
+                );
+              } else if (endpoint.outputType === 'image') {
+                fileContent.push(`      responseType: args.asUrl ? 'json' : 'arraybuffer',`);
               } else {
                 fileContent.push(`      responseType: 'arraybuffer',`);
               }
@@ -366,21 +382,7 @@ function generateShortcuts() {
       const toMethod = getClientOutputMethodName(outputType);
       for (const endpoint of outputTypeEndpoints) {
         const methodName = meta.getMethodName(endpoint);
-        const inputModelClassName = meta.getInputModelType(endpoint);
-        const outputModelName = meta.getOutputModelType(endpoint);
-        if (endpoint.hasSamplesParam) {
-          const outputModelNameForOneSample = meta.getOutputModelTypeOneSample(endpoint);
-          const outputModelNameForMulitpleSample = meta.getOutputModelTypeMultipleSamples(endpoint);
-          fileContent.push(
-            `  ${methodName}(args: ${inputModelClassName} & { samples: 1 }): Promise<${outputModelNameForOneSample}>;`,
-          );
-          fileContent.push(
-            `  ${methodName}(args: ${inputModelClassName}): Promise<${outputModelNameForMulitpleSample}>;`,
-          );
-        }
-        fileContent.push(
-          `  ${methodName}(args: ${inputModelClassName}): Promise<${outputModelName}> {`,
-        );
+        fileContent.push(...generateTaskMethodSignature(endpoint));
         fileContent.push(`    return this.${fromMethod}().${toMethod}().${methodName}(args);`);
         fileContent.push(`  }`);
         fileContent.push('');
@@ -807,12 +809,51 @@ function generateOutputModelsImports(endpoints: meta.EndpointDef[]) {
     fileContent.push(`  ${outputModelClassName},`);
     if (endpoint.hasSamplesParam) {
       const outputModelNameForOneSample = meta.getOutputModelTypeOneSample(endpoint);
-      const outputModelNameForMulitpleSample = meta.getOutputModelTypeMultipleSamples(endpoint);
-      fileContent.push(`  ${outputModelNameForMulitpleSample},`);
+      const outputModelNameForMulitpleSamples = meta.getOutputModelTypeMultipleSamples(endpoint);
+      fileContent.push(`  ${outputModelNameForMulitpleSamples},`);
       fileContent.push(`  ${outputModelNameForOneSample},`);
+    }
+    if (endpoint.outputType !== 'text') {
+      const outputModelNameForOneSampleAsUrl = meta.getOutputModelTypeOneSampleAsUrl(endpoint);
+      const outputModelNameForMulitpleSamplesAsUrl =
+        meta.getOutputModelTypeMultipleSamplesAsUrl(endpoint);
+      fileContent.push(`  ${outputModelNameForMulitpleSamplesAsUrl},`);
+      fileContent.push(`  ${outputModelNameForOneSampleAsUrl},`);
     }
   }
   fileContent.push(`} from './output-models';`);
+  return fileContent;
+}
+
+function generateTaskMethodSignature(endpoint: meta.EndpointDef) {
+  const fileContent: string[] = [];
+  const methodName = meta.getMethodName(endpoint);
+  const inputModelType = meta.getInputModelType(endpoint);
+  const outputModelType = meta.getOutputModelType(endpoint);
+  if (endpoint.hasSamplesParam || endpoint.outputType !== 'text') {
+    const outputModelNameForOneSample = meta.getOutputModelTypeOneSample(endpoint);
+    const outputModelNameForMulitpleSamples = meta.getOutputModelTypeMultipleSamples(endpoint);
+    const outputModelNameForOneSampleAsUrl = meta.getOutputModelTypeOneSampleAsUrl(endpoint);
+    const outputModelNameForMulitpleSamplesAsUrl =
+      meta.getOutputModelTypeMultipleSamplesAsUrl(endpoint);
+    fileContent.push(
+      `  ${methodName}(args: ${inputModelType} & { samples: 1, asUrl: true }): Promise<${outputModelNameForOneSampleAsUrl}>;`,
+    );
+    fileContent.push(
+      `  ${methodName}(args: ${inputModelType} & { asUrl: true }): Promise<${outputModelNameForMulitpleSamplesAsUrl}>;`,
+    );
+    if (endpoint.hasSamplesParam) {
+      fileContent.push(
+        `  ${methodName}(args: ${inputModelType} & { samples: 1 }): Promise<${outputModelNameForOneSample}>;`,
+      );
+      fileContent.push(
+        `  ${methodName}(args: ${inputModelType}): Promise<${outputModelNameForMulitpleSamples}>;`,
+      );
+    } else {
+      fileContent.push(`  ${methodName}(args: ${inputModelType}): Promise<${outputModelType}>;`);
+    }
+  }
+  fileContent.push(`  ${methodName}(args: ${inputModelType}): Promise<${outputModelType}> {`);
   return fileContent;
 }
 

@@ -77,20 +77,42 @@ import {
   AudioTextSpeakerDiarizationOutputs,
   AudioTextSpeakerGenderClassificationOutputs,
   ImageImageBackgroundRemovalOutputs,
+  ImageImageBackgroundRemovalOutputsMultipleSamplesAsUrl,
+  ImageImageBackgroundRemovalOutputsOneSampleAsUrl,
   ImageImageBackgroundReplacementOutputs,
+  ImageImageBackgroundReplacementOutputsMultipleSamplesAsUrl,
+  ImageImageBackgroundReplacementOutputsOneSampleAsUrl,
   ImageImageColorizationOutputs,
+  ImageImageColorizationOutputsMultipleSamplesAsUrl,
+  ImageImageColorizationOutputsOneSampleAsUrl,
   ImageImageDeblurringOutputs,
+  ImageImageDeblurringOutputsMultipleSamplesAsUrl,
+  ImageImageDeblurringOutputsOneSampleAsUrl,
   ImageImageEnhancementOutputs,
+  ImageImageEnhancementOutputsMultipleSamplesAsUrl,
+  ImageImageEnhancementOutputsOneSampleAsUrl,
   ImageImageFaceBluringOutputs,
+  ImageImageFaceBluringOutputsMultipleSamplesAsUrl,
+  ImageImageFaceBluringOutputsOneSampleAsUrl,
   ImageImageGuidedInpaintingOutputs,
+  ImageImageGuidedInpaintingOutputsMultipleSamplesAsUrl,
+  ImageImageGuidedInpaintingOutputsOneSampleAsUrl,
   ImageImageImageGuidedInpaintingOutputs,
+  ImageImageImageGuidedInpaintingOutputsMultipleSamplesAsUrl,
+  ImageImageImageGuidedInpaintingOutputsOneSampleAsUrl,
   ImageImageInpaintingOutputs,
+  ImageImageInpaintingOutputsMultipleSamplesAsUrl,
+  ImageImageInpaintingOutputsOneSampleAsUrl,
   ImageImageUncolorizationOutputs,
+  ImageImageUncolorizationOutputsMultipleSamplesAsUrl,
+  ImageImageUncolorizationOutputsOneSampleAsUrl,
   ImageTextClassificationOutputs,
   ImageTextOcrOutputs,
   TextImageImageGenerationOutputs,
   TextImageImageGenerationOutputsMultipleSamples,
   TextImageImageGenerationOutputsOneSample,
+  TextImageImageGenerationOutputsMultipleSamplesAsUrl,
+  TextImageImageGenerationOutputsOneSampleAsUrl,
   TextTextAddressFormattingOutputs,
   TextTextAgeFromNameOutputs,
   TextTextAnonymizationOutputs,
@@ -166,42 +188,72 @@ export abstract class Shortcuts implements
 
   // IMAGE => IMAGE
 
+  backgroundRemoval(args: ImageImageBackgroundRemovalInputs & { samples: 1, asUrl: true }): Promise<ImageImageBackgroundRemovalOutputsOneSampleAsUrl>;
+  backgroundRemoval(args: ImageImageBackgroundRemovalInputs & { asUrl: true }): Promise<ImageImageBackgroundRemovalOutputsMultipleSamplesAsUrl>;
+  backgroundRemoval(args: ImageImageBackgroundRemovalInputs): Promise<ImageImageBackgroundRemovalOutputs>;
   backgroundRemoval(args: ImageImageBackgroundRemovalInputs): Promise<ImageImageBackgroundRemovalOutputs> {
     return this.fromImage().toImage().backgroundRemoval(args);
   }
 
+  backgroundReplacement(args: ImageImageBackgroundReplacementInputs & { samples: 1, asUrl: true }): Promise<ImageImageBackgroundReplacementOutputsOneSampleAsUrl>;
+  backgroundReplacement(args: ImageImageBackgroundReplacementInputs & { asUrl: true }): Promise<ImageImageBackgroundReplacementOutputsMultipleSamplesAsUrl>;
+  backgroundReplacement(args: ImageImageBackgroundReplacementInputs): Promise<ImageImageBackgroundReplacementOutputs>;
   backgroundReplacement(args: ImageImageBackgroundReplacementInputs): Promise<ImageImageBackgroundReplacementOutputs> {
     return this.fromImage().toImage().backgroundReplacement(args);
   }
 
+  colorization(args: ImageImageColorizationInputs & { samples: 1, asUrl: true }): Promise<ImageImageColorizationOutputsOneSampleAsUrl>;
+  colorization(args: ImageImageColorizationInputs & { asUrl: true }): Promise<ImageImageColorizationOutputsMultipleSamplesAsUrl>;
+  colorization(args: ImageImageColorizationInputs): Promise<ImageImageColorizationOutputs>;
   colorization(args: ImageImageColorizationInputs): Promise<ImageImageColorizationOutputs> {
     return this.fromImage().toImage().colorization(args);
   }
 
+  deblurring(args: ImageImageDeblurringInputs & { samples: 1, asUrl: true }): Promise<ImageImageDeblurringOutputsOneSampleAsUrl>;
+  deblurring(args: ImageImageDeblurringInputs & { asUrl: true }): Promise<ImageImageDeblurringOutputsMultipleSamplesAsUrl>;
+  deblurring(args: ImageImageDeblurringInputs): Promise<ImageImageDeblurringOutputs>;
   deblurring(args: ImageImageDeblurringInputs): Promise<ImageImageDeblurringOutputs> {
     return this.fromImage().toImage().deblurring(args);
   }
 
+  enhancement(args: ImageImageEnhancementInputs & { samples: 1, asUrl: true }): Promise<ImageImageEnhancementOutputsOneSampleAsUrl>;
+  enhancement(args: ImageImageEnhancementInputs & { asUrl: true }): Promise<ImageImageEnhancementOutputsMultipleSamplesAsUrl>;
+  enhancement(args: ImageImageEnhancementInputs): Promise<ImageImageEnhancementOutputs>;
   enhancement(args: ImageImageEnhancementInputs): Promise<ImageImageEnhancementOutputs> {
     return this.fromImage().toImage().enhancement(args);
   }
 
+  faceBluring(args: ImageImageFaceBluringInputs & { samples: 1, asUrl: true }): Promise<ImageImageFaceBluringOutputsOneSampleAsUrl>;
+  faceBluring(args: ImageImageFaceBluringInputs & { asUrl: true }): Promise<ImageImageFaceBluringOutputsMultipleSamplesAsUrl>;
+  faceBluring(args: ImageImageFaceBluringInputs): Promise<ImageImageFaceBluringOutputs>;
   faceBluring(args: ImageImageFaceBluringInputs): Promise<ImageImageFaceBluringOutputs> {
     return this.fromImage().toImage().faceBluring(args);
   }
 
+  guidedInpainting(args: ImageImageGuidedInpaintingInputs & { samples: 1, asUrl: true }): Promise<ImageImageGuidedInpaintingOutputsOneSampleAsUrl>;
+  guidedInpainting(args: ImageImageGuidedInpaintingInputs & { asUrl: true }): Promise<ImageImageGuidedInpaintingOutputsMultipleSamplesAsUrl>;
+  guidedInpainting(args: ImageImageGuidedInpaintingInputs): Promise<ImageImageGuidedInpaintingOutputs>;
   guidedInpainting(args: ImageImageGuidedInpaintingInputs): Promise<ImageImageGuidedInpaintingOutputs> {
     return this.fromImage().toImage().guidedInpainting(args);
   }
 
+  imageGuidedInpainting(args: ImageImageImageGuidedInpaintingInputs & { samples: 1, asUrl: true }): Promise<ImageImageImageGuidedInpaintingOutputsOneSampleAsUrl>;
+  imageGuidedInpainting(args: ImageImageImageGuidedInpaintingInputs & { asUrl: true }): Promise<ImageImageImageGuidedInpaintingOutputsMultipleSamplesAsUrl>;
+  imageGuidedInpainting(args: ImageImageImageGuidedInpaintingInputs): Promise<ImageImageImageGuidedInpaintingOutputs>;
   imageGuidedInpainting(args: ImageImageImageGuidedInpaintingInputs): Promise<ImageImageImageGuidedInpaintingOutputs> {
     return this.fromImage().toImage().imageGuidedInpainting(args);
   }
 
+  inpainting(args: ImageImageInpaintingInputs & { samples: 1, asUrl: true }): Promise<ImageImageInpaintingOutputsOneSampleAsUrl>;
+  inpainting(args: ImageImageInpaintingInputs & { asUrl: true }): Promise<ImageImageInpaintingOutputsMultipleSamplesAsUrl>;
+  inpainting(args: ImageImageInpaintingInputs): Promise<ImageImageInpaintingOutputs>;
   inpainting(args: ImageImageInpaintingInputs): Promise<ImageImageInpaintingOutputs> {
     return this.fromImage().toImage().inpainting(args);
   }
 
+  uncolorization(args: ImageImageUncolorizationInputs & { samples: 1, asUrl: true }): Promise<ImageImageUncolorizationOutputsOneSampleAsUrl>;
+  uncolorization(args: ImageImageUncolorizationInputs & { asUrl: true }): Promise<ImageImageUncolorizationOutputsMultipleSamplesAsUrl>;
+  uncolorization(args: ImageImageUncolorizationInputs): Promise<ImageImageUncolorizationOutputs>;
   uncolorization(args: ImageImageUncolorizationInputs): Promise<ImageImageUncolorizationOutputs> {
     return this.fromImage().toImage().uncolorization(args);
   }
@@ -220,6 +272,8 @@ export abstract class Shortcuts implements
 
   // TEXT => IMAGE
 
+  imageGeneration(args: TextImageImageGenerationInputs & { samples: 1, asUrl: true }): Promise<TextImageImageGenerationOutputsOneSampleAsUrl>;
+  imageGeneration(args: TextImageImageGenerationInputs & { asUrl: true }): Promise<TextImageImageGenerationOutputsMultipleSamplesAsUrl>;
   imageGeneration(args: TextImageImageGenerationInputs & { samples: 1 }): Promise<TextImageImageGenerationOutputsOneSample>;
   imageGeneration(args: TextImageImageGenerationInputs): Promise<TextImageImageGenerationOutputsMultipleSamples>;
   imageGeneration(args: TextImageImageGenerationInputs): Promise<TextImageImageGenerationOutputs> {
