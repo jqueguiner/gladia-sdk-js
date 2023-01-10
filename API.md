@@ -23,7 +23,8 @@ The runtime default model is defined on the GladIA server.
 
 - `audio`: audio
 - `audio_url`: url
-- `language`: string *(required)*
+- `language`: string
+- `nb_speakers`: integer
 
 ### `speaker-diarization`
 
@@ -35,6 +36,7 @@ The runtime default model is defined on the GladIA server.
 
 - `audio`: audio
 - `audio_url`: url
+- `nb_speakers`: integer
 
 ### `speaker-gender-classification`
 
@@ -73,19 +75,7 @@ The runtime default model is defined on the GladIA server.
 - `original_image_url`: url
 - `background_image`: image
 - `background_image_url`: url
-- `alignment`: enum *(required)*
-  - *`center`*
-  - *`top`*
-  - *`bottom`*
-  - *`left`*
-  - *`right`*
-  - *`top-left`*
-  - *`top-center`*
-  - *`top-right`*
-  - *`bottom-left`*
-  - *`bottom-center`*
-  - *`bottom-right`*
-  - *`cropped`*
+- `alignment`: string *(required)*
 
 ### `colorization`
 
@@ -493,7 +483,7 @@ The runtime default model is defined on the GladIA server.
 
 #### other params
 
-- `text`: string *(required)*
+- `texts`: array *(required)*
 
 ### `gender-from-name`
 
@@ -580,6 +570,16 @@ The runtime default model is defined on the GladIA server.
 - `text`: string *(required)*
 - `max_length`: integer *(required)*
 
+### `image-generation-prompt-beautifier`
+
+#### `models`
+
+- **ms-promptist (default)**
+
+#### other params
+
+- `prompt`: string *(required)*
+
 ### `keyword-extraction`
 
 #### `models`
@@ -607,7 +607,6 @@ The runtime default model is defined on the GladIA server.
 #### `models`
 
 - **jpt (default)**
-- papluca_xlm-roberta-base-language-detection_deepspeed
 - toftrup-etal-2021
 
 #### other params
@@ -630,7 +629,6 @@ The runtime default model is defined on the GladIA server.
 
 #### `models`
 
-- dbmdz-bert-large-cased-finetuned-conll03-english_deepspeed
 - **spacy-multilingual (default)**
 
 #### other params
@@ -740,7 +738,7 @@ The runtime default model is defined on the GladIA server.
 
 #### other params
 
-- `text`: string *(required)*
+- `texts`: array *(required)*
 
 ### `similarity`
 

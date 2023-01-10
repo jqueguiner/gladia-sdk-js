@@ -48,6 +48,7 @@ import {
   TextTextGuessIntentInputs,
   TextTextHateSpeechDetectionInputs,
   TextTextHeadlineGenerationInputs,
+  TextTextImageGenerationPromptBeautifierInputs,
   TextTextKeywordExtractionInputs,
   TextTextLanguageCodesInputs,
   TextTextLanguageDetectionInputs,
@@ -111,6 +112,7 @@ import {
   TextTextGuessIntentOutputs,
   TextTextHateSpeechDetectionOutputs,
   TextTextHeadlineGenerationOutputs,
+  TextTextImageGenerationPromptBeautifierOutputs,
   TextTextKeywordExtractionOutputs,
   TextTextLanguageCodesOutputs,
   TextTextLanguageDetectionOutputs,
@@ -308,6 +310,10 @@ export abstract class Shortcuts implements
 
   headlineGeneration(args: TextTextHeadlineGenerationInputs): Promise<TextTextHeadlineGenerationOutputs> {
     return this.fromText().toText().headlineGeneration(args);
+  }
+
+  imageGenerationPromptBeautifier(args: TextTextImageGenerationPromptBeautifierInputs): Promise<TextTextImageGenerationPromptBeautifierOutputs> {
+    return this.fromText().toText().imageGenerationPromptBeautifier(args);
   }
 
   keywordExtraction(args: TextTextKeywordExtractionInputs): Promise<TextTextKeywordExtractionOutputs> {

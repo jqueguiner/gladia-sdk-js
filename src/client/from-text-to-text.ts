@@ -22,6 +22,7 @@ import {
   TextTextGuessIntentInputs,
   TextTextHateSpeechDetectionInputs,
   TextTextHeadlineGenerationInputs,
+  TextTextImageGenerationPromptBeautifierInputs,
   TextTextKeywordExtractionInputs,
   TextTextLanguageCodesInputs,
   TextTextLanguageDetectionInputs,
@@ -66,6 +67,7 @@ import {
   TextTextGuessIntentOutputs,
   TextTextHateSpeechDetectionOutputs,
   TextTextHeadlineGenerationOutputs,
+  TextTextImageGenerationPromptBeautifierOutputs,
   TextTextKeywordExtractionOutputs,
   TextTextLanguageCodesOutputs,
   TextTextLanguageDetectionOutputs,
@@ -110,6 +112,7 @@ import {
   TEXT_TEXT_GUESS_INTENT_CONTENT_TYPE,
   TEXT_TEXT_HATE_SPEECH_DETECTION_CONTENT_TYPE,
   TEXT_TEXT_HEADLINE_GENERATION_CONTENT_TYPE,
+  TEXT_TEXT_IMAGE_GENERATION_PROMPT_BEAUTIFIER_CONTENT_TYPE,
   TEXT_TEXT_KEYWORD_EXTRACTION_CONTENT_TYPE,
   TEXT_TEXT_LANGUAGE_CODES_CONTENT_TYPE,
   TEXT_TEXT_LANGUAGE_DETECTION_CONTENT_TYPE,
@@ -356,7 +359,7 @@ export class FromTextToText {
 
   emotionRecognition(args: TextTextEmotionRecognitionInputs): Promise<TextTextEmotionRecognitionOutputs> {
     const formData = new UrlFormData();
-    formData.append('text', args.text);
+    formData.append('texts', args.texts);
     return this.httpClient.post({
       url: '/text/text/emotion-recognition/',
       headers: {
@@ -501,6 +504,22 @@ export class FromTextToText {
       url: '/text/text/headline-generation/',
       headers: {
         'Content-Type': TEXT_TEXT_HEADLINE_GENERATION_CONTENT_TYPE,
+        ...(args.headers ?? {}),
+      },
+      query: {
+        ...(args.model ? {model: args.model} : {}),
+      },
+      body: formData.toString(),
+    });
+  }
+
+  imageGenerationPromptBeautifier(args: TextTextImageGenerationPromptBeautifierInputs): Promise<TextTextImageGenerationPromptBeautifierOutputs> {
+    const formData = new UrlFormData();
+    formData.append('prompt', args.prompt);
+    return this.httpClient.post({
+      url: '/text/text/image-generation-prompt-beautifier/',
+      headers: {
+        'Content-Type': TEXT_TEXT_IMAGE_GENERATION_PROMPT_BEAUTIFIER_CONTENT_TYPE,
         ...(args.headers ?? {}),
       },
       query: {
@@ -734,7 +753,7 @@ export class FromTextToText {
 
   sentimentAnalysis(args: TextTextSentimentAnalysisInputs): Promise<TextTextSentimentAnalysisOutputs> {
     const formData = new UrlFormData();
-    formData.append('text', args.text);
+    formData.append('texts', args.texts);
     return this.httpClient.post({
       url: '/text/text/sentiment-analysis/',
       headers: {

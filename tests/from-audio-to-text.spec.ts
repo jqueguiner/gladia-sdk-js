@@ -7,7 +7,7 @@ import {
 } from '../src/models';
 import gladia from '../src/index';
 import { HttpClient } from '../src/internal/http-client';
-import { getRandomText, getPostMock, mockHttpClient } from './helpers/mocks';
+import { getRandomInt, getRandomText, getPostMock, mockHttpClient } from './helpers/mocks';
 
 describe('FromAudioToText', () => {
   describe('audioTranscription', () => {
@@ -24,10 +24,12 @@ describe('FromAudioToText', () => {
         const audio_data = new Blob([getRandomText()]);
         const audio_url_data = getRandomText();
         const language_data = getRandomText();
+        const nb_speakers_data = getRandomInt();
         await gladiaClient.fromAudio().toText().audioTranscription({
           audio: audio_data,
           audio_url: audio_url_data,
           language: language_data,
+          nb_speakers: nb_speakers_data,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -40,15 +42,18 @@ describe('FromAudioToText', () => {
         expect(firstCallBody.get('audio')).toBeDefined();
         expect(firstCallBody.get('audio_url')).toEqual(audio_url_data);
         expect(firstCallBody.get('language')).toEqual(language_data);
+        expect(firstCallBody.get('nb_speakers')).toEqual(String(nb_speakers_data));
       });
       it('should call the api with the text and the specified model', async () => {
         const audio_data = new Blob([getRandomText()]);
         const audio_url_data = getRandomText();
         const language_data = getRandomText();
+        const nb_speakers_data = getRandomInt();
         await gladiaClient.fromAudio().toText().audioTranscription({
           audio: audio_data,
           audio_url: audio_url_data,
           language: language_data,
+          nb_speakers: nb_speakers_data,
           model: 'coqui_english_huge_vocab',
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
@@ -63,6 +68,7 @@ describe('FromAudioToText', () => {
         expect(firstCallBody.get('audio')).toBeDefined();
         expect(firstCallBody.get('audio_url')).toEqual(audio_url_data);
         expect(firstCallBody.get('language')).toEqual(language_data);
+        expect(firstCallBody.get('nb_speakers')).toEqual(String(nb_speakers_data));
       });
     });
     describe('shortcuts', () => {
@@ -70,10 +76,12 @@ describe('FromAudioToText', () => {
         const audio_data = new Blob([getRandomText()]);
         const audio_url_data = getRandomText();
         const language_data = getRandomText();
+        const nb_speakers_data = getRandomInt();
         await gladiaClient.audioTranscription({
           audio: audio_data,
           audio_url: audio_url_data,
           language: language_data,
+          nb_speakers: nb_speakers_data,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -86,15 +94,18 @@ describe('FromAudioToText', () => {
         expect(firstCallBody.get('audio')).toBeDefined();
         expect(firstCallBody.get('audio_url')).toEqual(audio_url_data);
         expect(firstCallBody.get('language')).toEqual(language_data);
+        expect(firstCallBody.get('nb_speakers')).toEqual(String(nb_speakers_data));
       });
       it('should call the api with the text and the specified model', async () => {
         const audio_data = new Blob([getRandomText()]);
         const audio_url_data = getRandomText();
         const language_data = getRandomText();
+        const nb_speakers_data = getRandomInt();
         await gladiaClient.audioTranscription({
           audio: audio_data,
           audio_url: audio_url_data,
           language: language_data,
+          nb_speakers: nb_speakers_data,
           model: 'coqui_english_huge_vocab',
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
@@ -109,6 +120,7 @@ describe('FromAudioToText', () => {
         expect(firstCallBody.get('audio')).toBeDefined();
         expect(firstCallBody.get('audio_url')).toEqual(audio_url_data);
         expect(firstCallBody.get('language')).toEqual(language_data);
+        expect(firstCallBody.get('nb_speakers')).toEqual(String(nb_speakers_data));
       });
     });
   });
@@ -126,9 +138,11 @@ describe('FromAudioToText', () => {
       it('should call the api with the text and the default model by default', async () => {
         const audio_data = new Blob([getRandomText()]);
         const audio_url_data = getRandomText();
+        const nb_speakers_data = getRandomInt();
         await gladiaClient.fromAudio().toText().speakerDiarization({
           audio: audio_data,
           audio_url: audio_url_data,
+          nb_speakers: nb_speakers_data,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -140,13 +154,16 @@ describe('FromAudioToText', () => {
         });
         expect(firstCallBody.get('audio')).toBeDefined();
         expect(firstCallBody.get('audio_url')).toEqual(audio_url_data);
+        expect(firstCallBody.get('nb_speakers')).toEqual(String(nb_speakers_data));
       });
       it('should call the api with the text and the specified model', async () => {
         const audio_data = new Blob([getRandomText()]);
         const audio_url_data = getRandomText();
+        const nb_speakers_data = getRandomInt();
         await gladiaClient.fromAudio().toText().speakerDiarization({
           audio: audio_data,
           audio_url: audio_url_data,
+          nb_speakers: nb_speakers_data,
           model: 'fake-model-name' as unknown as AudioTextSpeakerDiarizationModel,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
@@ -160,15 +177,18 @@ describe('FromAudioToText', () => {
         });
         expect(firstCallBody.get('audio')).toBeDefined();
         expect(firstCallBody.get('audio_url')).toEqual(audio_url_data);
+        expect(firstCallBody.get('nb_speakers')).toEqual(String(nb_speakers_data));
       });
     });
     describe('shortcuts', () => {
       it('should call the api with the text and the default model by default', async () => {
         const audio_data = new Blob([getRandomText()]);
         const audio_url_data = getRandomText();
+        const nb_speakers_data = getRandomInt();
         await gladiaClient.speakerDiarization({
           audio: audio_data,
           audio_url: audio_url_data,
+          nb_speakers: nb_speakers_data,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -180,13 +200,16 @@ describe('FromAudioToText', () => {
         });
         expect(firstCallBody.get('audio')).toBeDefined();
         expect(firstCallBody.get('audio_url')).toEqual(audio_url_data);
+        expect(firstCallBody.get('nb_speakers')).toEqual(String(nb_speakers_data));
       });
       it('should call the api with the text and the specified model', async () => {
         const audio_data = new Blob([getRandomText()]);
         const audio_url_data = getRandomText();
+        const nb_speakers_data = getRandomInt();
         await gladiaClient.speakerDiarization({
           audio: audio_data,
           audio_url: audio_url_data,
+          nb_speakers: nb_speakers_data,
           model: 'fake-model-name' as unknown as AudioTextSpeakerDiarizationModel,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
@@ -200,6 +223,7 @@ describe('FromAudioToText', () => {
         });
         expect(firstCallBody.get('audio')).toBeDefined();
         expect(firstCallBody.get('audio_url')).toEqual(audio_url_data);
+        expect(firstCallBody.get('nb_speakers')).toEqual(String(nb_speakers_data));
       });
     });
   });

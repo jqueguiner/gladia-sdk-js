@@ -365,6 +365,12 @@ export const TEXT_TEXT_HEADLINE_GENERATION_MODELS = [
 export const TEXT_TEXT_HEADLINE_GENERATION_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
 export type TextTextHeadlineGenerationModel = typeof TEXT_TEXT_HEADLINE_GENERATION_MODELS[number];
 
+export const TEXT_TEXT_IMAGE_GENERATION_PROMPT_BEAUTIFIER_MODELS = [
+   'ms-promptist',
+] as const;
+export const TEXT_TEXT_IMAGE_GENERATION_PROMPT_BEAUTIFIER_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
+export type TextTextImageGenerationPromptBeautifierModel = typeof TEXT_TEXT_IMAGE_GENERATION_PROMPT_BEAUTIFIER_MODELS[number];
+
 export const TEXT_TEXT_KEYWORD_EXTRACTION_MODELS = [
    'keybert-paraphrase-multilingual-MiniLM-L12-v2',
 ] as const;
@@ -379,7 +385,6 @@ export type TextTextLanguageCodesModel = typeof TEXT_TEXT_LANGUAGE_CODES_MODELS[
 
 export const TEXT_TEXT_LANGUAGE_DETECTION_MODELS = [
    'jpt',
-   'papluca_xlm-roberta-base-language-detection_deepspeed',
    'toftrup-etal-2021',
 ] as const;
 export const TEXT_TEXT_LANGUAGE_DETECTION_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
@@ -394,7 +399,6 @@ export const TEXT_TEXT_LANGUAGE_GENERATION_CONTENT_TYPE = "application/x-www-for
 export type TextTextLanguageGenerationModel = typeof TEXT_TEXT_LANGUAGE_GENERATION_MODELS[number];
 
 export const TEXT_TEXT_NAMED_ENTITY_RECOGNITION_MODELS = [
-   'dbmdz-bert-large-cased-finetuned-conll03-english_deepspeed',
    'spacy-multilingual',
 ] as const;
 export const TEXT_TEXT_NAMED_ENTITY_RECOGNITION_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;

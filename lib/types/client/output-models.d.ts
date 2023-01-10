@@ -80,6 +80,10 @@ export declare type TextTextHeadlineGenerationOutputs = {
     prediction: string;
     prediction_raw: unknown;
 };
+export declare type TextTextImageGenerationPromptBeautifierOutputs = {
+    prediction: string;
+    prediction_raw: unknown;
+};
 export declare type TextTextKeywordExtractionOutputs = {
     prediction: string;
     prediction_raw: unknown;

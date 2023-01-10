@@ -44,7 +44,14 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
         "type": "string",
         "name": "language",
         "example": "en",
-        "required": true
+        "required": false
+      },
+      {
+        "in": "formData",
+        "type": "integer",
+        "name": "nb_speakers",
+        "example": 0,
+        "required": false
       }
     ],
     "hasSamplesParam": false
@@ -76,6 +83,13 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
         "type": "url",
         "name": "audio_url",
         "example": "http://files.gladia.io/examples/audio/text/audio-transcription/audio.mp3",
+        "required": false
+      },
+      {
+        "in": "formData",
+        "type": "integer",
+        "name": "nb_speakers",
+        "example": 0,
         "required": false
       }
     ],
@@ -189,24 +203,10 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
       },
       {
         "in": "formData",
-        "type": "enum",
+        "type": "string",
         "name": "alignment",
         "example": "center",
-        "required": true,
-        "enumValues": [
-          "center",
-          "top",
-          "bottom",
-          "left",
-          "right",
-          "top-left",
-          "top-center",
-          "top-right",
-          "bottom-left",
-          "bottom-center",
-          "bottom-right",
-          "cropped"
-        ]
+        "required": true
       }
     ],
     "hasSamplesParam": false
@@ -1129,9 +1129,13 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
     "params": [
       {
         "in": "formData",
-        "type": "string",
-        "name": "text",
-        "example": "I love you.",
+        "type": "array",
+        "name": "texts",
+        "example": [
+          "I love you.",
+          "I hate you.",
+          "I am happy."
+        ],
         "required": true
       }
     ],
@@ -1350,6 +1354,31 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
     "hasSamplesParam": false
   },
   {
+    "url": "/text/text/image-generation-prompt-beautifier/",
+    "inputType": "text",
+    "outputType": "text",
+    "taskName": "image-generation-prompt-beautifier",
+    "models": [
+      "ms-promptist"
+    ],
+    "defaultModel": "ms-promptist",
+    "inputBodyContentType": "application/x-www-form-urlencoded",
+    "outputBodyContentType": {
+      "type": "prediction-standard-output",
+      "predictionType": "string"
+    },
+    "params": [
+      {
+        "in": "formData",
+        "type": "string",
+        "name": "prompt",
+        "example": "A rabbit is wearing a space suit",
+        "required": true
+      }
+    ],
+    "hasSamplesParam": false
+  },
+  {
     "url": "/text/text/keyword-extraction/",
     "inputType": "text",
     "outputType": "text",
@@ -1420,7 +1449,6 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
     "taskName": "language-detection",
     "models": [
       "jpt",
-      "papluca_xlm-roberta-base-language-detection_deepspeed",
       "toftrup-etal-2021"
     ],
     "defaultModel": "jpt",
@@ -1473,7 +1501,6 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
     "outputType": "text",
     "taskName": "named-entity-recognition",
     "models": [
-      "dbmdz-bert-large-cased-finetuned-conll03-english_deepspeed",
       "spacy-multilingual"
     ],
     "defaultModel": "spacy-multilingual",
@@ -1747,9 +1774,12 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
     "params": [
       {
         "in": "formData",
-        "type": "string",
-        "name": "text",
-        "example": "I like you. I love you",
+        "type": "array",
+        "name": "texts",
+        "example": [
+          "I think you are a good person.",
+          "I think you are a bad person."
+        ],
         "required": true
       }
     ],

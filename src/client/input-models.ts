@@ -38,6 +38,7 @@ import {
   TextTextGuessIntentModel,
   TextTextHateSpeechDetectionModel,
   TextTextHeadlineGenerationModel,
+  TextTextImageGenerationPromptBeautifierModel,
   TextTextKeywordExtractionModel,
   TextTextLanguageCodesModel,
   TextTextLanguageDetectionModel,
@@ -67,12 +68,14 @@ export interface AudioTextAudioTranscriptionInputs
   extends WithHeaders, WithModel<AudioTextAudioTranscriptionModel> {
   audio?: Blob;
   audio_url?: string;
-  language: string;
+  language?: string;
+  nb_speakers?: number;
 }
 export interface AudioTextSpeakerDiarizationInputs 
   extends WithHeaders, WithModel<AudioTextSpeakerDiarizationModel> {
   audio?: Blob;
   audio_url?: string;
+  nb_speakers?: number;
 }
 export interface AudioTextSpeakerGenderClassificationInputs 
   extends WithHeaders, WithModel<AudioTextSpeakerGenderClassificationModel> {
@@ -84,28 +87,13 @@ export interface ImageImageBackgroundRemovalInputs
   image?: Blob;
   image_url?: string;
 }
-export const IMAGE_IMAGE_BACKGROUND_REPLACEMENT_ENUM_PARAM_ALIGNMENT_VALUES = [
-  'center', 
-  'top', 
-  'bottom', 
-  'left', 
-  'right', 
-  'top-left', 
-  'top-center', 
-  'top-right', 
-  'bottom-left', 
-  'bottom-center', 
-  'bottom-right', 
-  'cropped', 
-] as const;
-export type ImageImageBackgroundReplacementEnumParamAlignment = typeof IMAGE_IMAGE_BACKGROUND_REPLACEMENT_ENUM_PARAM_ALIGNMENT_VALUES[number];
 export interface ImageImageBackgroundReplacementInputs 
   extends WithHeaders, WithModel<ImageImageBackgroundReplacementModel> {
   original_image?: Blob;
   original_image_url?: string;
   background_image?: Blob;
   background_image_url?: string;
-  alignment: ImageImageBackgroundReplacementEnumParamAlignment;
+  alignment: string;
 }
 export interface ImageImageColorizationInputs 
   extends WithHeaders, WithModel<ImageImageColorizationModel> {
@@ -231,7 +219,7 @@ export interface TextTextDateCleaningInputs
 }
 export interface TextTextEmotionRecognitionInputs 
   extends WithHeaders, WithModel<TextTextEmotionRecognitionModel> {
-  text: string;
+  texts: string[];
 }
 export interface TextTextGenderFromNameInputs 
   extends WithHeaders, WithModel<TextTextGenderFromNameModel> {
@@ -266,6 +254,10 @@ export interface TextTextHeadlineGenerationInputs
   extends WithHeaders, WithModel<TextTextHeadlineGenerationModel> {
   text: string;
   max_length: number;
+}
+export interface TextTextImageGenerationPromptBeautifierInputs 
+  extends WithHeaders, WithModel<TextTextImageGenerationPromptBeautifierModel> {
+  prompt: string;
 }
 export interface TextTextKeywordExtractionInputs 
   extends WithHeaders, WithModel<TextTextKeywordExtractionModel> {
@@ -327,7 +319,7 @@ export interface TextTextSentenceParaphraserInputs
 }
 export interface TextTextSentimentAnalysisInputs 
   extends WithHeaders, WithModel<TextTextSentimentAnalysisModel> {
-  text: string;
+  texts: string[];
 }
 export interface TextTextSimilarityInputs 
   extends WithHeaders, WithModel<TextTextSimilarityModel> {

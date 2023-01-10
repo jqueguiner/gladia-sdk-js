@@ -83,6 +83,10 @@ export type TextTextHeadlineGenerationOutputs = {
   prediction: string,
   prediction_raw: unknown,
 };
+export type TextTextImageGenerationPromptBeautifierOutputs = {
+  prediction: string,
+  prediction_raw: unknown,
+};
 export type TextTextKeywordExtractionOutputs = {
   prediction: string,
   prediction_raw: unknown,
