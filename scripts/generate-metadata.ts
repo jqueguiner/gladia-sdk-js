@@ -190,7 +190,7 @@ function getPostParams(def: PathDef, openApiJson: OpenApiJson) {
                 if (!('allOf' in propSchema)) {
                   throw new Error('Property allOf missing with data_type "enum"');
                 }
-                const ref = propSchema.allOf[0].$ref;
+                const ref = propSchema.allOf![0].$ref;
                 const dynamicEnum =
                   openApiJson.components.schemas[ref.substring('#/components/schemas/'.length)];
                 const enumValues = dynamicEnum.enum;
