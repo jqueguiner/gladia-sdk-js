@@ -29,18 +29,21 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
         "in": "formData",
         "type": "audio",
         "name": "audio",
+        "example": "http://files.gladia.io/examples/audio/text/audio-transcription/audio.mp3",
         "required": false
       },
       {
         "in": "formData",
         "type": "url",
         "name": "audio_url",
+        "example": "http://files.gladia.io/examples/audio/text/audio-transcription/audio.mp3",
         "required": false
       },
       {
         "in": "formData",
         "type": "string",
         "name": "language",
+        "example": "en",
         "required": true
       }
     ],
@@ -65,12 +68,14 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
         "in": "formData",
         "type": "audio",
         "name": "audio",
+        "example": "http://files.gladia.io/examples/audio/text/audio-transcription/audio.mp3",
         "required": false
       },
       {
         "in": "formData",
         "type": "url",
         "name": "audio_url",
+        "example": "http://files.gladia.io/examples/audio/text/audio-transcription/audio.mp3",
         "required": false
       }
     ],
@@ -95,12 +100,14 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
         "in": "formData",
         "type": "audio",
         "name": "audio",
+        "example": "http://files.gladia.io/examples/audio/text/audio-transcription/audio.mp3",
         "required": false
       },
       {
         "in": "formData",
         "type": "url",
         "name": "audio_url",
+        "example": "http://files.gladia.io/examples/audio/text/audio-transcription/audio.mp3",
         "required": false
       }
     ],
@@ -125,12 +132,14 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
         "in": "formData",
         "type": "image",
         "name": "image",
+        "example": "http://files.gladia.io/examples/image/image/background-removal/owl2.png",
         "required": false
       },
       {
         "in": "formData",
         "type": "url",
         "name": "image_url",
+        "example": "http://files.gladia.io/examples/image/image/background-removal/owl2.png",
         "required": false
       }
     ],
@@ -154,30 +163,35 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
         "in": "formData",
         "type": "image",
         "name": "original_image",
+        "example": "http://files.gladia.io/examples/image/image/background-removal/owl2.png",
         "required": false
       },
       {
         "in": "formData",
         "type": "url",
         "name": "original_image_url",
+        "example": "http://files.gladia.io/examples/image/image/background-removal/owl2.png",
         "required": false
       },
       {
         "in": "formData",
         "type": "image",
         "name": "background_image",
+        "example": "http://files.gladia.io/examples/image/image/bck-grd/green-forest.png",
         "required": false
       },
       {
         "in": "formData",
         "type": "url",
         "name": "background_image_url",
+        "example": "http://files.gladia.io/examples/image/image/bck-grd/green-forest.png",
         "required": false
       },
       {
         "in": "formData",
         "type": "enum",
         "name": "alignment",
+        "example": "center",
         "required": true,
         "enumValues": [
           "center",
@@ -217,12 +231,14 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
         "in": "formData",
         "type": "image",
         "name": "image",
+        "example": "http://files.gladia.io/examples/image/image/colorization/rsz_paris.jpg",
         "required": false
       },
       {
         "in": "formData",
         "type": "url",
         "name": "image_url",
+        "example": "http://files.gladia.io/examples/image/image/colorization/rsz_paris.jpg",
         "required": false
       }
     ],
@@ -246,12 +262,14 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
         "in": "formData",
         "type": "image",
         "name": "image",
+        "example": "http://files.gladia.io/image/image/deblurring/deblurring.png",
         "required": false
       },
       {
         "in": "formData",
         "type": "url",
         "name": "image_url",
+        "example": "http://files.gladia.io/image/image/deblurring/deblurring.png",
         "required": false
       }
     ],
@@ -276,12 +294,14 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
         "in": "formData",
         "type": "image",
         "name": "image",
+        "example": "http://files.gladia.io/image/image/enhancement/enhancement_retouching.png",
         "required": false
       },
       {
         "in": "formData",
         "type": "url",
         "name": "image_url",
+        "example": "http://files.gladia.io/image/image/enhancement/enhancement_retouching.png",
         "required": false
       }
     ],
@@ -305,12 +325,14 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
         "in": "formData",
         "type": "image",
         "name": "image",
+        "example": "http://files.gladia.io/examples/image/image/face-bluring/face-bluring.jpg",
         "required": false
       },
       {
         "in": "formData",
         "type": "url",
         "name": "image_url",
+        "example": "http://files.gladia.io/examples/image/image/face-bluring/face-bluring.jpg",
         "required": false
       }
     ],
@@ -335,30 +357,35 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
         "in": "formData",
         "type": "image",
         "name": "original_image",
+        "example": "https://raw.githubusercontent.com/CompVis/latent-diffusion/main/data/inpainting_examples/overture-creations-5sI6fQgYIuo.png",
         "required": false
       },
       {
         "in": "formData",
         "type": "url",
         "name": "original_image_url",
+        "example": "https://raw.githubusercontent.com/CompVis/latent-diffusion/main/data/inpainting_examples/overture-creations-5sI6fQgYIuo.png",
         "required": false
       },
       {
         "in": "formData",
         "type": "image",
         "name": "mask_image",
+        "example": "https://raw.githubusercontent.com/CompVis/latent-diffusion/main/data/inpainting_examples/overture-creations-5sI6fQgYIuo_mask.png",
         "required": false
       },
       {
         "in": "formData",
         "type": "url",
         "name": "mask_image_url",
+        "example": "https://raw.githubusercontent.com/CompVis/latent-diffusion/main/data/inpainting_examples/overture-creations-5sI6fQgYIuo_mask.png",
         "required": false
       },
       {
         "in": "formData",
         "type": "string",
         "name": "prompt",
+        "example": "a cat sitting on a bench",
         "required": true
       }
     ],
@@ -382,54 +409,63 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
         "in": "formData",
         "type": "image",
         "name": "original_image",
+        "example": "https://raw.githubusercontent.com/CompVis/latent-diffusion/main/data/inpainting_examples/overture-creations-5sI6fQgYIuo.png",
         "required": false
       },
       {
         "in": "formData",
         "type": "url",
         "name": "original_image_url",
+        "example": "https://raw.githubusercontent.com/CompVis/latent-diffusion/main/data/inpainting_examples/overture-creations-5sI6fQgYIuo.png",
         "required": false
       },
       {
         "in": "formData",
         "type": "image",
         "name": "example_image",
+        "example": "https://huggingface.co/spaces/Fantasy-Studio/Paint-by-Example/resolve/main/examples/reference/0.jpg",
         "required": false
       },
       {
         "in": "formData",
         "type": "url",
         "name": "example_image_url",
+        "example": "https://huggingface.co/spaces/Fantasy-Studio/Paint-by-Example/resolve/main/examples/reference/0.jpg",
         "required": false
       },
       {
         "in": "formData",
         "type": "image",
         "name": "mask_image",
+        "example": "https://raw.githubusercontent.com/CompVis/latent-diffusion/main/data/inpainting_examples/overture-creations-5sI6fQgYIuo_mask.png",
         "required": false
       },
       {
         "in": "formData",
         "type": "url",
         "name": "mask_image_url",
+        "example": "https://raw.githubusercontent.com/CompVis/latent-diffusion/main/data/inpainting_examples/overture-creations-5sI6fQgYIuo_mask.png",
         "required": false
       },
       {
         "in": "formData",
         "type": "integer",
         "name": "seed",
+        "example": 424242,
         "required": true
       },
       {
         "in": "formData",
         "type": "integer",
         "name": "steps",
+        "example": 75,
         "required": true
       },
       {
         "in": "formData",
         "type": "integer",
         "name": "guidance_scale",
+        "example": 15,
         "required": true
       }
     ],
@@ -457,24 +493,28 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
         "in": "formData",
         "type": "image",
         "name": "original_image",
+        "example": "https://raw.githubusercontent.com/CompVis/latent-diffusion/main/data/inpainting_examples/overture-creations-5sI6fQgYIuo.png",
         "required": false
       },
       {
         "in": "formData",
         "type": "url",
         "name": "original_image_url",
+        "example": "https://raw.githubusercontent.com/CompVis/latent-diffusion/main/data/inpainting_examples/overture-creations-5sI6fQgYIuo.png",
         "required": false
       },
       {
         "in": "formData",
         "type": "image",
         "name": "mask_image",
+        "example": "https://raw.githubusercontent.com/CompVis/latent-diffusion/main/data/inpainting_examples/overture-creations-5sI6fQgYIuo_mask.png",
         "required": false
       },
       {
         "in": "formData",
         "type": "url",
         "name": "mask_image_url",
+        "example": "https://raw.githubusercontent.com/CompVis/latent-diffusion/main/data/inpainting_examples/overture-creations-5sI6fQgYIuo_mask.png",
         "required": false
       }
     ],
@@ -498,12 +538,14 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
         "in": "formData",
         "type": "image",
         "name": "image",
+        "example": "http://files.gladia.io/examples/image/image/uncolorization/landscape-pics-wallpapers.png",
         "required": false
       },
       {
         "in": "formData",
         "type": "url",
         "name": "image_url",
+        "example": "http://files.gladia.io/examples/image/image/uncolorization/landscape-pics-wallpapers.png",
         "required": false
       }
     ],
@@ -645,18 +687,21 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
         "in": "formData",
         "type": "image",
         "name": "image",
+        "example": "http://files.gladia.io/examples/image/text/classification/image.png",
         "required": false
       },
       {
         "in": "formData",
         "type": "url",
         "name": "image_url",
+        "example": "http://files.gladia.io/examples/image/text/classification/image.png",
         "required": false
       },
       {
         "in": "formData",
         "type": "integer",
         "name": "top_k",
+        "example": 1,
         "required": true
       }
     ],
@@ -684,18 +729,21 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
         "in": "formData",
         "type": "image",
         "name": "image",
+        "example": "http://files.gladia.io/examples/image/text/ocr/testocr.png",
         "required": false
       },
       {
         "in": "formData",
         "type": "url",
         "name": "image_url",
+        "example": "http://files.gladia.io/examples/image/text/ocr/testocr.png",
         "required": false
       },
       {
         "in": "formData",
         "type": "string",
         "name": "source_language",
+        "example": "eng",
         "required": true
       }
     ],
@@ -723,24 +771,28 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
         "in": "formData",
         "type": "string",
         "name": "prompt",
+        "example": "The Eiffel tower landing on the moon, unreal engine.",
         "required": true
       },
       {
         "in": "formData",
         "type": "integer",
         "name": "samples",
+        "example": 1,
         "required": false
       },
       {
         "in": "formData",
         "type": "integer",
         "name": "steps",
+        "example": 40,
         "required": false
       },
       {
         "in": "formData",
         "type": "integer",
         "name": "seed",
+        "example": 424242,
         "required": false
       }
     ],
@@ -765,6 +817,7 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
         "in": "formData",
         "type": "string",
         "name": "address",
+        "example": "Taj Mahal, Agra, Uttar Pradesh 282001",
         "required": true
       }
     ],
@@ -788,6 +841,7 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
         "in": "formData",
         "type": "string",
         "name": "name",
+        "example": "Laurent",
         "required": false
       }
     ],
@@ -812,18 +866,21 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
         "in": "formData",
         "type": "string",
         "name": "language",
+        "example": "en",
         "required": true
       },
       {
         "in": "formData",
         "type": "string",
         "name": "entities",
+        "example": "PERSON, LOCATION, ORGANIZATION, CREDIT_CARD, CRYPTO, DATE_TIME, DOMAIN_NAME, EMAIL_ADDRESS, IBAN_CODE, IP_ADDRESS, NRP, PASSPORT, PHONE_NUMBER, US_BANK_NUMBER, US_DRIVER_LICENSE, US_ITIN, US_PASSPORT, US_SSN, US_VEHICLE, US_ZIP_CODE",
         "required": true
       },
       {
         "in": "formData",
         "type": "string",
         "name": "text",
+        "example": "Here are a few examples sentences we currently support:\nHello, my name is David Johnson and I live in Maine. My credit card number is 4095-2609-9393-4932 and my crypto wallet id is 16Yeky6GMjeNkAiNcBY7ZhrLoMSgg1BoyZ.\nOn September 18 I visited microsoft.com and sent an email to test@presidio.site,  from the IP 192.168.0.1.\nMy passport: 191280342 and my phone number: (212) 555-1234.\nThis is a valid International Bank Account Number: IL150120690000003111111 . Can you please check the status on bank account 954567876544?\nKate's social security number is 078-05-1126.  Her driver license? it is 1234567A.\n\nThis project welcomes contributions and suggestions. Most contributions require you to agree to a Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us the rights to use your contribution. For details, visit https://cla.microsoft.com When you submit a pull request, a CLA-bot will automatically determine whether you need to provide a CLA and decorate the PR appropriately (e.g., label, comment). Simply follow the instructions provided by the bot. You will only need to do this once across all repos using our CLA. This project has adopted the Microsoft Open Source Code of Conduct.\nFor more information see the Code of Conduct FAQ or contact opencode@microsoft.com with any additional questions or comments.",
         "required": true
       }
     ],
@@ -848,6 +905,7 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
         "in": "formData",
         "type": "string",
         "name": "sentence",
+        "example": "Text to corrcte",
         "required": true
       }
     ],
@@ -871,12 +929,14 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
         "in": "formData",
         "type": "string",
         "name": "text",
+        "example": "Deep learning (also known as deep structured learning) is part of a broader family of machine learning methods based on artificial neural networks with representation learning. Learning can be supervised, semi-supervised or unsupervised.[2]Deep-learning architectures such as deep neural networks, deep belief networks, deep reinforcement learning, recurrent neural networks, convolutional neural networks and Transformers have been applied to fields including computer vision, speech recognition, natural language processing, machine translation, bioinformatics, drug design, medical image analysis, climate science, material inspection and board game programs, where they have produced results comparable to and in some cases surpassing human expert performance.[3][4][5]Artificial neural networks (ANNs) were inspired by information processing and distributed communication nodes in biological systems. ANNs have various differences from biological brains. Specifically, artificial neural networks tend to be static and symbolic, while the biological brain of most living organisms is dynamic (plastic) and analogue.[6][7]The adjective deep in deep learning refers to the use of multiple layers in the network. Early work showed that a linear perceptron cannot be a universal classifier, but that a network with a nonpolynomial activation function with one hidden layer of unbounded width can. Deep learning is a modern variation which is concerned with an unbounded number of layers of bounded size, which permits practical application and optimized implementation, while retaining theoretical universality under mild conditions. In deep learning the layers are also permitted to be heterogeneous and to deviate widely from biologically informed connectionist models, for the sake of efficiency, trainability and understandability, hence the structured part.",
         "required": false
       },
       {
         "in": "formData",
         "type": "integer",
         "name": "bullets",
+        "example": 3,
         "required": false
       }
     ],
@@ -900,6 +960,7 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
         "in": "formData",
         "type": "string",
         "name": "text",
+        "example": "Is this text hateful ?",
         "required": false
       }
     ],
@@ -923,6 +984,7 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
         "in": "formData",
         "type": "string",
         "name": "text",
+        "example": "bouygues",
         "required": false
       }
     ],
@@ -946,6 +1008,7 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
         "in": "formData",
         "type": "string",
         "name": "text",
+        "example": "oracle inc",
         "required": false
       }
     ],
@@ -969,6 +1032,7 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
         "in": "formData",
         "type": "string",
         "name": "text",
+        "example": "AMZN",
         "required": false
       }
     ],
@@ -993,6 +1057,7 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
         "in": "formData",
         "type": "string",
         "name": "text",
+        "example": "Hannah: Hey, do you have Betty's number? Amanda: Lemme check Amanda: Sorry, can't find it. Amanda: Ask Larry Amanda: He called her last time we were at the park together Hannah: I don't know him well Amanda: Don't be shy, he's very nice Hannah: If you say so.. Hannah: I'd rather you texted him Amanda: Just text him 🙂 Hannah: Urgh.. Alright Hannah: Bye Amanda: Bye bye",
         "required": true
       }
     ],
@@ -1016,6 +1081,7 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
         "in": "formData",
         "type": "string",
         "name": "name",
+        "example": "Laurent",
         "required": false
       }
     ],
@@ -1040,6 +1106,7 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
         "in": "formData",
         "type": "string",
         "name": "date",
+        "example": "2/24/2003 0:00",
         "required": true
       }
     ],
@@ -1064,6 +1131,7 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
         "in": "formData",
         "type": "string",
         "name": "text",
+        "example": "I love you.",
         "required": true
       }
     ],
@@ -1087,6 +1155,7 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
         "in": "formData",
         "type": "string",
         "name": "name",
+        "example": "Laurent",
         "required": false
       }
     ],
@@ -1111,12 +1180,14 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
         "in": "formData",
         "type": "float",
         "name": "latitude",
+        "example": 43.2965,
         "required": true
       },
       {
         "in": "formData",
         "type": "float",
         "name": "longitude",
+        "example": 5.36978,
         "required": true
       }
     ],
@@ -1140,6 +1211,7 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
         "in": "formData",
         "type": "string",
         "name": "text",
+        "example": "what color is the sky ?",
         "required": false
       }
     ],
@@ -1163,6 +1235,7 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
         "in": "formData",
         "type": "string",
         "name": "text",
+        "example": "sf",
         "required": false
       }
     ],
@@ -1186,6 +1259,7 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
         "in": "formData",
         "type": "string",
         "name": "text",
+        "example": "fr",
         "required": false
       }
     ],
@@ -1209,6 +1283,7 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
         "in": "formData",
         "type": "string",
         "name": "text",
+        "example": "[{\"start\":\"0.00\",\"end\":\"5.00\",\"speaker\":\"SPEAKER_00\",\"sentence\":\"I regret to inform you that we will no longer require your services. Indeed, we believe that your participation in our activity is longer required. I hope you will understand our decision.\"},{\"start\":\"5.00\",\"end\":\"7.00\",\"speaker\":\"SPEAKER_01\",\"sentence\":\"What can I do to convince you to stay?\"},{\"start\":\"8.00\",\"end\":\"15.00\",\"speaker\":\"SPEAKER_00\",\"sentence\":\"I guess there is nothing you can, the decision is made, I'm sorry.\"}]",
         "required": false
       }
     ],
@@ -1235,6 +1310,7 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
         "in": "formData",
         "type": "string",
         "name": "text",
+        "example": "I hate you piece of shit",
         "required": true
       }
     ],
@@ -1260,12 +1336,14 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
         "in": "formData",
         "type": "string",
         "name": "text",
+        "example": "Very early yesterday morning, the United States President Donald Trump reported he and his wife First Lady Melania Trump tested positive for COVID-19. Officials said the Trumps' 14-year-old son Barron tested negative as did First Family and Senior Advisors Jared Kushner and Ivanka Trump.\nTrump took to social media, posting at 12:54 am local time (0454 UTC) on Twitter, \"Tonight, [Melania] and I tested positive for COVID-19. We will begin our quarantine and recovery process immediately. We will get through this TOGETHER!\" Yesterday afternoon Marine One landed on the White House's South Lawn flying Trump to Walter Reed National Military Medical Center (WRNMMC) in Bethesda, Maryland.\nReports said both were showing \"mild symptoms\". Senior administration officials were tested as people were informed of the positive test. Senior advisor Hope Hicks had tested positive on Thursday.\nPresidential physician Sean Conley issued a statement saying Trump has been given zinc, vitamin D, Pepcid and a daily Aspirin. Conley also gave a single dose of the experimental polyclonal antibodies drug from Regeneron Pharmaceuticals.\nAccording to official statements, Trump, now operating from the WRNMMC, is to continue performing his duties as president during a 14-day quarantine. In the event of Trump becoming incapacitated, Vice President Mike Pence could take over the duties of president via the 25th Amendment of the US Constitution. The Pence family all tested negative as of yesterday and there were no changes regarding Pence's campaign events.\n",
         "required": true
       },
       {
         "in": "formData",
         "type": "integer",
         "name": "max_length",
+        "example": 16,
         "required": true
       }
     ],
@@ -1290,12 +1368,14 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
         "in": "formData",
         "type": "string",
         "name": "text",
+        "example": "The Crown is a historical drama streaming television series about the reign of Queen Elizabeth II, created and principally written by Peter Morgan, and produced by Left Bank Pictures and Sony Pictures Television for Netflix.",
         "required": true
       },
       {
         "in": "formData",
         "type": "integer",
         "name": "top_k",
+        "example": 1,
         "required": false
       }
     ],
@@ -1320,12 +1400,14 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
         "in": "formData",
         "type": "string",
         "name": "language_code",
+        "example": "fra",
         "required": true
       },
       {
         "in": "formData",
         "type": "string",
         "name": "display_output_language",
+        "example": "fra",
         "required": true
       }
     ],
@@ -1352,6 +1434,7 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
         "in": "formData",
         "type": "string",
         "name": "text",
+        "example": "Input text to perform language detection on",
         "required": true
       }
     ],
@@ -1378,6 +1461,7 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
         "in": "formData",
         "type": "string",
         "name": "text",
+        "example": "I'm currently driving while eating a",
         "required": true
       }
     ],
@@ -1403,6 +1487,7 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
         "in": "formData",
         "type": "string",
         "name": "text",
+        "example": "Hugging Face Inc. is a company based in New York City. Its headquarters are in DUMBO, therefore very close to the Manhattan Bridge.",
         "required": true
       }
     ],
@@ -1427,12 +1512,14 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
         "in": "formData",
         "type": "string",
         "name": "sentence_1",
+        "example": "I like you.",
         "required": true
       },
       {
         "in": "formData",
         "type": "string",
         "name": "sentence_2",
+        "example": "But it's not about you.",
         "required": true
       }
     ],
@@ -1460,12 +1547,14 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
         "in": "formData",
         "type": "string",
         "name": "sentence",
+        "example": "I think therefore I",
         "required": true
       },
       {
         "in": "formData",
         "type": "integer",
         "name": "top_k",
+        "example": 1,
         "required": true
       }
     ],
@@ -1489,6 +1578,7 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
         "in": "formData",
         "type": "string",
         "name": "text",
+        "example": "I love ETFs and have invested some money in the stock market and also have a pension plan",
         "required": false
       }
     ],
@@ -1512,6 +1602,7 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
         "in": "formData",
         "type": "string",
         "name": "text",
+        "example": "I love ETFs and have invested some money in the stock market and also have a pension plan",
         "required": false
       }
     ],
@@ -1536,6 +1627,7 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
         "in": "formData",
         "type": "string",
         "name": "code_snippet",
+        "example": "def is_palendrome(s):",
         "required": true
       }
     ],
@@ -1560,6 +1652,7 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
         "in": "formData",
         "type": "string",
         "name": "sentence",
+        "example": "My name is Clara and I live in Berkeley California",
         "required": true
       }
     ],
@@ -1589,18 +1682,21 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
         "in": "formData",
         "type": "string",
         "name": "context",
+        "example": "My name is Clara and I live in Berkeley.",
         "required": true
       },
       {
         "in": "formData",
         "type": "string",
         "name": "question",
+        "example": "What's my name?",
         "required": true
       },
       {
         "in": "formData",
         "type": "integer",
         "name": "top_k",
+        "example": 1,
         "required": false
       }
     ],
@@ -1626,6 +1722,7 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
         "in": "formData",
         "type": "string",
         "name": "context",
+        "example": "Once, a group of frogs was roaming around the forest in search of water.",
         "required": true
       }
     ],
@@ -1652,6 +1749,7 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
         "in": "formData",
         "type": "string",
         "name": "text",
+        "example": "I like you. I love you",
         "required": true
       }
     ],
@@ -1676,12 +1774,14 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
         "in": "formData",
         "type": "string",
         "name": "sentence_1",
+        "example": "I like banana",
         "required": true
       },
       {
         "in": "formData",
         "type": "string",
         "name": "sentence_2",
+        "example": "I hate banana",
         "required": true
       }
     ],
@@ -1705,6 +1805,7 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
         "in": "formData",
         "type": "string",
         "name": "text",
+        "example": "speaker_001: bonjour je suis monsieur Roger president du conseil et je vais vous accompagner aujourd’hui dans ce meeting \n speaker_002; je suis Anna Clarence, secrétaire du conseil municipal et je répond à vos questions si besoin \n speaker_003: bonjour \n speaker_001: binjour \n speaker_002: bonjour à toutes et à tous  speaker_001: on y Va ? Allez Jacques à toi. \n speaker_003: merci donc bonjour à tous et à toutes on va aujourd’hui parler de jonathan qui est jaune et qui attend  \n speaker_004: merci donc oui on va parler de moi aujourd’hui ",
         "required": false
       }
     ],
@@ -1729,24 +1830,28 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
         "in": "formData",
         "type": "string",
         "name": "text",
+        "example": "The Crown is a historical drama streaming television series about the reign of Queen Elizabeth II, created and principally written by Peter Morgan, and produced by Left Bank Pictures and Sony Pictures Television for Netflix. Morgan developed it from his drama film The Queen (2006) and especially his stage play The Audience (2013). The first season covers the period from Elizabeth's marriage to Philip, Duke of Edinburgh in 1947 to the disintegration of her sister Princess Margaret's engagement to Group Captain Peter Townsend in 1955. The second season covers the period from the Suez Crisis in 1956 to the retirement of Prime Minister Harold Macmillan in 1963 and the birth of Prince Edward in 1964. The third season spans 1964 to 1977, includes Harold Wilson's two periods as prime minister, and introduces Camilla Shand. The fourth season spans 1979 to the early 1990s and includes Margaret Thatcher's tenure as prime minister and Prince Charles's marriage to Lady Diana Spencer. The fifth and sixth seasons, which will close the series, will cover the Queen's reign into the 21st century. For each of the two-season increments, new actors fill the roles to account for the ageing process in the periods of time portrayed. Claire Foy portrays the Queen in the first two seasons, alongside Matt Smith as Prince Philip and Vanessa Kirby as Princess Margaret. For the third and fourth seasons, Olivia Colman takes over as the Queen, Tobias Menzies as Prince Philip, and Helena Bonham Carter as Princess Margaret. Also added to the cast in season 3 is Josh O'Connor as Prince Charles. In the fourth season, new cast members include Emma Corrin as Lady Diana Spencer and Gillian Anderson as Margaret Thatcher. Imelda Staunton, Jonathan Pryce, and Lesley Manville will succeed Colman, Menzies, and Bonham Carter, respectively, for the final two seasons, while Elizabeth Debicki and Dominic West are expected to assume the role of Princess Diana and Prince Charles, respectively. Filming takes place at Elstree Studios in Borehamwood, Hertfordshire, with location shooting throughout the United Kingdom and internationally. The first season was released by Netflix on 4 November 2016, the second on 8 December 2017, the third on 17 November 2019, and the fourth on 15 November 2020. The fifth season is anticipated in 2022. As of 2020, the estimated production budget of The Crown has been reported to be $260 million, making it one of the most expensive television series in history.[4] The Crown was praised by critics for its acting, directing, writing, cinematography, and production values, although its historical inaccuracies have received some criticism, particularly within the fourth season. Nonetheless, it received accolades at the 23rd Screen Actors Guild Awards, Foy won Best Actress in the lead role and Best Actor for John Lithgow as Winston Churchill, and has secured a total of sixty three nominations for its first four seasons at the Primetime Emmy Awards, including four for Outstanding Drama Series.[5] The series has also twice won the Golden Globe Award for Best Television Series - Drama, at the 74th and 78th ceremonies, with additional acting wins for Foy, Colman, Corrin, O'Connor and Anderson.[6] ",
         "required": true
       },
       {
         "in": "formData",
         "type": "string",
         "name": "source_language",
+        "example": "eng",
         "required": true
       },
       {
         "in": "formData",
         "type": "integer",
         "name": "min_length",
+        "example": 40,
         "required": false
       },
       {
         "in": "formData",
         "type": "integer",
         "name": "max_length",
+        "example": 512,
         "required": false
       }
     ],
@@ -1772,18 +1877,21 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
         "in": "formData",
         "type": "string",
         "name": "input_string",
+        "example": "Text to translate",
         "required": true
       },
       {
         "in": "formData",
         "type": "string",
         "name": "source_language",
+        "example": "eng",
         "required": true
       },
       {
         "in": "formData",
         "type": "string",
         "name": "target_language",
+        "example": "fra",
         "required": true
       }
     ],
@@ -1807,6 +1915,7 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
         "in": "formData",
         "type": "string",
         "name": "text",
+        "example": "FR123456789",
         "required": false
       }
     ],
@@ -1830,6 +1939,7 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
         "in": "formData",
         "type": "string",
         "name": "text",
+        "example": "youtube.com",
         "required": false
       }
     ],
@@ -1854,12 +1964,14 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
         "in": "formData",
         "type": "string",
         "name": "input_string_language_1",
+        "example": "Sentence from first language",
         "required": true
       },
       {
         "in": "formData",
         "type": "string",
         "name": "input_string_language_2",
+        "example": "来自 第一 语言的 句子",
         "required": true
       }
     ],
@@ -1885,12 +1997,14 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
         "in": "formData",
         "type": "video",
         "name": "video",
+        "example": "http://files.gladia.io/examples/video/text/classif/archery.mp4",
         "required": false
       },
       {
         "in": "formData",
         "type": "url",
         "name": "video_url",
+        "example": "http://files.gladia.io/examples/video/text/classif/archery.mp4",
         "required": false
       }
     ],

@@ -93,7 +93,7 @@ interface OpenApiJsonComponent {
             examples?: unknown;
             _examples?: unknown;
             anyOf?: unknown;
-            data_type?: 'string' | 'str' | 'text' | 'url' | 'integer' | 'int' | 'float' | 'image' | 'video' | 'audio' | 'list' | 'array';
+            data_type?: 'string' | 'str' | 'text' | 'url' | 'integer' | 'int' | 'float' | 'image' | 'video' | 'audio' | 'list' | 'array' | 'enum';
         } & ({
             type: string;
         } | {
