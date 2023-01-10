@@ -124,7 +124,8 @@ interface OpenApiJsonComponent {
             | 'video'
             | 'audio'
             | 'list'
-            | 'array';
+            | 'array'
+            | 'enum';
         } & ({ type: string } | { allOf?: [{ $ref: string }] })
       >;
     }

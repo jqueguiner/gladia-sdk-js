@@ -17,13 +17,14 @@ export interface EndpointDefParamBase<TType> {
   in: 'query' | 'formData';
   type: TType;
   name: string;
+  example: any;
   required: boolean;
 }
 
 export type EnumEndpointDefParam = EndpointDefParamBase<'enum'> & { enumValues: string[] };
 export type EndpointDefParam =
   | EndpointDefParamBase<
-      'audio' | 'image' | 'video' | 'string' | 'integer' | 'float' | 'url' | 'array'
+      'audio' | 'image' | 'video' | 'string' | 'integer' | 'float' | 'url' | 'array' | 'enumValues'
     >
   | EnumEndpointDefParam;
 

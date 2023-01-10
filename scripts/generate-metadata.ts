@@ -141,6 +141,7 @@ function getPostParams(def: PathDef, openApiJson: OpenApiJson) {
       in: 'query',
       type: p.schema.type,
       name: p.name,
+      example: undefined,
       required: p.required,
     }),
   );
@@ -158,6 +159,7 @@ function getPostParams(def: PathDef, openApiJson: OpenApiJson) {
           ...Object.entries(component.properties).map(
             ([propName, propSchema]): EndpointDefParam => {
               const isRequired = component.required?.includes(propName) ?? false;
+              const example = propSchema.example;
               const type: EndpointDefParam['type'] = (() => {
                 switch (propSchema.data_type) {
                   case 'integer':
@@ -197,9 +199,16 @@ function getPostParams(def: PathDef, openApiJson: OpenApiJson) {
                     `"${ref}" should have property enum that contains enum values for the property "${propName}"`,
                   );
                 }
-                return { in: 'formData', type, name: propName, required: isRequired, enumValues };
+                return {
+                  in: 'formData',
+                  type,
+                  name: propName,
+                  example,
+                  required: isRequired,
+                  enumValues,
+                };
               } else {
-                return { in: 'formData', type, name: propName, required: isRequired };
+                return { in: 'formData', type, name: propName, example, required: isRequired };
               }
             },
           ),
