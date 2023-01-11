@@ -75,7 +75,19 @@ The runtime default model is defined on the GladIA server.
 - `original_image_url`: url
 - `background_image`: image
 - `background_image_url`: url
-- `alignment`: string *(required)*
+- `alignment`: enum *(required)*
+  - *`center`*
+  - *`top`*
+  - *`bottom`*
+  - *`left`*
+  - *`right`*
+  - *`top-left`*
+  - *`top-center`*
+  - *`top-right`*
+  - *`bottom-left`*
+  - *`bottom-center`*
+  - *`bottom-right`*
+  - *`cropped`*
 
 ### `colorization`
 

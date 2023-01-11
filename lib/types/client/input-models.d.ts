@@ -19,12 +19,14 @@ export interface ImageImageBackgroundRemovalInputs extends WithHeaders, WithMode
     image?: Blob;
     image_url?: string;
 }
+export declare const IMAGE_IMAGE_BACKGROUND_REPLACEMENT_ENUM_PARAM_ALIGNMENT_VALUES: readonly ["center", "top", "bottom", "left", "right", "top-left", "top-center", "top-right", "bottom-left", "bottom-center", "bottom-right", "cropped"];
+export declare type ImageImageBackgroundReplacementEnumParamAlignment = typeof IMAGE_IMAGE_BACKGROUND_REPLACEMENT_ENUM_PARAM_ALIGNMENT_VALUES[number];
 export interface ImageImageBackgroundReplacementInputs extends WithHeaders, WithModel<ImageImageBackgroundReplacementModel> {
     original_image?: Blob;
     original_image_url?: string;
     background_image?: Blob;
     background_image_url?: string;
-    alignment: string;
+    alignment: ImageImageBackgroundReplacementEnumParamAlignment;
 }
 export interface ImageImageColorizationInputs extends WithHeaders, WithModel<ImageImageColorizationModel> {
     image?: Blob;

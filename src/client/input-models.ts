@@ -87,13 +87,28 @@ export interface ImageImageBackgroundRemovalInputs
   image?: Blob;
   image_url?: string;
 }
+export const IMAGE_IMAGE_BACKGROUND_REPLACEMENT_ENUM_PARAM_ALIGNMENT_VALUES = [
+  'center', 
+  'top', 
+  'bottom', 
+  'left', 
+  'right', 
+  'top-left', 
+  'top-center', 
+  'top-right', 
+  'bottom-left', 
+  'bottom-center', 
+  'bottom-right', 
+  'cropped', 
+] as const;
+export type ImageImageBackgroundReplacementEnumParamAlignment = typeof IMAGE_IMAGE_BACKGROUND_REPLACEMENT_ENUM_PARAM_ALIGNMENT_VALUES[number];
 export interface ImageImageBackgroundReplacementInputs 
   extends WithHeaders, WithModel<ImageImageBackgroundReplacementModel> {
   original_image?: Blob;
   original_image_url?: string;
   background_image?: Blob;
   background_image_url?: string;
-  alignment: string;
+  alignment: ImageImageBackgroundReplacementEnumParamAlignment;
 }
 export interface ImageImageColorizationInputs 
   extends WithHeaders, WithModel<ImageImageColorizationModel> {
