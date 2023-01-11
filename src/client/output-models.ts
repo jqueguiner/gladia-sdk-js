@@ -63,7 +63,7 @@ export type TextTextDateCleaningOutputs = {
   prediction_raw: unknown,
 };
 export type TextTextEmotionRecognitionOutputs = {
-  prediction: string,
+  prediction: string[],
   prediction_raw: unknown,
 };
 export type TextTextGenderFromNameOutputs = Record<string, string | number | boolean>;
@@ -134,7 +134,7 @@ export type TextTextSentenceParaphraserOutputs = {
   prediction_raw: unknown,
 };
 export type TextTextSentimentAnalysisOutputs = {
-  prediction: string,
+  prediction: string[],
   prediction_raw: unknown,
 };
 export type TextTextSimilarityOutputs = {

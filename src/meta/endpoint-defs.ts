@@ -1138,7 +1138,7 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
     "inputBodyContentType": "application/x-www-form-urlencoded",
     "outputBodyContentType": {
       "type": "prediction-standard-output",
-      "predictionType": "string"
+      "predictionType": "array"
     },
     "params": [
       {
@@ -1783,7 +1783,7 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
     "inputBodyContentType": "application/x-www-form-urlencoded",
     "outputBodyContentType": {
       "type": "prediction-standard-output",
-      "predictionType": "string"
+      "predictionType": "array"
     },
     "params": [
       {
