@@ -156,7 +156,7 @@ describe(getEndpoints.name, () => {
         inputBodyContentType: 'application/x-www-form-urlencoded',
         outputBodyContentType: {
           type: 'prediction-standard-output',
-          predictionType: 'string',
+          predictionType: 'array',
         },
         params: [
           {
