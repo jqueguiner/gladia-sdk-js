@@ -1,4 +1,4 @@
-export declare const AUDIO_TEXT_AUDIO_TRANSCRIPTION_MODELS: readonly ["coqui_english_huge_vocab", "openai-whisper--base", "openai-whisper--large", "openai-whisper--large-v1", "openai-whisper--large-v2", "openai-whisper--medium", "openai-whisper--small", "openai-whisper--tiny"];
+export declare const AUDIO_TEXT_AUDIO_TRANSCRIPTION_MODELS: readonly ["coqui_english_huge_vocab", "openai-whisper--base", "openai-whisper--large", "openai-whisper--large-v1", "openai-whisper--large-v2", "openai-whisper--medium", "openai-whisper--small", "openai-whisper--tiny", "riva_default_asr"];
 export declare const AUDIO_TEXT_AUDIO_TRANSCRIPTION_CONTENT_TYPE: "multipart/form-data";
 export declare type AudioTextAudioTranscriptionModel = typeof AUDIO_TEXT_AUDIO_TRANSCRIPTION_MODELS[number];
 export declare const AUDIO_TEXT_SPEAKER_DIARIZATION_MODELS: readonly ["pyannote-speaker_diarization"];

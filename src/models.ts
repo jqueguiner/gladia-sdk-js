@@ -9,6 +9,7 @@ export const AUDIO_TEXT_AUDIO_TRANSCRIPTION_MODELS = [
    'openai-whisper--medium',
    'openai-whisper--small',
    'openai-whisper--tiny',
+   'riva_default_asr',
 ] as const;
 export const AUDIO_TEXT_AUDIO_TRANSCRIPTION_CONTENT_TYPE = "multipart/form-data" as const;
 export type AudioTextAudioTranscriptionModel = typeof AUDIO_TEXT_AUDIO_TRANSCRIPTION_MODELS[number];

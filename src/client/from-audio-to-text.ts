@@ -34,12 +34,7 @@ export class FromAudioToText {
     if (isDefined(args.audio_url)) {
       formData.append('audio_url', args.audio_url);
     }
-    if (isDefined(args.language)) {
-      formData.append('language', args.language);
-    }
-    if (isDefined(args.nb_speakers)) {
-      formData.append('nb_speakers', String(args.nb_speakers));
-    }
+    formData.append('language', args.language);
     return this.httpClient.post({
       url: '/audio/text/audio-transcription/',
       headers: {

@@ -68,8 +68,7 @@ export interface AudioTextAudioTranscriptionInputs
   extends WithHeaders, WithModel<AudioTextAudioTranscriptionModel> {
   audio?: Blob;
   audio_url?: string;
-  language?: string;
-  nb_speakers?: number;
+  language: string;
 }
 export interface AudioTextSpeakerDiarizationInputs 
   extends WithHeaders, WithModel<AudioTextSpeakerDiarizationModel> {

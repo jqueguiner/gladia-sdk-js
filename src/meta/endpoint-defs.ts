@@ -16,9 +16,10 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
       "openai-whisper--large-v2",
       "openai-whisper--medium",
       "openai-whisper--small",
-      "openai-whisper--tiny"
+      "openai-whisper--tiny",
+      "riva_default_asr"
     ],
-    "defaultModel": "openai-whisper--tiny",
+    "defaultModel": "riva_default_asr",
     "inputBodyContentType": "multipart/form-data",
     "outputBodyContentType": {
       "type": "prediction-standard-output",
@@ -29,29 +30,22 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
         "in": "formData",
         "type": "audio",
         "name": "audio",
-        "example": "http://files.gladia.io/examples/audio/text/audio-transcription/audio.mp3",
+        "example": "http://files.gladia.io/examples/audio/text/audio-transcription/audio.wav",
         "required": false
       },
       {
         "in": "formData",
         "type": "url",
         "name": "audio_url",
-        "example": "http://files.gladia.io/examples/audio/text/audio-transcription/audio.mp3",
+        "example": "http://files.gladia.io/examples/audio/text/audio-transcription/audio.wav",
         "required": false
       },
       {
         "in": "formData",
         "type": "string",
         "name": "language",
-        "example": "en",
-        "required": false
-      },
-      {
-        "in": "formData",
-        "type": "integer",
-        "name": "nb_speakers",
-        "example": 0,
-        "required": false
+        "example": "en-US",
+        "required": true
       }
     ],
     "hasSamplesParam": false
@@ -880,7 +874,7 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
         "in": "formData",
         "type": "string",
         "name": "language",
-        "example": "en",
+        "example": "eng",
         "required": true
       },
       {

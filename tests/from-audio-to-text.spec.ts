@@ -24,12 +24,10 @@ describe('FromAudioToText', () => {
         const audio_data = new Blob([getRandomText()]);
         const audio_url_data = getRandomText();
         const language_data = getRandomText();
-        const nb_speakers_data = getRandomInt();
         await gladiaClient.fromAudio().toText().audioTranscription({
           audio: audio_data,
           audio_url: audio_url_data,
           language: language_data,
-          nb_speakers: nb_speakers_data,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -42,18 +40,15 @@ describe('FromAudioToText', () => {
         expect(firstCallBody.get('audio')).toBeDefined();
         expect(firstCallBody.get('audio_url')).toEqual(audio_url_data);
         expect(firstCallBody.get('language')).toEqual(language_data);
-        expect(firstCallBody.get('nb_speakers')).toEqual(String(nb_speakers_data));
       });
       it('should call the api with the text and the specified model', async () => {
         const audio_data = new Blob([getRandomText()]);
         const audio_url_data = getRandomText();
         const language_data = getRandomText();
-        const nb_speakers_data = getRandomInt();
         await gladiaClient.fromAudio().toText().audioTranscription({
           audio: audio_data,
           audio_url: audio_url_data,
           language: language_data,
-          nb_speakers: nb_speakers_data,
           model: 'coqui_english_huge_vocab',
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
@@ -68,7 +63,6 @@ describe('FromAudioToText', () => {
         expect(firstCallBody.get('audio')).toBeDefined();
         expect(firstCallBody.get('audio_url')).toEqual(audio_url_data);
         expect(firstCallBody.get('language')).toEqual(language_data);
-        expect(firstCallBody.get('nb_speakers')).toEqual(String(nb_speakers_data));
       });
     });
     describe('shortcuts', () => {
@@ -76,12 +70,10 @@ describe('FromAudioToText', () => {
         const audio_data = new Blob([getRandomText()]);
         const audio_url_data = getRandomText();
         const language_data = getRandomText();
-        const nb_speakers_data = getRandomInt();
         await gladiaClient.audioTranscription({
           audio: audio_data,
           audio_url: audio_url_data,
           language: language_data,
-          nb_speakers: nb_speakers_data,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -94,18 +86,15 @@ describe('FromAudioToText', () => {
         expect(firstCallBody.get('audio')).toBeDefined();
         expect(firstCallBody.get('audio_url')).toEqual(audio_url_data);
         expect(firstCallBody.get('language')).toEqual(language_data);
-        expect(firstCallBody.get('nb_speakers')).toEqual(String(nb_speakers_data));
       });
       it('should call the api with the text and the specified model', async () => {
         const audio_data = new Blob([getRandomText()]);
         const audio_url_data = getRandomText();
         const language_data = getRandomText();
-        const nb_speakers_data = getRandomInt();
         await gladiaClient.audioTranscription({
           audio: audio_data,
           audio_url: audio_url_data,
           language: language_data,
-          nb_speakers: nb_speakers_data,
           model: 'coqui_english_huge_vocab',
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
@@ -120,7 +109,6 @@ describe('FromAudioToText', () => {
         expect(firstCallBody.get('audio')).toBeDefined();
         expect(firstCallBody.get('audio_url')).toEqual(audio_url_data);
         expect(firstCallBody.get('language')).toEqual(language_data);
-        expect(firstCallBody.get('nb_speakers')).toEqual(String(nb_speakers_data));
       });
     });
   });

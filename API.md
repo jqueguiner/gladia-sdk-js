@@ -17,14 +17,14 @@ The runtime default model is defined on the GladIA server.
 - openai-whisper--large-v2
 - openai-whisper--medium
 - openai-whisper--small
-- **openai-whisper--tiny (default)**
+- openai-whisper--tiny
+- **riva_default_asr (default)**
 
 #### other params
 
 - `audio`: audio
 - `audio_url`: url
-- `language`: string
-- `nb_speakers`: integer
+- `language`: string *(required)*
 
 ### `speaker-diarization`
 
