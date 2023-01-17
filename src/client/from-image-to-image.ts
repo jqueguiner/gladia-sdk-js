@@ -14,34 +14,24 @@ import {
 } from './input-models';
 import {
   ImageImageBackgroundRemovalOutputs,
-  ImageImageBackgroundRemovalOutputsMultipleSamplesAsUrl,
   ImageImageBackgroundRemovalOutputsOneSampleAsUrl,
   ImageImageBackgroundReplacementOutputs,
-  ImageImageBackgroundReplacementOutputsMultipleSamplesAsUrl,
   ImageImageBackgroundReplacementOutputsOneSampleAsUrl,
   ImageImageColorizationOutputs,
-  ImageImageColorizationOutputsMultipleSamplesAsUrl,
   ImageImageColorizationOutputsOneSampleAsUrl,
   ImageImageDeblurringOutputs,
-  ImageImageDeblurringOutputsMultipleSamplesAsUrl,
   ImageImageDeblurringOutputsOneSampleAsUrl,
   ImageImageEnhancementOutputs,
-  ImageImageEnhancementOutputsMultipleSamplesAsUrl,
   ImageImageEnhancementOutputsOneSampleAsUrl,
   ImageImageFaceBluringOutputs,
-  ImageImageFaceBluringOutputsMultipleSamplesAsUrl,
   ImageImageFaceBluringOutputsOneSampleAsUrl,
   ImageImageGuidedInpaintingOutputs,
-  ImageImageGuidedInpaintingOutputsMultipleSamplesAsUrl,
   ImageImageGuidedInpaintingOutputsOneSampleAsUrl,
   ImageImageImageGuidedInpaintingOutputs,
-  ImageImageImageGuidedInpaintingOutputsMultipleSamplesAsUrl,
   ImageImageImageGuidedInpaintingOutputsOneSampleAsUrl,
   ImageImageInpaintingOutputs,
-  ImageImageInpaintingOutputsMultipleSamplesAsUrl,
   ImageImageInpaintingOutputsOneSampleAsUrl,
   ImageImageUncolorizationOutputs,
-  ImageImageUncolorizationOutputsMultipleSamplesAsUrl,
   ImageImageUncolorizationOutputsOneSampleAsUrl,
 } from './output-models';
 import {
@@ -67,8 +57,7 @@ export class FromImageToImage {
     this.httpClient = getHttpClient(this.params);
   }
 
-  backgroundRemoval(args: ImageImageBackgroundRemovalInputs & { samples: 1, asUrl: true }): Promise<ImageImageBackgroundRemovalOutputsOneSampleAsUrl>;
-  backgroundRemoval(args: ImageImageBackgroundRemovalInputs & { asUrl: true }): Promise<ImageImageBackgroundRemovalOutputsMultipleSamplesAsUrl>;
+  backgroundRemoval(args: ImageImageBackgroundRemovalInputs & { asUrl: true }): Promise<ImageImageBackgroundRemovalOutputsOneSampleAsUrl>;
   backgroundRemoval(args: ImageImageBackgroundRemovalInputs): Promise<ImageImageBackgroundRemovalOutputs>;
   backgroundRemoval(args: ImageImageBackgroundRemovalInputs): Promise<ImageImageBackgroundRemovalOutputs> {
     const formData = new FormData();
@@ -93,8 +82,7 @@ export class FromImageToImage {
     });
   }
 
-  backgroundReplacement(args: ImageImageBackgroundReplacementInputs & { samples: 1, asUrl: true }): Promise<ImageImageBackgroundReplacementOutputsOneSampleAsUrl>;
-  backgroundReplacement(args: ImageImageBackgroundReplacementInputs & { asUrl: true }): Promise<ImageImageBackgroundReplacementOutputsMultipleSamplesAsUrl>;
+  backgroundReplacement(args: ImageImageBackgroundReplacementInputs & { asUrl: true }): Promise<ImageImageBackgroundReplacementOutputsOneSampleAsUrl>;
   backgroundReplacement(args: ImageImageBackgroundReplacementInputs): Promise<ImageImageBackgroundReplacementOutputs>;
   backgroundReplacement(args: ImageImageBackgroundReplacementInputs): Promise<ImageImageBackgroundReplacementOutputs> {
     const formData = new FormData();
@@ -126,8 +114,7 @@ export class FromImageToImage {
     });
   }
 
-  colorization(args: ImageImageColorizationInputs & { samples: 1, asUrl: true }): Promise<ImageImageColorizationOutputsOneSampleAsUrl>;
-  colorization(args: ImageImageColorizationInputs & { asUrl: true }): Promise<ImageImageColorizationOutputsMultipleSamplesAsUrl>;
+  colorization(args: ImageImageColorizationInputs & { asUrl: true }): Promise<ImageImageColorizationOutputsOneSampleAsUrl>;
   colorization(args: ImageImageColorizationInputs): Promise<ImageImageColorizationOutputs>;
   colorization(args: ImageImageColorizationInputs): Promise<ImageImageColorizationOutputs> {
     const formData = new FormData();
@@ -152,8 +139,7 @@ export class FromImageToImage {
     });
   }
 
-  deblurring(args: ImageImageDeblurringInputs & { samples: 1, asUrl: true }): Promise<ImageImageDeblurringOutputsOneSampleAsUrl>;
-  deblurring(args: ImageImageDeblurringInputs & { asUrl: true }): Promise<ImageImageDeblurringOutputsMultipleSamplesAsUrl>;
+  deblurring(args: ImageImageDeblurringInputs & { asUrl: true }): Promise<ImageImageDeblurringOutputsOneSampleAsUrl>;
   deblurring(args: ImageImageDeblurringInputs): Promise<ImageImageDeblurringOutputs>;
   deblurring(args: ImageImageDeblurringInputs): Promise<ImageImageDeblurringOutputs> {
     const formData = new FormData();
@@ -178,8 +164,7 @@ export class FromImageToImage {
     });
   }
 
-  enhancement(args: ImageImageEnhancementInputs & { samples: 1, asUrl: true }): Promise<ImageImageEnhancementOutputsOneSampleAsUrl>;
-  enhancement(args: ImageImageEnhancementInputs & { asUrl: true }): Promise<ImageImageEnhancementOutputsMultipleSamplesAsUrl>;
+  enhancement(args: ImageImageEnhancementInputs & { asUrl: true }): Promise<ImageImageEnhancementOutputsOneSampleAsUrl>;
   enhancement(args: ImageImageEnhancementInputs): Promise<ImageImageEnhancementOutputs>;
   enhancement(args: ImageImageEnhancementInputs): Promise<ImageImageEnhancementOutputs> {
     const formData = new FormData();
@@ -204,8 +189,7 @@ export class FromImageToImage {
     });
   }
 
-  faceBluring(args: ImageImageFaceBluringInputs & { samples: 1, asUrl: true }): Promise<ImageImageFaceBluringOutputsOneSampleAsUrl>;
-  faceBluring(args: ImageImageFaceBluringInputs & { asUrl: true }): Promise<ImageImageFaceBluringOutputsMultipleSamplesAsUrl>;
+  faceBluring(args: ImageImageFaceBluringInputs & { asUrl: true }): Promise<ImageImageFaceBluringOutputsOneSampleAsUrl>;
   faceBluring(args: ImageImageFaceBluringInputs): Promise<ImageImageFaceBluringOutputs>;
   faceBluring(args: ImageImageFaceBluringInputs): Promise<ImageImageFaceBluringOutputs> {
     const formData = new FormData();
@@ -230,8 +214,7 @@ export class FromImageToImage {
     });
   }
 
-  guidedInpainting(args: ImageImageGuidedInpaintingInputs & { samples: 1, asUrl: true }): Promise<ImageImageGuidedInpaintingOutputsOneSampleAsUrl>;
-  guidedInpainting(args: ImageImageGuidedInpaintingInputs & { asUrl: true }): Promise<ImageImageGuidedInpaintingOutputsMultipleSamplesAsUrl>;
+  guidedInpainting(args: ImageImageGuidedInpaintingInputs & { asUrl: true }): Promise<ImageImageGuidedInpaintingOutputsOneSampleAsUrl>;
   guidedInpainting(args: ImageImageGuidedInpaintingInputs): Promise<ImageImageGuidedInpaintingOutputs>;
   guidedInpainting(args: ImageImageGuidedInpaintingInputs): Promise<ImageImageGuidedInpaintingOutputs> {
     const formData = new FormData();
@@ -263,8 +246,7 @@ export class FromImageToImage {
     });
   }
 
-  imageGuidedInpainting(args: ImageImageImageGuidedInpaintingInputs & { samples: 1, asUrl: true }): Promise<ImageImageImageGuidedInpaintingOutputsOneSampleAsUrl>;
-  imageGuidedInpainting(args: ImageImageImageGuidedInpaintingInputs & { asUrl: true }): Promise<ImageImageImageGuidedInpaintingOutputsMultipleSamplesAsUrl>;
+  imageGuidedInpainting(args: ImageImageImageGuidedInpaintingInputs & { asUrl: true }): Promise<ImageImageImageGuidedInpaintingOutputsOneSampleAsUrl>;
   imageGuidedInpainting(args: ImageImageImageGuidedInpaintingInputs): Promise<ImageImageImageGuidedInpaintingOutputs>;
   imageGuidedInpainting(args: ImageImageImageGuidedInpaintingInputs): Promise<ImageImageImageGuidedInpaintingOutputs> {
     const formData = new FormData();
@@ -304,8 +286,7 @@ export class FromImageToImage {
     });
   }
 
-  inpainting(args: ImageImageInpaintingInputs & { samples: 1, asUrl: true }): Promise<ImageImageInpaintingOutputsOneSampleAsUrl>;
-  inpainting(args: ImageImageInpaintingInputs & { asUrl: true }): Promise<ImageImageInpaintingOutputsMultipleSamplesAsUrl>;
+  inpainting(args: ImageImageInpaintingInputs & { asUrl: true }): Promise<ImageImageInpaintingOutputsOneSampleAsUrl>;
   inpainting(args: ImageImageInpaintingInputs): Promise<ImageImageInpaintingOutputs>;
   inpainting(args: ImageImageInpaintingInputs): Promise<ImageImageInpaintingOutputs> {
     const formData = new FormData();
@@ -336,8 +317,7 @@ export class FromImageToImage {
     });
   }
 
-  uncolorization(args: ImageImageUncolorizationInputs & { samples: 1, asUrl: true }): Promise<ImageImageUncolorizationOutputsOneSampleAsUrl>;
-  uncolorization(args: ImageImageUncolorizationInputs & { asUrl: true }): Promise<ImageImageUncolorizationOutputsMultipleSamplesAsUrl>;
+  uncolorization(args: ImageImageUncolorizationInputs & { asUrl: true }): Promise<ImageImageUncolorizationOutputsOneSampleAsUrl>;
   uncolorization(args: ImageImageUncolorizationInputs): Promise<ImageImageUncolorizationOutputs>;
   uncolorization(args: ImageImageUncolorizationInputs): Promise<ImageImageUncolorizationOutputs> {
     const formData = new FormData();

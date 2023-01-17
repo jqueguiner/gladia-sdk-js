@@ -15,73 +15,43 @@ export declare type AudioTextSpeakerGenderClassificationOutputs = {
 export declare type ImageImageBackgroundRemovalOutputsOneSampleAsUrl = {
     url: ImageUrl[];
 };
-export declare type ImageImageBackgroundRemovalOutputsMultipleSamplesAsUrl = {
-    url: ImageUrl[];
-};
-export declare type ImageImageBackgroundRemovalOutputs = ArrayBuffer | ImageImageBackgroundRemovalOutputsOneSampleAsUrl | ImageImageBackgroundRemovalOutputsMultipleSamplesAsUrl;
+export declare type ImageImageBackgroundRemovalOutputs = ArrayBuffer | ImageImageBackgroundRemovalOutputsOneSampleAsUrl;
 export declare type ImageImageBackgroundReplacementOutputsOneSampleAsUrl = {
     url: ImageUrl[];
 };
-export declare type ImageImageBackgroundReplacementOutputsMultipleSamplesAsUrl = {
-    url: ImageUrl[];
-};
-export declare type ImageImageBackgroundReplacementOutputs = ArrayBuffer | ImageImageBackgroundReplacementOutputsOneSampleAsUrl | ImageImageBackgroundReplacementOutputsMultipleSamplesAsUrl;
+export declare type ImageImageBackgroundReplacementOutputs = ArrayBuffer | ImageImageBackgroundReplacementOutputsOneSampleAsUrl;
 export declare type ImageImageColorizationOutputsOneSampleAsUrl = {
     url: ImageUrl[];
 };
-export declare type ImageImageColorizationOutputsMultipleSamplesAsUrl = {
-    url: ImageUrl[];
-};
-export declare type ImageImageColorizationOutputs = ArrayBuffer | ImageImageColorizationOutputsOneSampleAsUrl | ImageImageColorizationOutputsMultipleSamplesAsUrl;
+export declare type ImageImageColorizationOutputs = ArrayBuffer | ImageImageColorizationOutputsOneSampleAsUrl;
 export declare type ImageImageDeblurringOutputsOneSampleAsUrl = {
     url: ImageUrl[];
 };
-export declare type ImageImageDeblurringOutputsMultipleSamplesAsUrl = {
-    url: ImageUrl[];
-};
-export declare type ImageImageDeblurringOutputs = ArrayBuffer | ImageImageDeblurringOutputsOneSampleAsUrl | ImageImageDeblurringOutputsMultipleSamplesAsUrl;
+export declare type ImageImageDeblurringOutputs = ArrayBuffer | ImageImageDeblurringOutputsOneSampleAsUrl;
 export declare type ImageImageEnhancementOutputsOneSampleAsUrl = {
     url: ImageUrl[];
 };
-export declare type ImageImageEnhancementOutputsMultipleSamplesAsUrl = {
-    url: ImageUrl[];
-};
-export declare type ImageImageEnhancementOutputs = ArrayBuffer | ImageImageEnhancementOutputsOneSampleAsUrl | ImageImageEnhancementOutputsMultipleSamplesAsUrl;
+export declare type ImageImageEnhancementOutputs = ArrayBuffer | ImageImageEnhancementOutputsOneSampleAsUrl;
 export declare type ImageImageFaceBluringOutputsOneSampleAsUrl = {
     url: ImageUrl[];
 };
-export declare type ImageImageFaceBluringOutputsMultipleSamplesAsUrl = {
-    url: ImageUrl[];
-};
-export declare type ImageImageFaceBluringOutputs = ArrayBuffer | ImageImageFaceBluringOutputsOneSampleAsUrl | ImageImageFaceBluringOutputsMultipleSamplesAsUrl;
+export declare type ImageImageFaceBluringOutputs = ArrayBuffer | ImageImageFaceBluringOutputsOneSampleAsUrl;
 export declare type ImageImageGuidedInpaintingOutputsOneSampleAsUrl = {
     url: ImageUrl[];
 };
-export declare type ImageImageGuidedInpaintingOutputsMultipleSamplesAsUrl = {
-    url: ImageUrl[];
-};
-export declare type ImageImageGuidedInpaintingOutputs = ArrayBuffer | ImageImageGuidedInpaintingOutputsOneSampleAsUrl | ImageImageGuidedInpaintingOutputsMultipleSamplesAsUrl;
+export declare type ImageImageGuidedInpaintingOutputs = ArrayBuffer | ImageImageGuidedInpaintingOutputsOneSampleAsUrl;
 export declare type ImageImageImageGuidedInpaintingOutputsOneSampleAsUrl = {
     url: ImageUrl[];
 };
-export declare type ImageImageImageGuidedInpaintingOutputsMultipleSamplesAsUrl = {
-    url: ImageUrl[];
-};
-export declare type ImageImageImageGuidedInpaintingOutputs = ArrayBuffer | ImageImageImageGuidedInpaintingOutputsOneSampleAsUrl | ImageImageImageGuidedInpaintingOutputsMultipleSamplesAsUrl;
+export declare type ImageImageImageGuidedInpaintingOutputs = ArrayBuffer | ImageImageImageGuidedInpaintingOutputsOneSampleAsUrl;
 export declare type ImageImageInpaintingOutputsOneSampleAsUrl = {
     url: ImageUrl[];
 };
-export declare type ImageImageInpaintingOutputsMultipleSamplesAsUrl = {
-    url: ImageUrl[];
-};
-export declare type ImageImageInpaintingOutputs = ArrayBuffer | ImageImageInpaintingOutputsOneSampleAsUrl | ImageImageInpaintingOutputsMultipleSamplesAsUrl;
+export declare type ImageImageInpaintingOutputs = ArrayBuffer | ImageImageInpaintingOutputsOneSampleAsUrl;
 export declare type ImageImageUncolorizationOutputsOneSampleAsUrl = {
     url: ImageUrl[];
 };
-export declare type ImageImageUncolorizationOutputsMultipleSamplesAsUrl = {
-    url: ImageUrl[];
-};
-export declare type ImageImageUncolorizationOutputs = ArrayBuffer | ImageImageUncolorizationOutputsOneSampleAsUrl | ImageImageUncolorizationOutputsMultipleSamplesAsUrl;
+export declare type ImageImageUncolorizationOutputs = ArrayBuffer | ImageImageUncolorizationOutputsOneSampleAsUrl;
 export declare type ImageTextClassificationOutputs = {
     prediction: string;
     prediction_raw: unknown;
