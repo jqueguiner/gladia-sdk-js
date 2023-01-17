@@ -130,10 +130,10 @@ function generateOutputModelsTs() {
         const outputModelNameForMulitpleSampleAsUrl =
           meta.getOutputModelTypeMultipleSamplesAsUrl(endpoint);
         fileContent.push(`export type ${outputModelNameForOneSampleAsUrl} = { url: ImageUrl[] };`);
-        fileContent.push(
-          `export type ${outputModelNameForMulitpleSampleAsUrl} = { url: ImageUrl[] };`,
-        );
         if (endpoint.hasSamplesParam) {
+          fileContent.push(
+            `export type ${outputModelNameForMulitpleSampleAsUrl} = { url: ImageUrl[] };`,
+          );
           const outputModelNameForOneSample = meta.getOutputModelTypeOneSample(endpoint);
           const outputModelNameForMulitpleSample = meta.getOutputModelTypeMultipleSamples(endpoint);
           fileContent.push(`export type ${outputModelNameForOneSample} = ArrayBuffer;`);
@@ -146,8 +146,7 @@ function generateOutputModelsTs() {
         } else {
           fileContent.push(`export type ${outputModelName} = `);
           fileContent.push(`  | ArrayBuffer`);
-          fileContent.push(`  | ${outputModelNameForOneSampleAsUrl}`);
-          fileContent.push(`  | ${outputModelNameForMulitpleSampleAsUrl};`);
+          fileContent.push(`  | ${outputModelNameForOneSampleAsUrl};`);
         }
         break;
       }
@@ -815,9 +814,11 @@ function generateOutputModelsImports(endpoints: meta.EndpointDef[]) {
     }
     if (endpoint.outputType !== 'text') {
       const outputModelNameForOneSampleAsUrl = meta.getOutputModelTypeOneSampleAsUrl(endpoint);
-      const outputModelNameForMulitpleSamplesAsUrl =
-        meta.getOutputModelTypeMultipleSamplesAsUrl(endpoint);
-      fileContent.push(`  ${outputModelNameForMulitpleSamplesAsUrl},`);
+      if (endpoint.hasSamplesParam) {
+        const outputModelNameForMulitpleSamplesAsUrl =
+          meta.getOutputModelTypeMultipleSamplesAsUrl(endpoint);
+        fileContent.push(`  ${outputModelNameForMulitpleSamplesAsUrl},`);
+      }
       fileContent.push(`  ${outputModelNameForOneSampleAsUrl},`);
     }
   }
@@ -836,12 +837,18 @@ function generateTaskMethodSignature(endpoint: meta.EndpointDef) {
     const outputModelNameForOneSampleAsUrl = meta.getOutputModelTypeOneSampleAsUrl(endpoint);
     const outputModelNameForMulitpleSamplesAsUrl =
       meta.getOutputModelTypeMultipleSamplesAsUrl(endpoint);
-    fileContent.push(
-      `  ${methodName}(args: ${inputModelType} & { samples: 1, asUrl: true }): Promise<${outputModelNameForOneSampleAsUrl}>;`,
-    );
-    fileContent.push(
-      `  ${methodName}(args: ${inputModelType} & { asUrl: true }): Promise<${outputModelNameForMulitpleSamplesAsUrl}>;`,
-    );
+    if (endpoint.hasSamplesParam) {
+      fileContent.push(
+        `  ${methodName}(args: ${inputModelType} & { samples: 1, asUrl: true }): Promise<${outputModelNameForOneSampleAsUrl}>;`,
+      );
+      fileContent.push(
+        `  ${methodName}(args: ${inputModelType} & { asUrl: true }): Promise<${outputModelNameForMulitpleSamplesAsUrl}>;`,
+      );
+    } else {
+      fileContent.push(
+        `  ${methodName}(args: ${inputModelType} & { asUrl: true }): Promise<${outputModelNameForOneSampleAsUrl}>;`,
+      );
+    }
     if (endpoint.hasSamplesParam) {
       fileContent.push(
         `  ${methodName}(args: ${inputModelType} & { samples: 1 }): Promise<${outputModelNameForOneSample}>;`,
