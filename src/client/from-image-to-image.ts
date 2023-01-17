@@ -58,7 +58,7 @@ export class FromImageToImage {
   }
 
   backgroundRemoval(args: ImageImageBackgroundRemovalInputs & { asUrl: true }): Promise<ImageImageBackgroundRemovalOutputsOneSampleAsUrl>;
-  backgroundRemoval(args: ImageImageBackgroundRemovalInputs): Promise<ImageImageBackgroundRemovalOutputs>;
+  backgroundRemoval(args: ImageImageBackgroundRemovalInputs): Promise<ArrayBuffer>;
   backgroundRemoval(args: ImageImageBackgroundRemovalInputs): Promise<ImageImageBackgroundRemovalOutputs> {
     const formData = new FormData();
     if (isDefined(args.image)) {
@@ -83,7 +83,7 @@ export class FromImageToImage {
   }
 
   backgroundReplacement(args: ImageImageBackgroundReplacementInputs & { asUrl: true }): Promise<ImageImageBackgroundReplacementOutputsOneSampleAsUrl>;
-  backgroundReplacement(args: ImageImageBackgroundReplacementInputs): Promise<ImageImageBackgroundReplacementOutputs>;
+  backgroundReplacement(args: ImageImageBackgroundReplacementInputs): Promise<ArrayBuffer>;
   backgroundReplacement(args: ImageImageBackgroundReplacementInputs): Promise<ImageImageBackgroundReplacementOutputs> {
     const formData = new FormData();
     if (isDefined(args.original_image)) {
@@ -115,7 +115,7 @@ export class FromImageToImage {
   }
 
   colorization(args: ImageImageColorizationInputs & { asUrl: true }): Promise<ImageImageColorizationOutputsOneSampleAsUrl>;
-  colorization(args: ImageImageColorizationInputs): Promise<ImageImageColorizationOutputs>;
+  colorization(args: ImageImageColorizationInputs): Promise<ArrayBuffer>;
   colorization(args: ImageImageColorizationInputs): Promise<ImageImageColorizationOutputs> {
     const formData = new FormData();
     if (isDefined(args.image)) {
@@ -140,7 +140,7 @@ export class FromImageToImage {
   }
 
   deblurring(args: ImageImageDeblurringInputs & { asUrl: true }): Promise<ImageImageDeblurringOutputsOneSampleAsUrl>;
-  deblurring(args: ImageImageDeblurringInputs): Promise<ImageImageDeblurringOutputs>;
+  deblurring(args: ImageImageDeblurringInputs): Promise<ArrayBuffer>;
   deblurring(args: ImageImageDeblurringInputs): Promise<ImageImageDeblurringOutputs> {
     const formData = new FormData();
     if (isDefined(args.image)) {
@@ -165,7 +165,7 @@ export class FromImageToImage {
   }
 
   enhancement(args: ImageImageEnhancementInputs & { asUrl: true }): Promise<ImageImageEnhancementOutputsOneSampleAsUrl>;
-  enhancement(args: ImageImageEnhancementInputs): Promise<ImageImageEnhancementOutputs>;
+  enhancement(args: ImageImageEnhancementInputs): Promise<ArrayBuffer>;
   enhancement(args: ImageImageEnhancementInputs): Promise<ImageImageEnhancementOutputs> {
     const formData = new FormData();
     if (isDefined(args.image)) {
@@ -190,7 +190,7 @@ export class FromImageToImage {
   }
 
   faceBluring(args: ImageImageFaceBluringInputs & { asUrl: true }): Promise<ImageImageFaceBluringOutputsOneSampleAsUrl>;
-  faceBluring(args: ImageImageFaceBluringInputs): Promise<ImageImageFaceBluringOutputs>;
+  faceBluring(args: ImageImageFaceBluringInputs): Promise<ArrayBuffer>;
   faceBluring(args: ImageImageFaceBluringInputs): Promise<ImageImageFaceBluringOutputs> {
     const formData = new FormData();
     if (isDefined(args.image)) {
@@ -215,7 +215,7 @@ export class FromImageToImage {
   }
 
   guidedInpainting(args: ImageImageGuidedInpaintingInputs & { asUrl: true }): Promise<ImageImageGuidedInpaintingOutputsOneSampleAsUrl>;
-  guidedInpainting(args: ImageImageGuidedInpaintingInputs): Promise<ImageImageGuidedInpaintingOutputs>;
+  guidedInpainting(args: ImageImageGuidedInpaintingInputs): Promise<ArrayBuffer>;
   guidedInpainting(args: ImageImageGuidedInpaintingInputs): Promise<ImageImageGuidedInpaintingOutputs> {
     const formData = new FormData();
     if (isDefined(args.original_image)) {
@@ -247,7 +247,7 @@ export class FromImageToImage {
   }
 
   imageGuidedInpainting(args: ImageImageImageGuidedInpaintingInputs & { asUrl: true }): Promise<ImageImageImageGuidedInpaintingOutputsOneSampleAsUrl>;
-  imageGuidedInpainting(args: ImageImageImageGuidedInpaintingInputs): Promise<ImageImageImageGuidedInpaintingOutputs>;
+  imageGuidedInpainting(args: ImageImageImageGuidedInpaintingInputs): Promise<ArrayBuffer>;
   imageGuidedInpainting(args: ImageImageImageGuidedInpaintingInputs): Promise<ImageImageImageGuidedInpaintingOutputs> {
     const formData = new FormData();
     if (isDefined(args.original_image)) {
@@ -287,7 +287,7 @@ export class FromImageToImage {
   }
 
   inpainting(args: ImageImageInpaintingInputs & { asUrl: true }): Promise<ImageImageInpaintingOutputsOneSampleAsUrl>;
-  inpainting(args: ImageImageInpaintingInputs): Promise<ImageImageInpaintingOutputs>;
+  inpainting(args: ImageImageInpaintingInputs): Promise<ArrayBuffer>;
   inpainting(args: ImageImageInpaintingInputs): Promise<ImageImageInpaintingOutputs> {
     const formData = new FormData();
     if (isDefined(args.original_image)) {
@@ -318,7 +318,7 @@ export class FromImageToImage {
   }
 
   uncolorization(args: ImageImageUncolorizationInputs & { asUrl: true }): Promise<ImageImageUncolorizationOutputsOneSampleAsUrl>;
-  uncolorization(args: ImageImageUncolorizationInputs): Promise<ImageImageUncolorizationOutputs>;
+  uncolorization(args: ImageImageUncolorizationInputs): Promise<ArrayBuffer>;
   uncolorization(args: ImageImageUncolorizationInputs): Promise<ImageImageUncolorizationOutputs> {
     const formData = new FormData();
     if (isDefined(args.image)) {
