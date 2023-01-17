@@ -91,7 +91,7 @@ export interface TextTextAddressFormattingInputs extends WithHeaders, WithModel<
     address: string;
 }
 export interface TextTextAgeFromNameInputs extends WithHeaders, WithModel<TextTextAgeFromNameModel> {
-    name?: string;
+    name: string;
 }
 export interface TextTextAnonymizationInputs extends WithHeaders, WithModel<TextTextAnonymizationModel> {
     language: string;
@@ -102,26 +102,26 @@ export interface TextTextAutocorrectInputs extends WithHeaders, WithModel<TextTe
     sentence: string;
 }
 export interface TextTextBulletPointGenerationInputs extends WithHeaders, WithModel<TextTextBulletPointGenerationModel> {
-    text?: string;
+    text: string;
     bullets?: number;
 }
 export interface TextTextCommandGenerationInputs extends WithHeaders, WithModel<TextTextCommandGenerationModel> {
-    text?: string;
+    text: string;
 }
 export interface TextTextCompanyCategorizationInputs extends WithHeaders, WithModel<TextTextCompanyCategorizationModel> {
-    text?: string;
+    text: string;
 }
 export interface TextTextCompanyNameNormalizationInputs extends WithHeaders, WithModel<TextTextCompanyNameNormalizationModel> {
-    text?: string;
+    text: string;
 }
 export interface TextTextCompanyStockCodeInputs extends WithHeaders, WithModel<TextTextCompanyStockCodeModel> {
-    text?: string;
+    text: string;
 }
 export interface TextTextConversationSummarizationInputs extends WithHeaders, WithModel<TextTextConversationSummarizationModel> {
     text: string;
 }
 export interface TextTextCountryFromNameInputs extends WithHeaders, WithModel<TextTextCountryFromNameModel> {
-    name?: string;
+    name: string;
 }
 export interface TextTextDateCleaningInputs extends WithHeaders, WithModel<TextTextDateCleaningModel> {
     date: string;
@@ -130,23 +130,23 @@ export interface TextTextEmotionRecognitionInputs extends WithHeaders, WithModel
     texts: string[];
 }
 export interface TextTextGenderFromNameInputs extends WithHeaders, WithModel<TextTextGenderFromNameModel> {
-    name?: string;
+    name: string;
 }
 export interface TextTextGpsAddressFormattingInputs extends WithHeaders, WithModel<TextTextGpsAddressFormattingModel> {
     latitude: number;
     longitude: number;
 }
 export interface TextTextGpt3Inputs extends WithHeaders, WithModel<TextTextGpt3Model> {
-    text?: string;
+    text: string;
 }
 export interface TextTextGuessCityInputs extends WithHeaders, WithModel<TextTextGuessCityModel> {
-    text?: string;
+    text: string;
 }
 export interface TextTextGuessCountryInputs extends WithHeaders, WithModel<TextTextGuessCountryModel> {
-    text?: string;
+    text: string;
 }
 export interface TextTextGuessIntentInputs extends WithHeaders, WithModel<TextTextGuessIntentModel> {
-    text?: string;
+    text: string;
 }
 export interface TextTextHateSpeechDetectionInputs extends WithHeaders, WithModel<TextTextHateSpeechDetectionModel> {
     text: string;
@@ -184,10 +184,10 @@ export interface TextTextNextWordPredictionInputs extends WithHeaders, WithModel
     top_k: number;
 }
 export interface TextTextProductOwnershipInputs extends WithHeaders, WithModel<TextTextProductOwnershipModel> {
-    text?: string;
+    text: string;
 }
 export interface TextTextProductSentimentInputs extends WithHeaders, WithModel<TextTextProductSentimentModel> {
-    text?: string;
+    text: string;
 }
 export interface TextTextProgrammingLanguageGenerationInputs extends WithHeaders, WithModel<TextTextProgrammingLanguageGenerationModel> {
     code_snippet: string;
@@ -211,7 +211,7 @@ export interface TextTextSimilarityInputs extends WithHeaders, WithModel<TextTex
     sentence_2: string;
 }
 export interface TextTextSpeakerRecognitionInputs extends WithHeaders, WithModel<TextTextSpeakerRecognitionModel> {
-    text?: string;
+    text: string;
 }
 export interface TextTextSummarizationInputs extends WithHeaders, WithModel<TextTextSummarizationModel> {
     text: string;
@@ -225,10 +225,10 @@ export interface TextTextTranslationInputs extends WithHeaders, WithModel<TextTe
     target_language: string;
 }
 export interface TextTextVatCountryGuessingInputs extends WithHeaders, WithModel<TextTextVatCountryGuessingModel> {
-    text?: string;
+    text: string;
 }
 export interface TextTextWebsiteClassificationInputs extends WithHeaders, WithModel<TextTextWebsiteClassificationModel> {
-    text?: string;
+    text: string;
 }
 export interface TextTextWordAlignmentInputs extends WithHeaders, WithModel<TextTextWordAlignmentModel> {
     input_string_language_1: string;

@@ -382,7 +382,7 @@ The runtime default model is defined on the GladIA server.
 
 #### other params
 
-- `name`: string
+- `name`: string *(required)*
 
 ### `anonymization`
 
@@ -414,7 +414,7 @@ The runtime default model is defined on the GladIA server.
 
 #### other params
 
-- `text`: string
+- `text`: string *(required)*
 - `bullets`: integer
 
 ### `command-generation`
@@ -425,7 +425,7 @@ The runtime default model is defined on the GladIA server.
 
 #### other params
 
-- `text`: string
+- `text`: string *(required)*
 
 ### `company-categorization`
 
@@ -435,7 +435,7 @@ The runtime default model is defined on the GladIA server.
 
 #### other params
 
-- `text`: string
+- `text`: string *(required)*
 
 ### `company-name-normalization`
 
@@ -445,7 +445,7 @@ The runtime default model is defined on the GladIA server.
 
 #### other params
 
-- `text`: string
+- `text`: string *(required)*
 
 ### `company-stock-code`
 
@@ -455,7 +455,7 @@ The runtime default model is defined on the GladIA server.
 
 #### other params
 
-- `text`: string
+- `text`: string *(required)*
 
 ### `conversation-summarization`
 
@@ -475,7 +475,7 @@ The runtime default model is defined on the GladIA server.
 
 #### other params
 
-- `name`: string
+- `name`: string *(required)*
 
 ### `date-cleaning`
 
@@ -505,7 +505,7 @@ The runtime default model is defined on the GladIA server.
 
 #### other params
 
-- `name`: string
+- `name`: string *(required)*
 
 ### `gps-address-formatting`
 
@@ -526,7 +526,7 @@ The runtime default model is defined on the GladIA server.
 
 #### other params
 
-- `text`: string
+- `text`: string *(required)*
 
 ### `guess-city`
 
@@ -536,7 +536,7 @@ The runtime default model is defined on the GladIA server.
 
 #### other params
 
-- `text`: string
+- `text`: string *(required)*
 
 ### `guess-country`
 
@@ -546,7 +546,7 @@ The runtime default model is defined on the GladIA server.
 
 #### other params
 
-- `text`: string
+- `text`: string *(required)*
 
 ### `guess-intent`
 
@@ -556,7 +556,7 @@ The runtime default model is defined on the GladIA server.
 
 #### other params
 
-- `text`: string
+- `text`: string *(required)*
 
 ### `hate-speech-detection`
 
@@ -680,7 +680,7 @@ The runtime default model is defined on the GladIA server.
 
 #### other params
 
-- `text`: string
+- `text`: string *(required)*
 
 ### `product-sentiment`
 
@@ -690,7 +690,7 @@ The runtime default model is defined on the GladIA server.
 
 #### other params
 
-- `text`: string
+- `text`: string *(required)*
 
 ### `programming-language-generation`
 
@@ -756,7 +756,7 @@ The runtime default model is defined on the GladIA server.
 
 #### `models`
 
-- **all-MiniLM-L6-v2 (default)**
+- **all-MiniLM-L12-v2 (default)**
 
 #### other params
 
@@ -771,7 +771,7 @@ The runtime default model is defined on the GladIA server.
 
 #### other params
 
-- `text`: string
+- `text`: string *(required)*
 
 ### `summarization`
 
@@ -807,7 +807,7 @@ The runtime default model is defined on the GladIA server.
 
 #### other params
 
-- `text`: string
+- `text`: string *(required)*
 
 ### `website-classification`
 
@@ -817,7 +817,7 @@ The runtime default model is defined on the GladIA server.
 
 #### other params
 
-- `text`: string
+- `text`: string *(required)*
 
 ### `word-alignment`
 

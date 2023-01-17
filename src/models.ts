@@ -471,7 +471,7 @@ export const TEXT_TEXT_SENTIMENT_ANALYSIS_CONTENT_TYPE = "application/x-www-form
 export type TextTextSentimentAnalysisModel = typeof TEXT_TEXT_SENTIMENT_ANALYSIS_MODELS[number];
 
 export const TEXT_TEXT_SIMILARITY_MODELS = [
-   'all-MiniLM-L6-v2',
+   'all-MiniLM-L12-v2',
 ] as const;
 export const TEXT_TEXT_SIMILARITY_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
 export type TextTextSimilarityModel = typeof TEXT_TEXT_SIMILARITY_MODELS[number];

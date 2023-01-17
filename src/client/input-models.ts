@@ -186,7 +186,7 @@ export interface TextTextAddressFormattingInputs
 }
 export interface TextTextAgeFromNameInputs 
   extends WithHeaders, WithModel<TextTextAgeFromNameModel> {
-  name?: string;
+  name: string;
 }
 export interface TextTextAnonymizationInputs 
   extends WithHeaders, WithModel<TextTextAnonymizationModel> {
@@ -200,24 +200,24 @@ export interface TextTextAutocorrectInputs
 }
 export interface TextTextBulletPointGenerationInputs 
   extends WithHeaders, WithModel<TextTextBulletPointGenerationModel> {
-  text?: string;
+  text: string;
   bullets?: number;
 }
 export interface TextTextCommandGenerationInputs 
   extends WithHeaders, WithModel<TextTextCommandGenerationModel> {
-  text?: string;
+  text: string;
 }
 export interface TextTextCompanyCategorizationInputs 
   extends WithHeaders, WithModel<TextTextCompanyCategorizationModel> {
-  text?: string;
+  text: string;
 }
 export interface TextTextCompanyNameNormalizationInputs 
   extends WithHeaders, WithModel<TextTextCompanyNameNormalizationModel> {
-  text?: string;
+  text: string;
 }
 export interface TextTextCompanyStockCodeInputs 
   extends WithHeaders, WithModel<TextTextCompanyStockCodeModel> {
-  text?: string;
+  text: string;
 }
 export interface TextTextConversationSummarizationInputs 
   extends WithHeaders, WithModel<TextTextConversationSummarizationModel> {
@@ -225,7 +225,7 @@ export interface TextTextConversationSummarizationInputs
 }
 export interface TextTextCountryFromNameInputs 
   extends WithHeaders, WithModel<TextTextCountryFromNameModel> {
-  name?: string;
+  name: string;
 }
 export interface TextTextDateCleaningInputs 
   extends WithHeaders, WithModel<TextTextDateCleaningModel> {
@@ -237,7 +237,7 @@ export interface TextTextEmotionRecognitionInputs
 }
 export interface TextTextGenderFromNameInputs 
   extends WithHeaders, WithModel<TextTextGenderFromNameModel> {
-  name?: string;
+  name: string;
 }
 export interface TextTextGpsAddressFormattingInputs 
   extends WithHeaders, WithModel<TextTextGpsAddressFormattingModel> {
@@ -246,19 +246,19 @@ export interface TextTextGpsAddressFormattingInputs
 }
 export interface TextTextGpt3Inputs 
   extends WithHeaders, WithModel<TextTextGpt3Model> {
-  text?: string;
+  text: string;
 }
 export interface TextTextGuessCityInputs 
   extends WithHeaders, WithModel<TextTextGuessCityModel> {
-  text?: string;
+  text: string;
 }
 export interface TextTextGuessCountryInputs 
   extends WithHeaders, WithModel<TextTextGuessCountryModel> {
-  text?: string;
+  text: string;
 }
 export interface TextTextGuessIntentInputs 
   extends WithHeaders, WithModel<TextTextGuessIntentModel> {
-  text?: string;
+  text: string;
 }
 export interface TextTextHateSpeechDetectionInputs 
   extends WithHeaders, WithModel<TextTextHateSpeechDetectionModel> {
@@ -307,11 +307,11 @@ export interface TextTextNextWordPredictionInputs
 }
 export interface TextTextProductOwnershipInputs 
   extends WithHeaders, WithModel<TextTextProductOwnershipModel> {
-  text?: string;
+  text: string;
 }
 export interface TextTextProductSentimentInputs 
   extends WithHeaders, WithModel<TextTextProductSentimentModel> {
-  text?: string;
+  text: string;
 }
 export interface TextTextProgrammingLanguageGenerationInputs 
   extends WithHeaders, WithModel<TextTextProgrammingLanguageGenerationModel> {
@@ -342,7 +342,7 @@ export interface TextTextSimilarityInputs
 }
 export interface TextTextSpeakerRecognitionInputs 
   extends WithHeaders, WithModel<TextTextSpeakerRecognitionModel> {
-  text?: string;
+  text: string;
 }
 export interface TextTextSummarizationInputs 
   extends WithHeaders, WithModel<TextTextSummarizationModel> {
@@ -359,11 +359,11 @@ export interface TextTextTranslationInputs
 }
 export interface TextTextVatCountryGuessingInputs 
   extends WithHeaders, WithModel<TextTextVatCountryGuessingModel> {
-  text?: string;
+  text: string;
 }
 export interface TextTextWebsiteClassificationInputs 
   extends WithHeaders, WithModel<TextTextWebsiteClassificationModel> {
-  text?: string;
+  text: string;
 }
 export interface TextTextWordAlignmentInputs 
   extends WithHeaders, WithModel<TextTextWordAlignmentModel> {

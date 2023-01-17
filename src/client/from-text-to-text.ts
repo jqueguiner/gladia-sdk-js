@@ -164,9 +164,7 @@ export class FromTextToText {
 
   ageFromName(args: TextTextAgeFromNameInputs): Promise<TextTextAgeFromNameOutputs> {
     const formData = new UrlFormData();
-    if (isDefined(args.name)) {
-      formData.append('name', args.name);
-    }
+    formData.append('name', args.name);
     return this.httpClient.post({
       url: '/text/text/age-from-name/',
       headers: {
@@ -216,9 +214,7 @@ export class FromTextToText {
 
   bulletPointGeneration(args: TextTextBulletPointGenerationInputs): Promise<TextTextBulletPointGenerationOutputs> {
     const formData = new UrlFormData();
-    if (isDefined(args.text)) {
-      formData.append('text', args.text);
-    }
+    formData.append('text', args.text);
     if (isDefined(args.bullets)) {
       formData.append('bullets', String(args.bullets));
     }
@@ -237,9 +233,7 @@ export class FromTextToText {
 
   commandGeneration(args: TextTextCommandGenerationInputs): Promise<TextTextCommandGenerationOutputs> {
     const formData = new UrlFormData();
-    if (isDefined(args.text)) {
-      formData.append('text', args.text);
-    }
+    formData.append('text', args.text);
     return this.httpClient.post({
       url: '/text/text/command-generation/',
       headers: {
@@ -255,9 +249,7 @@ export class FromTextToText {
 
   companyCategorization(args: TextTextCompanyCategorizationInputs): Promise<TextTextCompanyCategorizationOutputs> {
     const formData = new UrlFormData();
-    if (isDefined(args.text)) {
-      formData.append('text', args.text);
-    }
+    formData.append('text', args.text);
     return this.httpClient.post({
       url: '/text/text/company-categorization/',
       headers: {
@@ -273,9 +265,7 @@ export class FromTextToText {
 
   companyNameNormalization(args: TextTextCompanyNameNormalizationInputs): Promise<TextTextCompanyNameNormalizationOutputs> {
     const formData = new UrlFormData();
-    if (isDefined(args.text)) {
-      formData.append('text', args.text);
-    }
+    formData.append('text', args.text);
     return this.httpClient.post({
       url: '/text/text/company-name-normalization/',
       headers: {
@@ -291,9 +281,7 @@ export class FromTextToText {
 
   companyStockCode(args: TextTextCompanyStockCodeInputs): Promise<TextTextCompanyStockCodeOutputs> {
     const formData = new UrlFormData();
-    if (isDefined(args.text)) {
-      formData.append('text', args.text);
-    }
+    formData.append('text', args.text);
     return this.httpClient.post({
       url: '/text/text/company-stock-code/',
       headers: {
@@ -325,9 +313,7 @@ export class FromTextToText {
 
   countryFromName(args: TextTextCountryFromNameInputs): Promise<TextTextCountryFromNameOutputs> {
     const formData = new UrlFormData();
-    if (isDefined(args.name)) {
-      formData.append('name', args.name);
-    }
+    formData.append('name', args.name);
     return this.httpClient.post({
       url: '/text/text/country-from-name/',
       headers: {
@@ -375,9 +361,7 @@ export class FromTextToText {
 
   genderFromName(args: TextTextGenderFromNameInputs): Promise<TextTextGenderFromNameOutputs> {
     const formData = new UrlFormData();
-    if (isDefined(args.name)) {
-      formData.append('name', args.name);
-    }
+    formData.append('name', args.name);
     return this.httpClient.post({
       url: '/text/text/gender-from-name/',
       headers: {
@@ -410,9 +394,7 @@ export class FromTextToText {
 
   gpt3(args: TextTextGpt3Inputs): Promise<TextTextGpt3Outputs> {
     const formData = new UrlFormData();
-    if (isDefined(args.text)) {
-      formData.append('text', args.text);
-    }
+    formData.append('text', args.text);
     return this.httpClient.post({
       url: '/text/text/gpt3/',
       headers: {
@@ -428,9 +410,7 @@ export class FromTextToText {
 
   guessCity(args: TextTextGuessCityInputs): Promise<TextTextGuessCityOutputs> {
     const formData = new UrlFormData();
-    if (isDefined(args.text)) {
-      formData.append('text', args.text);
-    }
+    formData.append('text', args.text);
     return this.httpClient.post({
       url: '/text/text/guess-city/',
       headers: {
@@ -446,9 +426,7 @@ export class FromTextToText {
 
   guessCountry(args: TextTextGuessCountryInputs): Promise<TextTextGuessCountryOutputs> {
     const formData = new UrlFormData();
-    if (isDefined(args.text)) {
-      formData.append('text', args.text);
-    }
+    formData.append('text', args.text);
     return this.httpClient.post({
       url: '/text/text/guess-country/',
       headers: {
@@ -464,9 +442,7 @@ export class FromTextToText {
 
   guessIntent(args: TextTextGuessIntentInputs): Promise<TextTextGuessIntentOutputs> {
     const formData = new UrlFormData();
-    if (isDefined(args.text)) {
-      formData.append('text', args.text);
-    }
+    formData.append('text', args.text);
     return this.httpClient.post({
       url: '/text/text/guess-intent/',
       headers: {
@@ -649,9 +625,7 @@ export class FromTextToText {
 
   productOwnership(args: TextTextProductOwnershipInputs): Promise<TextTextProductOwnershipOutputs> {
     const formData = new UrlFormData();
-    if (isDefined(args.text)) {
-      formData.append('text', args.text);
-    }
+    formData.append('text', args.text);
     return this.httpClient.post({
       url: '/text/text/product-ownership/',
       headers: {
@@ -667,9 +641,7 @@ export class FromTextToText {
 
   productSentiment(args: TextTextProductSentimentInputs): Promise<TextTextProductSentimentOutputs> {
     const formData = new UrlFormData();
-    if (isDefined(args.text)) {
-      formData.append('text', args.text);
-    }
+    formData.append('text', args.text);
     return this.httpClient.post({
       url: '/text/text/product-sentiment/',
       headers: {
@@ -786,9 +758,7 @@ export class FromTextToText {
 
   speakerRecognition(args: TextTextSpeakerRecognitionInputs): Promise<TextTextSpeakerRecognitionOutputs> {
     const formData = new UrlFormData();
-    if (isDefined(args.text)) {
-      formData.append('text', args.text);
-    }
+    formData.append('text', args.text);
     return this.httpClient.post({
       url: '/text/text/speaker-recognition/',
       headers: {
@@ -845,9 +815,7 @@ export class FromTextToText {
 
   vatCountryGuessing(args: TextTextVatCountryGuessingInputs): Promise<TextTextVatCountryGuessingOutputs> {
     const formData = new UrlFormData();
-    if (isDefined(args.text)) {
-      formData.append('text', args.text);
-    }
+    formData.append('text', args.text);
     return this.httpClient.post({
       url: '/text/text/vat-country-guessing/',
       headers: {
@@ -863,9 +831,7 @@ export class FromTextToText {
 
   websiteClassification(args: TextTextWebsiteClassificationInputs): Promise<TextTextWebsiteClassificationOutputs> {
     const formData = new UrlFormData();
-    if (isDefined(args.text)) {
-      formData.append('text', args.text);
-    }
+    formData.append('text', args.text);
     return this.httpClient.post({
       url: '/text/text/website-classification/',
       headers: {

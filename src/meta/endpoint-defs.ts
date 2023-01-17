@@ -850,7 +850,7 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
         "type": "string",
         "name": "name",
         "example": "Laurent",
-        "required": false
+        "required": true
       }
     ],
     "hasSamplesParam": false
@@ -938,7 +938,7 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
         "type": "string",
         "name": "text",
         "example": "Deep learning (also known as deep structured learning) is part of a broader family of machine learning methods based on artificial neural networks with representation learning. Learning can be supervised, semi-supervised or unsupervised.[2]Deep-learning architectures such as deep neural networks, deep belief networks, deep reinforcement learning, recurrent neural networks, convolutional neural networks and Transformers have been applied to fields including computer vision, speech recognition, natural language processing, machine translation, bioinformatics, drug design, medical image analysis, climate science, material inspection and board game programs, where they have produced results comparable to and in some cases surpassing human expert performance.[3][4][5]Artificial neural networks (ANNs) were inspired by information processing and distributed communication nodes in biological systems. ANNs have various differences from biological brains. Specifically, artificial neural networks tend to be static and symbolic, while the biological brain of most living organisms is dynamic (plastic) and analogue.[6][7]The adjective deep in deep learning refers to the use of multiple layers in the network. Early work showed that a linear perceptron cannot be a universal classifier, but that a network with a nonpolynomial activation function with one hidden layer of unbounded width can. Deep learning is a modern variation which is concerned with an unbounded number of layers of bounded size, which permits practical application and optimized implementation, while retaining theoretical universality under mild conditions. In deep learning the layers are also permitted to be heterogeneous and to deviate widely from biologically informed connectionist models, for the sake of efficiency, trainability and understandability, hence the structured part.",
-        "required": false
+        "required": true
       },
       {
         "in": "formData",
@@ -969,7 +969,7 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
         "type": "string",
         "name": "text",
         "example": "Is this text hateful ?",
-        "required": false
+        "required": true
       }
     ],
     "hasSamplesParam": false
@@ -993,7 +993,7 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
         "type": "string",
         "name": "text",
         "example": "bouygues",
-        "required": false
+        "required": true
       }
     ],
     "hasSamplesParam": false
@@ -1017,7 +1017,7 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
         "type": "string",
         "name": "text",
         "example": "oracle inc",
-        "required": false
+        "required": true
       }
     ],
     "hasSamplesParam": false
@@ -1041,7 +1041,7 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
         "type": "string",
         "name": "text",
         "example": "AMZN",
-        "required": false
+        "required": true
       }
     ],
     "hasSamplesParam": false
@@ -1090,7 +1090,7 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
         "type": "string",
         "name": "name",
         "example": "Laurent",
-        "required": false
+        "required": true
       }
     ],
     "hasSamplesParam": false
@@ -1168,7 +1168,7 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
         "type": "string",
         "name": "name",
         "example": "Laurent",
-        "required": false
+        "required": true
       }
     ],
     "hasSamplesParam": false
@@ -1224,7 +1224,7 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
         "type": "string",
         "name": "text",
         "example": "what color is the sky ?",
-        "required": false
+        "required": true
       }
     ],
     "hasSamplesParam": false
@@ -1248,7 +1248,7 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
         "type": "string",
         "name": "text",
         "example": "sf",
-        "required": false
+        "required": true
       }
     ],
     "hasSamplesParam": false
@@ -1272,7 +1272,7 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
         "type": "string",
         "name": "text",
         "example": "fr",
-        "required": false
+        "required": true
       }
     ],
     "hasSamplesParam": false
@@ -1296,7 +1296,7 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
         "type": "string",
         "name": "text",
         "example": "[{\"start\":\"0.00\",\"end\":\"5.00\",\"speaker\":\"SPEAKER_00\",\"sentence\":\"I regret to inform you that we will no longer require your services. Indeed, we believe that your participation in our activity is longer required. I hope you will understand our decision.\"},{\"start\":\"5.00\",\"end\":\"7.00\",\"speaker\":\"SPEAKER_01\",\"sentence\":\"What can I do to convince you to stay?\"},{\"start\":\"8.00\",\"end\":\"15.00\",\"speaker\":\"SPEAKER_00\",\"sentence\":\"I guess there is nothing you can, the decision is made, I'm sorry.\"}]",
-        "required": false
+        "required": true
       }
     ],
     "hasSamplesParam": false
@@ -1614,7 +1614,7 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
         "type": "string",
         "name": "text",
         "example": "I love ETFs and have invested some money in the stock market and also have a pension plan",
-        "required": false
+        "required": true
       }
     ],
     "hasSamplesParam": false
@@ -1638,7 +1638,7 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
         "type": "string",
         "name": "text",
         "example": "I love ETFs and have invested some money in the stock market and also have a pension plan",
-        "required": false
+        "required": true
       }
     ],
     "hasSamplesParam": false
@@ -1799,9 +1799,9 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
     "outputType": "text",
     "taskName": "similarity",
     "models": [
-      "all-MiniLM-L6-v2"
+      "all-MiniLM-L12-v2"
     ],
-    "defaultModel": "all-MiniLM-L6-v2",
+    "defaultModel": "all-MiniLM-L12-v2",
     "inputBodyContentType": "application/x-www-form-urlencoded",
     "outputBodyContentType": {
       "type": "prediction-standard-output",
@@ -1844,7 +1844,7 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
         "type": "string",
         "name": "text",
         "example": "speaker_001: bonjour je suis monsieur Roger president du conseil et je vais vous accompagner aujourd’hui dans ce meeting \n speaker_002; je suis Anna Clarence, secrétaire du conseil municipal et je répond à vos questions si besoin \n speaker_003: bonjour \n speaker_001: binjour \n speaker_002: bonjour à toutes et à tous  speaker_001: on y Va ? Allez Jacques à toi. \n speaker_003: merci donc bonjour à tous et à toutes on va aujourd’hui parler de jonathan qui est jaune et qui attend  \n speaker_004: merci donc oui on va parler de moi aujourd’hui ",
-        "required": false
+        "required": true
       }
     ],
     "hasSamplesParam": false
@@ -1954,7 +1954,7 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
         "type": "string",
         "name": "text",
         "example": "FR123456789",
-        "required": false
+        "required": true
       }
     ],
     "hasSamplesParam": false
@@ -1978,7 +1978,7 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
         "type": "string",
         "name": "text",
         "example": "youtube.com",
-        "required": false
+        "required": true
       }
     ],
     "hasSamplesParam": false

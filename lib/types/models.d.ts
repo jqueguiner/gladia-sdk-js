@@ -154,7 +154,7 @@ export declare type TextTextSentenceParaphraserModel = typeof TEXT_TEXT_SENTENCE
 export declare const TEXT_TEXT_SENTIMENT_ANALYSIS_MODELS: readonly ["distilbert-base-uncased", "distilbert-base-uncased-finetuned-sst-2-english", "zero-shot-classification-facebook-bart-large-mnli"];
 export declare const TEXT_TEXT_SENTIMENT_ANALYSIS_CONTENT_TYPE: "application/x-www-form-urlencoded";
 export declare type TextTextSentimentAnalysisModel = typeof TEXT_TEXT_SENTIMENT_ANALYSIS_MODELS[number];
-export declare const TEXT_TEXT_SIMILARITY_MODELS: readonly ["all-MiniLM-L6-v2"];
+export declare const TEXT_TEXT_SIMILARITY_MODELS: readonly ["all-MiniLM-L12-v2"];
 export declare const TEXT_TEXT_SIMILARITY_CONTENT_TYPE: "application/x-www-form-urlencoded";
 export declare type TextTextSimilarityModel = typeof TEXT_TEXT_SIMILARITY_MODELS[number];
 export declare const TEXT_TEXT_SPEAKER_RECOGNITION_MODELS: readonly ["jpt"];
