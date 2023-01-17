@@ -9,26 +9,103 @@ import { FromTextToText } from './from-text-to-text';
 import { FromVideo } from './from-video';
 import { FromVideoToText } from './from-video-to-text';
 import { AudioTextAudioTranscriptionInputs, AudioTextSpeakerDiarizationInputs, AudioTextSpeakerGenderClassificationInputs, ImageImageBackgroundRemovalInputs, ImageImageBackgroundReplacementInputs, ImageImageColorizationInputs, ImageImageDeblurringInputs, ImageImageEnhancementInputs, ImageImageFaceBluringInputs, ImageImageGuidedInpaintingInputs, ImageImageImageGuidedInpaintingInputs, ImageImageInpaintingInputs, ImageImageUncolorizationInputs, ImageTextClassificationInputs, ImageTextOcrInputs, TextImageImageGenerationInputs, TextTextAddressFormattingInputs, TextTextAgeFromNameInputs, TextTextAnonymizationInputs, TextTextAutocorrectInputs, TextTextBulletPointGenerationInputs, TextTextCommandGenerationInputs, TextTextCompanyCategorizationInputs, TextTextCompanyNameNormalizationInputs, TextTextCompanyStockCodeInputs, TextTextConversationSummarizationInputs, TextTextCountryFromNameInputs, TextTextDateCleaningInputs, TextTextEmotionRecognitionInputs, TextTextGenderFromNameInputs, TextTextGpsAddressFormattingInputs, TextTextGpt3Inputs, TextTextGuessCityInputs, TextTextGuessCountryInputs, TextTextGuessIntentInputs, TextTextHateSpeechDetectionInputs, TextTextHeadlineGenerationInputs, TextTextImageGenerationPromptBeautifierInputs, TextTextKeywordExtractionInputs, TextTextLanguageCodesInputs, TextTextLanguageDetectionInputs, TextTextLanguageGenerationInputs, TextTextNamedEntityRecognitionInputs, TextTextNextSentencePredictionInputs, TextTextNextWordPredictionInputs, TextTextProductOwnershipInputs, TextTextProductSentimentInputs, TextTextProgrammingLanguageGenerationInputs, TextTextPunctuationRestorationInputs, TextTextQuestionAnsweringInputs, TextTextSentenceParaphraserInputs, TextTextSentimentAnalysisInputs, TextTextSimilarityInputs, TextTextSpeakerRecognitionInputs, TextTextSummarizationInputs, TextTextTranslationInputs, TextTextVatCountryGuessingInputs, TextTextWebsiteClassificationInputs, TextTextWordAlignmentInputs, VideoTextActionClassificationsInputs } from './input-models';
-import { AudioTextAudioTranscriptionOutputs, AudioTextSpeakerDiarizationOutputs, AudioTextSpeakerGenderClassificationOutputs, ImageImageBackgroundRemovalOutputs, ImageImageBackgroundReplacementOutputs, ImageImageColorizationOutputs, ImageImageDeblurringOutputs, ImageImageEnhancementOutputs, ImageImageFaceBluringOutputs, ImageImageGuidedInpaintingOutputs, ImageImageImageGuidedInpaintingOutputs, ImageImageInpaintingOutputs, ImageImageUncolorizationOutputs, ImageTextClassificationOutputs, ImageTextOcrOutputs, TextImageImageGenerationOutputsMultipleSamples, TextImageImageGenerationOutputsOneSample, TextTextAddressFormattingOutputs, TextTextAgeFromNameOutputs, TextTextAnonymizationOutputs, TextTextAutocorrectOutputs, TextTextBulletPointGenerationOutputs, TextTextCommandGenerationOutputs, TextTextCompanyCategorizationOutputs, TextTextCompanyNameNormalizationOutputs, TextTextCompanyStockCodeOutputs, TextTextConversationSummarizationOutputs, TextTextCountryFromNameOutputs, TextTextDateCleaningOutputs, TextTextEmotionRecognitionOutputs, TextTextGenderFromNameOutputs, TextTextGpsAddressFormattingOutputs, TextTextGpt3Outputs, TextTextGuessCityOutputs, TextTextGuessCountryOutputs, TextTextGuessIntentOutputs, TextTextHateSpeechDetectionOutputs, TextTextHeadlineGenerationOutputs, TextTextImageGenerationPromptBeautifierOutputs, TextTextKeywordExtractionOutputs, TextTextLanguageCodesOutputs, TextTextLanguageDetectionOutputs, TextTextLanguageGenerationOutputs, TextTextNamedEntityRecognitionOutputs, TextTextNextSentencePredictionOutputs, TextTextNextWordPredictionOutputs, TextTextProductOwnershipOutputs, TextTextProductSentimentOutputs, TextTextProgrammingLanguageGenerationOutputs, TextTextPunctuationRestorationOutputs, TextTextQuestionAnsweringOutputs, TextTextSentenceParaphraserOutputs, TextTextSentimentAnalysisOutputs, TextTextSimilarityOutputs, TextTextSpeakerRecognitionOutputs, TextTextSummarizationOutputs, TextTextTranslationOutputs, TextTextVatCountryGuessingOutputs, TextTextWebsiteClassificationOutputs, TextTextWordAlignmentOutputs, VideoTextActionClassificationsOutputs } from './output-models';
+import { AudioTextAudioTranscriptionOutputs, AudioTextSpeakerDiarizationOutputs, AudioTextSpeakerGenderClassificationOutputs, ImageImageBackgroundRemovalOutputs, ImageImageBackgroundRemovalOutputsMultipleSamplesAsUrl, ImageImageBackgroundRemovalOutputsOneSampleAsUrl, ImageImageBackgroundReplacementOutputs, ImageImageBackgroundReplacementOutputsMultipleSamplesAsUrl, ImageImageBackgroundReplacementOutputsOneSampleAsUrl, ImageImageColorizationOutputs, ImageImageColorizationOutputsMultipleSamplesAsUrl, ImageImageColorizationOutputsOneSampleAsUrl, ImageImageDeblurringOutputs, ImageImageDeblurringOutputsMultipleSamplesAsUrl, ImageImageDeblurringOutputsOneSampleAsUrl, ImageImageEnhancementOutputs, ImageImageEnhancementOutputsMultipleSamplesAsUrl, ImageImageEnhancementOutputsOneSampleAsUrl, ImageImageFaceBluringOutputs, ImageImageFaceBluringOutputsMultipleSamplesAsUrl, ImageImageFaceBluringOutputsOneSampleAsUrl, ImageImageGuidedInpaintingOutputs, ImageImageGuidedInpaintingOutputsMultipleSamplesAsUrl, ImageImageGuidedInpaintingOutputsOneSampleAsUrl, ImageImageImageGuidedInpaintingOutputs, ImageImageImageGuidedInpaintingOutputsMultipleSamplesAsUrl, ImageImageImageGuidedInpaintingOutputsOneSampleAsUrl, ImageImageInpaintingOutputs, ImageImageInpaintingOutputsMultipleSamplesAsUrl, ImageImageInpaintingOutputsOneSampleAsUrl, ImageImageUncolorizationOutputs, ImageImageUncolorizationOutputsMultipleSamplesAsUrl, ImageImageUncolorizationOutputsOneSampleAsUrl, ImageTextClassificationOutputs, ImageTextOcrOutputs, TextImageImageGenerationOutputsMultipleSamples, TextImageImageGenerationOutputsOneSample, TextImageImageGenerationOutputsMultipleSamplesAsUrl, TextImageImageGenerationOutputsOneSampleAsUrl, TextTextAddressFormattingOutputs, TextTextAgeFromNameOutputs, TextTextAnonymizationOutputs, TextTextAutocorrectOutputs, TextTextBulletPointGenerationOutputs, TextTextCommandGenerationOutputs, TextTextCompanyCategorizationOutputs, TextTextCompanyNameNormalizationOutputs, TextTextCompanyStockCodeOutputs, TextTextConversationSummarizationOutputs, TextTextCountryFromNameOutputs, TextTextDateCleaningOutputs, TextTextEmotionRecognitionOutputs, TextTextGenderFromNameOutputs, TextTextGpsAddressFormattingOutputs, TextTextGpt3Outputs, TextTextGuessCityOutputs, TextTextGuessCountryOutputs, TextTextGuessIntentOutputs, TextTextHateSpeechDetectionOutputs, TextTextHeadlineGenerationOutputs, TextTextImageGenerationPromptBeautifierOutputs, TextTextKeywordExtractionOutputs, TextTextLanguageCodesOutputs, TextTextLanguageDetectionOutputs, TextTextLanguageGenerationOutputs, TextTextNamedEntityRecognitionOutputs, TextTextNextSentencePredictionOutputs, TextTextNextWordPredictionOutputs, TextTextProductOwnershipOutputs, TextTextProductSentimentOutputs, TextTextProgrammingLanguageGenerationOutputs, TextTextPunctuationRestorationOutputs, TextTextQuestionAnsweringOutputs, TextTextSentenceParaphraserOutputs, TextTextSentimentAnalysisOutputs, TextTextSimilarityOutputs, TextTextSpeakerRecognitionOutputs, TextTextSummarizationOutputs, TextTextTranslationOutputs, TextTextVatCountryGuessingOutputs, TextTextWebsiteClassificationOutputs, TextTextWordAlignmentOutputs, VideoTextActionClassificationsOutputs } from './output-models';
 export declare abstract class Shortcuts implements Omit<FromAudioToText, 'httpClient'>, Omit<FromImageToImage, 'httpClient'>, Omit<FromImageToText, 'httpClient'>, Omit<FromTextToImage, 'httpClient'>, Omit<FromTextToText, 'httpClient'>, Omit<FromVideoToText, 'httpClient'> {
     abstract fromAudio(): FromAudio;
     audioTranscription(args: AudioTextAudioTranscriptionInputs): Promise<AudioTextAudioTranscriptionOutputs>;
     speakerDiarization(args: AudioTextSpeakerDiarizationInputs): Promise<AudioTextSpeakerDiarizationOutputs>;
     speakerGenderClassification(args: AudioTextSpeakerGenderClassificationInputs): Promise<AudioTextSpeakerGenderClassificationOutputs>;
     abstract fromImage(): FromImage;
+    backgroundRemoval(args: ImageImageBackgroundRemovalInputs & {
+        samples: 1;
+        asUrl: true;
+    }): Promise<ImageImageBackgroundRemovalOutputsOneSampleAsUrl>;
+    backgroundRemoval(args: ImageImageBackgroundRemovalInputs & {
+        asUrl: true;
+    }): Promise<ImageImageBackgroundRemovalOutputsMultipleSamplesAsUrl>;
     backgroundRemoval(args: ImageImageBackgroundRemovalInputs): Promise<ImageImageBackgroundRemovalOutputs>;
+    backgroundReplacement(args: ImageImageBackgroundReplacementInputs & {
+        samples: 1;
+        asUrl: true;
+    }): Promise<ImageImageBackgroundReplacementOutputsOneSampleAsUrl>;
+    backgroundReplacement(args: ImageImageBackgroundReplacementInputs & {
+        asUrl: true;
+    }): Promise<ImageImageBackgroundReplacementOutputsMultipleSamplesAsUrl>;
     backgroundReplacement(args: ImageImageBackgroundReplacementInputs): Promise<ImageImageBackgroundReplacementOutputs>;
+    colorization(args: ImageImageColorizationInputs & {
+        samples: 1;
+        asUrl: true;
+    }): Promise<ImageImageColorizationOutputsOneSampleAsUrl>;
+    colorization(args: ImageImageColorizationInputs & {
+        asUrl: true;
+    }): Promise<ImageImageColorizationOutputsMultipleSamplesAsUrl>;
     colorization(args: ImageImageColorizationInputs): Promise<ImageImageColorizationOutputs>;
+    deblurring(args: ImageImageDeblurringInputs & {
+        samples: 1;
+        asUrl: true;
+    }): Promise<ImageImageDeblurringOutputsOneSampleAsUrl>;
+    deblurring(args: ImageImageDeblurringInputs & {
+        asUrl: true;
+    }): Promise<ImageImageDeblurringOutputsMultipleSamplesAsUrl>;
     deblurring(args: ImageImageDeblurringInputs): Promise<ImageImageDeblurringOutputs>;
+    enhancement(args: ImageImageEnhancementInputs & {
+        samples: 1;
+        asUrl: true;
+    }): Promise<ImageImageEnhancementOutputsOneSampleAsUrl>;
+    enhancement(args: ImageImageEnhancementInputs & {
+        asUrl: true;
+    }): Promise<ImageImageEnhancementOutputsMultipleSamplesAsUrl>;
     enhancement(args: ImageImageEnhancementInputs): Promise<ImageImageEnhancementOutputs>;
+    faceBluring(args: ImageImageFaceBluringInputs & {
+        samples: 1;
+        asUrl: true;
+    }): Promise<ImageImageFaceBluringOutputsOneSampleAsUrl>;
+    faceBluring(args: ImageImageFaceBluringInputs & {
+        asUrl: true;
+    }): Promise<ImageImageFaceBluringOutputsMultipleSamplesAsUrl>;
     faceBluring(args: ImageImageFaceBluringInputs): Promise<ImageImageFaceBluringOutputs>;
+    guidedInpainting(args: ImageImageGuidedInpaintingInputs & {
+        samples: 1;
+        asUrl: true;
+    }): Promise<ImageImageGuidedInpaintingOutputsOneSampleAsUrl>;
+    guidedInpainting(args: ImageImageGuidedInpaintingInputs & {
+        asUrl: true;
+    }): Promise<ImageImageGuidedInpaintingOutputsMultipleSamplesAsUrl>;
     guidedInpainting(args: ImageImageGuidedInpaintingInputs): Promise<ImageImageGuidedInpaintingOutputs>;
+    imageGuidedInpainting(args: ImageImageImageGuidedInpaintingInputs & {
+        samples: 1;
+        asUrl: true;
+    }): Promise<ImageImageImageGuidedInpaintingOutputsOneSampleAsUrl>;
+    imageGuidedInpainting(args: ImageImageImageGuidedInpaintingInputs & {
+        asUrl: true;
+    }): Promise<ImageImageImageGuidedInpaintingOutputsMultipleSamplesAsUrl>;
     imageGuidedInpainting(args: ImageImageImageGuidedInpaintingInputs): Promise<ImageImageImageGuidedInpaintingOutputs>;
+    inpainting(args: ImageImageInpaintingInputs & {
+        samples: 1;
+        asUrl: true;
+    }): Promise<ImageImageInpaintingOutputsOneSampleAsUrl>;
+    inpainting(args: ImageImageInpaintingInputs & {
+        asUrl: true;
+    }): Promise<ImageImageInpaintingOutputsMultipleSamplesAsUrl>;
     inpainting(args: ImageImageInpaintingInputs): Promise<ImageImageInpaintingOutputs>;
+    uncolorization(args: ImageImageUncolorizationInputs & {
+        samples: 1;
+        asUrl: true;
+    }): Promise<ImageImageUncolorizationOutputsOneSampleAsUrl>;
+    uncolorization(args: ImageImageUncolorizationInputs & {
+        asUrl: true;
+    }): Promise<ImageImageUncolorizationOutputsMultipleSamplesAsUrl>;
     uncolorization(args: ImageImageUncolorizationInputs): Promise<ImageImageUncolorizationOutputs>;
     classification(args: ImageTextClassificationInputs): Promise<ImageTextClassificationOutputs>;
     ocr(args: ImageTextOcrInputs): Promise<ImageTextOcrOutputs>;
     abstract fromText(): FromText;
+    imageGeneration(args: TextImageImageGenerationInputs & {
+        samples: 1;
+        asUrl: true;
+    }): Promise<TextImageImageGenerationOutputsOneSampleAsUrl>;
+    imageGeneration(args: TextImageImageGenerationInputs & {
+        asUrl: true;
+    }): Promise<TextImageImageGenerationOutputsMultipleSamplesAsUrl>;
     imageGeneration(args: TextImageImageGenerationInputs & {
         samples: 1;
     }): Promise<TextImageImageGenerationOutputsOneSample>;

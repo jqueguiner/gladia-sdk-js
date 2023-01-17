@@ -7,4 +7,4 @@ export { getModelValuesName } from './get-model-values-name';
 export { getInputModelType } from './get-input-model-type';
 export { getInputEnumParamType } from './get-input-enum-param-type';
 export { getInputEnumParamValues } from './get-input-enum-param-values';
-export { getOutputModelType, getOutputModelTypeMultipleSamples, getOutputModelTypeOneSample, } from './get-output-model-type';
+export { getOutputModelType, getOutputModelTypeMultipleSamples, getOutputModelTypeOneSample, getOutputModelTypeMultipleSamplesAsUrl, getOutputModelTypeOneSampleAsUrl, } from './get-output-model-type';

@@ -1,5 +1,5 @@
 import { AudioTextAudioTranscriptionModel, AudioTextSpeakerDiarizationModel, AudioTextSpeakerGenderClassificationModel, ImageImageBackgroundRemovalModel, ImageImageBackgroundReplacementModel, ImageImageColorizationModel, ImageImageDeblurringModel, ImageImageEnhancementModel, ImageImageFaceBluringModel, ImageImageGuidedInpaintingModel, ImageImageImageGuidedInpaintingModel, ImageImageInpaintingModel, ImageImageUncolorizationModel, ImageTextClassificationModel, ImageTextOcrModel, TextImageImageGenerationModel, TextTextAddressFormattingModel, TextTextAgeFromNameModel, TextTextAnonymizationModel, TextTextAutocorrectModel, TextTextBulletPointGenerationModel, TextTextCommandGenerationModel, TextTextCompanyCategorizationModel, TextTextCompanyNameNormalizationModel, TextTextCompanyStockCodeModel, TextTextConversationSummarizationModel, TextTextCountryFromNameModel, TextTextDateCleaningModel, TextTextEmotionRecognitionModel, TextTextGenderFromNameModel, TextTextGpsAddressFormattingModel, TextTextGpt3Model, TextTextGuessCityModel, TextTextGuessCountryModel, TextTextGuessIntentModel, TextTextHateSpeechDetectionModel, TextTextHeadlineGenerationModel, TextTextImageGenerationPromptBeautifierModel, TextTextKeywordExtractionModel, TextTextLanguageCodesModel, TextTextLanguageDetectionModel, TextTextLanguageGenerationModel, TextTextNamedEntityRecognitionModel, TextTextNextSentencePredictionModel, TextTextNextWordPredictionModel, TextTextProductOwnershipModel, TextTextProductSentimentModel, TextTextProgrammingLanguageGenerationModel, TextTextPunctuationRestorationModel, TextTextQuestionAnsweringModel, TextTextSentenceParaphraserModel, TextTextSentimentAnalysisModel, TextTextSimilarityModel, TextTextSpeakerRecognitionModel, TextTextSummarizationModel, TextTextTranslationModel, TextTextVatCountryGuessingModel, TextTextWebsiteClassificationModel, TextTextWordAlignmentModel, VideoTextActionClassificationsModel } from '../models';
-import { WithHeaders, WithModel } from './types';
+import { WithAsUrl, WithHeaders, WithModel } from './types';
 export interface AudioTextAudioTranscriptionInputs extends WithHeaders, WithModel<AudioTextAudioTranscriptionModel> {
     audio?: Blob;
     audio_url?: string;
@@ -14,43 +14,43 @@ export interface AudioTextSpeakerGenderClassificationInputs extends WithHeaders,
     audio?: Blob;
     audio_url?: string;
 }
-export interface ImageImageBackgroundRemovalInputs extends WithHeaders, WithModel<ImageImageBackgroundRemovalModel> {
+export interface ImageImageBackgroundRemovalInputs extends WithHeaders, WithAsUrl, WithModel<ImageImageBackgroundRemovalModel> {
     image?: Blob;
     image_url?: string;
 }
 export declare const IMAGE_IMAGE_BACKGROUND_REPLACEMENT_ENUM_PARAM_ALIGNMENT_VALUES: readonly ["center", "top", "bottom", "left", "right", "top-left", "top-center", "top-right", "bottom-left", "bottom-center", "bottom-right", "cropped"];
 export declare type ImageImageBackgroundReplacementEnumParamAlignment = typeof IMAGE_IMAGE_BACKGROUND_REPLACEMENT_ENUM_PARAM_ALIGNMENT_VALUES[number];
-export interface ImageImageBackgroundReplacementInputs extends WithHeaders, WithModel<ImageImageBackgroundReplacementModel> {
+export interface ImageImageBackgroundReplacementInputs extends WithHeaders, WithAsUrl, WithModel<ImageImageBackgroundReplacementModel> {
     original_image?: Blob;
     original_image_url?: string;
     background_image?: Blob;
     background_image_url?: string;
     alignment: ImageImageBackgroundReplacementEnumParamAlignment;
 }
-export interface ImageImageColorizationInputs extends WithHeaders, WithModel<ImageImageColorizationModel> {
+export interface ImageImageColorizationInputs extends WithHeaders, WithAsUrl, WithModel<ImageImageColorizationModel> {
     image?: Blob;
     image_url?: string;
 }
-export interface ImageImageDeblurringInputs extends WithHeaders, WithModel<ImageImageDeblurringModel> {
+export interface ImageImageDeblurringInputs extends WithHeaders, WithAsUrl, WithModel<ImageImageDeblurringModel> {
     image?: Blob;
     image_url?: string;
 }
-export interface ImageImageEnhancementInputs extends WithHeaders, WithModel<ImageImageEnhancementModel> {
+export interface ImageImageEnhancementInputs extends WithHeaders, WithAsUrl, WithModel<ImageImageEnhancementModel> {
     image?: Blob;
     image_url?: string;
 }
-export interface ImageImageFaceBluringInputs extends WithHeaders, WithModel<ImageImageFaceBluringModel> {
+export interface ImageImageFaceBluringInputs extends WithHeaders, WithAsUrl, WithModel<ImageImageFaceBluringModel> {
     image?: Blob;
     image_url?: string;
 }
-export interface ImageImageGuidedInpaintingInputs extends WithHeaders, WithModel<ImageImageGuidedInpaintingModel> {
+export interface ImageImageGuidedInpaintingInputs extends WithHeaders, WithAsUrl, WithModel<ImageImageGuidedInpaintingModel> {
     original_image?: Blob;
     original_image_url?: string;
     mask_image?: Blob;
     mask_image_url?: string;
     prompt: string;
 }
-export interface ImageImageImageGuidedInpaintingInputs extends WithHeaders, WithModel<ImageImageImageGuidedInpaintingModel> {
+export interface ImageImageImageGuidedInpaintingInputs extends WithHeaders, WithAsUrl, WithModel<ImageImageImageGuidedInpaintingModel> {
     original_image?: Blob;
     original_image_url?: string;
     example_image?: Blob;
@@ -61,13 +61,13 @@ export interface ImageImageImageGuidedInpaintingInputs extends WithHeaders, With
     steps: number;
     guidance_scale: number;
 }
-export interface ImageImageInpaintingInputs extends WithHeaders, WithModel<ImageImageInpaintingModel> {
+export interface ImageImageInpaintingInputs extends WithHeaders, WithAsUrl, WithModel<ImageImageInpaintingModel> {
     original_image?: Blob;
     original_image_url?: string;
     mask_image?: Blob;
     mask_image_url?: string;
 }
-export interface ImageImageUncolorizationInputs extends WithHeaders, WithModel<ImageImageUncolorizationModel> {
+export interface ImageImageUncolorizationInputs extends WithHeaders, WithAsUrl, WithModel<ImageImageUncolorizationModel> {
     image?: Blob;
     image_url?: string;
 }
@@ -81,7 +81,7 @@ export interface ImageTextOcrInputs extends WithHeaders, WithModel<ImageTextOcrM
     image_url?: string;
     source_language: string;
 }
-export interface TextImageImageGenerationInputs extends WithHeaders, WithModel<TextImageImageGenerationModel> {
+export interface TextImageImageGenerationInputs extends WithHeaders, WithAsUrl, WithModel<TextImageImageGenerationModel> {
     prompt: string;
     samples?: number;
     steps?: number;

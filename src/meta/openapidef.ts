@@ -460,6 +460,9 @@ export const openApiJson: OpenApiJson = {
       },
       "Body_apply_text_text_bullet_point_generation__post": {
         "title": "Body_apply_text_text_bullet_point_generation__post",
+        "required": [
+          "text"
+        ],
         "type": "object",
         "properties": {
           "text": {
@@ -512,6 +515,9 @@ export const openApiJson: OpenApiJson = {
       },
       "Body_apply_text_text_command_generation__post": {
         "title": "Body_apply_text_text_command_generation__post",
+        "required": [
+          "text"
+        ],
         "type": "object",
         "properties": {
           "text": {
@@ -525,6 +531,9 @@ export const openApiJson: OpenApiJson = {
       },
       "Body_apply_text_text_guess_country__post": {
         "title": "Body_apply_text_text_guess_country__post",
+        "required": [
+          "text"
+        ],
         "type": "object",
         "properties": {
           "text": {
@@ -538,6 +547,9 @@ export const openApiJson: OpenApiJson = {
       },
       "Body_apply_text_text_guess_city__post": {
         "title": "Body_apply_text_text_guess_city__post",
+        "required": [
+          "text"
+        ],
         "type": "object",
         "properties": {
           "text": {
@@ -551,6 +563,9 @@ export const openApiJson: OpenApiJson = {
       },
       "Body_apply_text_text_website_classification__post": {
         "title": "Body_apply_text_text_website_classification__post",
+        "required": [
+          "text"
+        ],
         "type": "object",
         "properties": {
           "text": {
@@ -564,6 +579,9 @@ export const openApiJson: OpenApiJson = {
       },
       "Body_apply_text_text_company_categorization__post": {
         "title": "Body_apply_text_text_company_categorization__post",
+        "required": [
+          "text"
+        ],
         "type": "object",
         "properties": {
           "text": {
@@ -577,6 +595,9 @@ export const openApiJson: OpenApiJson = {
       },
       "Body_apply_text_text_company_name_normalization__post": {
         "title": "Body_apply_text_text_company_name_normalization__post",
+        "required": [
+          "text"
+        ],
         "type": "object",
         "properties": {
           "text": {
@@ -590,6 +611,9 @@ export const openApiJson: OpenApiJson = {
       },
       "Body_apply_text_text_company_stock_code__post": {
         "title": "Body_apply_text_text_company_stock_code__post",
+        "required": [
+          "text"
+        ],
         "type": "object",
         "properties": {
           "text": {
@@ -603,6 +627,9 @@ export const openApiJson: OpenApiJson = {
       },
       "Body_apply_text_text_vat_country_guessing__post": {
         "title": "Body_apply_text_text_vat_country_guessing__post",
+        "required": [
+          "text"
+        ],
         "type": "object",
         "properties": {
           "text": {
@@ -616,6 +643,9 @@ export const openApiJson: OpenApiJson = {
       },
       "Body_apply_text_text_gpt3__post": {
         "title": "Body_apply_text_text_gpt3__post",
+        "required": [
+          "text"
+        ],
         "type": "object",
         "properties": {
           "text": {
@@ -629,6 +659,9 @@ export const openApiJson: OpenApiJson = {
       },
       "Body_apply_text_text_product_ownership__post": {
         "title": "Body_apply_text_text_product_ownership__post",
+        "required": [
+          "text"
+        ],
         "type": "object",
         "properties": {
           "text": {
@@ -642,6 +675,9 @@ export const openApiJson: OpenApiJson = {
       },
       "Body_apply_text_text_product_sentiment__post": {
         "title": "Body_apply_text_text_product_sentiment__post",
+        "required": [
+          "text"
+        ],
         "type": "object",
         "properties": {
           "text": {
@@ -655,6 +691,9 @@ export const openApiJson: OpenApiJson = {
       },
       "Body_apply_text_text_speaker_recognition__post": {
         "title": "Body_apply_text_text_speaker_recognition__post",
+        "required": [
+          "text"
+        ],
         "type": "object",
         "properties": {
           "text": {
@@ -668,6 +707,9 @@ export const openApiJson: OpenApiJson = {
       },
       "Body_apply_text_text_guess_intent__post": {
         "title": "Body_apply_text_text_guess_intent__post",
+        "required": [
+          "text"
+        ],
         "type": "object",
         "properties": {
           "text": {
@@ -681,6 +723,9 @@ export const openApiJson: OpenApiJson = {
       },
       "Body_apply_text_text_gender_from_name__post": {
         "title": "Body_apply_text_text_gender_from_name__post",
+        "required": [
+          "name"
+        ],
         "type": "object",
         "properties": {
           "name": {
@@ -694,6 +739,9 @@ export const openApiJson: OpenApiJson = {
       },
       "Body_apply_text_text_age_from_name__post": {
         "title": "Body_apply_text_text_age_from_name__post",
+        "required": [
+          "name"
+        ],
         "type": "object",
         "properties": {
           "name": {
@@ -707,6 +755,9 @@ export const openApiJson: OpenApiJson = {
       },
       "Body_apply_text_text_country_from_name__post": {
         "title": "Body_apply_text_text_country_from_name__post",
+        "required": [
+          "name"
+        ],
         "type": "object",
         "properties": {
           "name": {
@@ -730,10 +781,10 @@ export const openApiJson: OpenApiJson = {
             "type": "string",
             "description": "Insert the text to anlayse",
             "example": "I hate you piece of shit",
-            "data_type": "string",
             "examples": [
               "I hate you piece of shit"
-            ]
+            ],
+            "data_type": "string"
           }
         }
       },
@@ -810,34 +861,34 @@ export const openApiJson: OpenApiJson = {
             "description": "Audio to use",
             "format": "binary",
             "example": "http://files.gladia.io/examples/audio/text/audio-transcription/audio.wav",
-            "data_type": "audio",
             "examples": {
               "from_audio_wav": "http://files.gladia.io/examples/audio/text/audio-transcription/audio.wav",
               "from_audio_mp3": "http://files.gladia.io/examples/audio/text/audio-transcription/audio.mp3",
               "from_audio_m4a": "http://files.gladia.io/examples/audio/text/audio-transcription/audio.m4a"
-            }
+            },
+            "data_type": "audio"
           },
           "audio_url": {
             "title": "audio_url",
             "type": "string",
             "description": "Audio to use (url) - ignored if \"audio\" file is provided",
             "example": "http://files.gladia.io/examples/audio/text/audio-transcription/audio.wav",
-            "data_type": "url",
             "examples": {
               "from_audio_wav": "http://files.gladia.io/examples/audio/text/audio-transcription/audio.wav",
               "from_audio_mp3": "http://files.gladia.io/examples/audio/text/audio-transcription/audio.mp3",
               "from_audio_m4a": "http://files.gladia.io/examples/audio/text/audio-transcription/audio.m4a"
-            }
+            },
+            "data_type": "url"
           },
           "language": {
             "title": "language",
             "type": "string",
             "description": "Language of the input audio",
             "example": "en-US",
-            "data_type": "str",
             "examples": [
               "en-US"
-            ]
+            ],
+            "data_type": "str"
           }
         }
       },
@@ -1006,7 +1057,7 @@ export const openApiJson: OpenApiJson = {
             "title": "alignment",
             "allOf": [
               {
-                "$ref": "#/components/schemas/DynamicEnum_1673465596.4518085"
+                "$ref": "#/components/schemas/DynamicEnum_1673945308.737552"
               }
             ],
             "description": "Alignment to use",
@@ -1821,10 +1872,10 @@ export const openApiJson: OpenApiJson = {
             "type": "string",
             "description": "Some input text to continue [...]",
             "example": "I'm currently driving while eating a",
-            "data_type": "string",
             "examples": [
               "I'm currently driving while eating a"
-            ]
+            ],
+            "data_type": "string"
           }
         }
       },
@@ -1962,20 +2013,20 @@ export const openApiJson: OpenApiJson = {
             "type": "string",
             "description": "context to use",
             "example": "My name is Clara and I live in Berkeley.",
-            "data_type": "text",
             "examples": [
               "My name is Clara and I live in Berkeley."
-            ]
+            ],
+            "data_type": "text"
           },
           "question": {
             "title": "question",
             "type": "string",
             "description": "question to ask",
             "example": "What's my name?",
-            "data_type": "text",
             "examples": [
               "What's my name?"
-            ]
+            ],
+            "data_type": "text"
           },
           "top_k": {
             "title": "top_k",
@@ -1983,11 +2034,11 @@ export const openApiJson: OpenApiJson = {
             "description": "number of prediction to return",
             "default": 1,
             "example": 1,
-            "data_type": "int",
             "examples": [
               1,
               10
-            ]
+            ],
+            "data_type": "int"
           }
         }
       },
@@ -2179,8 +2230,8 @@ export const openApiJson: OpenApiJson = {
           }
         }
       },
-      "DynamicEnum_1673465596.4518085": {
-        "title": "DynamicEnum_1673465596.4518085",
+      "DynamicEnum_1673945308.737552": {
+        "title": "DynamicEnum_1673945308.737552",
         "enum": [
           "center",
           "top",
@@ -2281,24 +2332,24 @@ export const openApiJson: OpenApiJson = {
               }
             },
             "example": {
+              "coqui_english_huge_vocab": "",
               "openai-whisper--tiny": "",
               "openai-whisper--base": "",
               "openai-whisper--small": "",
               "openai-whisper--medium": "",
               "openai-whisper--large": "",
               "openai-whisper--large-v1": "",
-              "openai-whisper--large-v2": "",
-              "coqui_english_huge_vocab": ""
+              "openai-whisper--large-v2": ""
             },
             "examples": {
+              "coqui_english_huge_vocab": {},
               "openai-whisper--tiny": {},
               "openai-whisper--base": {},
               "openai-whisper--small": {},
               "openai-whisper--medium": {},
               "openai-whisper--large": {},
               "openai-whisper--large-v1": {},
-              "openai-whisper--large-v2": {},
-              "coqui_english_huge_vocab": {}
+              "openai-whisper--large-v2": {}
             }
           },
           "422": {
@@ -2504,8 +2555,8 @@ export const openApiJson: OpenApiJson = {
             "schema": {
               "title": "Model",
               "enum": [
-                "xception",
-                "mobilenet"
+                "mobilenet",
+                "xception"
               ],
               "type": "string",
               "default": "mobilenet"
@@ -2536,12 +2587,12 @@ export const openApiJson: OpenApiJson = {
               }
             },
             "example": {
-              "mobilenet": "",
-              "xception": ""
+              "xception": "",
+              "mobilenet": ""
             },
             "examples": {
-              "mobilenet": {},
-              "xception": {}
+              "xception": {},
+              "mobilenet": {}
             }
           },
           "422": {
@@ -2668,9 +2719,9 @@ export const openApiJson: OpenApiJson = {
             "schema": {
               "title": "Model",
               "enum": [
-                "mlhubber_colorize",
                 "deoldify-stable",
-                "deoldify-artistic"
+                "deoldify-artistic",
+                "mlhubber_colorize"
               ],
               "type": "string",
               "default": "mlhubber_colorize"
@@ -2701,13 +2752,13 @@ export const openApiJson: OpenApiJson = {
               }
             },
             "example": {
-              "mlhubber_colorize": "",
               "deoldify-artistic": "",
+              "mlhubber_colorize": "",
               "deoldify-stable": ""
             },
             "examples": {
-              "mlhubber_colorize": {},
               "deoldify-artistic": {},
+              "mlhubber_colorize": {},
               "deoldify-stable": {}
             }
           },
@@ -2834,8 +2885,8 @@ export const openApiJson: OpenApiJson = {
             "schema": {
               "title": "Model",
               "enum": [
-                "LOL",
-                "FiveK"
+                "FiveK",
+                "LOL"
               ],
               "type": "string",
               "default": "FiveK"
@@ -3162,11 +3213,11 @@ export const openApiJson: OpenApiJson = {
             "schema": {
               "title": "Model",
               "enum": [
-                "zits",
                 "mat",
+                "lama",
                 "latent-diffusion",
                 "fcf",
-                "lama"
+                "zits"
               ],
               "type": "string",
               "default": "zits"
@@ -3197,18 +3248,18 @@ export const openApiJson: OpenApiJson = {
               }
             },
             "example": {
-              "mat": "",
+              "lama": "",
               "latent-diffusion": "",
+              "mat": "",
               "zits": "",
-              "fcf": "",
-              "lama": ""
+              "fcf": ""
             },
             "examples": {
-              "mat": {},
+              "lama": {},
               "latent-diffusion": {},
+              "mat": {},
               "zits": {},
-              "fcf": {},
-              "lama": {}
+              "fcf": {}
             }
           },
           "422": {
@@ -3334,124 +3385,124 @@ export const openApiJson: OpenApiJson = {
             "schema": {
               "title": "Model",
               "enum": [
-                "vgg16_v1",
-                "regnet_x_16gf_v1",
-                "vgg11",
-                "googlenet_quantized_fbgemm_v1",
-                "mobilenet_v3_large_v1",
-                "convnext_tiny",
-                "vit_b_32",
-                "efficientnet_v2_s",
-                "mobilenet_v3_small",
-                "resnet18_quantized_fbgemm_v1",
-                "regnet_y_32gf_swag_e2e_v1",
-                "resnext101_32x8d_v2",
-                "resnet50_quantized_fbgemm_v1",
-                "regnet_x_32gf_v2",
-                "swin_s",
-                "regnet_x_800mf_v2",
-                "mnasnet0_75",
-                "regnet_y_8gf_v1",
-                "vit_l_16_swag_linear_v1",
-                "vit_l_16_swag_e2e_v1",
-                "resnet34",
-                "mnasnet1_0",
-                "regnet_y_128gf_swag_e2e_v1",
-                "inception_v3_fbgemm_v1",
-                "wide_resnet101_2_v1",
-                "regnet_x_800mf_v1",
-                "mobilenet_v2_v2",
-                "mobilenet_v2_v1",
-                "resnext101_64x4d_v1",
-                "vit_l_32",
-                "efficientnet_b1_v1",
-                "regnet_y_3_2gf_v2",
-                "regnet_x_400mf_v1",
-                "shufflenet_v2_x1_0",
-                "efficientnet_b0",
-                "resnext101_32x8d_quantized_fbgemm_v1",
-                "vgg19",
-                "regnet_x_16gf_v2",
-                "resnext101_32x8d_quantized_fbgemm_v2",
-                "regnet_y_16gf_v2",
-                "mobilenet_v3_large_quantized_qnnpack_v1",
-                "regnet_x_1_6gf_v2",
-                "shufflenet_v2_x1_5",
-                "efficientnet_b7",
-                "vit_b_16_swag_linear_v1",
-                "shufflenet_v2_x2_0_quantized_fbgemm_v1",
-                "shufflenet_v2_x0_5",
-                "vgg19_bn",
-                "regnet_y_16gf_swag_e2e_v1",
-                "alexnet",
-                "convnext_large",
-                "regnet_y_16gf_v1",
-                "regnet_x_1_6gf_v1",
-                "shufflenet_v2_x2_0",
-                "vgg13_bn",
-                "regnet_y_32gf_swag_linear_v1",
-                "efficientnet_v2_m",
-                "vit_l_16_v1",
-                "regnet_x_8gf_v2",
-                "efficientnet_b4",
-                "resnext50_32x4d_v1",
-                "resnext50_32x4d_v2",
-                "regnet_y_3_2gf_v1",
-                "regnet_x_3_2gf_v2",
-                "mobilenet_v2_quantized_qnnpack_v1",
-                "squeezenet1_1",
-                "resnet18",
-                "densenet121",
-                "regnet_x_400mf_v2",
-                "regnet_y_400mf_v1",
-                "mobilenet_v3_large_v2",
-                "vit_b_16_swag_e2e_v1",
-                "squeezenet1_0",
-                "densenet169",
-                "shufflenet_v2_x0_5_quantized_fbgemm_v1",
-                "vit_h_14_swag_linear_v1",
-                "mnasnet1_3",
-                "wide_resnet101_2_v2",
-                "densenet201",
-                "inception_v3",
-                "regnet_x_3_2gf_v1",
-                "densenet161",
-                "efficientnet_b6",
-                "vgg13",
-                "swin_b",
-                "resnet50_v1",
-                "efficientnet_b5",
-                "efficientnet_b1_v2",
-                "mnasnet0_5",
-                "resnet50_v2",
-                "resnet50_quantized_fbgemm_v2",
-                "resnext101_64x4d_quantized_fbgemm_v1",
-                "shufflenet_v2_x1_0_quantized_fbgemm_v1",
-                "efficientnet_b2",
-                "vit_b_16_v1",
                 "swin_t",
-                "regnet_y_1_6gf_v1",
-                "resnet152_v1",
-                "regnet_y_128gf_swag_linear_v1",
-                "convnext_base",
-                "googlenet",
-                "efficientnet_b3",
-                "regnet_y_400mf_v2",
-                "convnext_small",
-                "regnet_y_32gf_v2",
-                "regnet_y_32gf_v1",
-                "efficientnet_v2_l",
-                "vgg16_bn",
+                "regnet_y_16gf_swag_e2e_v1",
                 "resnet152_v2",
-                "resnext101_32x8d_v1",
-                "regnet_y_8gf_v2",
-                "shufflenet_v2_x1_5_quantized_fbgemm_v1",
-                "vgg11_bn",
                 "vit_h_14_swag_e2e_v1",
-                "regnet_x_32gf_v1",
+                "regnet_y_128gf_swag_linear_v1",
+                "regnet_x_400mf_v1",
+                "resnext101_32x8d_quantized_fbgemm_v1",
                 "regnet_y_1_6gf_v2",
+                "regnet_x_3_2gf_v1",
+                "resnext50_32x4d_v2",
+                "resnext101_32x8d_v2",
+                "mnasnet1_3",
+                "vit_l_32",
+                "shufflenet_v2_x0_5",
+                "shufflenet_v2_x1_5",
+                "vit_l_16_v1",
+                "vit_l_16_swag_e2e_v1",
+                "resnext101_64x4d_quantized_fbgemm_v1",
+                "vgg19",
+                "mnasnet0_5",
+                "resnet34",
+                "resnet50_v1",
+                "regnet_x_8gf_v2",
+                "googlenet",
+                "convnext_large",
+                "regnet_x_3_2gf_v2",
+                "densenet161",
+                "regnet_x_1_6gf_v1",
+                "regnet_y_400mf_v1",
+                "efficientnet_b5",
+                "vgg13_bn",
+                "mnasnet0_75",
+                "efficientnet_b7",
+                "resnext101_64x4d_v1",
+                "resnet50_quantized_fbgemm_v1",
+                "convnext_small",
+                "efficientnet_b4",
+                "vgg19_bn",
+                "regnet_y_3_2gf_v1",
+                "regnet_y_16gf_v1",
+                "mnasnet1_0",
+                "resnext50_32x4d_v1",
                 "regnet_y_16gf_swag_linear_v1",
-                "regnet_x_8gf_v1"
+                "efficientnet_b1_v1",
+                "regnet_x_800mf_v2",
+                "regnet_x_16gf_v1",
+                "efficientnet_b6",
+                "densenet121",
+                "regnet_y_32gf_v2",
+                "regnet_y_32gf_swag_linear_v1",
+                "resnet18",
+                "shufflenet_v2_x2_0_quantized_fbgemm_v1",
+                "regnet_y_3_2gf_v2",
+                "vgg13",
+                "resnext101_32x8d_v1",
+                "mobilenet_v3_small",
+                "regnet_y_8gf_v1",
+                "inception_v3_fbgemm_v1",
+                "resnet18_quantized_fbgemm_v1",
+                "mobilenet_v3_large_quantized_qnnpack_v1",
+                "efficientnet_b3",
+                "regnet_x_32gf_v1",
+                "swin_s",
+                "shufflenet_v2_x2_0",
+                "vit_h_14_swag_linear_v1",
+                "vgg16_bn",
+                "densenet201",
+                "wide_resnet101_2_v2",
+                "swin_b",
+                "resnet152_v1",
+                "vit_l_16_swag_linear_v1",
+                "mobilenet_v2_v2",
+                "regnet_x_800mf_v1",
+                "regnet_x_1_6gf_v2",
+                "vgg16_v1",
+                "regnet_y_16gf_v2",
+                "vgg11",
+                "vit_b_32",
+                "efficientnet_b1_v2",
+                "regnet_y_32gf_v1",
+                "mobilenet_v3_large_v1",
+                "shufflenet_v2_x1_0_quantized_fbgemm_v1",
+                "efficientnet_b0",
+                "vgg11_bn",
+                "squeezenet1_0",
+                "mobilenet_v2_v1",
+                "regnet_y_128gf_swag_e2e_v1",
+                "resnet50_v2",
+                "shufflenet_v2_x1_5_quantized_fbgemm_v1",
+                "shufflenet_v2_x0_5_quantized_fbgemm_v1",
+                "vit_b_16_swag_linear_v1",
+                "mobilenet_v2_quantized_qnnpack_v1",
+                "shufflenet_v2_x1_0",
+                "resnext101_32x8d_quantized_fbgemm_v2",
+                "efficientnet_v2_l",
+                "regnet_x_16gf_v2",
+                "inception_v3",
+                "resnet50_quantized_fbgemm_v2",
+                "efficientnet_v2_m",
+                "mobilenet_v3_large_v2",
+                "regnet_y_32gf_swag_e2e_v1",
+                "googlenet_quantized_fbgemm_v1",
+                "regnet_x_8gf_v1",
+                "convnext_tiny",
+                "regnet_y_8gf_v2",
+                "efficientnet_b2",
+                "vit_b_16_swag_e2e_v1",
+                "squeezenet1_1",
+                "alexnet",
+                "regnet_y_400mf_v2",
+                "vit_b_16_v1",
+                "regnet_x_400mf_v2",
+                "convnext_base",
+                "efficientnet_v2_s",
+                "densenet169",
+                "regnet_x_32gf_v2",
+                "regnet_y_1_6gf_v1",
+                "wide_resnet101_2_v1"
               ],
               "type": "string",
               "default": "alexnet"
@@ -3483,244 +3534,244 @@ export const openApiJson: OpenApiJson = {
               }
             },
             "example": {
-              "regnet_x_32gf_v2": "",
-              "vit_b_16_v1": "",
-              "regnet_y_128gf_swag_e2e_v1": "",
-              "regnet_x_400mf_v1": "",
-              "resnext101_64x4d_v1": "",
-              "efficientnet_b3": "",
-              "resnext50_32x4d_v1": "",
-              "regnet_x_1_6gf_v1": "",
-              "densenet161": "",
-              "mobilenet_v3_large_v2": "",
-              "vgg19_bn": "",
-              "resnext101_32x8d_v2": "",
-              "regnet_y_16gf_v1": "",
-              "convnext_tiny": "",
-              "efficientnet_b1_v1": "",
-              "regnet_x_3_2gf_v1": "",
-              "densenet169": "",
-              "resnext101_32x8d_quantized_fbgemm_v2": "",
-              "resnext101_32x8d_v1": "",
-              "resnext101_32x8d_quantized_fbgemm_v1": "",
-              "regnet_y_3_2gf_v2": "",
-              "mobilenet_v2_v1": "",
-              "vgg13_bn": "",
-              "squeezenet1_0": "",
-              "mobilenet_v3_small": "",
-              "vgg16_bn": "",
-              "resnet50_quantized_fbgemm_v1": "",
-              "wide_resnet101_2_v1": "",
-              "efficientnet_b4": "",
-              "regnet_x_16gf_v1": "",
-              "regnet_y_32gf_v1": "",
-              "shufflenet_v2_x0_5": "",
-              "vgg11": "",
-              "regnet_y_1_6gf_v2": "",
-              "regnet_y_128gf_swag_linear_v1": "",
-              "efficientnet_b2": "",
-              "vit_l_32": "",
-              "shufflenet_v2_x1_0": "",
-              "mobilenet_v3_large_v1": "",
-              "convnext_base": "",
-              "vit_l_16_swag_e2e_v1": "",
-              "regnet_y_8gf_v1": "",
-              "swin_t": "",
-              "mobilenet_v3_large_quantized_qnnpack_v1": "",
-              "shufflenet_v2_x0_5_quantized_fbgemm_v1": "",
-              "vit_b_16_swag_e2e_v1": "",
-              "resnet34": "",
-              "vgg19": "",
-              "regnet_y_32gf_swag_e2e_v1": "",
-              "inception_v3": "",
-              "squeezenet1_1": "",
-              "efficientnet_b0": "",
-              "regnet_y_32gf_v2": "",
-              "shufflenet_v2_x1_5_quantized_fbgemm_v1": "",
-              "resnext50_32x4d_v2": "",
-              "regnet_y_16gf_swag_linear_v1": "",
-              "resnet50_quantized_fbgemm_v2": "",
-              "regnet_y_400mf_v2": "",
-              "mnasnet0_5": "",
-              "vgg13": "",
-              "wide_resnet101_2_v2": "",
-              "resnext101_64x4d_quantized_fbgemm_v1": "",
-              "vit_b_16_swag_linear_v1": "",
-              "mnasnet1_3": "",
-              "regnet_x_16gf_v2": "",
-              "resnet152_v2": "",
-              "shufflenet_v2_x2_0_quantized_fbgemm_v1": "",
-              "swin_s": "",
-              "regnet_y_3_2gf_v1": "",
-              "resnet50_v1": "",
-              "mnasnet1_0": "",
-              "densenet121": "",
-              "regnet_y_400mf_v1": "",
-              "regnet_y_16gf_v2": "",
-              "efficientnet_b5": "",
-              "googlenet_quantized_fbgemm_v1": "",
-              "regnet_x_800mf_v1": "",
-              "regnet_y_32gf_swag_linear_v1": "",
-              "efficientnet_v2_l": "",
-              "efficientnet_b1_v2": "",
-              "mnasnet0_75": "",
-              "convnext_small": "",
-              "vit_h_14_swag_linear_v1": "",
-              "regnet_y_1_6gf_v1": "",
-              "vgg16_v1": "",
-              "regnet_x_3_2gf_v2": "",
-              "mobilenet_v2_v2": "",
-              "vit_l_16_v1": "",
-              "resnet50_v2": "",
-              "shufflenet_v2_x1_0_quantized_fbgemm_v1": "",
-              "vgg11_bn": "",
-              "vit_l_16_swag_linear_v1": "",
-              "regnet_x_32gf_v1": "",
               "regnet_x_1_6gf_v2": "",
-              "regnet_y_16gf_swag_e2e_v1": "",
-              "densenet201": "",
+              "regnet_y_1_6gf_v1": "",
+              "vgg13_bn": "",
+              "regnet_y_8gf_v2": "",
+              "resnext50_32x4d_v1": "",
+              "mnasnet0_75": "",
+              "swin_t": "",
               "alexnet": "",
-              "convnext_large": "",
-              "inception_v3_fbgemm_v1": "",
-              "efficientnet_v2_m": "",
-              "mobilenet_v2_quantized_qnnpack_v1": "",
-              "shufflenet_v2_x1_5": "",
+              "vgg16_bn": "",
+              "efficientnet_b0": "",
+              "efficientnet_b4": "",
+              "regnet_y_32gf_swag_linear_v1": "",
+              "inception_v3": "",
+              "efficientnet_v2_l": "",
+              "regnet_y_8gf_v1": "",
+              "vit_b_16_swag_e2e_v1": "",
               "regnet_x_8gf_v1": "",
-              "efficientnet_b7": "",
-              "regnet_x_8gf_v2": "",
-              "shufflenet_v2_x2_0": "",
-              "vit_h_14_swag_e2e_v1": "",
-              "swin_b": "",
+              "vgg16_v1": "",
+              "resnet50_v1": "",
               "efficientnet_b6": "",
-              "resnet18": "",
+              "regnet_y_16gf_v1": "",
+              "vit_l_16_swag_linear_v1": "",
+              "efficientnet_b2": "",
+              "mnasnet1_0": "",
+              "wide_resnet101_2_v2": "",
+              "mobilenet_v2_quantized_qnnpack_v1": "",
+              "resnet50_quantized_fbgemm_v2": "",
+              "resnext101_64x4d_v1": "",
+              "shufflenet_v2_x1_5_quantized_fbgemm_v1": "",
+              "efficientnet_b3": "",
+              "regnet_x_32gf_v1": "",
+              "vgg19": "",
+              "wide_resnet101_2_v1": "",
+              "mobilenet_v2_v2": "",
+              "regnet_x_32gf_v2": "",
+              "regnet_y_3_2gf_v1": "",
+              "efficientnet_b1_v2": "",
+              "shufflenet_v2_x1_0": "",
+              "vgg11_bn": "",
+              "mnasnet0_5": "",
+              "regnet_y_16gf_swag_linear_v1": "",
+              "squeezenet1_1": "",
+              "regnet_x_3_2gf_v1": "",
+              "regnet_x_16gf_v1": "",
+              "squeezenet1_0": "",
+              "shufflenet_v2_x0_5_quantized_fbgemm_v1": "",
+              "resnext101_64x4d_quantized_fbgemm_v1": "",
+              "resnet50_quantized_fbgemm_v1": "",
+              "inception_v3_fbgemm_v1": "",
+              "resnext101_32x8d_quantized_fbgemm_v1": "",
+              "convnext_base": "",
+              "mnasnet1_3": "",
               "resnet152_v1": "",
-              "googlenet": "",
-              "regnet_x_400mf_v2": "",
-              "vit_b_32": "",
-              "efficientnet_v2_s": "",
+              "efficientnet_b7": "",
+              "regnet_y_1_6gf_v2": "",
+              "mobilenet_v3_large_v2": "",
+              "swin_s": "",
+              "mobilenet_v2_v1": "",
+              "vit_h_14_swag_linear_v1": "",
               "resnet18_quantized_fbgemm_v1": "",
+              "convnext_large": "",
+              "mobilenet_v3_small": "",
+              "shufflenet_v2_x1_0_quantized_fbgemm_v1": "",
+              "regnet_y_400mf_v2": "",
+              "resnet18": "",
+              "regnet_y_128gf_swag_linear_v1": "",
+              "resnet50_v2": "",
+              "vit_l_16_v1": "",
+              "shufflenet_v2_x0_5": "",
+              "densenet121": "",
+              "shufflenet_v2_x2_0_quantized_fbgemm_v1": "",
+              "resnext50_32x4d_v2": "",
+              "regnet_x_400mf_v2": "",
+              "vit_b_16_swag_linear_v1": "",
+              "vgg13": "",
+              "regnet_x_800mf_v1": "",
+              "regnet_y_400mf_v1": "",
+              "densenet169": "",
+              "convnext_tiny": "",
+              "vit_b_32": "",
+              "efficientnet_v2_m": "",
+              "regnet_y_16gf_v2": "",
               "regnet_x_800mf_v2": "",
-              "regnet_y_8gf_v2": ""
+              "resnext101_32x8d_quantized_fbgemm_v2": "",
+              "regnet_y_16gf_swag_e2e_v1": "",
+              "googlenet_quantized_fbgemm_v1": "",
+              "regnet_x_16gf_v2": "",
+              "efficientnet_b5": "",
+              "densenet201": "",
+              "resnet152_v2": "",
+              "vgg19_bn": "",
+              "resnext101_32x8d_v1": "",
+              "vit_h_14_swag_e2e_v1": "",
+              "mobilenet_v3_large_quantized_qnnpack_v1": "",
+              "vit_l_32": "",
+              "shufflenet_v2_x2_0": "",
+              "vit_b_16_v1": "",
+              "efficientnet_b1_v1": "",
+              "vgg11": "",
+              "swin_b": "",
+              "vit_l_16_swag_e2e_v1": "",
+              "regnet_y_32gf_v1": "",
+              "resnext101_32x8d_v2": "",
+              "regnet_y_32gf_swag_e2e_v1": "",
+              "efficientnet_v2_s": "",
+              "densenet161": "",
+              "regnet_x_400mf_v1": "",
+              "convnext_small": "",
+              "regnet_x_3_2gf_v2": "",
+              "mobilenet_v3_large_v1": "",
+              "regnet_x_8gf_v2": "",
+              "regnet_y_128gf_swag_e2e_v1": "",
+              "googlenet": "",
+              "resnet34": "",
+              "regnet_x_1_6gf_v1": "",
+              "regnet_y_3_2gf_v2": "",
+              "regnet_y_32gf_v2": "",
+              "shufflenet_v2_x1_5": ""
             },
             "examples": {
-              "regnet_x_32gf_v2": {},
-              "vit_b_16_v1": {},
-              "regnet_y_128gf_swag_e2e_v1": {},
-              "regnet_x_400mf_v1": {},
-              "resnext101_64x4d_v1": {},
-              "efficientnet_b3": {},
-              "resnext50_32x4d_v1": {},
-              "regnet_x_1_6gf_v1": {},
-              "densenet161": {},
-              "mobilenet_v3_large_v2": {},
-              "vgg19_bn": {},
-              "resnext101_32x8d_v2": {},
-              "regnet_y_16gf_v1": {},
-              "convnext_tiny": {},
-              "efficientnet_b1_v1": {},
-              "regnet_x_3_2gf_v1": {},
-              "densenet169": {},
-              "resnext101_32x8d_quantized_fbgemm_v2": {},
-              "resnext101_32x8d_v1": {},
-              "resnext101_32x8d_quantized_fbgemm_v1": {},
-              "regnet_y_3_2gf_v2": {},
-              "mobilenet_v2_v1": {},
-              "vgg13_bn": {},
-              "squeezenet1_0": {},
-              "mobilenet_v3_small": {},
-              "vgg16_bn": {},
-              "resnet50_quantized_fbgemm_v1": {},
-              "wide_resnet101_2_v1": {},
-              "efficientnet_b4": {},
-              "regnet_x_16gf_v1": {},
-              "regnet_y_32gf_v1": {},
-              "shufflenet_v2_x0_5": {},
-              "vgg11": {},
-              "regnet_y_1_6gf_v2": {},
-              "regnet_y_128gf_swag_linear_v1": {},
-              "efficientnet_b2": {},
-              "vit_l_32": {},
-              "shufflenet_v2_x1_0": {},
-              "mobilenet_v3_large_v1": {},
-              "convnext_base": {},
-              "vit_l_16_swag_e2e_v1": {},
-              "regnet_y_8gf_v1": {},
-              "swin_t": {},
-              "mobilenet_v3_large_quantized_qnnpack_v1": {},
-              "shufflenet_v2_x0_5_quantized_fbgemm_v1": {},
-              "vit_b_16_swag_e2e_v1": {},
-              "resnet34": {},
-              "vgg19": {},
-              "regnet_y_32gf_swag_e2e_v1": {},
-              "inception_v3": {},
-              "squeezenet1_1": {},
-              "efficientnet_b0": {},
-              "regnet_y_32gf_v2": {},
-              "shufflenet_v2_x1_5_quantized_fbgemm_v1": {},
-              "resnext50_32x4d_v2": {},
-              "regnet_y_16gf_swag_linear_v1": {},
-              "resnet50_quantized_fbgemm_v2": {},
-              "regnet_y_400mf_v2": {},
-              "mnasnet0_5": {},
-              "vgg13": {},
-              "wide_resnet101_2_v2": {},
-              "resnext101_64x4d_quantized_fbgemm_v1": {},
-              "vit_b_16_swag_linear_v1": {},
-              "mnasnet1_3": {},
-              "regnet_x_16gf_v2": {},
-              "resnet152_v2": {},
-              "shufflenet_v2_x2_0_quantized_fbgemm_v1": {},
-              "swin_s": {},
-              "regnet_y_3_2gf_v1": {},
-              "resnet50_v1": {},
-              "mnasnet1_0": {},
-              "densenet121": {},
-              "regnet_y_400mf_v1": {},
-              "regnet_y_16gf_v2": {},
-              "efficientnet_b5": {},
-              "googlenet_quantized_fbgemm_v1": {},
-              "regnet_x_800mf_v1": {},
-              "regnet_y_32gf_swag_linear_v1": {},
-              "efficientnet_v2_l": {},
-              "efficientnet_b1_v2": {},
-              "mnasnet0_75": {},
-              "convnext_small": {},
-              "vit_h_14_swag_linear_v1": {},
-              "regnet_y_1_6gf_v1": {},
-              "vgg16_v1": {},
-              "regnet_x_3_2gf_v2": {},
-              "mobilenet_v2_v2": {},
-              "vit_l_16_v1": {},
-              "resnet50_v2": {},
-              "shufflenet_v2_x1_0_quantized_fbgemm_v1": {},
-              "vgg11_bn": {},
-              "vit_l_16_swag_linear_v1": {},
-              "regnet_x_32gf_v1": {},
               "regnet_x_1_6gf_v2": {},
-              "regnet_y_16gf_swag_e2e_v1": {},
-              "densenet201": {},
+              "regnet_y_1_6gf_v1": {},
+              "vgg13_bn": {},
+              "regnet_y_8gf_v2": {},
+              "resnext50_32x4d_v1": {},
+              "mnasnet0_75": {},
+              "swin_t": {},
               "alexnet": {},
-              "convnext_large": {},
-              "inception_v3_fbgemm_v1": {},
-              "efficientnet_v2_m": {},
-              "mobilenet_v2_quantized_qnnpack_v1": {},
-              "shufflenet_v2_x1_5": {},
+              "vgg16_bn": {},
+              "efficientnet_b0": {},
+              "efficientnet_b4": {},
+              "regnet_y_32gf_swag_linear_v1": {},
+              "inception_v3": {},
+              "efficientnet_v2_l": {},
+              "regnet_y_8gf_v1": {},
+              "vit_b_16_swag_e2e_v1": {},
               "regnet_x_8gf_v1": {},
-              "efficientnet_b7": {},
-              "regnet_x_8gf_v2": {},
-              "shufflenet_v2_x2_0": {},
-              "vit_h_14_swag_e2e_v1": {},
-              "swin_b": {},
+              "vgg16_v1": {},
+              "resnet50_v1": {},
               "efficientnet_b6": {},
-              "resnet18": {},
+              "regnet_y_16gf_v1": {},
+              "vit_l_16_swag_linear_v1": {},
+              "efficientnet_b2": {},
+              "mnasnet1_0": {},
+              "wide_resnet101_2_v2": {},
+              "mobilenet_v2_quantized_qnnpack_v1": {},
+              "resnet50_quantized_fbgemm_v2": {},
+              "resnext101_64x4d_v1": {},
+              "shufflenet_v2_x1_5_quantized_fbgemm_v1": {},
+              "efficientnet_b3": {},
+              "regnet_x_32gf_v1": {},
+              "vgg19": {},
+              "wide_resnet101_2_v1": {},
+              "mobilenet_v2_v2": {},
+              "regnet_x_32gf_v2": {},
+              "regnet_y_3_2gf_v1": {},
+              "efficientnet_b1_v2": {},
+              "shufflenet_v2_x1_0": {},
+              "vgg11_bn": {},
+              "mnasnet0_5": {},
+              "regnet_y_16gf_swag_linear_v1": {},
+              "squeezenet1_1": {},
+              "regnet_x_3_2gf_v1": {},
+              "regnet_x_16gf_v1": {},
+              "squeezenet1_0": {},
+              "shufflenet_v2_x0_5_quantized_fbgemm_v1": {},
+              "resnext101_64x4d_quantized_fbgemm_v1": {},
+              "resnet50_quantized_fbgemm_v1": {},
+              "inception_v3_fbgemm_v1": {},
+              "resnext101_32x8d_quantized_fbgemm_v1": {},
+              "convnext_base": {},
+              "mnasnet1_3": {},
               "resnet152_v1": {},
-              "googlenet": {},
-              "regnet_x_400mf_v2": {},
-              "vit_b_32": {},
-              "efficientnet_v2_s": {},
+              "efficientnet_b7": {},
+              "regnet_y_1_6gf_v2": {},
+              "mobilenet_v3_large_v2": {},
+              "swin_s": {},
+              "mobilenet_v2_v1": {},
+              "vit_h_14_swag_linear_v1": {},
               "resnet18_quantized_fbgemm_v1": {},
+              "convnext_large": {},
+              "mobilenet_v3_small": {},
+              "shufflenet_v2_x1_0_quantized_fbgemm_v1": {},
+              "regnet_y_400mf_v2": {},
+              "resnet18": {},
+              "regnet_y_128gf_swag_linear_v1": {},
+              "resnet50_v2": {},
+              "vit_l_16_v1": {},
+              "shufflenet_v2_x0_5": {},
+              "densenet121": {},
+              "shufflenet_v2_x2_0_quantized_fbgemm_v1": {},
+              "resnext50_32x4d_v2": {},
+              "regnet_x_400mf_v2": {},
+              "vit_b_16_swag_linear_v1": {},
+              "vgg13": {},
+              "regnet_x_800mf_v1": {},
+              "regnet_y_400mf_v1": {},
+              "densenet169": {},
+              "convnext_tiny": {},
+              "vit_b_32": {},
+              "efficientnet_v2_m": {},
+              "regnet_y_16gf_v2": {},
               "regnet_x_800mf_v2": {},
-              "regnet_y_8gf_v2": {}
+              "resnext101_32x8d_quantized_fbgemm_v2": {},
+              "regnet_y_16gf_swag_e2e_v1": {},
+              "googlenet_quantized_fbgemm_v1": {},
+              "regnet_x_16gf_v2": {},
+              "efficientnet_b5": {},
+              "densenet201": {},
+              "resnet152_v2": {},
+              "vgg19_bn": {},
+              "resnext101_32x8d_v1": {},
+              "vit_h_14_swag_e2e_v1": {},
+              "mobilenet_v3_large_quantized_qnnpack_v1": {},
+              "vit_l_32": {},
+              "shufflenet_v2_x2_0": {},
+              "vit_b_16_v1": {},
+              "efficientnet_b1_v1": {},
+              "vgg11": {},
+              "swin_b": {},
+              "vit_l_16_swag_e2e_v1": {},
+              "regnet_y_32gf_v1": {},
+              "resnext101_32x8d_v2": {},
+              "regnet_y_32gf_swag_e2e_v1": {},
+              "efficientnet_v2_s": {},
+              "densenet161": {},
+              "regnet_x_400mf_v1": {},
+              "convnext_small": {},
+              "regnet_x_3_2gf_v2": {},
+              "mobilenet_v3_large_v1": {},
+              "regnet_x_8gf_v2": {},
+              "regnet_y_128gf_swag_e2e_v1": {},
+              "googlenet": {},
+              "resnet34": {},
+              "regnet_x_1_6gf_v1": {},
+              "regnet_y_3_2gf_v2": {},
+              "regnet_y_32gf_v2": {},
+              "shufflenet_v2_x1_5": {}
             }
           },
           "422": {
@@ -3766,10 +3817,10 @@ export const openApiJson: OpenApiJson = {
             "schema": {
               "title": "Model",
               "enum": [
-                "textract-extractor",
-                "tesseract-default",
                 "easy-ocr",
-                "tesseract-denoising"
+                "tesseract-denoising",
+                "tesseract-default",
+                "textract-extractor"
               ],
               "type": "string",
               "default": "textract-extractor"
@@ -3801,16 +3852,16 @@ export const openApiJson: OpenApiJson = {
               }
             },
             "example": {
-              "tesseract-denoising": "",
-              "easy-ocr": "",
               "textract-extractor": "",
-              "tesseract-default": ""
+              "easy-ocr": "",
+              "tesseract-default": "",
+              "tesseract-denoising": ""
             },
             "examples": {
-              "tesseract-denoising": {},
-              "easy-ocr": {},
               "textract-extractor": {},
-              "tesseract-default": {}
+              "easy-ocr": {},
+              "tesseract-default": {},
+              "tesseract-denoising": {}
             }
           },
           "422": {
@@ -3856,11 +3907,11 @@ export const openApiJson: OpenApiJson = {
             "schema": {
               "title": "Model",
               "enum": [
-                "dream-studio",
                 "stable-diffusion--compvis-sd-14",
-                "stable-diffusion--runwayml-sd-15",
                 "stable-diffusion--stabilityai-sd-20",
-                "stable-diffusion--stabilityai-sd-21"
+                "stable-diffusion--runwayml-sd-15",
+                "stable-diffusion--stabilityai-sd-21",
+                "dream-studio"
               ],
               "type": "string",
               "default": "stable-diffusion--stabilityai-sd-21"
@@ -5040,12 +5091,12 @@ export const openApiJson: OpenApiJson = {
               }
             },
             "example": {
-              "bloom-560m": "",
-              "EleutherAI-gpt-neo-2_7B": ""
+              "EleutherAI-gpt-neo-2_7B": "",
+              "bloom-560m": ""
             },
             "examples": {
-              "bloom-560m": {},
-              "EleutherAI-gpt-neo-2_7B": {}
+              "EleutherAI-gpt-neo-2_7B": {},
+              "bloom-560m": {}
             }
           },
           "422": {
@@ -5254,8 +5305,8 @@ export const openApiJson: OpenApiJson = {
               "title": "Model",
               "enum": [
                 "roberta-base",
-                "bert-base-uncased",
                 "distilbert-base-uncased",
+                "bert-base-uncased",
                 "albert-base-v2"
               ],
               "type": "string",
@@ -5288,16 +5339,16 @@ export const openApiJson: OpenApiJson = {
               }
             },
             "example": {
-              "roberta-base": "",
-              "albert-base-v2": "",
+              "distilbert-base-uncased": "",
               "bert-base-uncased": "",
-              "distilbert-base-uncased": ""
+              "albert-base-v2": "",
+              "roberta-base": ""
             },
             "examples": {
-              "roberta-base": {},
-              "albert-base-v2": {},
+              "distilbert-base-uncased": {},
               "bert-base-uncased": {},
-              "distilbert-base-uncased": {}
+              "albert-base-v2": {},
+              "roberta-base": {}
             }
           },
           "422": {
@@ -5542,18 +5593,18 @@ export const openApiJson: OpenApiJson = {
               }
             },
             "example": {
+              "mfeb-albert-xxlarge-v2-squad2": "",
               "deepset_bert-base-cased-squad2": "",
-              "distilbert-base-cased-distilled-squad": "",
               "deepset-roberta-base-squad2": "",
               "mrm8488-bert-tiny-5-finetuned-squadv2": "",
-              "mfeb-albert-xxlarge-v2-squad2": ""
+              "distilbert-base-cased-distilled-squad": ""
             },
             "examples": {
+              "mfeb-albert-xxlarge-v2-squad2": {},
               "deepset_bert-base-cased-squad2": {},
-              "distilbert-base-cased-distilled-squad": {},
               "deepset-roberta-base-squad2": {},
               "mrm8488-bert-tiny-5-finetuned-squadv2": {},
-              "mfeb-albert-xxlarge-v2-squad2": {}
+              "distilbert-base-cased-distilled-squad": {}
             }
           },
           "422": {
@@ -5632,12 +5683,12 @@ export const openApiJson: OpenApiJson = {
               }
             },
             "example": {
-              "ramsrigouthamg-t5_sentence_paraphraser": "",
-              "ramsrigouthamg-t5-large-paraphraser-diverse-high-quality": ""
+              "ramsrigouthamg-t5-large-paraphraser-diverse-high-quality": "",
+              "ramsrigouthamg-t5_sentence_paraphraser": ""
             },
             "examples": {
-              "ramsrigouthamg-t5_sentence_paraphraser": {},
-              "ramsrigouthamg-t5-large-paraphraser-diverse-high-quality": {}
+              "ramsrigouthamg-t5-large-paraphraser-diverse-high-quality": {},
+              "ramsrigouthamg-t5_sentence_paraphraser": {}
             }
           },
           "422": {
@@ -5683,9 +5734,9 @@ export const openApiJson: OpenApiJson = {
             "schema": {
               "title": "Model",
               "enum": [
-                "zero-shot-classification-facebook-bart-large-mnli",
                 "distilbert-base-uncased-finetuned-sst-2-english",
-                "distilbert-base-uncased"
+                "distilbert-base-uncased",
+                "zero-shot-classification-facebook-bart-large-mnli"
               ],
               "type": "string",
               "default": "distilbert-base-uncased-finetuned-sst-2-english"
@@ -5717,14 +5768,14 @@ export const openApiJson: OpenApiJson = {
               }
             },
             "example": {
+              "distilbert-base-uncased": "",
               "zero-shot-classification-facebook-bart-large-mnli": "",
-              "distilbert-base-uncased-finetuned-sst-2-english": "",
-              "distilbert-base-uncased": ""
+              "distilbert-base-uncased-finetuned-sst-2-english": ""
             },
             "examples": {
+              "distilbert-base-uncased": {},
               "zero-shot-classification-facebook-bart-large-mnli": {},
-              "distilbert-base-uncased-finetuned-sst-2-english": {},
-              "distilbert-base-uncased": {}
+              "distilbert-base-uncased-finetuned-sst-2-english": {}
             }
           },
           "422": {
@@ -5770,10 +5821,10 @@ export const openApiJson: OpenApiJson = {
             "schema": {
               "title": "Model",
               "enum": [
-                "all-MiniLM-L6-v2"
+                "all-MiniLM-L12-v2"
               ],
               "type": "string",
-              "default": "all-MiniLM-L6-v2"
+              "default": "all-MiniLM-L12-v2"
             },
             "name": "model",
             "in": "query"
@@ -5802,10 +5853,10 @@ export const openApiJson: OpenApiJson = {
               }
             },
             "example": {
-              "all-MiniLM-L6-v2": ""
+              "all-MiniLM-L12-v2": ""
             },
             "examples": {
-              "all-MiniLM-L6-v2": {}
+              "all-MiniLM-L12-v2": {}
             }
           },
           "422": {
@@ -6095,8 +6146,8 @@ export const openApiJson: OpenApiJson = {
             "schema": {
               "title": "Model",
               "enum": [
-                "kinetics--facebook/timesformer-base-finetuned-k400",
-                "kinetics--MCG-NJU/videomae-base-finetuned-kinetics"
+                "kinetics--MCG-NJU/videomae-base-finetuned-kinetics",
+                "kinetics--facebook/timesformer-base-finetuned-k400"
               ],
               "type": "string",
               "default": "kinetics--MCG-NJU/videomae-base-finetuned-kinetics"

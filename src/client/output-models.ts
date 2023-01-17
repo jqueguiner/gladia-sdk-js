@@ -17,61 +17,61 @@ export type AudioTextSpeakerGenderClassificationOutputs = {
 };
 export type ImageImageBackgroundRemovalOutputsOneSampleAsUrl = { url: ImageUrl[] };
 export type ImageImageBackgroundRemovalOutputsMultipleSamplesAsUrl = { url: ImageUrl[] };
-export type ImageImageBackgroundRemovalOutputs =
+export type ImageImageBackgroundRemovalOutputs = 
   | ArrayBuffer
   | ImageImageBackgroundRemovalOutputsOneSampleAsUrl
   | ImageImageBackgroundRemovalOutputsMultipleSamplesAsUrl;
 export type ImageImageBackgroundReplacementOutputsOneSampleAsUrl = { url: ImageUrl[] };
 export type ImageImageBackgroundReplacementOutputsMultipleSamplesAsUrl = { url: ImageUrl[] };
-export type ImageImageBackgroundReplacementOutputs =
+export type ImageImageBackgroundReplacementOutputs = 
   | ArrayBuffer
   | ImageImageBackgroundReplacementOutputsOneSampleAsUrl
   | ImageImageBackgroundReplacementOutputsMultipleSamplesAsUrl;
 export type ImageImageColorizationOutputsOneSampleAsUrl = { url: ImageUrl[] };
 export type ImageImageColorizationOutputsMultipleSamplesAsUrl = { url: ImageUrl[] };
-export type ImageImageColorizationOutputs =
+export type ImageImageColorizationOutputs = 
   | ArrayBuffer
   | ImageImageColorizationOutputsOneSampleAsUrl
   | ImageImageColorizationOutputsMultipleSamplesAsUrl;
 export type ImageImageDeblurringOutputsOneSampleAsUrl = { url: ImageUrl[] };
 export type ImageImageDeblurringOutputsMultipleSamplesAsUrl = { url: ImageUrl[] };
-export type ImageImageDeblurringOutputs =
+export type ImageImageDeblurringOutputs = 
   | ArrayBuffer
   | ImageImageDeblurringOutputsOneSampleAsUrl
   | ImageImageDeblurringOutputsMultipleSamplesAsUrl;
 export type ImageImageEnhancementOutputsOneSampleAsUrl = { url: ImageUrl[] };
 export type ImageImageEnhancementOutputsMultipleSamplesAsUrl = { url: ImageUrl[] };
-export type ImageImageEnhancementOutputs =
+export type ImageImageEnhancementOutputs = 
   | ArrayBuffer
   | ImageImageEnhancementOutputsOneSampleAsUrl
   | ImageImageEnhancementOutputsMultipleSamplesAsUrl;
 export type ImageImageFaceBluringOutputsOneSampleAsUrl = { url: ImageUrl[] };
 export type ImageImageFaceBluringOutputsMultipleSamplesAsUrl = { url: ImageUrl[] };
-export type ImageImageFaceBluringOutputs =
+export type ImageImageFaceBluringOutputs = 
   | ArrayBuffer
   | ImageImageFaceBluringOutputsOneSampleAsUrl
   | ImageImageFaceBluringOutputsMultipleSamplesAsUrl;
 export type ImageImageGuidedInpaintingOutputsOneSampleAsUrl = { url: ImageUrl[] };
 export type ImageImageGuidedInpaintingOutputsMultipleSamplesAsUrl = { url: ImageUrl[] };
-export type ImageImageGuidedInpaintingOutputs =
+export type ImageImageGuidedInpaintingOutputs = 
   | ArrayBuffer
   | ImageImageGuidedInpaintingOutputsOneSampleAsUrl
   | ImageImageGuidedInpaintingOutputsMultipleSamplesAsUrl;
 export type ImageImageImageGuidedInpaintingOutputsOneSampleAsUrl = { url: ImageUrl[] };
 export type ImageImageImageGuidedInpaintingOutputsMultipleSamplesAsUrl = { url: ImageUrl[] };
-export type ImageImageImageGuidedInpaintingOutputs =
+export type ImageImageImageGuidedInpaintingOutputs = 
   | ArrayBuffer
   | ImageImageImageGuidedInpaintingOutputsOneSampleAsUrl
   | ImageImageImageGuidedInpaintingOutputsMultipleSamplesAsUrl;
 export type ImageImageInpaintingOutputsOneSampleAsUrl = { url: ImageUrl[] };
 export type ImageImageInpaintingOutputsMultipleSamplesAsUrl = { url: ImageUrl[] };
-export type ImageImageInpaintingOutputs =
+export type ImageImageInpaintingOutputs = 
   | ArrayBuffer
   | ImageImageInpaintingOutputsOneSampleAsUrl
   | ImageImageInpaintingOutputsMultipleSamplesAsUrl;
 export type ImageImageUncolorizationOutputsOneSampleAsUrl = { url: ImageUrl[] };
 export type ImageImageUncolorizationOutputsMultipleSamplesAsUrl = { url: ImageUrl[] };
-export type ImageImageUncolorizationOutputs =
+export type ImageImageUncolorizationOutputs = 
   | ArrayBuffer
   | ImageImageUncolorizationOutputsOneSampleAsUrl
   | ImageImageUncolorizationOutputsMultipleSamplesAsUrl;
@@ -87,7 +87,7 @@ export type TextImageImageGenerationOutputsOneSampleAsUrl = { url: ImageUrl[] };
 export type TextImageImageGenerationOutputsMultipleSamplesAsUrl = { url: ImageUrl[] };
 export type TextImageImageGenerationOutputsOneSample = ArrayBuffer;
 export type TextImageImageGenerationOutputsMultipleSamples = Base64Image[];
-export type TextImageImageGenerationOutputs =
+export type TextImageImageGenerationOutputs = 
   | TextImageImageGenerationOutputsOneSample
   | TextImageImageGenerationOutputsMultipleSamples
   | TextImageImageGenerationOutputsOneSampleAsUrl
