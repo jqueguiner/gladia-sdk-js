@@ -844,12 +844,6 @@ function generateTaskMethodSignature(endpoint: meta.EndpointDef) {
       fileContent.push(
         `  ${methodName}(args: ${inputModelType} & { asUrl: true }): Promise<${outputModelNameForMulitpleSamplesAsUrl}>;`,
       );
-    } else {
-      fileContent.push(
-        `  ${methodName}(args: ${inputModelType} & { asUrl: true }): Promise<${outputModelNameForOneSampleAsUrl}>;`,
-      );
-    }
-    if (endpoint.hasSamplesParam) {
       fileContent.push(
         `  ${methodName}(args: ${inputModelType} & { samples: 1 }): Promise<${outputModelNameForOneSample}>;`,
       );
@@ -857,7 +851,10 @@ function generateTaskMethodSignature(endpoint: meta.EndpointDef) {
         `  ${methodName}(args: ${inputModelType}): Promise<${outputModelNameForMulitpleSamples}>;`,
       );
     } else {
-      fileContent.push(`  ${methodName}(args: ${inputModelType}): Promise<${outputModelType}>;`);
+      fileContent.push(
+        `  ${methodName}(args: ${inputModelType} & { asUrl: true }): Promise<${outputModelNameForOneSampleAsUrl}>;`,
+      );
+      fileContent.push(`  ${methodName}(args: ${inputModelType}): Promise<ArrayBuffer>;`);
     }
   }
   fileContent.push(`  ${methodName}(args: ${inputModelType}): Promise<${outputModelType}> {`);
