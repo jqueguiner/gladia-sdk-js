@@ -1,8 +1,10 @@
 import fs from 'fs';
 import { capitalizeFirst, uncapitalizeFirst } from '../src/meta/utils';
 import * as meta from '../src/meta';
+import path from 'path';
 
 function main() {
+  cleanupPreviousFiles();
   generateModelsTs();
   generateInputModelsTs();
   generateOutputModelsTs();
@@ -12,6 +14,20 @@ function main() {
   generateGladiaClient();
   generateUnitTests();
   generateApiMd();
+}
+
+function cleanupPreviousFiles() {
+  const generatedMarks = getGeneratedMarks().join('\n');
+  const directoriesToScan = ['./src/client', './tests'];
+  for (const dir of directoriesToScan) {
+    fs.readdirSync(dir)
+      .map((filePath) => path.resolve(dir, filePath))
+      .filter((filePath) => fs.statSync(filePath).isFile())
+      .filter((filePath) =>
+        fs.readFileSync(filePath, { encoding: 'utf-8' }).startsWith(generatedMarks),
+      )
+      .forEach((filePath) => fs.rmSync(filePath));
+  }
 }
 
 function generateModelsTs() {
