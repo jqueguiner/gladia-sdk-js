@@ -782,6 +782,85 @@ describe('FromTextToText', () => {
     });
   });
 
+  describe('emotionRecognition', () => {
+    let gladiaClient: GladiaClient;
+    let httpClientMock: HttpClient;
+
+    beforeEach(() => {
+      gladiaClient = gladia({ apiKey: 'API-KEY', customHttpClient: mockHttpClient() });
+      httpClientMock = gladiaClient.fromText().toText()['httpClient'];
+    });
+
+    describe('full path', () => {
+      it('should call the api with the text and the default model by default', async () => {
+        const texts_data = getRandomArray();
+        await gladiaClient.fromText().toText().emotionRecognition({
+          texts: texts_data,
+        });
+        const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
+        expect(postMock).toHaveBeenCalledTimes(1);
+        expect(firstCallArgs.url).toEqual('/text/text/emotion-recognition/');
+        expect(firstCallArgs.headers).toEqual({
+          'Content-Type': 'application/x-www-form-urlencoded',
+        });
+        expect(firstCallArgs.query).toEqual({
+        });
+        expect(firstCallBody.get('texts')).toEqual(texts_data);
+      });
+      it('should call the api with the text and the specified model', async () => {
+        const texts_data = getRandomArray();
+        await gladiaClient.fromText().toText().emotionRecognition({
+          texts: texts_data,
+          model: 'mrm8488-t5-base-finetuned-emotion',
+        });
+        const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
+        expect(postMock).toHaveBeenCalledTimes(1);
+        expect(firstCallArgs.url).toEqual('/text/text/emotion-recognition/');
+        expect(firstCallArgs.headers).toEqual({
+          'Content-Type': 'application/x-www-form-urlencoded',
+        });
+        expect(firstCallArgs.query).toEqual({
+          model: 'mrm8488-t5-base-finetuned-emotion',
+        });
+        expect(firstCallBody.get('texts')).toEqual(texts_data);
+      });
+    });
+    describe('shortcuts', () => {
+      it('should call the api with the text and the default model by default', async () => {
+        const texts_data = getRandomArray();
+        await gladiaClient.emotionRecognition({
+          texts: texts_data,
+        });
+        const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
+        expect(postMock).toHaveBeenCalledTimes(1);
+        expect(firstCallArgs.url).toEqual('/text/text/emotion-recognition/');
+        expect(firstCallArgs.headers).toEqual({
+          'Content-Type': 'application/x-www-form-urlencoded',
+        });
+        expect(firstCallArgs.query).toEqual({
+        });
+        expect(firstCallBody.get('texts')).toEqual(texts_data);
+      });
+      it('should call the api with the text and the specified model', async () => {
+        const texts_data = getRandomArray();
+        await gladiaClient.emotionRecognition({
+          texts: texts_data,
+          model: 'mrm8488-t5-base-finetuned-emotion',
+        });
+        const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
+        expect(postMock).toHaveBeenCalledTimes(1);
+        expect(firstCallArgs.url).toEqual('/text/text/emotion-recognition/');
+        expect(firstCallArgs.headers).toEqual({
+          'Content-Type': 'application/x-www-form-urlencoded',
+        });
+        expect(firstCallArgs.query).toEqual({
+          model: 'mrm8488-t5-base-finetuned-emotion',
+        });
+        expect(firstCallBody.get('texts')).toEqual(texts_data);
+      });
+    });
+  });
+
   describe('genderFromName', () => {
     let gladiaClient: GladiaClient;
     let httpClientMock: HttpClient;

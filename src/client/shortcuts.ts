@@ -27,6 +27,7 @@ import {
   TextTextCompanyStockCodeInputs,
   TextTextCountryFromNameInputs,
   TextTextDateCleaningInputs,
+  TextTextEmotionRecognitionInputs,
   TextTextGenderFromNameInputs,
   TextTextGpsAddressFormattingInputs,
   TextTextGpt3Inputs,
@@ -79,6 +80,7 @@ import {
   TextTextCompanyStockCodeOutputs,
   TextTextCountryFromNameOutputs,
   TextTextDateCleaningOutputs,
+  TextTextEmotionRecognitionOutputs,
   TextTextGenderFromNameOutputs,
   TextTextGpsAddressFormattingOutputs,
   TextTextGpt3Outputs,
@@ -212,6 +214,10 @@ export abstract class Shortcuts implements
 
   dateCleaning(args: TextTextDateCleaningInputs): Promise<TextTextDateCleaningOutputs> {
     return this.fromText().toText().dateCleaning(args);
+  }
+
+  emotionRecognition(args: TextTextEmotionRecognitionInputs): Promise<TextTextEmotionRecognitionOutputs> {
+    return this.fromText().toText().emotionRecognition(args);
   }
 
   genderFromName(args: TextTextGenderFromNameInputs): Promise<TextTextGenderFromNameOutputs> {

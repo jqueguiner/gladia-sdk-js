@@ -361,6 +361,17 @@ The runtime default model is defined on the GladIA server.
 
 - `date`: string *(required)*
 
+### `emotion-recognition`
+
+#### `models`
+
+- **bhadresh-savani_distilbert-base-uncased-emotion (default)**
+- mrm8488-t5-base-finetuned-emotion
+
+#### other params
+
+- `texts`: array *(required)*
+
 ### `gender-from-name`
 
 #### `models`

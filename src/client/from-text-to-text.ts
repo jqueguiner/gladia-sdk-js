@@ -10,6 +10,7 @@ import {
   TextTextCompanyStockCodeInputs,
   TextTextCountryFromNameInputs,
   TextTextDateCleaningInputs,
+  TextTextEmotionRecognitionInputs,
   TextTextGenderFromNameInputs,
   TextTextGpsAddressFormattingInputs,
   TextTextGpt3Inputs,
@@ -44,6 +45,7 @@ import {
   TextTextCompanyStockCodeOutputs,
   TextTextCountryFromNameOutputs,
   TextTextDateCleaningOutputs,
+  TextTextEmotionRecognitionOutputs,
   TextTextGenderFromNameOutputs,
   TextTextGpsAddressFormattingOutputs,
   TextTextGpt3Outputs,
@@ -78,6 +80,7 @@ import {
   TEXT_TEXT_COMPANY_STOCK_CODE_CONTENT_TYPE,
   TEXT_TEXT_COUNTRY_FROM_NAME_CONTENT_TYPE,
   TEXT_TEXT_DATE_CLEANING_CONTENT_TYPE,
+  TEXT_TEXT_EMOTION_RECOGNITION_CONTENT_TYPE,
   TEXT_TEXT_GENDER_FROM_NAME_CONTENT_TYPE,
   TEXT_TEXT_GPS_ADDRESS_FORMATTING_CONTENT_TYPE,
   TEXT_TEXT_GPT3_CONTENT_TYPE,
@@ -253,6 +256,22 @@ export class FromTextToText {
       url: '/text/text/date-cleaning/',
       headers: {
         'Content-Type': TEXT_TEXT_DATE_CLEANING_CONTENT_TYPE,
+        ...(args.headers ?? {}),
+      },
+      query: {
+        ...(args.model ? {model: args.model} : {}),
+      },
+      body: formData.toString(),
+    });
+  }
+
+  emotionRecognition(args: TextTextEmotionRecognitionInputs): Promise<TextTextEmotionRecognitionOutputs> {
+    const formData = new UrlFormData();
+    formData.append('texts', args.texts);
+    return this.httpClient.post({
+      url: '/text/text/emotion-recognition/',
+      headers: {
+        'Content-Type': TEXT_TEXT_EMOTION_RECOGNITION_CONTENT_TYPE,
         ...(args.headers ?? {}),
       },
       query: {

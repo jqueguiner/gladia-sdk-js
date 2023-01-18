@@ -243,6 +243,13 @@ export const TEXT_TEXT_DATE_CLEANING_MODELS = [
 export const TEXT_TEXT_DATE_CLEANING_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
 export type TextTextDateCleaningModel = typeof TEXT_TEXT_DATE_CLEANING_MODELS[number];
 
+export const TEXT_TEXT_EMOTION_RECOGNITION_MODELS = [
+   'bhadresh-savani_distilbert-base-uncased-emotion',
+   'mrm8488-t5-base-finetuned-emotion',
+] as const;
+export const TEXT_TEXT_EMOTION_RECOGNITION_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
+export type TextTextEmotionRecognitionModel = typeof TEXT_TEXT_EMOTION_RECOGNITION_MODELS[number];
+
 export const TEXT_TEXT_GENDER_FROM_NAME_MODELS = [
    'jpt',
 ] as const;

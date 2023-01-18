@@ -19,6 +19,7 @@ import {
   TextTextCompanyStockCodeModel,
   TextTextCountryFromNameModel,
   TextTextDateCleaningModel,
+  TextTextEmotionRecognitionModel,
   TextTextGenderFromNameModel,
   TextTextGpsAddressFormattingModel,
   TextTextGpt3Model,
@@ -151,6 +152,10 @@ export interface TextTextCountryFromNameInputs
 export interface TextTextDateCleaningInputs 
   extends WithHeaders, WithModel<TextTextDateCleaningModel> {
   date: string;
+}
+export interface TextTextEmotionRecognitionInputs 
+  extends WithHeaders, WithModel<TextTextEmotionRecognitionModel> {
+  texts: string[];
 }
 export interface TextTextGenderFromNameInputs 
   extends WithHeaders, WithModel<TextTextGenderFromNameModel> {

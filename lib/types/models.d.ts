@@ -52,6 +52,9 @@ export declare type TextTextCountryFromNameModel = typeof TEXT_TEXT_COUNTRY_FROM
 export declare const TEXT_TEXT_DATE_CLEANING_MODELS: readonly ["dataprep-formatter"];
 export declare const TEXT_TEXT_DATE_CLEANING_CONTENT_TYPE: "application/x-www-form-urlencoded";
 export declare type TextTextDateCleaningModel = typeof TEXT_TEXT_DATE_CLEANING_MODELS[number];
+export declare const TEXT_TEXT_EMOTION_RECOGNITION_MODELS: readonly ["bhadresh-savani_distilbert-base-uncased-emotion", "mrm8488-t5-base-finetuned-emotion"];
+export declare const TEXT_TEXT_EMOTION_RECOGNITION_CONTENT_TYPE: "application/x-www-form-urlencoded";
+export declare type TextTextEmotionRecognitionModel = typeof TEXT_TEXT_EMOTION_RECOGNITION_MODELS[number];
 export declare const TEXT_TEXT_GENDER_FROM_NAME_MODELS: readonly ["jpt"];
 export declare const TEXT_TEXT_GENDER_FROM_NAME_CONTENT_TYPE: "application/x-www-form-urlencoded";
 export declare type TextTextGenderFromNameModel = typeof TEXT_TEXT_GENDER_FROM_NAME_MODELS[number];

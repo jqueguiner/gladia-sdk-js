@@ -59,6 +59,10 @@ export type TextTextDateCleaningOutputs = {
   prediction: string;
   prediction_raw: unknown;
 };
+export type TextTextEmotionRecognitionOutputs = {
+  prediction: string[];
+  prediction_raw: unknown;
+};
 export type TextTextGenderFromNameOutputs = Record<string, string | number | boolean>;
 export type TextTextGpsAddressFormattingOutputs = {
   prediction: string;
