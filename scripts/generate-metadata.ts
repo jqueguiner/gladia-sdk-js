@@ -1,6 +1,5 @@
 import fs from 'fs';
 import packageJson from '../package.json';
-import { openApiJson } from '../src/meta/openapidef';
 import { OpenApiJson, PathDef } from '../src/meta/openapideftype';
 import { EndpointDef, EndpointDefParam } from '../src/meta/endpoint-defs-type';
 import { exit } from 'process';
@@ -8,9 +7,9 @@ import { getOpenapiJson } from './openapi.utils';
 
 async function main() {
   try {
-    await generateOpenApiDefTs();
+    const openApiJson = await generateOpenApiDefTs();
     generateSdkVersionTs();
-    generateEndpointDefs();
+    generateEndpointDefs(openApiJson);
   } catch (err) {
     console.error(err);
     exit(-1);
@@ -19,7 +18,7 @@ async function main() {
 
 const ARG_FROM_FILE_PREFIX = '--from-file=';
 
-async function generateOpenApiDefTs() {
+async function generateOpenApiDefTs(): Promise<OpenApiJson> {
   const fromFile = process.argv
     .filter((arg) => arg.startsWith(ARG_FROM_FILE_PREFIX))
     .map((arg) => arg.substring(ARG_FROM_FILE_PREFIX.length))
@@ -30,7 +29,7 @@ async function generateOpenApiDefTs() {
   } else {
     openApiJson = await getOpenapiJson();
   }
-  const openApiJsonObj = JSON.parse(openApiJson);
+  const openApiJsonObj: OpenApiJson = JSON.parse(openApiJson);
   const jsonLines = JSON.stringify(openApiJsonObj, undefined, 2).split('\n');
   const fileContent: string[] = [...getGeneratedMarks()];
   fileContent.push(`import { OpenApiJson } from './openapideftype';`);
@@ -39,6 +38,7 @@ async function generateOpenApiDefTs() {
   jsonLines.forEach((l) => fileContent.push(l));
   fileContent.push(fileContent.pop() + ';');
   fs.writeFileSync('./src/meta/openapidef.ts', fileContent.join('\n'));
+  return openApiJsonObj;
 }
 
 function generateSdkVersionTs() {
@@ -51,7 +51,7 @@ function getGeneratedMarks(): string[] {
   return ['/* Generated file with "scripts/generate-metasdk.ts" */', ''];
 }
 
-export function generateEndpointDefs() {
+function generateEndpointDefs(openApiJson: OpenApiJson) {
   const fileContent: string[] = [...getGeneratedMarks()];
   fileContent.push(`import { EndpointDef } from "./endpoint-defs-type";`);
   fileContent.push('');
