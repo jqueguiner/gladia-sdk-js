@@ -1,5 +1,5 @@
-import { ImageImageBackgroundRemovalInputs, ImageImageBackgroundReplacementInputs, ImageImageColorizationInputs, ImageImageDeblurringInputs, ImageImageEnhancementInputs, ImageImageFaceBluringInputs, ImageImageGuidedInpaintingInputs, ImageImageImageGuidedInpaintingInputs, ImageImageInpaintingInputs, ImageImageUncolorizationInputs } from './input-models';
-import { ImageImageBackgroundRemovalOutputsOneSampleAsUrl, ImageImageBackgroundReplacementOutputsOneSampleAsUrl, ImageImageColorizationOutputsOneSampleAsUrl, ImageImageDeblurringOutputsOneSampleAsUrl, ImageImageEnhancementOutputsOneSampleAsUrl, ImageImageFaceBluringOutputsOneSampleAsUrl, ImageImageGuidedInpaintingOutputsOneSampleAsUrl, ImageImageImageGuidedInpaintingOutputsOneSampleAsUrl, ImageImageInpaintingOutputsOneSampleAsUrl, ImageImageUncolorizationOutputsOneSampleAsUrl } from './output-models';
+import { ImageImageBackgroundRemovalInputs, ImageImageBackgroundReplacementInputs, ImageImageColorizationInputs, ImageImageDeblurringInputs, ImageImageUncolorizationInputs } from './input-models';
+import { ImageImageBackgroundRemovalOutputsOneSampleAsUrl, ImageImageBackgroundReplacementOutputsOneSampleAsUrl, ImageImageColorizationOutputsOneSampleAsUrl, ImageImageDeblurringOutputsOneSampleAsUrl, ImageImageUncolorizationOutputsOneSampleAsUrl } from './output-models';
 import { GladiaClientParams } from './gladia-client-params';
 export declare class FromImageToImage {
     private params;
@@ -21,26 +21,6 @@ export declare class FromImageToImage {
         asUrl: true;
     }): Promise<ImageImageDeblurringOutputsOneSampleAsUrl>;
     deblurring(args: ImageImageDeblurringInputs): Promise<ArrayBuffer>;
-    enhancement(args: ImageImageEnhancementInputs & {
-        asUrl: true;
-    }): Promise<ImageImageEnhancementOutputsOneSampleAsUrl>;
-    enhancement(args: ImageImageEnhancementInputs): Promise<ArrayBuffer>;
-    faceBluring(args: ImageImageFaceBluringInputs & {
-        asUrl: true;
-    }): Promise<ImageImageFaceBluringOutputsOneSampleAsUrl>;
-    faceBluring(args: ImageImageFaceBluringInputs): Promise<ArrayBuffer>;
-    guidedInpainting(args: ImageImageGuidedInpaintingInputs & {
-        asUrl: true;
-    }): Promise<ImageImageGuidedInpaintingOutputsOneSampleAsUrl>;
-    guidedInpainting(args: ImageImageGuidedInpaintingInputs): Promise<ArrayBuffer>;
-    imageGuidedInpainting(args: ImageImageImageGuidedInpaintingInputs & {
-        asUrl: true;
-    }): Promise<ImageImageImageGuidedInpaintingOutputsOneSampleAsUrl>;
-    imageGuidedInpainting(args: ImageImageImageGuidedInpaintingInputs): Promise<ArrayBuffer>;
-    inpainting(args: ImageImageInpaintingInputs & {
-        asUrl: true;
-    }): Promise<ImageImageInpaintingOutputsOneSampleAsUrl>;
-    inpainting(args: ImageImageInpaintingInputs): Promise<ArrayBuffer>;
     uncolorization(args: ImageImageUncolorizationInputs & {
         asUrl: true;
     }): Promise<ImageImageUncolorizationOutputsOneSampleAsUrl>;

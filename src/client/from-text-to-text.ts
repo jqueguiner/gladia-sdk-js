@@ -1,19 +1,15 @@
 /* Generated file with "scripts/generate-sdk.ts" */
 
 import {
-  TextTextAddressFormattingInputs,
   TextTextAgeFromNameInputs,
   TextTextAnonymizationInputs,
-  TextTextAutocorrectInputs,
   TextTextBulletPointGenerationInputs,
   TextTextCommandGenerationInputs,
   TextTextCompanyCategorizationInputs,
   TextTextCompanyNameNormalizationInputs,
   TextTextCompanyStockCodeInputs,
-  TextTextConversationSummarizationInputs,
   TextTextCountryFromNameInputs,
   TextTextDateCleaningInputs,
-  TextTextEmotionRecognitionInputs,
   TextTextGenderFromNameInputs,
   TextTextGpsAddressFormattingInputs,
   TextTextGpt3Inputs,
@@ -22,43 +18,32 @@ import {
   TextTextGuessIntentInputs,
   TextTextHateSpeechDetectionInputs,
   TextTextHeadlineGenerationInputs,
-  TextTextImageGenerationPromptBeautifierInputs,
   TextTextKeywordExtractionInputs,
   TextTextLanguageCodesInputs,
   TextTextLanguageDetectionInputs,
   TextTextLanguageGenerationInputs,
   TextTextNamedEntityRecognitionInputs,
-  TextTextNextSentencePredictionInputs,
   TextTextNextWordPredictionInputs,
   TextTextProductOwnershipInputs,
   TextTextProductSentimentInputs,
-  TextTextProgrammingLanguageGenerationInputs,
-  TextTextPunctuationRestorationInputs,
   TextTextQuestionAnsweringInputs,
-  TextTextSentenceParaphraserInputs,
   TextTextSentimentAnalysisInputs,
   TextTextSimilarityInputs,
   TextTextSpeakerRecognitionInputs,
-  TextTextSummarizationInputs,
   TextTextTranslationInputs,
   TextTextVatCountryGuessingInputs,
   TextTextWebsiteClassificationInputs,
-  TextTextWordAlignmentInputs,
 } from './input-models';
 import {
-  TextTextAddressFormattingOutputs,
   TextTextAgeFromNameOutputs,
   TextTextAnonymizationOutputs,
-  TextTextAutocorrectOutputs,
   TextTextBulletPointGenerationOutputs,
   TextTextCommandGenerationOutputs,
   TextTextCompanyCategorizationOutputs,
   TextTextCompanyNameNormalizationOutputs,
   TextTextCompanyStockCodeOutputs,
-  TextTextConversationSummarizationOutputs,
   TextTextCountryFromNameOutputs,
   TextTextDateCleaningOutputs,
-  TextTextEmotionRecognitionOutputs,
   TextTextGenderFromNameOutputs,
   TextTextGpsAddressFormattingOutputs,
   TextTextGpt3Outputs,
@@ -67,43 +52,32 @@ import {
   TextTextGuessIntentOutputs,
   TextTextHateSpeechDetectionOutputs,
   TextTextHeadlineGenerationOutputs,
-  TextTextImageGenerationPromptBeautifierOutputs,
   TextTextKeywordExtractionOutputs,
   TextTextLanguageCodesOutputs,
   TextTextLanguageDetectionOutputs,
   TextTextLanguageGenerationOutputs,
   TextTextNamedEntityRecognitionOutputs,
-  TextTextNextSentencePredictionOutputs,
   TextTextNextWordPredictionOutputs,
   TextTextProductOwnershipOutputs,
   TextTextProductSentimentOutputs,
-  TextTextProgrammingLanguageGenerationOutputs,
-  TextTextPunctuationRestorationOutputs,
   TextTextQuestionAnsweringOutputs,
-  TextTextSentenceParaphraserOutputs,
   TextTextSentimentAnalysisOutputs,
   TextTextSimilarityOutputs,
   TextTextSpeakerRecognitionOutputs,
-  TextTextSummarizationOutputs,
   TextTextTranslationOutputs,
   TextTextVatCountryGuessingOutputs,
   TextTextWebsiteClassificationOutputs,
-  TextTextWordAlignmentOutputs,
 } from './output-models';
 import {
-  TEXT_TEXT_ADDRESS_FORMATTING_CONTENT_TYPE,
   TEXT_TEXT_AGE_FROM_NAME_CONTENT_TYPE,
   TEXT_TEXT_ANONYMIZATION_CONTENT_TYPE,
-  TEXT_TEXT_AUTOCORRECT_CONTENT_TYPE,
   TEXT_TEXT_BULLET_POINT_GENERATION_CONTENT_TYPE,
   TEXT_TEXT_COMMAND_GENERATION_CONTENT_TYPE,
   TEXT_TEXT_COMPANY_CATEGORIZATION_CONTENT_TYPE,
   TEXT_TEXT_COMPANY_NAME_NORMALIZATION_CONTENT_TYPE,
   TEXT_TEXT_COMPANY_STOCK_CODE_CONTENT_TYPE,
-  TEXT_TEXT_CONVERSATION_SUMMARIZATION_CONTENT_TYPE,
   TEXT_TEXT_COUNTRY_FROM_NAME_CONTENT_TYPE,
   TEXT_TEXT_DATE_CLEANING_CONTENT_TYPE,
-  TEXT_TEXT_EMOTION_RECOGNITION_CONTENT_TYPE,
   TEXT_TEXT_GENDER_FROM_NAME_CONTENT_TYPE,
   TEXT_TEXT_GPS_ADDRESS_FORMATTING_CONTENT_TYPE,
   TEXT_TEXT_GPT3_CONTENT_TYPE,
@@ -112,28 +86,21 @@ import {
   TEXT_TEXT_GUESS_INTENT_CONTENT_TYPE,
   TEXT_TEXT_HATE_SPEECH_DETECTION_CONTENT_TYPE,
   TEXT_TEXT_HEADLINE_GENERATION_CONTENT_TYPE,
-  TEXT_TEXT_IMAGE_GENERATION_PROMPT_BEAUTIFIER_CONTENT_TYPE,
   TEXT_TEXT_KEYWORD_EXTRACTION_CONTENT_TYPE,
   TEXT_TEXT_LANGUAGE_CODES_CONTENT_TYPE,
   TEXT_TEXT_LANGUAGE_DETECTION_CONTENT_TYPE,
   TEXT_TEXT_LANGUAGE_GENERATION_CONTENT_TYPE,
   TEXT_TEXT_NAMED_ENTITY_RECOGNITION_CONTENT_TYPE,
-  TEXT_TEXT_NEXT_SENTENCE_PREDICTION_CONTENT_TYPE,
   TEXT_TEXT_NEXT_WORD_PREDICTION_CONTENT_TYPE,
   TEXT_TEXT_PRODUCT_OWNERSHIP_CONTENT_TYPE,
   TEXT_TEXT_PRODUCT_SENTIMENT_CONTENT_TYPE,
-  TEXT_TEXT_PROGRAMMING_LANGUAGE_GENERATION_CONTENT_TYPE,
-  TEXT_TEXT_PUNCTUATION_RESTORATION_CONTENT_TYPE,
   TEXT_TEXT_QUESTION_ANSWERING_CONTENT_TYPE,
-  TEXT_TEXT_SENTENCE_PARAPHRASER_CONTENT_TYPE,
   TEXT_TEXT_SENTIMENT_ANALYSIS_CONTENT_TYPE,
   TEXT_TEXT_SIMILARITY_CONTENT_TYPE,
   TEXT_TEXT_SPEAKER_RECOGNITION_CONTENT_TYPE,
-  TEXT_TEXT_SUMMARIZATION_CONTENT_TYPE,
   TEXT_TEXT_TRANSLATION_CONTENT_TYPE,
   TEXT_TEXT_VAT_COUNTRY_GUESSING_CONTENT_TYPE,
   TEXT_TEXT_WEBSITE_CLASSIFICATION_CONTENT_TYPE,
-  TEXT_TEXT_WORD_ALIGNMENT_CONTENT_TYPE,
 } from '../models';
 import { getHttpClient, HttpClient, UrlFormData } from '../internal/http-client';
 import { isDefined } from '../utils/fp';
@@ -144,22 +111,6 @@ export class FromTextToText {
 
   constructor(private params: GladiaClientParams) {
     this.httpClient = getHttpClient(this.params);
-  }
-
-  addressFormatting(args: TextTextAddressFormattingInputs): Promise<TextTextAddressFormattingOutputs> {
-    const formData = new UrlFormData();
-    formData.append('address', args.address);
-    return this.httpClient.post({
-      url: '/text/text/address-formatting/',
-      headers: {
-        'Content-Type': TEXT_TEXT_ADDRESS_FORMATTING_CONTENT_TYPE,
-        ...(args.headers ?? {}),
-      },
-      query: {
-        ...(args.model ? {model: args.model} : {}),
-      },
-      body: formData.toString(),
-    });
   }
 
   ageFromName(args: TextTextAgeFromNameInputs): Promise<TextTextAgeFromNameOutputs> {
@@ -187,22 +138,6 @@ export class FromTextToText {
       url: '/text/text/anonymization/',
       headers: {
         'Content-Type': TEXT_TEXT_ANONYMIZATION_CONTENT_TYPE,
-        ...(args.headers ?? {}),
-      },
-      query: {
-        ...(args.model ? {model: args.model} : {}),
-      },
-      body: formData.toString(),
-    });
-  }
-
-  autocorrect(args: TextTextAutocorrectInputs): Promise<TextTextAutocorrectOutputs> {
-    const formData = new UrlFormData();
-    formData.append('sentence', args.sentence);
-    return this.httpClient.post({
-      url: '/text/text/autocorrect/',
-      headers: {
-        'Content-Type': TEXT_TEXT_AUTOCORRECT_CONTENT_TYPE,
         ...(args.headers ?? {}),
       },
       query: {
@@ -295,22 +230,6 @@ export class FromTextToText {
     });
   }
 
-  conversationSummarization(args: TextTextConversationSummarizationInputs): Promise<TextTextConversationSummarizationOutputs> {
-    const formData = new UrlFormData();
-    formData.append('text', args.text);
-    return this.httpClient.post({
-      url: '/text/text/conversation-summarization/',
-      headers: {
-        'Content-Type': TEXT_TEXT_CONVERSATION_SUMMARIZATION_CONTENT_TYPE,
-        ...(args.headers ?? {}),
-      },
-      query: {
-        ...(args.model ? {model: args.model} : {}),
-      },
-      body: formData.toString(),
-    });
-  }
-
   countryFromName(args: TextTextCountryFromNameInputs): Promise<TextTextCountryFromNameOutputs> {
     const formData = new UrlFormData();
     formData.append('name', args.name);
@@ -334,22 +253,6 @@ export class FromTextToText {
       url: '/text/text/date-cleaning/',
       headers: {
         'Content-Type': TEXT_TEXT_DATE_CLEANING_CONTENT_TYPE,
-        ...(args.headers ?? {}),
-      },
-      query: {
-        ...(args.model ? {model: args.model} : {}),
-      },
-      body: formData.toString(),
-    });
-  }
-
-  emotionRecognition(args: TextTextEmotionRecognitionInputs): Promise<TextTextEmotionRecognitionOutputs> {
-    const formData = new UrlFormData();
-    formData.append('texts', args.texts);
-    return this.httpClient.post({
-      url: '/text/text/emotion-recognition/',
-      headers: {
-        'Content-Type': TEXT_TEXT_EMOTION_RECOGNITION_CONTENT_TYPE,
         ...(args.headers ?? {}),
       },
       query: {
@@ -489,22 +392,6 @@ export class FromTextToText {
     });
   }
 
-  imageGenerationPromptBeautifier(args: TextTextImageGenerationPromptBeautifierInputs): Promise<TextTextImageGenerationPromptBeautifierOutputs> {
-    const formData = new UrlFormData();
-    formData.append('prompt', args.prompt);
-    return this.httpClient.post({
-      url: '/text/text/image-generation-prompt-beautifier/',
-      headers: {
-        'Content-Type': TEXT_TEXT_IMAGE_GENERATION_PROMPT_BEAUTIFIER_CONTENT_TYPE,
-        ...(args.headers ?? {}),
-      },
-      query: {
-        ...(args.model ? {model: args.model} : {}),
-      },
-      body: formData.toString(),
-    });
-  }
-
   keywordExtraction(args: TextTextKeywordExtractionInputs): Promise<TextTextKeywordExtractionOutputs> {
     const formData = new UrlFormData();
     formData.append('text', args.text);
@@ -589,23 +476,6 @@ export class FromTextToText {
     });
   }
 
-  nextSentencePrediction(args: TextTextNextSentencePredictionInputs): Promise<TextTextNextSentencePredictionOutputs> {
-    const formData = new UrlFormData();
-    formData.append('sentence_1', args.sentence_1);
-    formData.append('sentence_2', args.sentence_2);
-    return this.httpClient.post({
-      url: '/text/text/next-sentence-prediction/',
-      headers: {
-        'Content-Type': TEXT_TEXT_NEXT_SENTENCE_PREDICTION_CONTENT_TYPE,
-        ...(args.headers ?? {}),
-      },
-      query: {
-        ...(args.model ? {model: args.model} : {}),
-      },
-      body: formData.toString(),
-    });
-  }
-
   nextWordPrediction(args: TextTextNextWordPredictionInputs): Promise<TextTextNextWordPredictionOutputs> {
     const formData = new UrlFormData();
     formData.append('sentence', args.sentence);
@@ -655,38 +525,6 @@ export class FromTextToText {
     });
   }
 
-  programmingLanguageGeneration(args: TextTextProgrammingLanguageGenerationInputs): Promise<TextTextProgrammingLanguageGenerationOutputs> {
-    const formData = new UrlFormData();
-    formData.append('code_snippet', args.code_snippet);
-    return this.httpClient.post({
-      url: '/text/text/programming-language-generation/',
-      headers: {
-        'Content-Type': TEXT_TEXT_PROGRAMMING_LANGUAGE_GENERATION_CONTENT_TYPE,
-        ...(args.headers ?? {}),
-      },
-      query: {
-        ...(args.model ? {model: args.model} : {}),
-      },
-      body: formData.toString(),
-    });
-  }
-
-  punctuationRestoration(args: TextTextPunctuationRestorationInputs): Promise<TextTextPunctuationRestorationOutputs> {
-    const formData = new UrlFormData();
-    formData.append('sentence', args.sentence);
-    return this.httpClient.post({
-      url: '/text/text/punctuation-restoration/',
-      headers: {
-        'Content-Type': TEXT_TEXT_PUNCTUATION_RESTORATION_CONTENT_TYPE,
-        ...(args.headers ?? {}),
-      },
-      query: {
-        ...(args.model ? {model: args.model} : {}),
-      },
-      body: formData.toString(),
-    });
-  }
-
   questionAnswering(args: TextTextQuestionAnsweringInputs): Promise<TextTextQuestionAnsweringOutputs> {
     const formData = new UrlFormData();
     formData.append('context', args.context);
@@ -698,22 +536,6 @@ export class FromTextToText {
       url: '/text/text/question-answering/',
       headers: {
         'Content-Type': TEXT_TEXT_QUESTION_ANSWERING_CONTENT_TYPE,
-        ...(args.headers ?? {}),
-      },
-      query: {
-        ...(args.model ? {model: args.model} : {}),
-      },
-      body: formData.toString(),
-    });
-  }
-
-  sentenceParaphraser(args: TextTextSentenceParaphraserInputs): Promise<TextTextSentenceParaphraserOutputs> {
-    const formData = new UrlFormData();
-    formData.append('context', args.context);
-    return this.httpClient.post({
-      url: '/text/text/sentence-paraphraser/',
-      headers: {
-        'Content-Type': TEXT_TEXT_SENTENCE_PARAPHRASER_CONTENT_TYPE,
         ...(args.headers ?? {}),
       },
       query: {
@@ -772,34 +594,10 @@ export class FromTextToText {
     });
   }
 
-  summarization(args: TextTextSummarizationInputs): Promise<TextTextSummarizationOutputs> {
-    const formData = new UrlFormData();
-    formData.append('text', args.text);
-    formData.append('source_language', args.source_language);
-    if (isDefined(args.min_length)) {
-      formData.append('min_length', String(args.min_length));
-    }
-    if (isDefined(args.max_length)) {
-      formData.append('max_length', String(args.max_length));
-    }
-    return this.httpClient.post({
-      url: '/text/text/summarization/',
-      headers: {
-        'Content-Type': TEXT_TEXT_SUMMARIZATION_CONTENT_TYPE,
-        ...(args.headers ?? {}),
-      },
-      query: {
-        ...(args.model ? {model: args.model} : {}),
-      },
-      body: formData.toString(),
-    });
-  }
-
   translation(args: TextTextTranslationInputs): Promise<TextTextTranslationOutputs> {
     const formData = new UrlFormData();
-    formData.append('input_string', args.input_string);
-    formData.append('source_language', args.source_language);
-    formData.append('target_language', args.target_language);
+    formData.append('text', args.text);
+    formData.append('target', args.target);
     return this.httpClient.post({
       url: '/text/text/translation/',
       headers: {
@@ -836,23 +634,6 @@ export class FromTextToText {
       url: '/text/text/website-classification/',
       headers: {
         'Content-Type': TEXT_TEXT_WEBSITE_CLASSIFICATION_CONTENT_TYPE,
-        ...(args.headers ?? {}),
-      },
-      query: {
-        ...(args.model ? {model: args.model} : {}),
-      },
-      body: formData.toString(),
-    });
-  }
-
-  wordAlignment(args: TextTextWordAlignmentInputs): Promise<TextTextWordAlignmentOutputs> {
-    const formData = new UrlFormData();
-    formData.append('input_string_language_1', args.input_string_language_1);
-    formData.append('input_string_language_2', args.input_string_language_2);
-    return this.httpClient.post({
-      url: '/text/text/word-alignment/',
-      headers: {
-        'Content-Type': TEXT_TEXT_WORD_ALIGNMENT_CONTENT_TYPE,
         ...(args.headers ?? {}),
       },
       query: {

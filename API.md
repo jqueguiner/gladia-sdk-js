@@ -26,29 +26,6 @@ The runtime default model is defined on the GladIA server.
 - `audio_url`: url
 - `language`: string *(required)*
 
-### `speaker-diarization`
-
-#### `models`
-
-- **pyannote-speaker_diarization (default)**
-
-#### other params
-
-- `audio`: audio
-- `audio_url`: url
-- `nb_speakers`: integer
-
-### `speaker-gender-classification`
-
-#### `models`
-
-- **inafoss-inaSpeechSegmenter (default)**
-
-#### other params
-
-- `audio`: audio
-- `audio_url`: url
-
 ## IMAGE => IMAGE
 
 ### `background-removal`
@@ -112,79 +89,6 @@ The runtime default model is defined on the GladIA server.
 
 - `image`: image
 - `image_url`: url
-
-### `enhancement`
-
-#### `models`
-
-- **FiveK (default)**
-- LOL
-
-#### other params
-
-- `image`: image
-- `image_url`: url
-
-### `face-bluring`
-
-#### `models`
-
-- **ageitgey (default)**
-
-#### other params
-
-- `image`: image
-- `image_url`: url
-
-### `guided-inpainting`
-
-#### `models`
-
-- compvis
-- **runwayml (default)**
-
-#### other params
-
-- `original_image`: image
-- `original_image_url`: url
-- `mask_image`: image
-- `mask_image_url`: url
-- `prompt`: string *(required)*
-
-### `image-guided-inpainting`
-
-#### `models`
-
-- **fantasy-studio (default)**
-
-#### other params
-
-- `original_image`: image
-- `original_image_url`: url
-- `example_image`: image
-- `example_image_url`: url
-- `mask_image`: image
-- `mask_image_url`: url
-- `seed`: integer *(required)*
-- `steps`: integer *(required)*
-- `guidance_scale`: integer *(required)*
-
-### `inpainting`
-
-#### `models`
-
-- fcf
-- lama
-- latent-diffusion
-- mat
-- **zits (default)**
-
-#### other params
-
-- `original_image`: image
-- `original_image_url`: url
-- `mask_image`: image
-- `mask_image_url`: url
 
 ### `uncolorization`
 
@@ -364,16 +268,6 @@ The runtime default model is defined on the GladIA server.
 
 ## TEXT => TEXT
 
-### `address-formatting`
-
-#### `models`
-
-- **geopy-formatter (default)**
-
-#### other params
-
-- `address`: string *(required)*
-
 ### `age-from-name`
 
 #### `models`
@@ -395,16 +289,6 @@ The runtime default model is defined on the GladIA server.
 - `language`: string *(required)*
 - `entities`: string *(required)*
 - `text`: string *(required)*
-
-### `autocorrect`
-
-#### `models`
-
-- **flexudy-t5-base-multi-sentence-doctor (default)**
-
-#### other params
-
-- `sentence`: string *(required)*
 
 ### `bullet-point-generation`
 
@@ -457,16 +341,6 @@ The runtime default model is defined on the GladIA server.
 
 - `text`: string *(required)*
 
-### `conversation-summarization`
-
-#### `models`
-
-- **bart-large-xsum-samsum (default)**
-
-#### other params
-
-- `text`: string *(required)*
-
 ### `country-from-name`
 
 #### `models`
@@ -486,16 +360,6 @@ The runtime default model is defined on the GladIA server.
 #### other params
 
 - `date`: string *(required)*
-
-### `emotion-recognition`
-
-#### `models`
-
-- **mrm8488-t5-base-finetuned-emotion (default)**
-
-#### other params
-
-- `texts`: array *(required)*
 
 ### `gender-from-name`
 
@@ -562,7 +426,6 @@ The runtime default model is defined on the GladIA server.
 
 #### `models`
 
-- byt5-base-tweet-hate-detection
 - **distilbert-base-uncased-emotion (default)**
 - dkleczek_Polish-Hate-Speech-Detection-Herbert-Large
 
@@ -581,16 +444,6 @@ The runtime default model is defined on the GladIA server.
 
 - `text`: string *(required)*
 - `max_length`: integer *(required)*
-
-### `image-generation-prompt-beautifier`
-
-#### `models`
-
-- **ms-promptist (default)**
-
-#### other params
-
-- `prompt`: string *(required)*
 
 ### `keyword-extraction`
 
@@ -629,8 +482,6 @@ The runtime default model is defined on the GladIA server.
 
 #### `models`
 
-- EleutherAI-gpt-neo-2_7B
-- bloom-560m
 - **gpt2_xl (default)**
 
 #### other params
@@ -646,17 +497,6 @@ The runtime default model is defined on the GladIA server.
 #### other params
 
 - `text`: string *(required)*
-
-### `next-sentence-prediction`
-
-#### `models`
-
-- **bert-base-uncased (default)**
-
-#### other params
-
-- `sentence_1`: string *(required)*
-- `sentence_2`: string *(required)*
 
 ### `next-word-prediction`
 
@@ -692,53 +532,17 @@ The runtime default model is defined on the GladIA server.
 
 - `text`: string *(required)*
 
-### `programming-language-generation`
-
-#### `models`
-
-- **sentdex-GPyT (default)**
-
-#### other params
-
-- `code_snippet`: string *(required)*
-
-### `punctuation-restoration`
-
-#### `models`
-
-- **oguhr-multilingualpunctuation (default)**
-
-#### other params
-
-- `sentence`: string *(required)*
-
 ### `question-answering`
 
 #### `models`
 
-- deepset-roberta-base-squad2
-- deepset_bert-base-cased-squad2
 - **deepset_roberta-large-squad2 (default)**
-- distilbert-base-cased-distilled-squad
-- mfeb-albert-xxlarge-v2-squad2
-- mrm8488-bert-tiny-5-finetuned-squadv2
 
 #### other params
 
 - `context`: string *(required)*
 - `question`: string *(required)*
 - `top_k`: integer
-
-### `sentence-paraphraser`
-
-#### `models`
-
-- **ramsrigouthamg-t5-large-paraphraser-diverse-high-quality (default)**
-- ramsrigouthamg-t5_sentence_paraphraser
-
-#### other params
-
-- `context`: string *(required)*
 
 ### `sentiment-analysis`
 
@@ -773,31 +577,16 @@ The runtime default model is defined on the GladIA server.
 
 - `text`: string *(required)*
 
-### `summarization`
-
-#### `models`
-
-- **all-MiniLM-L6-v2 (default)**
-
-#### other params
-
-- `text`: string *(required)*
-- `source_language`: string *(required)*
-- `min_length`: integer
-- `max_length`: integer
-
 ### `translation`
 
 #### `models`
 
-- facebook-nllb-200-distilled-600M
 - **jpt (default)**
 
 #### other params
 
-- `input_string`: string *(required)*
-- `source_language`: string *(required)*
-- `target_language`: string *(required)*
+- `text`: string *(required)*
+- `target`: string *(required)*
 
 ### `vat-country-guessing`
 
@@ -818,30 +607,5 @@ The runtime default model is defined on the GladIA server.
 #### other params
 
 - `text`: string *(required)*
-
-### `word-alignment`
-
-#### `models`
-
-- **bert-base-multilingual-cased (default)**
-
-#### other params
-
-- `input_string_language_1`: string *(required)*
-- `input_string_language_2`: string *(required)*
-
-## VIDEO => TEXT
-
-### `action-classifications`
-
-#### `models`
-
-- **kinetics--MCG-NJU/videomae-base-finetuned-kinetics (default)**
-- kinetics--facebook/timesformer-base-finetuned-k400
-
-#### other params
-
-- `video`: video
-- `video_url`: url
 
 > Generated file with "scripts/generate-sdk.ts"

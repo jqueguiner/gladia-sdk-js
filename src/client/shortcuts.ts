@@ -8,38 +8,25 @@ import { FromImageToText } from './from-image-to-text'
 import { FromText } from './from-text'
 import { FromTextToImage } from './from-text-to-image'
 import { FromTextToText } from './from-text-to-text'
-import { FromVideo } from './from-video'
-import { FromVideoToText } from './from-video-to-text'
 import {
   AudioTextAudioTranscriptionInputs,
-  AudioTextSpeakerDiarizationInputs,
-  AudioTextSpeakerGenderClassificationInputs,
   ImageImageBackgroundRemovalInputs,
   ImageImageBackgroundReplacementInputs,
   ImageImageColorizationInputs,
   ImageImageDeblurringInputs,
-  ImageImageEnhancementInputs,
-  ImageImageFaceBluringInputs,
-  ImageImageGuidedInpaintingInputs,
-  ImageImageImageGuidedInpaintingInputs,
-  ImageImageInpaintingInputs,
   ImageImageUncolorizationInputs,
   ImageTextClassificationInputs,
   ImageTextOcrInputs,
   TextImageImageGenerationInputs,
-  TextTextAddressFormattingInputs,
   TextTextAgeFromNameInputs,
   TextTextAnonymizationInputs,
-  TextTextAutocorrectInputs,
   TextTextBulletPointGenerationInputs,
   TextTextCommandGenerationInputs,
   TextTextCompanyCategorizationInputs,
   TextTextCompanyNameNormalizationInputs,
   TextTextCompanyStockCodeInputs,
-  TextTextConversationSummarizationInputs,
   TextTextCountryFromNameInputs,
   TextTextDateCleaningInputs,
-  TextTextEmotionRecognitionInputs,
   TextTextGenderFromNameInputs,
   TextTextGpsAddressFormattingInputs,
   TextTextGpt3Inputs,
@@ -48,34 +35,24 @@ import {
   TextTextGuessIntentInputs,
   TextTextHateSpeechDetectionInputs,
   TextTextHeadlineGenerationInputs,
-  TextTextImageGenerationPromptBeautifierInputs,
   TextTextKeywordExtractionInputs,
   TextTextLanguageCodesInputs,
   TextTextLanguageDetectionInputs,
   TextTextLanguageGenerationInputs,
   TextTextNamedEntityRecognitionInputs,
-  TextTextNextSentencePredictionInputs,
   TextTextNextWordPredictionInputs,
   TextTextProductOwnershipInputs,
   TextTextProductSentimentInputs,
-  TextTextProgrammingLanguageGenerationInputs,
-  TextTextPunctuationRestorationInputs,
   TextTextQuestionAnsweringInputs,
-  TextTextSentenceParaphraserInputs,
   TextTextSentimentAnalysisInputs,
   TextTextSimilarityInputs,
   TextTextSpeakerRecognitionInputs,
-  TextTextSummarizationInputs,
   TextTextTranslationInputs,
   TextTextVatCountryGuessingInputs,
   TextTextWebsiteClassificationInputs,
-  TextTextWordAlignmentInputs,
-  VideoTextActionClassificationsInputs,
 } from './input-models'
 import {
   AudioTextAudioTranscriptionOutputs,
-  AudioTextSpeakerDiarizationOutputs,
-  AudioTextSpeakerGenderClassificationOutputs,
   ImageImageBackgroundRemovalOutputs,
   ImageImageBackgroundRemovalOutputsOneSampleAsUrl,
   ImageImageBackgroundReplacementOutputs,
@@ -84,16 +61,6 @@ import {
   ImageImageColorizationOutputsOneSampleAsUrl,
   ImageImageDeblurringOutputs,
   ImageImageDeblurringOutputsOneSampleAsUrl,
-  ImageImageEnhancementOutputs,
-  ImageImageEnhancementOutputsOneSampleAsUrl,
-  ImageImageFaceBluringOutputs,
-  ImageImageFaceBluringOutputsOneSampleAsUrl,
-  ImageImageGuidedInpaintingOutputs,
-  ImageImageGuidedInpaintingOutputsOneSampleAsUrl,
-  ImageImageImageGuidedInpaintingOutputs,
-  ImageImageImageGuidedInpaintingOutputsOneSampleAsUrl,
-  ImageImageInpaintingOutputs,
-  ImageImageInpaintingOutputsOneSampleAsUrl,
   ImageImageUncolorizationOutputs,
   ImageImageUncolorizationOutputsOneSampleAsUrl,
   ImageTextClassificationOutputs,
@@ -103,19 +70,15 @@ import {
   TextImageImageGenerationOutputsOneSample,
   TextImageImageGenerationOutputsMultipleSamplesAsUrl,
   TextImageImageGenerationOutputsOneSampleAsUrl,
-  TextTextAddressFormattingOutputs,
   TextTextAgeFromNameOutputs,
   TextTextAnonymizationOutputs,
-  TextTextAutocorrectOutputs,
   TextTextBulletPointGenerationOutputs,
   TextTextCommandGenerationOutputs,
   TextTextCompanyCategorizationOutputs,
   TextTextCompanyNameNormalizationOutputs,
   TextTextCompanyStockCodeOutputs,
-  TextTextConversationSummarizationOutputs,
   TextTextCountryFromNameOutputs,
   TextTextDateCleaningOutputs,
-  TextTextEmotionRecognitionOutputs,
   TextTextGenderFromNameOutputs,
   TextTextGpsAddressFormattingOutputs,
   TextTextGpt3Outputs,
@@ -124,29 +87,21 @@ import {
   TextTextGuessIntentOutputs,
   TextTextHateSpeechDetectionOutputs,
   TextTextHeadlineGenerationOutputs,
-  TextTextImageGenerationPromptBeautifierOutputs,
   TextTextKeywordExtractionOutputs,
   TextTextLanguageCodesOutputs,
   TextTextLanguageDetectionOutputs,
   TextTextLanguageGenerationOutputs,
   TextTextNamedEntityRecognitionOutputs,
-  TextTextNextSentencePredictionOutputs,
   TextTextNextWordPredictionOutputs,
   TextTextProductOwnershipOutputs,
   TextTextProductSentimentOutputs,
-  TextTextProgrammingLanguageGenerationOutputs,
-  TextTextPunctuationRestorationOutputs,
   TextTextQuestionAnsweringOutputs,
-  TextTextSentenceParaphraserOutputs,
   TextTextSentimentAnalysisOutputs,
   TextTextSimilarityOutputs,
   TextTextSpeakerRecognitionOutputs,
-  TextTextSummarizationOutputs,
   TextTextTranslationOutputs,
   TextTextVatCountryGuessingOutputs,
   TextTextWebsiteClassificationOutputs,
-  TextTextWordAlignmentOutputs,
-  VideoTextActionClassificationsOutputs,
 } from './output-models';
 
 export abstract class Shortcuts implements
@@ -154,8 +109,7 @@ export abstract class Shortcuts implements
   Omit<FromImageToImage, 'httpClient'>,
   Omit<FromImageToText, 'httpClient'>,
   Omit<FromTextToImage, 'httpClient'>,
-  Omit<FromTextToText, 'httpClient'>,
-  Omit<FromVideoToText, 'httpClient'>
+  Omit<FromTextToText, 'httpClient'>
 {
 
   abstract fromAudio(): FromAudio;
@@ -164,14 +118,6 @@ export abstract class Shortcuts implements
 
   audioTranscription(args: AudioTextAudioTranscriptionInputs): Promise<AudioTextAudioTranscriptionOutputs> {
     return this.fromAudio().toText().audioTranscription(args);
-  }
-
-  speakerDiarization(args: AudioTextSpeakerDiarizationInputs): Promise<AudioTextSpeakerDiarizationOutputs> {
-    return this.fromAudio().toText().speakerDiarization(args);
-  }
-
-  speakerGenderClassification(args: AudioTextSpeakerGenderClassificationInputs): Promise<AudioTextSpeakerGenderClassificationOutputs> {
-    return this.fromAudio().toText().speakerGenderClassification(args);
   }
 
   abstract fromImage(): FromImage;
@@ -200,36 +146,6 @@ export abstract class Shortcuts implements
   deblurring(args: ImageImageDeblurringInputs): Promise<ArrayBuffer>;
   deblurring(args: ImageImageDeblurringInputs): Promise<ImageImageDeblurringOutputs> {
     return this.fromImage().toImage().deblurring(args);
-  }
-
-  enhancement(args: ImageImageEnhancementInputs & { asUrl: true }): Promise<ImageImageEnhancementOutputsOneSampleAsUrl>;
-  enhancement(args: ImageImageEnhancementInputs): Promise<ArrayBuffer>;
-  enhancement(args: ImageImageEnhancementInputs): Promise<ImageImageEnhancementOutputs> {
-    return this.fromImage().toImage().enhancement(args);
-  }
-
-  faceBluring(args: ImageImageFaceBluringInputs & { asUrl: true }): Promise<ImageImageFaceBluringOutputsOneSampleAsUrl>;
-  faceBluring(args: ImageImageFaceBluringInputs): Promise<ArrayBuffer>;
-  faceBluring(args: ImageImageFaceBluringInputs): Promise<ImageImageFaceBluringOutputs> {
-    return this.fromImage().toImage().faceBluring(args);
-  }
-
-  guidedInpainting(args: ImageImageGuidedInpaintingInputs & { asUrl: true }): Promise<ImageImageGuidedInpaintingOutputsOneSampleAsUrl>;
-  guidedInpainting(args: ImageImageGuidedInpaintingInputs): Promise<ArrayBuffer>;
-  guidedInpainting(args: ImageImageGuidedInpaintingInputs): Promise<ImageImageGuidedInpaintingOutputs> {
-    return this.fromImage().toImage().guidedInpainting(args);
-  }
-
-  imageGuidedInpainting(args: ImageImageImageGuidedInpaintingInputs & { asUrl: true }): Promise<ImageImageImageGuidedInpaintingOutputsOneSampleAsUrl>;
-  imageGuidedInpainting(args: ImageImageImageGuidedInpaintingInputs): Promise<ArrayBuffer>;
-  imageGuidedInpainting(args: ImageImageImageGuidedInpaintingInputs): Promise<ImageImageImageGuidedInpaintingOutputs> {
-    return this.fromImage().toImage().imageGuidedInpainting(args);
-  }
-
-  inpainting(args: ImageImageInpaintingInputs & { asUrl: true }): Promise<ImageImageInpaintingOutputsOneSampleAsUrl>;
-  inpainting(args: ImageImageInpaintingInputs): Promise<ArrayBuffer>;
-  inpainting(args: ImageImageInpaintingInputs): Promise<ImageImageInpaintingOutputs> {
-    return this.fromImage().toImage().inpainting(args);
   }
 
   uncolorization(args: ImageImageUncolorizationInputs & { asUrl: true }): Promise<ImageImageUncolorizationOutputsOneSampleAsUrl>;
@@ -262,20 +178,12 @@ export abstract class Shortcuts implements
 
   // TEXT => TEXT
 
-  addressFormatting(args: TextTextAddressFormattingInputs): Promise<TextTextAddressFormattingOutputs> {
-    return this.fromText().toText().addressFormatting(args);
-  }
-
   ageFromName(args: TextTextAgeFromNameInputs): Promise<TextTextAgeFromNameOutputs> {
     return this.fromText().toText().ageFromName(args);
   }
 
   anonymization(args: TextTextAnonymizationInputs): Promise<TextTextAnonymizationOutputs> {
     return this.fromText().toText().anonymization(args);
-  }
-
-  autocorrect(args: TextTextAutocorrectInputs): Promise<TextTextAutocorrectOutputs> {
-    return this.fromText().toText().autocorrect(args);
   }
 
   bulletPointGeneration(args: TextTextBulletPointGenerationInputs): Promise<TextTextBulletPointGenerationOutputs> {
@@ -298,20 +206,12 @@ export abstract class Shortcuts implements
     return this.fromText().toText().companyStockCode(args);
   }
 
-  conversationSummarization(args: TextTextConversationSummarizationInputs): Promise<TextTextConversationSummarizationOutputs> {
-    return this.fromText().toText().conversationSummarization(args);
-  }
-
   countryFromName(args: TextTextCountryFromNameInputs): Promise<TextTextCountryFromNameOutputs> {
     return this.fromText().toText().countryFromName(args);
   }
 
   dateCleaning(args: TextTextDateCleaningInputs): Promise<TextTextDateCleaningOutputs> {
     return this.fromText().toText().dateCleaning(args);
-  }
-
-  emotionRecognition(args: TextTextEmotionRecognitionInputs): Promise<TextTextEmotionRecognitionOutputs> {
-    return this.fromText().toText().emotionRecognition(args);
   }
 
   genderFromName(args: TextTextGenderFromNameInputs): Promise<TextTextGenderFromNameOutputs> {
@@ -346,10 +246,6 @@ export abstract class Shortcuts implements
     return this.fromText().toText().headlineGeneration(args);
   }
 
-  imageGenerationPromptBeautifier(args: TextTextImageGenerationPromptBeautifierInputs): Promise<TextTextImageGenerationPromptBeautifierOutputs> {
-    return this.fromText().toText().imageGenerationPromptBeautifier(args);
-  }
-
   keywordExtraction(args: TextTextKeywordExtractionInputs): Promise<TextTextKeywordExtractionOutputs> {
     return this.fromText().toText().keywordExtraction(args);
   }
@@ -370,10 +266,6 @@ export abstract class Shortcuts implements
     return this.fromText().toText().namedEntityRecognition(args);
   }
 
-  nextSentencePrediction(args: TextTextNextSentencePredictionInputs): Promise<TextTextNextSentencePredictionOutputs> {
-    return this.fromText().toText().nextSentencePrediction(args);
-  }
-
   nextWordPrediction(args: TextTextNextWordPredictionInputs): Promise<TextTextNextWordPredictionOutputs> {
     return this.fromText().toText().nextWordPrediction(args);
   }
@@ -386,20 +278,8 @@ export abstract class Shortcuts implements
     return this.fromText().toText().productSentiment(args);
   }
 
-  programmingLanguageGeneration(args: TextTextProgrammingLanguageGenerationInputs): Promise<TextTextProgrammingLanguageGenerationOutputs> {
-    return this.fromText().toText().programmingLanguageGeneration(args);
-  }
-
-  punctuationRestoration(args: TextTextPunctuationRestorationInputs): Promise<TextTextPunctuationRestorationOutputs> {
-    return this.fromText().toText().punctuationRestoration(args);
-  }
-
   questionAnswering(args: TextTextQuestionAnsweringInputs): Promise<TextTextQuestionAnsweringOutputs> {
     return this.fromText().toText().questionAnswering(args);
-  }
-
-  sentenceParaphraser(args: TextTextSentenceParaphraserInputs): Promise<TextTextSentenceParaphraserOutputs> {
-    return this.fromText().toText().sentenceParaphraser(args);
   }
 
   sentimentAnalysis(args: TextTextSentimentAnalysisInputs): Promise<TextTextSentimentAnalysisOutputs> {
@@ -414,10 +294,6 @@ export abstract class Shortcuts implements
     return this.fromText().toText().speakerRecognition(args);
   }
 
-  summarization(args: TextTextSummarizationInputs): Promise<TextTextSummarizationOutputs> {
-    return this.fromText().toText().summarization(args);
-  }
-
   translation(args: TextTextTranslationInputs): Promise<TextTextTranslationOutputs> {
     return this.fromText().toText().translation(args);
   }
@@ -428,18 +304,6 @@ export abstract class Shortcuts implements
 
   websiteClassification(args: TextTextWebsiteClassificationInputs): Promise<TextTextWebsiteClassificationOutputs> {
     return this.fromText().toText().websiteClassification(args);
-  }
-
-  wordAlignment(args: TextTextWordAlignmentInputs): Promise<TextTextWordAlignmentOutputs> {
-    return this.fromText().toText().wordAlignment(args);
-  }
-
-  abstract fromVideo(): FromVideo;
-
-  // VIDEO => TEXT
-
-  actionClassifications(args: VideoTextActionClassificationsInputs): Promise<VideoTextActionClassificationsOutputs> {
-    return this.fromVideo().toText().actionClassifications(args);
   }
 
 }

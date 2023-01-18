@@ -2,34 +2,23 @@
 
 import {
   AudioTextAudioTranscriptionModel,
-  AudioTextSpeakerDiarizationModel,
-  AudioTextSpeakerGenderClassificationModel,
   ImageImageBackgroundRemovalModel,
   ImageImageBackgroundReplacementModel,
   ImageImageColorizationModel,
   ImageImageDeblurringModel,
-  ImageImageEnhancementModel,
-  ImageImageFaceBluringModel,
-  ImageImageGuidedInpaintingModel,
-  ImageImageImageGuidedInpaintingModel,
-  ImageImageInpaintingModel,
   ImageImageUncolorizationModel,
   ImageTextClassificationModel,
   ImageTextOcrModel,
   TextImageImageGenerationModel,
-  TextTextAddressFormattingModel,
   TextTextAgeFromNameModel,
   TextTextAnonymizationModel,
-  TextTextAutocorrectModel,
   TextTextBulletPointGenerationModel,
   TextTextCommandGenerationModel,
   TextTextCompanyCategorizationModel,
   TextTextCompanyNameNormalizationModel,
   TextTextCompanyStockCodeModel,
-  TextTextConversationSummarizationModel,
   TextTextCountryFromNameModel,
   TextTextDateCleaningModel,
-  TextTextEmotionRecognitionModel,
   TextTextGenderFromNameModel,
   TextTextGpsAddressFormattingModel,
   TextTextGpt3Model,
@@ -38,29 +27,21 @@ import {
   TextTextGuessIntentModel,
   TextTextHateSpeechDetectionModel,
   TextTextHeadlineGenerationModel,
-  TextTextImageGenerationPromptBeautifierModel,
   TextTextKeywordExtractionModel,
   TextTextLanguageCodesModel,
   TextTextLanguageDetectionModel,
   TextTextLanguageGenerationModel,
   TextTextNamedEntityRecognitionModel,
-  TextTextNextSentencePredictionModel,
   TextTextNextWordPredictionModel,
   TextTextProductOwnershipModel,
   TextTextProductSentimentModel,
-  TextTextProgrammingLanguageGenerationModel,
-  TextTextPunctuationRestorationModel,
   TextTextQuestionAnsweringModel,
-  TextTextSentenceParaphraserModel,
   TextTextSentimentAnalysisModel,
   TextTextSimilarityModel,
   TextTextSpeakerRecognitionModel,
-  TextTextSummarizationModel,
   TextTextTranslationModel,
   TextTextVatCountryGuessingModel,
   TextTextWebsiteClassificationModel,
-  TextTextWordAlignmentModel,
-  VideoTextActionClassificationsModel,
 } from '../models';
 import { WithAsUrl, WithHeaders, WithModel } from './types';
 
@@ -69,17 +50,6 @@ export interface AudioTextAudioTranscriptionInputs
   audio?: Blob;
   audio_url?: string;
   language: string;
-}
-export interface AudioTextSpeakerDiarizationInputs 
-  extends WithHeaders, WithModel<AudioTextSpeakerDiarizationModel> {
-  audio?: Blob;
-  audio_url?: string;
-  nb_speakers?: number;
-}
-export interface AudioTextSpeakerGenderClassificationInputs 
-  extends WithHeaders, WithModel<AudioTextSpeakerGenderClassificationModel> {
-  audio?: Blob;
-  audio_url?: string;
 }
 export interface ImageImageBackgroundRemovalInputs 
   extends WithHeaders, WithAsUrl, WithModel<ImageImageBackgroundRemovalModel> {
@@ -119,43 +89,6 @@ export interface ImageImageDeblurringInputs
   image?: Blob;
   image_url?: string;
 }
-export interface ImageImageEnhancementInputs 
-  extends WithHeaders, WithAsUrl, WithModel<ImageImageEnhancementModel> {
-  image?: Blob;
-  image_url?: string;
-}
-export interface ImageImageFaceBluringInputs 
-  extends WithHeaders, WithAsUrl, WithModel<ImageImageFaceBluringModel> {
-  image?: Blob;
-  image_url?: string;
-}
-export interface ImageImageGuidedInpaintingInputs 
-  extends WithHeaders, WithAsUrl, WithModel<ImageImageGuidedInpaintingModel> {
-  original_image?: Blob;
-  original_image_url?: string;
-  mask_image?: Blob;
-  mask_image_url?: string;
-  prompt: string;
-}
-export interface ImageImageImageGuidedInpaintingInputs 
-  extends WithHeaders, WithAsUrl, WithModel<ImageImageImageGuidedInpaintingModel> {
-  original_image?: Blob;
-  original_image_url?: string;
-  example_image?: Blob;
-  example_image_url?: string;
-  mask_image?: Blob;
-  mask_image_url?: string;
-  seed: number;
-  steps: number;
-  guidance_scale: number;
-}
-export interface ImageImageInpaintingInputs 
-  extends WithHeaders, WithAsUrl, WithModel<ImageImageInpaintingModel> {
-  original_image?: Blob;
-  original_image_url?: string;
-  mask_image?: Blob;
-  mask_image_url?: string;
-}
 export interface ImageImageUncolorizationInputs 
   extends WithHeaders, WithAsUrl, WithModel<ImageImageUncolorizationModel> {
   image?: Blob;
@@ -180,10 +113,6 @@ export interface TextImageImageGenerationInputs
   steps?: number;
   seed?: number;
 }
-export interface TextTextAddressFormattingInputs 
-  extends WithHeaders, WithModel<TextTextAddressFormattingModel> {
-  address: string;
-}
 export interface TextTextAgeFromNameInputs 
   extends WithHeaders, WithModel<TextTextAgeFromNameModel> {
   name: string;
@@ -193,10 +122,6 @@ export interface TextTextAnonymizationInputs
   language: string;
   entities: string;
   text: string;
-}
-export interface TextTextAutocorrectInputs 
-  extends WithHeaders, WithModel<TextTextAutocorrectModel> {
-  sentence: string;
 }
 export interface TextTextBulletPointGenerationInputs 
   extends WithHeaders, WithModel<TextTextBulletPointGenerationModel> {
@@ -219,10 +144,6 @@ export interface TextTextCompanyStockCodeInputs
   extends WithHeaders, WithModel<TextTextCompanyStockCodeModel> {
   text: string;
 }
-export interface TextTextConversationSummarizationInputs 
-  extends WithHeaders, WithModel<TextTextConversationSummarizationModel> {
-  text: string;
-}
 export interface TextTextCountryFromNameInputs 
   extends WithHeaders, WithModel<TextTextCountryFromNameModel> {
   name: string;
@@ -230,10 +151,6 @@ export interface TextTextCountryFromNameInputs
 export interface TextTextDateCleaningInputs 
   extends WithHeaders, WithModel<TextTextDateCleaningModel> {
   date: string;
-}
-export interface TextTextEmotionRecognitionInputs 
-  extends WithHeaders, WithModel<TextTextEmotionRecognitionModel> {
-  texts: string[];
 }
 export interface TextTextGenderFromNameInputs 
   extends WithHeaders, WithModel<TextTextGenderFromNameModel> {
@@ -269,10 +186,6 @@ export interface TextTextHeadlineGenerationInputs
   text: string;
   max_length: number;
 }
-export interface TextTextImageGenerationPromptBeautifierInputs 
-  extends WithHeaders, WithModel<TextTextImageGenerationPromptBeautifierModel> {
-  prompt: string;
-}
 export interface TextTextKeywordExtractionInputs 
   extends WithHeaders, WithModel<TextTextKeywordExtractionModel> {
   text: string;
@@ -295,11 +208,6 @@ export interface TextTextNamedEntityRecognitionInputs
   extends WithHeaders, WithModel<TextTextNamedEntityRecognitionModel> {
   text: string;
 }
-export interface TextTextNextSentencePredictionInputs 
-  extends WithHeaders, WithModel<TextTextNextSentencePredictionModel> {
-  sentence_1: string;
-  sentence_2: string;
-}
 export interface TextTextNextWordPredictionInputs 
   extends WithHeaders, WithModel<TextTextNextWordPredictionModel> {
   sentence: string;
@@ -313,23 +221,11 @@ export interface TextTextProductSentimentInputs
   extends WithHeaders, WithModel<TextTextProductSentimentModel> {
   text: string;
 }
-export interface TextTextProgrammingLanguageGenerationInputs 
-  extends WithHeaders, WithModel<TextTextProgrammingLanguageGenerationModel> {
-  code_snippet: string;
-}
-export interface TextTextPunctuationRestorationInputs 
-  extends WithHeaders, WithModel<TextTextPunctuationRestorationModel> {
-  sentence: string;
-}
 export interface TextTextQuestionAnsweringInputs 
   extends WithHeaders, WithModel<TextTextQuestionAnsweringModel> {
   context: string;
   question: string;
   top_k?: number;
-}
-export interface TextTextSentenceParaphraserInputs 
-  extends WithHeaders, WithModel<TextTextSentenceParaphraserModel> {
-  context: string;
 }
 export interface TextTextSentimentAnalysisInputs 
   extends WithHeaders, WithModel<TextTextSentimentAnalysisModel> {
@@ -344,18 +240,10 @@ export interface TextTextSpeakerRecognitionInputs
   extends WithHeaders, WithModel<TextTextSpeakerRecognitionModel> {
   text: string;
 }
-export interface TextTextSummarizationInputs 
-  extends WithHeaders, WithModel<TextTextSummarizationModel> {
-  text: string;
-  source_language: string;
-  min_length?: number;
-  max_length?: number;
-}
 export interface TextTextTranslationInputs 
   extends WithHeaders, WithModel<TextTextTranslationModel> {
-  input_string: string;
-  source_language: string;
-  target_language: string;
+  text: string;
+  target: string;
 }
 export interface TextTextVatCountryGuessingInputs 
   extends WithHeaders, WithModel<TextTextVatCountryGuessingModel> {
@@ -364,14 +252,4 @@ export interface TextTextVatCountryGuessingInputs
 export interface TextTextWebsiteClassificationInputs 
   extends WithHeaders, WithModel<TextTextWebsiteClassificationModel> {
   text: string;
-}
-export interface TextTextWordAlignmentInputs 
-  extends WithHeaders, WithModel<TextTextWordAlignmentModel> {
-  input_string_language_1: string;
-  input_string_language_2: string;
-}
-export interface VideoTextActionClassificationsInputs 
-  extends WithHeaders, WithModel<VideoTextActionClassificationsModel> {
-  video?: Blob;
-  video_url?: string;
 }
