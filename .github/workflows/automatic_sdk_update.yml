@@ -2,7 +2,7 @@ name: automatic SDK update
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 */2 * * 1-5'
+    - cron: '*/30 * * * 1-5'
 
 jobs:
   generate-sdk:
