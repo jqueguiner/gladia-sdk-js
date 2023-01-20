@@ -2,6 +2,7 @@
 
 import {
   AudioTextAudioTranscriptionModel,
+  AudioTextSpeakerDiarizationModel,
   ImageImageBackgroundRemovalModel,
   ImageImageBackgroundReplacementModel,
   ImageImageColorizationModel,
@@ -36,6 +37,7 @@ import {
   TextTextNextWordPredictionModel,
   TextTextProductOwnershipModel,
   TextTextProductSentimentModel,
+  TextTextPunctuationRestorationModel,
   TextTextQuestionAnsweringModel,
   TextTextSentimentAnalysisModel,
   TextTextSimilarityModel,
@@ -51,6 +53,12 @@ export interface AudioTextAudioTranscriptionInputs
   audio?: Blob;
   audio_url?: string;
   language: string;
+}
+export interface AudioTextSpeakerDiarizationInputs 
+  extends WithHeaders, WithModel<AudioTextSpeakerDiarizationModel> {
+  audio?: Blob;
+  audio_url?: string;
+  nb_speakers?: number;
 }
 export interface ImageImageBackgroundRemovalInputs 
   extends WithHeaders, WithAsUrl, WithModel<ImageImageBackgroundRemovalModel> {
@@ -225,6 +233,10 @@ export interface TextTextProductOwnershipInputs
 export interface TextTextProductSentimentInputs 
   extends WithHeaders, WithModel<TextTextProductSentimentModel> {
   text: string;
+}
+export interface TextTextPunctuationRestorationInputs 
+  extends WithHeaders, WithModel<TextTextPunctuationRestorationModel> {
+  sentence: string;
 }
 export interface TextTextQuestionAnsweringInputs 
   extends WithHeaders, WithModel<TextTextQuestionAnsweringModel> {

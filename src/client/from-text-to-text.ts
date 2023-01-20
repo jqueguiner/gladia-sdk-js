@@ -27,6 +27,7 @@ import {
   TextTextNextWordPredictionInputs,
   TextTextProductOwnershipInputs,
   TextTextProductSentimentInputs,
+  TextTextPunctuationRestorationInputs,
   TextTextQuestionAnsweringInputs,
   TextTextSentimentAnalysisInputs,
   TextTextSimilarityInputs,
@@ -62,6 +63,7 @@ import {
   TextTextNextWordPredictionOutputs,
   TextTextProductOwnershipOutputs,
   TextTextProductSentimentOutputs,
+  TextTextPunctuationRestorationOutputs,
   TextTextQuestionAnsweringOutputs,
   TextTextSentimentAnalysisOutputs,
   TextTextSimilarityOutputs,
@@ -97,6 +99,7 @@ import {
   TEXT_TEXT_NEXT_WORD_PREDICTION_CONTENT_TYPE,
   TEXT_TEXT_PRODUCT_OWNERSHIP_CONTENT_TYPE,
   TEXT_TEXT_PRODUCT_SENTIMENT_CONTENT_TYPE,
+  TEXT_TEXT_PUNCTUATION_RESTORATION_CONTENT_TYPE,
   TEXT_TEXT_QUESTION_ANSWERING_CONTENT_TYPE,
   TEXT_TEXT_SENTIMENT_ANALYSIS_CONTENT_TYPE,
   TEXT_TEXT_SIMILARITY_CONTENT_TYPE,
@@ -535,6 +538,22 @@ export class FromTextToText {
       url: '/text/text/product-sentiment/',
       headers: {
         'Content-Type': TEXT_TEXT_PRODUCT_SENTIMENT_CONTENT_TYPE,
+        ...(args.headers ?? {}),
+      },
+      query: {
+        ...(args.model ? {model: args.model} : {}),
+      },
+      body: formData.toString(),
+    });
+  }
+
+  punctuationRestoration(args: TextTextPunctuationRestorationInputs): Promise<TextTextPunctuationRestorationOutputs> {
+    const formData = new UrlFormData();
+    formData.append('sentence', args.sentence);
+    return this.httpClient.post({
+      url: '/text/text/punctuation-restoration/',
+      headers: {
+        'Content-Type': TEXT_TEXT_PUNCTUATION_RESTORATION_CONTENT_TYPE,
         ...(args.headers ?? {}),
       },
       query: {

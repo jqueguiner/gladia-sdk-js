@@ -4,6 +4,10 @@ export declare type AudioTextAudioTranscriptionOutputs = {
     prediction: string;
     prediction_raw: unknown;
 };
+export declare type AudioTextSpeakerDiarizationOutputs = {
+    prediction: string;
+    prediction_raw: unknown;
+};
 export declare type ImageImageBackgroundRemovalOutputsOneSampleAsUrl = {
     url: ImageUrl[];
 };
@@ -103,6 +107,10 @@ export declare type TextTextNextWordPredictionOutputs = {
 };
 export declare type TextTextProductOwnershipOutputs = Record<string, string | number | boolean>;
 export declare type TextTextProductSentimentOutputs = Record<string, string | number | boolean>;
+export declare type TextTextPunctuationRestorationOutputs = {
+    prediction: string;
+    prediction_raw: unknown;
+};
 export declare type TextTextQuestionAnsweringOutputs = {
     prediction: string;
     prediction_raw: unknown;

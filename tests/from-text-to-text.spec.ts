@@ -11,6 +11,7 @@ import {
   TextTextCompanyStockCodeModel,
   TextTextCountryFromNameModel,
   TextTextDateCleaningModel,
+  TextTextEmotionRecognitionModel,
   TextTextGenderFromNameModel,
   TextTextGpsAddressFormattingModel,
   TextTextGpt3Model,
@@ -21,9 +22,12 @@ import {
   TextTextLanguageCodesModel,
   TextTextLanguageGenerationModel,
   TextTextNamedEntityRecognitionModel,
+  TextTextNextWordPredictionModel,
   TextTextProductOwnershipModel,
   TextTextProductSentimentModel,
+  TextTextPunctuationRestorationModel,
   TextTextQuestionAnsweringModel,
+  TextTextSentimentAnalysisModel,
   TextTextSimilarityModel,
   TextTextSpeakerRecognitionModel,
   TextTextTranslationModel,
@@ -811,7 +815,7 @@ describe('FromTextToText', () => {
         const texts_data = getRandomArray();
         await gladiaClient.fromText().toText().emotionRecognition({
           texts: texts_data,
-          model: 'mrm8488-t5-base-finetuned-emotion',
+          model: 'fake-model-name' as unknown as TextTextEmotionRecognitionModel,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -820,7 +824,7 @@ describe('FromTextToText', () => {
           'Content-Type': 'application/x-www-form-urlencoded',
         });
         expect(firstCallArgs.query).toEqual({
-          model: 'mrm8488-t5-base-finetuned-emotion',
+          model: 'fake-model-name',
         });
         expect(firstCallBody.get('texts')).toEqual(texts_data);
       });
@@ -845,7 +849,7 @@ describe('FromTextToText', () => {
         const texts_data = getRandomArray();
         await gladiaClient.emotionRecognition({
           texts: texts_data,
-          model: 'mrm8488-t5-base-finetuned-emotion',
+          model: 'fake-model-name' as unknown as TextTextEmotionRecognitionModel,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -854,7 +858,7 @@ describe('FromTextToText', () => {
           'Content-Type': 'application/x-www-form-urlencoded',
         });
         expect(firstCallArgs.query).toEqual({
-          model: 'mrm8488-t5-base-finetuned-emotion',
+          model: 'fake-model-name',
         });
         expect(firstCallBody.get('texts')).toEqual(texts_data);
       });
@@ -1970,7 +1974,7 @@ describe('FromTextToText', () => {
         await gladiaClient.fromText().toText().nextWordPrediction({
           sentence: sentence_data,
           top_k: top_k_data,
-          model: 'albert-base-v2',
+          model: 'fake-model-name' as unknown as TextTextNextWordPredictionModel,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -1979,7 +1983,7 @@ describe('FromTextToText', () => {
           'Content-Type': 'application/x-www-form-urlencoded',
         });
         expect(firstCallArgs.query).toEqual({
-          model: 'albert-base-v2',
+          model: 'fake-model-name',
         });
         expect(firstCallBody.get('sentence')).toEqual(sentence_data);
         expect(firstCallBody.get('top_k')).toEqual(String(top_k_data));
@@ -2010,7 +2014,7 @@ describe('FromTextToText', () => {
         await gladiaClient.nextWordPrediction({
           sentence: sentence_data,
           top_k: top_k_data,
-          model: 'albert-base-v2',
+          model: 'fake-model-name' as unknown as TextTextNextWordPredictionModel,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -2019,7 +2023,7 @@ describe('FromTextToText', () => {
           'Content-Type': 'application/x-www-form-urlencoded',
         });
         expect(firstCallArgs.query).toEqual({
-          model: 'albert-base-v2',
+          model: 'fake-model-name',
         });
         expect(firstCallBody.get('sentence')).toEqual(sentence_data);
         expect(firstCallBody.get('top_k')).toEqual(String(top_k_data));
@@ -2185,6 +2189,85 @@ describe('FromTextToText', () => {
     });
   });
 
+  describe('punctuationRestoration', () => {
+    let gladiaClient: GladiaClient;
+    let httpClientMock: HttpClient;
+
+    beforeEach(() => {
+      gladiaClient = gladia({ apiKey: 'API-KEY', customHttpClient: mockHttpClient() });
+      httpClientMock = gladiaClient.fromText().toText()['httpClient'];
+    });
+
+    describe('full path', () => {
+      it('should call the api with the text and the default model by default', async () => {
+        const sentence_data = getRandomText();
+        await gladiaClient.fromText().toText().punctuationRestoration({
+          sentence: sentence_data,
+        });
+        const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
+        expect(postMock).toHaveBeenCalledTimes(1);
+        expect(firstCallArgs.url).toEqual('/text/text/punctuation-restoration/');
+        expect(firstCallArgs.headers).toEqual({
+          'Content-Type': 'application/x-www-form-urlencoded',
+        });
+        expect(firstCallArgs.query).toEqual({
+        });
+        expect(firstCallBody.get('sentence')).toEqual(sentence_data);
+      });
+      it('should call the api with the text and the specified model', async () => {
+        const sentence_data = getRandomText();
+        await gladiaClient.fromText().toText().punctuationRestoration({
+          sentence: sentence_data,
+          model: 'fake-model-name' as unknown as TextTextPunctuationRestorationModel,
+        });
+        const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
+        expect(postMock).toHaveBeenCalledTimes(1);
+        expect(firstCallArgs.url).toEqual('/text/text/punctuation-restoration/');
+        expect(firstCallArgs.headers).toEqual({
+          'Content-Type': 'application/x-www-form-urlencoded',
+        });
+        expect(firstCallArgs.query).toEqual({
+          model: 'fake-model-name',
+        });
+        expect(firstCallBody.get('sentence')).toEqual(sentence_data);
+      });
+    });
+    describe('shortcuts', () => {
+      it('should call the api with the text and the default model by default', async () => {
+        const sentence_data = getRandomText();
+        await gladiaClient.punctuationRestoration({
+          sentence: sentence_data,
+        });
+        const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
+        expect(postMock).toHaveBeenCalledTimes(1);
+        expect(firstCallArgs.url).toEqual('/text/text/punctuation-restoration/');
+        expect(firstCallArgs.headers).toEqual({
+          'Content-Type': 'application/x-www-form-urlencoded',
+        });
+        expect(firstCallArgs.query).toEqual({
+        });
+        expect(firstCallBody.get('sentence')).toEqual(sentence_data);
+      });
+      it('should call the api with the text and the specified model', async () => {
+        const sentence_data = getRandomText();
+        await gladiaClient.punctuationRestoration({
+          sentence: sentence_data,
+          model: 'fake-model-name' as unknown as TextTextPunctuationRestorationModel,
+        });
+        const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
+        expect(postMock).toHaveBeenCalledTimes(1);
+        expect(firstCallArgs.url).toEqual('/text/text/punctuation-restoration/');
+        expect(firstCallArgs.headers).toEqual({
+          'Content-Type': 'application/x-www-form-urlencoded',
+        });
+        expect(firstCallArgs.query).toEqual({
+          model: 'fake-model-name',
+        });
+        expect(firstCallBody.get('sentence')).toEqual(sentence_data);
+      });
+    });
+  });
+
   describe('questionAnswering', () => {
     let gladiaClient: GladiaClient;
     let httpClientMock: HttpClient;
@@ -2317,7 +2400,7 @@ describe('FromTextToText', () => {
         const texts_data = getRandomArray();
         await gladiaClient.fromText().toText().sentimentAnalysis({
           texts: texts_data,
-          model: 'distilbert-base-uncased',
+          model: 'fake-model-name' as unknown as TextTextSentimentAnalysisModel,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -2326,7 +2409,7 @@ describe('FromTextToText', () => {
           'Content-Type': 'application/x-www-form-urlencoded',
         });
         expect(firstCallArgs.query).toEqual({
-          model: 'distilbert-base-uncased',
+          model: 'fake-model-name',
         });
         expect(firstCallBody.get('texts')).toEqual(texts_data);
       });
@@ -2351,7 +2434,7 @@ describe('FromTextToText', () => {
         const texts_data = getRandomArray();
         await gladiaClient.sentimentAnalysis({
           texts: texts_data,
-          model: 'distilbert-base-uncased',
+          model: 'fake-model-name' as unknown as TextTextSentimentAnalysisModel,
         });
         const { postMock, firstCallArgs, firstCallBody } = getPostMock(httpClientMock);
         expect(postMock).toHaveBeenCalledTimes(1);
@@ -2360,7 +2443,7 @@ describe('FromTextToText', () => {
           'Content-Type': 'application/x-www-form-urlencoded',
         });
         expect(firstCallArgs.query).toEqual({
-          model: 'distilbert-base-uncased',
+          model: 'fake-model-name',
         });
         expect(firstCallBody.get('texts')).toEqual(texts_data);
       });

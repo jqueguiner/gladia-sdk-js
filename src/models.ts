@@ -14,6 +14,12 @@ export const AUDIO_TEXT_AUDIO_TRANSCRIPTION_MODELS = [
 export const AUDIO_TEXT_AUDIO_TRANSCRIPTION_CONTENT_TYPE = "multipart/form-data" as const;
 export type AudioTextAudioTranscriptionModel = typeof AUDIO_TEXT_AUDIO_TRANSCRIPTION_MODELS[number];
 
+export const AUDIO_TEXT_SPEAKER_DIARIZATION_MODELS = [
+   'pyannote-speaker_diarization',
+] as const;
+export const AUDIO_TEXT_SPEAKER_DIARIZATION_CONTENT_TYPE = "multipart/form-data" as const;
+export type AudioTextSpeakerDiarizationModel = typeof AUDIO_TEXT_SPEAKER_DIARIZATION_MODELS[number];
+
 export const IMAGE_IMAGE_BACKGROUND_REMOVAL_MODELS = [
    'mobilenet',
    'xception',
@@ -245,7 +251,6 @@ export type TextTextDateCleaningModel = typeof TEXT_TEXT_DATE_CLEANING_MODELS[nu
 
 export const TEXT_TEXT_EMOTION_RECOGNITION_MODELS = [
    'bhadresh-savani_distilbert-base-uncased-emotion',
-   'mrm8488-t5-base-finetuned-emotion',
 ] as const;
 export const TEXT_TEXT_EMOTION_RECOGNITION_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
 export type TextTextEmotionRecognitionModel = typeof TEXT_TEXT_EMOTION_RECOGNITION_MODELS[number];
@@ -332,10 +337,7 @@ export const TEXT_TEXT_NAMED_ENTITY_RECOGNITION_CONTENT_TYPE = "application/x-ww
 export type TextTextNamedEntityRecognitionModel = typeof TEXT_TEXT_NAMED_ENTITY_RECOGNITION_MODELS[number];
 
 export const TEXT_TEXT_NEXT_WORD_PREDICTION_MODELS = [
-   'albert-base-v2',
-   'bert-base-uncased',
    'distilbert-base-uncased',
-   'roberta-base',
 ] as const;
 export const TEXT_TEXT_NEXT_WORD_PREDICTION_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
 export type TextTextNextWordPredictionModel = typeof TEXT_TEXT_NEXT_WORD_PREDICTION_MODELS[number];
@@ -352,6 +354,12 @@ export const TEXT_TEXT_PRODUCT_SENTIMENT_MODELS = [
 export const TEXT_TEXT_PRODUCT_SENTIMENT_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
 export type TextTextProductSentimentModel = typeof TEXT_TEXT_PRODUCT_SENTIMENT_MODELS[number];
 
+export const TEXT_TEXT_PUNCTUATION_RESTORATION_MODELS = [
+   'notaitech-fastpunct',
+] as const;
+export const TEXT_TEXT_PUNCTUATION_RESTORATION_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
+export type TextTextPunctuationRestorationModel = typeof TEXT_TEXT_PUNCTUATION_RESTORATION_MODELS[number];
+
 export const TEXT_TEXT_QUESTION_ANSWERING_MODELS = [
    'deepset_roberta-large-squad2',
 ] as const;
@@ -359,9 +367,7 @@ export const TEXT_TEXT_QUESTION_ANSWERING_CONTENT_TYPE = "application/x-www-form
 export type TextTextQuestionAnsweringModel = typeof TEXT_TEXT_QUESTION_ANSWERING_MODELS[number];
 
 export const TEXT_TEXT_SENTIMENT_ANALYSIS_MODELS = [
-   'distilbert-base-uncased',
    'distilbert-base-uncased-finetuned-sst-2-english',
-   'zero-shot-classification-facebook-bart-large-mnli',
 ] as const;
 export const TEXT_TEXT_SENTIMENT_ANALYSIS_CONTENT_TYPE = "application/x-www-form-urlencoded" as const;
 export type TextTextSentimentAnalysisModel = typeof TEXT_TEXT_SENTIMENT_ANALYSIS_MODELS[number];

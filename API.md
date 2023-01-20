@@ -26,6 +26,18 @@ The runtime default model is defined on the GladIA server.
 - `audio_url`: url
 - `language`: string *(required)*
 
+### `speaker-diarization`
+
+#### `models`
+
+- **pyannote-speaker_diarization (default)**
+
+#### other params
+
+- `audio`: audio
+- `audio_url`: url
+- `nb_speakers`: integer
+
 ## IMAGE => IMAGE
 
 ### `background-removal`
@@ -366,7 +378,6 @@ The runtime default model is defined on the GladIA server.
 #### `models`
 
 - **bhadresh-savani_distilbert-base-uncased-emotion (default)**
-- mrm8488-t5-base-finetuned-emotion
 
 #### other params
 
@@ -513,10 +524,7 @@ The runtime default model is defined on the GladIA server.
 
 #### `models`
 
-- albert-base-v2
-- bert-base-uncased
 - **distilbert-base-uncased (default)**
-- roberta-base
 
 #### other params
 
@@ -543,6 +551,16 @@ The runtime default model is defined on the GladIA server.
 
 - `text`: string *(required)*
 
+### `punctuation-restoration`
+
+#### `models`
+
+- **notaitech-fastpunct (default)**
+
+#### other params
+
+- `sentence`: string *(required)*
+
 ### `question-answering`
 
 #### `models`
@@ -559,9 +577,7 @@ The runtime default model is defined on the GladIA server.
 
 #### `models`
 
-- distilbert-base-uncased
 - **distilbert-base-uncased-finetuned-sst-2-english (default)**
-- zero-shot-classification-facebook-bart-large-mnli
 
 #### other params
 
