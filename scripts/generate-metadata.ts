@@ -4,6 +4,7 @@ import { OpenApiJson, PathDef } from '../src/meta/openapideftype';
 import { EndpointDef, EndpointDefParam } from '../src/meta/endpoint-defs-type';
 import { exit } from 'process';
 import { getOpenapiJson } from './openapi.utils';
+import { isNotDefined } from '../src/utils/fp';
 
 async function main() {
   try {
@@ -56,7 +57,7 @@ function generateEndpointDefs(openApiJson: OpenApiJson) {
   fileContent.push(`import { EndpointDef } from "./endpoint-defs-type";`);
   fileContent.push('');
   const endpointDefs: EndpointDef[] = Object.entries(openApiJson.paths)
-    .filter(([path]) => !path.startsWith('/automl/'))
+    .filter(([path]) => !path.startsWith('/automl/') && path !== '/ready')
     .map(([path, def]) => {
       console.debug('Found endpoint', path);
       const [, inputType, outputType, taskName] = path.split('/');
@@ -84,6 +85,7 @@ function generateEndpointDefs(openApiJson: OpenApiJson) {
 }
 
 function getPostModels(def: PathDef): Pick<EndpointDef, 'models' | 'defaultModel'> {
+  assertValidDef(def);
   const modelsParam = def.post.parameters?.filter((p) => p.name === 'model')[0];
   if (!modelsParam) {
     throw { kind: 'InvalidParamModel', def };
@@ -110,6 +112,7 @@ function getInputBodyContentType(inputType: string): Pick<EndpointDef, 'inputBod
 }
 
 function getOutputBodyContentType(def: PathDef): Pick<EndpointDef, 'outputBodyContentType'> {
+  assertValidDef(def);
   if (200 in def.post.responses) {
     const okResponse = def.post.responses[200];
     if ('application/json' in okResponse.content) {
@@ -135,6 +138,7 @@ function getOutputBodyContentType(def: PathDef): Pick<EndpointDef, 'outputBodyCo
 }
 
 function getPostParams(def: PathDef, openApiJson: OpenApiJson) {
+  assertValidDef(def);
   const defParams = def.post.parameters?.filter((p) => p.name !== 'model') ?? [];
   const params: EndpointDefParam[] = defParams.map(
     (p): EndpointDefParam => ({
@@ -218,6 +222,17 @@ function getPostParams(def: PathDef, openApiJson: OpenApiJson) {
     });
   }
   return params;
+}
+
+function assertValidDef(
+  def: PathDef,
+): asserts def is Omit<PathDef, 'post'> & Pick<Required<PathDef>, 'post'> {
+  if (isNotDefined(def) || isNotDefined(def.post)) {
+    throw new Error('Cannot handle undefined def');
+  }
+  if (isNotDefined(def) || isNotDefined(def.post)) {
+    throw new Error('Cannot handle undefined def.post');
+  }
 }
 
 (async () => {

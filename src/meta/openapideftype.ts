@@ -13,7 +13,7 @@ type PathUrl = string;
 
 export interface PathDef {
   get?: PathRequestDef;
-  post: PathRequestDef;
+  post?: PathRequestDef;
 }
 
 interface PathRequestDef {
