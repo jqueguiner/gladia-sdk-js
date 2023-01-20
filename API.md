@@ -26,18 +26,6 @@ The runtime default model is defined on the GladIA server.
 - `audio_url`: url
 - `language`: string *(required)*
 
-### `speaker-diarization`
-
-#### `models`
-
-- **pyannote-speaker_diarization (default)**
-
-#### other params
-
-- `audio`: audio
-- `audio_url`: url
-- `nb_speakers`: integer
-
 ## IMAGE => IMAGE
 
 ### `background-removal`
@@ -550,16 +538,6 @@ The runtime default model is defined on the GladIA server.
 #### other params
 
 - `text`: string *(required)*
-
-### `punctuation-restoration`
-
-#### `models`
-
-- **notaitech-fastpunct (default)**
-
-#### other params
-
-- `sentence`: string *(required)*
 
 ### `question-answering`
 

@@ -1,9 +1,6 @@
 export declare const AUDIO_TEXT_AUDIO_TRANSCRIPTION_MODELS: readonly ["coqui_english_huge_vocab", "openai-whisper--base", "openai-whisper--large", "openai-whisper--large-v1", "openai-whisper--large-v2", "openai-whisper--medium", "openai-whisper--small", "openai-whisper--tiny", "riva_default_asr"];
 export declare const AUDIO_TEXT_AUDIO_TRANSCRIPTION_CONTENT_TYPE: "multipart/form-data";
 export declare type AudioTextAudioTranscriptionModel = typeof AUDIO_TEXT_AUDIO_TRANSCRIPTION_MODELS[number];
-export declare const AUDIO_TEXT_SPEAKER_DIARIZATION_MODELS: readonly ["pyannote-speaker_diarization"];
-export declare const AUDIO_TEXT_SPEAKER_DIARIZATION_CONTENT_TYPE: "multipart/form-data";
-export declare type AudioTextSpeakerDiarizationModel = typeof AUDIO_TEXT_SPEAKER_DIARIZATION_MODELS[number];
 export declare const IMAGE_IMAGE_BACKGROUND_REMOVAL_MODELS: readonly ["mobilenet", "xception"];
 export declare const IMAGE_IMAGE_BACKGROUND_REMOVAL_CONTENT_TYPE: "multipart/form-data";
 export declare type ImageImageBackgroundRemovalModel = typeof IMAGE_IMAGE_BACKGROUND_REMOVAL_MODELS[number];
@@ -106,9 +103,6 @@ export declare type TextTextProductOwnershipModel = typeof TEXT_TEXT_PRODUCT_OWN
 export declare const TEXT_TEXT_PRODUCT_SENTIMENT_MODELS: readonly ["jpt"];
 export declare const TEXT_TEXT_PRODUCT_SENTIMENT_CONTENT_TYPE: "application/x-www-form-urlencoded";
 export declare type TextTextProductSentimentModel = typeof TEXT_TEXT_PRODUCT_SENTIMENT_MODELS[number];
-export declare const TEXT_TEXT_PUNCTUATION_RESTORATION_MODELS: readonly ["notaitech-fastpunct"];
-export declare const TEXT_TEXT_PUNCTUATION_RESTORATION_CONTENT_TYPE: "application/x-www-form-urlencoded";
-export declare type TextTextPunctuationRestorationModel = typeof TEXT_TEXT_PUNCTUATION_RESTORATION_MODELS[number];
 export declare const TEXT_TEXT_QUESTION_ANSWERING_MODELS: readonly ["deepset_roberta-large-squad2"];
 export declare const TEXT_TEXT_QUESTION_ANSWERING_CONTENT_TYPE: "application/x-www-form-urlencoded";
 export declare type TextTextQuestionAnsweringModel = typeof TEXT_TEXT_QUESTION_ANSWERING_MODELS[number];

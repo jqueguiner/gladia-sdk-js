@@ -7,10 +7,6 @@ export type AudioTextAudioTranscriptionOutputs = {
   prediction: string;
   prediction_raw: unknown;
 };
-export type AudioTextSpeakerDiarizationOutputs = {
-  prediction: string;
-  prediction_raw: unknown;
-};
 export type ImageImageBackgroundRemovalOutputsOneSampleAsUrl = { url: ImageUrl[] };
 export type ImageImageBackgroundRemovalOutputs = 
   | ArrayBuffer
@@ -110,10 +106,6 @@ export type TextTextNextWordPredictionOutputs = {
 };
 export type TextTextProductOwnershipOutputs = Record<string, string | number | boolean>;
 export type TextTextProductSentimentOutputs = Record<string, string | number | boolean>;
-export type TextTextPunctuationRestorationOutputs = {
-  prediction: string;
-  prediction_raw: unknown;
-};
 export type TextTextQuestionAnsweringOutputs = {
   prediction: string;
   prediction_raw: unknown;

@@ -10,7 +10,6 @@ import { FromTextToImage } from './from-text-to-image'
 import { FromTextToText } from './from-text-to-text'
 import {
   AudioTextAudioTranscriptionInputs,
-  AudioTextSpeakerDiarizationInputs,
   ImageImageBackgroundRemovalInputs,
   ImageImageBackgroundReplacementInputs,
   ImageImageColorizationInputs,
@@ -45,7 +44,6 @@ import {
   TextTextNextWordPredictionInputs,
   TextTextProductOwnershipInputs,
   TextTextProductSentimentInputs,
-  TextTextPunctuationRestorationInputs,
   TextTextQuestionAnsweringInputs,
   TextTextSentimentAnalysisInputs,
   TextTextSimilarityInputs,
@@ -56,7 +54,6 @@ import {
 } from './input-models'
 import {
   AudioTextAudioTranscriptionOutputs,
-  AudioTextSpeakerDiarizationOutputs,
   ImageImageBackgroundRemovalOutputs,
   ImageImageBackgroundRemovalOutputsOneSampleAsUrl,
   ImageImageBackgroundReplacementOutputs,
@@ -100,7 +97,6 @@ import {
   TextTextNextWordPredictionOutputs,
   TextTextProductOwnershipOutputs,
   TextTextProductSentimentOutputs,
-  TextTextPunctuationRestorationOutputs,
   TextTextQuestionAnsweringOutputs,
   TextTextSentimentAnalysisOutputs,
   TextTextSimilarityOutputs,
@@ -124,10 +120,6 @@ export abstract class Shortcuts implements
 
   audioTranscription(args: AudioTextAudioTranscriptionInputs): Promise<AudioTextAudioTranscriptionOutputs> {
     return this.fromAudio().toText().audioTranscription(args);
-  }
-
-  speakerDiarization(args: AudioTextSpeakerDiarizationInputs): Promise<AudioTextSpeakerDiarizationOutputs> {
-    return this.fromAudio().toText().speakerDiarization(args);
   }
 
   abstract fromImage(): FromImage;
@@ -290,10 +282,6 @@ export abstract class Shortcuts implements
 
   productSentiment(args: TextTextProductSentimentInputs): Promise<TextTextProductSentimentOutputs> {
     return this.fromText().toText().productSentiment(args);
-  }
-
-  punctuationRestoration(args: TextTextPunctuationRestorationInputs): Promise<TextTextPunctuationRestorationOutputs> {
-    return this.fromText().toText().punctuationRestoration(args);
   }
 
   questionAnswering(args: TextTextQuestionAnsweringInputs): Promise<TextTextQuestionAnsweringOutputs> {
