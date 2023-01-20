@@ -51,8 +51,11 @@ jobs:
           git commit --amend -m "$COMMIT_MSG [skip ci]"
     
       - name: remove .gitignores
+        if: ${{ env.SHOULD_UPDATE != 0 }}
         # This step is mandatory, otherwise the lib/ directory will not be package
-        run: rm .gitignore
+        run: |
+          rm .gitignore
+          mv .gitignore.npm .gitignore
 
       - name: Push release
         uses: CasperWA/push-protected@v2
