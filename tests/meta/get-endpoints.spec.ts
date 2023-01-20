@@ -141,11 +141,7 @@ describe(getEndpoints.name, () => {
         inputType: 'text',
         outputType: 'text',
         taskName: 'sentiment-analysis',
-        models: [
-          'distilbert-base-uncased',
-          'distilbert-base-uncased-finetuned-sst-2-english',
-          'zero-shot-classification-facebook-bart-large-mnli',
-        ],
+        models: ['distilbert-base-uncased-finetuned-sst-2-english'],
         defaultModel: 'distilbert-base-uncased-finetuned-sst-2-english',
         inputBodyContentType: 'application/x-www-form-urlencoded',
         outputBodyContentType: {
