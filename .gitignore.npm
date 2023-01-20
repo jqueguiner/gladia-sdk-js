@@ -1,0 +1,4 @@
+coverage/
+examples/
+node_modules/
+.github/

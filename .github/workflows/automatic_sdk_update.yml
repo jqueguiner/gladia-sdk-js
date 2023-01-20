@@ -62,8 +62,18 @@ jobs:
           git commit --amend -m "$COMMIT_MSG [skip ci]"
     
       - name: remove .gitignores
+        if: ${{ env.SHOULD_UPDATE != 0 }}
         # This step is mandatory, otherwise the lib/ directory will not be package
-        run: rm .gitignore
+        run: |
+          rm .gitignore
+          mv .gitignore.npm .gitignore
+
+      - name: Publish release to NPM
+        if: ${{ env.SHOULD_UPDATE != 0 }}
+        uses: JS-DevTools/npm-publish@v1
+        with:
+          access: public
+          token: ${{ secrets.NPM_TOKEN }}
 
       - name: Push release
         if: ${{ env.SHOULD_UPDATE != 0 }}
@@ -72,10 +82,3 @@ jobs:
           token: ${{ secrets.PUSH_TO_MAIN }}
           branch: main
           tags: true
-
-      - name: Publish release to NPM
-        if: ${{ env.SHOULD_UPDATE != 0 }}
-        uses: JS-DevTools/npm-publish@v1
-        with:
-          access: public
-          token: ${{ secrets.NPM_TOKEN }}
