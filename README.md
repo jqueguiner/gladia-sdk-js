@@ -16,17 +16,6 @@
 npm i @gladiaio/sdk
 ```
 
-or to get the latest version from git, add this to your `package.json`:
-```json
-{
-  "dependencies": {
-    "@gladiaio/sdk": "https://github.com/gladiaio/gladia-sdk-js.git",
-    // or
-    "@gladiaio/sdk": "git+ssh://git@github.com:gladiaio/gladia-sdk-js.git"
-  }
-}
-```
-
 ### Use it with TypeScript
 
 ```TypeScript
