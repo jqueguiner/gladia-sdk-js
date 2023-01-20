@@ -49,6 +49,10 @@ jobs:
           git add .
           COMMIT_MSG=`git show --format=format:%B -s`
           git commit --amend -m "$COMMIT_MSG [skip ci]"
+    
+      - name: remove .gitignores
+        # This step is mandatory, otherwise the lib/ directory will not be package
+        run: rm .gitignore
 
       - name: Push release
         uses: CasperWA/push-protected@v2
