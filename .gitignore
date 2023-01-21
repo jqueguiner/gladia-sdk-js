@@ -27,3 +27,6 @@ tests/from-image-to-image.spec.ts
 tests/from-image-to-text.spec.ts
 tests/from-text-to-image.spec.ts
 tests/from-text-to-text.spec.ts
+src/meta/task-names.ts
+src/meta/mappings.ts
+src/client/builder.ts

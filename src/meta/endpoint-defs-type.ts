@@ -1,10 +1,12 @@
+import { TaskName } from './task-names';
+
 export type InputType = string;
 export type OutputType = string;
 export interface EndpointDef {
   url: string;
   inputType: string;
   outputType: string;
-  taskName: string;
+  taskName: TaskName;
   models: string[];
   defaultModel: string;
   params: EndpointDefParam[];

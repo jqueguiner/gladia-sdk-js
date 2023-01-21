@@ -21,3 +21,5 @@ export {
   getOutputModelTypeMultipleSamplesAsUrl,
   getOutputModelTypeOneSampleAsUrl,
 } from './get-output-model-type';
+export { TASK_NAMES, TaskName } from './task-names';
+export { MethodName, TASK_NAME_TO_METHOD_NAME } from './mappings';
