@@ -47,3 +47,11 @@ gladiaClient
     console.log('imageGeneration [sample=2,asUrl=true] RESULT', result);
   })
   .catch((err) => console.error(err));
+
+gladiaClient
+  .builder('image-generation', { prompt: 'A cat on the moon', samples: 1, asUrl: true })
+  .call()
+  .then((result) => {
+    console.log('builder image-generation [sample=1,asUrl=true] RESULT', result);
+  })
+  .catch((err) => console.error(err));

@@ -1,16 +1,20 @@
 import fs from 'fs';
+import { create } from 'mutative';
 import packageJson from '../package.json';
 import { OpenApiJson, PathDef } from '../src/meta/openapideftype';
 import { EndpointDef, EndpointDefParam } from '../src/meta/endpoint-defs-type';
 import { exit } from 'process';
 import { getOpenapiJson } from './openapi.utils';
 import { isNotDefined } from '../src/utils/fp';
+import { getMethodName } from '../src/meta/get-method-name';
 
 async function main() {
   try {
     const openApiJson = await generateOpenApiDefTs();
     generateSdkVersionTs();
-    generateEndpointDefs(openApiJson);
+    const endpointDefs = generateEndpointDefs(openApiJson);
+    generateTaskNamesTs(endpointDefs);
+    generateMappingsTs(endpointDefs);
   } catch (err) {
     console.error(err);
     exit(-1);
@@ -82,6 +86,45 @@ function generateEndpointDefs(openApiJson: OpenApiJson) {
   jsonLines.forEach((l) => fileContent.push(l));
   fileContent.push(fileContent.pop() + ';');
   fs.writeFileSync('./src/meta/endpoint-defs.ts', fileContent.join('\n'));
+  return endpointDefs;
+}
+
+function generateTaskNamesTs(endpointDefs: EndpointDef[]) {
+  const fileContent: string[] = [...getGeneratedMarks()];
+  const endpoints = create(endpointDefs, (draft) => {
+    draft.sort((a, b) => a.taskName.localeCompare(b.taskName));
+  });
+  fileContent.push('export const TASK_NAMES = [');
+  for (const endpoint of endpoints) {
+    const endpointName = endpoint.taskName;
+    fileContent.push(`  '${endpointName}',`);
+  }
+  fileContent.push('] as const;');
+  fileContent.push('');
+  fileContent.push('export type TaskName = typeof TASK_NAMES[number];');
+  fileContent.push('');
+
+  fs.writeFileSync('./src/meta/task-names.ts', fileContent.join('\n'));
+}
+
+function generateMappingsTs(endpointDefs: EndpointDef[]) {
+  const fileContent: string[] = [...getGeneratedMarks()];
+  fileContent.push("import { TaskName } from './task-names';");
+  fileContent.push('');
+  const endpoints = create(endpointDefs, (draft) => {
+    draft.sort((a, b) => a.taskName.localeCompare(b.taskName));
+  });
+  fileContent.push('export const TASK_NAME_TO_METHOD_NAME = {');
+  for (const endpoint of endpoints) {
+    const endpointName = endpoint.taskName;
+    const methodName = getMethodName(endpoint);
+    fileContent.push(`  '${endpointName}': '${methodName}',`);
+  }
+  fileContent.push('} as const;');
+  fileContent.push('');
+  fileContent.push('export type MethodName = typeof TASK_NAME_TO_METHOD_NAME[TaskName];');
+  fileContent.push('');
+  fs.writeFileSync('./src/meta/mappings.ts', fileContent.join('\n'));
 }
 
 function getPostModels(def: PathDef): Pick<EndpointDef, 'models' | 'defaultModel'> {

@@ -11,6 +11,7 @@ function main() {
   generateFromInputToOutputClasses();
   generateFromInputClasses();
   generateShortcuts();
+  generateBuilderTs();
   generateGladiaClient();
   generateUnitTests();
   generateApiMd();
@@ -350,6 +351,81 @@ function generateFromInputClasses() {
   }
 }
 
+function generateBuilderTs() {
+  const endpointsByInputOutput = meta.getEndpointsByInputOutput();
+  const endpoints = meta.getEndpoints();
+  const fileContent: string[] = [...getGeneratedMarks()];
+  fileContent.push(...generateInputModelsImports(endpoints));
+  fileContent.push(...generateOutputModelsImports(endpoints, { withUnionForSubtype: false }));
+  fileContent.push("import { TaskName } from 'src/meta/task-names';");
+  fileContent.push("import { Shortcuts } from './shortcuts';");
+  fileContent.push("import { TASK_NAME_TO_METHOD_NAME } from '../meta/mappings';");
+  fileContent.push('');
+  fileContent.push(`export abstract class Builder extends Shortcuts {`);
+  fileContent.push('');
+  for (const [inputType, outputs] of Object.entries(endpointsByInputOutput)) {
+    for (const [outputType, outputTypeEndpoints] of Object.entries(outputs)) {
+      fileContent.push('');
+      fileContent.push(`  // ${inputType.toUpperCase()} => ${outputType.toUpperCase()}`);
+      fileContent.push('');
+      for (const endpoint of outputTypeEndpoints) {
+        const taskName = endpoint.taskName;
+        const inputModelType = meta.getInputModelType(endpoint);
+        const outputModelType = meta.getOutputModelType(endpoint);
+        if (endpoint.hasSamplesParam || endpoint.outputType !== 'text') {
+          const outputModelNameForOneSample = meta.getOutputModelTypeOneSample(endpoint);
+          const outputModelNameForMulitpleSamples =
+            meta.getOutputModelTypeMultipleSamples(endpoint);
+          const outputModelNameForOneSampleAsUrl = meta.getOutputModelTypeOneSampleAsUrl(endpoint);
+          const outputModelNameForMulitpleSamplesAsUrl =
+            meta.getOutputModelTypeMultipleSamplesAsUrl(endpoint);
+          if (endpoint.hasSamplesParam) {
+            fileContent.push(
+              `  builder(taskName: '${taskName}', args: ${inputModelType} & { samples: 1, asUrl: true }): CallBuilder<${outputModelNameForOneSampleAsUrl}>;`,
+            );
+            fileContent.push(
+              `  builder(taskName: '${taskName}', args: ${inputModelType} & { asUrl: true }): CallBuilder<${outputModelNameForMulitpleSamplesAsUrl}>;`,
+            );
+            fileContent.push(
+              `  builder(taskName: '${taskName}', args: ${inputModelType} & { samples: 1 }): CallBuilder<${outputModelNameForOneSample}>;`,
+            );
+            fileContent.push(
+              `  builder(taskName: '${taskName}', args: ${inputModelType}): CallBuilder<${outputModelNameForMulitpleSamples}>;`,
+            );
+          } else {
+            fileContent.push(
+              `  builder(taskName: '${taskName}', args: ${inputModelType} & { asUrl: true }): CallBuilder<${outputModelNameForOneSampleAsUrl}>;`,
+            );
+            fileContent.push(
+              `  builder(taskName: '${taskName}', args: ${inputModelType}): CallBuilder<ArrayBuffer>;`,
+            );
+          }
+        } else {
+          fileContent.push(
+            `  builder(taskName: '${taskName}', args: ${inputModelType}): CallBuilder<${outputModelType}>;`,
+          );
+        }
+      }
+    }
+  }
+  fileContent.push('');
+  fileContent.push(
+    '  builder<TInput, TOutput>(taskName: TaskName, args: TInput): CallBuilder<TOutput> {',
+  );
+  fileContent.push('    const methodName = TASK_NAME_TO_METHOD_NAME[taskName];');
+  fileContent.push('    const method = this[methodName].bind(this) as any;');
+  fileContent.push('    return { call() { return method(args) as Promise<TOutput> } };');
+  fileContent.push('  }');
+
+  fileContent.push(`}`);
+  fileContent.push('');
+  fileContent.push('interface CallBuilder<TOuput> {');
+  fileContent.push('  call(): Promise<TOuput>;');
+  fileContent.push('}');
+  fileContent.push('');
+  fs.writeFileSync('./src/client/builder.ts', fileContent.join('\n'));
+}
+
 function generateShortcuts() {
   const endpointsByInputOutput = meta.getEndpointsByInputOutput();
   const endpoints = meta.getEndpoints();
@@ -364,27 +440,11 @@ function generateShortcuts() {
       fileContent.push(`import { ${inputOutputClassName} } from './${inputOutputFileName}'`);
     }
   }
-  fileContent.push(`import {`);
-  for (const endpoint of endpoints) {
-    const inputModelClassName = meta.getInputModelType(endpoint);
-    fileContent.push(`  ${inputModelClassName},`);
-  }
-  fileContent.push(`} from './input-models'`);
+  fileContent.push(...generateInputModelsImports(endpoints));
   fileContent.push(...generateOutputModelsImports(endpoints));
   fileContent.push('');
   fileContent.push(`export abstract class Shortcuts implements`);
-  const implemented: string[] = [];
-  for (const [inputType, outputs] of Object.entries(endpointsByInputOutput)) {
-    for (const outputType of Object.keys(outputs)) {
-      const inputOutputClassName = getClientInputOutputClassName(inputType, outputType);
-      implemented.push(`  Omit<${inputOutputClassName}, 'httpClient'>`);
-    }
-  }
-  const lastImplemented = implemented.pop();
-  implemented.forEach((i) => fileContent.push(`${i},`));
-  if (lastImplemented) {
-    fileContent.push(lastImplemented);
-  }
+  fileContent.push(...generateInputOutputImplementated(endpointsByInputOutput));
   fileContent.push(`{`);
   fileContent.push('');
   for (const [inputType, outputs] of Object.entries(endpointsByInputOutput)) {
@@ -412,17 +472,16 @@ function generateShortcuts() {
 function generateGladiaClient() {
   const fileContent: string[] = [...getGeneratedMarks()];
   const endpoints = meta.getEndpointsByInputOutput();
-  fileContent.push(`import { GladiaClientParams } from './client/gladia-client-params';`);
-  fileContent.push(`import { Shortcuts } from './client/shortcuts';`);
+  fileContent.push("import { GladiaClientParams } from './client/gladia-client-params';");
+  fileContent.push("import { Builder } from './client/builder';");
+  fileContent.push("import { Shortcuts } from './client/shortcuts';");
   for (const inputType of Object.keys(endpoints)) {
-    fileContent.push(
-      `import { ${getClientInputClassName(inputType)} } from './client/${getClientInput(
-        inputType,
-      )}';`,
-    );
+    const clientInput = getClientInput(inputType);
+    const clientInputClassName = getClientInputClassName(inputType);
+    fileContent.push(`import { ${clientInputClassName} } from './client/${clientInput}';`);
   }
-  fileContent.push(`import { GladiaClientBase } from './client/gladia-client-base';`);
-  fileContent.push(`import { applyMixins } from './utils/mixin';`);
+  fileContent.push("import { GladiaClientBase } from './client/gladia-client-base';");
+  fileContent.push("import { applyMixins } from './utils/mixin';");
   fileContent.push('');
   fileContent.push('export class GladiaClient extends GladiaClientBase {');
   for (const inputType of Object.keys(endpoints)) {
@@ -457,8 +516,8 @@ function generateGladiaClient() {
   fileContent.push(
     `// extending this interface and applying mixin here is a multi-inheritance simulation`,
   );
-  fileContent.push(`export interface GladiaClient extends GladiaClientBase, Shortcuts {}`);
-  fileContent.push(`applyMixins(GladiaClient, [Shortcuts]);`);
+  fileContent.push(`export interface GladiaClient extends GladiaClientBase, Shortcuts, Builder {}`);
+  fileContent.push(`applyMixins(GladiaClient, [Shortcuts, Builder]);`);
   fileContent.push('');
   fs.writeFileSync('./src/gladia-client.ts', fileContent.join('\n'));
 }
@@ -816,12 +875,32 @@ function generateTestAssertions(
   return fileContent;
 }
 
-function generateOutputModelsImports(endpoints: meta.EndpointDef[]) {
+function generateInputModelsImports(endpoints: meta.EndpointDef[]) {
+  const fileContent: string[] = [];
+  fileContent.push(`import {`);
+  for (const endpoint of endpoints) {
+    const inputModelClassName = meta.getInputModelType(endpoint);
+    fileContent.push(`  ${inputModelClassName},`);
+  }
+  fileContent.push(`} from './input-models'`);
+  return fileContent;
+}
+
+interface GenerateOutputModelsImportsOptions {
+  withUnionForSubtype?: boolean;
+}
+
+function generateOutputModelsImports(
+  endpoints: meta.EndpointDef[],
+  { withUnionForSubtype = true }: GenerateOutputModelsImportsOptions = {},
+) {
   const fileContent: string[] = [];
   fileContent.push(`import {`);
   for (const endpoint of endpoints) {
     const outputModelClassName = meta.getOutputModelType(endpoint);
-    fileContent.push(`  ${outputModelClassName},`);
+    if (withUnionForSubtype || (!endpoint.hasSamplesParam && endpoint.outputType === 'text')) {
+      fileContent.push(`  ${outputModelClassName},`);
+    }
     if (endpoint.hasSamplesParam) {
       const outputModelNameForOneSample = meta.getOutputModelTypeOneSample(endpoint);
       const outputModelNameForMulitpleSamples = meta.getOutputModelTypeMultipleSamples(endpoint);
@@ -874,6 +953,25 @@ function generateTaskMethodSignature(endpoint: meta.EndpointDef) {
     }
   }
   fileContent.push(`  ${methodName}(args: ${inputModelType}): Promise<${outputModelType}> {`);
+  return fileContent;
+}
+
+function generateInputOutputImplementated(
+  endpointsByInputOutput: Record<string, Record<string, meta.EndpointDef[]>>,
+) {
+  const fileContent: string[] = [];
+  const implemented: string[] = [];
+  for (const [inputType, outputs] of Object.entries(endpointsByInputOutput)) {
+    for (const outputType of Object.keys(outputs)) {
+      const inputOutputClassName = getClientInputOutputClassName(inputType, outputType);
+      implemented.push(`  Omit<${inputOutputClassName}, 'httpClient'>`);
+    }
+  }
+  const lastImplemented = implemented.pop();
+  implemented.forEach((i) => fileContent.push(`${i},`));
+  if (lastImplemented) {
+    fileContent.push(lastImplemented);
+  }
   return fileContent;
 }
 
