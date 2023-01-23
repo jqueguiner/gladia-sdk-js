@@ -17,12 +17,12 @@ export function searchQueryParamSerializer(
 }
 
 export function searchParamSerializer(params: Record<string, ParamValueType> | null) {
-  return Object.entries(params)
+  return Object.entries(params ?? {})
     .map(([key, value]) => serializeForUri(key, value))
     .join('&');
 }
 
-export function searchParamDeserializer(str: string): Record<string, ParamValueType> {
+export function searchParamDeserializer(str: string | undefined): Record<string, ParamValueType> {
   if (isNotDefined(str) || str.length === 0) {
     return {};
   }

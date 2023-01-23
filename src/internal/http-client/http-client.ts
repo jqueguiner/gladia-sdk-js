@@ -3,7 +3,7 @@ import { GladiaClientParams } from '../../client/gladia-client-params';
 import { BrowserHttpClient } from './browser.http-client';
 import { NodeHttpClient } from './node.http-client';
 
-export type HttpClientHeaders = Record<string, string | number | boolean>;
+export type HttpClientHeaders = Record<string, string | number | boolean | undefined>;
 
 export interface PostParams<T = unknown> {
   url: string;

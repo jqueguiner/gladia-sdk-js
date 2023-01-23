@@ -19,7 +19,7 @@ export interface EndpointDefParamBase<TType> {
   in: 'query' | 'formData';
   type: TType;
   name: string;
-  example: any;
+  example: unknown;
   required: boolean;
 }
 
