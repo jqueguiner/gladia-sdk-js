@@ -20,5 +20,5 @@ interface PreviewGladiaClientParams extends BaseGladiaClientParams {
 export type GladiaClientParams = ReleaseGladiaClientParams | PreviewGladiaClientParams;
 
 export function isPreviewEnabled(param: GladiaClientParams): param is PreviewGladiaClientParams {
-  return param.enablePreviewFeatures;
+  return param.enablePreviewFeatures ?? false;
 }

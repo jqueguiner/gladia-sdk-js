@@ -70,7 +70,8 @@ function generateEndpointDefs(openApiJson: OpenApiJson) {
         url: path,
         inputType,
         outputType,
-        taskName,
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        taskName: taskName as any,
         ...getPostModels(def),
         ...getInputBodyContentType(inputType),
         ...getOutputBodyContentType(def),
@@ -238,7 +239,8 @@ function getPostParams(def: PathDef, openApiJson: OpenApiJson) {
                 if (!('allOf' in propSchema)) {
                   throw new Error('Property allOf missing with data_type "enum"');
                 }
-                const ref = propSchema.allOf![0].$ref;
+                assertDefined('propSchema.allOf', propSchema.allOf);
+                const ref = propSchema.allOf[0].$ref;
                 const dynamicEnum =
                   openApiJson.components.schemas[ref.substring('#/components/schemas/'.length)];
                 const enumValues = dynamicEnum.enum;
@@ -275,6 +277,12 @@ function assertValidDef(
   }
   if (isNotDefined(def) || isNotDefined(def.post)) {
     throw new Error('Cannot handle undefined def.post');
+  }
+}
+
+function assertDefined<T>(name: string, x: T | undefined): asserts x is T {
+  if (isNotDefined(x)) {
+    throw new Error(name + ' should be defined');
   }
 }
 

@@ -276,7 +276,7 @@ function generateFromInputToOutputClasses() {
             if (endpoint.outputType !== 'text') {
               if (endpoint.hasSamplesParam) {
                 fileContent.push(
-                  `      responseType: args.samples > 1 || args.asUrl ? 'json' : 'arraybuffer',`,
+                  `      responseType: (args.samples && args.samples > 1) || args.asUrl ? 'json' : 'arraybuffer',`,
                 );
               } else if (endpoint.outputType === 'image') {
                 fileContent.push(`      responseType: args.asUrl ? 'json' : 'arraybuffer',`);
@@ -413,7 +413,9 @@ function generateBuilderTs() {
     '  builder<TInput, TOutput>(taskName: TaskName, args: TInput): CallBuilder<TOutput> {',
   );
   fileContent.push('    const methodName = TASK_NAME_TO_METHOD_NAME[taskName];');
-  fileContent.push('    const method = this[methodName].bind(this) as any;');
+  fileContent.push(
+    '    const method = this[methodName].bind(this) as (args: unknown) => Promise<TOutput>;',
+  );
   fileContent.push('    return { call() { return method(args) as Promise<TOutput> } };');
   fileContent.push('  }');
 

@@ -1,5 +1,6 @@
 import { ENDPOINT_DEFS } from './endpoint-defs';
 import { EndpointDef, InputType, OutputType } from './endpoint-defs-type';
+import { TaskName } from './task-names';
 
 export function getEndpoints(): EndpointDef[] {
   return ENDPOINT_DEFS;
@@ -18,4 +19,9 @@ export function getEndpointsByInputOutput(): Record<InputType, Record<OutputType
     by[endpoint.inputType][endpoint.outputType].push(endpoint);
   }
   return by;
+}
+
+export function getEndpointByTaskName(taskName: TaskName): EndpointDef {
+  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+  return getEndpoints().find((endpoint) => endpoint.taskName === taskName)!;
 }
