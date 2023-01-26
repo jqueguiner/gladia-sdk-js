@@ -10,6 +10,8 @@ The runtime default model is defined on the GladIA server.
 
 #### `models`
 
+- base
+- base.en
 - coqui_english_huge_vocab
 - jasp--base
 - jasp--large
@@ -17,14 +19,23 @@ The runtime default model is defined on the GladIA server.
 - jasp--large-v2
 - jasp--medium
 - jasp--small
-- jasp--tiny
-- **riva_default_asr (default)**
+- **jasp--tiny (default)**
+- large
+- large-v1
+- large-v2
+- medium
+- medium.en
+- small
+- small.en
+- tiny
+- tiny.en
 
 #### other params
 
 - `audio`: audio
 - `audio_url`: url
-- `language`: string *(required)*
+- `language`: string
+- `nb_speakers`: integer
 
 ### `speaker-diarization`
 

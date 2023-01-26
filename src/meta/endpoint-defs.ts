@@ -9,6 +9,8 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
     "outputType": "text",
     "taskName": "audio-transcription",
     "models": [
+      "base",
+      "base.en",
       "coqui_english_huge_vocab",
       "jasp--base",
       "jasp--large",
@@ -17,9 +19,17 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
       "jasp--medium",
       "jasp--small",
       "jasp--tiny",
-      "riva_default_asr"
+      "large",
+      "large-v1",
+      "large-v2",
+      "medium",
+      "medium.en",
+      "small",
+      "small.en",
+      "tiny",
+      "tiny.en"
     ],
-    "defaultModel": "riva_default_asr",
+    "defaultModel": "jasp--tiny",
     "inputBodyContentType": "multipart/form-data",
     "outputBodyContentType": {
       "type": "prediction-standard-output",
@@ -30,22 +40,29 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
         "in": "formData",
         "type": "audio",
         "name": "audio",
-        "example": "http://files.gladia.io/examples/audio/text/audio-transcription/audio.wav",
+        "example": "http://files.gladia.io/examples/audio/text/audio-transcription/audio.mp3",
         "required": false
       },
       {
         "in": "formData",
         "type": "url",
         "name": "audio_url",
-        "example": "http://files.gladia.io/examples/audio/text/audio-transcription/audio.wav",
+        "example": "http://files.gladia.io/examples/audio/text/audio-transcription/audio.mp3",
         "required": false
       },
       {
         "in": "formData",
         "type": "string",
         "name": "language",
-        "example": "en-US",
-        "required": true
+        "example": "en",
+        "required": false
+      },
+      {
+        "in": "formData",
+        "type": "integer",
+        "name": "nb_speakers",
+        "example": 0,
+        "required": false
       }
     ],
     "hasSamplesParam": false

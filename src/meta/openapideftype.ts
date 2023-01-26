@@ -105,7 +105,7 @@ interface OpenApiJsonComponent {
           title?: string;
           text?: string;
           description?: string;
-          default?: string | number;
+          default?: string | number | boolean;
           format?: 'binary';
           items?: Record<string, unknown>;
           example?: unknown;
