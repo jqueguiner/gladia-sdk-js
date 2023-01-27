@@ -19,10 +19,10 @@ The runtime default model is defined on the GladIA server.
 - jasp--large-v2
 - jasp--medium
 - jasp--small
-- **jasp--tiny (default)**
+- jasp--tiny
 - large
 - large-v1
-- large-v2
+- **large-v2 (default)**
 - medium
 - medium.en
 - small

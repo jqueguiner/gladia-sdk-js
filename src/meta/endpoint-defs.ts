@@ -29,7 +29,7 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
       "tiny",
       "tiny.en"
     ],
-    "defaultModel": "jasp--tiny",
+    "defaultModel": "large-v2",
     "inputBodyContentType": "multipart/form-data",
     "outputBodyContentType": {
       "type": "prediction-standard-output",
