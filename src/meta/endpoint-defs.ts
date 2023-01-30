@@ -11,14 +11,6 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
     "models": [
       "base",
       "base.en",
-      "coqui_english_huge_vocab",
-      "jasp--base",
-      "jasp--large",
-      "jasp--large-v1",
-      "jasp--large-v2",
-      "jasp--medium",
-      "jasp--small",
-      "jasp--tiny",
       "large",
       "large-v1",
       "large-v2",
@@ -32,36 +24,96 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
     "defaultModel": "large-v2",
     "inputBodyContentType": "multipart/form-data",
     "outputBodyContentType": {
-      "type": "prediction-standard-output",
-      "predictionType": "string"
+      "type": "unknown"
     },
     "params": [
       {
         "in": "formData",
         "type": "audio",
-        "name": "audio",
-        "example": "http://files.gladia.io/examples/audio/text/audio-transcription/audio.mp3",
+        "name": "audio_files",
+        "example": {
+          "filename": "example.wav",
+          "content_type": "",
+          "file": {},
+          "headers": {}
+        },
         "required": false
       },
       {
         "in": "formData",
-        "type": "url",
-        "name": "audio_url",
-        "example": "http://files.gladia.io/examples/audio/text/audio-transcription/audio.mp3",
+        "type": "audio",
+        "name": "transcribe",
+        "example": true,
         "required": false
       },
       {
         "in": "formData",
         "type": "string",
-        "name": "language",
-        "example": "en",
+        "name": "emotion",
+        "example": false,
+        "required": false
+      },
+      {
+        "in": "formData",
+        "type": "string",
+        "name": "genre",
+        "example": false,
+        "required": false
+      },
+      {
+        "in": "formData",
+        "type": "string",
+        "name": "age",
+        "example": false,
+        "required": false
+      },
+      {
+        "in": "formData",
+        "type": "string",
+        "name": "lang",
+        "example": "fr",
         "required": false
       },
       {
         "in": "formData",
         "type": "integer",
-        "name": "nb_speakers",
-        "example": 0,
+        "name": "vad_agressiveness",
+        "example": 2,
+        "required": false
+      },
+      {
+        "in": "formData",
+        "type": "integer",
+        "name": "vad_frame_duration",
+        "example": 30,
+        "required": false
+      },
+      {
+        "in": "formData",
+        "type": "integer",
+        "name": "vad_queue_buffer",
+        "example": 10,
+        "required": false
+      },
+      {
+        "in": "formData",
+        "type": "string",
+        "name": "audio_encoding",
+        "example": "pcm",
+        "required": false
+      },
+      {
+        "in": "formData",
+        "type": "string",
+        "name": "smart_output",
+        "example": true,
+        "required": false
+      },
+      {
+        "in": "formData",
+        "type": "string",
+        "name": "conversational_separate_wav_as_channel",
+        "example": true,
         "required": false
       }
     ],
