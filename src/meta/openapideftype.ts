@@ -113,6 +113,8 @@ interface OpenApiJsonComponent {
           _examples?: unknown;
           anyOf?: unknown;
           data_type?:
+            | 'bool'
+            | 'boolean'
             | 'string'
             | 'str'
             | 'text'
