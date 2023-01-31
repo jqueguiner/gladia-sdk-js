@@ -235,8 +235,6 @@ function generateFromInputToOutputClasses() {
                 fileContent.push(`    formData.append('${param.name}', ${argValue});`);
               } else {
                 fileContent.push(`    if (isDefined(args.${param.name})) {`);
-                if (endpoint.taskName == 'audio-transcription')
-                  console.log('argValue', param.name, param.type, argValue, typeof argValue);
                 fileContent.push(`      formData.append('${param.name}', ${argValue});`);
                 fileContent.push(`    }`);
               }
