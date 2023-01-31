@@ -26,7 +26,17 @@ export interface EndpointDefParamBase<TType> {
 export type EnumEndpointDefParam = EndpointDefParamBase<'enum'> & { enumValues: string[] };
 export type EndpointDefParam =
   | EndpointDefParamBase<
-      'audio' | 'image' | 'video' | 'string' | 'integer' | 'float' | 'url' | 'array' | 'enumValues'
+      | 'bool'
+      | 'boolean'
+      | 'audio'
+      | 'image'
+      | 'video'
+      | 'string'
+      | 'integer'
+      | 'float'
+      | 'url'
+      | 'array'
+      | 'enumValues'
     >
   | EnumEndpointDefParam;
 

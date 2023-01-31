@@ -87,12 +87,14 @@ function generateInputModelsTs() {
       const optionalMark = param.required ? '' : '?';
       const paramType = (() => {
         switch (param.type) {
+          case 'bool':
+          case 'boolean':
+            return 'boolean';
           case 'url':
           case 'string':
             return 'string';
           case 'audio':
           case 'image':
-            return 'Blob';
           case 'video':
             return 'Blob';
           case 'integer':
@@ -226,14 +228,15 @@ function generateFromInputToOutputClasses() {
               fileContent.push(`    const formData = new FormData();`);
             }
             for (const param of endpoint.params.filter((p) => p.in === 'formData')) {
-              const argValue =
-                param.type === 'integer' || param.type === 'float'
-                  ? `String(args.${param.name})`
-                  : `args.${param.name}`;
+              const argValue = ['integer', 'float', 'boolean'].includes(param.type)
+                ? `String(args.${param.name})`
+                : `args.${param.name}`;
               if (param.required) {
                 fileContent.push(`    formData.append('${param.name}', ${argValue});`);
               } else {
                 fileContent.push(`    if (isDefined(args.${param.name})) {`);
+                if (endpoint.taskName == 'audio-transcription')
+                  console.log('argValue', param.name, param.type, argValue, typeof argValue);
                 fileContent.push(`      formData.append('${param.name}', ${argValue});`);
                 fileContent.push(`    }`);
               }
@@ -747,6 +750,8 @@ function getHelperMockList(endpoints: meta.EndpointDef[]) {
           return 'getRandomArray';
         case 'enum':
           return 'getRandomFromEnum';
+        case 'boolean':
+          return 'getRandomBoolean';
         default:
           return 'getRandomText';
       }
@@ -775,6 +780,10 @@ function generateTestInputs(
       continue;
     }
     switch (param.type) {
+      case 'boolean':
+      case 'bool':
+        fileContent.push(`        const ${param.name}_data = getRandomBoolean();`);
+        break;
       case 'integer':
         fileContent.push(`        const ${param.name}_data = getRandomInt();`);
         break;
@@ -858,6 +867,7 @@ function generateTestAssertions(
       case 'image':
         fileContent.push(`        expect(firstCallBody.get('${param.name}')).toBeDefined();`);
         break;
+      case 'boolean':
       case 'integer':
       case 'float':
         fileContent.push(
