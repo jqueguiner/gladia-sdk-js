@@ -228,6 +228,9 @@ function getPostParams(def: PathDef, openApiJson: OpenApiJson) {
                   case 'list':
                   case 'enum':
                     return 'enum';
+                  case 'bool':
+                  case 'boolean':
+                    return 'boolean';
                   case 'text':
                   case 'string':
                   case 'str':
