@@ -197,6 +197,23 @@ The runtime default model is defined on the GladIA server.
 - `mask_image`: image
 - `mask_image_url`: url
 
+### `instruction-guided-inpainting`
+
+#### `models`
+
+- **timbrooks-instruct-pix2pix (default)**
+
+#### other params
+
+- `original_image`: image
+- `original_image_url`: url
+- `instruction`: string *(required)*
+- `negative_prompt`: string *(required)*
+- `image_guidance_scale`: float *(required)*
+- `text_guidance_scale`: float *(required)*
+- `seed`: integer *(required)*
+- `steps`: integer *(required)*
+
 ### `uncolorization`
 
 #### `models`

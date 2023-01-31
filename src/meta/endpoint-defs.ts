@@ -598,6 +598,79 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
     "hasSamplesParam": false
   },
   {
+    "url": "/image/image/instruction-guided-inpainting/",
+    "inputType": "image",
+    "outputType": "image",
+    "taskName": "instruction-guided-inpainting",
+    "models": [
+      "timbrooks-instruct-pix2pix"
+    ],
+    "defaultModel": "timbrooks-instruct-pix2pix",
+    "inputBodyContentType": "multipart/form-data",
+    "outputBodyContentType": {
+      "type": "binary"
+    },
+    "params": [
+      {
+        "in": "formData",
+        "type": "image",
+        "name": "original_image",
+        "example": "https://raw.githubusercontent.com/CompVis/latent-diffusion/main/data/inpainting_examples/overture-creations-5sI6fQgYIuo.png",
+        "required": false
+      },
+      {
+        "in": "formData",
+        "type": "url",
+        "name": "original_image_url",
+        "example": "https://raw.githubusercontent.com/CompVis/latent-diffusion/main/data/inpainting_examples/overture-creations-5sI6fQgYIuo.png",
+        "required": false
+      },
+      {
+        "in": "formData",
+        "type": "string",
+        "name": "instruction",
+        "example": "Turn the dog into a pink cat",
+        "required": true
+      },
+      {
+        "in": "formData",
+        "type": "string",
+        "name": "negative_prompt",
+        "example": "dog",
+        "required": true
+      },
+      {
+        "in": "formData",
+        "type": "float",
+        "name": "image_guidance_scale",
+        "example": 1.5,
+        "required": true
+      },
+      {
+        "in": "formData",
+        "type": "float",
+        "name": "text_guidance_scale",
+        "example": 5.5,
+        "required": true
+      },
+      {
+        "in": "formData",
+        "type": "integer",
+        "name": "seed",
+        "example": 424242,
+        "required": true
+      },
+      {
+        "in": "formData",
+        "type": "integer",
+        "name": "steps",
+        "example": 75,
+        "required": true
+      }
+    ],
+    "hasSamplesParam": false
+  },
+  {
     "url": "/image/image/uncolorization/",
     "inputType": "image",
     "outputType": "image",
