@@ -15,8 +15,8 @@ The runtime default model is defined on the GladIA server.
 
 #### other params
 
-- `audio_files`: audio
-- `transcribe`: audio
+- `audio`: string
+- `transcribe`: boolean
 - `emotion`: boolean
 - `genre`: boolean
 - `age`: boolean

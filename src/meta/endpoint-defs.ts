@@ -20,19 +20,14 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
     "params": [
       {
         "in": "formData",
-        "type": "audio",
-        "name": "audio_files",
-        "example": {
-          "filename": "example.wav",
-          "content_type": "",
-          "file": {},
-          "headers": {}
-        },
+        "type": "string",
+        "name": "audio",
+        "example": "http://files.gladia.io/ex/a/t/audio-transcription/12-utterances.wav",
         "required": false
       },
       {
         "in": "formData",
-        "type": "audio",
+        "type": "boolean",
         "name": "transcribe",
         "example": true,
         "required": false
