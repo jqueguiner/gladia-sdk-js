@@ -18,6 +18,10 @@ export function getRandomInt(): number {
   return Math.round(Math.random() * 1_000);
 }
 
+export function getRandomBoolean(): boolean {
+  return Math.random() < 0.5;
+}
+
 export function getRandomFloat(): number {
   return Math.round(Math.random() * 1_000 * 1_000_000) / 1_000_000;
 }

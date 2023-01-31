@@ -9,19 +9,10 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
     "outputType": "text",
     "taskName": "audio-transcription",
     "models": [
-      "base",
-      "base.en",
-      "large",
-      "large-v1",
-      "large-v2",
-      "medium",
-      "medium.en",
-      "small",
-      "small.en",
-      "tiny",
-      "tiny.en"
+      "whisper-large-v1",
+      "whisper-large-v2"
     ],
-    "defaultModel": "large-v2",
+    "defaultModel": "whisper-large-v2",
     "inputBodyContentType": "multipart/form-data",
     "outputBodyContentType": {
       "type": "unknown"
@@ -48,21 +39,21 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
       },
       {
         "in": "formData",
-        "type": "string",
+        "type": "boolean",
         "name": "emotion",
         "example": false,
         "required": false
       },
       {
         "in": "formData",
-        "type": "string",
+        "type": "boolean",
         "name": "genre",
         "example": false,
         "required": false
       },
       {
         "in": "formData",
-        "type": "string",
+        "type": "boolean",
         "name": "age",
         "example": false,
         "required": false
@@ -71,7 +62,7 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
         "in": "formData",
         "type": "string",
         "name": "lang",
-        "example": "fr",
+        "example": "",
         "required": false
       },
       {
@@ -104,14 +95,14 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
       },
       {
         "in": "formData",
-        "type": "string",
+        "type": "boolean",
         "name": "smart_output",
         "example": true,
         "required": false
       },
       {
         "in": "formData",
-        "type": "string",
+        "type": "boolean",
         "name": "conversational_separate_wav_as_channel",
         "example": true,
         "required": false
