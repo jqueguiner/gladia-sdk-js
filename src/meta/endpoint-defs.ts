@@ -9,10 +9,11 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
     "outputType": "text",
     "taskName": "audio-transcription",
     "models": [
-      "whisper-large-v1",
-      "whisper-large-v2"
+      "large-v2",
+      "medium",
+      "small"
     ],
-    "defaultModel": "whisper-large-v2",
+    "defaultModel": "large-v2",
     "inputBodyContentType": "multipart/form-data",
     "outputBodyContentType": {
       "type": "unknown"
@@ -22,6 +23,13 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
         "in": "formData",
         "type": "audio",
         "name": "audio",
+        "example": "http://files.gladia.io/ex/a/t/audio-transcription/12-utterances.wav",
+        "required": false
+      },
+      {
+        "in": "formData",
+        "type": "url",
+        "name": "audio_url",
         "example": "http://files.gladia.io/ex/a/t/audio-transcription/12-utterances.wav",
         "required": false
       },
@@ -62,6 +70,18 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
       },
       {
         "in": "formData",
+        "type": "enum",
+        "name": "language_behaviour",
+        "example": "automatic single language",
+        "required": false,
+        "enumValues": [
+          "manual",
+          "automatic single language",
+          "automatic multiple languages"
+        ]
+      },
+      {
+        "in": "formData",
         "type": "integer",
         "name": "vad_agressiveness",
         "example": 2,
@@ -69,37 +89,9 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
       },
       {
         "in": "formData",
-        "type": "integer",
-        "name": "vad_frame_duration",
-        "example": 30,
-        "required": false
-      },
-      {
-        "in": "formData",
-        "type": "integer",
-        "name": "vad_queue_buffer",
-        "example": 10,
-        "required": false
-      },
-      {
-        "in": "formData",
         "type": "string",
         "name": "audio_encoding",
         "example": "pcm",
-        "required": false
-      },
-      {
-        "in": "formData",
-        "type": "boolean",
-        "name": "smart_output",
-        "example": true,
-        "required": false
-      },
-      {
-        "in": "formData",
-        "type": "boolean",
-        "name": "conversational_separate_wav_as_channel",
-        "example": true,
         "required": false
       }
     ],
@@ -153,6 +145,38 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
       "inafoss-inaSpeechSegmenter"
     ],
     "defaultModel": "inafoss-inaSpeechSegmenter",
+    "inputBodyContentType": "multipart/form-data",
+    "outputBodyContentType": {
+      "type": "prediction-standard-output",
+      "predictionType": "string"
+    },
+    "params": [
+      {
+        "in": "formData",
+        "type": "audio",
+        "name": "audio",
+        "example": "http://files.gladia.io/examples/audio/text/audio-transcription/audio.mp3",
+        "required": false
+      },
+      {
+        "in": "formData",
+        "type": "url",
+        "name": "audio_url",
+        "example": "http://files.gladia.io/examples/audio/text/audio-transcription/audio.mp3",
+        "required": false
+      }
+    ],
+    "hasSamplesParam": false
+  },
+  {
+    "url": "/audio/text/speech-emotion-classification/",
+    "inputType": "audio",
+    "outputType": "text",
+    "taskName": "speech-emotion-classification",
+    "models": [
+      "cnn_lstm_parallel_model"
+    ],
+    "defaultModel": "cnn_lstm_parallel_model",
     "inputBodyContentType": "multipart/form-data",
     "outputBodyContentType": {
       "type": "prediction-standard-output",

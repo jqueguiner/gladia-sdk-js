@@ -10,23 +10,25 @@ The runtime default model is defined on the GladIA server.
 
 #### `models`
 
-- whisper-large-v1
-- **whisper-large-v2 (default)**
+- **large-v2 (default)**
+- medium
+- small
 
 #### other params
 
 - `audio`: audio
+- `audio_url`: url
 - `transcribe`: boolean
 - `emotion`: boolean
 - `genre`: boolean
 - `age`: boolean
 - `lang`: string
+- `language_behaviour`: enum
+  - *`manual`*
+  - *`automatic single language`*
+  - *`automatic multiple languages`*
 - `vad_agressiveness`: integer
-- `vad_frame_duration`: integer
-- `vad_queue_buffer`: integer
 - `audio_encoding`: string
-- `smart_output`: boolean
-- `conversational_separate_wav_as_channel`: boolean
 
 ### `speaker-diarization`
 
@@ -45,6 +47,17 @@ The runtime default model is defined on the GladIA server.
 #### `models`
 
 - **inafoss-inaSpeechSegmenter (default)**
+
+#### other params
+
+- `audio`: audio
+- `audio_url`: url
+
+### `speech-emotion-classification`
+
+#### `models`
+
+- **cnn_lstm_parallel_model (default)**
 
 #### other params
 
