@@ -48,7 +48,7 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
       {
         "in": "formData",
         "type": "enum",
-        "name": "lang",
+        "name": "language",
         "example": "",
         "required": false,
         "enumValues": [

@@ -22,7 +22,7 @@ The runtime default model is defined on the GladIA server.
   - *`manual`*
   - *`automatic single language`*
   - *`automatic multiple languages`*
-- `lang`: enum
+- `language`: enum
   - *`english`*
   - *`chinese`*
   - *`german`*
