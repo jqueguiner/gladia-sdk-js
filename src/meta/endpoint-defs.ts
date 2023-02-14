@@ -10,8 +10,7 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
     "taskName": "audio-transcription",
     "models": [
       "large-v2",
-      "medium",
-      "small"
+      "medium"
     ],
     "defaultModel": "large-v2",
     "inputBodyContentType": "multipart/form-data",
