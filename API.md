@@ -121,6 +121,7 @@ The runtime default model is defined on the GladIA server.
   - *`bashkir`*
   - *`javanese`*
   - *`sundanese`*
+- `noise_reduction`: boolean
 
 ### `speaker-diarization`
 

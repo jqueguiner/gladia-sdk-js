@@ -151,6 +151,13 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
           "javanese",
           "sundanese"
         ]
+      },
+      {
+        "in": "formData",
+        "type": "boolean",
+        "name": "noise_reduction",
+        "example": false,
+        "required": false
       }
     ],
     "hasSamplesParam": false
