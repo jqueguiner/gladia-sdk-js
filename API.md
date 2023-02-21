@@ -123,6 +123,119 @@ The runtime default model is defined on the GladIA server.
   - *`sundanese`*
 - `noise_reduction`: boolean
 
+### `audio-translated-transcription`
+
+#### `models`
+
+- **large-v2 (default)**
+- medium
+
+#### other params
+
+- `audio`: audio
+- `audio_url`: url
+- `language`: enum
+  - *`english`*
+  - *`chinese`*
+  - *`german`*
+  - *`spanish`*
+  - *`russian`*
+  - *`korean`*
+  - *`french`*
+  - *`japanese`*
+  - *`portuguese`*
+  - *`turkish`*
+  - *`polish`*
+  - *`catalan`*
+  - *`dutch`*
+  - *`arabic`*
+  - *`swedish`*
+  - *`italian`*
+  - *`indonesian`*
+  - *`hindi`*
+  - *`finnish`*
+  - *`vietnamese`*
+  - *`hebrew`*
+  - *`ukrainian`*
+  - *`greek`*
+  - *`malay`*
+  - *`czech`*
+  - *`romanian`*
+  - *`danish`*
+  - *`hungarian`*
+  - *`tamil`*
+  - *`norwegian`*
+  - *`thai`*
+  - *`urdu`*
+  - *`croatian`*
+  - *`bulgarian`*
+  - *`lithuanian`*
+  - *`latin`*
+  - *`maori`*
+  - *`malayalam`*
+  - *`welsh`*
+  - *`slovak`*
+  - *`telugu`*
+  - *`persian`*
+  - *`latvian`*
+  - *`bengali`*
+  - *`serbian`*
+  - *`azerbaijani`*
+  - *`slovenian`*
+  - *`kannada`*
+  - *`estonian`*
+  - *`macedonian`*
+  - *`breton`*
+  - *`basque`*
+  - *`icelandic`*
+  - *`armenian`*
+  - *`nepali`*
+  - *`mongolian`*
+  - *`bosnian`*
+  - *`kazakh`*
+  - *`albanian`*
+  - *`swahili`*
+  - *`galician`*
+  - *`marathi`*
+  - *`punjabi`*
+  - *`sinhala`*
+  - *`khmer`*
+  - *`shona`*
+  - *`yoruba`*
+  - *`somali`*
+  - *`afrikaans`*
+  - *`occitan`*
+  - *`georgian`*
+  - *`belarusian`*
+  - *`tajik`*
+  - *`sindhi`*
+  - *`gujarati`*
+  - *`amharic`*
+  - *`yiddish`*
+  - *`lao`*
+  - *`uzbek`*
+  - *`faroese`*
+  - *`haitian creole`*
+  - *`pashto`*
+  - *`turkmen`*
+  - *`nynorsk`*
+  - *`maltese`*
+  - *`sanskrit`*
+  - *`luxembourgish`*
+  - *`myanmar`*
+  - *`tibetan`*
+  - *`tagalog`*
+  - *`malagasy`*
+  - *`assamese`*
+  - *`tatar`*
+  - *`hawaiian`*
+  - *`lingala`*
+  - *`hausa`*
+  - *`bashkir`*
+  - *`javanese`*
+  - *`sundanese`*
+- `noise_reduction`: boolean
+
 ### `speaker-diarization`
 
 #### `models`
