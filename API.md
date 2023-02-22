@@ -285,6 +285,7 @@ The runtime default model is defined on the GladIA server.
 
 #### other params
 
+- `audio`: audio
 - `audio_url`: url
 - `language_behaviour`: enum
   - *`manual`*
