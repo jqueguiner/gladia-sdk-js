@@ -453,7 +453,7 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
         "in": "formData",
         "type": "audio",
         "name": "audio",
-        "example": "http://files.gladia.io/example/audio-transcription/split_infinity.wav",
+        "example": "https://www.youtube.com/watch?v=3g8x9QAdw5c",
         "required": false
       },
       {
