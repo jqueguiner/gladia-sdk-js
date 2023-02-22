@@ -18,111 +18,113 @@ The runtime default model is defined on the GladIA server.
 - `audio`: audio
 - `audio_url`: url
 - `language_behaviour`: enum
-  - _`manual`_
-  - _`automatic single language`_
-  - _`automatic multiple languages`_
+  - *`manual`*
+  - *`automatic single language`*
+  - *`automatic multiple languages`*
 - `language`: enum
-  - _`english`_
-  - _`chinese`_
-  - _`german`_
-  - _`spanish`_
-  - _`russian`_
-  - _`korean`_
-  - _`french`_
-  - _`japanese`_
-  - _`portuguese`_
-  - _`turkish`_
-  - _`polish`_
-  - _`catalan`_
-  - _`dutch`_
-  - _`arabic`_
-  - _`swedish`_
-  - _`italian`_
-  - _`indonesian`_
-  - _`hindi`_
-  - _`finnish`_
-  - _`vietnamese`_
-  - _`hebrew`_
-  - _`ukrainian`_
-  - _`greek`_
-  - _`malay`_
-  - _`czech`_
-  - _`romanian`_
-  - _`danish`_
-  - _`hungarian`_
-  - _`tamil`_
-  - _`norwegian`_
-  - _`thai`_
-  - _`urdu`_
-  - _`croatian`_
-  - _`bulgarian`_
-  - _`lithuanian`_
-  - _`latin`_
-  - _`maori`_
-  - _`malayalam`_
-  - _`welsh`_
-  - _`slovak`_
-  - _`telugu`_
-  - _`persian`_
-  - _`latvian`_
-  - _`bengali`_
-  - _`serbian`_
-  - _`azerbaijani`_
-  - _`slovenian`_
-  - _`kannada`_
-  - _`estonian`_
-  - _`macedonian`_
-  - _`breton`_
-  - _`basque`_
-  - _`icelandic`_
-  - _`armenian`_
-  - _`nepali`_
-  - _`mongolian`_
-  - _`bosnian`_
-  - _`kazakh`_
-  - _`albanian`_
-  - _`swahili`_
-  - _`galician`_
-  - _`marathi`_
-  - _`punjabi`_
-  - _`sinhala`_
-  - _`khmer`_
-  - _`shona`_
-  - _`yoruba`_
-  - _`somali`_
-  - _`afrikaans`_
-  - _`occitan`_
-  - _`georgian`_
-  - _`belarusian`_
-  - _`tajik`_
-  - _`sindhi`_
-  - _`gujarati`_
-  - _`amharic`_
-  - _`yiddish`_
-  - _`lao`_
-  - _`uzbek`_
-  - _`faroese`_
-  - _`haitian creole`_
-  - _`pashto`_
-  - _`turkmen`_
-  - _`nynorsk`_
-  - _`maltese`_
-  - _`sanskrit`_
-  - _`luxembourgish`_
-  - _`myanmar`_
-  - _`tibetan`_
-  - _`tagalog`_
-  - _`malagasy`_
-  - _`assamese`_
-  - _`tatar`_
-  - _`hawaiian`_
-  - _`lingala`_
-  - _`hausa`_
-  - _`bashkir`_
-  - _`javanese`_
-  - _`sundanese`_
+  - *`english`*
+  - *`chinese`*
+  - *`german`*
+  - *`spanish`*
+  - *`russian`*
+  - *`korean`*
+  - *`french`*
+  - *`japanese`*
+  - *`portuguese`*
+  - *`turkish`*
+  - *`polish`*
+  - *`catalan`*
+  - *`dutch`*
+  - *`arabic`*
+  - *`swedish`*
+  - *`italian`*
+  - *`indonesian`*
+  - *`hindi`*
+  - *`finnish`*
+  - *`vietnamese`*
+  - *`hebrew`*
+  - *`ukrainian`*
+  - *`greek`*
+  - *`malay`*
+  - *`czech`*
+  - *`romanian`*
+  - *`danish`*
+  - *`hungarian`*
+  - *`tamil`*
+  - *`norwegian`*
+  - *`thai`*
+  - *`urdu`*
+  - *`croatian`*
+  - *`bulgarian`*
+  - *`lithuanian`*
+  - *`latin`*
+  - *`maori`*
+  - *`malayalam`*
+  - *`welsh`*
+  - *`slovak`*
+  - *`telugu`*
+  - *`persian`*
+  - *`latvian`*
+  - *`bengali`*
+  - *`serbian`*
+  - *`azerbaijani`*
+  - *`slovenian`*
+  - *`kannada`*
+  - *`estonian`*
+  - *`macedonian`*
+  - *`breton`*
+  - *`basque`*
+  - *`icelandic`*
+  - *`armenian`*
+  - *`nepali`*
+  - *`mongolian`*
+  - *`bosnian`*
+  - *`kazakh`*
+  - *`albanian`*
+  - *`swahili`*
+  - *`galician`*
+  - *`marathi`*
+  - *`punjabi`*
+  - *`sinhala`*
+  - *`khmer`*
+  - *`shona`*
+  - *`yoruba`*
+  - *`somali`*
+  - *`afrikaans`*
+  - *`occitan`*
+  - *`georgian`*
+  - *`belarusian`*
+  - *`tajik`*
+  - *`sindhi`*
+  - *`gujarati`*
+  - *`amharic`*
+  - *`yiddish`*
+  - *`lao`*
+  - *`uzbek`*
+  - *`faroese`*
+  - *`haitian creole`*
+  - *`pashto`*
+  - *`turkmen`*
+  - *`nynorsk`*
+  - *`maltese`*
+  - *`sanskrit`*
+  - *`luxembourgish`*
+  - *`myanmar`*
+  - *`tibetan`*
+  - *`tagalog`*
+  - *`malagasy`*
+  - *`assamese`*
+  - *`tatar`*
+  - *`hawaiian`*
+  - *`lingala`*
+  - *`hausa`*
+  - *`bashkir`*
+  - *`javanese`*
+  - *`sundanese`*
 - `noise_reduction`: boolean
-- `output_format`: string
+- `output_format`: enum
+  - *`json`*
+  - *`srt`*
 
 ### `audio-translated-transcription`
 
@@ -136,105 +138,105 @@ The runtime default model is defined on the GladIA server.
 - `audio`: audio
 - `audio_url`: url
 - `language`: enum
-  - _`english`_
-  - _`chinese`_
-  - _`german`_
-  - _`spanish`_
-  - _`russian`_
-  - _`korean`_
-  - _`french`_
-  - _`japanese`_
-  - _`portuguese`_
-  - _`turkish`_
-  - _`polish`_
-  - _`catalan`_
-  - _`dutch`_
-  - _`arabic`_
-  - _`swedish`_
-  - _`italian`_
-  - _`indonesian`_
-  - _`hindi`_
-  - _`finnish`_
-  - _`vietnamese`_
-  - _`hebrew`_
-  - _`ukrainian`_
-  - _`greek`_
-  - _`malay`_
-  - _`czech`_
-  - _`romanian`_
-  - _`danish`_
-  - _`hungarian`_
-  - _`tamil`_
-  - _`norwegian`_
-  - _`thai`_
-  - _`urdu`_
-  - _`croatian`_
-  - _`bulgarian`_
-  - _`lithuanian`_
-  - _`latin`_
-  - _`maori`_
-  - _`malayalam`_
-  - _`welsh`_
-  - _`slovak`_
-  - _`telugu`_
-  - _`persian`_
-  - _`latvian`_
-  - _`bengali`_
-  - _`serbian`_
-  - _`azerbaijani`_
-  - _`slovenian`_
-  - _`kannada`_
-  - _`estonian`_
-  - _`macedonian`_
-  - _`breton`_
-  - _`basque`_
-  - _`icelandic`_
-  - _`armenian`_
-  - _`nepali`_
-  - _`mongolian`_
-  - _`bosnian`_
-  - _`kazakh`_
-  - _`albanian`_
-  - _`swahili`_
-  - _`galician`_
-  - _`marathi`_
-  - _`punjabi`_
-  - _`sinhala`_
-  - _`khmer`_
-  - _`shona`_
-  - _`yoruba`_
-  - _`somali`_
-  - _`afrikaans`_
-  - _`occitan`_
-  - _`georgian`_
-  - _`belarusian`_
-  - _`tajik`_
-  - _`sindhi`_
-  - _`gujarati`_
-  - _`amharic`_
-  - _`yiddish`_
-  - _`lao`_
-  - _`uzbek`_
-  - _`faroese`_
-  - _`haitian creole`_
-  - _`pashto`_
-  - _`turkmen`_
-  - _`nynorsk`_
-  - _`maltese`_
-  - _`sanskrit`_
-  - _`luxembourgish`_
-  - _`myanmar`_
-  - _`tibetan`_
-  - _`tagalog`_
-  - _`malagasy`_
-  - _`assamese`_
-  - _`tatar`_
-  - _`hawaiian`_
-  - _`lingala`_
-  - _`hausa`_
-  - _`bashkir`_
-  - _`javanese`_
-  - _`sundanese`_
+  - *`english`*
+  - *`chinese`*
+  - *`german`*
+  - *`spanish`*
+  - *`russian`*
+  - *`korean`*
+  - *`french`*
+  - *`japanese`*
+  - *`portuguese`*
+  - *`turkish`*
+  - *`polish`*
+  - *`catalan`*
+  - *`dutch`*
+  - *`arabic`*
+  - *`swedish`*
+  - *`italian`*
+  - *`indonesian`*
+  - *`hindi`*
+  - *`finnish`*
+  - *`vietnamese`*
+  - *`hebrew`*
+  - *`ukrainian`*
+  - *`greek`*
+  - *`malay`*
+  - *`czech`*
+  - *`romanian`*
+  - *`danish`*
+  - *`hungarian`*
+  - *`tamil`*
+  - *`norwegian`*
+  - *`thai`*
+  - *`urdu`*
+  - *`croatian`*
+  - *`bulgarian`*
+  - *`lithuanian`*
+  - *`latin`*
+  - *`maori`*
+  - *`malayalam`*
+  - *`welsh`*
+  - *`slovak`*
+  - *`telugu`*
+  - *`persian`*
+  - *`latvian`*
+  - *`bengali`*
+  - *`serbian`*
+  - *`azerbaijani`*
+  - *`slovenian`*
+  - *`kannada`*
+  - *`estonian`*
+  - *`macedonian`*
+  - *`breton`*
+  - *`basque`*
+  - *`icelandic`*
+  - *`armenian`*
+  - *`nepali`*
+  - *`mongolian`*
+  - *`bosnian`*
+  - *`kazakh`*
+  - *`albanian`*
+  - *`swahili`*
+  - *`galician`*
+  - *`marathi`*
+  - *`punjabi`*
+  - *`sinhala`*
+  - *`khmer`*
+  - *`shona`*
+  - *`yoruba`*
+  - *`somali`*
+  - *`afrikaans`*
+  - *`occitan`*
+  - *`georgian`*
+  - *`belarusian`*
+  - *`tajik`*
+  - *`sindhi`*
+  - *`gujarati`*
+  - *`amharic`*
+  - *`yiddish`*
+  - *`lao`*
+  - *`uzbek`*
+  - *`faroese`*
+  - *`haitian creole`*
+  - *`pashto`*
+  - *`turkmen`*
+  - *`nynorsk`*
+  - *`maltese`*
+  - *`sanskrit`*
+  - *`luxembourgish`*
+  - *`myanmar`*
+  - *`tibetan`*
+  - *`tagalog`*
+  - *`malagasy`*
+  - *`assamese`*
+  - *`tatar`*
+  - *`hawaiian`*
+  - *`lingala`*
+  - *`hausa`*
+  - *`bashkir`*
+  - *`javanese`*
+  - *`sundanese`*
 - `noise_reduction`: boolean
 
 ### `speaker-diarization`
@@ -297,19 +299,19 @@ The runtime default model is defined on the GladIA server.
 - `original_image_url`: url
 - `background_image`: image
 - `background_image_url`: url
-- `alignment`: enum _(required)_
-  - _`center`_
-  - _`top`_
-  - _`bottom`_
-  - _`left`_
-  - _`right`_
-  - _`top-left`_
-  - _`top-center`_
-  - _`top-right`_
-  - _`bottom-left`_
-  - _`bottom-center`_
-  - _`bottom-right`_
-  - _`cropped`_
+- `alignment`: enum *(required)*
+  - *`center`*
+  - *`top`*
+  - *`bottom`*
+  - *`left`*
+  - *`right`*
+  - *`top-left`*
+  - *`top-center`*
+  - *`top-right`*
+  - *`bottom-left`*
+  - *`bottom-center`*
+  - *`bottom-right`*
+  - *`cropped`*
 
 ### `colorization`
 
@@ -371,7 +373,7 @@ The runtime default model is defined on the GladIA server.
 - `original_image_url`: url
 - `mask_image`: image
 - `mask_image_url`: url
-- `prompt`: string _(required)_
+- `prompt`: string *(required)*
 
 ### `image-guided-inpainting`
 
@@ -387,9 +389,9 @@ The runtime default model is defined on the GladIA server.
 - `example_image_url`: url
 - `mask_image`: image
 - `mask_image_url`: url
-- `seed`: integer _(required)_
-- `steps`: integer _(required)_
-- `guidance_scale`: integer _(required)_
+- `seed`: integer *(required)*
+- `steps`: integer *(required)*
+- `guidance_scale`: integer *(required)*
 
 ### `inpainting`
 
@@ -418,12 +420,12 @@ The runtime default model is defined on the GladIA server.
 
 - `original_image`: image
 - `original_image_url`: url
-- `instruction`: string _(required)_
-- `negative_prompt`: string _(required)_
-- `image_guidance_scale`: float _(required)_
-- `text_guidance_scale`: float _(required)_
-- `seed`: integer _(required)_
-- `steps`: integer _(required)_
+- `instruction`: string *(required)*
+- `negative_prompt`: string *(required)*
+- `image_guidance_scale`: float *(required)*
+- `text_guidance_scale`: float *(required)*
+- `seed`: integer *(required)*
+- `steps`: integer *(required)*
 
 ### `uncolorization`
 
@@ -565,7 +567,7 @@ The runtime default model is defined on the GladIA server.
 
 - `image`: image
 - `image_url`: url
-- `top_k`: integer _(required)_
+- `top_k`: integer *(required)*
 
 ### `ocr`
 
@@ -580,7 +582,7 @@ The runtime default model is defined on the GladIA server.
 
 - `image`: image
 - `image_url`: url
-- `source_language`: string _(required)_
+- `source_language`: string *(required)*
 
 ## TEXT => IMAGE
 
@@ -596,7 +598,7 @@ The runtime default model is defined on the GladIA server.
 
 #### other params
 
-- `prompt`: string _(required)_
+- `prompt`: string *(required)*
 - `samples`: integer
 - `steps`: integer
 - `seed`: integer
@@ -611,7 +613,7 @@ The runtime default model is defined on the GladIA server.
 
 #### other params
 
-- `address`: string _(required)_
+- `address`: string *(required)*
 
 ### `age-from-name`
 
@@ -621,7 +623,7 @@ The runtime default model is defined on the GladIA server.
 
 #### other params
 
-- `name`: string _(required)_
+- `name`: string *(required)*
 
 ### `anonymization`
 
@@ -631,9 +633,9 @@ The runtime default model is defined on the GladIA server.
 
 #### other params
 
-- `language`: string _(required)_
-- `entities`: string _(required)_
-- `text`: string _(required)_
+- `language`: string *(required)*
+- `entities`: string *(required)*
+- `text`: string *(required)*
 
 ### `autocorrect`
 
@@ -643,7 +645,7 @@ The runtime default model is defined on the GladIA server.
 
 #### other params
 
-- `sentence`: string _(required)_
+- `sentence`: string *(required)*
 
 ### `bullet-point-generation`
 
@@ -653,7 +655,7 @@ The runtime default model is defined on the GladIA server.
 
 #### other params
 
-- `text`: string _(required)_
+- `text`: string *(required)*
 - `bullets`: integer
 
 ### `command-generation`
@@ -664,7 +666,7 @@ The runtime default model is defined on the GladIA server.
 
 #### other params
 
-- `text`: string _(required)_
+- `text`: string *(required)*
 
 ### `company-categorization`
 
@@ -674,7 +676,7 @@ The runtime default model is defined on the GladIA server.
 
 #### other params
 
-- `text`: string _(required)_
+- `text`: string *(required)*
 
 ### `company-name-normalization`
 
@@ -684,7 +686,7 @@ The runtime default model is defined on the GladIA server.
 
 #### other params
 
-- `text`: string _(required)_
+- `text`: string *(required)*
 
 ### `company-stock-code`
 
@@ -694,7 +696,7 @@ The runtime default model is defined on the GladIA server.
 
 #### other params
 
-- `text`: string _(required)_
+- `text`: string *(required)*
 
 ### `conversation-summarization`
 
@@ -704,7 +706,7 @@ The runtime default model is defined on the GladIA server.
 
 #### other params
 
-- `text`: string _(required)_
+- `text`: string *(required)*
 
 ### `country-from-name`
 
@@ -714,7 +716,7 @@ The runtime default model is defined on the GladIA server.
 
 #### other params
 
-- `name`: string _(required)_
+- `name`: string *(required)*
 
 ### `date-cleaning`
 
@@ -724,7 +726,7 @@ The runtime default model is defined on the GladIA server.
 
 #### other params
 
-- `date`: string _(required)_
+- `date`: string *(required)*
 
 ### `emotion-recognition`
 
@@ -734,7 +736,7 @@ The runtime default model is defined on the GladIA server.
 
 #### other params
 
-- `texts`: array _(required)_
+- `texts`: array *(required)*
 
 ### `gender-from-name`
 
@@ -744,7 +746,7 @@ The runtime default model is defined on the GladIA server.
 
 #### other params
 
-- `name`: string _(required)_
+- `name`: string *(required)*
 
 ### `gps-address-formatting`
 
@@ -754,8 +756,8 @@ The runtime default model is defined on the GladIA server.
 
 #### other params
 
-- `latitude`: float _(required)_
-- `longitude`: float _(required)_
+- `latitude`: float *(required)*
+- `longitude`: float *(required)*
 
 ### `gpt3`
 
@@ -765,7 +767,7 @@ The runtime default model is defined on the GladIA server.
 
 #### other params
 
-- `text`: string _(required)_
+- `text`: string *(required)*
 
 ### `guess-city`
 
@@ -775,7 +777,7 @@ The runtime default model is defined on the GladIA server.
 
 #### other params
 
-- `text`: string _(required)_
+- `text`: string *(required)*
 
 ### `guess-country`
 
@@ -785,7 +787,7 @@ The runtime default model is defined on the GladIA server.
 
 #### other params
 
-- `text`: string _(required)_
+- `text`: string *(required)*
 
 ### `guess-intent`
 
@@ -795,7 +797,7 @@ The runtime default model is defined on the GladIA server.
 
 #### other params
 
-- `text`: string _(required)_
+- `text`: string *(required)*
 
 ### `hate-speech-detection`
 
@@ -807,7 +809,7 @@ The runtime default model is defined on the GladIA server.
 
 #### other params
 
-- `text`: string _(required)_
+- `text`: string *(required)*
 
 ### `headline-generation`
 
@@ -818,8 +820,8 @@ The runtime default model is defined on the GladIA server.
 
 #### other params
 
-- `text`: string _(required)_
-- `max_length`: integer _(required)_
+- `text`: string *(required)*
+- `max_length`: integer *(required)*
 
 ### `image-generation-prompt-beautifier`
 
@@ -829,7 +831,7 @@ The runtime default model is defined on the GladIA server.
 
 #### other params
 
-- `prompt`: string _(required)_
+- `prompt`: string *(required)*
 
 ### `keyword-extraction`
 
@@ -839,7 +841,7 @@ The runtime default model is defined on the GladIA server.
 
 #### other params
 
-- `text`: string _(required)_
+- `text`: string *(required)*
 - `top_k`: integer
 
 ### `language-codes`
@@ -850,8 +852,8 @@ The runtime default model is defined on the GladIA server.
 
 #### other params
 
-- `language_code`: string _(required)_
-- `display_output_language`: string _(required)_
+- `language_code`: string *(required)*
+- `display_output_language`: string *(required)*
 
 ### `language-detection`
 
@@ -862,7 +864,7 @@ The runtime default model is defined on the GladIA server.
 
 #### other params
 
-- `text`: string _(required)_
+- `text`: string *(required)*
 
 ### `language-generation`
 
@@ -874,7 +876,7 @@ The runtime default model is defined on the GladIA server.
 
 #### other params
 
-- `text`: string _(required)_
+- `text`: string *(required)*
 
 ### `named-entity-recognition`
 
@@ -884,7 +886,7 @@ The runtime default model is defined on the GladIA server.
 
 #### other params
 
-- `text`: string _(required)_
+- `text`: string *(required)*
 
 ### `next-sentence-prediction`
 
@@ -894,8 +896,8 @@ The runtime default model is defined on the GladIA server.
 
 #### other params
 
-- `sentence_1`: string _(required)_
-- `sentence_2`: string _(required)_
+- `sentence_1`: string *(required)*
+- `sentence_2`: string *(required)*
 
 ### `next-word-prediction`
 
@@ -905,8 +907,8 @@ The runtime default model is defined on the GladIA server.
 
 #### other params
 
-- `sentence`: string _(required)_
-- `top_k`: integer _(required)_
+- `sentence`: string *(required)*
+- `top_k`: integer *(required)*
 
 ### `product-ownership`
 
@@ -916,7 +918,7 @@ The runtime default model is defined on the GladIA server.
 
 #### other params
 
-- `text`: string _(required)_
+- `text`: string *(required)*
 
 ### `product-sentiment`
 
@@ -926,7 +928,7 @@ The runtime default model is defined on the GladIA server.
 
 #### other params
 
-- `text`: string _(required)_
+- `text`: string *(required)*
 
 ### `programming-language-generation`
 
@@ -936,7 +938,7 @@ The runtime default model is defined on the GladIA server.
 
 #### other params
 
-- `code_snippet`: string _(required)_
+- `code_snippet`: string *(required)*
 
 ### `punctuation-restoration`
 
@@ -946,7 +948,7 @@ The runtime default model is defined on the GladIA server.
 
 #### other params
 
-- `sentence`: string _(required)_
+- `sentence`: string *(required)*
 
 ### `question-answering`
 
@@ -957,8 +959,8 @@ The runtime default model is defined on the GladIA server.
 
 #### other params
 
-- `context`: string _(required)_
-- `question`: string _(required)_
+- `context`: string *(required)*
+- `question`: string *(required)*
 - `top_k`: integer
 
 ### `sentence-paraphraser`
@@ -970,7 +972,7 @@ The runtime default model is defined on the GladIA server.
 
 #### other params
 
-- `context`: string _(required)_
+- `context`: string *(required)*
 
 ### `sentiment-analysis`
 
@@ -980,7 +982,7 @@ The runtime default model is defined on the GladIA server.
 
 #### other params
 
-- `texts`: array _(required)_
+- `texts`: array *(required)*
 
 ### `similarity`
 
@@ -990,8 +992,8 @@ The runtime default model is defined on the GladIA server.
 
 #### other params
 
-- `sentence_1`: string _(required)_
-- `sentence_2`: string _(required)_
+- `sentence_1`: string *(required)*
+- `sentence_2`: string *(required)*
 
 ### `speaker-recognition`
 
@@ -1001,7 +1003,7 @@ The runtime default model is defined on the GladIA server.
 
 #### other params
 
-- `text`: string _(required)_
+- `text`: string *(required)*
 
 ### `summarization`
 
@@ -1011,8 +1013,8 @@ The runtime default model is defined on the GladIA server.
 
 #### other params
 
-- `text`: string _(required)_
-- `source_language`: string _(required)_
+- `text`: string *(required)*
+- `source_language`: string *(required)*
 - `min_length`: integer
 - `max_length`: integer
 
@@ -1025,9 +1027,9 @@ The runtime default model is defined on the GladIA server.
 
 #### other params
 
-- `input_string`: string _(required)_
-- `source_language`: string _(required)_
-- `target_language`: string _(required)_
+- `input_string`: string *(required)*
+- `source_language`: string *(required)*
+- `target_language`: string *(required)*
 
 ### `vat-country-guessing`
 
@@ -1037,7 +1039,7 @@ The runtime default model is defined on the GladIA server.
 
 #### other params
 
-- `text`: string _(required)_
+- `text`: string *(required)*
 
 ### `website-classification`
 
@@ -1047,7 +1049,7 @@ The runtime default model is defined on the GladIA server.
 
 #### other params
 
-- `text`: string _(required)_
+- `text`: string *(required)*
 
 ### `word-alignment`
 
@@ -1057,8 +1059,8 @@ The runtime default model is defined on the GladIA server.
 
 #### other params
 
-- `input_string_language_1`: string _(required)_
-- `input_string_language_2`: string _(required)_
+- `input_string_language_1`: string *(required)*
+- `input_string_language_2`: string *(required)*
 
 ## VIDEO => TEXT
 
