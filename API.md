@@ -238,6 +238,9 @@ The runtime default model is defined on the GladIA server.
   - *`javanese`*
   - *`sundanese`*
 - `noise_reduction`: boolean
+- `output_format`: enum
+  - *`json`*
+  - *`srt`*
 
 ### `speaker-diarization`
 
@@ -272,6 +275,125 @@ The runtime default model is defined on the GladIA server.
 
 - `audio`: audio
 - `audio_url`: url
+
+### `youtube-audio-transcription`
+
+#### `models`
+
+- **large-v2 (default)**
+- medium
+
+#### other params
+
+- `audio_url`: url
+- `language_behaviour`: enum
+  - *`manual`*
+  - *`automatic single language`*
+  - *`automatic multiple languages`*
+- `language`: enum
+  - *`english`*
+  - *`chinese`*
+  - *`german`*
+  - *`spanish`*
+  - *`russian`*
+  - *`korean`*
+  - *`french`*
+  - *`japanese`*
+  - *`portuguese`*
+  - *`turkish`*
+  - *`polish`*
+  - *`catalan`*
+  - *`dutch`*
+  - *`arabic`*
+  - *`swedish`*
+  - *`italian`*
+  - *`indonesian`*
+  - *`hindi`*
+  - *`finnish`*
+  - *`vietnamese`*
+  - *`hebrew`*
+  - *`ukrainian`*
+  - *`greek`*
+  - *`malay`*
+  - *`czech`*
+  - *`romanian`*
+  - *`danish`*
+  - *`hungarian`*
+  - *`tamil`*
+  - *`norwegian`*
+  - *`thai`*
+  - *`urdu`*
+  - *`croatian`*
+  - *`bulgarian`*
+  - *`lithuanian`*
+  - *`latin`*
+  - *`maori`*
+  - *`malayalam`*
+  - *`welsh`*
+  - *`slovak`*
+  - *`telugu`*
+  - *`persian`*
+  - *`latvian`*
+  - *`bengali`*
+  - *`serbian`*
+  - *`azerbaijani`*
+  - *`slovenian`*
+  - *`kannada`*
+  - *`estonian`*
+  - *`macedonian`*
+  - *`breton`*
+  - *`basque`*
+  - *`icelandic`*
+  - *`armenian`*
+  - *`nepali`*
+  - *`mongolian`*
+  - *`bosnian`*
+  - *`kazakh`*
+  - *`albanian`*
+  - *`swahili`*
+  - *`galician`*
+  - *`marathi`*
+  - *`punjabi`*
+  - *`sinhala`*
+  - *`khmer`*
+  - *`shona`*
+  - *`yoruba`*
+  - *`somali`*
+  - *`afrikaans`*
+  - *`occitan`*
+  - *`georgian`*
+  - *`belarusian`*
+  - *`tajik`*
+  - *`sindhi`*
+  - *`gujarati`*
+  - *`amharic`*
+  - *`yiddish`*
+  - *`lao`*
+  - *`uzbek`*
+  - *`faroese`*
+  - *`haitian creole`*
+  - *`pashto`*
+  - *`turkmen`*
+  - *`nynorsk`*
+  - *`maltese`*
+  - *`sanskrit`*
+  - *`luxembourgish`*
+  - *`myanmar`*
+  - *`tibetan`*
+  - *`tagalog`*
+  - *`malagasy`*
+  - *`assamese`*
+  - *`tatar`*
+  - *`hawaiian`*
+  - *`lingala`*
+  - *`hausa`*
+  - *`bashkir`*
+  - *`javanese`*
+  - *`sundanese`*
+- `noise_reduction`: boolean
+- `output_format`: enum
+  - *`json`*
+  - *`srt`*
 
 ## IMAGE => IMAGE
 
