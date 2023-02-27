@@ -162,6 +162,13 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
       },
       {
         "in": "formData",
+        "type": "boolean",
+        "name": "toogle_diarization",
+        "example": false,
+        "required": false
+      },
+      {
+        "in": "formData",
         "type": "enum",
         "name": "output_format",
         "example": "json",
