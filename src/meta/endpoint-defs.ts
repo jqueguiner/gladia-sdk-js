@@ -163,7 +163,7 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
       {
         "in": "formData",
         "type": "boolean",
-        "name": "toogle_diarization",
+        "name": "toggle_diarization",
         "example": false,
         "required": false
       },
