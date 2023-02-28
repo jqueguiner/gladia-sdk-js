@@ -241,6 +241,7 @@ The runtime default model is defined on the GladIA server.
   - *`yiddish`*
   - *`yoruba`*
 - `noise_reduction`: boolean
+- `toggle_diarization`: boolean
 - `output_format`: enum
   - *`json`*
   - *`srt`*
@@ -396,6 +397,7 @@ The runtime default model is defined on the GladIA server.
   - *`yiddish`*
   - *`yoruba`*
 - `noise_reduction`: boolean
+- `toggle_diarization`: boolean
 - `output_format`: enum
   - *`json`*
   - *`srt`*

@@ -328,6 +328,13 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
       },
       {
         "in": "formData",
+        "type": "boolean",
+        "name": "toggle_diarization",
+        "example": false,
+        "required": false
+      },
+      {
+        "in": "formData",
         "type": "enum",
         "name": "output_format",
         "example": "json",
@@ -597,6 +604,13 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
         "in": "formData",
         "type": "boolean",
         "name": "noise_reduction",
+        "example": false,
+        "required": false
+      },
+      {
+        "in": "formData",
+        "type": "boolean",
+        "name": "toggle_diarization",
         "example": false,
         "required": false
       },
