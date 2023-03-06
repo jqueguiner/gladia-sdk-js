@@ -14,6 +14,7 @@ type PathUrl = string;
 export interface PathDef {
   get?: PathRequestDef;
   post?: PathRequestDef;
+  delete?: unknown;
 }
 
 interface PathRequestDef {
@@ -56,14 +57,21 @@ interface PathRequestResponseContentDef {
           prediction: RecursivePredictionType;
           prediction_raw: unknown;
         };
-      };
+      }
+    | {
+        type: 'object';
+        prediction: 'string' | 'text' | 'number' | 'str';
+        prediction_raw: unknown;
+      }
+    | RecursivePredictionType;
+  examples?: unknown;
 }
 
 type RecursivePredictionType =
   | {
       type: 'string' | 'text' | 'number' | 'str';
     }
-  | { type: 'array'; items: RecursivePredictionType }
+  | { type: 'array'; items: RecursivePredictionType; description?: string }
   | { type: 'object'; properties: Record<string, RecursivePredictionType> };
 
 interface PathRequestParamDef {

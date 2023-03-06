@@ -59,7 +59,8 @@ function generateInputModelsTs() {
     fileContent.push(`  ${meta.getModelTypeName(endpoint)},`);
   }
   fileContent.push(`} from '../models';`);
-  fileContent.push(`import { WithAsUrl, WithHeaders, WithModel } from './types';`);
+  // fileContent.push(`import { WithAsUrl, WithHeaders, WithModel } from './types';`);
+  fileContent.push(`import { WithHeaders, WithModel } from './types';`);
   fileContent.push('');
   for (const endpoint of endpoints) {
     const enumParams = endpoint.params.filter(
@@ -118,8 +119,8 @@ function generateInputModelsTs() {
 
 function generateOutputModelsTs() {
   const fileContent: string[] = [...getGeneratedMarks()];
-  fileContent.push('type Base64Image = string;');
-  fileContent.push('type ImageUrl = string;');
+  // fileContent.push('type Base64Image = string;');
+  // fileContent.push('type ImageUrl = string;');
   fileContent.push('');
   const endpoints = meta.getEndpoints();
   for (const endpoint of endpoints) {
@@ -151,15 +152,15 @@ function generateOutputModelsTs() {
         const outputModelNameForOneSampleAsUrl = meta.getOutputModelTypeOneSampleAsUrl(endpoint);
         const outputModelNameForMulitpleSampleAsUrl =
           meta.getOutputModelTypeMultipleSamplesAsUrl(endpoint);
-        fileContent.push(`export type ${outputModelNameForOneSampleAsUrl} = { url: ImageUrl[] };`);
+        // fileContent.push(`export type ${outputModelNameForOneSampleAsUrl} = { url: ImageUrl[] };`);
         if (endpoint.hasSamplesParam) {
-          fileContent.push(
-            `export type ${outputModelNameForMulitpleSampleAsUrl} = { url: ImageUrl[] };`,
-          );
+          // fileContent.push(
+          //   `export type ${outputModelNameForMulitpleSampleAsUrl} = { url: ImageUrl[] };`,
+          // );
           const outputModelNameForOneSample = meta.getOutputModelTypeOneSample(endpoint);
           const outputModelNameForMulitpleSample = meta.getOutputModelTypeMultipleSamples(endpoint);
           fileContent.push(`export type ${outputModelNameForOneSample} = ArrayBuffer;`);
-          fileContent.push(`export type ${outputModelNameForMulitpleSample} = Base64Image[];`);
+          // fileContent.push(`export type ${outputModelNameForMulitpleSample} = Base64Image[];`);
           fileContent.push(`export type ${outputModelName} = `);
           fileContent.push(`  | ${outputModelNameForOneSample}`);
           fileContent.push(`  | ${outputModelNameForMulitpleSample}`);
