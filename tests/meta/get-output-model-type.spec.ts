@@ -11,23 +11,23 @@ import { p } from '../helpers/mocks';
 describe(getOutputModelType.name, () => {
   it('should format correctly', () => {
     const endpoint = p<EndpointDef>({
-      inputType: 'image',
+      inputType: 'audio',
       outputType: 'text',
-      taskName: 'sentiment-analysis',
+      taskName: 'audio-transcription',
     });
-    expect(getOutputModelType(endpoint)).toEqual('ImageTextSentimentAnalysisOutputs');
+    expect(getOutputModelType(endpoint)).toEqual('AudioTextAudioTranscriptionOutputs');
   });
 });
 
 describe(getOutputModelTypeMultipleSamples.name, () => {
   it('should format correctly', () => {
     const endpoint = p<EndpointDef>({
-      inputType: 'image',
+      inputType: 'audio',
       outputType: 'text',
-      taskName: 'sentiment-analysis',
+      taskName: 'audio-transcription',
     });
     expect(getOutputModelTypeMultipleSamples(endpoint)).toEqual(
-      'ImageTextSentimentAnalysisOutputsMultipleSamples',
+      'AudioTextAudioTranscriptionOutputsMultipleSamples',
     );
   });
 });
@@ -35,12 +35,12 @@ describe(getOutputModelTypeMultipleSamples.name, () => {
 describe(getOutputModelTypeOneSample.name, () => {
   it('should format correctly', () => {
     const endpoint = p<EndpointDef>({
-      inputType: 'image',
+      inputType: 'audio',
       outputType: 'text',
-      taskName: 'sentiment-analysis',
+      taskName: 'audio-transcription',
     });
     expect(getOutputModelTypeOneSample(endpoint)).toEqual(
-      'ImageTextSentimentAnalysisOutputsOneSample',
+      'AudioTextAudioTranscriptionOutputsOneSample',
     );
   });
 });
@@ -48,12 +48,12 @@ describe(getOutputModelTypeOneSample.name, () => {
 describe(getOutputModelTypeOneSampleAsUrl.name, () => {
   it('should format correctly', () => {
     const endpoint = p<EndpointDef>({
-      inputType: 'image',
+      inputType: 'audio',
       outputType: 'text',
-      taskName: 'background-removal',
+      taskName: 'audio-transcription',
     });
     expect(getOutputModelTypeOneSampleAsUrl(endpoint)).toEqual(
-      'ImageTextBackgroundRemovalOutputsOneSampleAsUrl',
+      'AudioTextAudioTranscriptionOutputsOneSampleAsUrl',
     );
   });
 });
@@ -61,12 +61,12 @@ describe(getOutputModelTypeOneSampleAsUrl.name, () => {
 describe(getOutputModelTypeMultipleSamplesAsUrl.name, () => {
   it('should format correctly', () => {
     const endpoint = p<EndpointDef>({
-      inputType: 'image',
+      inputType: 'audio',
       outputType: 'text',
-      taskName: 'background-removal',
+      taskName: 'audio-transcription',
     });
     expect(getOutputModelTypeMultipleSamplesAsUrl(endpoint)).toEqual(
-      'ImageTextBackgroundRemovalOutputsMultipleSamplesAsUrl',
+      'AudioTextAudioTranscriptionOutputsMultipleSamplesAsUrl',
     );
   });
 });

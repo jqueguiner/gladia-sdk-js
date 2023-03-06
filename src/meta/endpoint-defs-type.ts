@@ -41,6 +41,9 @@ export type EndpointDefParam =
   | EnumEndpointDefParam;
 
 export type OutputBodyContentType =
-  | { type: 'prediction-standard-output'; predictionType: 'string' | 'number' | 'array' }
+  | {
+      type: 'prediction-standard-output';
+      predictionType: 'string' | 'number' | { array: 'string' | 'number' | 'object' };
+    }
   | { type: 'binary' }
   | { type: 'unknown' };

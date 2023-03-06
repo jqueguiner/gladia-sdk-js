@@ -5,15 +5,15 @@ import { p } from '../helpers/mocks';
 describe(getInputEnumParamValues.name, () => {
   it('should format correctly', () => {
     const endpoint = p<EndpointDef>({
-      inputType: 'image',
+      inputType: 'audio',
       outputType: 'text',
-      taskName: 'sentiment-analysis',
+      taskName: 'audio-transcription',
     });
     const param = p<EndpointDefParam>({
       name: 'alignment',
     });
     expect(getInputEnumParamValues(endpoint, param)).toEqual(
-      'IMAGE_TEXT_SENTIMENT_ANALYSIS_ENUM_PARAM_ALIGNMENT_VALUES',
+      'AUDIO_TEXT_AUDIO_TRANSCRIPTION_ENUM_PARAM_ALIGNMENT_VALUES',
     );
   });
 });

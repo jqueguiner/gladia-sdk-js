@@ -52,10 +52,19 @@ interface PathRequestResponseContentDef {
       }
     | {
         type: 'object';
-        prediction: 'string' | 'text' | 'number' | 'array' | 'str';
-        prediction_raw: unknown;
+        properties: {
+          prediction: RecursivePredictionType;
+          prediction_raw: unknown;
+        };
       };
 }
+
+type RecursivePredictionType =
+  | {
+      type: 'string' | 'text' | 'number' | 'str';
+    }
+  | { type: 'array'; items: RecursivePredictionType }
+  | { type: 'object'; properties: Record<string, RecursivePredictionType> };
 
 interface PathRequestParamDef {
   required: boolean;

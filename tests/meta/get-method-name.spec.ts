@@ -5,8 +5,8 @@ import { p } from '../helpers/mocks';
 describe(getMethodName.name, () => {
   it('should format correctly', () => {
     const endpoint = p<EndpointDef>({
-      taskName: 'sentiment-analysis',
+      taskName: 'audio-transcription',
     });
-    expect(getMethodName(endpoint)).toEqual('sentimentAnalysis');
+    expect(getMethodName(endpoint)).toEqual('audioTranscription');
   });
 });

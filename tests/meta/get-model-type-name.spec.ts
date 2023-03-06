@@ -5,10 +5,10 @@ import { p } from '../helpers/mocks';
 describe(getModelTypeName.name, () => {
   it('should format correctly', () => {
     const endpoint = p<EndpointDef>({
-      inputType: 'image',
+      inputType: 'audio',
       outputType: 'text',
-      taskName: 'sentiment-analysis',
+      taskName: 'audio-transcription',
     });
-    expect(getModelTypeName(endpoint)).toEqual('ImageTextSentimentAnalysisModel');
+    expect(getModelTypeName(endpoint)).toEqual('AudioTextAudioTranscriptionModel');
   });
 });

@@ -128,10 +128,13 @@ function generateOutputModelsTs() {
     switch (outputBodyContentType.type) {
       case 'prediction-standard-output': {
         const predictionType = (() => {
-          if (outputBodyContentType.predictionType === 'array') {
-            return 'string[]';
+          if (
+            outputBodyContentType.predictionType === 'string' ||
+            outputBodyContentType.predictionType === 'number'
+          ) {
+            return outputBodyContentType.predictionType;
           }
-          return outputBodyContentType.predictionType;
+          return `${outputBodyContentType.predictionType.array}[]`;
         })();
         fileContent.push(`export type ${outputModelName} = {`);
         fileContent.push(`  prediction: ${predictionType};`);

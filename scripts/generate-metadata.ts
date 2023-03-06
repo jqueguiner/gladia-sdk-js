@@ -61,7 +61,9 @@ function generateEndpointDefs(openApiJson: OpenApiJson) {
   fileContent.push(`import { EndpointDef } from "./endpoint-defs-type";`);
   fileContent.push('');
   const endpointDefs: EndpointDef[] = Object.entries(openApiJson.paths)
-    .filter(([path]) => !path.startsWith('/automl/') && path !== '/ready')
+    .filter(
+      ([path]) => !path.startsWith('/automl/') && path !== '/ready' && !path.includes('cluster'),
+    )
     .map(([path, def]) => {
       console.debug('Found endpoint', path);
       const [, inputType, outputType, taskName] = path.split('/');
@@ -157,11 +159,40 @@ function getInputBodyContentType(inputType: string): Pick<EndpointDef, 'inputBod
 
 function getOutputBodyContentType(def: PathDef): Pick<EndpointDef, 'outputBodyContentType'> {
   assertValidDef(def);
-  if (200 in def.post.responses) {
-    const okResponse = def.post.responses[200];
+  if ('200' in def.post.responses) {
+    const okResponse = def.post.responses['200'];
     if ('application/json' in okResponse.content) {
       const jsonContent = okResponse.content['application/json'];
-      if ('prediction' in jsonContent.schema && 'prediction_raw' in jsonContent.schema) {
+      if (
+        'properties' in jsonContent.schema &&
+        'prediction' in jsonContent.schema.properties &&
+        'prediction_raw' in jsonContent.schema.properties
+      ) {
+        console.log(1);
+        return {
+          outputBodyContentType: {
+            type: 'prediction-standard-output',
+            predictionType: (() => {
+              const prediction = jsonContent.schema.properties.prediction;
+              if (['str', 'text', 'string'].includes(prediction.type)) return 'string';
+              else if (prediction.type === 'number') return 'number';
+              else if (prediction.type === 'array') {
+                if (
+                  prediction.items.type === 'str' ||
+                  prediction.items.type === 'text' ||
+                  prediction.items.type === 'string'
+                ) {
+                  return { array: 'string' };
+                } else if (prediction.items.type === 'array') throw new Error("Can't nest arrays");
+                else return { array: prediction.items.type };
+              } else {
+                throw new Error("Can't define predictionType");
+              }
+            })(),
+          },
+        };
+      } else if ('prediction' in jsonContent.schema && 'prediction_raw' in jsonContent.schema) {
+        console.log('xxxx');
         return {
           outputBodyContentType: {
             type: 'prediction-standard-output',
@@ -172,6 +203,7 @@ function getOutputBodyContentType(def: PathDef): Pick<EndpointDef, 'outputBodyCo
           },
         };
       } else if (Object.keys(jsonContent.schema).length === 0) {
+        console.log('UNKNOWN');
         return { outputBodyContentType: { type: 'unknown' } };
       }
     } else if ('image/*' in okResponse.content) {

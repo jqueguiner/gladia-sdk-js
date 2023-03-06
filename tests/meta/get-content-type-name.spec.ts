@@ -5,10 +5,10 @@ import { p } from '../helpers/mocks';
 describe(getContentTypeName.name, () => {
   it('should format correctly', () => {
     const endpoint = p<EndpointDef>({
-      inputType: 'image',
+      inputType: 'audio',
       outputType: 'text',
-      taskName: 'sentiment-analysis',
+      taskName: 'audio-transcription',
     });
-    expect(getContentTypeName(endpoint)).toEqual('IMAGE_TEXT_SENTIMENT_ANALYSIS_CONTENT_TYPE');
+    expect(getContentTypeName(endpoint)).toEqual('AUDIO_TEXT_AUDIO_TRANSCRIPTION_CONTENT_TYPE');
   });
 });
