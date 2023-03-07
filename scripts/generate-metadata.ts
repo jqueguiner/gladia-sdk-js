@@ -5,7 +5,7 @@ import { OpenApiJson, PathDef } from '../src/meta/openapideftype';
 import { EndpointDef, EndpointDefParam } from '../src/meta/endpoint-defs-type';
 import { exit } from 'process';
 import { getOpenapiJson } from './openapi.utils';
-import { isNotDefined } from '../src/utils/fp';
+import { isDefined, isNotDefined } from '../src/utils/fp';
 import { getMethodName } from '../src/meta/get-method-name';
 
 async function main() {
@@ -168,7 +168,6 @@ function getOutputBodyContentType(def: PathDef): Pick<EndpointDef, 'outputBodyCo
         'prediction' in jsonContent.schema.properties &&
         'prediction_raw' in jsonContent.schema.properties
       ) {
-        console.log(1);
         return {
           outputBodyContentType: {
             type: 'prediction-standard-output',
@@ -192,7 +191,6 @@ function getOutputBodyContentType(def: PathDef): Pick<EndpointDef, 'outputBodyCo
           },
         };
       } else if ('prediction' in jsonContent.schema && 'prediction_raw' in jsonContent.schema) {
-        console.log('xxxx');
         return {
           outputBodyContentType: {
             type: 'prediction-standard-output',
@@ -203,7 +201,6 @@ function getOutputBodyContentType(def: PathDef): Pick<EndpointDef, 'outputBodyCo
           },
         };
       } else if (Object.keys(jsonContent.schema).length === 0) {
-        console.log('UNKNOWN');
         return { outputBodyContentType: { type: 'unknown' } };
       }
     } else if ('image/*' in okResponse.content) {
@@ -271,17 +268,28 @@ function getPostParams(def: PathDef, openApiJson: OpenApiJson) {
                 }
               })();
               if (type === 'enum') {
-                if (!('allOf' in propSchema)) {
-                  throw new Error('Property allOf missing with data_type "enum"');
+                if (!('allOf' in propSchema) && !('enum' in propSchema)) {
+                  throw new Error('Property allOf/enum missing with data_type "enum"');
                 }
-                assertDefined('propSchema.allOf', propSchema.allOf);
-                const ref = propSchema.allOf[0].$ref;
-                const dynamicEnum =
-                  openApiJson.components.schemas[ref.substring('#/components/schemas/'.length)];
+                assertAnyDefined(
+                  ['propSchema.allOf', 'propSchema.enum'],
+                  [propSchema.allOf, propSchema.enum],
+                );
+                const dynamicEnum = (() => {
+                  if (!isNotDefined(propSchema.allOf)) {
+                    const ref = propSchema.allOf[0].$ref;
+                    return openApiJson.components.schemas[
+                      ref.substring('#/components/schemas/'.length)
+                    ];
+                  } else {
+                    return propSchema;
+                  }
+                })();
+
                 const enumValues = dynamicEnum.enum;
                 if (!enumValues || enumValues.length === 0) {
                   throw new Error(
-                    `"${ref}" should have property enum that contains enum values for the property "${propName}"`,
+                    `"${enumValues} should have property enum that contains enum values for the property "${propName}"`,
                   );
                 }
                 return {
@@ -315,9 +323,10 @@ function assertValidDef(
   }
 }
 
-function assertDefined<T>(name: string, x: T | undefined): asserts x is T {
-  if (isNotDefined(x)) {
-    throw new Error(name + ' should be defined');
+function assertAnyDefined<T>(names: string[], values: (T | undefined)[]): asserts values is T[] {
+  const definedValues = values.filter(isDefined) as T[];
+  if (definedValues.length === 0) {
+    throw new Error('At least one value should be defined in: ' + names.join(', '));
   }
 }
 

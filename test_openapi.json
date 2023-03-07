@@ -1,0 +1,1550 @@
+{
+  "openapi": "3.0.2",
+  "info": { "title": "gladia http-triton-client", "version": "0.1.0" },
+  "paths": {
+    "/audio/text/audio-transcription/": {
+      "get": {
+        "tags": ["Audio Transcription"],
+        "summary": "List Available Models",
+        "description": "List the available models for audio transcription\n\nreturns:\n    dict: list of available models",
+        "operationId": "list_available_models_audio_text_audio_transcription__get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "models": {
+                      "type": "object",
+                      "properties": {
+                        "medium": { "type": "string" },
+                        "large-v2": { "type": "string" }
+                      }
+                    },
+                    "summary": { "type": "string" }
+                  }
+                },
+                "examples": {
+                  "default": {
+                    "value": { "models": { "medium": "", "large-v2": "" }, "summary": "" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": ["Audio Transcription"],
+        "summary": "Recognize",
+        "description": "Transcribe audio file\n\nArgs:\n    background_tasks (BackgroundTasks): background tasks\n    model (str): model to use for audio transcription\n    audio (UploadFile): audio file\n    audio_url (Optional[str]): audio url\n    language_behaviour (LanguageDetectionBehaviour): behaviour to select the language\n    language (Languages): language to use\n    noise_reduction (bool): activate noise reduction\n\nReturns:\n    Dict: transcription",
+        "operationId": "recognize_audio_text_audio_transcription__post",
+        "parameters": [
+          {
+            "description": "The AI model used for trancription.",
+            "required": false,
+            "schema": {
+              "title": "Model",
+              "enum": ["medium", "large-v2"],
+              "type": "string",
+              "description": "The AI model used for trancription.",
+              "default": "large-v2"
+            },
+            "name": "model",
+            "in": "query"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_recognize_audio_text_audio_transcription__post"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "prediction": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "time_begin": { "type": "number" },
+                          "time_end": { "type": "number" },
+                          "transcription": { "type": "string" },
+                          "language": { "type": "string" },
+                          "probability": { "type": "number" },
+                          "speaker": { "type": "string" },
+                          "channel": { "type": "string" }
+                        }
+                      },
+                      "description": "The result that we want when we use an endpoint. This is the data you will need in 99/100 of cases."
+                    },
+                    "prediction_raw": {
+                      "type": "object",
+                      "properties": {
+                        "metadata": {
+                          "type": "object",
+                          "properties": {
+                            "total_speech_duration": { "type": "number" },
+                            "total_speech_duration_channel_0": { "type": "number" },
+                            "audio_conversion_time": { "type": "number" },
+                            "vad_time": { "type": "number" },
+                            "inference_time": { "type": "number" },
+                            "diarization_time": { "type": "number" },
+                            "total_transcription_time": { "type": "number" },
+                            "original_file_type": { "type": "string" },
+                            "original_nb_channels": { "type": "integer" },
+                            "original_sample_rate": { "type": "integer" },
+                            "original_sample_width": { "type": "integer" },
+                            "original_nb_silent_channels": { "type": "integer" },
+                            "original_nb_similar_channels": { "type": "integer" },
+                            "original_mediainfo": {
+                              "type": "object",
+                              "properties": {
+                                "index": { "type": "string" },
+                                "codec_name": { "type": "string" },
+                                "codec_long_name": { "type": "string" },
+                                "profile": { "type": "string" },
+                                "codec_type": { "type": "string" },
+                                "codec_time_base": { "type": "string" },
+                                "codec_tag_string": { "type": "string" },
+                                "codec_tag": { "type": "string" },
+                                "sample_fmt": { "type": "string" },
+                                "sample_rate": { "type": "string" },
+                                "channels": { "type": "string" },
+                                "channel_layout": { "type": "string" },
+                                "bits_per_sample": { "type": "string" },
+                                "id": { "type": "string" },
+                                "r_frame_rate": { "type": "string" },
+                                "avg_frame_rate": { "type": "string" },
+                                "time_base": { "type": "string" },
+                                "start_pts": { "type": "string" },
+                                "start_time": { "type": "string" },
+                                "duration_ts": { "type": "string" },
+                                "duration": { "type": "string" },
+                                "bit_rate": { "type": "string" },
+                                "max_bit_rate": { "type": "string" },
+                                "bits_per_raw_sample": { "type": "string" },
+                                "nb_frames": { "type": "string" },
+                                "nb_read_frames": { "type": "string" },
+                                "nb_read_packets": { "type": "string" },
+                                "DISPOSITION": {
+                                  "type": "object",
+                                  "properties": {
+                                    "default": { "type": "string" },
+                                    "dub": { "type": "string" },
+                                    "original": { "type": "string" },
+                                    "comment": { "type": "string" },
+                                    "lyrics": { "type": "string" },
+                                    "karaoke": { "type": "string" },
+                                    "forced": { "type": "string" },
+                                    "hearing_impaired": { "type": "string" },
+                                    "visual_impaired": { "type": "string" },
+                                    "clean_effects": { "type": "string" },
+                                    "attached_pic": { "type": "string" },
+                                    "timed_thumbnails": { "type": "string" }
+                                  }
+                                },
+                                "nb_streams": { "type": "string" },
+                                "nb_programs": { "type": "string" },
+                                "format_name": { "type": "string" },
+                                "format_long_name": { "type": "string" },
+                                "size": { "type": "string" },
+                                "probe_score": { "type": "string" },
+                                "TAG": {
+                                  "type": "object",
+                                  "properties": {
+                                    "encoded_by": { "type": "string" },
+                                    "date": { "type": "string" },
+                                    "creation_time": { "type": "string" },
+                                    "time_reference": { "type": "string" },
+                                    "coding_history": { "type": "string" }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "transcription": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "time_begin": { "type": "number" },
+                              "time_end": { "type": "number" },
+                              "transcription": { "type": "string" },
+                              "language": { "type": "string" },
+                              "probability": { "type": "number" },
+                              "speaker": { "type": "string" },
+                              "channel": { "type": "string" }
+                            }
+                          }
+                        }
+                      },
+                      "description": "The raw result from audio processing, with extra data."
+                    }
+                  }
+                },
+                "examples": {
+                  "default": {
+                    "value": {
+                      "prediction": [
+                        {
+                          "time_begin": 0.09,
+                          "time_end": 2.07,
+                          "transcription": "Split infinity",
+                          "language": "en",
+                          "probability": 0.49,
+                          "speaker": "not_activated",
+                          "channel": "channel_0"
+                        },
+                        {
+                          "time_begin": 2.13,
+                          "time_end": 5.19,
+                          "transcription": "in a time when less is more",
+                          "language": "en",
+                          "probability": 0.65,
+                          "speaker": "not_activated",
+                          "channel": "channel_0"
+                        },
+                        {
+                          "time_begin": 5.52,
+                          "time_end": 20.4,
+                          "transcription": "Where too much is never enough, there is always hope for the future. The future can be read from the past. The past foreshadows the present, and the present hasn't been written yet",
+                          "language": "en",
+                          "probability": 0.75,
+                          "speaker": "not_activated",
+                          "channel": "channel_0"
+                        }
+                      ],
+                      "prediction_raw": {
+                        "metadata": {
+                          "total_speech_duration": 19.919999999999998,
+                          "total_speech_duration_channel_0": 19.919999999999998,
+                          "audio_conversion_time": 0.32831811904907227,
+                          "vad_time": 0.0008275508880615234,
+                          "inference_time": 1.645334005355835,
+                          "diarization_time": 3.337860107421875e-6,
+                          "total_transcription_time": 1.9744830131530762,
+                          "original_file_type": "audio",
+                          "original_nb_channels": 1,
+                          "original_sample_rate": 44100,
+                          "original_sample_width": 16,
+                          "original_nb_silent_channels": 0,
+                          "original_nb_similar_channels": 0,
+                          "original_mediainfo": {
+                            "index": "0",
+                            "codec_name": "pcm_s16le",
+                            "codec_long_name": "PCM signed 16-bit little-endian",
+                            "profile": "unknown",
+                            "codec_type": "audio",
+                            "codec_time_base": "1/44100",
+                            "codec_tag_string": "[1][0][0][0]",
+                            "codec_tag": "0x0001",
+                            "sample_fmt": "s16",
+                            "sample_rate": "44100",
+                            "channels": "1",
+                            "channel_layout": "unknown",
+                            "bits_per_sample": "16",
+                            "id": "N/A",
+                            "r_frame_rate": "0/0",
+                            "avg_frame_rate": "0/0",
+                            "time_base": "1/44100",
+                            "start_pts": "N/A",
+                            "start_time": "N/A",
+                            "duration_ts": "906496",
+                            "duration": "20.555465",
+                            "bit_rate": "705855",
+                            "max_bit_rate": "N/A",
+                            "bits_per_raw_sample": "N/A",
+                            "nb_frames": "N/A",
+                            "nb_read_frames": "N/A",
+                            "nb_read_packets": "N/A",
+                            "DISPOSITION": {
+                              "default": "0",
+                              "dub": "0",
+                              "original": "0",
+                              "comment": "0",
+                              "lyrics": "0",
+                              "karaoke": "0",
+                              "forced": "0",
+                              "hearing_impaired": "0",
+                              "visual_impaired": "0",
+                              "clean_effects": "0",
+                              "attached_pic": "0",
+                              "timed_thumbnails": "0"
+                            },
+                            "nb_streams": "1",
+                            "nb_programs": "0",
+                            "format_name": "wav",
+                            "format_long_name": "WAV / WAVE (Waveform Audio)",
+                            "size": "1813648",
+                            "probe_score": "99",
+                            "TAG": {
+                              "encoded_by": "tracktion",
+                              "date": "2009-08-02",
+                              "creation_time": "10:48:43",
+                              "time_reference": "2436484",
+                              "coding_history": ""
+                            }
+                          }
+                        },
+                        "transcription": [
+                          {
+                            "time_begin": 0.09,
+                            "time_end": 2.07,
+                            "transcription": "Split infinity",
+                            "language": "en",
+                            "probability": 0.49,
+                            "speaker": "not_activated",
+                            "channel": "channel_0"
+                          },
+                          {
+                            "time_begin": 2.13,
+                            "time_end": 5.19,
+                            "transcription": "in a time when less is more",
+                            "language": "en",
+                            "probability": 0.65,
+                            "speaker": "not_activated",
+                            "channel": "channel_0"
+                          },
+                          {
+                            "time_begin": 5.52,
+                            "time_end": 20.4,
+                            "transcription": "Where too much is never enough, there is always hope for the future. The future can be read from the past. The past foreshadows the present, and the present hasn't been written yet",
+                            "language": "en",
+                            "probability": 0.75,
+                            "speaker": "not_activated",
+                            "channel": "channel_0"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/HTTPValidationError" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/audio/text/audio-translated-transcription/": {
+      "get": {
+        "tags": ["Audio Translated Transcription"],
+        "summary": "Models",
+        "operationId": "models_audio_text_audio_translated_transcription__get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "models": {
+                      "type": "object",
+                      "properties": {
+                        "medium": { "type": "string" },
+                        "large-v2": { "type": "string" }
+                      }
+                    },
+                    "summary": { "type": "string" }
+                  }
+                },
+                "examples": {
+                  "default": {
+                    "value": { "models": { "medium": "", "large-v2": "" }, "summary": "" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": ["Audio Translated Transcription"],
+        "summary": "Transcribe",
+        "operationId": "transcribe_audio_text_audio_translated_transcription__post",
+        "parameters": [
+          {
+            "description": "The AI model used for trancription.",
+            "required": false,
+            "schema": {
+              "title": "Model",
+              "enum": ["medium", "large-v2"],
+              "type": "string",
+              "description": "The AI model used for trancription.",
+              "default": "large-v2"
+            },
+            "name": "model",
+            "in": "query"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_transcribe_audio_text_audio_translated_transcription__post"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "prediction": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "time_begin": { "type": "number" },
+                          "time_end": { "type": "number" },
+                          "transcription": { "type": "string" },
+                          "language": { "type": "string" },
+                          "probability": { "type": "number" },
+                          "speaker": { "type": "string" },
+                          "channel": { "type": "string" }
+                        }
+                      },
+                      "description": "The result that we want when we use an endpoint. This is the data you will need in 99/100 of cases."
+                    },
+                    "prediction_raw": {
+                      "type": "object",
+                      "properties": {
+                        "metadata": {
+                          "type": "object",
+                          "properties": {
+                            "total_speech_duration": { "type": "number" },
+                            "total_speech_duration_channel_0": { "type": "number" },
+                            "audio_conversion_time": { "type": "number" },
+                            "vad_time": { "type": "number" },
+                            "inference_time": { "type": "number" },
+                            "diarization_time": { "type": "number" },
+                            "total_transcription_time": { "type": "number" },
+                            "original_file_type": { "type": "string" },
+                            "original_nb_channels": { "type": "integer" },
+                            "original_sample_rate": { "type": "integer" },
+                            "original_sample_width": { "type": "integer" },
+                            "original_nb_silent_channels": { "type": "integer" },
+                            "original_nb_similar_channels": { "type": "integer" },
+                            "original_mediainfo": {
+                              "type": "object",
+                              "properties": {
+                                "index": { "type": "string" },
+                                "codec_name": { "type": "string" },
+                                "codec_long_name": { "type": "string" },
+                                "profile": { "type": "string" },
+                                "codec_type": { "type": "string" },
+                                "codec_time_base": { "type": "string" },
+                                "codec_tag_string": { "type": "string" },
+                                "codec_tag": { "type": "string" },
+                                "sample_fmt": { "type": "string" },
+                                "sample_rate": { "type": "string" },
+                                "channels": { "type": "string" },
+                                "channel_layout": { "type": "string" },
+                                "bits_per_sample": { "type": "string" },
+                                "id": { "type": "string" },
+                                "r_frame_rate": { "type": "string" },
+                                "avg_frame_rate": { "type": "string" },
+                                "time_base": { "type": "string" },
+                                "start_pts": { "type": "string" },
+                                "start_time": { "type": "string" },
+                                "duration_ts": { "type": "string" },
+                                "duration": { "type": "string" },
+                                "bit_rate": { "type": "string" },
+                                "max_bit_rate": { "type": "string" },
+                                "bits_per_raw_sample": { "type": "string" },
+                                "nb_frames": { "type": "string" },
+                                "nb_read_frames": { "type": "string" },
+                                "nb_read_packets": { "type": "string" },
+                                "DISPOSITION": {
+                                  "type": "object",
+                                  "properties": {
+                                    "default": { "type": "string" },
+                                    "dub": { "type": "string" },
+                                    "original": { "type": "string" },
+                                    "comment": { "type": "string" },
+                                    "lyrics": { "type": "string" },
+                                    "karaoke": { "type": "string" },
+                                    "forced": { "type": "string" },
+                                    "hearing_impaired": { "type": "string" },
+                                    "visual_impaired": { "type": "string" },
+                                    "clean_effects": { "type": "string" },
+                                    "attached_pic": { "type": "string" },
+                                    "timed_thumbnails": { "type": "string" }
+                                  }
+                                },
+                                "nb_streams": { "type": "string" },
+                                "nb_programs": { "type": "string" },
+                                "format_name": { "type": "string" },
+                                "format_long_name": { "type": "string" },
+                                "size": { "type": "string" },
+                                "probe_score": { "type": "string" },
+                                "TAG": {
+                                  "type": "object",
+                                  "properties": {
+                                    "encoded_by": { "type": "string" },
+                                    "date": { "type": "string" },
+                                    "creation_time": { "type": "string" },
+                                    "time_reference": { "type": "string" },
+                                    "coding_history": { "type": "string" }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "transcription": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "time_begin": { "type": "number" },
+                              "time_end": { "type": "number" },
+                              "transcription": { "type": "string" },
+                              "language": { "type": "string" },
+                              "probability": { "type": "number" },
+                              "speaker": { "type": "string" },
+                              "channel": { "type": "string" }
+                            }
+                          }
+                        }
+                      },
+                      "description": "The raw result from audio processing, with extra data."
+                    }
+                  }
+                },
+                "examples": {
+                  "default": {
+                    "value": {
+                      "prediction": [
+                        {
+                          "time_begin": 0.09,
+                          "time_end": 2.07,
+                          "transcription": "Split infinity",
+                          "language": "en",
+                          "probability": 0.49,
+                          "speaker": "not_activated",
+                          "channel": "channel_0"
+                        },
+                        {
+                          "time_begin": 2.13,
+                          "time_end": 5.19,
+                          "transcription": "in a time when less is more",
+                          "language": "en",
+                          "probability": 0.65,
+                          "speaker": "not_activated",
+                          "channel": "channel_0"
+                        },
+                        {
+                          "time_begin": 5.52,
+                          "time_end": 20.4,
+                          "transcription": "Where too much is never enough, there is always hope for the future. The future can be read from the past. The past foreshadows the present, and the present hasn't been written yet",
+                          "language": "en",
+                          "probability": 0.75,
+                          "speaker": "not_activated",
+                          "channel": "channel_0"
+                        }
+                      ],
+                      "prediction_raw": {
+                        "metadata": {
+                          "total_speech_duration": 19.919999999999998,
+                          "total_speech_duration_channel_0": 19.919999999999998,
+                          "audio_conversion_time": 0.32831811904907227,
+                          "vad_time": 0.0008275508880615234,
+                          "inference_time": 1.645334005355835,
+                          "diarization_time": 3.337860107421875e-6,
+                          "total_transcription_time": 1.9744830131530762,
+                          "original_file_type": "audio",
+                          "original_nb_channels": 1,
+                          "original_sample_rate": 44100,
+                          "original_sample_width": 16,
+                          "original_nb_silent_channels": 0,
+                          "original_nb_similar_channels": 0,
+                          "original_mediainfo": {
+                            "index": "0",
+                            "codec_name": "pcm_s16le",
+                            "codec_long_name": "PCM signed 16-bit little-endian",
+                            "profile": "unknown",
+                            "codec_type": "audio",
+                            "codec_time_base": "1/44100",
+                            "codec_tag_string": "[1][0][0][0]",
+                            "codec_tag": "0x0001",
+                            "sample_fmt": "s16",
+                            "sample_rate": "44100",
+                            "channels": "1",
+                            "channel_layout": "unknown",
+                            "bits_per_sample": "16",
+                            "id": "N/A",
+                            "r_frame_rate": "0/0",
+                            "avg_frame_rate": "0/0",
+                            "time_base": "1/44100",
+                            "start_pts": "N/A",
+                            "start_time": "N/A",
+                            "duration_ts": "906496",
+                            "duration": "20.555465",
+                            "bit_rate": "705855",
+                            "max_bit_rate": "N/A",
+                            "bits_per_raw_sample": "N/A",
+                            "nb_frames": "N/A",
+                            "nb_read_frames": "N/A",
+                            "nb_read_packets": "N/A",
+                            "DISPOSITION": {
+                              "default": "0",
+                              "dub": "0",
+                              "original": "0",
+                              "comment": "0",
+                              "lyrics": "0",
+                              "karaoke": "0",
+                              "forced": "0",
+                              "hearing_impaired": "0",
+                              "visual_impaired": "0",
+                              "clean_effects": "0",
+                              "attached_pic": "0",
+                              "timed_thumbnails": "0"
+                            },
+                            "nb_streams": "1",
+                            "nb_programs": "0",
+                            "format_name": "wav",
+                            "format_long_name": "WAV / WAVE (Waveform Audio)",
+                            "size": "1813648",
+                            "probe_score": "99",
+                            "TAG": {
+                              "encoded_by": "tracktion",
+                              "date": "2009-08-02",
+                              "creation_time": "10:48:43",
+                              "time_reference": "2436484",
+                              "coding_history": ""
+                            }
+                          }
+                        },
+                        "transcription": [
+                          {
+                            "time_begin": 0.09,
+                            "time_end": 2.07,
+                            "transcription": "Split infinity",
+                            "language": "en",
+                            "probability": 0.49,
+                            "speaker": "not_activated",
+                            "channel": "channel_0"
+                          },
+                          {
+                            "time_begin": 2.13,
+                            "time_end": 5.19,
+                            "transcription": "in a time when less is more",
+                            "language": "en",
+                            "probability": 0.65,
+                            "speaker": "not_activated",
+                            "channel": "channel_0"
+                          },
+                          {
+                            "time_begin": 5.52,
+                            "time_end": 20.4,
+                            "transcription": "Where too much is never enough, there is always hope for the future. The future can be read from the past. The past foreshadows the present, and the present hasn't been written yet",
+                            "language": "en",
+                            "probability": 0.75,
+                            "speaker": "not_activated",
+                            "channel": "channel_0"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/HTTPValidationError" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/audio/text/youtube-audio-transcription/": {
+      "get": {
+        "tags": ["Youtube Audio Transcription"],
+        "summary": "Models",
+        "operationId": "models_audio_text_youtube_audio_transcription__get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "models": {
+                      "type": "object",
+                      "properties": {
+                        "medium": { "type": "string" },
+                        "large-v2": { "type": "string" }
+                      }
+                    },
+                    "summary": { "type": "string" }
+                  }
+                },
+                "examples": {
+                  "default": {
+                    "value": { "models": { "medium": "", "large-v2": "" }, "summary": "" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": ["Youtube Audio Transcription"],
+        "summary": "Transcribe",
+        "operationId": "transcribe_audio_text_youtube_audio_transcription__post",
+        "parameters": [
+          {
+            "description": "The AI model used for trancription.",
+            "required": false,
+            "schema": {
+              "title": "Model",
+              "enum": ["medium", "large-v2"],
+              "type": "string",
+              "description": "The AI model used for trancription.",
+              "default": "large-v2"
+            },
+            "name": "model",
+            "in": "query"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_transcribe_audio_text_youtube_audio_transcription__post"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "prediction": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "time_begin": { "type": "number" },
+                          "time_end": { "type": "number" },
+                          "transcription": { "type": "string" },
+                          "language": { "type": "string" },
+                          "probability": { "type": "number" },
+                          "speaker": { "type": "string" },
+                          "channel": { "type": "string" }
+                        }
+                      },
+                      "description": "The result that we want when we use an endpoint. This is the data you will need in 99/100 of cases."
+                    },
+                    "prediction_raw": {
+                      "type": "object",
+                      "properties": {
+                        "metadata": {
+                          "type": "object",
+                          "properties": {
+                            "total_speech_duration": { "type": "number" },
+                            "total_speech_duration_channel_0": { "type": "number" },
+                            "audio_conversion_time": { "type": "number" },
+                            "vad_time": { "type": "number" },
+                            "inference_time": { "type": "number" },
+                            "diarization_time": { "type": "number" },
+                            "total_transcription_time": { "type": "number" },
+                            "original_file_type": { "type": "string" },
+                            "original_nb_channels": { "type": "integer" },
+                            "original_sample_rate": { "type": "integer" },
+                            "original_sample_width": { "type": "integer" },
+                            "original_nb_silent_channels": { "type": "integer" },
+                            "original_nb_similar_channels": { "type": "integer" },
+                            "original_mediainfo": {
+                              "type": "object",
+                              "properties": {
+                                "index": { "type": "string" },
+                                "codec_name": { "type": "string" },
+                                "codec_long_name": { "type": "string" },
+                                "profile": { "type": "string" },
+                                "codec_type": { "type": "string" },
+                                "codec_time_base": { "type": "string" },
+                                "codec_tag_string": { "type": "string" },
+                                "codec_tag": { "type": "string" },
+                                "sample_fmt": { "type": "string" },
+                                "sample_rate": { "type": "string" },
+                                "channels": { "type": "string" },
+                                "channel_layout": { "type": "string" },
+                                "bits_per_sample": { "type": "string" },
+                                "id": { "type": "string" },
+                                "r_frame_rate": { "type": "string" },
+                                "avg_frame_rate": { "type": "string" },
+                                "time_base": { "type": "string" },
+                                "start_pts": { "type": "string" },
+                                "start_time": { "type": "string" },
+                                "duration_ts": { "type": "string" },
+                                "duration": { "type": "string" },
+                                "bit_rate": { "type": "string" },
+                                "max_bit_rate": { "type": "string" },
+                                "bits_per_raw_sample": { "type": "string" },
+                                "nb_frames": { "type": "string" },
+                                "nb_read_frames": { "type": "string" },
+                                "nb_read_packets": { "type": "string" },
+                                "DISPOSITION": {
+                                  "type": "object",
+                                  "properties": {
+                                    "default": { "type": "string" },
+                                    "dub": { "type": "string" },
+                                    "original": { "type": "string" },
+                                    "comment": { "type": "string" },
+                                    "lyrics": { "type": "string" },
+                                    "karaoke": { "type": "string" },
+                                    "forced": { "type": "string" },
+                                    "hearing_impaired": { "type": "string" },
+                                    "visual_impaired": { "type": "string" },
+                                    "clean_effects": { "type": "string" },
+                                    "attached_pic": { "type": "string" },
+                                    "timed_thumbnails": { "type": "string" }
+                                  }
+                                },
+                                "nb_streams": { "type": "string" },
+                                "nb_programs": { "type": "string" },
+                                "format_name": { "type": "string" },
+                                "format_long_name": { "type": "string" },
+                                "size": { "type": "string" },
+                                "probe_score": { "type": "string" },
+                                "TAG": {
+                                  "type": "object",
+                                  "properties": {
+                                    "encoded_by": { "type": "string" },
+                                    "date": { "type": "string" },
+                                    "creation_time": { "type": "string" },
+                                    "time_reference": { "type": "string" },
+                                    "coding_history": { "type": "string" }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "transcription": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "time_begin": { "type": "number" },
+                              "time_end": { "type": "number" },
+                              "transcription": { "type": "string" },
+                              "language": { "type": "string" },
+                              "probability": { "type": "number" },
+                              "speaker": { "type": "string" },
+                              "channel": { "type": "string" }
+                            }
+                          }
+                        }
+                      },
+                      "description": "The raw result from audio processing, with extra data."
+                    }
+                  }
+                },
+                "examples": {
+                  "default": {
+                    "value": {
+                      "prediction": [
+                        {
+                          "time_begin": 0.09,
+                          "time_end": 2.07,
+                          "transcription": "Split infinity",
+                          "language": "en",
+                          "probability": 0.49,
+                          "speaker": "not_activated",
+                          "channel": "channel_0"
+                        },
+                        {
+                          "time_begin": 2.13,
+                          "time_end": 5.19,
+                          "transcription": "in a time when less is more",
+                          "language": "en",
+                          "probability": 0.65,
+                          "speaker": "not_activated",
+                          "channel": "channel_0"
+                        },
+                        {
+                          "time_begin": 5.52,
+                          "time_end": 20.4,
+                          "transcription": "Where too much is never enough, there is always hope for the future. The future can be read from the past. The past foreshadows the present, and the present hasn't been written yet",
+                          "language": "en",
+                          "probability": 0.75,
+                          "speaker": "not_activated",
+                          "channel": "channel_0"
+                        }
+                      ],
+                      "prediction_raw": {
+                        "metadata": {
+                          "total_speech_duration": 19.919999999999998,
+                          "total_speech_duration_channel_0": 19.919999999999998,
+                          "audio_conversion_time": 0.32831811904907227,
+                          "vad_time": 0.0008275508880615234,
+                          "inference_time": 1.645334005355835,
+                          "diarization_time": 3.337860107421875e-6,
+                          "total_transcription_time": 1.9744830131530762,
+                          "original_file_type": "audio",
+                          "original_nb_channels": 1,
+                          "original_sample_rate": 44100,
+                          "original_sample_width": 16,
+                          "original_nb_silent_channels": 0,
+                          "original_nb_similar_channels": 0,
+                          "original_mediainfo": {
+                            "index": "0",
+                            "codec_name": "pcm_s16le",
+                            "codec_long_name": "PCM signed 16-bit little-endian",
+                            "profile": "unknown",
+                            "codec_type": "audio",
+                            "codec_time_base": "1/44100",
+                            "codec_tag_string": "[1][0][0][0]",
+                            "codec_tag": "0x0001",
+                            "sample_fmt": "s16",
+                            "sample_rate": "44100",
+                            "channels": "1",
+                            "channel_layout": "unknown",
+                            "bits_per_sample": "16",
+                            "id": "N/A",
+                            "r_frame_rate": "0/0",
+                            "avg_frame_rate": "0/0",
+                            "time_base": "1/44100",
+                            "start_pts": "N/A",
+                            "start_time": "N/A",
+                            "duration_ts": "906496",
+                            "duration": "20.555465",
+                            "bit_rate": "705855",
+                            "max_bit_rate": "N/A",
+                            "bits_per_raw_sample": "N/A",
+                            "nb_frames": "N/A",
+                            "nb_read_frames": "N/A",
+                            "nb_read_packets": "N/A",
+                            "DISPOSITION": {
+                              "default": "0",
+                              "dub": "0",
+                              "original": "0",
+                              "comment": "0",
+                              "lyrics": "0",
+                              "karaoke": "0",
+                              "forced": "0",
+                              "hearing_impaired": "0",
+                              "visual_impaired": "0",
+                              "clean_effects": "0",
+                              "attached_pic": "0",
+                              "timed_thumbnails": "0"
+                            },
+                            "nb_streams": "1",
+                            "nb_programs": "0",
+                            "format_name": "wav",
+                            "format_long_name": "WAV / WAVE (Waveform Audio)",
+                            "size": "1813648",
+                            "probe_score": "99",
+                            "TAG": {
+                              "encoded_by": "tracktion",
+                              "date": "2009-08-02",
+                              "creation_time": "10:48:43",
+                              "time_reference": "2436484",
+                              "coding_history": ""
+                            }
+                          }
+                        },
+                        "transcription": [
+                          {
+                            "time_begin": 0.09,
+                            "time_end": 2.07,
+                            "transcription": "Split infinity",
+                            "language": "en",
+                            "probability": 0.49,
+                            "speaker": "not_activated",
+                            "channel": "channel_0"
+                          },
+                          {
+                            "time_begin": 2.13,
+                            "time_end": 5.19,
+                            "transcription": "in a time when less is more",
+                            "language": "en",
+                            "probability": 0.65,
+                            "speaker": "not_activated",
+                            "channel": "channel_0"
+                          },
+                          {
+                            "time_begin": 5.52,
+                            "time_end": 20.4,
+                            "transcription": "Where too much is never enough, there is always hope for the future. The future can be read from the past. The past foreshadows the present, and the present hasn't been written yet",
+                            "language": "en",
+                            "probability": 0.75,
+                            "speaker": "not_activated",
+                            "channel": "channel_0"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/HTTPValidationError" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ready": {
+      "get": {
+        "summary": "Ready",
+        "description": "Readiness check endpoint",
+        "operationId": "ready_ready_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": { "application/json": { "schema": {} } }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Body_recognize_audio_text_audio_transcription__post": {
+        "title": "Body_recognize_audio_text_audio_transcription__post",
+        "type": "object",
+        "properties": {
+          "audio": {
+            "title": "Audio",
+            "type": "string",
+            "description": "The file to transcript.",
+            "format": "binary",
+            "example": "http://files.gladia.io/example/audio-transcription/split_infinity.wav",
+            "data_type": "audio"
+          },
+          "audio_url": {
+            "title": "Audio url",
+            "type": "string",
+            "description": "The file url to transcript, ignored if an audio file is provided.",
+            "example": "http://files.gladia.io/example/audio-transcription/split_infinity.wav",
+            "data_type": "url"
+          },
+          "language_behaviour": {
+            "title": "Language behaviour",
+            "enum": ["manual", "automatic single language", "automatic multiple languages"],
+            "type": "string",
+            "description": "Define how the speaker's language will be detected.",
+            "default": "automatic single language",
+            "example": "automatic single language",
+            "data_type": "enum"
+          },
+          "language": {
+            "title": "Language",
+            "enum": [
+              "afrikaans",
+              "albanian",
+              "amharic",
+              "arabic",
+              "armenian",
+              "assamese",
+              "azerbaijani",
+              "bashkir",
+              "basque",
+              "belarusian",
+              "bengali",
+              "bosnian",
+              "breton",
+              "bulgarian",
+              "catalan",
+              "chinese",
+              "croatian",
+              "czech",
+              "danish",
+              "dutch",
+              "english",
+              "estonian",
+              "faroese",
+              "finnish",
+              "french",
+              "galician",
+              "georgian",
+              "german",
+              "greek",
+              "gujarati",
+              "haitian creole",
+              "hausa",
+              "hawaiian",
+              "hebrew",
+              "hindi",
+              "hungarian",
+              "icelandic",
+              "indonesian",
+              "italian",
+              "japanese",
+              "javanese",
+              "kannada",
+              "kazakh",
+              "khmer",
+              "korean",
+              "lao",
+              "latin",
+              "latvian",
+              "lingala",
+              "lithuanian",
+              "luxembourgish",
+              "macedonian",
+              "malagasy",
+              "malay",
+              "malayalam",
+              "maltese",
+              "maori",
+              "marathi",
+              "mongolian",
+              "myanmar",
+              "nepali",
+              "norwegian",
+              "nynorsk",
+              "occitan",
+              "pashto",
+              "persian",
+              "polish",
+              "portuguese",
+              "punjabi",
+              "romanian",
+              "russian",
+              "sanskrit",
+              "serbian",
+              "shona",
+              "sindhi",
+              "sinhala",
+              "slovak",
+              "slovenian",
+              "somali",
+              "spanish",
+              "sundanese",
+              "swahili",
+              "swedish",
+              "tagalog",
+              "tajik",
+              "tamil",
+              "tatar",
+              "telugu",
+              "thai",
+              "tibetan",
+              "turkish",
+              "turkmen",
+              "ukrainian",
+              "urdu",
+              "uzbek",
+              "vietnamese",
+              "welsh",
+              "wolof",
+              "yiddish",
+              "yoruba"
+            ],
+            "type": "string",
+            "description": "If language_behaviour is set to manual, define the language to use for the transcription.",
+            "example": "english",
+            "data_type": "enum"
+          },
+          "noise_reduction": {
+            "title": "Noise reduction",
+            "type": "boolean",
+            "description": "Activate the noise reduction to improve transcription quality.",
+            "default": false,
+            "example": false,
+            "data_type": "boolean"
+          },
+          "toggle_diarization": {
+            "title": "Toggle diarization",
+            "type": "boolean",
+            "description": "Activate the diarization of the audio.",
+            "default": false,
+            "example": false,
+            "data_type": "boolean"
+          },
+          "output_format": {
+            "title": "Output format",
+            "enum": ["json", "srt"],
+            "type": "string",
+            "description": "Define the output format, allowing to have JSON or STR (subtitle file format for video content)",
+            "default": "json",
+            "example": "json",
+            "data_type": "enum"
+          }
+        }
+      },
+      "Body_transcribe_audio_text_audio_translated_transcription__post": {
+        "title": "Body_transcribe_audio_text_audio_translated_transcription__post",
+        "type": "object",
+        "properties": {
+          "audio": {
+            "title": "Audio",
+            "type": "string",
+            "description": "The file to transcript.",
+            "format": "binary",
+            "example": "http://files.gladia.io/example/audio-transcription/split_infinity.wav",
+            "data_type": "audio"
+          },
+          "audio_url": {
+            "title": "Audio url",
+            "type": "string",
+            "description": "The file url to transcript, ignored if an audio file is provided.",
+            "example": "http://files.gladia.io/example/audio-transcription/split_infinity.wav",
+            "data_type": "url"
+          },
+          "language": {
+            "title": "Language",
+            "enum": [
+              "afrikaans",
+              "albanian",
+              "amharic",
+              "arabic",
+              "armenian",
+              "assamese",
+              "azerbaijani",
+              "bashkir",
+              "basque",
+              "belarusian",
+              "bengali",
+              "bosnian",
+              "breton",
+              "bulgarian",
+              "catalan",
+              "chinese",
+              "croatian",
+              "czech",
+              "danish",
+              "dutch",
+              "english",
+              "estonian",
+              "faroese",
+              "finnish",
+              "french",
+              "galician",
+              "georgian",
+              "german",
+              "greek",
+              "gujarati",
+              "haitian creole",
+              "hausa",
+              "hawaiian",
+              "hebrew",
+              "hindi",
+              "hungarian",
+              "icelandic",
+              "indonesian",
+              "italian",
+              "japanese",
+              "javanese",
+              "kannada",
+              "kazakh",
+              "khmer",
+              "korean",
+              "lao",
+              "latin",
+              "latvian",
+              "lingala",
+              "lithuanian",
+              "luxembourgish",
+              "macedonian",
+              "malagasy",
+              "malay",
+              "malayalam",
+              "maltese",
+              "maori",
+              "marathi",
+              "mongolian",
+              "myanmar",
+              "nepali",
+              "norwegian",
+              "nynorsk",
+              "occitan",
+              "pashto",
+              "persian",
+              "polish",
+              "portuguese",
+              "punjabi",
+              "romanian",
+              "russian",
+              "sanskrit",
+              "serbian",
+              "shona",
+              "sindhi",
+              "sinhala",
+              "slovak",
+              "slovenian",
+              "somali",
+              "spanish",
+              "sundanese",
+              "swahili",
+              "swedish",
+              "tagalog",
+              "tajik",
+              "tamil",
+              "tatar",
+              "telugu",
+              "thai",
+              "tibetan",
+              "turkish",
+              "turkmen",
+              "ukrainian",
+              "urdu",
+              "uzbek",
+              "vietnamese",
+              "welsh",
+              "wolof",
+              "yiddish",
+              "yoruba"
+            ],
+            "type": "string",
+            "description": "If language_behaviour is set to manual, define the language to use for the transcription.",
+            "example": "english",
+            "data_type": "enum"
+          },
+          "noise_reduction": {
+            "title": "Noise reduction",
+            "type": "boolean",
+            "description": "Activate the noise reduction to improve transcription quality.",
+            "default": false,
+            "example": false,
+            "data_type": "boolean"
+          },
+          "toggle_diarization": {
+            "title": "Toggle diarization",
+            "type": "boolean",
+            "description": "Activate the diarization of the audio.",
+            "default": false,
+            "example": false,
+            "data_type": "boolean"
+          },
+          "output_format": {
+            "title": "Output format",
+            "enum": ["json", "srt"],
+            "type": "string",
+            "description": "Define the output format, allowing to have JSON or STR (subtitle file format for video content)",
+            "default": "json",
+            "example": "json",
+            "data_type": "enum"
+          }
+        }
+      },
+      "Body_transcribe_audio_text_youtube_audio_transcription__post": {
+        "title": "Body_transcribe_audio_text_youtube_audio_transcription__post",
+        "type": "object",
+        "properties": {
+          "audio": {
+            "title": "Audio",
+            "type": "string",
+            "description": "The file to transcript.",
+            "format": "binary",
+            "example": "http://files.gladia.io/example/audio-transcription/split_infinity.wav",
+            "data_type": "audio"
+          },
+          "audio_url": {
+            "title": "Audio url",
+            "type": "string",
+            "description": "The file url to transcript, ignored if an audio file is provided.",
+            "example": "http://files.gladia.io/example/audio-transcription/split_infinity.wav",
+            "data_type": "url"
+          },
+          "language": {
+            "title": "Language",
+            "enum": [
+              "afrikaans",
+              "albanian",
+              "amharic",
+              "arabic",
+              "armenian",
+              "assamese",
+              "azerbaijani",
+              "bashkir",
+              "basque",
+              "belarusian",
+              "bengali",
+              "bosnian",
+              "breton",
+              "bulgarian",
+              "catalan",
+              "chinese",
+              "croatian",
+              "czech",
+              "danish",
+              "dutch",
+              "english",
+              "estonian",
+              "faroese",
+              "finnish",
+              "french",
+              "galician",
+              "georgian",
+              "german",
+              "greek",
+              "gujarati",
+              "haitian creole",
+              "hausa",
+              "hawaiian",
+              "hebrew",
+              "hindi",
+              "hungarian",
+              "icelandic",
+              "indonesian",
+              "italian",
+              "japanese",
+              "javanese",
+              "kannada",
+              "kazakh",
+              "khmer",
+              "korean",
+              "lao",
+              "latin",
+              "latvian",
+              "lingala",
+              "lithuanian",
+              "luxembourgish",
+              "macedonian",
+              "malagasy",
+              "malay",
+              "malayalam",
+              "maltese",
+              "maori",
+              "marathi",
+              "mongolian",
+              "myanmar",
+              "nepali",
+              "norwegian",
+              "nynorsk",
+              "occitan",
+              "pashto",
+              "persian",
+              "polish",
+              "portuguese",
+              "punjabi",
+              "romanian",
+              "russian",
+              "sanskrit",
+              "serbian",
+              "shona",
+              "sindhi",
+              "sinhala",
+              "slovak",
+              "slovenian",
+              "somali",
+              "spanish",
+              "sundanese",
+              "swahili",
+              "swedish",
+              "tagalog",
+              "tajik",
+              "tamil",
+              "tatar",
+              "telugu",
+              "thai",
+              "tibetan",
+              "turkish",
+              "turkmen",
+              "ukrainian",
+              "urdu",
+              "uzbek",
+              "vietnamese",
+              "welsh",
+              "wolof",
+              "yiddish",
+              "yoruba"
+            ],
+            "type": "string",
+            "description": "If language_behaviour is set to manual, define the language to use for the transcription.",
+            "example": "english",
+            "data_type": "enum"
+          },
+          "noise_reduction": {
+            "title": "Noise reduction",
+            "type": "boolean",
+            "description": "Activate the noise reduction to improve transcription quality.",
+            "default": false,
+            "example": false,
+            "data_type": "boolean"
+          },
+          "toggle_diarization": {
+            "title": "Toggle diarization",
+            "type": "boolean",
+            "description": "Activate the diarization of the audio.",
+            "default": false,
+            "example": false,
+            "data_type": "boolean"
+          },
+          "output_format": {
+            "title": "Output format",
+            "enum": ["json", "srt"],
+            "type": "string",
+            "description": "Define the output format, allowing to have JSON or STR (subtitle file format for video content)",
+            "default": "json",
+            "example": "json",
+            "data_type": "enum"
+          }
+        }
+      },
+      "HTTPValidationError": {
+        "title": "HTTPValidationError",
+        "type": "object",
+        "properties": {
+          "detail": {
+            "title": "Detail",
+            "type": "array",
+            "items": { "$ref": "#/components/schemas/ValidationError" }
+          }
+        }
+      },
+      "ValidationError": {
+        "title": "ValidationError",
+        "required": ["loc", "msg", "type"],
+        "type": "object",
+        "properties": {
+          "loc": {
+            "title": "Location",
+            "type": "array",
+            "items": { "anyOf": [{ "type": "string" }, { "type": "integer" }] }
+          },
+          "msg": { "title": "Message", "type": "string" },
+          "type": { "title": "Error Type", "type": "string" }
+        }
+      }
+    }
+  }
+}

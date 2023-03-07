@@ -9,8 +9,7 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
     "outputType": "text",
     "taskName": "audio-transcription",
     "models": [
-      "large-v2",
-      "medium"
+      "large-v2"
     ],
     "defaultModel": "large-v2",
     "inputBodyContentType": "multipart/form-data",
@@ -190,8 +189,7 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
     "outputType": "text",
     "taskName": "audio-translated-transcription",
     "models": [
-      "large-v2",
-      "medium"
+      "large-v2"
     ],
     "defaultModel": "large-v2",
     "inputBodyContentType": "multipart/form-data",
@@ -359,8 +357,7 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
     "outputType": "text",
     "taskName": "youtube-audio-transcription",
     "models": [
-      "large-v2",
-      "medium"
+      "large-v2"
     ],
     "defaultModel": "large-v2",
     "inputBodyContentType": "multipart/form-data",

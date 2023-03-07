@@ -92,7 +92,7 @@ describe(getEndpoints.name, () => {
         inputType: 'audio',
         outputType: 'text',
         taskName: 'audio-transcription',
-        models: ['large-v2', 'medium'],
+        models: ['large-v2'],
         defaultModel: 'large-v2',
         inputBodyContentType: 'multipart/form-data',
         outputBodyContentType: {
