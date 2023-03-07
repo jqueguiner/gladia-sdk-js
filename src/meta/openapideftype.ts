@@ -78,17 +78,20 @@ interface PathRequestParamDef {
   required: boolean;
   name: string;
   in: string;
+  description?: string;
   schema:
     | {
         title: string;
         type: 'integer';
         default: number;
+        description?: string;
       }
     | {
         title: string;
         type: 'string';
         enum?: string[];
         default: string;
+        description?: string;
       };
 }
 
@@ -146,7 +149,7 @@ interface OpenApiJsonComponent {
             | 'list'
             | 'array'
             | 'enum';
-        } & ({ type: string } | { allOf?: [{ $ref: string }] })
+        } & ({ type: string } | { allOf?: [{ $ref: string }]; enum?: string[] })
       >;
     }
   >;

@@ -11,7 +11,6 @@ The runtime default model is defined on the GladIA server.
 #### `models`
 
 - **large-v2 (default)**
-- medium
 
 #### other params
 
@@ -133,7 +132,6 @@ The runtime default model is defined on the GladIA server.
 #### `models`
 
 - **large-v2 (default)**
-- medium
 
 #### other params
 
@@ -251,7 +249,6 @@ The runtime default model is defined on the GladIA server.
 #### `models`
 
 - **large-v2 (default)**
-- medium
 
 #### other params
 
