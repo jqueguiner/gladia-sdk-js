@@ -11,6 +11,7 @@ The runtime default model is defined on the GladIA server.
 #### `models`
 
 - **large-v2 (default)**
+- medium
 
 #### other params
 
@@ -132,6 +133,7 @@ The runtime default model is defined on the GladIA server.
 #### `models`
 
 - **large-v2 (default)**
+- medium
 
 #### other params
 
@@ -249,15 +251,12 @@ The runtime default model is defined on the GladIA server.
 #### `models`
 
 - **large-v2 (default)**
+- medium
 
 #### other params
 
 - `audio`: audio
 - `audio_url`: url
-- `language_behaviour`: enum
-  - *`manual`*
-  - *`automatic single language`*
-  - *`automatic multiple languages`*
 - `language`: enum
   - *`afrikaans`*
   - *`albanian`*
