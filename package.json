@@ -28,7 +28,8 @@
     "generate-sdk": "ts-node scripts/generate-sdk.ts"
   },
   "dependencies": {
-    "core-js": "^3.9.1"
+    "core-js": "^3.9.1",
+    "formdata-polyfill": "^4.0.10"
   },
   "devDependencies": {
     "@types/custom-functions-runtime": "^1.6.4",

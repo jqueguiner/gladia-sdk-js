@@ -6,55 +6,19 @@ setTimeout(function () {
       console.log('ageFromName RESULT', result);
     });
     console.log('ageFromName STARTED');
-    gladiaClient
-      .backgroundRemoval({
-        image_url: 'http://files.gladia.io/examples/image/image/background-removal/owl2.jpg',
-      })
-      .then(function (result) {
-        console.log('backgroundRemoval RESULT', result);
-      });
-
-    gladiaClient
-      .imageGeneration({ prompt: 'A cat on the moon', samples: 1 })
-      .then((result) => {
-        console.log('imageGeneration [sample=1] RESULT', result.byteLength);
-      })
-      .catch((err) => console.error(err));
-
-    gladiaClient
-      .imageGeneration({
-        asUrl: true,
-        prompt: 'A cat on the moon (asUrl)',
-        samples: 1,
-      })
-      .then((result) => {
-        console.log('imageGeneration [sample=1,asUrl=true] RESULT', result);
-      })
-      .catch((err) => console.error(err));
-
-    gladiaClient
-      .imageGeneration({
-        prompt: 'A cat on the moon',
-        samples: 2,
-      })
-      .then((result) => {
-        console.log(
-          'imageGeneration [sample=2] RESULT',
-          result.map((data) => data.slice(0, 50) + '...'),
-        );
-      })
-      .catch((err) => console.error(err));
-
-    gladiaClient
-      .imageGeneration({
-        asUrl: true,
-        prompt: 'A cat on the moon (asUrl)',
-        samples: 2,
-      })
-      .then((result) => {
-        console.log('imageGeneration [sample=2,asUrl=true] RESULT', result);
-      })
-      .catch((err) => console.error(err));
+    document.getElementById('audio-transcription').addEventListener('change', (event) => {
+      this.file = event.target.files?.[0];
+      gladiaClient
+        .audioTranscription({
+          language_behaviour: 'manual',
+          language: 'polish',
+          output_format: 'srt',
+          audio: file,
+        })
+        .then(function (result) {
+          console.log('audioTranscription RESULT', result);
+        });
+    });
   } else {
     console.error('Gladia SDK not correctly loaded!');
   }
