@@ -9,7 +9,8 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
     "outputType": "text",
     "taskName": "audio-transcription",
     "models": [
-      "large-v2"
+      "large-v2",
+      "medium"
     ],
     "defaultModel": "large-v2",
     "inputBodyContentType": "multipart/form-data",
@@ -189,7 +190,8 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
     "outputType": "text",
     "taskName": "audio-translated-transcription",
     "models": [
-      "large-v2"
+      "large-v2",
+      "medium"
     ],
     "defaultModel": "large-v2",
     "inputBodyContentType": "multipart/form-data",
@@ -357,7 +359,8 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
     "outputType": "text",
     "taskName": "youtube-audio-transcription",
     "models": [
-      "large-v2"
+      "large-v2",
+      "medium"
     ],
     "defaultModel": "large-v2",
     "inputBodyContentType": "multipart/form-data",
@@ -372,27 +375,15 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
         "in": "formData",
         "type": "audio",
         "name": "audio",
-        "example": "https://www.youtube.com/watch?v=3g8x9QAdw5c",
+        "example": "http://files.gladia.io/example/audio-transcription/split_infinity.wav",
         "required": false
       },
       {
         "in": "formData",
         "type": "url",
         "name": "audio_url",
-        "example": "https://www.youtube.com/watch?v=3g8x9QAdw5c",
+        "example": "http://files.gladia.io/example/audio-transcription/split_infinity.wav",
         "required": false
-      },
-      {
-        "in": "formData",
-        "type": "enum",
-        "name": "language_behaviour",
-        "example": "automatic single language",
-        "required": false,
-        "enumValues": [
-          "manual",
-          "automatic single language",
-          "automatic multiple languages"
-        ]
       },
       {
         "in": "formData",
