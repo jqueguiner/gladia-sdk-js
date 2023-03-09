@@ -28,8 +28,30 @@ function baseConfig({ devtool, filename }) {
         // this allow to build the all in one bundle
         // nodejs cannot use this bundle (the bundle depends on window)
         // so no problem to break this module
+        buffer: false,
+        fs: false,
+        http: false,
         https: false,
+        path: false,
+        process: false,
+        stream: false,
+        'node:fs': false,
+        'node:http': false,
+        'node:https': false,
+        'node:path': false,
+        'node:process': false,
+        'node:stream': false,
+        'node:stream/web': false,
       },
+    },
+    externals: {
+      'node:fs': 'commonjs2 node:fs',
+      'node:http': 'commonjs2 node:fs',
+      'node:https': 'commonjs2 node:fs',
+      'node:path': 'commonjs2 node:fs',
+      'node:process': 'commonjs2 node:fs',
+      'node:stream': 'commonjs2 node:fs',
+      'node:stream/web': 'commonjs2 node:fs',
     },
     output: {
       path: path.resolve(__dirname, 'lib'),

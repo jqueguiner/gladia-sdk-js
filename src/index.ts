@@ -19,3 +19,5 @@ export type {
   HttpClientFactoryParams,
   PostParams,
 } from './internal/http-client';
+
+export * from './internal/http-client/node.http-client';
