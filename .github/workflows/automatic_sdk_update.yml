@@ -84,7 +84,7 @@ jobs:
           tags: true
 
   update_app:
-    needs: [deploy]
+    needs: [generate-sdk]
     name: trigger new app generation
     runs-on: ubuntu-latest
     steps:
