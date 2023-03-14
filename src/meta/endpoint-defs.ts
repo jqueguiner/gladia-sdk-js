@@ -178,7 +178,9 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
         "required": false,
         "enumValues": [
           "json",
-          "srt"
+          "srt",
+          "txt",
+          "plain"
         ]
       }
     ],
@@ -347,7 +349,9 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
         "required": false,
         "enumValues": [
           "json",
-          "srt"
+          "srt",
+          "txt",
+          "plain"
         ]
       }
     ],
@@ -384,6 +388,18 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
         "name": "audio_url",
         "example": "http://files.gladia.io/example/audio-transcription/split_infinity.wav",
         "required": false
+      },
+      {
+        "in": "formData",
+        "type": "enum",
+        "name": "language_behaviour",
+        "example": "automatic single language",
+        "required": false,
+        "enumValues": [
+          "manual",
+          "automatic single language",
+          "automatic multiple languages"
+        ]
       },
       {
         "in": "formData",
@@ -516,7 +532,9 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
         "required": false,
         "enumValues": [
           "json",
-          "srt"
+          "srt",
+          "txt",
+          "plain"
         ]
       }
     ],

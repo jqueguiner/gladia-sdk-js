@@ -253,7 +253,7 @@ describe(getEndpoints.name, () => {
             name: 'output_format',
             example: 'json',
             required: false,
-            enumValues: ['json', 'srt'],
+            enumValues: ['json', 'srt', 'txt', 'plain'],
           },
         ],
         hasSamplesParam: false,

@@ -127,6 +127,8 @@ The runtime default model is defined on the GladIA server.
 - `output_format`: enum
   - *`json`*
   - *`srt`*
+  - *`txt`*
+  - *`plain`*
 
 ### `audio-translated-transcription`
 
@@ -245,6 +247,8 @@ The runtime default model is defined on the GladIA server.
 - `output_format`: enum
   - *`json`*
   - *`srt`*
+  - *`txt`*
+  - *`plain`*
 
 ### `youtube-audio-transcription`
 
@@ -257,6 +261,10 @@ The runtime default model is defined on the GladIA server.
 
 - `audio`: audio
 - `audio_url`: url
+- `language_behaviour`: enum
+  - *`manual`*
+  - *`automatic single language`*
+  - *`automatic multiple languages`*
 - `language`: enum
   - *`afrikaans`*
   - *`albanian`*
@@ -363,6 +371,8 @@ The runtime default model is defined on the GladIA server.
 - `output_format`: enum
   - *`json`*
   - *`srt`*
+  - *`txt`*
+  - *`plain`*
 
 ## TEXT => TEXT
 
