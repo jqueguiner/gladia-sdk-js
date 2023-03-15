@@ -54,6 +54,15 @@ interface PathRequestResponseContentDef {
     | {
         type: 'object';
         properties: {
+          value: RecursivePredictionType;
+        };
+      }
+    | {
+        value: RecursivePredictionType;
+      }
+    | {
+        type: 'object';
+        properties: {
           prediction: RecursivePredictionType;
           prediction_raw: unknown;
         };
@@ -72,7 +81,12 @@ type RecursivePredictionType =
       type: 'string' | 'text' | 'number' | 'str';
     }
   | { type: 'array'; items: RecursivePredictionType; description?: string }
-  | { type: 'object'; properties: Record<string, RecursivePredictionType> };
+  | { type: 'object'; properties: Record<string, RecursivePredictionType> }
+  | {
+      type: 'object';
+      properties: { prediction: RecursivePredictionType; prediction_raw: unknown };
+    }
+  | { type: 'object'; properties: { value: Record<string, RecursivePredictionType> } };
 
 interface PathRequestParamDef {
   required: boolean;

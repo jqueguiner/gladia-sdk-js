@@ -159,8 +159,15 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
       {
         "in": "formData",
         "type": "boolean",
-        "name": "noise_reduction",
+        "name": "toggle_noise_reduction",
         "example": false,
+        "required": false
+      },
+      {
+        "in": "formData",
+        "type": "string",
+        "name": "initial_prompt",
+        "example": "",
         "required": false
       },
       {
@@ -179,6 +186,7 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
         "enumValues": [
           "json",
           "srt",
+          "vtt",
           "txt",
           "plain"
         ]
@@ -330,7 +338,7 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
       {
         "in": "formData",
         "type": "boolean",
-        "name": "noise_reduction",
+        "name": "toggle_noise_reduction",
         "example": false,
         "required": false
       },
@@ -350,6 +358,7 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
         "enumValues": [
           "json",
           "srt",
+          "vtt",
           "txt",
           "plain"
         ]
@@ -513,7 +522,7 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
       {
         "in": "formData",
         "type": "boolean",
-        "name": "noise_reduction",
+        "name": "toggle_noise_reduction",
         "example": false,
         "required": false
       },
@@ -533,6 +542,7 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
         "enumValues": [
           "json",
           "srt",
+          "vtt",
           "txt",
           "plain"
         ]

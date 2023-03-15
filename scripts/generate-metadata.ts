@@ -165,14 +165,16 @@ function getOutputBodyContentType(def: PathDef): Pick<EndpointDef, 'outputBodyCo
       const jsonContent = okResponse.content['application/json'];
       if (
         'properties' in jsonContent.schema &&
-        'prediction' in jsonContent.schema.properties &&
-        'prediction_raw' in jsonContent.schema.properties
+        'value' in jsonContent.schema.properties &&
+        'properties' in jsonContent.schema.properties.value &&
+        'prediction' in jsonContent.schema.properties.value.properties &&
+        'prediction_raw' in jsonContent.schema.properties.value.properties
       ) {
         return {
           outputBodyContentType: {
             type: 'prediction-standard-output',
             predictionType: (() => {
-              const prediction = jsonContent.schema.properties.prediction;
+              const prediction = jsonContent.schema.properties.value.properties.prediction;
               if (['str', 'text', 'string'].includes(prediction.type)) return 'string';
               else if (prediction.type === 'number') return 'number';
               else if (prediction.type === 'array') {

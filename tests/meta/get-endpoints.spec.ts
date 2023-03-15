@@ -236,8 +236,15 @@ describe(getEndpoints.name, () => {
           {
             in: 'formData',
             type: 'boolean',
-            name: 'noise_reduction',
+            name: 'toggle_noise_reduction',
             example: false,
+            required: false,
+          },
+          {
+            in: 'formData',
+            type: 'string',
+            name: 'initial_prompt',
+            example: '',
             required: false,
           },
           {
@@ -253,7 +260,7 @@ describe(getEndpoints.name, () => {
             name: 'output_format',
             example: 'json',
             required: false,
-            enumValues: ['json', 'srt', 'txt', 'plain'],
+            enumValues: ['json', 'srt', 'vtt', 'txt', 'plain'],
           },
         ],
         hasSamplesParam: false,

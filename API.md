@@ -122,11 +122,13 @@ The runtime default model is defined on the GladIA server.
   - *`wolof`*
   - *`yiddish`*
   - *`yoruba`*
-- `noise_reduction`: boolean
+- `toggle_noise_reduction`: boolean
+- `initial_prompt`: string
 - `toggle_diarization`: boolean
 - `output_format`: enum
   - *`json`*
   - *`srt`*
+  - *`vtt`*
   - *`txt`*
   - *`plain`*
 
@@ -242,11 +244,12 @@ The runtime default model is defined on the GladIA server.
   - *`wolof`*
   - *`yiddish`*
   - *`yoruba`*
-- `noise_reduction`: boolean
+- `toggle_noise_reduction`: boolean
 - `toggle_diarization`: boolean
 - `output_format`: enum
   - *`json`*
   - *`srt`*
+  - *`vtt`*
   - *`txt`*
   - *`plain`*
 
@@ -366,11 +369,12 @@ The runtime default model is defined on the GladIA server.
   - *`wolof`*
   - *`yiddish`*
   - *`yoruba`*
-- `noise_reduction`: boolean
+- `toggle_noise_reduction`: boolean
 - `toggle_diarization`: boolean
 - `output_format`: enum
   - *`json`*
   - *`srt`*
+  - *`vtt`*
   - *`txt`*
   - *`plain`*
 
