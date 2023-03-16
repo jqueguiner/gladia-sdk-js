@@ -257,6 +257,13 @@ describe(getEndpoints.name, () => {
           {
             in: 'formData',
             type: 'boolean',
+            name: 'toggle_text_emotion_recognition',
+            example: false,
+            required: false,
+          },
+          {
+            in: 'formData',
+            type: 'boolean',
             name: 'toggle_summarization',
             example: false,
             required: false,

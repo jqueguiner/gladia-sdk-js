@@ -125,6 +125,7 @@ The runtime default model is defined on the GladIA server.
 - `toggle_noise_reduction`: boolean
 - `initial_prompt`: string
 - `toggle_diarization`: boolean
+- `toggle_text_emotion_recognition`: boolean
 - `toggle_summarization`: boolean
 - `output_format`: enum
   - *`json`*
@@ -247,6 +248,8 @@ The runtime default model is defined on the GladIA server.
   - *`yoruba`*
 - `toggle_noise_reduction`: boolean
 - `toggle_diarization`: boolean
+- `toggle_text_emotion_recognition`: boolean
+- `toggle_summarization`: boolean
 - `output_format`: enum
   - *`json`*
   - *`srt`*
@@ -372,6 +375,8 @@ The runtime default model is defined on the GladIA server.
   - *`yoruba`*
 - `toggle_noise_reduction`: boolean
 - `toggle_diarization`: boolean
+- `toggle_text_emotion_recognition`: boolean
+- `toggle_summarization`: boolean
 - `output_format`: enum
   - *`json`*
   - *`srt`*
