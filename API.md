@@ -125,6 +125,7 @@ The runtime default model is defined on the GladIA server.
 - `toggle_noise_reduction`: boolean
 - `initial_prompt`: string
 - `toggle_diarization`: boolean
+- `toggle_summarization`: boolean
 - `output_format`: enum
   - *`json`*
   - *`srt`*
