@@ -309,6 +309,13 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
       },
       {
         "in": "formData",
+        "type": "integer",
+        "name": "diarization_max_speakers",
+        "example": 10,
+        "required": false
+      },
+      {
+        "in": "formData",
         "type": "enum",
         "name": "output_format",
         "example": "json",
