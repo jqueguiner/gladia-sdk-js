@@ -463,6 +463,7 @@ The runtime default model is defined on the GladIA server.
   - *`yoruba`*
 - `toggle_text_emotion_recognition`: boolean
 - `toggle_summarization`: boolean
+- `toggle_chapterization`: boolean
 - `diarization_max_speakers`: integer
 - `output_format`: enum
   - *`json`*

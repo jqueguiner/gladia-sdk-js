@@ -644,6 +644,13 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
       },
       {
         "in": "formData",
+        "type": "boolean",
+        "name": "toggle_chapterization",
+        "example": false,
+        "required": false
+      },
+      {
+        "in": "formData",
         "type": "integer",
         "name": "diarization_max_speakers",
         "example": 10,
