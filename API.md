@@ -11,7 +11,6 @@ The runtime default model is defined on the GladIA server.
 #### `models`
 
 - **large-v2 (default)**
-- medium
 
 #### other params
 
@@ -123,7 +122,7 @@ The runtime default model is defined on the GladIA server.
   - *`yiddish`*
   - *`yoruba`*
 - `toggle_noise_reduction`: boolean
-- `initial_prompt`: string
+- `transcription_hint`: string
 - `toggle_diarization`: boolean
 - `toggle_direct_translate`: boolean
 - `target_translation_language`: enum
@@ -245,7 +244,6 @@ The runtime default model is defined on the GladIA server.
 #### `models`
 
 - **large-v2 (default)**
-- medium
 
 #### other params
 
@@ -357,7 +355,7 @@ The runtime default model is defined on the GladIA server.
   - *`yiddish`*
   - *`yoruba`*
 - `toggle_noise_reduction`: boolean
-- `initial_prompt`: string
+- `transcription_hint`: string
 - `toggle_diarization`: boolean
 - `toggle_direct_translate`: boolean
 - `target_translation_language`: enum

@@ -9,8 +9,7 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
     "outputType": "text",
     "taskName": "audio-transcription",
     "models": [
-      "large-v2",
-      "medium"
+      "large-v2"
     ],
     "defaultModel": "large-v2",
     "inputBodyContentType": "multipart/form-data",
@@ -166,7 +165,7 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
       {
         "in": "formData",
         "type": "string",
-        "name": "initial_prompt",
+        "name": "transcription_hint",
         "example": "",
         "required": false
       },
@@ -344,8 +343,7 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
     "outputType": "text",
     "taskName": "video-transcription",
     "models": [
-      "large-v2",
-      "medium"
+      "large-v2"
     ],
     "defaultModel": "large-v2",
     "inputBodyContentType": "multipart/form-data",
@@ -501,7 +499,7 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
       {
         "in": "formData",
         "type": "string",
-        "name": "initial_prompt",
+        "name": "transcription_hint",
         "example": "",
         "required": false
       },
