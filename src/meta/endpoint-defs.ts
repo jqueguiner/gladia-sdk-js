@@ -317,7 +317,7 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
         "in": "formData",
         "type": "integer",
         "name": "diarization_max_speakers",
-        "example": 10,
+        "example": 2,
         "required": false
       },
       {
@@ -651,7 +651,7 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
         "in": "formData",
         "type": "integer",
         "name": "diarization_max_speakers",
-        "example": 10,
+        "example": 2,
         "required": false
       },
       {
