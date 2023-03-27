@@ -1,6 +1,6 @@
 {
   "name": "@gladiaio/sdk",
-  "version": "0.10.67",
+  "version": "0.10.68",
   "repository": {
     "type": "git",
     "url": "https://github.com/gladiaio/gladia-sdk-js.git"
