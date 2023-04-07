@@ -315,7 +315,7 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
       },
       {
         "in": "formData",
-        "type": "url",
+        "type": "string",
         "name": "webhook_url",
         "example": "",
         "required": false
@@ -656,7 +656,7 @@ export const ENDPOINT_DEFS: EndpointDef[] = [
       },
       {
         "in": "formData",
-        "type": "url",
+        "type": "string",
         "name": "webhook_url",
         "example": "",
         "required": false

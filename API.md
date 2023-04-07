@@ -229,7 +229,7 @@ The runtime default model is defined on the GladIA server.
 - `toggle_text_emotion_recognition`: boolean
 - `toggle_summarization`: boolean
 - `toggle_chapterization`: boolean
-- `webhook_url`: url
+- `webhook_url`: string
 - `diarization_max_speakers`: integer
 - `output_format`: enum
   - *`json`*
@@ -463,7 +463,7 @@ The runtime default model is defined on the GladIA server.
 - `toggle_text_emotion_recognition`: boolean
 - `toggle_summarization`: boolean
 - `toggle_chapterization`: boolean
-- `webhook_url`: url
+- `webhook_url`: string
 - `diarization_max_speakers`: integer
 - `output_format`: enum
   - *`json`*
